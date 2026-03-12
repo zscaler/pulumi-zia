@@ -14,9 +14,17 @@ public final class ActivationArgs extends com.pulumi.resources.ResourceArgs {
 
     public static final ActivationArgs Empty = new ActivationArgs();
 
+    /**
+     * The activation status. Must be `ACTIVE` to trigger configuration activation.
+     * 
+     */
     @Import(name="status", required=true)
     private Output<String> status;
 
+    /**
+     * @return The activation status. Must be `ACTIVE` to trigger configuration activation.
+     * 
+     */
     public Output<String> status() {
         return this.status;
     }
@@ -45,11 +53,23 @@ public final class ActivationArgs extends com.pulumi.resources.ResourceArgs {
             $ = new ActivationArgs(Objects.requireNonNull(defaults));
         }
 
+        /**
+         * @param status The activation status. Must be `ACTIVE` to trigger configuration activation.
+         * 
+         * @return builder
+         * 
+         */
         public Builder status(Output<String> status) {
             $.status = status;
             return this;
         }
 
+        /**
+         * @param status The activation status. Must be `ACTIVE` to trigger configuration activation.
+         * 
+         * @return builder
+         * 
+         */
         public Builder status(String status) {
             return status(Output.of(status));
         }

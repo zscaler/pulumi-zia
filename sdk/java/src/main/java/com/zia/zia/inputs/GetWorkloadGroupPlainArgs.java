@@ -15,16 +15,32 @@ public final class GetWorkloadGroupPlainArgs extends com.pulumi.resources.Invoke
 
     public static final GetWorkloadGroupPlainArgs Empty = new GetWorkloadGroupPlainArgs();
 
+    /**
+     * The ID of the workload group to look up.
+     * 
+     */
     @Import(name="groupId")
     private @Nullable Integer groupId;
 
+    /**
+     * @return The ID of the workload group to look up.
+     * 
+     */
     public Optional<Integer> groupId() {
         return Optional.ofNullable(this.groupId);
     }
 
+    /**
+     * The name of the workload group to look up.
+     * 
+     */
     @Import(name="name")
     private @Nullable String name;
 
+    /**
+     * @return The name of the workload group to look up.
+     * 
+     */
     public Optional<String> name() {
         return Optional.ofNullable(this.name);
     }
@@ -54,11 +70,23 @@ public final class GetWorkloadGroupPlainArgs extends com.pulumi.resources.Invoke
             $ = new GetWorkloadGroupPlainArgs(Objects.requireNonNull(defaults));
         }
 
+        /**
+         * @param groupId The ID of the workload group to look up.
+         * 
+         * @return builder
+         * 
+         */
         public Builder groupId(@Nullable Integer groupId) {
             $.groupId = groupId;
             return this;
         }
 
+        /**
+         * @param name The name of the workload group to look up.
+         * 
+         * @return builder
+         * 
+         */
         public Builder name(@Nullable String name) {
             $.name = name;
             return this;

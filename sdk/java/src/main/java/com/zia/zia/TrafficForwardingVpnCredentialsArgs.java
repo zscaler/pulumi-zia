@@ -15,37 +15,77 @@ public final class TrafficForwardingVpnCredentialsArgs extends com.pulumi.resour
 
     public static final TrafficForwardingVpnCredentialsArgs Empty = new TrafficForwardingVpnCredentialsArgs();
 
+    /**
+     * Additional information about the VPN credential. Maximum 10240 characters.
+     * 
+     */
     @Import(name="comments")
     private @Nullable Output<String> comments;
 
+    /**
+     * @return Additional information about the VPN credential. Maximum 10240 characters.
+     * 
+     */
     public Optional<Output<String>> comments() {
         return Optional.ofNullable(this.comments);
     }
 
+    /**
+     * Fully Qualified Domain Name (FQDN). Required when type is `UFQDN`.
+     * 
+     */
     @Import(name="fqdn")
     private @Nullable Output<String> fqdn;
 
+    /**
+     * @return Fully Qualified Domain Name (FQDN). Required when type is `UFQDN`.
+     * 
+     */
     public Optional<Output<String>> fqdn() {
         return Optional.ofNullable(this.fqdn);
     }
 
+    /**
+     * The static IP address associated with the VPN credential. Required when type is `IP`.
+     * 
+     */
     @Import(name="ipAddress")
     private @Nullable Output<String> ipAddress;
 
+    /**
+     * @return The static IP address associated with the VPN credential. Required when type is `IP`.
+     * 
+     */
     public Optional<Output<String>> ipAddress() {
         return Optional.ofNullable(this.ipAddress);
     }
 
+    /**
+     * Pre-shared key (PSK) for the VPN credential. This is a secret value.
+     * 
+     */
     @Import(name="preSharedKey")
     private @Nullable Output<String> preSharedKey;
 
+    /**
+     * @return Pre-shared key (PSK) for the VPN credential. This is a secret value.
+     * 
+     */
     public Optional<Output<String>> preSharedKey() {
         return Optional.ofNullable(this.preSharedKey);
     }
 
+    /**
+     * VPN credential type. Valid values: `IP`, `UFQDN`.
+     * 
+     */
     @Import(name="type")
     private @Nullable Output<String> type;
 
+    /**
+     * @return VPN credential type. Valid values: `IP`, `UFQDN`.
+     * 
+     */
     public Optional<Output<String>> type() {
         return Optional.ofNullable(this.type);
     }
@@ -78,47 +118,107 @@ public final class TrafficForwardingVpnCredentialsArgs extends com.pulumi.resour
             $ = new TrafficForwardingVpnCredentialsArgs(Objects.requireNonNull(defaults));
         }
 
+        /**
+         * @param comments Additional information about the VPN credential. Maximum 10240 characters.
+         * 
+         * @return builder
+         * 
+         */
         public Builder comments(@Nullable Output<String> comments) {
             $.comments = comments;
             return this;
         }
 
+        /**
+         * @param comments Additional information about the VPN credential. Maximum 10240 characters.
+         * 
+         * @return builder
+         * 
+         */
         public Builder comments(String comments) {
             return comments(Output.of(comments));
         }
 
+        /**
+         * @param fqdn Fully Qualified Domain Name (FQDN). Required when type is `UFQDN`.
+         * 
+         * @return builder
+         * 
+         */
         public Builder fqdn(@Nullable Output<String> fqdn) {
             $.fqdn = fqdn;
             return this;
         }
 
+        /**
+         * @param fqdn Fully Qualified Domain Name (FQDN). Required when type is `UFQDN`.
+         * 
+         * @return builder
+         * 
+         */
         public Builder fqdn(String fqdn) {
             return fqdn(Output.of(fqdn));
         }
 
+        /**
+         * @param ipAddress The static IP address associated with the VPN credential. Required when type is `IP`.
+         * 
+         * @return builder
+         * 
+         */
         public Builder ipAddress(@Nullable Output<String> ipAddress) {
             $.ipAddress = ipAddress;
             return this;
         }
 
+        /**
+         * @param ipAddress The static IP address associated with the VPN credential. Required when type is `IP`.
+         * 
+         * @return builder
+         * 
+         */
         public Builder ipAddress(String ipAddress) {
             return ipAddress(Output.of(ipAddress));
         }
 
+        /**
+         * @param preSharedKey Pre-shared key (PSK) for the VPN credential. This is a secret value.
+         * 
+         * @return builder
+         * 
+         */
         public Builder preSharedKey(@Nullable Output<String> preSharedKey) {
             $.preSharedKey = preSharedKey;
             return this;
         }
 
+        /**
+         * @param preSharedKey Pre-shared key (PSK) for the VPN credential. This is a secret value.
+         * 
+         * @return builder
+         * 
+         */
         public Builder preSharedKey(String preSharedKey) {
             return preSharedKey(Output.of(preSharedKey));
         }
 
+        /**
+         * @param type VPN credential type. Valid values: `IP`, `UFQDN`.
+         * 
+         * @return builder
+         * 
+         */
         public Builder type(@Nullable Output<String> type) {
             $.type = type;
             return this;
         }
 
+        /**
+         * @param type VPN credential type. Valid values: `IP`, `UFQDN`.
+         * 
+         * @return builder
+         * 
+         */
         public Builder type(String type) {
             return type(Output.of(type));
         }

@@ -16,16 +16,32 @@ public final class GetVzenNodeArgs extends com.pulumi.resources.InvokeArgs {
 
     public static final GetVzenNodeArgs Empty = new GetVzenNodeArgs();
 
+    /**
+     * The name of the VZEN node to look up.
+     * 
+     */
     @Import(name="name")
     private @Nullable Output<String> name;
 
+    /**
+     * @return The name of the VZEN node to look up.
+     * 
+     */
     public Optional<Output<String>> name() {
         return Optional.ofNullable(this.name);
     }
 
+    /**
+     * The ID of the VZEN node to look up.
+     * 
+     */
     @Import(name="nodeId")
     private @Nullable Output<Integer> nodeId;
 
+    /**
+     * @return The ID of the VZEN node to look up.
+     * 
+     */
     public Optional<Output<Integer>> nodeId() {
         return Optional.ofNullable(this.nodeId);
     }
@@ -55,20 +71,44 @@ public final class GetVzenNodeArgs extends com.pulumi.resources.InvokeArgs {
             $ = new GetVzenNodeArgs(Objects.requireNonNull(defaults));
         }
 
+        /**
+         * @param name The name of the VZEN node to look up.
+         * 
+         * @return builder
+         * 
+         */
         public Builder name(@Nullable Output<String> name) {
             $.name = name;
             return this;
         }
 
+        /**
+         * @param name The name of the VZEN node to look up.
+         * 
+         * @return builder
+         * 
+         */
         public Builder name(String name) {
             return name(Output.of(name));
         }
 
+        /**
+         * @param nodeId The ID of the VZEN node to look up.
+         * 
+         * @return builder
+         * 
+         */
         public Builder nodeId(@Nullable Output<Integer> nodeId) {
             $.nodeId = nodeId;
             return this;
         }
 
+        /**
+         * @param nodeId The ID of the VZEN node to look up.
+         * 
+         * @return builder
+         * 
+         */
         public Builder nodeId(Integer nodeId) {
             return nodeId(Output.of(nodeId));
         }

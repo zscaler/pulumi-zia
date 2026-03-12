@@ -16,9 +16,17 @@ public final class SandboxBehavioralAnalysisAdvancedSettingsArgs extends com.pul
 
     public static final SandboxBehavioralAnalysisAdvancedSettingsArgs Empty = new SandboxBehavioralAnalysisAdvancedSettingsArgs();
 
+    /**
+     * List of MD5 file hashes to be blocked. Each hash must be exactly 32 characters (MD5 format). SHA1 and SHA256 are not supported.
+     * 
+     */
     @Import(name="fileHashesToBeBlocked")
     private @Nullable Output<List<String>> fileHashesToBeBlocked;
 
+    /**
+     * @return List of MD5 file hashes to be blocked. Each hash must be exactly 32 characters (MD5 format). SHA1 and SHA256 are not supported.
+     * 
+     */
     public Optional<Output<List<String>>> fileHashesToBeBlocked() {
         return Optional.ofNullable(this.fileHashesToBeBlocked);
     }
@@ -47,15 +55,33 @@ public final class SandboxBehavioralAnalysisAdvancedSettingsArgs extends com.pul
             $ = new SandboxBehavioralAnalysisAdvancedSettingsArgs(Objects.requireNonNull(defaults));
         }
 
+        /**
+         * @param fileHashesToBeBlocked List of MD5 file hashes to be blocked. Each hash must be exactly 32 characters (MD5 format). SHA1 and SHA256 are not supported.
+         * 
+         * @return builder
+         * 
+         */
         public Builder fileHashesToBeBlocked(@Nullable Output<List<String>> fileHashesToBeBlocked) {
             $.fileHashesToBeBlocked = fileHashesToBeBlocked;
             return this;
         }
 
+        /**
+         * @param fileHashesToBeBlocked List of MD5 file hashes to be blocked. Each hash must be exactly 32 characters (MD5 format). SHA1 and SHA256 are not supported.
+         * 
+         * @return builder
+         * 
+         */
         public Builder fileHashesToBeBlocked(List<String> fileHashesToBeBlocked) {
             return fileHashesToBeBlocked(Output.of(fileHashesToBeBlocked));
         }
 
+        /**
+         * @param fileHashesToBeBlocked List of MD5 file hashes to be blocked. Each hash must be exactly 32 characters (MD5 format). SHA1 and SHA256 are not supported.
+         * 
+         * @return builder
+         * 
+         */
         public Builder fileHashesToBeBlocked(String... fileHashesToBeBlocked) {
             return fileHashesToBeBlocked(List.of(fileHashesToBeBlocked));
         }

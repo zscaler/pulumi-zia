@@ -4,6 +4,33 @@
 import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "./utilities";
 
+/**
+ * The zia_traffic_forwarding_static_ip resource manages static IP addresses for traffic forwarding in the Zscaler Internet Access (ZIA) cloud service. Static IPs are used to associate traffic with a specific location or GRE tunnel.
+ *
+ * For more information, see the [ZIA Traffic Forwarding documentation](https://help.zscaler.com/zia/traffic-forwarding).
+ *
+ * ## Example Usage
+ * ### Basic Static IP
+ *
+ * ```typescript
+ * import * as zia from "@bdzscaler/pulumi-zia";
+ *
+ * const example = new zia.TrafficForwardingStaticIp("example", {
+ *     ipAddress: "203.0.113.10",
+ *     comment: "Branch office static IP",
+ *     routableIp: true,
+ *     geoOverride: false,
+ * });
+ * ```
+ *
+ * ## Import
+ *
+ * An existing static IP can be imported using its resource ID, e.g.
+ *
+ * ```sh
+ * $ pulumi import zia:index:TrafficForwardingStaticIp example 12345
+ * ```
+ */
 export class TrafficForwardingStaticIp extends pulumi.CustomResource {
     /**
      * Get an existing TrafficForwardingStaticIp resource's state with the given name, ID, and optional extra
@@ -31,12 +58,33 @@ export class TrafficForwardingStaticIp extends pulumi.CustomResource {
         return obj['__pulumiType'] === TrafficForwardingStaticIp.__pulumiType;
     }
 
+    /**
+     * Additional information about the static IP.
+     */
     declare public readonly comment: pulumi.Output<string | undefined>;
+    /**
+     * If not set, geographic coordinates and city are automatically determined from the IP address. When set to true, manually-specified latitude and longitude are used instead.
+     */
     declare public readonly geoOverride: pulumi.Output<boolean | undefined>;
+    /**
+     * The static IP address.
+     */
     declare public readonly ipAddress: pulumi.Output<string>;
+    /**
+     * Required only if geoOverride is true. Latitude of the static IP. Valid range: -90 to 90.
+     */
     declare public readonly latitude: pulumi.Output<number | undefined>;
+    /**
+     * Required only if geoOverride is true. Longitude of the static IP. Valid range: -180 to 180.
+     */
     declare public readonly longitude: pulumi.Output<number | undefined>;
+    /**
+     * Indicates whether a non-RFC 1918 IP address is publicly routable.
+     */
     declare public readonly routableIp: pulumi.Output<boolean | undefined>;
+    /**
+     * The system-generated ID of the static IP.
+     */
     declare public /*out*/ readonly staticIpId: pulumi.Output<number>;
 
     /**
@@ -78,10 +126,28 @@ export class TrafficForwardingStaticIp extends pulumi.CustomResource {
  * The set of arguments for constructing a TrafficForwardingStaticIp resource.
  */
 export interface TrafficForwardingStaticIpArgs {
+    /**
+     * Additional information about the static IP.
+     */
     comment?: pulumi.Input<string>;
+    /**
+     * If not set, geographic coordinates and city are automatically determined from the IP address. When set to true, manually-specified latitude and longitude are used instead.
+     */
     geoOverride?: pulumi.Input<boolean>;
+    /**
+     * The static IP address.
+     */
     ipAddress: pulumi.Input<string>;
+    /**
+     * Required only if geoOverride is true. Latitude of the static IP. Valid range: -90 to 90.
+     */
     latitude?: pulumi.Input<number>;
+    /**
+     * Required only if geoOverride is true. Longitude of the static IP. Valid range: -180 to 180.
+     */
     longitude?: pulumi.Input<number>;
+    /**
+     * Indicates whether a non-RFC 1918 IP address is publicly routable.
+     */
     routableIp?: pulumi.Input<boolean>;
 }

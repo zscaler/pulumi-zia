@@ -17,107 +17,242 @@ public final class ProviderArgs extends com.pulumi.resources.ResourceArgs {
 
     public static final ProviderArgs Empty = new ProviderArgs();
 
+    /**
+     * (Legacy) The API key for ZIA. Can also be set via the `ZIA_API_KEY` environment variable. Prefer OAuth2 credentials instead.
+     * 
+     */
     @Import(name="apiKey")
     private @Nullable Output<String> apiKey;
 
+    /**
+     * @return (Legacy) The API key for ZIA. Can also be set via the `ZIA_API_KEY` environment variable. Prefer OAuth2 credentials instead.
+     * 
+     */
     public Optional<Output<String>> apiKey() {
         return Optional.ofNullable(this.apiKey);
     }
 
+    /**
+     * The OAuth2 client ID for authenticating with the Zscaler API. Can also be set via the `ZSCALER_CLIENT_ID` environment variable.
+     * 
+     */
     @Import(name="clientId")
     private @Nullable Output<String> clientId;
 
+    /**
+     * @return The OAuth2 client ID for authenticating with the Zscaler API. Can also be set via the `ZSCALER_CLIENT_ID` environment variable.
+     * 
+     */
     public Optional<Output<String>> clientId() {
         return Optional.ofNullable(this.clientId);
     }
 
+    /**
+     * The OAuth2 client secret for authenticating with the Zscaler API. Can also be set via the `ZSCALER_CLIENT_SECRET` environment variable.
+     * 
+     */
     @Import(name="clientSecret")
     private @Nullable Output<String> clientSecret;
 
+    /**
+     * @return The OAuth2 client secret for authenticating with the Zscaler API. Can also be set via the `ZSCALER_CLIENT_SECRET` environment variable.
+     * 
+     */
     public Optional<Output<String>> clientSecret() {
         return Optional.ofNullable(this.clientSecret);
     }
 
+    /**
+     * The Zscaler cloud name (e.g. &#39;zscaler&#39;, &#39;zscalerone&#39;, &#39;zscalertwo&#39;, &#39;zscalerthree&#39;, &#39;zscloud&#39;, &#39;zscalerbeta&#39;, &#39;zscalergov&#39;). Can also be set via the `ZSCALER_CLOUD` environment variable.
+     * 
+     */
     @Import(name="cloud")
     private @Nullable Output<String> cloud;
 
+    /**
+     * @return The Zscaler cloud name (e.g. &#39;zscaler&#39;, &#39;zscalerone&#39;, &#39;zscalertwo&#39;, &#39;zscalerthree&#39;, &#39;zscloud&#39;, &#39;zscalerbeta&#39;, &#39;zscalergov&#39;). Can also be set via the `ZSCALER_CLOUD` environment variable.
+     * 
+     */
     public Optional<Output<String>> cloud() {
         return Optional.ofNullable(this.cloud);
     }
 
+    /**
+     * If true, enables verbose Zscaler SDK logging (API requests/responses). Logs are written to stderr and optionally to the file specified by the `ZSCALER_SDK_LOG_FILE` environment variable.
+     * 
+     */
+    @Import(name="debug", json=true)
+    private @Nullable Output<Boolean> debug;
+
+    /**
+     * @return If true, enables verbose Zscaler SDK logging (API requests/responses). Logs are written to stderr and optionally to the file specified by the `ZSCALER_SDK_LOG_FILE` environment variable.
+     * 
+     */
+    public Optional<Output<Boolean>> debug() {
+        return Optional.ofNullable(this.debug);
+    }
+
+    /**
+     * HTTP proxy URL for API requests (e.g. &#39;http://proxy.example.com:8080&#39;). Can also be set via the `ZSCALER_HTTP_PROXY` environment variable.
+     * 
+     */
     @Import(name="httpProxy")
     private @Nullable Output<String> httpProxy;
 
+    /**
+     * @return HTTP proxy URL for API requests (e.g. &#39;http://proxy.example.com:8080&#39;). Can also be set via the `ZSCALER_HTTP_PROXY` environment variable.
+     * 
+     */
     public Optional<Output<String>> httpProxy() {
         return Optional.ofNullable(this.httpProxy);
     }
 
+    /**
+     * Maximum number of retries for API requests. Default is determined by the SDK.
+     * 
+     */
     @Import(name="maxRetries", json=true)
     private @Nullable Output<Integer> maxRetries;
 
+    /**
+     * @return Maximum number of retries for API requests. Default is determined by the SDK.
+     * 
+     */
     public Optional<Output<Integer>> maxRetries() {
         return Optional.ofNullable(this.maxRetries);
     }
 
+    /**
+     * (Legacy) The admin password for ZIA. Can also be set via the `ZIA_PASSWORD` environment variable. Prefer OAuth2 credentials instead.
+     * 
+     */
     @Import(name="password")
     private @Nullable Output<String> password;
 
+    /**
+     * @return (Legacy) The admin password for ZIA. Can also be set via the `ZIA_PASSWORD` environment variable. Prefer OAuth2 credentials instead.
+     * 
+     */
     public Optional<Output<String>> password() {
         return Optional.ofNullable(this.password);
     }
 
+    /**
+     * The private key for service principal authentication. Can also be set via the `ZSCALER_PRIVATE_KEY` environment variable.
+     * 
+     */
     @Import(name="privateKey")
     private @Nullable Output<String> privateKey;
 
+    /**
+     * @return The private key for service principal authentication. Can also be set via the `ZSCALER_PRIVATE_KEY` environment variable.
+     * 
+     */
     public Optional<Output<String>> privateKey() {
         return Optional.ofNullable(this.privateKey);
     }
 
+    /**
+     * Timeout in seconds for API requests.
+     * 
+     */
     @Import(name="requestTimeout", json=true)
     private @Nullable Output<Integer> requestTimeout;
 
+    /**
+     * @return Timeout in seconds for API requests.
+     * 
+     */
     public Optional<Output<Integer>> requestTimeout() {
         return Optional.ofNullable(this.requestTimeout);
     }
 
+    /**
+     * The Zscaler Sandbox cloud name. Can also be set via the `ZIA_SANDBOX_CLOUD` environment variable.
+     * 
+     */
     @Import(name="sandboxCloud")
     private @Nullable Output<String> sandboxCloud;
 
+    /**
+     * @return The Zscaler Sandbox cloud name. Can also be set via the `ZIA_SANDBOX_CLOUD` environment variable.
+     * 
+     */
     public Optional<Output<String>> sandboxCloud() {
         return Optional.ofNullable(this.sandboxCloud);
     }
 
+    /**
+     * The API token for Zscaler Sandbox. Can also be set via the `ZIA_SANDBOX_TOKEN` environment variable.
+     * 
+     */
     @Import(name="sandboxToken")
     private @Nullable Output<String> sandboxToken;
 
+    /**
+     * @return The API token for Zscaler Sandbox. Can also be set via the `ZIA_SANDBOX_TOKEN` environment variable.
+     * 
+     */
     public Optional<Output<String>> sandboxToken() {
         return Optional.ofNullable(this.sandboxToken);
     }
 
+    /**
+     * If true, use the legacy ZIA client authentication instead of OAuth2.
+     * 
+     */
     @Import(name="useLegacyClient", json=true)
     private @Nullable Output<Boolean> useLegacyClient;
 
+    /**
+     * @return If true, use the legacy ZIA client authentication instead of OAuth2.
+     * 
+     */
     public Optional<Output<Boolean>> useLegacyClient() {
         return Optional.ofNullable(this.useLegacyClient);
     }
 
+    /**
+     * (Legacy) The admin username for ZIA. Can also be set via the `ZIA_USERNAME` environment variable. Prefer OAuth2 credentials instead.
+     * 
+     */
     @Import(name="username")
     private @Nullable Output<String> username;
 
+    /**
+     * @return (Legacy) The admin username for ZIA. Can also be set via the `ZIA_USERNAME` environment variable. Prefer OAuth2 credentials instead.
+     * 
+     */
     public Optional<Output<String>> username() {
         return Optional.ofNullable(this.username);
     }
 
+    /**
+     * The vanity domain for your Zscaler organization. Can also be set via the `ZSCALER_VANITY_DOMAIN` environment variable.
+     * 
+     */
     @Import(name="vanityDomain")
     private @Nullable Output<String> vanityDomain;
 
+    /**
+     * @return The vanity domain for your Zscaler organization. Can also be set via the `ZSCALER_VANITY_DOMAIN` environment variable.
+     * 
+     */
     public Optional<Output<String>> vanityDomain() {
         return Optional.ofNullable(this.vanityDomain);
     }
 
+    /**
+     * (Legacy) The ZIA cloud name. Can also be set via the `ZIA_CLOUD` environment variable. Prefer the &#39;cloud&#39; parameter instead.
+     * 
+     */
     @Import(name="ziaCloud")
     private @Nullable Output<String> ziaCloud;
 
+    /**
+     * @return (Legacy) The ZIA cloud name. Can also be set via the `ZIA_CLOUD` environment variable. Prefer the &#39;cloud&#39; parameter instead.
+     * 
+     */
     public Optional<Output<String>> ziaCloud() {
         return Optional.ofNullable(this.ziaCloud);
     }
@@ -129,6 +264,7 @@ public final class ProviderArgs extends com.pulumi.resources.ResourceArgs {
         this.clientId = $.clientId;
         this.clientSecret = $.clientSecret;
         this.cloud = $.cloud;
+        this.debug = $.debug;
         this.httpProxy = $.httpProxy;
         this.maxRetries = $.maxRetries;
         this.password = $.password;
@@ -160,137 +296,338 @@ public final class ProviderArgs extends com.pulumi.resources.ResourceArgs {
             $ = new ProviderArgs(Objects.requireNonNull(defaults));
         }
 
+        /**
+         * @param apiKey (Legacy) The API key for ZIA. Can also be set via the `ZIA_API_KEY` environment variable. Prefer OAuth2 credentials instead.
+         * 
+         * @return builder
+         * 
+         */
         public Builder apiKey(@Nullable Output<String> apiKey) {
             $.apiKey = apiKey;
             return this;
         }
 
+        /**
+         * @param apiKey (Legacy) The API key for ZIA. Can also be set via the `ZIA_API_KEY` environment variable. Prefer OAuth2 credentials instead.
+         * 
+         * @return builder
+         * 
+         */
         public Builder apiKey(String apiKey) {
             return apiKey(Output.of(apiKey));
         }
 
+        /**
+         * @param clientId The OAuth2 client ID for authenticating with the Zscaler API. Can also be set via the `ZSCALER_CLIENT_ID` environment variable.
+         * 
+         * @return builder
+         * 
+         */
         public Builder clientId(@Nullable Output<String> clientId) {
             $.clientId = clientId;
             return this;
         }
 
+        /**
+         * @param clientId The OAuth2 client ID for authenticating with the Zscaler API. Can also be set via the `ZSCALER_CLIENT_ID` environment variable.
+         * 
+         * @return builder
+         * 
+         */
         public Builder clientId(String clientId) {
             return clientId(Output.of(clientId));
         }
 
+        /**
+         * @param clientSecret The OAuth2 client secret for authenticating with the Zscaler API. Can also be set via the `ZSCALER_CLIENT_SECRET` environment variable.
+         * 
+         * @return builder
+         * 
+         */
         public Builder clientSecret(@Nullable Output<String> clientSecret) {
             $.clientSecret = clientSecret;
             return this;
         }
 
+        /**
+         * @param clientSecret The OAuth2 client secret for authenticating with the Zscaler API. Can also be set via the `ZSCALER_CLIENT_SECRET` environment variable.
+         * 
+         * @return builder
+         * 
+         */
         public Builder clientSecret(String clientSecret) {
             return clientSecret(Output.of(clientSecret));
         }
 
+        /**
+         * @param cloud The Zscaler cloud name (e.g. &#39;zscaler&#39;, &#39;zscalerone&#39;, &#39;zscalertwo&#39;, &#39;zscalerthree&#39;, &#39;zscloud&#39;, &#39;zscalerbeta&#39;, &#39;zscalergov&#39;). Can also be set via the `ZSCALER_CLOUD` environment variable.
+         * 
+         * @return builder
+         * 
+         */
         public Builder cloud(@Nullable Output<String> cloud) {
             $.cloud = cloud;
             return this;
         }
 
+        /**
+         * @param cloud The Zscaler cloud name (e.g. &#39;zscaler&#39;, &#39;zscalerone&#39;, &#39;zscalertwo&#39;, &#39;zscalerthree&#39;, &#39;zscloud&#39;, &#39;zscalerbeta&#39;, &#39;zscalergov&#39;). Can also be set via the `ZSCALER_CLOUD` environment variable.
+         * 
+         * @return builder
+         * 
+         */
         public Builder cloud(String cloud) {
             return cloud(Output.of(cloud));
         }
 
+        /**
+         * @param debug If true, enables verbose Zscaler SDK logging (API requests/responses). Logs are written to stderr and optionally to the file specified by the `ZSCALER_SDK_LOG_FILE` environment variable.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder debug(@Nullable Output<Boolean> debug) {
+            $.debug = debug;
+            return this;
+        }
+
+        /**
+         * @param debug If true, enables verbose Zscaler SDK logging (API requests/responses). Logs are written to stderr and optionally to the file specified by the `ZSCALER_SDK_LOG_FILE` environment variable.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder debug(Boolean debug) {
+            return debug(Output.of(debug));
+        }
+
+        /**
+         * @param httpProxy HTTP proxy URL for API requests (e.g. &#39;http://proxy.example.com:8080&#39;). Can also be set via the `ZSCALER_HTTP_PROXY` environment variable.
+         * 
+         * @return builder
+         * 
+         */
         public Builder httpProxy(@Nullable Output<String> httpProxy) {
             $.httpProxy = httpProxy;
             return this;
         }
 
+        /**
+         * @param httpProxy HTTP proxy URL for API requests (e.g. &#39;http://proxy.example.com:8080&#39;). Can also be set via the `ZSCALER_HTTP_PROXY` environment variable.
+         * 
+         * @return builder
+         * 
+         */
         public Builder httpProxy(String httpProxy) {
             return httpProxy(Output.of(httpProxy));
         }
 
+        /**
+         * @param maxRetries Maximum number of retries for API requests. Default is determined by the SDK.
+         * 
+         * @return builder
+         * 
+         */
         public Builder maxRetries(@Nullable Output<Integer> maxRetries) {
             $.maxRetries = maxRetries;
             return this;
         }
 
+        /**
+         * @param maxRetries Maximum number of retries for API requests. Default is determined by the SDK.
+         * 
+         * @return builder
+         * 
+         */
         public Builder maxRetries(Integer maxRetries) {
             return maxRetries(Output.of(maxRetries));
         }
 
+        /**
+         * @param password (Legacy) The admin password for ZIA. Can also be set via the `ZIA_PASSWORD` environment variable. Prefer OAuth2 credentials instead.
+         * 
+         * @return builder
+         * 
+         */
         public Builder password(@Nullable Output<String> password) {
             $.password = password;
             return this;
         }
 
+        /**
+         * @param password (Legacy) The admin password for ZIA. Can also be set via the `ZIA_PASSWORD` environment variable. Prefer OAuth2 credentials instead.
+         * 
+         * @return builder
+         * 
+         */
         public Builder password(String password) {
             return password(Output.of(password));
         }
 
+        /**
+         * @param privateKey The private key for service principal authentication. Can also be set via the `ZSCALER_PRIVATE_KEY` environment variable.
+         * 
+         * @return builder
+         * 
+         */
         public Builder privateKey(@Nullable Output<String> privateKey) {
             $.privateKey = privateKey;
             return this;
         }
 
+        /**
+         * @param privateKey The private key for service principal authentication. Can also be set via the `ZSCALER_PRIVATE_KEY` environment variable.
+         * 
+         * @return builder
+         * 
+         */
         public Builder privateKey(String privateKey) {
             return privateKey(Output.of(privateKey));
         }
 
+        /**
+         * @param requestTimeout Timeout in seconds for API requests.
+         * 
+         * @return builder
+         * 
+         */
         public Builder requestTimeout(@Nullable Output<Integer> requestTimeout) {
             $.requestTimeout = requestTimeout;
             return this;
         }
 
+        /**
+         * @param requestTimeout Timeout in seconds for API requests.
+         * 
+         * @return builder
+         * 
+         */
         public Builder requestTimeout(Integer requestTimeout) {
             return requestTimeout(Output.of(requestTimeout));
         }
 
+        /**
+         * @param sandboxCloud The Zscaler Sandbox cloud name. Can also be set via the `ZIA_SANDBOX_CLOUD` environment variable.
+         * 
+         * @return builder
+         * 
+         */
         public Builder sandboxCloud(@Nullable Output<String> sandboxCloud) {
             $.sandboxCloud = sandboxCloud;
             return this;
         }
 
+        /**
+         * @param sandboxCloud The Zscaler Sandbox cloud name. Can also be set via the `ZIA_SANDBOX_CLOUD` environment variable.
+         * 
+         * @return builder
+         * 
+         */
         public Builder sandboxCloud(String sandboxCloud) {
             return sandboxCloud(Output.of(sandboxCloud));
         }
 
+        /**
+         * @param sandboxToken The API token for Zscaler Sandbox. Can also be set via the `ZIA_SANDBOX_TOKEN` environment variable.
+         * 
+         * @return builder
+         * 
+         */
         public Builder sandboxToken(@Nullable Output<String> sandboxToken) {
             $.sandboxToken = sandboxToken;
             return this;
         }
 
+        /**
+         * @param sandboxToken The API token for Zscaler Sandbox. Can also be set via the `ZIA_SANDBOX_TOKEN` environment variable.
+         * 
+         * @return builder
+         * 
+         */
         public Builder sandboxToken(String sandboxToken) {
             return sandboxToken(Output.of(sandboxToken));
         }
 
+        /**
+         * @param useLegacyClient If true, use the legacy ZIA client authentication instead of OAuth2.
+         * 
+         * @return builder
+         * 
+         */
         public Builder useLegacyClient(@Nullable Output<Boolean> useLegacyClient) {
             $.useLegacyClient = useLegacyClient;
             return this;
         }
 
+        /**
+         * @param useLegacyClient If true, use the legacy ZIA client authentication instead of OAuth2.
+         * 
+         * @return builder
+         * 
+         */
         public Builder useLegacyClient(Boolean useLegacyClient) {
             return useLegacyClient(Output.of(useLegacyClient));
         }
 
+        /**
+         * @param username (Legacy) The admin username for ZIA. Can also be set via the `ZIA_USERNAME` environment variable. Prefer OAuth2 credentials instead.
+         * 
+         * @return builder
+         * 
+         */
         public Builder username(@Nullable Output<String> username) {
             $.username = username;
             return this;
         }
 
+        /**
+         * @param username (Legacy) The admin username for ZIA. Can also be set via the `ZIA_USERNAME` environment variable. Prefer OAuth2 credentials instead.
+         * 
+         * @return builder
+         * 
+         */
         public Builder username(String username) {
             return username(Output.of(username));
         }
 
+        /**
+         * @param vanityDomain The vanity domain for your Zscaler organization. Can also be set via the `ZSCALER_VANITY_DOMAIN` environment variable.
+         * 
+         * @return builder
+         * 
+         */
         public Builder vanityDomain(@Nullable Output<String> vanityDomain) {
             $.vanityDomain = vanityDomain;
             return this;
         }
 
+        /**
+         * @param vanityDomain The vanity domain for your Zscaler organization. Can also be set via the `ZSCALER_VANITY_DOMAIN` environment variable.
+         * 
+         * @return builder
+         * 
+         */
         public Builder vanityDomain(String vanityDomain) {
             return vanityDomain(Output.of(vanityDomain));
         }
 
+        /**
+         * @param ziaCloud (Legacy) The ZIA cloud name. Can also be set via the `ZIA_CLOUD` environment variable. Prefer the &#39;cloud&#39; parameter instead.
+         * 
+         * @return builder
+         * 
+         */
         public Builder ziaCloud(@Nullable Output<String> ziaCloud) {
             $.ziaCloud = ziaCloud;
             return this;
         }
 
+        /**
+         * @param ziaCloud (Legacy) The ZIA cloud name. Can also be set via the `ZIA_CLOUD` environment variable. Prefer the &#39;cloud&#39; parameter instead.
+         * 
+         * @return builder
+         * 
+         */
         public Builder ziaCloud(String ziaCloud) {
             return ziaCloud(Output.of(ziaCloud));
         }

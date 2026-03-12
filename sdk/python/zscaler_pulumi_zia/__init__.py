@@ -18,26 +18,73 @@ from .atp_malware_settings import *
 from .atp_security_exceptions import *
 from .atp_settings import *
 from .auth_settings_urls import *
+from .bandwidth_class import *
+from .bandwidth_class_file_size import *
+from .bandwidth_class_web_conferencing import *
 from .bandwidth_control_rule import *
+from .browser_control_policy import *
 from .casb_dlp_rule import *
 from .casb_malware_rule import *
 from .cloud_app_control_rule import *
+from .cloud_application_instance import *
+from .cloud_nss_feed import *
+from .custom_file_type import *
+from .dc_exclusion import *
+from .dlp_dictionary import *
+from .dlp_engine import *
+from .dlp_notification_template import *
 from .dlp_web_rule import *
+from .end_user_notification import *
+from .extranet import *
 from .file_type_control_rule import *
 from .firewall_dns_rule import *
 from .firewall_filtering_rule import *
 from .firewall_ips_rule import *
+from .forwarding_control_proxies import *
 from .forwarding_control_rule import *
+from .forwarding_control_zpa_gateway import *
+from .ftp_control_policy import *
+from .fw_ip_destination_group import *
+from .fw_ip_source_group import *
+from .fw_network_application_group import *
+from .fw_network_service import *
+from .fw_network_service_group import *
+from .get_casb_email_label import *
+from .get_casb_tenant import *
+from .get_casb_tombstone_template import *
+from .get_cloud_applications import *
+from .get_cloud_browser_isolation_profile import *
+from .get_datacenters import *
+from .get_device import *
+from .get_device_group import *
+from .get_dlp_cloud_to_cloud_ir import *
+from .get_dlp_dictionary_predefined_identifiers import *
+from .get_dlp_edm_schema import *
+from .get_dlp_icap_server import *
+from .get_dlp_idm_profile import *
+from .get_dlp_idm_profile_lite import *
+from .get_dlp_incident_receiver_server import *
+from .get_domain_profile import *
+from .get_file_type_categories import *
+from .get_fw_network_service import *
+from .get_location_group import *
+from .get_sandbox_report import *
+from .get_time_window import *
+from .get_user_management_department import *
+from .get_user_management_group import *
 from .get_user_management_user import *
 from .get_vzen_cluster import *
 from .get_vzen_node import *
 from .get_workload_group import *
+from .location_management import *
+from .mobile_malware_protection_policy import *
 from .nat_control_rule import *
 from .nss_server import *
 from .provider import *
 from .risk_profile import *
 from .rule_label import *
 from .sandbox_behavioral_analysis_advanced_settings import *
+from .sandbox_behavioral_analysis_advanced_settings_v2 import *
 from .sandbox_rule import *
 from .sandbox_submission import *
 from .security_policy_settings import *
@@ -87,21 +134,45 @@ _utilities.register(
    "zia:index:AtpSecurityExceptions": "AtpSecurityExceptions",
    "zia:index:AtpSettings": "AtpSettings",
    "zia:index:AuthSettingsUrls": "AuthSettingsUrls",
+   "zia:index:BandwidthClass": "BandwidthClass",
+   "zia:index:BandwidthClassFileSize": "BandwidthClassFileSize",
+   "zia:index:BandwidthClassWebConferencing": "BandwidthClassWebConferencing",
    "zia:index:BandwidthControlRule": "BandwidthControlRule",
+   "zia:index:BrowserControlPolicy": "BrowserControlPolicy",
    "zia:index:CasbDlpRule": "CasbDlpRule",
    "zia:index:CasbMalwareRule": "CasbMalwareRule",
    "zia:index:CloudAppControlRule": "CloudAppControlRule",
+   "zia:index:CloudApplicationInstance": "CloudApplicationInstance",
+   "zia:index:CloudNssFeed": "CloudNssFeed",
+   "zia:index:CustomFileType": "CustomFileType",
+   "zia:index:DcExclusion": "DcExclusion",
+   "zia:index:DlpDictionary": "DlpDictionary",
+   "zia:index:DlpEngine": "DlpEngine",
+   "zia:index:DlpNotificationTemplate": "DlpNotificationTemplate",
    "zia:index:DlpWebRule": "DlpWebRule",
+   "zia:index:EndUserNotification": "EndUserNotification",
+   "zia:index:Extranet": "Extranet",
    "zia:index:FileTypeControlRule": "FileTypeControlRule",
    "zia:index:FirewallDNSRule": "FirewallDNSRule",
    "zia:index:FirewallFilteringRule": "FirewallFilteringRule",
    "zia:index:FirewallIPSRule": "FirewallIPSRule",
+   "zia:index:ForwardingControlProxies": "ForwardingControlProxies",
    "zia:index:ForwardingControlRule": "ForwardingControlRule",
+   "zia:index:ForwardingControlZpaGateway": "ForwardingControlZpaGateway",
+   "zia:index:FtpControlPolicy": "FtpControlPolicy",
+   "zia:index:FwIpDestinationGroup": "FwIpDestinationGroup",
+   "zia:index:FwIpSourceGroup": "FwIpSourceGroup",
+   "zia:index:FwNetworkApplicationGroup": "FwNetworkApplicationGroup",
+   "zia:index:FwNetworkService": "FwNetworkService",
+   "zia:index:FwNetworkServiceGroup": "FwNetworkServiceGroup",
+   "zia:index:LocationManagement": "LocationManagement",
+   "zia:index:MobileMalwareProtectionPolicy": "MobileMalwareProtectionPolicy",
    "zia:index:NatControlRule": "NatControlRule",
    "zia:index:NssServer": "NssServer",
    "zia:index:RiskProfile": "RiskProfile",
    "zia:index:RuleLabel": "RuleLabel",
    "zia:index:SandboxBehavioralAnalysisAdvancedSettings": "SandboxBehavioralAnalysisAdvancedSettings",
+   "zia:index:SandboxBehavioralAnalysisAdvancedSettingsV2": "SandboxBehavioralAnalysisAdvancedSettingsV2",
    "zia:index:SandboxRule": "SandboxRule",
    "zia:index:SandboxSubmission": "SandboxSubmission",
    "zia:index:SecurityPolicySettings": "SecurityPolicySettings",

@@ -15,16 +15,32 @@ public final class GetVzenNodePlainArgs extends com.pulumi.resources.InvokeArgs 
 
     public static final GetVzenNodePlainArgs Empty = new GetVzenNodePlainArgs();
 
+    /**
+     * The name of the VZEN node to look up.
+     * 
+     */
     @Import(name="name")
     private @Nullable String name;
 
+    /**
+     * @return The name of the VZEN node to look up.
+     * 
+     */
     public Optional<String> name() {
         return Optional.ofNullable(this.name);
     }
 
+    /**
+     * The ID of the VZEN node to look up.
+     * 
+     */
     @Import(name="nodeId")
     private @Nullable Integer nodeId;
 
+    /**
+     * @return The ID of the VZEN node to look up.
+     * 
+     */
     public Optional<Integer> nodeId() {
         return Optional.ofNullable(this.nodeId);
     }
@@ -54,11 +70,23 @@ public final class GetVzenNodePlainArgs extends com.pulumi.resources.InvokeArgs 
             $ = new GetVzenNodePlainArgs(Objects.requireNonNull(defaults));
         }
 
+        /**
+         * @param name The name of the VZEN node to look up.
+         * 
+         * @return builder
+         * 
+         */
         public Builder name(@Nullable String name) {
             $.name = name;
             return this;
         }
 
+        /**
+         * @param nodeId The ID of the VZEN node to look up.
+         * 
+         * @return builder
+         * 
+         */
         public Builder nodeId(@Nullable Integer nodeId) {
             $.nodeId = nodeId;
             return this;

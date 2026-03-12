@@ -22,61 +22,113 @@ __config__ = pulumi.Config('zia')
 class _ExportableConfig(types.ModuleType):
     @_builtins.property
     def api_key(self) -> Optional[str]:
+        """
+        (Legacy) The API key for ZIA. Can also be set via the `ZIA_API_KEY` environment variable. Prefer OAuth2 credentials instead.
+        """
         return __config__.get('apiKey')
 
     @_builtins.property
     def client_id(self) -> Optional[str]:
+        """
+        The OAuth2 client ID for authenticating with the Zscaler API. Can also be set via the `ZSCALER_CLIENT_ID` environment variable.
+        """
         return __config__.get('clientId')
 
     @_builtins.property
     def client_secret(self) -> Optional[str]:
+        """
+        The OAuth2 client secret for authenticating with the Zscaler API. Can also be set via the `ZSCALER_CLIENT_SECRET` environment variable.
+        """
         return __config__.get('clientSecret')
 
     @_builtins.property
     def cloud(self) -> Optional[str]:
+        """
+        The Zscaler cloud name (e.g. 'zscaler', 'zscalerone', 'zscalertwo', 'zscalerthree', 'zscloud', 'zscalerbeta', 'zscalergov'). Can also be set via the `ZSCALER_CLOUD` environment variable.
+        """
         return __config__.get('cloud')
 
     @_builtins.property
+    def debug(self) -> Optional[bool]:
+        """
+        If true, enables verbose Zscaler SDK logging (API requests/responses). Logs are written to stderr and optionally to the file specified by the `ZSCALER_SDK_LOG_FILE` environment variable.
+        """
+        return __config__.get_bool('debug')
+
+    @_builtins.property
     def http_proxy(self) -> Optional[str]:
+        """
+        HTTP proxy URL for API requests (e.g. 'http://proxy.example.com:8080'). Can also be set via the `ZSCALER_HTTP_PROXY` environment variable.
+        """
         return __config__.get('httpProxy')
 
     @_builtins.property
     def max_retries(self) -> Optional[int]:
+        """
+        Maximum number of retries for API requests. Default is determined by the SDK.
+        """
         return __config__.get_int('maxRetries')
 
     @_builtins.property
     def password(self) -> Optional[str]:
+        """
+        (Legacy) The admin password for ZIA. Can also be set via the `ZIA_PASSWORD` environment variable. Prefer OAuth2 credentials instead.
+        """
         return __config__.get('password')
 
     @_builtins.property
     def private_key(self) -> Optional[str]:
+        """
+        The private key for service principal authentication. Can also be set via the `ZSCALER_PRIVATE_KEY` environment variable.
+        """
         return __config__.get('privateKey')
 
     @_builtins.property
     def request_timeout(self) -> Optional[int]:
+        """
+        Timeout in seconds for API requests.
+        """
         return __config__.get_int('requestTimeout')
 
     @_builtins.property
     def sandbox_cloud(self) -> Optional[str]:
+        """
+        The Zscaler Sandbox cloud name. Can also be set via the `ZIA_SANDBOX_CLOUD` environment variable.
+        """
         return __config__.get('sandboxCloud')
 
     @_builtins.property
     def sandbox_token(self) -> Optional[str]:
+        """
+        The API token for Zscaler Sandbox. Can also be set via the `ZIA_SANDBOX_TOKEN` environment variable.
+        """
         return __config__.get('sandboxToken')
 
     @_builtins.property
     def use_legacy_client(self) -> Optional[bool]:
+        """
+        If true, use the legacy ZIA client authentication instead of OAuth2.
+        """
         return __config__.get_bool('useLegacyClient')
 
     @_builtins.property
     def username(self) -> Optional[str]:
+        """
+        (Legacy) The admin username for ZIA. Can also be set via the `ZIA_USERNAME` environment variable. Prefer OAuth2 credentials instead.
+        """
         return __config__.get('username')
 
     @_builtins.property
     def vanity_domain(self) -> Optional[str]:
+        """
+        The vanity domain for your Zscaler organization. Can also be set via the `ZSCALER_VANITY_DOMAIN` environment variable.
+        """
         return __config__.get('vanityDomain')
 
     @_builtins.property
     def zia_cloud(self) -> Optional[str]:
+        """
+        (Legacy) The ZIA cloud name. Can also be set via the `ZIA_CLOUD` environment variable. Prefer the 'cloud' parameter instead.
+        """
         return __config__.get('ziaCloud')
 

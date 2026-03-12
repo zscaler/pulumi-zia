@@ -69,6 +69,54 @@ class AtpSettingsArgs:
                  web_spam_capture: Optional[pulumi.Input[_builtins.bool]] = None):
         """
         The set of arguments for constructing a AtpSettings resource.
+        :param pulumi.Input[_builtins.bool] activex_blocked: Block ActiveX controls.
+        :param pulumi.Input[_builtins.bool] activex_capture: Enable packet capture for ActiveX events.
+        :param pulumi.Input[_builtins.bool] ad_spyware_sites_blocked: Block adware/spyware sites.
+        :param pulumi.Input[_builtins.bool] ad_spyware_sites_capture: Enable packet capture for adware/spyware site events.
+        :param pulumi.Input[_builtins.bool] alert_for_unknown_suspicious_c2_traffic: Enable alerts for unknown or suspicious C2 traffic.
+        :param pulumi.Input[_builtins.bool] anonymizer_blocked: Block anonymizers.
+        :param pulumi.Input[_builtins.bool] anonymizer_capture: Enable packet capture for anonymizer events.
+        :param pulumi.Input[_builtins.bool] bit_torrent_blocked: Block BitTorrent traffic.
+        :param pulumi.Input[_builtins.bool] bit_torrent_capture: Enable packet capture for BitTorrent events.
+        :param pulumi.Input[_builtins.bool] block_countries_capture: Enable packet capture for blocked countries events.
+        :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] blocked_countries: List of countries (ISO 3166-1 alpha-2 codes) to block.
+        :param pulumi.Input[_builtins.bool] browser_exploits_blocked: Block browser exploits.
+        :param pulumi.Input[_builtins.bool] browser_exploits_capture: Enable packet capture for browser exploit events.
+        :param pulumi.Input[_builtins.bool] cmd_ctl_server_blocked: Block known command-and-control servers.
+        :param pulumi.Input[_builtins.bool] cmd_ctl_server_capture: Enable packet capture for command-and-control server events.
+        :param pulumi.Input[_builtins.bool] cmd_ctl_traffic_blocked: Block command-and-control traffic.
+        :param pulumi.Input[_builtins.bool] cmd_ctl_traffic_capture: Enable packet capture for command-and-control traffic events.
+        :param pulumi.Input[_builtins.bool] cookie_stealing_blocked: Block cookie stealing attempts.
+        :param pulumi.Input[_builtins.bool] cookie_stealing_pcap_enabled: Enable packet capture for cookie stealing events.
+        :param pulumi.Input[_builtins.bool] crypto_mining_blocked: Block crypto mining traffic.
+        :param pulumi.Input[_builtins.bool] crypto_mining_capture: Enable packet capture for crypto mining events.
+        :param pulumi.Input[_builtins.bool] dga_domains_blocked: Block domain generation algorithm (DGA) domains.
+        :param pulumi.Input[_builtins.bool] dga_domains_capture: Enable packet capture for DGA domain events.
+        :param pulumi.Input[_builtins.bool] file_format_vunerabilites_blocked: Block file format vulnerabilities.
+        :param pulumi.Input[_builtins.bool] file_format_vunerabilites_capture: Enable packet capture for file format vulnerability events.
+        :param pulumi.Input[_builtins.bool] google_talk_blocked: Block Google Talk traffic.
+        :param pulumi.Input[_builtins.bool] google_talk_capture: Enable packet capture for Google Talk events.
+        :param pulumi.Input[_builtins.bool] irc_tunnelling_blocked: Block IRC tunnelling.
+        :param pulumi.Input[_builtins.bool] irc_tunnelling_capture: Enable packet capture for IRC tunnelling events.
+        :param pulumi.Input[_builtins.bool] known_phishing_sites_blocked: Block known phishing sites.
+        :param pulumi.Input[_builtins.bool] known_phishing_sites_capture: Enable packet capture for known phishing site events.
+        :param pulumi.Input[_builtins.bool] malicious_urls_capture: Enable packet capture for malicious URL events.
+        :param pulumi.Input[_builtins.bool] malware_sites_blocked: Block known malware sites.
+        :param pulumi.Input[_builtins.bool] malware_sites_capture: Enable packet capture for malware site events.
+        :param pulumi.Input[_builtins.bool] potential_malicious_requests_blocked: Block potentially malicious requests.
+        :param pulumi.Input[_builtins.bool] potential_malicious_requests_capture: Enable packet capture for potentially malicious request events.
+        :param pulumi.Input[_builtins.int] risk_tolerance: Risk tolerance level. Controls the sensitivity for detecting threats.
+        :param pulumi.Input[_builtins.bool] risk_tolerance_capture: Enable packet capture for risk tolerance events.
+        :param pulumi.Input[_builtins.bool] ssh_tunnelling_blocked: Block SSH tunnelling.
+        :param pulumi.Input[_builtins.bool] ssh_tunnelling_capture: Enable packet capture for SSH tunnelling events.
+        :param pulumi.Input[_builtins.bool] suspect_adware_spyware_sites_blocked: Block suspect adware/spyware sites.
+        :param pulumi.Input[_builtins.bool] suspect_adware_spyware_sites_capture: Enable packet capture for suspect adware/spyware site events.
+        :param pulumi.Input[_builtins.bool] suspected_phishing_sites_blocked: Block suspected phishing sites.
+        :param pulumi.Input[_builtins.bool] suspected_phishing_sites_capture: Enable packet capture for suspected phishing site events.
+        :param pulumi.Input[_builtins.bool] tor_blocked: Block Tor traffic.
+        :param pulumi.Input[_builtins.bool] tor_capture: Enable packet capture for Tor events.
+        :param pulumi.Input[_builtins.bool] web_spam_blocked: Block web spam.
+        :param pulumi.Input[_builtins.bool] web_spam_capture: Enable packet capture for web spam events.
         """
         if activex_blocked is not None:
             pulumi.set(__self__, "activex_blocked", activex_blocked)
@@ -170,6 +218,9 @@ class AtpSettingsArgs:
     @_builtins.property
     @pulumi.getter(name="activexBlocked")
     def activex_blocked(self) -> Optional[pulumi.Input[_builtins.bool]]:
+        """
+        Block ActiveX controls.
+        """
         return pulumi.get(self, "activex_blocked")
 
     @activex_blocked.setter
@@ -179,6 +230,9 @@ class AtpSettingsArgs:
     @_builtins.property
     @pulumi.getter(name="activexCapture")
     def activex_capture(self) -> Optional[pulumi.Input[_builtins.bool]]:
+        """
+        Enable packet capture for ActiveX events.
+        """
         return pulumi.get(self, "activex_capture")
 
     @activex_capture.setter
@@ -188,6 +242,9 @@ class AtpSettingsArgs:
     @_builtins.property
     @pulumi.getter(name="adSpywareSitesBlocked")
     def ad_spyware_sites_blocked(self) -> Optional[pulumi.Input[_builtins.bool]]:
+        """
+        Block adware/spyware sites.
+        """
         return pulumi.get(self, "ad_spyware_sites_blocked")
 
     @ad_spyware_sites_blocked.setter
@@ -197,6 +254,9 @@ class AtpSettingsArgs:
     @_builtins.property
     @pulumi.getter(name="adSpywareSitesCapture")
     def ad_spyware_sites_capture(self) -> Optional[pulumi.Input[_builtins.bool]]:
+        """
+        Enable packet capture for adware/spyware site events.
+        """
         return pulumi.get(self, "ad_spyware_sites_capture")
 
     @ad_spyware_sites_capture.setter
@@ -206,6 +266,9 @@ class AtpSettingsArgs:
     @_builtins.property
     @pulumi.getter(name="alertForUnknownSuspiciousC2Traffic")
     def alert_for_unknown_suspicious_c2_traffic(self) -> Optional[pulumi.Input[_builtins.bool]]:
+        """
+        Enable alerts for unknown or suspicious C2 traffic.
+        """
         return pulumi.get(self, "alert_for_unknown_suspicious_c2_traffic")
 
     @alert_for_unknown_suspicious_c2_traffic.setter
@@ -215,6 +278,9 @@ class AtpSettingsArgs:
     @_builtins.property
     @pulumi.getter(name="anonymizerBlocked")
     def anonymizer_blocked(self) -> Optional[pulumi.Input[_builtins.bool]]:
+        """
+        Block anonymizers.
+        """
         return pulumi.get(self, "anonymizer_blocked")
 
     @anonymizer_blocked.setter
@@ -224,6 +290,9 @@ class AtpSettingsArgs:
     @_builtins.property
     @pulumi.getter(name="anonymizerCapture")
     def anonymizer_capture(self) -> Optional[pulumi.Input[_builtins.bool]]:
+        """
+        Enable packet capture for anonymizer events.
+        """
         return pulumi.get(self, "anonymizer_capture")
 
     @anonymizer_capture.setter
@@ -233,6 +302,9 @@ class AtpSettingsArgs:
     @_builtins.property
     @pulumi.getter(name="bitTorrentBlocked")
     def bit_torrent_blocked(self) -> Optional[pulumi.Input[_builtins.bool]]:
+        """
+        Block BitTorrent traffic.
+        """
         return pulumi.get(self, "bit_torrent_blocked")
 
     @bit_torrent_blocked.setter
@@ -242,6 +314,9 @@ class AtpSettingsArgs:
     @_builtins.property
     @pulumi.getter(name="bitTorrentCapture")
     def bit_torrent_capture(self) -> Optional[pulumi.Input[_builtins.bool]]:
+        """
+        Enable packet capture for BitTorrent events.
+        """
         return pulumi.get(self, "bit_torrent_capture")
 
     @bit_torrent_capture.setter
@@ -251,6 +326,9 @@ class AtpSettingsArgs:
     @_builtins.property
     @pulumi.getter(name="blockCountriesCapture")
     def block_countries_capture(self) -> Optional[pulumi.Input[_builtins.bool]]:
+        """
+        Enable packet capture for blocked countries events.
+        """
         return pulumi.get(self, "block_countries_capture")
 
     @block_countries_capture.setter
@@ -260,6 +338,9 @@ class AtpSettingsArgs:
     @_builtins.property
     @pulumi.getter(name="blockedCountries")
     def blocked_countries(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
+        """
+        List of countries (ISO 3166-1 alpha-2 codes) to block.
+        """
         return pulumi.get(self, "blocked_countries")
 
     @blocked_countries.setter
@@ -269,6 +350,9 @@ class AtpSettingsArgs:
     @_builtins.property
     @pulumi.getter(name="browserExploitsBlocked")
     def browser_exploits_blocked(self) -> Optional[pulumi.Input[_builtins.bool]]:
+        """
+        Block browser exploits.
+        """
         return pulumi.get(self, "browser_exploits_blocked")
 
     @browser_exploits_blocked.setter
@@ -278,6 +362,9 @@ class AtpSettingsArgs:
     @_builtins.property
     @pulumi.getter(name="browserExploitsCapture")
     def browser_exploits_capture(self) -> Optional[pulumi.Input[_builtins.bool]]:
+        """
+        Enable packet capture for browser exploit events.
+        """
         return pulumi.get(self, "browser_exploits_capture")
 
     @browser_exploits_capture.setter
@@ -287,6 +374,9 @@ class AtpSettingsArgs:
     @_builtins.property
     @pulumi.getter(name="cmdCtlServerBlocked")
     def cmd_ctl_server_blocked(self) -> Optional[pulumi.Input[_builtins.bool]]:
+        """
+        Block known command-and-control servers.
+        """
         return pulumi.get(self, "cmd_ctl_server_blocked")
 
     @cmd_ctl_server_blocked.setter
@@ -296,6 +386,9 @@ class AtpSettingsArgs:
     @_builtins.property
     @pulumi.getter(name="cmdCtlServerCapture")
     def cmd_ctl_server_capture(self) -> Optional[pulumi.Input[_builtins.bool]]:
+        """
+        Enable packet capture for command-and-control server events.
+        """
         return pulumi.get(self, "cmd_ctl_server_capture")
 
     @cmd_ctl_server_capture.setter
@@ -305,6 +398,9 @@ class AtpSettingsArgs:
     @_builtins.property
     @pulumi.getter(name="cmdCtlTrafficBlocked")
     def cmd_ctl_traffic_blocked(self) -> Optional[pulumi.Input[_builtins.bool]]:
+        """
+        Block command-and-control traffic.
+        """
         return pulumi.get(self, "cmd_ctl_traffic_blocked")
 
     @cmd_ctl_traffic_blocked.setter
@@ -314,6 +410,9 @@ class AtpSettingsArgs:
     @_builtins.property
     @pulumi.getter(name="cmdCtlTrafficCapture")
     def cmd_ctl_traffic_capture(self) -> Optional[pulumi.Input[_builtins.bool]]:
+        """
+        Enable packet capture for command-and-control traffic events.
+        """
         return pulumi.get(self, "cmd_ctl_traffic_capture")
 
     @cmd_ctl_traffic_capture.setter
@@ -323,6 +422,9 @@ class AtpSettingsArgs:
     @_builtins.property
     @pulumi.getter(name="cookieStealingBlocked")
     def cookie_stealing_blocked(self) -> Optional[pulumi.Input[_builtins.bool]]:
+        """
+        Block cookie stealing attempts.
+        """
         return pulumi.get(self, "cookie_stealing_blocked")
 
     @cookie_stealing_blocked.setter
@@ -332,6 +434,9 @@ class AtpSettingsArgs:
     @_builtins.property
     @pulumi.getter(name="cookieStealingPcapEnabled")
     def cookie_stealing_pcap_enabled(self) -> Optional[pulumi.Input[_builtins.bool]]:
+        """
+        Enable packet capture for cookie stealing events.
+        """
         return pulumi.get(self, "cookie_stealing_pcap_enabled")
 
     @cookie_stealing_pcap_enabled.setter
@@ -341,6 +446,9 @@ class AtpSettingsArgs:
     @_builtins.property
     @pulumi.getter(name="cryptoMiningBlocked")
     def crypto_mining_blocked(self) -> Optional[pulumi.Input[_builtins.bool]]:
+        """
+        Block crypto mining traffic.
+        """
         return pulumi.get(self, "crypto_mining_blocked")
 
     @crypto_mining_blocked.setter
@@ -350,6 +458,9 @@ class AtpSettingsArgs:
     @_builtins.property
     @pulumi.getter(name="cryptoMiningCapture")
     def crypto_mining_capture(self) -> Optional[pulumi.Input[_builtins.bool]]:
+        """
+        Enable packet capture for crypto mining events.
+        """
         return pulumi.get(self, "crypto_mining_capture")
 
     @crypto_mining_capture.setter
@@ -359,6 +470,9 @@ class AtpSettingsArgs:
     @_builtins.property
     @pulumi.getter(name="dgaDomainsBlocked")
     def dga_domains_blocked(self) -> Optional[pulumi.Input[_builtins.bool]]:
+        """
+        Block domain generation algorithm (DGA) domains.
+        """
         return pulumi.get(self, "dga_domains_blocked")
 
     @dga_domains_blocked.setter
@@ -368,6 +482,9 @@ class AtpSettingsArgs:
     @_builtins.property
     @pulumi.getter(name="dgaDomainsCapture")
     def dga_domains_capture(self) -> Optional[pulumi.Input[_builtins.bool]]:
+        """
+        Enable packet capture for DGA domain events.
+        """
         return pulumi.get(self, "dga_domains_capture")
 
     @dga_domains_capture.setter
@@ -377,6 +494,9 @@ class AtpSettingsArgs:
     @_builtins.property
     @pulumi.getter(name="fileFormatVunerabilitesBlocked")
     def file_format_vunerabilites_blocked(self) -> Optional[pulumi.Input[_builtins.bool]]:
+        """
+        Block file format vulnerabilities.
+        """
         return pulumi.get(self, "file_format_vunerabilites_blocked")
 
     @file_format_vunerabilites_blocked.setter
@@ -386,6 +506,9 @@ class AtpSettingsArgs:
     @_builtins.property
     @pulumi.getter(name="fileFormatVunerabilitesCapture")
     def file_format_vunerabilites_capture(self) -> Optional[pulumi.Input[_builtins.bool]]:
+        """
+        Enable packet capture for file format vulnerability events.
+        """
         return pulumi.get(self, "file_format_vunerabilites_capture")
 
     @file_format_vunerabilites_capture.setter
@@ -395,6 +518,9 @@ class AtpSettingsArgs:
     @_builtins.property
     @pulumi.getter(name="googleTalkBlocked")
     def google_talk_blocked(self) -> Optional[pulumi.Input[_builtins.bool]]:
+        """
+        Block Google Talk traffic.
+        """
         return pulumi.get(self, "google_talk_blocked")
 
     @google_talk_blocked.setter
@@ -404,6 +530,9 @@ class AtpSettingsArgs:
     @_builtins.property
     @pulumi.getter(name="googleTalkCapture")
     def google_talk_capture(self) -> Optional[pulumi.Input[_builtins.bool]]:
+        """
+        Enable packet capture for Google Talk events.
+        """
         return pulumi.get(self, "google_talk_capture")
 
     @google_talk_capture.setter
@@ -413,6 +542,9 @@ class AtpSettingsArgs:
     @_builtins.property
     @pulumi.getter(name="ircTunnellingBlocked")
     def irc_tunnelling_blocked(self) -> Optional[pulumi.Input[_builtins.bool]]:
+        """
+        Block IRC tunnelling.
+        """
         return pulumi.get(self, "irc_tunnelling_blocked")
 
     @irc_tunnelling_blocked.setter
@@ -422,6 +554,9 @@ class AtpSettingsArgs:
     @_builtins.property
     @pulumi.getter(name="ircTunnellingCapture")
     def irc_tunnelling_capture(self) -> Optional[pulumi.Input[_builtins.bool]]:
+        """
+        Enable packet capture for IRC tunnelling events.
+        """
         return pulumi.get(self, "irc_tunnelling_capture")
 
     @irc_tunnelling_capture.setter
@@ -431,6 +566,9 @@ class AtpSettingsArgs:
     @_builtins.property
     @pulumi.getter(name="knownPhishingSitesBlocked")
     def known_phishing_sites_blocked(self) -> Optional[pulumi.Input[_builtins.bool]]:
+        """
+        Block known phishing sites.
+        """
         return pulumi.get(self, "known_phishing_sites_blocked")
 
     @known_phishing_sites_blocked.setter
@@ -440,6 +578,9 @@ class AtpSettingsArgs:
     @_builtins.property
     @pulumi.getter(name="knownPhishingSitesCapture")
     def known_phishing_sites_capture(self) -> Optional[pulumi.Input[_builtins.bool]]:
+        """
+        Enable packet capture for known phishing site events.
+        """
         return pulumi.get(self, "known_phishing_sites_capture")
 
     @known_phishing_sites_capture.setter
@@ -449,6 +590,9 @@ class AtpSettingsArgs:
     @_builtins.property
     @pulumi.getter(name="maliciousUrlsCapture")
     def malicious_urls_capture(self) -> Optional[pulumi.Input[_builtins.bool]]:
+        """
+        Enable packet capture for malicious URL events.
+        """
         return pulumi.get(self, "malicious_urls_capture")
 
     @malicious_urls_capture.setter
@@ -458,6 +602,9 @@ class AtpSettingsArgs:
     @_builtins.property
     @pulumi.getter(name="malwareSitesBlocked")
     def malware_sites_blocked(self) -> Optional[pulumi.Input[_builtins.bool]]:
+        """
+        Block known malware sites.
+        """
         return pulumi.get(self, "malware_sites_blocked")
 
     @malware_sites_blocked.setter
@@ -467,6 +614,9 @@ class AtpSettingsArgs:
     @_builtins.property
     @pulumi.getter(name="malwareSitesCapture")
     def malware_sites_capture(self) -> Optional[pulumi.Input[_builtins.bool]]:
+        """
+        Enable packet capture for malware site events.
+        """
         return pulumi.get(self, "malware_sites_capture")
 
     @malware_sites_capture.setter
@@ -476,6 +626,9 @@ class AtpSettingsArgs:
     @_builtins.property
     @pulumi.getter(name="potentialMaliciousRequestsBlocked")
     def potential_malicious_requests_blocked(self) -> Optional[pulumi.Input[_builtins.bool]]:
+        """
+        Block potentially malicious requests.
+        """
         return pulumi.get(self, "potential_malicious_requests_blocked")
 
     @potential_malicious_requests_blocked.setter
@@ -485,6 +638,9 @@ class AtpSettingsArgs:
     @_builtins.property
     @pulumi.getter(name="potentialMaliciousRequestsCapture")
     def potential_malicious_requests_capture(self) -> Optional[pulumi.Input[_builtins.bool]]:
+        """
+        Enable packet capture for potentially malicious request events.
+        """
         return pulumi.get(self, "potential_malicious_requests_capture")
 
     @potential_malicious_requests_capture.setter
@@ -494,6 +650,9 @@ class AtpSettingsArgs:
     @_builtins.property
     @pulumi.getter(name="riskTolerance")
     def risk_tolerance(self) -> Optional[pulumi.Input[_builtins.int]]:
+        """
+        Risk tolerance level. Controls the sensitivity for detecting threats.
+        """
         return pulumi.get(self, "risk_tolerance")
 
     @risk_tolerance.setter
@@ -503,6 +662,9 @@ class AtpSettingsArgs:
     @_builtins.property
     @pulumi.getter(name="riskToleranceCapture")
     def risk_tolerance_capture(self) -> Optional[pulumi.Input[_builtins.bool]]:
+        """
+        Enable packet capture for risk tolerance events.
+        """
         return pulumi.get(self, "risk_tolerance_capture")
 
     @risk_tolerance_capture.setter
@@ -512,6 +674,9 @@ class AtpSettingsArgs:
     @_builtins.property
     @pulumi.getter(name="sshTunnellingBlocked")
     def ssh_tunnelling_blocked(self) -> Optional[pulumi.Input[_builtins.bool]]:
+        """
+        Block SSH tunnelling.
+        """
         return pulumi.get(self, "ssh_tunnelling_blocked")
 
     @ssh_tunnelling_blocked.setter
@@ -521,6 +686,9 @@ class AtpSettingsArgs:
     @_builtins.property
     @pulumi.getter(name="sshTunnellingCapture")
     def ssh_tunnelling_capture(self) -> Optional[pulumi.Input[_builtins.bool]]:
+        """
+        Enable packet capture for SSH tunnelling events.
+        """
         return pulumi.get(self, "ssh_tunnelling_capture")
 
     @ssh_tunnelling_capture.setter
@@ -530,6 +698,9 @@ class AtpSettingsArgs:
     @_builtins.property
     @pulumi.getter(name="suspectAdwareSpywareSitesBlocked")
     def suspect_adware_spyware_sites_blocked(self) -> Optional[pulumi.Input[_builtins.bool]]:
+        """
+        Block suspect adware/spyware sites.
+        """
         return pulumi.get(self, "suspect_adware_spyware_sites_blocked")
 
     @suspect_adware_spyware_sites_blocked.setter
@@ -539,6 +710,9 @@ class AtpSettingsArgs:
     @_builtins.property
     @pulumi.getter(name="suspectAdwareSpywareSitesCapture")
     def suspect_adware_spyware_sites_capture(self) -> Optional[pulumi.Input[_builtins.bool]]:
+        """
+        Enable packet capture for suspect adware/spyware site events.
+        """
         return pulumi.get(self, "suspect_adware_spyware_sites_capture")
 
     @suspect_adware_spyware_sites_capture.setter
@@ -548,6 +722,9 @@ class AtpSettingsArgs:
     @_builtins.property
     @pulumi.getter(name="suspectedPhishingSitesBlocked")
     def suspected_phishing_sites_blocked(self) -> Optional[pulumi.Input[_builtins.bool]]:
+        """
+        Block suspected phishing sites.
+        """
         return pulumi.get(self, "suspected_phishing_sites_blocked")
 
     @suspected_phishing_sites_blocked.setter
@@ -557,6 +734,9 @@ class AtpSettingsArgs:
     @_builtins.property
     @pulumi.getter(name="suspectedPhishingSitesCapture")
     def suspected_phishing_sites_capture(self) -> Optional[pulumi.Input[_builtins.bool]]:
+        """
+        Enable packet capture for suspected phishing site events.
+        """
         return pulumi.get(self, "suspected_phishing_sites_capture")
 
     @suspected_phishing_sites_capture.setter
@@ -566,6 +746,9 @@ class AtpSettingsArgs:
     @_builtins.property
     @pulumi.getter(name="torBlocked")
     def tor_blocked(self) -> Optional[pulumi.Input[_builtins.bool]]:
+        """
+        Block Tor traffic.
+        """
         return pulumi.get(self, "tor_blocked")
 
     @tor_blocked.setter
@@ -575,6 +758,9 @@ class AtpSettingsArgs:
     @_builtins.property
     @pulumi.getter(name="torCapture")
     def tor_capture(self) -> Optional[pulumi.Input[_builtins.bool]]:
+        """
+        Enable packet capture for Tor events.
+        """
         return pulumi.get(self, "tor_capture")
 
     @tor_capture.setter
@@ -584,6 +770,9 @@ class AtpSettingsArgs:
     @_builtins.property
     @pulumi.getter(name="webSpamBlocked")
     def web_spam_blocked(self) -> Optional[pulumi.Input[_builtins.bool]]:
+        """
+        Block web spam.
+        """
         return pulumi.get(self, "web_spam_blocked")
 
     @web_spam_blocked.setter
@@ -593,6 +782,9 @@ class AtpSettingsArgs:
     @_builtins.property
     @pulumi.getter(name="webSpamCapture")
     def web_spam_capture(self) -> Optional[pulumi.Input[_builtins.bool]]:
+        """
+        Enable packet capture for web spam events.
+        """
         return pulumi.get(self, "web_spam_capture")
 
     @web_spam_capture.setter
@@ -656,9 +848,80 @@ class AtpSettings(pulumi.CustomResource):
                  web_spam_capture: Optional[pulumi.Input[_builtins.bool]] = None,
                  __props__=None):
         """
-        Create a AtpSettings resource with the given unique name, props, and options.
+        The zia_atp_settings resource manages Advanced Threat Protection (ATP) settings in the Zscaler Internet Access (ZIA) cloud service. ATP settings control which threat categories are blocked or captured (logged) for packet capture analysis. This is a singleton resource.
+
+        For more information, see the [ZIA Advanced Threat Protection documentation](https://help.zscaler.com/zia/about-advanced-threat-protection-policy).
+
+        ## Example Usage
+        ### Configure ATP Settings
+
+        ```python
+        import zscaler_pulumi_zia as zia
+
+        example = zia.AtpSettings("example",
+            malware_sites_blocked=True,
+            malware_sites_capture=True,
+            known_phishing_sites_blocked=True,
+            known_phishing_sites_capture=True,
+            cmd_ctl_server_blocked=True,
+            crypto_mining_blocked=True,
+            tor_blocked=True,
+            risk_tolerance=0,
+        )
+        ```
+
+        > This is a singleton resource. Import is not applicable.
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
+        :param pulumi.Input[_builtins.bool] activex_blocked: Block ActiveX controls.
+        :param pulumi.Input[_builtins.bool] activex_capture: Enable packet capture for ActiveX events.
+        :param pulumi.Input[_builtins.bool] ad_spyware_sites_blocked: Block adware/spyware sites.
+        :param pulumi.Input[_builtins.bool] ad_spyware_sites_capture: Enable packet capture for adware/spyware site events.
+        :param pulumi.Input[_builtins.bool] alert_for_unknown_suspicious_c2_traffic: Enable alerts for unknown or suspicious C2 traffic.
+        :param pulumi.Input[_builtins.bool] anonymizer_blocked: Block anonymizers.
+        :param pulumi.Input[_builtins.bool] anonymizer_capture: Enable packet capture for anonymizer events.
+        :param pulumi.Input[_builtins.bool] bit_torrent_blocked: Block BitTorrent traffic.
+        :param pulumi.Input[_builtins.bool] bit_torrent_capture: Enable packet capture for BitTorrent events.
+        :param pulumi.Input[_builtins.bool] block_countries_capture: Enable packet capture for blocked countries events.
+        :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] blocked_countries: List of countries (ISO 3166-1 alpha-2 codes) to block.
+        :param pulumi.Input[_builtins.bool] browser_exploits_blocked: Block browser exploits.
+        :param pulumi.Input[_builtins.bool] browser_exploits_capture: Enable packet capture for browser exploit events.
+        :param pulumi.Input[_builtins.bool] cmd_ctl_server_blocked: Block known command-and-control servers.
+        :param pulumi.Input[_builtins.bool] cmd_ctl_server_capture: Enable packet capture for command-and-control server events.
+        :param pulumi.Input[_builtins.bool] cmd_ctl_traffic_blocked: Block command-and-control traffic.
+        :param pulumi.Input[_builtins.bool] cmd_ctl_traffic_capture: Enable packet capture for command-and-control traffic events.
+        :param pulumi.Input[_builtins.bool] cookie_stealing_blocked: Block cookie stealing attempts.
+        :param pulumi.Input[_builtins.bool] cookie_stealing_pcap_enabled: Enable packet capture for cookie stealing events.
+        :param pulumi.Input[_builtins.bool] crypto_mining_blocked: Block crypto mining traffic.
+        :param pulumi.Input[_builtins.bool] crypto_mining_capture: Enable packet capture for crypto mining events.
+        :param pulumi.Input[_builtins.bool] dga_domains_blocked: Block domain generation algorithm (DGA) domains.
+        :param pulumi.Input[_builtins.bool] dga_domains_capture: Enable packet capture for DGA domain events.
+        :param pulumi.Input[_builtins.bool] file_format_vunerabilites_blocked: Block file format vulnerabilities.
+        :param pulumi.Input[_builtins.bool] file_format_vunerabilites_capture: Enable packet capture for file format vulnerability events.
+        :param pulumi.Input[_builtins.bool] google_talk_blocked: Block Google Talk traffic.
+        :param pulumi.Input[_builtins.bool] google_talk_capture: Enable packet capture for Google Talk events.
+        :param pulumi.Input[_builtins.bool] irc_tunnelling_blocked: Block IRC tunnelling.
+        :param pulumi.Input[_builtins.bool] irc_tunnelling_capture: Enable packet capture for IRC tunnelling events.
+        :param pulumi.Input[_builtins.bool] known_phishing_sites_blocked: Block known phishing sites.
+        :param pulumi.Input[_builtins.bool] known_phishing_sites_capture: Enable packet capture for known phishing site events.
+        :param pulumi.Input[_builtins.bool] malicious_urls_capture: Enable packet capture for malicious URL events.
+        :param pulumi.Input[_builtins.bool] malware_sites_blocked: Block known malware sites.
+        :param pulumi.Input[_builtins.bool] malware_sites_capture: Enable packet capture for malware site events.
+        :param pulumi.Input[_builtins.bool] potential_malicious_requests_blocked: Block potentially malicious requests.
+        :param pulumi.Input[_builtins.bool] potential_malicious_requests_capture: Enable packet capture for potentially malicious request events.
+        :param pulumi.Input[_builtins.int] risk_tolerance: Risk tolerance level. Controls the sensitivity for detecting threats.
+        :param pulumi.Input[_builtins.bool] risk_tolerance_capture: Enable packet capture for risk tolerance events.
+        :param pulumi.Input[_builtins.bool] ssh_tunnelling_blocked: Block SSH tunnelling.
+        :param pulumi.Input[_builtins.bool] ssh_tunnelling_capture: Enable packet capture for SSH tunnelling events.
+        :param pulumi.Input[_builtins.bool] suspect_adware_spyware_sites_blocked: Block suspect adware/spyware sites.
+        :param pulumi.Input[_builtins.bool] suspect_adware_spyware_sites_capture: Enable packet capture for suspect adware/spyware site events.
+        :param pulumi.Input[_builtins.bool] suspected_phishing_sites_blocked: Block suspected phishing sites.
+        :param pulumi.Input[_builtins.bool] suspected_phishing_sites_capture: Enable packet capture for suspected phishing site events.
+        :param pulumi.Input[_builtins.bool] tor_blocked: Block Tor traffic.
+        :param pulumi.Input[_builtins.bool] tor_capture: Enable packet capture for Tor events.
+        :param pulumi.Input[_builtins.bool] web_spam_blocked: Block web spam.
+        :param pulumi.Input[_builtins.bool] web_spam_capture: Enable packet capture for web spam events.
         """
         ...
     @overload
@@ -667,7 +930,30 @@ class AtpSettings(pulumi.CustomResource):
                  args: Optional[AtpSettingsArgs] = None,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
-        Create a AtpSettings resource with the given unique name, props, and options.
+        The zia_atp_settings resource manages Advanced Threat Protection (ATP) settings in the Zscaler Internet Access (ZIA) cloud service. ATP settings control which threat categories are blocked or captured (logged) for packet capture analysis. This is a singleton resource.
+
+        For more information, see the [ZIA Advanced Threat Protection documentation](https://help.zscaler.com/zia/about-advanced-threat-protection-policy).
+
+        ## Example Usage
+        ### Configure ATP Settings
+
+        ```python
+        import zscaler_pulumi_zia as zia
+
+        example = zia.AtpSettings("example",
+            malware_sites_blocked=True,
+            malware_sites_capture=True,
+            known_phishing_sites_blocked=True,
+            known_phishing_sites_capture=True,
+            cmd_ctl_server_blocked=True,
+            crypto_mining_blocked=True,
+            tor_blocked=True,
+            risk_tolerance=0,
+        )
+        ```
+
+        > This is a singleton resource. Import is not applicable.
+
         :param str resource_name: The name of the resource.
         :param AtpSettingsArgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -865,245 +1151,392 @@ class AtpSettings(pulumi.CustomResource):
     @_builtins.property
     @pulumi.getter(name="activexBlocked")
     def activex_blocked(self) -> pulumi.Output[Optional[_builtins.bool]]:
+        """
+        Block ActiveX controls.
+        """
         return pulumi.get(self, "activex_blocked")
 
     @_builtins.property
     @pulumi.getter(name="activexCapture")
     def activex_capture(self) -> pulumi.Output[Optional[_builtins.bool]]:
+        """
+        Enable packet capture for ActiveX events.
+        """
         return pulumi.get(self, "activex_capture")
 
     @_builtins.property
     @pulumi.getter(name="adSpywareSitesBlocked")
     def ad_spyware_sites_blocked(self) -> pulumi.Output[Optional[_builtins.bool]]:
+        """
+        Block adware/spyware sites.
+        """
         return pulumi.get(self, "ad_spyware_sites_blocked")
 
     @_builtins.property
     @pulumi.getter(name="adSpywareSitesCapture")
     def ad_spyware_sites_capture(self) -> pulumi.Output[Optional[_builtins.bool]]:
+        """
+        Enable packet capture for adware/spyware site events.
+        """
         return pulumi.get(self, "ad_spyware_sites_capture")
 
     @_builtins.property
     @pulumi.getter(name="alertForUnknownSuspiciousC2Traffic")
     def alert_for_unknown_suspicious_c2_traffic(self) -> pulumi.Output[Optional[_builtins.bool]]:
+        """
+        Enable alerts for unknown or suspicious C2 traffic.
+        """
         return pulumi.get(self, "alert_for_unknown_suspicious_c2_traffic")
 
     @_builtins.property
     @pulumi.getter(name="anonymizerBlocked")
     def anonymizer_blocked(self) -> pulumi.Output[Optional[_builtins.bool]]:
+        """
+        Block anonymizers.
+        """
         return pulumi.get(self, "anonymizer_blocked")
 
     @_builtins.property
     @pulumi.getter(name="anonymizerCapture")
     def anonymizer_capture(self) -> pulumi.Output[Optional[_builtins.bool]]:
+        """
+        Enable packet capture for anonymizer events.
+        """
         return pulumi.get(self, "anonymizer_capture")
 
     @_builtins.property
     @pulumi.getter(name="bitTorrentBlocked")
     def bit_torrent_blocked(self) -> pulumi.Output[Optional[_builtins.bool]]:
+        """
+        Block BitTorrent traffic.
+        """
         return pulumi.get(self, "bit_torrent_blocked")
 
     @_builtins.property
     @pulumi.getter(name="bitTorrentCapture")
     def bit_torrent_capture(self) -> pulumi.Output[Optional[_builtins.bool]]:
+        """
+        Enable packet capture for BitTorrent events.
+        """
         return pulumi.get(self, "bit_torrent_capture")
 
     @_builtins.property
     @pulumi.getter(name="blockCountriesCapture")
     def block_countries_capture(self) -> pulumi.Output[Optional[_builtins.bool]]:
+        """
+        Enable packet capture for blocked countries events.
+        """
         return pulumi.get(self, "block_countries_capture")
 
     @_builtins.property
     @pulumi.getter(name="blockedCountries")
     def blocked_countries(self) -> pulumi.Output[Optional[Sequence[_builtins.str]]]:
+        """
+        List of countries (ISO 3166-1 alpha-2 codes) to block.
+        """
         return pulumi.get(self, "blocked_countries")
 
     @_builtins.property
     @pulumi.getter(name="browserExploitsBlocked")
     def browser_exploits_blocked(self) -> pulumi.Output[Optional[_builtins.bool]]:
+        """
+        Block browser exploits.
+        """
         return pulumi.get(self, "browser_exploits_blocked")
 
     @_builtins.property
     @pulumi.getter(name="browserExploitsCapture")
     def browser_exploits_capture(self) -> pulumi.Output[Optional[_builtins.bool]]:
+        """
+        Enable packet capture for browser exploit events.
+        """
         return pulumi.get(self, "browser_exploits_capture")
 
     @_builtins.property
     @pulumi.getter(name="cmdCtlServerBlocked")
     def cmd_ctl_server_blocked(self) -> pulumi.Output[Optional[_builtins.bool]]:
+        """
+        Block known command-and-control servers.
+        """
         return pulumi.get(self, "cmd_ctl_server_blocked")
 
     @_builtins.property
     @pulumi.getter(name="cmdCtlServerCapture")
     def cmd_ctl_server_capture(self) -> pulumi.Output[Optional[_builtins.bool]]:
+        """
+        Enable packet capture for command-and-control server events.
+        """
         return pulumi.get(self, "cmd_ctl_server_capture")
 
     @_builtins.property
     @pulumi.getter(name="cmdCtlTrafficBlocked")
     def cmd_ctl_traffic_blocked(self) -> pulumi.Output[Optional[_builtins.bool]]:
+        """
+        Block command-and-control traffic.
+        """
         return pulumi.get(self, "cmd_ctl_traffic_blocked")
 
     @_builtins.property
     @pulumi.getter(name="cmdCtlTrafficCapture")
     def cmd_ctl_traffic_capture(self) -> pulumi.Output[Optional[_builtins.bool]]:
+        """
+        Enable packet capture for command-and-control traffic events.
+        """
         return pulumi.get(self, "cmd_ctl_traffic_capture")
 
     @_builtins.property
     @pulumi.getter(name="cookieStealingBlocked")
     def cookie_stealing_blocked(self) -> pulumi.Output[Optional[_builtins.bool]]:
+        """
+        Block cookie stealing attempts.
+        """
         return pulumi.get(self, "cookie_stealing_blocked")
 
     @_builtins.property
     @pulumi.getter(name="cookieStealingPcapEnabled")
     def cookie_stealing_pcap_enabled(self) -> pulumi.Output[Optional[_builtins.bool]]:
+        """
+        Enable packet capture for cookie stealing events.
+        """
         return pulumi.get(self, "cookie_stealing_pcap_enabled")
 
     @_builtins.property
     @pulumi.getter(name="cryptoMiningBlocked")
     def crypto_mining_blocked(self) -> pulumi.Output[Optional[_builtins.bool]]:
+        """
+        Block crypto mining traffic.
+        """
         return pulumi.get(self, "crypto_mining_blocked")
 
     @_builtins.property
     @pulumi.getter(name="cryptoMiningCapture")
     def crypto_mining_capture(self) -> pulumi.Output[Optional[_builtins.bool]]:
+        """
+        Enable packet capture for crypto mining events.
+        """
         return pulumi.get(self, "crypto_mining_capture")
 
     @_builtins.property
     @pulumi.getter(name="dgaDomainsBlocked")
     def dga_domains_blocked(self) -> pulumi.Output[Optional[_builtins.bool]]:
+        """
+        Block domain generation algorithm (DGA) domains.
+        """
         return pulumi.get(self, "dga_domains_blocked")
 
     @_builtins.property
     @pulumi.getter(name="dgaDomainsCapture")
     def dga_domains_capture(self) -> pulumi.Output[Optional[_builtins.bool]]:
+        """
+        Enable packet capture for DGA domain events.
+        """
         return pulumi.get(self, "dga_domains_capture")
 
     @_builtins.property
     @pulumi.getter(name="fileFormatVunerabilitesBlocked")
     def file_format_vunerabilites_blocked(self) -> pulumi.Output[Optional[_builtins.bool]]:
+        """
+        Block file format vulnerabilities.
+        """
         return pulumi.get(self, "file_format_vunerabilites_blocked")
 
     @_builtins.property
     @pulumi.getter(name="fileFormatVunerabilitesCapture")
     def file_format_vunerabilites_capture(self) -> pulumi.Output[Optional[_builtins.bool]]:
+        """
+        Enable packet capture for file format vulnerability events.
+        """
         return pulumi.get(self, "file_format_vunerabilites_capture")
 
     @_builtins.property
     @pulumi.getter(name="googleTalkBlocked")
     def google_talk_blocked(self) -> pulumi.Output[Optional[_builtins.bool]]:
+        """
+        Block Google Talk traffic.
+        """
         return pulumi.get(self, "google_talk_blocked")
 
     @_builtins.property
     @pulumi.getter(name="googleTalkCapture")
     def google_talk_capture(self) -> pulumi.Output[Optional[_builtins.bool]]:
+        """
+        Enable packet capture for Google Talk events.
+        """
         return pulumi.get(self, "google_talk_capture")
 
     @_builtins.property
     @pulumi.getter(name="ircTunnellingBlocked")
     def irc_tunnelling_blocked(self) -> pulumi.Output[Optional[_builtins.bool]]:
+        """
+        Block IRC tunnelling.
+        """
         return pulumi.get(self, "irc_tunnelling_blocked")
 
     @_builtins.property
     @pulumi.getter(name="ircTunnellingCapture")
     def irc_tunnelling_capture(self) -> pulumi.Output[Optional[_builtins.bool]]:
+        """
+        Enable packet capture for IRC tunnelling events.
+        """
         return pulumi.get(self, "irc_tunnelling_capture")
 
     @_builtins.property
     @pulumi.getter(name="knownPhishingSitesBlocked")
     def known_phishing_sites_blocked(self) -> pulumi.Output[Optional[_builtins.bool]]:
+        """
+        Block known phishing sites.
+        """
         return pulumi.get(self, "known_phishing_sites_blocked")
 
     @_builtins.property
     @pulumi.getter(name="knownPhishingSitesCapture")
     def known_phishing_sites_capture(self) -> pulumi.Output[Optional[_builtins.bool]]:
+        """
+        Enable packet capture for known phishing site events.
+        """
         return pulumi.get(self, "known_phishing_sites_capture")
 
     @_builtins.property
     @pulumi.getter(name="maliciousUrlsCapture")
     def malicious_urls_capture(self) -> pulumi.Output[Optional[_builtins.bool]]:
+        """
+        Enable packet capture for malicious URL events.
+        """
         return pulumi.get(self, "malicious_urls_capture")
 
     @_builtins.property
     @pulumi.getter(name="malwareSitesBlocked")
     def malware_sites_blocked(self) -> pulumi.Output[Optional[_builtins.bool]]:
+        """
+        Block known malware sites.
+        """
         return pulumi.get(self, "malware_sites_blocked")
 
     @_builtins.property
     @pulumi.getter(name="malwareSitesCapture")
     def malware_sites_capture(self) -> pulumi.Output[Optional[_builtins.bool]]:
+        """
+        Enable packet capture for malware site events.
+        """
         return pulumi.get(self, "malware_sites_capture")
 
     @_builtins.property
     @pulumi.getter(name="potentialMaliciousRequestsBlocked")
     def potential_malicious_requests_blocked(self) -> pulumi.Output[Optional[_builtins.bool]]:
+        """
+        Block potentially malicious requests.
+        """
         return pulumi.get(self, "potential_malicious_requests_blocked")
 
     @_builtins.property
     @pulumi.getter(name="potentialMaliciousRequestsCapture")
     def potential_malicious_requests_capture(self) -> pulumi.Output[Optional[_builtins.bool]]:
+        """
+        Enable packet capture for potentially malicious request events.
+        """
         return pulumi.get(self, "potential_malicious_requests_capture")
 
     @_builtins.property
     @pulumi.getter(name="resourceId")
     def resource_id(self) -> pulumi.Output[_builtins.str]:
+        """
+        The internal resource identifier for the ATP settings.
+        """
         return pulumi.get(self, "resource_id")
 
     @_builtins.property
     @pulumi.getter(name="riskTolerance")
     def risk_tolerance(self) -> pulumi.Output[Optional[_builtins.int]]:
+        """
+        Risk tolerance level. Controls the sensitivity for detecting threats.
+        """
         return pulumi.get(self, "risk_tolerance")
 
     @_builtins.property
     @pulumi.getter(name="riskToleranceCapture")
     def risk_tolerance_capture(self) -> pulumi.Output[Optional[_builtins.bool]]:
+        """
+        Enable packet capture for risk tolerance events.
+        """
         return pulumi.get(self, "risk_tolerance_capture")
 
     @_builtins.property
     @pulumi.getter(name="sshTunnellingBlocked")
     def ssh_tunnelling_blocked(self) -> pulumi.Output[Optional[_builtins.bool]]:
+        """
+        Block SSH tunnelling.
+        """
         return pulumi.get(self, "ssh_tunnelling_blocked")
 
     @_builtins.property
     @pulumi.getter(name="sshTunnellingCapture")
     def ssh_tunnelling_capture(self) -> pulumi.Output[Optional[_builtins.bool]]:
+        """
+        Enable packet capture for SSH tunnelling events.
+        """
         return pulumi.get(self, "ssh_tunnelling_capture")
 
     @_builtins.property
     @pulumi.getter(name="suspectAdwareSpywareSitesBlocked")
     def suspect_adware_spyware_sites_blocked(self) -> pulumi.Output[Optional[_builtins.bool]]:
+        """
+        Block suspect adware/spyware sites.
+        """
         return pulumi.get(self, "suspect_adware_spyware_sites_blocked")
 
     @_builtins.property
     @pulumi.getter(name="suspectAdwareSpywareSitesCapture")
     def suspect_adware_spyware_sites_capture(self) -> pulumi.Output[Optional[_builtins.bool]]:
+        """
+        Enable packet capture for suspect adware/spyware site events.
+        """
         return pulumi.get(self, "suspect_adware_spyware_sites_capture")
 
     @_builtins.property
     @pulumi.getter(name="suspectedPhishingSitesBlocked")
     def suspected_phishing_sites_blocked(self) -> pulumi.Output[Optional[_builtins.bool]]:
+        """
+        Block suspected phishing sites.
+        """
         return pulumi.get(self, "suspected_phishing_sites_blocked")
 
     @_builtins.property
     @pulumi.getter(name="suspectedPhishingSitesCapture")
     def suspected_phishing_sites_capture(self) -> pulumi.Output[Optional[_builtins.bool]]:
+        """
+        Enable packet capture for suspected phishing site events.
+        """
         return pulumi.get(self, "suspected_phishing_sites_capture")
 
     @_builtins.property
     @pulumi.getter(name="torBlocked")
     def tor_blocked(self) -> pulumi.Output[Optional[_builtins.bool]]:
+        """
+        Block Tor traffic.
+        """
         return pulumi.get(self, "tor_blocked")
 
     @_builtins.property
     @pulumi.getter(name="torCapture")
     def tor_capture(self) -> pulumi.Output[Optional[_builtins.bool]]:
+        """
+        Enable packet capture for Tor events.
+        """
         return pulumi.get(self, "tor_capture")
 
     @_builtins.property
     @pulumi.getter(name="webSpamBlocked")
     def web_spam_blocked(self) -> pulumi.Output[Optional[_builtins.bool]]:
+        """
+        Block web spam.
+        """
         return pulumi.get(self, "web_spam_blocked")
 
     @_builtins.property
     @pulumi.getter(name="webSpamCapture")
     def web_spam_capture(self) -> pulumi.Output[Optional[_builtins.bool]]:
+        """
+        Enable packet capture for web spam events.
+        """
         return pulumi.get(self, "web_spam_capture")
 

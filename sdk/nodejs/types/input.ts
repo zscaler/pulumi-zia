@@ -10,9 +10,9 @@ export interface AdminUserRoleInputArgs {
 }
 
 export interface CBIProfileInputArgs {
-    id?: pulumi.Input<string>;
     name?: pulumi.Input<string>;
     profileSeq?: pulumi.Input<number>;
+    resourceId?: pulumi.Input<string>;
     url?: pulumi.Input<string>;
 }
 
@@ -26,6 +26,16 @@ export interface DecryptSubActionsInputArgs {
     serverCertificates?: pulumi.Input<string>;
 }
 
+export interface DlpDictionaryPatternInputArgs {
+    action?: pulumi.Input<string>;
+    pattern?: pulumi.Input<string>;
+}
+
+export interface DlpDictionaryPhraseInputArgs {
+    action?: pulumi.Input<string>;
+    phrase?: pulumi.Input<string>;
+}
+
 export interface DoNotDecryptSubActionsInputArgs {
     blockSslTrafficWithNoSniEnabled?: pulumi.Input<boolean>;
     bypassOtherPolicies?: pulumi.Input<boolean>;
@@ -34,10 +44,48 @@ export interface DoNotDecryptSubActionsInputArgs {
     serverCertificates?: pulumi.Input<string>;
 }
 
+export interface ExtranetDnsListInputArgs {
+    id?: pulumi.Input<number>;
+    name?: pulumi.Input<string>;
+    primaryDnsServer?: pulumi.Input<string>;
+    secondaryDnsServer?: pulumi.Input<string>;
+    useAsDefault?: pulumi.Input<boolean>;
+}
+
+export interface ExtranetIpPoolListInputArgs {
+    id?: pulumi.Input<number>;
+    ipEnd?: pulumi.Input<string>;
+    ipStart?: pulumi.Input<string>;
+    name?: pulumi.Input<string>;
+    useAsDefault?: pulumi.Input<boolean>;
+}
+
 export interface GreTunnelDestVipInputArgs {
     datacenter?: pulumi.Input<string>;
     id?: pulumi.Input<number>;
     virtualIp?: pulumi.Input<string>;
+}
+
+export interface InstanceIdentifierInputArgs {
+    identifierType?: pulumi.Input<string>;
+    instanceId?: pulumi.Input<number>;
+    instanceIdentifier?: pulumi.Input<string>;
+    instanceIdentifierName?: pulumi.Input<string>;
+}
+
+export interface Md5HashValueInputArgs {
+    type?: pulumi.Input<string>;
+    url?: pulumi.Input<string>;
+    urlComment?: pulumi.Input<string>;
+}
+
+export interface NetworkPortInputArgs {
+    end?: pulumi.Input<number>;
+    start?: pulumi.Input<number>;
+}
+
+export interface SmartIsolationProfileInputArgs {
+    id?: pulumi.Input<string>;
 }
 
 export interface SslInspectionActionInputArgs {
@@ -56,8 +104,8 @@ export interface SslInterceptionCertInputArgs {
 
 export interface SubCloudExclusionDatacenterInputArgs {
     country?: pulumi.Input<string>;
-    id: pulumi.Input<number>;
     name?: pulumi.Input<string>;
+    resourceId: pulumi.Input<number>;
 }
 
 export interface SubCloudExclusionInputArgs {
@@ -88,6 +136,14 @@ export interface UserDepartmentInputArgs {
     name?: pulumi.Input<string>;
 }
 
+export interface VpnCredentialInputArgs {
+    fqdn?: pulumi.Input<string>;
+    id?: pulumi.Input<number>;
+    ipAddress?: pulumi.Input<string>;
+    preSharedKey?: pulumi.Input<string>;
+    type?: pulumi.Input<string>;
+}
+
 export interface WorkloadGroupExpressionContainerInputArgs {
     operator?: pulumi.Input<string>;
     tagContainer?: pulumi.Input<inputs.WorkloadGroupTagContainerInputArgs>;
@@ -99,8 +155,8 @@ export interface WorkloadGroupExpressionJsonInputArgs {
 }
 
 export interface WorkloadGroupInputArgs {
-    id: pulumi.Input<number>;
     name?: pulumi.Input<string>;
+    resourceId: pulumi.Input<number>;
 }
 
 export interface WorkloadGroupTagContainerInputArgs {
@@ -116,4 +172,14 @@ export interface WorkloadGroupTagInputArgs {
 export interface ZPAAppSegmentInputArgs {
     externalId: pulumi.Input<string>;
     name: pulumi.Input<string>;
+}
+
+export interface ZpaGatewayAppSegmentInputArgs {
+    externalId?: pulumi.Input<string>;
+    name?: pulumi.Input<string>;
+}
+
+export interface ZpaServerGroupInputArgs {
+    externalId?: pulumi.Input<string>;
+    name?: pulumi.Input<string>;
 }

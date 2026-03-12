@@ -4,6 +4,36 @@
 import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "./utilities";
 
+/**
+ * The zia.VzenNode resource manages Virtual ZEN (VZEN) node configurations in the Zscaler Internet Access (ZIA) cloud.
+ * VZEN nodes are virtual appliances deployed on-premises to process traffic locally before forwarding to the ZIA cloud.
+ *
+ * ## Example Usage
+ * ### Basic VZEN Node
+ *
+ * ```typescript
+ * import * as zia from "@bdzscaler/pulumi-zia";
+ *
+ * const example = new zia.VzenNode("example", {
+ *     name: "Example VZEN Node",
+ *     status: "ENABLED",
+ *     type: "VZEN",
+ *     ipAddress: "10.0.0.10",
+ *     subnetMask: "255.255.255.0",
+ *     defaultGateway: "10.0.0.1",
+ *     deploymentMode: "STANDALONE",
+ *     vzenSkuType: "MEDIUM",
+ * });
+ * ```
+ *
+ * ## Import
+ *
+ * An existing VZEN node can be imported using its ID, e.g.
+ *
+ * ```sh
+ * $ pulumi import zia:index:VzenNode example 12345
+ * ```
+ */
 export class VzenNode extends pulumi.CustomResource {
     /**
      * Get an existing VzenNode resource's state with the given name, ID, and optional extra
@@ -31,20 +61,65 @@ export class VzenNode extends pulumi.CustomResource {
         return obj['__pulumiType'] === VzenNode.__pulumiType;
     }
 
+    /**
+     * The cluster name if deployment mode is CLUSTER.
+     */
     declare public readonly clusterName: pulumi.Output<string | undefined>;
+    /**
+     * The default gateway of the VZEN node.
+     */
     declare public readonly defaultGateway: pulumi.Output<string | undefined>;
+    /**
+     * The deployment mode. Accepted values: 'STANDALONE' or 'CLUSTER'.
+     */
     declare public readonly deploymentMode: pulumi.Output<string | undefined>;
+    /**
+     * Whether establish support tunnel is enabled.
+     */
     declare public readonly establishSupportTunnelEnabled: pulumi.Output<boolean | undefined>;
+    /**
+     * Whether the node is in production.
+     */
     declare public readonly inProduction: pulumi.Output<boolean | undefined>;
+    /**
+     * The IP address of the VZEN node.
+     */
     declare public readonly ipAddress: pulumi.Output<string | undefined>;
+    /**
+     * Whether IPSec is enabled on the node.
+     */
     declare public readonly ipSecEnabled: pulumi.Output<boolean | undefined>;
+    /**
+     * The load balancer IP address.
+     */
     declare public readonly loadBalancerIpAddress: pulumi.Output<string | undefined>;
+    /**
+     * Name of the VZEN node.
+     */
     declare public readonly name: pulumi.Output<string | undefined>;
+    /**
+     * The unique identifier for the VZEN node assigned by the ZIA cloud.
+     */
     declare public /*out*/ readonly nodeId: pulumi.Output<number>;
+    /**
+     * Whether on-demand support tunnel is enabled.
+     */
     declare public readonly onDemandSupportTunnelEnabled: pulumi.Output<boolean | undefined>;
+    /**
+     * The status of the node. Accepted values: 'ENABLED', 'DISABLED', 'DISABLED_BY_SERVICE_PROVIDER', 'NOT_PROVISIONED_IN_SERVICE_PROVIDER', 'IN_TRIAL'.
+     */
     declare public readonly status: pulumi.Output<string | undefined>;
+    /**
+     * The subnet mask of the VZEN node.
+     */
     declare public readonly subnetMask: pulumi.Output<string | undefined>;
+    /**
+     * The type of the VZEN node.
+     */
     declare public readonly type: pulumi.Output<string | undefined>;
+    /**
+     * The VZEN SKU type. Accepted values: 'SMALL', 'MEDIUM', 'LARGE'.
+     */
     declare public readonly vzenSkuType: pulumi.Output<string | undefined>;
 
     /**
@@ -99,18 +174,60 @@ export class VzenNode extends pulumi.CustomResource {
  * The set of arguments for constructing a VzenNode resource.
  */
 export interface VzenNodeArgs {
+    /**
+     * The cluster name if deployment mode is CLUSTER.
+     */
     clusterName?: pulumi.Input<string>;
+    /**
+     * The default gateway of the VZEN node.
+     */
     defaultGateway?: pulumi.Input<string>;
+    /**
+     * The deployment mode. Accepted values: 'STANDALONE' or 'CLUSTER'.
+     */
     deploymentMode?: pulumi.Input<string>;
+    /**
+     * Whether establish support tunnel is enabled.
+     */
     establishSupportTunnelEnabled?: pulumi.Input<boolean>;
+    /**
+     * Whether the node is in production.
+     */
     inProduction?: pulumi.Input<boolean>;
+    /**
+     * The IP address of the VZEN node.
+     */
     ipAddress?: pulumi.Input<string>;
+    /**
+     * Whether IPSec is enabled on the node.
+     */
     ipSecEnabled?: pulumi.Input<boolean>;
+    /**
+     * The load balancer IP address.
+     */
     loadBalancerIpAddress?: pulumi.Input<string>;
+    /**
+     * Name of the VZEN node.
+     */
     name?: pulumi.Input<string>;
+    /**
+     * Whether on-demand support tunnel is enabled.
+     */
     onDemandSupportTunnelEnabled?: pulumi.Input<boolean>;
+    /**
+     * The status of the node. Accepted values: 'ENABLED', 'DISABLED', 'DISABLED_BY_SERVICE_PROVIDER', 'NOT_PROVISIONED_IN_SERVICE_PROVIDER', 'IN_TRIAL'.
+     */
     status?: pulumi.Input<string>;
+    /**
+     * The subnet mask of the VZEN node.
+     */
     subnetMask?: pulumi.Input<string>;
+    /**
+     * The type of the VZEN node.
+     */
     type?: pulumi.Input<string>;
+    /**
+     * The VZEN SKU type. Accepted values: 'SMALL', 'MEDIUM', 'LARGE'.
+     */
     vzenSkuType?: pulumi.Input<string>;
 }

@@ -18,338 +18,722 @@ public final class AtpSettingsArgs extends com.pulumi.resources.ResourceArgs {
 
     public static final AtpSettingsArgs Empty = new AtpSettingsArgs();
 
+    /**
+     * Block ActiveX controls.
+     * 
+     */
     @Import(name="activexBlocked")
     private @Nullable Output<Boolean> activexBlocked;
 
+    /**
+     * @return Block ActiveX controls.
+     * 
+     */
     public Optional<Output<Boolean>> activexBlocked() {
         return Optional.ofNullable(this.activexBlocked);
     }
 
+    /**
+     * Enable packet capture for ActiveX events.
+     * 
+     */
     @Import(name="activexCapture")
     private @Nullable Output<Boolean> activexCapture;
 
+    /**
+     * @return Enable packet capture for ActiveX events.
+     * 
+     */
     public Optional<Output<Boolean>> activexCapture() {
         return Optional.ofNullable(this.activexCapture);
     }
 
+    /**
+     * Block adware/spyware sites.
+     * 
+     */
     @Import(name="adSpywareSitesBlocked")
     private @Nullable Output<Boolean> adSpywareSitesBlocked;
 
+    /**
+     * @return Block adware/spyware sites.
+     * 
+     */
     public Optional<Output<Boolean>> adSpywareSitesBlocked() {
         return Optional.ofNullable(this.adSpywareSitesBlocked);
     }
 
+    /**
+     * Enable packet capture for adware/spyware site events.
+     * 
+     */
     @Import(name="adSpywareSitesCapture")
     private @Nullable Output<Boolean> adSpywareSitesCapture;
 
+    /**
+     * @return Enable packet capture for adware/spyware site events.
+     * 
+     */
     public Optional<Output<Boolean>> adSpywareSitesCapture() {
         return Optional.ofNullable(this.adSpywareSitesCapture);
     }
 
+    /**
+     * Enable alerts for unknown or suspicious C2 traffic.
+     * 
+     */
     @Import(name="alertForUnknownSuspiciousC2Traffic")
     private @Nullable Output<Boolean> alertForUnknownSuspiciousC2Traffic;
 
+    /**
+     * @return Enable alerts for unknown or suspicious C2 traffic.
+     * 
+     */
     public Optional<Output<Boolean>> alertForUnknownSuspiciousC2Traffic() {
         return Optional.ofNullable(this.alertForUnknownSuspiciousC2Traffic);
     }
 
+    /**
+     * Block anonymizers.
+     * 
+     */
     @Import(name="anonymizerBlocked")
     private @Nullable Output<Boolean> anonymizerBlocked;
 
+    /**
+     * @return Block anonymizers.
+     * 
+     */
     public Optional<Output<Boolean>> anonymizerBlocked() {
         return Optional.ofNullable(this.anonymizerBlocked);
     }
 
+    /**
+     * Enable packet capture for anonymizer events.
+     * 
+     */
     @Import(name="anonymizerCapture")
     private @Nullable Output<Boolean> anonymizerCapture;
 
+    /**
+     * @return Enable packet capture for anonymizer events.
+     * 
+     */
     public Optional<Output<Boolean>> anonymizerCapture() {
         return Optional.ofNullable(this.anonymizerCapture);
     }
 
+    /**
+     * Block BitTorrent traffic.
+     * 
+     */
     @Import(name="bitTorrentBlocked")
     private @Nullable Output<Boolean> bitTorrentBlocked;
 
+    /**
+     * @return Block BitTorrent traffic.
+     * 
+     */
     public Optional<Output<Boolean>> bitTorrentBlocked() {
         return Optional.ofNullable(this.bitTorrentBlocked);
     }
 
+    /**
+     * Enable packet capture for BitTorrent events.
+     * 
+     */
     @Import(name="bitTorrentCapture")
     private @Nullable Output<Boolean> bitTorrentCapture;
 
+    /**
+     * @return Enable packet capture for BitTorrent events.
+     * 
+     */
     public Optional<Output<Boolean>> bitTorrentCapture() {
         return Optional.ofNullable(this.bitTorrentCapture);
     }
 
+    /**
+     * Enable packet capture for blocked countries events.
+     * 
+     */
     @Import(name="blockCountriesCapture")
     private @Nullable Output<Boolean> blockCountriesCapture;
 
+    /**
+     * @return Enable packet capture for blocked countries events.
+     * 
+     */
     public Optional<Output<Boolean>> blockCountriesCapture() {
         return Optional.ofNullable(this.blockCountriesCapture);
     }
 
+    /**
+     * List of countries (ISO 3166-1 alpha-2 codes) to block.
+     * 
+     */
     @Import(name="blockedCountries")
     private @Nullable Output<List<String>> blockedCountries;
 
+    /**
+     * @return List of countries (ISO 3166-1 alpha-2 codes) to block.
+     * 
+     */
     public Optional<Output<List<String>>> blockedCountries() {
         return Optional.ofNullable(this.blockedCountries);
     }
 
+    /**
+     * Block browser exploits.
+     * 
+     */
     @Import(name="browserExploitsBlocked")
     private @Nullable Output<Boolean> browserExploitsBlocked;
 
+    /**
+     * @return Block browser exploits.
+     * 
+     */
     public Optional<Output<Boolean>> browserExploitsBlocked() {
         return Optional.ofNullable(this.browserExploitsBlocked);
     }
 
+    /**
+     * Enable packet capture for browser exploit events.
+     * 
+     */
     @Import(name="browserExploitsCapture")
     private @Nullable Output<Boolean> browserExploitsCapture;
 
+    /**
+     * @return Enable packet capture for browser exploit events.
+     * 
+     */
     public Optional<Output<Boolean>> browserExploitsCapture() {
         return Optional.ofNullable(this.browserExploitsCapture);
     }
 
+    /**
+     * Block known command-and-control servers.
+     * 
+     */
     @Import(name="cmdCtlServerBlocked")
     private @Nullable Output<Boolean> cmdCtlServerBlocked;
 
+    /**
+     * @return Block known command-and-control servers.
+     * 
+     */
     public Optional<Output<Boolean>> cmdCtlServerBlocked() {
         return Optional.ofNullable(this.cmdCtlServerBlocked);
     }
 
+    /**
+     * Enable packet capture for command-and-control server events.
+     * 
+     */
     @Import(name="cmdCtlServerCapture")
     private @Nullable Output<Boolean> cmdCtlServerCapture;
 
+    /**
+     * @return Enable packet capture for command-and-control server events.
+     * 
+     */
     public Optional<Output<Boolean>> cmdCtlServerCapture() {
         return Optional.ofNullable(this.cmdCtlServerCapture);
     }
 
+    /**
+     * Block command-and-control traffic.
+     * 
+     */
     @Import(name="cmdCtlTrafficBlocked")
     private @Nullable Output<Boolean> cmdCtlTrafficBlocked;
 
+    /**
+     * @return Block command-and-control traffic.
+     * 
+     */
     public Optional<Output<Boolean>> cmdCtlTrafficBlocked() {
         return Optional.ofNullable(this.cmdCtlTrafficBlocked);
     }
 
+    /**
+     * Enable packet capture for command-and-control traffic events.
+     * 
+     */
     @Import(name="cmdCtlTrafficCapture")
     private @Nullable Output<Boolean> cmdCtlTrafficCapture;
 
+    /**
+     * @return Enable packet capture for command-and-control traffic events.
+     * 
+     */
     public Optional<Output<Boolean>> cmdCtlTrafficCapture() {
         return Optional.ofNullable(this.cmdCtlTrafficCapture);
     }
 
+    /**
+     * Block cookie stealing attempts.
+     * 
+     */
     @Import(name="cookieStealingBlocked")
     private @Nullable Output<Boolean> cookieStealingBlocked;
 
+    /**
+     * @return Block cookie stealing attempts.
+     * 
+     */
     public Optional<Output<Boolean>> cookieStealingBlocked() {
         return Optional.ofNullable(this.cookieStealingBlocked);
     }
 
+    /**
+     * Enable packet capture for cookie stealing events.
+     * 
+     */
     @Import(name="cookieStealingPcapEnabled")
     private @Nullable Output<Boolean> cookieStealingPcapEnabled;
 
+    /**
+     * @return Enable packet capture for cookie stealing events.
+     * 
+     */
     public Optional<Output<Boolean>> cookieStealingPcapEnabled() {
         return Optional.ofNullable(this.cookieStealingPcapEnabled);
     }
 
+    /**
+     * Block crypto mining traffic.
+     * 
+     */
     @Import(name="cryptoMiningBlocked")
     private @Nullable Output<Boolean> cryptoMiningBlocked;
 
+    /**
+     * @return Block crypto mining traffic.
+     * 
+     */
     public Optional<Output<Boolean>> cryptoMiningBlocked() {
         return Optional.ofNullable(this.cryptoMiningBlocked);
     }
 
+    /**
+     * Enable packet capture for crypto mining events.
+     * 
+     */
     @Import(name="cryptoMiningCapture")
     private @Nullable Output<Boolean> cryptoMiningCapture;
 
+    /**
+     * @return Enable packet capture for crypto mining events.
+     * 
+     */
     public Optional<Output<Boolean>> cryptoMiningCapture() {
         return Optional.ofNullable(this.cryptoMiningCapture);
     }
 
+    /**
+     * Block domain generation algorithm (DGA) domains.
+     * 
+     */
     @Import(name="dgaDomainsBlocked")
     private @Nullable Output<Boolean> dgaDomainsBlocked;
 
+    /**
+     * @return Block domain generation algorithm (DGA) domains.
+     * 
+     */
     public Optional<Output<Boolean>> dgaDomainsBlocked() {
         return Optional.ofNullable(this.dgaDomainsBlocked);
     }
 
+    /**
+     * Enable packet capture for DGA domain events.
+     * 
+     */
     @Import(name="dgaDomainsCapture")
     private @Nullable Output<Boolean> dgaDomainsCapture;
 
+    /**
+     * @return Enable packet capture for DGA domain events.
+     * 
+     */
     public Optional<Output<Boolean>> dgaDomainsCapture() {
         return Optional.ofNullable(this.dgaDomainsCapture);
     }
 
+    /**
+     * Block file format vulnerabilities.
+     * 
+     */
     @Import(name="fileFormatVunerabilitesBlocked")
     private @Nullable Output<Boolean> fileFormatVunerabilitesBlocked;
 
+    /**
+     * @return Block file format vulnerabilities.
+     * 
+     */
     public Optional<Output<Boolean>> fileFormatVunerabilitesBlocked() {
         return Optional.ofNullable(this.fileFormatVunerabilitesBlocked);
     }
 
+    /**
+     * Enable packet capture for file format vulnerability events.
+     * 
+     */
     @Import(name="fileFormatVunerabilitesCapture")
     private @Nullable Output<Boolean> fileFormatVunerabilitesCapture;
 
+    /**
+     * @return Enable packet capture for file format vulnerability events.
+     * 
+     */
     public Optional<Output<Boolean>> fileFormatVunerabilitesCapture() {
         return Optional.ofNullable(this.fileFormatVunerabilitesCapture);
     }
 
+    /**
+     * Block Google Talk traffic.
+     * 
+     */
     @Import(name="googleTalkBlocked")
     private @Nullable Output<Boolean> googleTalkBlocked;
 
+    /**
+     * @return Block Google Talk traffic.
+     * 
+     */
     public Optional<Output<Boolean>> googleTalkBlocked() {
         return Optional.ofNullable(this.googleTalkBlocked);
     }
 
+    /**
+     * Enable packet capture for Google Talk events.
+     * 
+     */
     @Import(name="googleTalkCapture")
     private @Nullable Output<Boolean> googleTalkCapture;
 
+    /**
+     * @return Enable packet capture for Google Talk events.
+     * 
+     */
     public Optional<Output<Boolean>> googleTalkCapture() {
         return Optional.ofNullable(this.googleTalkCapture);
     }
 
+    /**
+     * Block IRC tunnelling.
+     * 
+     */
     @Import(name="ircTunnellingBlocked")
     private @Nullable Output<Boolean> ircTunnellingBlocked;
 
+    /**
+     * @return Block IRC tunnelling.
+     * 
+     */
     public Optional<Output<Boolean>> ircTunnellingBlocked() {
         return Optional.ofNullable(this.ircTunnellingBlocked);
     }
 
+    /**
+     * Enable packet capture for IRC tunnelling events.
+     * 
+     */
     @Import(name="ircTunnellingCapture")
     private @Nullable Output<Boolean> ircTunnellingCapture;
 
+    /**
+     * @return Enable packet capture for IRC tunnelling events.
+     * 
+     */
     public Optional<Output<Boolean>> ircTunnellingCapture() {
         return Optional.ofNullable(this.ircTunnellingCapture);
     }
 
+    /**
+     * Block known phishing sites.
+     * 
+     */
     @Import(name="knownPhishingSitesBlocked")
     private @Nullable Output<Boolean> knownPhishingSitesBlocked;
 
+    /**
+     * @return Block known phishing sites.
+     * 
+     */
     public Optional<Output<Boolean>> knownPhishingSitesBlocked() {
         return Optional.ofNullable(this.knownPhishingSitesBlocked);
     }
 
+    /**
+     * Enable packet capture for known phishing site events.
+     * 
+     */
     @Import(name="knownPhishingSitesCapture")
     private @Nullable Output<Boolean> knownPhishingSitesCapture;
 
+    /**
+     * @return Enable packet capture for known phishing site events.
+     * 
+     */
     public Optional<Output<Boolean>> knownPhishingSitesCapture() {
         return Optional.ofNullable(this.knownPhishingSitesCapture);
     }
 
+    /**
+     * Enable packet capture for malicious URL events.
+     * 
+     */
     @Import(name="maliciousUrlsCapture")
     private @Nullable Output<Boolean> maliciousUrlsCapture;
 
+    /**
+     * @return Enable packet capture for malicious URL events.
+     * 
+     */
     public Optional<Output<Boolean>> maliciousUrlsCapture() {
         return Optional.ofNullable(this.maliciousUrlsCapture);
     }
 
+    /**
+     * Block known malware sites.
+     * 
+     */
     @Import(name="malwareSitesBlocked")
     private @Nullable Output<Boolean> malwareSitesBlocked;
 
+    /**
+     * @return Block known malware sites.
+     * 
+     */
     public Optional<Output<Boolean>> malwareSitesBlocked() {
         return Optional.ofNullable(this.malwareSitesBlocked);
     }
 
+    /**
+     * Enable packet capture for malware site events.
+     * 
+     */
     @Import(name="malwareSitesCapture")
     private @Nullable Output<Boolean> malwareSitesCapture;
 
+    /**
+     * @return Enable packet capture for malware site events.
+     * 
+     */
     public Optional<Output<Boolean>> malwareSitesCapture() {
         return Optional.ofNullable(this.malwareSitesCapture);
     }
 
+    /**
+     * Block potentially malicious requests.
+     * 
+     */
     @Import(name="potentialMaliciousRequestsBlocked")
     private @Nullable Output<Boolean> potentialMaliciousRequestsBlocked;
 
+    /**
+     * @return Block potentially malicious requests.
+     * 
+     */
     public Optional<Output<Boolean>> potentialMaliciousRequestsBlocked() {
         return Optional.ofNullable(this.potentialMaliciousRequestsBlocked);
     }
 
+    /**
+     * Enable packet capture for potentially malicious request events.
+     * 
+     */
     @Import(name="potentialMaliciousRequestsCapture")
     private @Nullable Output<Boolean> potentialMaliciousRequestsCapture;
 
+    /**
+     * @return Enable packet capture for potentially malicious request events.
+     * 
+     */
     public Optional<Output<Boolean>> potentialMaliciousRequestsCapture() {
         return Optional.ofNullable(this.potentialMaliciousRequestsCapture);
     }
 
+    /**
+     * Risk tolerance level. Controls the sensitivity for detecting threats.
+     * 
+     */
     @Import(name="riskTolerance")
     private @Nullable Output<Integer> riskTolerance;
 
+    /**
+     * @return Risk tolerance level. Controls the sensitivity for detecting threats.
+     * 
+     */
     public Optional<Output<Integer>> riskTolerance() {
         return Optional.ofNullable(this.riskTolerance);
     }
 
+    /**
+     * Enable packet capture for risk tolerance events.
+     * 
+     */
     @Import(name="riskToleranceCapture")
     private @Nullable Output<Boolean> riskToleranceCapture;
 
+    /**
+     * @return Enable packet capture for risk tolerance events.
+     * 
+     */
     public Optional<Output<Boolean>> riskToleranceCapture() {
         return Optional.ofNullable(this.riskToleranceCapture);
     }
 
+    /**
+     * Block SSH tunnelling.
+     * 
+     */
     @Import(name="sshTunnellingBlocked")
     private @Nullable Output<Boolean> sshTunnellingBlocked;
 
+    /**
+     * @return Block SSH tunnelling.
+     * 
+     */
     public Optional<Output<Boolean>> sshTunnellingBlocked() {
         return Optional.ofNullable(this.sshTunnellingBlocked);
     }
 
+    /**
+     * Enable packet capture for SSH tunnelling events.
+     * 
+     */
     @Import(name="sshTunnellingCapture")
     private @Nullable Output<Boolean> sshTunnellingCapture;
 
+    /**
+     * @return Enable packet capture for SSH tunnelling events.
+     * 
+     */
     public Optional<Output<Boolean>> sshTunnellingCapture() {
         return Optional.ofNullable(this.sshTunnellingCapture);
     }
 
+    /**
+     * Block suspect adware/spyware sites.
+     * 
+     */
     @Import(name="suspectAdwareSpywareSitesBlocked")
     private @Nullable Output<Boolean> suspectAdwareSpywareSitesBlocked;
 
+    /**
+     * @return Block suspect adware/spyware sites.
+     * 
+     */
     public Optional<Output<Boolean>> suspectAdwareSpywareSitesBlocked() {
         return Optional.ofNullable(this.suspectAdwareSpywareSitesBlocked);
     }
 
+    /**
+     * Enable packet capture for suspect adware/spyware site events.
+     * 
+     */
     @Import(name="suspectAdwareSpywareSitesCapture")
     private @Nullable Output<Boolean> suspectAdwareSpywareSitesCapture;
 
+    /**
+     * @return Enable packet capture for suspect adware/spyware site events.
+     * 
+     */
     public Optional<Output<Boolean>> suspectAdwareSpywareSitesCapture() {
         return Optional.ofNullable(this.suspectAdwareSpywareSitesCapture);
     }
 
+    /**
+     * Block suspected phishing sites.
+     * 
+     */
     @Import(name="suspectedPhishingSitesBlocked")
     private @Nullable Output<Boolean> suspectedPhishingSitesBlocked;
 
+    /**
+     * @return Block suspected phishing sites.
+     * 
+     */
     public Optional<Output<Boolean>> suspectedPhishingSitesBlocked() {
         return Optional.ofNullable(this.suspectedPhishingSitesBlocked);
     }
 
+    /**
+     * Enable packet capture for suspected phishing site events.
+     * 
+     */
     @Import(name="suspectedPhishingSitesCapture")
     private @Nullable Output<Boolean> suspectedPhishingSitesCapture;
 
+    /**
+     * @return Enable packet capture for suspected phishing site events.
+     * 
+     */
     public Optional<Output<Boolean>> suspectedPhishingSitesCapture() {
         return Optional.ofNullable(this.suspectedPhishingSitesCapture);
     }
 
+    /**
+     * Block Tor traffic.
+     * 
+     */
     @Import(name="torBlocked")
     private @Nullable Output<Boolean> torBlocked;
 
+    /**
+     * @return Block Tor traffic.
+     * 
+     */
     public Optional<Output<Boolean>> torBlocked() {
         return Optional.ofNullable(this.torBlocked);
     }
 
+    /**
+     * Enable packet capture for Tor events.
+     * 
+     */
     @Import(name="torCapture")
     private @Nullable Output<Boolean> torCapture;
 
+    /**
+     * @return Enable packet capture for Tor events.
+     * 
+     */
     public Optional<Output<Boolean>> torCapture() {
         return Optional.ofNullable(this.torCapture);
     }
 
+    /**
+     * Block web spam.
+     * 
+     */
     @Import(name="webSpamBlocked")
     private @Nullable Output<Boolean> webSpamBlocked;
 
+    /**
+     * @return Block web spam.
+     * 
+     */
     public Optional<Output<Boolean>> webSpamBlocked() {
         return Optional.ofNullable(this.webSpamBlocked);
     }
 
+    /**
+     * Enable packet capture for web spam events.
+     * 
+     */
     @Import(name="webSpamCapture")
     private @Nullable Output<Boolean> webSpamCapture;
 
+    /**
+     * @return Enable packet capture for web spam events.
+     * 
+     */
     public Optional<Output<Boolean>> webSpamCapture() {
         return Optional.ofNullable(this.webSpamCapture);
     }
@@ -425,438 +809,1020 @@ public final class AtpSettingsArgs extends com.pulumi.resources.ResourceArgs {
             $ = new AtpSettingsArgs(Objects.requireNonNull(defaults));
         }
 
+        /**
+         * @param activexBlocked Block ActiveX controls.
+         * 
+         * @return builder
+         * 
+         */
         public Builder activexBlocked(@Nullable Output<Boolean> activexBlocked) {
             $.activexBlocked = activexBlocked;
             return this;
         }
 
+        /**
+         * @param activexBlocked Block ActiveX controls.
+         * 
+         * @return builder
+         * 
+         */
         public Builder activexBlocked(Boolean activexBlocked) {
             return activexBlocked(Output.of(activexBlocked));
         }
 
+        /**
+         * @param activexCapture Enable packet capture for ActiveX events.
+         * 
+         * @return builder
+         * 
+         */
         public Builder activexCapture(@Nullable Output<Boolean> activexCapture) {
             $.activexCapture = activexCapture;
             return this;
         }
 
+        /**
+         * @param activexCapture Enable packet capture for ActiveX events.
+         * 
+         * @return builder
+         * 
+         */
         public Builder activexCapture(Boolean activexCapture) {
             return activexCapture(Output.of(activexCapture));
         }
 
+        /**
+         * @param adSpywareSitesBlocked Block adware/spyware sites.
+         * 
+         * @return builder
+         * 
+         */
         public Builder adSpywareSitesBlocked(@Nullable Output<Boolean> adSpywareSitesBlocked) {
             $.adSpywareSitesBlocked = adSpywareSitesBlocked;
             return this;
         }
 
+        /**
+         * @param adSpywareSitesBlocked Block adware/spyware sites.
+         * 
+         * @return builder
+         * 
+         */
         public Builder adSpywareSitesBlocked(Boolean adSpywareSitesBlocked) {
             return adSpywareSitesBlocked(Output.of(adSpywareSitesBlocked));
         }
 
+        /**
+         * @param adSpywareSitesCapture Enable packet capture for adware/spyware site events.
+         * 
+         * @return builder
+         * 
+         */
         public Builder adSpywareSitesCapture(@Nullable Output<Boolean> adSpywareSitesCapture) {
             $.adSpywareSitesCapture = adSpywareSitesCapture;
             return this;
         }
 
+        /**
+         * @param adSpywareSitesCapture Enable packet capture for adware/spyware site events.
+         * 
+         * @return builder
+         * 
+         */
         public Builder adSpywareSitesCapture(Boolean adSpywareSitesCapture) {
             return adSpywareSitesCapture(Output.of(adSpywareSitesCapture));
         }
 
+        /**
+         * @param alertForUnknownSuspiciousC2Traffic Enable alerts for unknown or suspicious C2 traffic.
+         * 
+         * @return builder
+         * 
+         */
         public Builder alertForUnknownSuspiciousC2Traffic(@Nullable Output<Boolean> alertForUnknownSuspiciousC2Traffic) {
             $.alertForUnknownSuspiciousC2Traffic = alertForUnknownSuspiciousC2Traffic;
             return this;
         }
 
+        /**
+         * @param alertForUnknownSuspiciousC2Traffic Enable alerts for unknown or suspicious C2 traffic.
+         * 
+         * @return builder
+         * 
+         */
         public Builder alertForUnknownSuspiciousC2Traffic(Boolean alertForUnknownSuspiciousC2Traffic) {
             return alertForUnknownSuspiciousC2Traffic(Output.of(alertForUnknownSuspiciousC2Traffic));
         }
 
+        /**
+         * @param anonymizerBlocked Block anonymizers.
+         * 
+         * @return builder
+         * 
+         */
         public Builder anonymizerBlocked(@Nullable Output<Boolean> anonymizerBlocked) {
             $.anonymizerBlocked = anonymizerBlocked;
             return this;
         }
 
+        /**
+         * @param anonymizerBlocked Block anonymizers.
+         * 
+         * @return builder
+         * 
+         */
         public Builder anonymizerBlocked(Boolean anonymizerBlocked) {
             return anonymizerBlocked(Output.of(anonymizerBlocked));
         }
 
+        /**
+         * @param anonymizerCapture Enable packet capture for anonymizer events.
+         * 
+         * @return builder
+         * 
+         */
         public Builder anonymizerCapture(@Nullable Output<Boolean> anonymizerCapture) {
             $.anonymizerCapture = anonymizerCapture;
             return this;
         }
 
+        /**
+         * @param anonymizerCapture Enable packet capture for anonymizer events.
+         * 
+         * @return builder
+         * 
+         */
         public Builder anonymizerCapture(Boolean anonymizerCapture) {
             return anonymizerCapture(Output.of(anonymizerCapture));
         }
 
+        /**
+         * @param bitTorrentBlocked Block BitTorrent traffic.
+         * 
+         * @return builder
+         * 
+         */
         public Builder bitTorrentBlocked(@Nullable Output<Boolean> bitTorrentBlocked) {
             $.bitTorrentBlocked = bitTorrentBlocked;
             return this;
         }
 
+        /**
+         * @param bitTorrentBlocked Block BitTorrent traffic.
+         * 
+         * @return builder
+         * 
+         */
         public Builder bitTorrentBlocked(Boolean bitTorrentBlocked) {
             return bitTorrentBlocked(Output.of(bitTorrentBlocked));
         }
 
+        /**
+         * @param bitTorrentCapture Enable packet capture for BitTorrent events.
+         * 
+         * @return builder
+         * 
+         */
         public Builder bitTorrentCapture(@Nullable Output<Boolean> bitTorrentCapture) {
             $.bitTorrentCapture = bitTorrentCapture;
             return this;
         }
 
+        /**
+         * @param bitTorrentCapture Enable packet capture for BitTorrent events.
+         * 
+         * @return builder
+         * 
+         */
         public Builder bitTorrentCapture(Boolean bitTorrentCapture) {
             return bitTorrentCapture(Output.of(bitTorrentCapture));
         }
 
+        /**
+         * @param blockCountriesCapture Enable packet capture for blocked countries events.
+         * 
+         * @return builder
+         * 
+         */
         public Builder blockCountriesCapture(@Nullable Output<Boolean> blockCountriesCapture) {
             $.blockCountriesCapture = blockCountriesCapture;
             return this;
         }
 
+        /**
+         * @param blockCountriesCapture Enable packet capture for blocked countries events.
+         * 
+         * @return builder
+         * 
+         */
         public Builder blockCountriesCapture(Boolean blockCountriesCapture) {
             return blockCountriesCapture(Output.of(blockCountriesCapture));
         }
 
+        /**
+         * @param blockedCountries List of countries (ISO 3166-1 alpha-2 codes) to block.
+         * 
+         * @return builder
+         * 
+         */
         public Builder blockedCountries(@Nullable Output<List<String>> blockedCountries) {
             $.blockedCountries = blockedCountries;
             return this;
         }
 
+        /**
+         * @param blockedCountries List of countries (ISO 3166-1 alpha-2 codes) to block.
+         * 
+         * @return builder
+         * 
+         */
         public Builder blockedCountries(List<String> blockedCountries) {
             return blockedCountries(Output.of(blockedCountries));
         }
 
+        /**
+         * @param blockedCountries List of countries (ISO 3166-1 alpha-2 codes) to block.
+         * 
+         * @return builder
+         * 
+         */
         public Builder blockedCountries(String... blockedCountries) {
             return blockedCountries(List.of(blockedCountries));
         }
 
+        /**
+         * @param browserExploitsBlocked Block browser exploits.
+         * 
+         * @return builder
+         * 
+         */
         public Builder browserExploitsBlocked(@Nullable Output<Boolean> browserExploitsBlocked) {
             $.browserExploitsBlocked = browserExploitsBlocked;
             return this;
         }
 
+        /**
+         * @param browserExploitsBlocked Block browser exploits.
+         * 
+         * @return builder
+         * 
+         */
         public Builder browserExploitsBlocked(Boolean browserExploitsBlocked) {
             return browserExploitsBlocked(Output.of(browserExploitsBlocked));
         }
 
+        /**
+         * @param browserExploitsCapture Enable packet capture for browser exploit events.
+         * 
+         * @return builder
+         * 
+         */
         public Builder browserExploitsCapture(@Nullable Output<Boolean> browserExploitsCapture) {
             $.browserExploitsCapture = browserExploitsCapture;
             return this;
         }
 
+        /**
+         * @param browserExploitsCapture Enable packet capture for browser exploit events.
+         * 
+         * @return builder
+         * 
+         */
         public Builder browserExploitsCapture(Boolean browserExploitsCapture) {
             return browserExploitsCapture(Output.of(browserExploitsCapture));
         }
 
+        /**
+         * @param cmdCtlServerBlocked Block known command-and-control servers.
+         * 
+         * @return builder
+         * 
+         */
         public Builder cmdCtlServerBlocked(@Nullable Output<Boolean> cmdCtlServerBlocked) {
             $.cmdCtlServerBlocked = cmdCtlServerBlocked;
             return this;
         }
 
+        /**
+         * @param cmdCtlServerBlocked Block known command-and-control servers.
+         * 
+         * @return builder
+         * 
+         */
         public Builder cmdCtlServerBlocked(Boolean cmdCtlServerBlocked) {
             return cmdCtlServerBlocked(Output.of(cmdCtlServerBlocked));
         }
 
+        /**
+         * @param cmdCtlServerCapture Enable packet capture for command-and-control server events.
+         * 
+         * @return builder
+         * 
+         */
         public Builder cmdCtlServerCapture(@Nullable Output<Boolean> cmdCtlServerCapture) {
             $.cmdCtlServerCapture = cmdCtlServerCapture;
             return this;
         }
 
+        /**
+         * @param cmdCtlServerCapture Enable packet capture for command-and-control server events.
+         * 
+         * @return builder
+         * 
+         */
         public Builder cmdCtlServerCapture(Boolean cmdCtlServerCapture) {
             return cmdCtlServerCapture(Output.of(cmdCtlServerCapture));
         }
 
+        /**
+         * @param cmdCtlTrafficBlocked Block command-and-control traffic.
+         * 
+         * @return builder
+         * 
+         */
         public Builder cmdCtlTrafficBlocked(@Nullable Output<Boolean> cmdCtlTrafficBlocked) {
             $.cmdCtlTrafficBlocked = cmdCtlTrafficBlocked;
             return this;
         }
 
+        /**
+         * @param cmdCtlTrafficBlocked Block command-and-control traffic.
+         * 
+         * @return builder
+         * 
+         */
         public Builder cmdCtlTrafficBlocked(Boolean cmdCtlTrafficBlocked) {
             return cmdCtlTrafficBlocked(Output.of(cmdCtlTrafficBlocked));
         }
 
+        /**
+         * @param cmdCtlTrafficCapture Enable packet capture for command-and-control traffic events.
+         * 
+         * @return builder
+         * 
+         */
         public Builder cmdCtlTrafficCapture(@Nullable Output<Boolean> cmdCtlTrafficCapture) {
             $.cmdCtlTrafficCapture = cmdCtlTrafficCapture;
             return this;
         }
 
+        /**
+         * @param cmdCtlTrafficCapture Enable packet capture for command-and-control traffic events.
+         * 
+         * @return builder
+         * 
+         */
         public Builder cmdCtlTrafficCapture(Boolean cmdCtlTrafficCapture) {
             return cmdCtlTrafficCapture(Output.of(cmdCtlTrafficCapture));
         }
 
+        /**
+         * @param cookieStealingBlocked Block cookie stealing attempts.
+         * 
+         * @return builder
+         * 
+         */
         public Builder cookieStealingBlocked(@Nullable Output<Boolean> cookieStealingBlocked) {
             $.cookieStealingBlocked = cookieStealingBlocked;
             return this;
         }
 
+        /**
+         * @param cookieStealingBlocked Block cookie stealing attempts.
+         * 
+         * @return builder
+         * 
+         */
         public Builder cookieStealingBlocked(Boolean cookieStealingBlocked) {
             return cookieStealingBlocked(Output.of(cookieStealingBlocked));
         }
 
+        /**
+         * @param cookieStealingPcapEnabled Enable packet capture for cookie stealing events.
+         * 
+         * @return builder
+         * 
+         */
         public Builder cookieStealingPcapEnabled(@Nullable Output<Boolean> cookieStealingPcapEnabled) {
             $.cookieStealingPcapEnabled = cookieStealingPcapEnabled;
             return this;
         }
 
+        /**
+         * @param cookieStealingPcapEnabled Enable packet capture for cookie stealing events.
+         * 
+         * @return builder
+         * 
+         */
         public Builder cookieStealingPcapEnabled(Boolean cookieStealingPcapEnabled) {
             return cookieStealingPcapEnabled(Output.of(cookieStealingPcapEnabled));
         }
 
+        /**
+         * @param cryptoMiningBlocked Block crypto mining traffic.
+         * 
+         * @return builder
+         * 
+         */
         public Builder cryptoMiningBlocked(@Nullable Output<Boolean> cryptoMiningBlocked) {
             $.cryptoMiningBlocked = cryptoMiningBlocked;
             return this;
         }
 
+        /**
+         * @param cryptoMiningBlocked Block crypto mining traffic.
+         * 
+         * @return builder
+         * 
+         */
         public Builder cryptoMiningBlocked(Boolean cryptoMiningBlocked) {
             return cryptoMiningBlocked(Output.of(cryptoMiningBlocked));
         }
 
+        /**
+         * @param cryptoMiningCapture Enable packet capture for crypto mining events.
+         * 
+         * @return builder
+         * 
+         */
         public Builder cryptoMiningCapture(@Nullable Output<Boolean> cryptoMiningCapture) {
             $.cryptoMiningCapture = cryptoMiningCapture;
             return this;
         }
 
+        /**
+         * @param cryptoMiningCapture Enable packet capture for crypto mining events.
+         * 
+         * @return builder
+         * 
+         */
         public Builder cryptoMiningCapture(Boolean cryptoMiningCapture) {
             return cryptoMiningCapture(Output.of(cryptoMiningCapture));
         }
 
+        /**
+         * @param dgaDomainsBlocked Block domain generation algorithm (DGA) domains.
+         * 
+         * @return builder
+         * 
+         */
         public Builder dgaDomainsBlocked(@Nullable Output<Boolean> dgaDomainsBlocked) {
             $.dgaDomainsBlocked = dgaDomainsBlocked;
             return this;
         }
 
+        /**
+         * @param dgaDomainsBlocked Block domain generation algorithm (DGA) domains.
+         * 
+         * @return builder
+         * 
+         */
         public Builder dgaDomainsBlocked(Boolean dgaDomainsBlocked) {
             return dgaDomainsBlocked(Output.of(dgaDomainsBlocked));
         }
 
+        /**
+         * @param dgaDomainsCapture Enable packet capture for DGA domain events.
+         * 
+         * @return builder
+         * 
+         */
         public Builder dgaDomainsCapture(@Nullable Output<Boolean> dgaDomainsCapture) {
             $.dgaDomainsCapture = dgaDomainsCapture;
             return this;
         }
 
+        /**
+         * @param dgaDomainsCapture Enable packet capture for DGA domain events.
+         * 
+         * @return builder
+         * 
+         */
         public Builder dgaDomainsCapture(Boolean dgaDomainsCapture) {
             return dgaDomainsCapture(Output.of(dgaDomainsCapture));
         }
 
+        /**
+         * @param fileFormatVunerabilitesBlocked Block file format vulnerabilities.
+         * 
+         * @return builder
+         * 
+         */
         public Builder fileFormatVunerabilitesBlocked(@Nullable Output<Boolean> fileFormatVunerabilitesBlocked) {
             $.fileFormatVunerabilitesBlocked = fileFormatVunerabilitesBlocked;
             return this;
         }
 
+        /**
+         * @param fileFormatVunerabilitesBlocked Block file format vulnerabilities.
+         * 
+         * @return builder
+         * 
+         */
         public Builder fileFormatVunerabilitesBlocked(Boolean fileFormatVunerabilitesBlocked) {
             return fileFormatVunerabilitesBlocked(Output.of(fileFormatVunerabilitesBlocked));
         }
 
+        /**
+         * @param fileFormatVunerabilitesCapture Enable packet capture for file format vulnerability events.
+         * 
+         * @return builder
+         * 
+         */
         public Builder fileFormatVunerabilitesCapture(@Nullable Output<Boolean> fileFormatVunerabilitesCapture) {
             $.fileFormatVunerabilitesCapture = fileFormatVunerabilitesCapture;
             return this;
         }
 
+        /**
+         * @param fileFormatVunerabilitesCapture Enable packet capture for file format vulnerability events.
+         * 
+         * @return builder
+         * 
+         */
         public Builder fileFormatVunerabilitesCapture(Boolean fileFormatVunerabilitesCapture) {
             return fileFormatVunerabilitesCapture(Output.of(fileFormatVunerabilitesCapture));
         }
 
+        /**
+         * @param googleTalkBlocked Block Google Talk traffic.
+         * 
+         * @return builder
+         * 
+         */
         public Builder googleTalkBlocked(@Nullable Output<Boolean> googleTalkBlocked) {
             $.googleTalkBlocked = googleTalkBlocked;
             return this;
         }
 
+        /**
+         * @param googleTalkBlocked Block Google Talk traffic.
+         * 
+         * @return builder
+         * 
+         */
         public Builder googleTalkBlocked(Boolean googleTalkBlocked) {
             return googleTalkBlocked(Output.of(googleTalkBlocked));
         }
 
+        /**
+         * @param googleTalkCapture Enable packet capture for Google Talk events.
+         * 
+         * @return builder
+         * 
+         */
         public Builder googleTalkCapture(@Nullable Output<Boolean> googleTalkCapture) {
             $.googleTalkCapture = googleTalkCapture;
             return this;
         }
 
+        /**
+         * @param googleTalkCapture Enable packet capture for Google Talk events.
+         * 
+         * @return builder
+         * 
+         */
         public Builder googleTalkCapture(Boolean googleTalkCapture) {
             return googleTalkCapture(Output.of(googleTalkCapture));
         }
 
+        /**
+         * @param ircTunnellingBlocked Block IRC tunnelling.
+         * 
+         * @return builder
+         * 
+         */
         public Builder ircTunnellingBlocked(@Nullable Output<Boolean> ircTunnellingBlocked) {
             $.ircTunnellingBlocked = ircTunnellingBlocked;
             return this;
         }
 
+        /**
+         * @param ircTunnellingBlocked Block IRC tunnelling.
+         * 
+         * @return builder
+         * 
+         */
         public Builder ircTunnellingBlocked(Boolean ircTunnellingBlocked) {
             return ircTunnellingBlocked(Output.of(ircTunnellingBlocked));
         }
 
+        /**
+         * @param ircTunnellingCapture Enable packet capture for IRC tunnelling events.
+         * 
+         * @return builder
+         * 
+         */
         public Builder ircTunnellingCapture(@Nullable Output<Boolean> ircTunnellingCapture) {
             $.ircTunnellingCapture = ircTunnellingCapture;
             return this;
         }
 
+        /**
+         * @param ircTunnellingCapture Enable packet capture for IRC tunnelling events.
+         * 
+         * @return builder
+         * 
+         */
         public Builder ircTunnellingCapture(Boolean ircTunnellingCapture) {
             return ircTunnellingCapture(Output.of(ircTunnellingCapture));
         }
 
+        /**
+         * @param knownPhishingSitesBlocked Block known phishing sites.
+         * 
+         * @return builder
+         * 
+         */
         public Builder knownPhishingSitesBlocked(@Nullable Output<Boolean> knownPhishingSitesBlocked) {
             $.knownPhishingSitesBlocked = knownPhishingSitesBlocked;
             return this;
         }
 
+        /**
+         * @param knownPhishingSitesBlocked Block known phishing sites.
+         * 
+         * @return builder
+         * 
+         */
         public Builder knownPhishingSitesBlocked(Boolean knownPhishingSitesBlocked) {
             return knownPhishingSitesBlocked(Output.of(knownPhishingSitesBlocked));
         }
 
+        /**
+         * @param knownPhishingSitesCapture Enable packet capture for known phishing site events.
+         * 
+         * @return builder
+         * 
+         */
         public Builder knownPhishingSitesCapture(@Nullable Output<Boolean> knownPhishingSitesCapture) {
             $.knownPhishingSitesCapture = knownPhishingSitesCapture;
             return this;
         }
 
+        /**
+         * @param knownPhishingSitesCapture Enable packet capture for known phishing site events.
+         * 
+         * @return builder
+         * 
+         */
         public Builder knownPhishingSitesCapture(Boolean knownPhishingSitesCapture) {
             return knownPhishingSitesCapture(Output.of(knownPhishingSitesCapture));
         }
 
+        /**
+         * @param maliciousUrlsCapture Enable packet capture for malicious URL events.
+         * 
+         * @return builder
+         * 
+         */
         public Builder maliciousUrlsCapture(@Nullable Output<Boolean> maliciousUrlsCapture) {
             $.maliciousUrlsCapture = maliciousUrlsCapture;
             return this;
         }
 
+        /**
+         * @param maliciousUrlsCapture Enable packet capture for malicious URL events.
+         * 
+         * @return builder
+         * 
+         */
         public Builder maliciousUrlsCapture(Boolean maliciousUrlsCapture) {
             return maliciousUrlsCapture(Output.of(maliciousUrlsCapture));
         }
 
+        /**
+         * @param malwareSitesBlocked Block known malware sites.
+         * 
+         * @return builder
+         * 
+         */
         public Builder malwareSitesBlocked(@Nullable Output<Boolean> malwareSitesBlocked) {
             $.malwareSitesBlocked = malwareSitesBlocked;
             return this;
         }
 
+        /**
+         * @param malwareSitesBlocked Block known malware sites.
+         * 
+         * @return builder
+         * 
+         */
         public Builder malwareSitesBlocked(Boolean malwareSitesBlocked) {
             return malwareSitesBlocked(Output.of(malwareSitesBlocked));
         }
 
+        /**
+         * @param malwareSitesCapture Enable packet capture for malware site events.
+         * 
+         * @return builder
+         * 
+         */
         public Builder malwareSitesCapture(@Nullable Output<Boolean> malwareSitesCapture) {
             $.malwareSitesCapture = malwareSitesCapture;
             return this;
         }
 
+        /**
+         * @param malwareSitesCapture Enable packet capture for malware site events.
+         * 
+         * @return builder
+         * 
+         */
         public Builder malwareSitesCapture(Boolean malwareSitesCapture) {
             return malwareSitesCapture(Output.of(malwareSitesCapture));
         }
 
+        /**
+         * @param potentialMaliciousRequestsBlocked Block potentially malicious requests.
+         * 
+         * @return builder
+         * 
+         */
         public Builder potentialMaliciousRequestsBlocked(@Nullable Output<Boolean> potentialMaliciousRequestsBlocked) {
             $.potentialMaliciousRequestsBlocked = potentialMaliciousRequestsBlocked;
             return this;
         }
 
+        /**
+         * @param potentialMaliciousRequestsBlocked Block potentially malicious requests.
+         * 
+         * @return builder
+         * 
+         */
         public Builder potentialMaliciousRequestsBlocked(Boolean potentialMaliciousRequestsBlocked) {
             return potentialMaliciousRequestsBlocked(Output.of(potentialMaliciousRequestsBlocked));
         }
 
+        /**
+         * @param potentialMaliciousRequestsCapture Enable packet capture for potentially malicious request events.
+         * 
+         * @return builder
+         * 
+         */
         public Builder potentialMaliciousRequestsCapture(@Nullable Output<Boolean> potentialMaliciousRequestsCapture) {
             $.potentialMaliciousRequestsCapture = potentialMaliciousRequestsCapture;
             return this;
         }
 
+        /**
+         * @param potentialMaliciousRequestsCapture Enable packet capture for potentially malicious request events.
+         * 
+         * @return builder
+         * 
+         */
         public Builder potentialMaliciousRequestsCapture(Boolean potentialMaliciousRequestsCapture) {
             return potentialMaliciousRequestsCapture(Output.of(potentialMaliciousRequestsCapture));
         }
 
+        /**
+         * @param riskTolerance Risk tolerance level. Controls the sensitivity for detecting threats.
+         * 
+         * @return builder
+         * 
+         */
         public Builder riskTolerance(@Nullable Output<Integer> riskTolerance) {
             $.riskTolerance = riskTolerance;
             return this;
         }
 
+        /**
+         * @param riskTolerance Risk tolerance level. Controls the sensitivity for detecting threats.
+         * 
+         * @return builder
+         * 
+         */
         public Builder riskTolerance(Integer riskTolerance) {
             return riskTolerance(Output.of(riskTolerance));
         }
 
+        /**
+         * @param riskToleranceCapture Enable packet capture for risk tolerance events.
+         * 
+         * @return builder
+         * 
+         */
         public Builder riskToleranceCapture(@Nullable Output<Boolean> riskToleranceCapture) {
             $.riskToleranceCapture = riskToleranceCapture;
             return this;
         }
 
+        /**
+         * @param riskToleranceCapture Enable packet capture for risk tolerance events.
+         * 
+         * @return builder
+         * 
+         */
         public Builder riskToleranceCapture(Boolean riskToleranceCapture) {
             return riskToleranceCapture(Output.of(riskToleranceCapture));
         }
 
+        /**
+         * @param sshTunnellingBlocked Block SSH tunnelling.
+         * 
+         * @return builder
+         * 
+         */
         public Builder sshTunnellingBlocked(@Nullable Output<Boolean> sshTunnellingBlocked) {
             $.sshTunnellingBlocked = sshTunnellingBlocked;
             return this;
         }
 
+        /**
+         * @param sshTunnellingBlocked Block SSH tunnelling.
+         * 
+         * @return builder
+         * 
+         */
         public Builder sshTunnellingBlocked(Boolean sshTunnellingBlocked) {
             return sshTunnellingBlocked(Output.of(sshTunnellingBlocked));
         }
 
+        /**
+         * @param sshTunnellingCapture Enable packet capture for SSH tunnelling events.
+         * 
+         * @return builder
+         * 
+         */
         public Builder sshTunnellingCapture(@Nullable Output<Boolean> sshTunnellingCapture) {
             $.sshTunnellingCapture = sshTunnellingCapture;
             return this;
         }
 
+        /**
+         * @param sshTunnellingCapture Enable packet capture for SSH tunnelling events.
+         * 
+         * @return builder
+         * 
+         */
         public Builder sshTunnellingCapture(Boolean sshTunnellingCapture) {
             return sshTunnellingCapture(Output.of(sshTunnellingCapture));
         }
 
+        /**
+         * @param suspectAdwareSpywareSitesBlocked Block suspect adware/spyware sites.
+         * 
+         * @return builder
+         * 
+         */
         public Builder suspectAdwareSpywareSitesBlocked(@Nullable Output<Boolean> suspectAdwareSpywareSitesBlocked) {
             $.suspectAdwareSpywareSitesBlocked = suspectAdwareSpywareSitesBlocked;
             return this;
         }
 
+        /**
+         * @param suspectAdwareSpywareSitesBlocked Block suspect adware/spyware sites.
+         * 
+         * @return builder
+         * 
+         */
         public Builder suspectAdwareSpywareSitesBlocked(Boolean suspectAdwareSpywareSitesBlocked) {
             return suspectAdwareSpywareSitesBlocked(Output.of(suspectAdwareSpywareSitesBlocked));
         }
 
+        /**
+         * @param suspectAdwareSpywareSitesCapture Enable packet capture for suspect adware/spyware site events.
+         * 
+         * @return builder
+         * 
+         */
         public Builder suspectAdwareSpywareSitesCapture(@Nullable Output<Boolean> suspectAdwareSpywareSitesCapture) {
             $.suspectAdwareSpywareSitesCapture = suspectAdwareSpywareSitesCapture;
             return this;
         }
 
+        /**
+         * @param suspectAdwareSpywareSitesCapture Enable packet capture for suspect adware/spyware site events.
+         * 
+         * @return builder
+         * 
+         */
         public Builder suspectAdwareSpywareSitesCapture(Boolean suspectAdwareSpywareSitesCapture) {
             return suspectAdwareSpywareSitesCapture(Output.of(suspectAdwareSpywareSitesCapture));
         }
 
+        /**
+         * @param suspectedPhishingSitesBlocked Block suspected phishing sites.
+         * 
+         * @return builder
+         * 
+         */
         public Builder suspectedPhishingSitesBlocked(@Nullable Output<Boolean> suspectedPhishingSitesBlocked) {
             $.suspectedPhishingSitesBlocked = suspectedPhishingSitesBlocked;
             return this;
         }
 
+        /**
+         * @param suspectedPhishingSitesBlocked Block suspected phishing sites.
+         * 
+         * @return builder
+         * 
+         */
         public Builder suspectedPhishingSitesBlocked(Boolean suspectedPhishingSitesBlocked) {
             return suspectedPhishingSitesBlocked(Output.of(suspectedPhishingSitesBlocked));
         }
 
+        /**
+         * @param suspectedPhishingSitesCapture Enable packet capture for suspected phishing site events.
+         * 
+         * @return builder
+         * 
+         */
         public Builder suspectedPhishingSitesCapture(@Nullable Output<Boolean> suspectedPhishingSitesCapture) {
             $.suspectedPhishingSitesCapture = suspectedPhishingSitesCapture;
             return this;
         }
 
+        /**
+         * @param suspectedPhishingSitesCapture Enable packet capture for suspected phishing site events.
+         * 
+         * @return builder
+         * 
+         */
         public Builder suspectedPhishingSitesCapture(Boolean suspectedPhishingSitesCapture) {
             return suspectedPhishingSitesCapture(Output.of(suspectedPhishingSitesCapture));
         }
 
+        /**
+         * @param torBlocked Block Tor traffic.
+         * 
+         * @return builder
+         * 
+         */
         public Builder torBlocked(@Nullable Output<Boolean> torBlocked) {
             $.torBlocked = torBlocked;
             return this;
         }
 
+        /**
+         * @param torBlocked Block Tor traffic.
+         * 
+         * @return builder
+         * 
+         */
         public Builder torBlocked(Boolean torBlocked) {
             return torBlocked(Output.of(torBlocked));
         }
 
+        /**
+         * @param torCapture Enable packet capture for Tor events.
+         * 
+         * @return builder
+         * 
+         */
         public Builder torCapture(@Nullable Output<Boolean> torCapture) {
             $.torCapture = torCapture;
             return this;
         }
 
+        /**
+         * @param torCapture Enable packet capture for Tor events.
+         * 
+         * @return builder
+         * 
+         */
         public Builder torCapture(Boolean torCapture) {
             return torCapture(Output.of(torCapture));
         }
 
+        /**
+         * @param webSpamBlocked Block web spam.
+         * 
+         * @return builder
+         * 
+         */
         public Builder webSpamBlocked(@Nullable Output<Boolean> webSpamBlocked) {
             $.webSpamBlocked = webSpamBlocked;
             return this;
         }
 
+        /**
+         * @param webSpamBlocked Block web spam.
+         * 
+         * @return builder
+         * 
+         */
         public Builder webSpamBlocked(Boolean webSpamBlocked) {
             return webSpamBlocked(Output.of(webSpamBlocked));
         }
 
+        /**
+         * @param webSpamCapture Enable packet capture for web spam events.
+         * 
+         * @return builder
+         * 
+         */
         public Builder webSpamCapture(@Nullable Output<Boolean> webSpamCapture) {
             $.webSpamCapture = webSpamCapture;
             return this;
         }
 
+        /**
+         * @param webSpamCapture Enable packet capture for web spam events.
+         * 
+         * @return builder
+         * 
+         */
         public Builder webSpamCapture(Boolean webSpamCapture) {
             return webSpamCapture(Output.of(webSpamCapture));
         }

@@ -35,6 +35,12 @@ namespace zscaler.PulumiPackage.Zia
         public Output<ImmutableArray<int>> AppServiceGroups { get; private set; } = null!;
 
         /// <summary>
+        /// The ID of the dedicated IP gateway. Applicable only for the Proxy Chaining forwarding method.
+        /// </summary>
+        [Output("dedicatedIpGatewayId")]
+        public Output<int?> DedicatedIpGatewayId { get; private set; } = null!;
+
+        /// <summary>
         /// IDs of departments to which the rule must be applied.
         /// </summary>
         [Output("departments")]
@@ -89,7 +95,7 @@ namespace zscaler.PulumiPackage.Zia
         public Output<ImmutableArray<int>> EcGroups { get; private set; } = null!;
 
         /// <summary>
-        /// The type of traffic forwarding method. Valid values: `DIRECT`, `PROXYCHAIN`, `ZPA`, `ECZPA`, `DIRECT_NSS`.
+        /// The type of traffic forwarding method. Valid values: `INVALID`, `DIRECT`, `PROXYCHAIN`, `ZPA`, `ECZPA`, `ZIA`, `ECSELF`, `DROP`, `ENATDEDIP`.
         /// </summary>
         [Output("forwardMethod")]
         public Output<string> ForwardMethod { get; private set; } = null!;
@@ -243,6 +249,7 @@ namespace zscaler.PulumiPackage.Zia
             var defaultOptions = new CustomResourceOptions
             {
                 Version = Utilities.Version,
+                PluginDownloadURL = "github://api.github.com/zscaler",
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);
             // Override the ID if one was specified for consistency with other language SDKs.
@@ -276,6 +283,12 @@ namespace zscaler.PulumiPackage.Zia
             get => _appServiceGroups ?? (_appServiceGroups = new InputList<int>());
             set => _appServiceGroups = value;
         }
+
+        /// <summary>
+        /// The ID of the dedicated IP gateway. Applicable only for the Proxy Chaining forwarding method.
+        /// </summary>
+        [Input("dedicatedIpGatewayId")]
+        public Input<int>? DedicatedIpGatewayId { get; set; }
 
         [Input("departments")]
         private InputList<int>? _departments;
@@ -380,7 +393,7 @@ namespace zscaler.PulumiPackage.Zia
         }
 
         /// <summary>
-        /// The type of traffic forwarding method. Valid values: `DIRECT`, `PROXYCHAIN`, `ZPA`, `ECZPA`, `DIRECT_NSS`.
+        /// The type of traffic forwarding method. Valid values: `INVALID`, `DIRECT`, `PROXYCHAIN`, `ZPA`, `ECZPA`, `ZIA`, `ECSELF`, `DROP`, `ENATDEDIP`.
         /// </summary>
         [Input("forwardMethod", required: true)]
         public Input<string> ForwardMethod { get; set; } = null!;

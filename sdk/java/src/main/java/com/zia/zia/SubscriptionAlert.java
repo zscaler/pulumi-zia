@@ -15,53 +15,133 @@ import java.util.List;
 import java.util.Optional;
 import javax.annotation.Nullable;
 
+/**
+ * The zia_subscription_alert resource manages subscription alert configurations in the Zscaler Internet Access (ZIA) cloud service. Subscription alerts notify administrators about various system events with configurable severity levels across different categories including security, management, compliance, and system alerts.
+ * 
+ * For more information, see the [ZIA Subscription Alerts documentation](https://help.zscaler.com/zia/subscription-alerts).
+ * 
+ * ## Example Usage
+ * 
+ * ## Import
+ * 
+ * An existing Subscription Alert can be imported using its resource ID, e.g.
+ * 
+ * ```sh
+ * $ pulumi import zia:index:SubscriptionAlert example 12345
+ * ```
+ * 
+ */
 @ResourceType(type="zia:index:SubscriptionAlert")
 public class SubscriptionAlert extends com.pulumi.resources.CustomResource {
+    /**
+     * The system-generated ID of the subscription alert.
+     * 
+     */
     @Export(name="alertId", refs={Integer.class}, tree="[0]")
     private Output<Integer> alertId;
 
+    /**
+     * @return The system-generated ID of the subscription alert.
+     * 
+     */
     public Output<Integer> alertId() {
         return this.alertId;
     }
+    /**
+     * Severity levels for compliance alerts.
+     * 
+     */
     @Export(name="complySeverities", refs={List.class,String.class}, tree="[0,1]")
     private Output</* @Nullable */ List<String>> complySeverities;
 
+    /**
+     * @return Severity levels for compliance alerts.
+     * 
+     */
     public Output<Optional<List<String>>> complySeverities() {
         return Codegen.optional(this.complySeverities);
     }
+    /**
+     * Additional information about the subscription alert.
+     * 
+     */
     @Export(name="description", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> description;
 
+    /**
+     * @return Additional information about the subscription alert.
+     * 
+     */
     public Output<Optional<String>> description() {
         return Codegen.optional(this.description);
     }
+    /**
+     * The email address to which alerts are sent.
+     * 
+     */
     @Export(name="email", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> email;
 
+    /**
+     * @return The email address to which alerts are sent.
+     * 
+     */
     public Output<Optional<String>> email() {
         return Codegen.optional(this.email);
     }
+    /**
+     * Severity levels for management alerts.
+     * 
+     */
     @Export(name="manageSeverities", refs={List.class,String.class}, tree="[0,1]")
     private Output</* @Nullable */ List<String>> manageSeverities;
 
+    /**
+     * @return Severity levels for management alerts.
+     * 
+     */
     public Output<Optional<List<String>>> manageSeverities() {
         return Codegen.optional(this.manageSeverities);
     }
+    /**
+     * Severity levels for Pt0 alerts.
+     * 
+     */
     @Export(name="pt0Severities", refs={List.class,String.class}, tree="[0,1]")
     private Output</* @Nullable */ List<String>> pt0Severities;
 
+    /**
+     * @return Severity levels for Pt0 alerts.
+     * 
+     */
     public Output<Optional<List<String>>> pt0Severities() {
         return Codegen.optional(this.pt0Severities);
     }
+    /**
+     * Severity levels for security alerts.
+     * 
+     */
     @Export(name="secureSeverities", refs={List.class,String.class}, tree="[0,1]")
     private Output</* @Nullable */ List<String>> secureSeverities;
 
+    /**
+     * @return Severity levels for security alerts.
+     * 
+     */
     public Output<Optional<List<String>>> secureSeverities() {
         return Codegen.optional(this.secureSeverities);
     }
+    /**
+     * Severity levels for system alerts.
+     * 
+     */
     @Export(name="systemSeverities", refs={List.class,String.class}, tree="[0,1]")
     private Output</* @Nullable */ List<String>> systemSeverities;
 
+    /**
+     * @return Severity levels for system alerts.
+     * 
+     */
     public Output<Optional<List<String>>> systemSeverities() {
         return Codegen.optional(this.systemSeverities);
     }
@@ -105,6 +185,7 @@ public class SubscriptionAlert extends com.pulumi.resources.CustomResource {
     private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<java.lang.String> id) {
         var defaultOptions = com.pulumi.resources.CustomResourceOptions.builder()
             .version(Utilities.getVersion())
+            .pluginDownloadURL("github://api.github.com/zscaler")
             .build();
         return com.pulumi.resources.CustomResourceOptions.merge(defaultOptions, options, id);
     }

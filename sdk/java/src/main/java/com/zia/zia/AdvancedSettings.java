@@ -16,305 +16,717 @@ import java.util.List;
 import java.util.Optional;
 import javax.annotation.Nullable;
 
+/**
+ * The zia_advanced_settings resource manages advanced settings in the Zscaler Internet Access (ZIA) cloud service. This singleton resource controls a wide range of advanced proxy, authentication, DNS resolution, and security settings including domain fronting protection, HTTP tunnel tracking, surrogate IP enforcement, and session timeout configuration.
+ * 
+ * For more information, see the [ZIA Advanced Settings documentation](https://help.zscaler.com/zia/advanced-settings).
+ * 
+ * ## Example Usage
+ * 
+ * ## Import
+ * 
+ * This is a singleton resource and does not support traditional import. It is automatically managed by the provider.
+ * 
+ */
 @ResourceType(type="zia:index:AdvancedSettings")
 public class AdvancedSettings extends com.pulumi.resources.CustomResource {
+    /**
+     * Cloud applications that bypass authentication.
+     * 
+     */
     @Export(name="authBypassApps", refs={List.class,String.class}, tree="[0,1]")
     private Output</* @Nullable */ List<String>> authBypassApps;
 
+    /**
+     * @return Cloud applications that bypass authentication.
+     * 
+     */
     public Output<Optional<List<String>>> authBypassApps() {
         return Codegen.optional(this.authBypassApps);
     }
+    /**
+     * URL categories that bypass authentication.
+     * 
+     */
     @Export(name="authBypassUrlCategories", refs={List.class,String.class}, tree="[0,1]")
     private Output</* @Nullable */ List<String>> authBypassUrlCategories;
 
+    /**
+     * @return URL categories that bypass authentication.
+     * 
+     */
     public Output<Optional<List<String>>> authBypassUrlCategories() {
         return Codegen.optional(this.authBypassUrlCategories);
     }
+    /**
+     * URLs that bypass authentication.
+     * 
+     */
     @Export(name="authBypassUrls", refs={List.class,String.class}, tree="[0,1]")
     private Output</* @Nullable */ List<String>> authBypassUrls;
 
+    /**
+     * @return URLs that bypass authentication.
+     * 
+     */
     public Output<Optional<List<String>>> authBypassUrls() {
         return Codegen.optional(this.authBypassUrls);
     }
+    /**
+     * Cloud applications that bypass basic authentication.
+     * 
+     */
     @Export(name="basicBypassApps", refs={List.class,String.class}, tree="[0,1]")
     private Output</* @Nullable */ List<String>> basicBypassApps;
 
+    /**
+     * @return Cloud applications that bypass basic authentication.
+     * 
+     */
     public Output<Optional<List<String>>> basicBypassApps() {
         return Codegen.optional(this.basicBypassApps);
     }
+    /**
+     * URL categories that bypass basic authentication.
+     * 
+     */
     @Export(name="basicBypassUrlCategories", refs={List.class,String.class}, tree="[0,1]")
     private Output</* @Nullable */ List<String>> basicBypassUrlCategories;
 
+    /**
+     * @return URL categories that bypass basic authentication.
+     * 
+     */
     public Output<Optional<List<String>>> basicBypassUrlCategories() {
         return Codegen.optional(this.basicBypassUrlCategories);
     }
+    /**
+     * Block connections where CONNECT host and SNI mismatch.
+     * 
+     */
     @Export(name="blockConnectHostSniMismatch", refs={Boolean.class}, tree="[0]")
     private Output</* @Nullable */ Boolean> blockConnectHostSniMismatch;
 
+    /**
+     * @return Block connections where CONNECT host and SNI mismatch.
+     * 
+     */
     public Output<Optional<Boolean>> blockConnectHostSniMismatch() {
         return Codegen.optional(this.blockConnectHostSniMismatch);
     }
+    /**
+     * Cloud applications for which domain fronting is blocked.
+     * 
+     */
     @Export(name="blockDomainFrontingApps", refs={List.class,String.class}, tree="[0,1]")
     private Output</* @Nullable */ List<String>> blockDomainFrontingApps;
 
+    /**
+     * @return Cloud applications for which domain fronting is blocked.
+     * 
+     */
     public Output<Optional<List<String>>> blockDomainFrontingApps() {
         return Codegen.optional(this.blockDomainFrontingApps);
     }
+    /**
+     * Block domain fronting when the host header mismatches the SNI.
+     * 
+     */
     @Export(name="blockDomainFrontingOnHostHeader", refs={Boolean.class}, tree="[0]")
     private Output</* @Nullable */ Boolean> blockDomainFrontingOnHostHeader;
 
+    /**
+     * @return Block domain fronting when the host header mismatches the SNI.
+     * 
+     */
     public Output<Optional<Boolean>> blockDomainFrontingOnHostHeader() {
         return Codegen.optional(this.blockDomainFrontingOnHostHeader);
     }
+    /**
+     * Block HTTP tunnels on non-HTTP ports.
+     * 
+     */
     @Export(name="blockHttpTunnelOnNonHttpPorts", refs={Boolean.class}, tree="[0]")
     private Output</* @Nullable */ Boolean> blockHttpTunnelOnNonHttpPorts;
 
+    /**
+     * @return Block HTTP tunnels on non-HTTP ports.
+     * 
+     */
     public Output<Optional<Boolean>> blockHttpTunnelOnNonHttpPorts() {
         return Codegen.optional(this.blockHttpTunnelOnNonHttpPorts);
     }
+    /**
+     * Block non-compliant HTTP requests on HTTP ports.
+     * 
+     */
     @Export(name="blockNonCompliantHttpRequestOnHttpPorts", refs={Boolean.class}, tree="[0]")
     private Output</* @Nullable */ Boolean> blockNonCompliantHttpRequestOnHttpPorts;
 
+    /**
+     * @return Block non-compliant HTTP requests on HTTP ports.
+     * 
+     */
     public Output<Optional<Boolean>> blockNonCompliantHttpRequestOnHttpPorts() {
         return Codegen.optional(this.blockNonCompliantHttpRequestOnHttpPorts);
     }
+    /**
+     * Block non-HTTP traffic on HTTP ports.
+     * 
+     */
     @Export(name="blockNonHttpOnHttpPortEnabled", refs={Boolean.class}, tree="[0]")
     private Output</* @Nullable */ Boolean> blockNonHttpOnHttpPortEnabled;
 
+    /**
+     * @return Block non-HTTP traffic on HTTP ports.
+     * 
+     */
     public Output<Optional<Boolean>> blockNonHttpOnHttpPortEnabled() {
         return Codegen.optional(this.blockNonHttpOnHttpPortEnabled);
     }
+    /**
+     * Enable cascading URL filtering.
+     * 
+     */
     @Export(name="cascadeUrlFiltering", refs={Boolean.class}, tree="[0]")
     private Output</* @Nullable */ Boolean> cascadeUrlFiltering;
 
+    /**
+     * @return Enable cascading URL filtering.
+     * 
+     */
     public Output<Optional<Boolean>> cascadeUrlFiltering() {
         return Codegen.optional(this.cascadeUrlFiltering);
     }
+    /**
+     * Cloud applications that bypass digest authentication.
+     * 
+     */
     @Export(name="digestAuthBypassApps", refs={List.class,String.class}, tree="[0,1]")
     private Output</* @Nullable */ List<String>> digestAuthBypassApps;
 
+    /**
+     * @return Cloud applications that bypass digest authentication.
+     * 
+     */
     public Output<Optional<List<String>>> digestAuthBypassApps() {
         return Codegen.optional(this.digestAuthBypassApps);
     }
+    /**
+     * URL categories that bypass digest authentication.
+     * 
+     */
     @Export(name="digestAuthBypassUrlCategories", refs={List.class,String.class}, tree="[0,1]")
     private Output</* @Nullable */ List<String>> digestAuthBypassUrlCategories;
 
+    /**
+     * @return URL categories that bypass digest authentication.
+     * 
+     */
     public Output<Optional<List<String>>> digestAuthBypassUrlCategories() {
         return Codegen.optional(this.digestAuthBypassUrlCategories);
     }
+    /**
+     * URLs that bypass digest authentication.
+     * 
+     */
     @Export(name="digestAuthBypassUrls", refs={List.class,String.class}, tree="[0,1]")
     private Output</* @Nullable */ List<String>> digestAuthBypassUrls;
 
+    /**
+     * @return URLs that bypass digest authentication.
+     * 
+     */
     public Output<Optional<List<String>>> digestAuthBypassUrls() {
         return Codegen.optional(this.digestAuthBypassUrls);
     }
+    /**
+     * Cloud applications with DNS resolution on transparent proxy enabled.
+     * 
+     */
     @Export(name="dnsResolutionOnTransparentProxyApps", refs={List.class,String.class}, tree="[0,1]")
     private Output</* @Nullable */ List<String>> dnsResolutionOnTransparentProxyApps;
 
+    /**
+     * @return Cloud applications with DNS resolution on transparent proxy enabled.
+     * 
+     */
     public Output<Optional<List<String>>> dnsResolutionOnTransparentProxyApps() {
         return Codegen.optional(this.dnsResolutionOnTransparentProxyApps);
     }
+    /**
+     * Cloud applications exempt from DNS resolution on transparent proxy.
+     * 
+     */
     @Export(name="dnsResolutionOnTransparentProxyExemptApps", refs={List.class,String.class}, tree="[0,1]")
     private Output</* @Nullable */ List<String>> dnsResolutionOnTransparentProxyExemptApps;
 
+    /**
+     * @return Cloud applications exempt from DNS resolution on transparent proxy.
+     * 
+     */
     public Output<Optional<List<String>>> dnsResolutionOnTransparentProxyExemptApps() {
         return Codegen.optional(this.dnsResolutionOnTransparentProxyExemptApps);
     }
+    /**
+     * URL categories exempt from DNS resolution on transparent proxy.
+     * 
+     */
     @Export(name="dnsResolutionOnTransparentProxyExemptUrlCategories", refs={List.class,String.class}, tree="[0,1]")
     private Output</* @Nullable */ List<String>> dnsResolutionOnTransparentProxyExemptUrlCategories;
 
+    /**
+     * @return URL categories exempt from DNS resolution on transparent proxy.
+     * 
+     */
     public Output<Optional<List<String>>> dnsResolutionOnTransparentProxyExemptUrlCategories() {
         return Codegen.optional(this.dnsResolutionOnTransparentProxyExemptUrlCategories);
     }
+    /**
+     * URLs exempt from DNS resolution on transparent proxy.
+     * 
+     */
     @Export(name="dnsResolutionOnTransparentProxyExemptUrls", refs={List.class,String.class}, tree="[0,1]")
     private Output</* @Nullable */ List<String>> dnsResolutionOnTransparentProxyExemptUrls;
 
+    /**
+     * @return URLs exempt from DNS resolution on transparent proxy.
+     * 
+     */
     public Output<Optional<List<String>>> dnsResolutionOnTransparentProxyExemptUrls() {
         return Codegen.optional(this.dnsResolutionOnTransparentProxyExemptUrls);
     }
+    /**
+     * Cloud applications with IPv6 DNS resolution on transparent proxy enabled.
+     * 
+     */
     @Export(name="dnsResolutionOnTransparentProxyIpv6Apps", refs={List.class,String.class}, tree="[0,1]")
     private Output</* @Nullable */ List<String>> dnsResolutionOnTransparentProxyIpv6Apps;
 
+    /**
+     * @return Cloud applications with IPv6 DNS resolution on transparent proxy enabled.
+     * 
+     */
     public Output<Optional<List<String>>> dnsResolutionOnTransparentProxyIpv6Apps() {
         return Codegen.optional(this.dnsResolutionOnTransparentProxyIpv6Apps);
     }
+    /**
+     * Cloud applications exempt from IPv6 DNS resolution on transparent proxy.
+     * 
+     */
     @Export(name="dnsResolutionOnTransparentProxyIpv6ExemptApps", refs={List.class,String.class}, tree="[0,1]")
     private Output</* @Nullable */ List<String>> dnsResolutionOnTransparentProxyIpv6ExemptApps;
 
+    /**
+     * @return Cloud applications exempt from IPv6 DNS resolution on transparent proxy.
+     * 
+     */
     public Output<Optional<List<String>>> dnsResolutionOnTransparentProxyIpv6ExemptApps() {
         return Codegen.optional(this.dnsResolutionOnTransparentProxyIpv6ExemptApps);
     }
+    /**
+     * URL categories exempt from IPv6 DNS resolution on transparent proxy.
+     * 
+     */
     @Export(name="dnsResolutionOnTransparentProxyIpv6ExemptUrlCategories", refs={List.class,String.class}, tree="[0,1]")
     private Output</* @Nullable */ List<String>> dnsResolutionOnTransparentProxyIpv6ExemptUrlCategories;
 
+    /**
+     * @return URL categories exempt from IPv6 DNS resolution on transparent proxy.
+     * 
+     */
     public Output<Optional<List<String>>> dnsResolutionOnTransparentProxyIpv6ExemptUrlCategories() {
         return Codegen.optional(this.dnsResolutionOnTransparentProxyIpv6ExemptUrlCategories);
     }
+    /**
+     * URL categories with IPv6 DNS resolution on transparent proxy enabled.
+     * 
+     */
     @Export(name="dnsResolutionOnTransparentProxyIpv6UrlCategories", refs={List.class,String.class}, tree="[0,1]")
     private Output</* @Nullable */ List<String>> dnsResolutionOnTransparentProxyIpv6UrlCategories;
 
+    /**
+     * @return URL categories with IPv6 DNS resolution on transparent proxy enabled.
+     * 
+     */
     public Output<Optional<List<String>>> dnsResolutionOnTransparentProxyIpv6UrlCategories() {
         return Codegen.optional(this.dnsResolutionOnTransparentProxyIpv6UrlCategories);
     }
+    /**
+     * URL categories with DNS resolution on transparent proxy enabled.
+     * 
+     */
     @Export(name="dnsResolutionOnTransparentProxyUrlCategories", refs={List.class,String.class}, tree="[0,1]")
     private Output</* @Nullable */ List<String>> dnsResolutionOnTransparentProxyUrlCategories;
 
+    /**
+     * @return URL categories with DNS resolution on transparent proxy enabled.
+     * 
+     */
     public Output<Optional<List<String>>> dnsResolutionOnTransparentProxyUrlCategories() {
         return Codegen.optional(this.dnsResolutionOnTransparentProxyUrlCategories);
     }
+    /**
+     * URLs with DNS resolution on transparent proxy enabled.
+     * 
+     */
     @Export(name="dnsResolutionOnTransparentProxyUrls", refs={List.class,String.class}, tree="[0,1]")
     private Output</* @Nullable */ List<String>> dnsResolutionOnTransparentProxyUrls;
 
+    /**
+     * @return URLs with DNS resolution on transparent proxy enabled.
+     * 
+     */
     public Output<Optional<List<String>>> dnsResolutionOnTransparentProxyUrls() {
         return Codegen.optional(this.dnsResolutionOnTransparentProxyUrls);
     }
+    /**
+     * URL categories that bypass domain fronting detection.
+     * 
+     */
     @Export(name="domainFrontingBypassUrlCategories", refs={List.class,String.class}, tree="[0,1]")
     private Output</* @Nullable */ List<String>> domainFrontingBypassUrlCategories;
 
+    /**
+     * @return URL categories that bypass domain fronting detection.
+     * 
+     */
     public Output<Optional<List<String>>> domainFrontingBypassUrlCategories() {
         return Codegen.optional(this.domainFrontingBypassUrlCategories);
     }
+    /**
+     * Enable dynamic user risk scoring.
+     * 
+     */
     @Export(name="dynamicUserRiskEnabled", refs={Boolean.class}, tree="[0]")
     private Output</* @Nullable */ Boolean> dynamicUserRiskEnabled;
 
+    /**
+     * @return Enable dynamic user risk scoring.
+     * 
+     */
     public Output<Optional<Boolean>> dynamicUserRiskEnabled() {
         return Codegen.optional(this.dynamicUserRiskEnabled);
     }
+    /**
+     * Enable EDNS Client Subnet (ECS) for all DNS queries.
+     * 
+     */
     @Export(name="ecsForAllEnabled", refs={Boolean.class}, tree="[0]")
     private Output</* @Nullable */ Boolean> ecsForAllEnabled;
 
+    /**
+     * @return Enable EDNS Client Subnet (ECS) for all DNS queries.
+     * 
+     */
     public Output<Optional<Boolean>> ecsForAllEnabled() {
         return Codegen.optional(this.ecsForAllEnabled);
     }
+    /**
+     * Enable admin rank-based access control.
+     * 
+     */
     @Export(name="enableAdminRankAccess", refs={Boolean.class}, tree="[0]")
     private Output</* @Nullable */ Boolean> enableAdminRankAccess;
 
+    /**
+     * @return Enable admin rank-based access control.
+     * 
+     */
     public Output<Optional<Boolean>> enableAdminRankAccess() {
         return Codegen.optional(this.enableAdminRankAccess);
     }
+    /**
+     * Enable DNS resolution on transparent proxy.
+     * 
+     */
     @Export(name="enableDnsResolutionOnTransparentProxy", refs={Boolean.class}, tree="[0]")
     private Output</* @Nullable */ Boolean> enableDnsResolutionOnTransparentProxy;
 
+    /**
+     * @return Enable DNS resolution on transparent proxy.
+     * 
+     */
     public Output<Optional<Boolean>> enableDnsResolutionOnTransparentProxy() {
         return Codegen.optional(this.enableDnsResolutionOnTransparentProxy);
     }
+    /**
+     * Enable policy evaluation on global SSL bypass.
+     * 
+     */
     @Export(name="enableEvaluatePolicyOnGlobalSslBypass", refs={Boolean.class}, tree="[0]")
     private Output</* @Nullable */ Boolean> enableEvaluatePolicyOnGlobalSslBypass;
 
+    /**
+     * @return Enable policy evaluation on global SSL bypass.
+     * 
+     */
     public Output<Optional<Boolean>> enableEvaluatePolicyOnGlobalSslBypass() {
         return Codegen.optional(this.enableEvaluatePolicyOnGlobalSslBypass);
     }
+    /**
+     * Enable IPv6 DNS optimization on all transparent proxy connections.
+     * 
+     */
     @Export(name="enableIpv6DnsOptimizationOnAllTransparentProxy", refs={Boolean.class}, tree="[0]")
     private Output</* @Nullable */ Boolean> enableIpv6DnsOptimizationOnAllTransparentProxy;
 
+    /**
+     * @return Enable IPv6 DNS optimization on all transparent proxy connections.
+     * 
+     */
     public Output<Optional<Boolean>> enableIpv6DnsOptimizationOnAllTransparentProxy() {
         return Codegen.optional(this.enableIpv6DnsOptimizationOnAllTransparentProxy);
     }
+    /**
+     * Enable IPv6 DNS resolution on transparent proxy.
+     * 
+     */
     @Export(name="enableIpv6DnsResolutionOnTransparentProxy", refs={Boolean.class}, tree="[0]")
     private Output</* @Nullable */ Boolean> enableIpv6DnsResolutionOnTransparentProxy;
 
+    /**
+     * @return Enable IPv6 DNS resolution on transparent proxy.
+     * 
+     */
     public Output<Optional<Boolean>> enableIpv6DnsResolutionOnTransparentProxy() {
         return Codegen.optional(this.enableIpv6DnsResolutionOnTransparentProxy);
     }
+    /**
+     * Enable Office 365 one-click configuration.
+     * 
+     */
     @Export(name="enableOffice365", refs={Boolean.class}, tree="[0]")
     private Output</* @Nullable */ Boolean> enableOffice365;
 
+    /**
+     * @return Enable Office 365 one-click configuration.
+     * 
+     */
     public Output<Optional<Boolean>> enableOffice365() {
         return Codegen.optional(this.enableOffice365);
     }
+    /**
+     * Enable policy evaluation for unauthenticated traffic.
+     * 
+     */
     @Export(name="enablePolicyForUnauthenticatedTraffic", refs={Boolean.class}, tree="[0]")
     private Output</* @Nullable */ Boolean> enablePolicyForUnauthenticatedTraffic;
 
+    /**
+     * @return Enable policy evaluation for unauthenticated traffic.
+     * 
+     */
     public Output<Optional<Boolean>> enablePolicyForUnauthenticatedTraffic() {
         return Codegen.optional(this.enablePolicyForUnauthenticatedTraffic);
     }
+    /**
+     * Enforce surrogate IP for Windows applications.
+     * 
+     */
     @Export(name="enforceSurrogateIpForWindowsApp", refs={Boolean.class}, tree="[0]")
     private Output</* @Nullable */ Boolean> enforceSurrogateIpForWindowsApp;
 
+    /**
+     * @return Enforce surrogate IP for Windows applications.
+     * 
+     */
     public Output<Optional<Boolean>> enforceSurrogateIpForWindowsApp() {
         return Codegen.optional(this.enforceSurrogateIpForWindowsApp);
     }
+    /**
+     * Enable HTTP/2 for non-browser traffic.
+     * 
+     */
     @Export(name="http2NonbrowserTrafficEnabled", refs={Boolean.class}, tree="[0]")
     private Output</* @Nullable */ Boolean> http2NonbrowserTrafficEnabled;
 
+    /**
+     * @return Enable HTTP/2 for non-browser traffic.
+     * 
+     */
     public Output<Optional<Boolean>> http2NonbrowserTrafficEnabled() {
         return Codegen.optional(this.http2NonbrowserTrafficEnabled);
     }
+    /**
+     * URL categories for which HTTP range headers are removed.
+     * 
+     */
     @Export(name="httpRangeHeaderRemoveUrlCategories", refs={List.class,String.class}, tree="[0,1]")
     private Output</* @Nullable */ List<String>> httpRangeHeaderRemoveUrlCategories;
 
+    /**
+     * @return URL categories for which HTTP range headers are removed.
+     * 
+     */
     public Output<Optional<List<String>>> httpRangeHeaderRemoveUrlCategories() {
         return Codegen.optional(this.httpRangeHeaderRemoveUrlCategories);
     }
+    /**
+     * Cloud applications that bypass Kerberos authentication.
+     * 
+     */
     @Export(name="kerberosBypassApps", refs={List.class,String.class}, tree="[0,1]")
     private Output</* @Nullable */ List<String>> kerberosBypassApps;
 
+    /**
+     * @return Cloud applications that bypass Kerberos authentication.
+     * 
+     */
     public Output<Optional<List<String>>> kerberosBypassApps() {
         return Codegen.optional(this.kerberosBypassApps);
     }
+    /**
+     * URL categories that bypass Kerberos authentication.
+     * 
+     */
     @Export(name="kerberosBypassUrlCategories", refs={List.class,String.class}, tree="[0,1]")
     private Output</* @Nullable */ List<String>> kerberosBypassUrlCategories;
 
+    /**
+     * @return URL categories that bypass Kerberos authentication.
+     * 
+     */
     public Output<Optional<List<String>>> kerberosBypassUrlCategories() {
         return Codegen.optional(this.kerberosBypassUrlCategories);
     }
+    /**
+     * URLs that bypass Kerberos authentication.
+     * 
+     */
     @Export(name="kerberosBypassUrls", refs={List.class,String.class}, tree="[0,1]")
     private Output</* @Nullable */ List<String>> kerberosBypassUrls;
 
+    /**
+     * @return URLs that bypass Kerberos authentication.
+     * 
+     */
     public Output<Optional<List<String>>> kerberosBypassUrls() {
         return Codegen.optional(this.kerberosBypassUrls);
     }
+    /**
+     * Enable logging of internal IP addresses.
+     * 
+     */
     @Export(name="logInternalIp", refs={Boolean.class}, tree="[0]")
     private Output</* @Nullable */ Boolean> logInternalIp;
 
+    /**
+     * @return Enable logging of internal IP addresses.
+     * 
+     */
     public Output<Optional<Boolean>> logInternalIp() {
         return Codegen.optional(this.logInternalIp);
     }
+    /**
+     * Prefer SNI over CONNECT host header for policy evaluation.
+     * 
+     */
     @Export(name="preferSniOverConnHost", refs={Boolean.class}, tree="[0]")
     private Output</* @Nullable */ Boolean> preferSniOverConnHost;
 
+    /**
+     * @return Prefer SNI over CONNECT host header for policy evaluation.
+     * 
+     */
     public Output<Optional<Boolean>> preferSniOverConnHost() {
         return Codegen.optional(this.preferSniOverConnHost);
     }
+    /**
+     * Cloud applications that prefer SNI over CONNECT host header.
+     * 
+     */
     @Export(name="preferSniOverConnHostApps", refs={List.class,String.class}, tree="[0,1]")
     private Output</* @Nullable */ List<String>> preferSniOverConnHostApps;
 
+    /**
+     * @return Cloud applications that prefer SNI over CONNECT host header.
+     * 
+     */
     public Output<Optional<List<String>>> preferSniOverConnHostApps() {
         return Codegen.optional(this.preferSniOverConnHostApps);
     }
+    /**
+     * The internal resource identifier for the advanced settings.
+     * 
+     */
     @Export(name="resourceId", refs={String.class}, tree="[0]")
     private Output<String> resourceId;
 
+    /**
+     * @return The internal resource identifier for the advanced settings.
+     * 
+     */
     public Output<String> resourceId() {
         return this.resourceId;
     }
+    /**
+     * Enable X-Forwarded-For header for SIPA traffic.
+     * 
+     */
     @Export(name="sipaXffHeaderEnabled", refs={Boolean.class}, tree="[0]")
     private Output</* @Nullable */ Boolean> sipaXffHeaderEnabled;
 
+    /**
+     * @return Enable X-Forwarded-For header for SIPA traffic.
+     * 
+     */
     public Output<Optional<Boolean>> sipaXffHeaderEnabled() {
         return Codegen.optional(this.sipaXffHeaderEnabled);
     }
+    /**
+     * URL categories that bypass SNI/DNS optimization.
+     * 
+     */
     @Export(name="sniDnsOptimizationBypassUrlCategories", refs={List.class,String.class}, tree="[0,1]")
     private Output</* @Nullable */ List<String>> sniDnsOptimizationBypassUrlCategories;
 
+    /**
+     * @return URL categories that bypass SNI/DNS optimization.
+     * 
+     */
     public Output<Optional<List<String>>> sniDnsOptimizationBypassUrlCategories() {
         return Codegen.optional(this.sniDnsOptimizationBypassUrlCategories);
     }
+    /**
+     * Track HTTP tunnels on HTTP ports.
+     * 
+     */
     @Export(name="trackHttpTunnelOnHttpPorts", refs={Boolean.class}, tree="[0]")
     private Output</* @Nullable */ Boolean> trackHttpTunnelOnHttpPorts;
 
+    /**
+     * @return Track HTTP tunnels on HTTP ports.
+     * 
+     */
     public Output<Optional<Boolean>> trackHttpTunnelOnHttpPorts() {
         return Codegen.optional(this.trackHttpTunnelOnHttpPorts);
     }
+    /**
+     * UI session timeout in minutes.
+     * 
+     */
     @Export(name="uiSessionTimeout", refs={Integer.class}, tree="[0]")
     private Output</* @Nullable */ Integer> uiSessionTimeout;
 
+    /**
+     * @return UI session timeout in minutes.
+     * 
+     */
     public Output<Optional<Integer>> uiSessionTimeout() {
         return Codegen.optional(this.uiSessionTimeout);
     }
+    /**
+     * Include Zscaler Client Connector and PAC road warrior traffic in firewall policy.
+     * 
+     */
     @Export(name="zscalerClientConnector1AndPacRoadWarriorInFirewall", refs={Boolean.class}, tree="[0]")
     private Output</* @Nullable */ Boolean> zscalerClientConnector1AndPacRoadWarriorInFirewall;
 
+    /**
+     * @return Include Zscaler Client Connector and PAC road warrior traffic in firewall policy.
+     * 
+     */
     public Output<Optional<Boolean>> zscalerClientConnector1AndPacRoadWarriorInFirewall() {
         return Codegen.optional(this.zscalerClientConnector1AndPacRoadWarriorInFirewall);
     }
@@ -358,6 +770,7 @@ public class AdvancedSettings extends com.pulumi.resources.CustomResource {
     private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<java.lang.String> id) {
         var defaultOptions = com.pulumi.resources.CustomResourceOptions.builder()
             .version(Utilities.getVersion())
+            .pluginDownloadURL("github://api.github.com/zscaler")
             .build();
         return com.pulumi.resources.CustomResourceOptions.merge(defaultOptions, options, id);
     }

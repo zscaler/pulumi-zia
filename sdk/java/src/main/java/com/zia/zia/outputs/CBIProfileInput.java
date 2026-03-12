@@ -12,20 +12,20 @@ import javax.annotation.Nullable;
 
 @CustomType
 public final class CBIProfileInput {
-    private @Nullable String id;
     private @Nullable String name;
     private @Nullable Integer profileSeq;
+    private @Nullable String resourceId;
     private @Nullable String url;
 
     private CBIProfileInput() {}
-    public Optional<String> id() {
-        return Optional.ofNullable(this.id);
-    }
     public Optional<String> name() {
         return Optional.ofNullable(this.name);
     }
     public Optional<Integer> profileSeq() {
         return Optional.ofNullable(this.profileSeq);
+    }
+    public Optional<String> resourceId() {
+        return Optional.ofNullable(this.resourceId);
     }
     public Optional<String> url() {
         return Optional.ofNullable(this.url);
@@ -40,25 +40,19 @@ public final class CBIProfileInput {
     }
     @CustomType.Builder
     public static final class Builder {
-        private @Nullable String id;
         private @Nullable String name;
         private @Nullable Integer profileSeq;
+        private @Nullable String resourceId;
         private @Nullable String url;
         public Builder() {}
         public Builder(CBIProfileInput defaults) {
     	      Objects.requireNonNull(defaults);
-    	      this.id = defaults.id;
     	      this.name = defaults.name;
     	      this.profileSeq = defaults.profileSeq;
+    	      this.resourceId = defaults.resourceId;
     	      this.url = defaults.url;
         }
 
-        @CustomType.Setter
-        public Builder id(@Nullable String id) {
-
-            this.id = id;
-            return this;
-        }
         @CustomType.Setter
         public Builder name(@Nullable String name) {
 
@@ -72,6 +66,12 @@ public final class CBIProfileInput {
             return this;
         }
         @CustomType.Setter
+        public Builder resourceId(@Nullable String resourceId) {
+
+            this.resourceId = resourceId;
+            return this;
+        }
+        @CustomType.Setter
         public Builder url(@Nullable String url) {
 
             this.url = url;
@@ -79,9 +79,9 @@ public final class CBIProfileInput {
         }
         public CBIProfileInput build() {
             final var _resultValue = new CBIProfileInput();
-            _resultValue.id = id;
             _resultValue.name = name;
             _resultValue.profileSeq = profileSeq;
+            _resultValue.resourceId = resourceId;
             _resultValue.url = url;
             return _resultValue;
         }

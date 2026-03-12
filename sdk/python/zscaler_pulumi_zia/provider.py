@@ -23,6 +23,7 @@ class ProviderArgs:
                  client_id: Optional[pulumi.Input[_builtins.str]] = None,
                  client_secret: Optional[pulumi.Input[_builtins.str]] = None,
                  cloud: Optional[pulumi.Input[_builtins.str]] = None,
+                 debug: Optional[pulumi.Input[_builtins.bool]] = None,
                  http_proxy: Optional[pulumi.Input[_builtins.str]] = None,
                  max_retries: Optional[pulumi.Input[_builtins.int]] = None,
                  password: Optional[pulumi.Input[_builtins.str]] = None,
@@ -36,6 +37,22 @@ class ProviderArgs:
                  zia_cloud: Optional[pulumi.Input[_builtins.str]] = None):
         """
         The set of arguments for constructing a Provider resource.
+        :param pulumi.Input[_builtins.str] api_key: (Legacy) The API key for ZIA. Can also be set via the `ZIA_API_KEY` environment variable. Prefer OAuth2 credentials instead.
+        :param pulumi.Input[_builtins.str] client_id: The OAuth2 client ID for authenticating with the Zscaler API. Can also be set via the `ZSCALER_CLIENT_ID` environment variable.
+        :param pulumi.Input[_builtins.str] client_secret: The OAuth2 client secret for authenticating with the Zscaler API. Can also be set via the `ZSCALER_CLIENT_SECRET` environment variable.
+        :param pulumi.Input[_builtins.str] cloud: The Zscaler cloud name (e.g. 'zscaler', 'zscalerone', 'zscalertwo', 'zscalerthree', 'zscloud', 'zscalerbeta', 'zscalergov'). Can also be set via the `ZSCALER_CLOUD` environment variable.
+        :param pulumi.Input[_builtins.bool] debug: If true, enables verbose Zscaler SDK logging (API requests/responses). Logs are written to stderr and optionally to the file specified by the `ZSCALER_SDK_LOG_FILE` environment variable.
+        :param pulumi.Input[_builtins.str] http_proxy: HTTP proxy URL for API requests (e.g. 'http://proxy.example.com:8080'). Can also be set via the `ZSCALER_HTTP_PROXY` environment variable.
+        :param pulumi.Input[_builtins.int] max_retries: Maximum number of retries for API requests. Default is determined by the SDK.
+        :param pulumi.Input[_builtins.str] password: (Legacy) The admin password for ZIA. Can also be set via the `ZIA_PASSWORD` environment variable. Prefer OAuth2 credentials instead.
+        :param pulumi.Input[_builtins.str] private_key: The private key for service principal authentication. Can also be set via the `ZSCALER_PRIVATE_KEY` environment variable.
+        :param pulumi.Input[_builtins.int] request_timeout: Timeout in seconds for API requests.
+        :param pulumi.Input[_builtins.str] sandbox_cloud: The Zscaler Sandbox cloud name. Can also be set via the `ZIA_SANDBOX_CLOUD` environment variable.
+        :param pulumi.Input[_builtins.str] sandbox_token: The API token for Zscaler Sandbox. Can also be set via the `ZIA_SANDBOX_TOKEN` environment variable.
+        :param pulumi.Input[_builtins.bool] use_legacy_client: If true, use the legacy ZIA client authentication instead of OAuth2.
+        :param pulumi.Input[_builtins.str] username: (Legacy) The admin username for ZIA. Can also be set via the `ZIA_USERNAME` environment variable. Prefer OAuth2 credentials instead.
+        :param pulumi.Input[_builtins.str] vanity_domain: The vanity domain for your Zscaler organization. Can also be set via the `ZSCALER_VANITY_DOMAIN` environment variable.
+        :param pulumi.Input[_builtins.str] zia_cloud: (Legacy) The ZIA cloud name. Can also be set via the `ZIA_CLOUD` environment variable. Prefer the 'cloud' parameter instead.
         """
         if api_key is not None:
             pulumi.set(__self__, "api_key", api_key)
@@ -45,6 +62,8 @@ class ProviderArgs:
             pulumi.set(__self__, "client_secret", client_secret)
         if cloud is not None:
             pulumi.set(__self__, "cloud", cloud)
+        if debug is not None:
+            pulumi.set(__self__, "debug", debug)
         if http_proxy is not None:
             pulumi.set(__self__, "http_proxy", http_proxy)
         if max_retries is not None:
@@ -71,6 +90,9 @@ class ProviderArgs:
     @_builtins.property
     @pulumi.getter(name="apiKey")
     def api_key(self) -> Optional[pulumi.Input[_builtins.str]]:
+        """
+        (Legacy) The API key for ZIA. Can also be set via the `ZIA_API_KEY` environment variable. Prefer OAuth2 credentials instead.
+        """
         return pulumi.get(self, "api_key")
 
     @api_key.setter
@@ -80,6 +102,9 @@ class ProviderArgs:
     @_builtins.property
     @pulumi.getter(name="clientId")
     def client_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+        """
+        The OAuth2 client ID for authenticating with the Zscaler API. Can also be set via the `ZSCALER_CLIENT_ID` environment variable.
+        """
         return pulumi.get(self, "client_id")
 
     @client_id.setter
@@ -89,6 +114,9 @@ class ProviderArgs:
     @_builtins.property
     @pulumi.getter(name="clientSecret")
     def client_secret(self) -> Optional[pulumi.Input[_builtins.str]]:
+        """
+        The OAuth2 client secret for authenticating with the Zscaler API. Can also be set via the `ZSCALER_CLIENT_SECRET` environment variable.
+        """
         return pulumi.get(self, "client_secret")
 
     @client_secret.setter
@@ -98,6 +126,9 @@ class ProviderArgs:
     @_builtins.property
     @pulumi.getter
     def cloud(self) -> Optional[pulumi.Input[_builtins.str]]:
+        """
+        The Zscaler cloud name (e.g. 'zscaler', 'zscalerone', 'zscalertwo', 'zscalerthree', 'zscloud', 'zscalerbeta', 'zscalergov'). Can also be set via the `ZSCALER_CLOUD` environment variable.
+        """
         return pulumi.get(self, "cloud")
 
     @cloud.setter
@@ -105,8 +136,23 @@ class ProviderArgs:
         pulumi.set(self, "cloud", value)
 
     @_builtins.property
+    @pulumi.getter
+    def debug(self) -> Optional[pulumi.Input[_builtins.bool]]:
+        """
+        If true, enables verbose Zscaler SDK logging (API requests/responses). Logs are written to stderr and optionally to the file specified by the `ZSCALER_SDK_LOG_FILE` environment variable.
+        """
+        return pulumi.get(self, "debug")
+
+    @debug.setter
+    def debug(self, value: Optional[pulumi.Input[_builtins.bool]]):
+        pulumi.set(self, "debug", value)
+
+    @_builtins.property
     @pulumi.getter(name="httpProxy")
     def http_proxy(self) -> Optional[pulumi.Input[_builtins.str]]:
+        """
+        HTTP proxy URL for API requests (e.g. 'http://proxy.example.com:8080'). Can also be set via the `ZSCALER_HTTP_PROXY` environment variable.
+        """
         return pulumi.get(self, "http_proxy")
 
     @http_proxy.setter
@@ -116,6 +162,9 @@ class ProviderArgs:
     @_builtins.property
     @pulumi.getter(name="maxRetries")
     def max_retries(self) -> Optional[pulumi.Input[_builtins.int]]:
+        """
+        Maximum number of retries for API requests. Default is determined by the SDK.
+        """
         return pulumi.get(self, "max_retries")
 
     @max_retries.setter
@@ -125,6 +174,9 @@ class ProviderArgs:
     @_builtins.property
     @pulumi.getter
     def password(self) -> Optional[pulumi.Input[_builtins.str]]:
+        """
+        (Legacy) The admin password for ZIA. Can also be set via the `ZIA_PASSWORD` environment variable. Prefer OAuth2 credentials instead.
+        """
         return pulumi.get(self, "password")
 
     @password.setter
@@ -134,6 +186,9 @@ class ProviderArgs:
     @_builtins.property
     @pulumi.getter(name="privateKey")
     def private_key(self) -> Optional[pulumi.Input[_builtins.str]]:
+        """
+        The private key for service principal authentication. Can also be set via the `ZSCALER_PRIVATE_KEY` environment variable.
+        """
         return pulumi.get(self, "private_key")
 
     @private_key.setter
@@ -143,6 +198,9 @@ class ProviderArgs:
     @_builtins.property
     @pulumi.getter(name="requestTimeout")
     def request_timeout(self) -> Optional[pulumi.Input[_builtins.int]]:
+        """
+        Timeout in seconds for API requests.
+        """
         return pulumi.get(self, "request_timeout")
 
     @request_timeout.setter
@@ -152,6 +210,9 @@ class ProviderArgs:
     @_builtins.property
     @pulumi.getter(name="sandboxCloud")
     def sandbox_cloud(self) -> Optional[pulumi.Input[_builtins.str]]:
+        """
+        The Zscaler Sandbox cloud name. Can also be set via the `ZIA_SANDBOX_CLOUD` environment variable.
+        """
         return pulumi.get(self, "sandbox_cloud")
 
     @sandbox_cloud.setter
@@ -161,6 +222,9 @@ class ProviderArgs:
     @_builtins.property
     @pulumi.getter(name="sandboxToken")
     def sandbox_token(self) -> Optional[pulumi.Input[_builtins.str]]:
+        """
+        The API token for Zscaler Sandbox. Can also be set via the `ZIA_SANDBOX_TOKEN` environment variable.
+        """
         return pulumi.get(self, "sandbox_token")
 
     @sandbox_token.setter
@@ -170,6 +234,9 @@ class ProviderArgs:
     @_builtins.property
     @pulumi.getter(name="useLegacyClient")
     def use_legacy_client(self) -> Optional[pulumi.Input[_builtins.bool]]:
+        """
+        If true, use the legacy ZIA client authentication instead of OAuth2.
+        """
         return pulumi.get(self, "use_legacy_client")
 
     @use_legacy_client.setter
@@ -179,6 +246,9 @@ class ProviderArgs:
     @_builtins.property
     @pulumi.getter
     def username(self) -> Optional[pulumi.Input[_builtins.str]]:
+        """
+        (Legacy) The admin username for ZIA. Can also be set via the `ZIA_USERNAME` environment variable. Prefer OAuth2 credentials instead.
+        """
         return pulumi.get(self, "username")
 
     @username.setter
@@ -188,6 +258,9 @@ class ProviderArgs:
     @_builtins.property
     @pulumi.getter(name="vanityDomain")
     def vanity_domain(self) -> Optional[pulumi.Input[_builtins.str]]:
+        """
+        The vanity domain for your Zscaler organization. Can also be set via the `ZSCALER_VANITY_DOMAIN` environment variable.
+        """
         return pulumi.get(self, "vanity_domain")
 
     @vanity_domain.setter
@@ -197,6 +270,9 @@ class ProviderArgs:
     @_builtins.property
     @pulumi.getter(name="ziaCloud")
     def zia_cloud(self) -> Optional[pulumi.Input[_builtins.str]]:
+        """
+        (Legacy) The ZIA cloud name. Can also be set via the `ZIA_CLOUD` environment variable. Prefer the 'cloud' parameter instead.
+        """
         return pulumi.get(self, "zia_cloud")
 
     @zia_cloud.setter
@@ -214,6 +290,7 @@ class Provider(pulumi.ProviderResource):
                  client_id: Optional[pulumi.Input[_builtins.str]] = None,
                  client_secret: Optional[pulumi.Input[_builtins.str]] = None,
                  cloud: Optional[pulumi.Input[_builtins.str]] = None,
+                 debug: Optional[pulumi.Input[_builtins.bool]] = None,
                  http_proxy: Optional[pulumi.Input[_builtins.str]] = None,
                  max_retries: Optional[pulumi.Input[_builtins.int]] = None,
                  password: Optional[pulumi.Input[_builtins.str]] = None,
@@ -230,6 +307,22 @@ class Provider(pulumi.ProviderResource):
         Create a Zia resource with the given unique name, props, and options.
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
+        :param pulumi.Input[_builtins.str] api_key: (Legacy) The API key for ZIA. Can also be set via the `ZIA_API_KEY` environment variable. Prefer OAuth2 credentials instead.
+        :param pulumi.Input[_builtins.str] client_id: The OAuth2 client ID for authenticating with the Zscaler API. Can also be set via the `ZSCALER_CLIENT_ID` environment variable.
+        :param pulumi.Input[_builtins.str] client_secret: The OAuth2 client secret for authenticating with the Zscaler API. Can also be set via the `ZSCALER_CLIENT_SECRET` environment variable.
+        :param pulumi.Input[_builtins.str] cloud: The Zscaler cloud name (e.g. 'zscaler', 'zscalerone', 'zscalertwo', 'zscalerthree', 'zscloud', 'zscalerbeta', 'zscalergov'). Can also be set via the `ZSCALER_CLOUD` environment variable.
+        :param pulumi.Input[_builtins.bool] debug: If true, enables verbose Zscaler SDK logging (API requests/responses). Logs are written to stderr and optionally to the file specified by the `ZSCALER_SDK_LOG_FILE` environment variable.
+        :param pulumi.Input[_builtins.str] http_proxy: HTTP proxy URL for API requests (e.g. 'http://proxy.example.com:8080'). Can also be set via the `ZSCALER_HTTP_PROXY` environment variable.
+        :param pulumi.Input[_builtins.int] max_retries: Maximum number of retries for API requests. Default is determined by the SDK.
+        :param pulumi.Input[_builtins.str] password: (Legacy) The admin password for ZIA. Can also be set via the `ZIA_PASSWORD` environment variable. Prefer OAuth2 credentials instead.
+        :param pulumi.Input[_builtins.str] private_key: The private key for service principal authentication. Can also be set via the `ZSCALER_PRIVATE_KEY` environment variable.
+        :param pulumi.Input[_builtins.int] request_timeout: Timeout in seconds for API requests.
+        :param pulumi.Input[_builtins.str] sandbox_cloud: The Zscaler Sandbox cloud name. Can also be set via the `ZIA_SANDBOX_CLOUD` environment variable.
+        :param pulumi.Input[_builtins.str] sandbox_token: The API token for Zscaler Sandbox. Can also be set via the `ZIA_SANDBOX_TOKEN` environment variable.
+        :param pulumi.Input[_builtins.bool] use_legacy_client: If true, use the legacy ZIA client authentication instead of OAuth2.
+        :param pulumi.Input[_builtins.str] username: (Legacy) The admin username for ZIA. Can also be set via the `ZIA_USERNAME` environment variable. Prefer OAuth2 credentials instead.
+        :param pulumi.Input[_builtins.str] vanity_domain: The vanity domain for your Zscaler organization. Can also be set via the `ZSCALER_VANITY_DOMAIN` environment variable.
+        :param pulumi.Input[_builtins.str] zia_cloud: (Legacy) The ZIA cloud name. Can also be set via the `ZIA_CLOUD` environment variable. Prefer the 'cloud' parameter instead.
         """
         ...
     @overload
@@ -258,6 +351,7 @@ class Provider(pulumi.ProviderResource):
                  client_id: Optional[pulumi.Input[_builtins.str]] = None,
                  client_secret: Optional[pulumi.Input[_builtins.str]] = None,
                  cloud: Optional[pulumi.Input[_builtins.str]] = None,
+                 debug: Optional[pulumi.Input[_builtins.bool]] = None,
                  http_proxy: Optional[pulumi.Input[_builtins.str]] = None,
                  max_retries: Optional[pulumi.Input[_builtins.int]] = None,
                  password: Optional[pulumi.Input[_builtins.str]] = None,
@@ -282,6 +376,7 @@ class Provider(pulumi.ProviderResource):
             __props__.__dict__["client_id"] = client_id
             __props__.__dict__["client_secret"] = None if client_secret is None else pulumi.Output.secret(client_secret)
             __props__.__dict__["cloud"] = None if cloud is None else pulumi.Output.secret(cloud)
+            __props__.__dict__["debug"] = pulumi.Output.from_input(debug).apply(pulumi.runtime.to_json) if debug is not None else None
             __props__.__dict__["http_proxy"] = http_proxy
             __props__.__dict__["max_retries"] = pulumi.Output.from_input(max_retries).apply(pulumi.runtime.to_json) if max_retries is not None else None
             __props__.__dict__["password"] = None if password is None else pulumi.Output.secret(password)
@@ -304,60 +399,96 @@ class Provider(pulumi.ProviderResource):
     @_builtins.property
     @pulumi.getter(name="apiKey")
     def api_key(self) -> pulumi.Output[Optional[_builtins.str]]:
+        """
+        (Legacy) The API key for ZIA. Can also be set via the `ZIA_API_KEY` environment variable. Prefer OAuth2 credentials instead.
+        """
         return pulumi.get(self, "api_key")
 
     @_builtins.property
     @pulumi.getter(name="clientId")
     def client_id(self) -> pulumi.Output[Optional[_builtins.str]]:
+        """
+        The OAuth2 client ID for authenticating with the Zscaler API. Can also be set via the `ZSCALER_CLIENT_ID` environment variable.
+        """
         return pulumi.get(self, "client_id")
 
     @_builtins.property
     @pulumi.getter(name="clientSecret")
     def client_secret(self) -> pulumi.Output[Optional[_builtins.str]]:
+        """
+        The OAuth2 client secret for authenticating with the Zscaler API. Can also be set via the `ZSCALER_CLIENT_SECRET` environment variable.
+        """
         return pulumi.get(self, "client_secret")
 
     @_builtins.property
     @pulumi.getter
     def cloud(self) -> pulumi.Output[Optional[_builtins.str]]:
+        """
+        The Zscaler cloud name (e.g. 'zscaler', 'zscalerone', 'zscalertwo', 'zscalerthree', 'zscloud', 'zscalerbeta', 'zscalergov'). Can also be set via the `ZSCALER_CLOUD` environment variable.
+        """
         return pulumi.get(self, "cloud")
 
     @_builtins.property
     @pulumi.getter(name="httpProxy")
     def http_proxy(self) -> pulumi.Output[Optional[_builtins.str]]:
+        """
+        HTTP proxy URL for API requests (e.g. 'http://proxy.example.com:8080'). Can also be set via the `ZSCALER_HTTP_PROXY` environment variable.
+        """
         return pulumi.get(self, "http_proxy")
 
     @_builtins.property
     @pulumi.getter
     def password(self) -> pulumi.Output[Optional[_builtins.str]]:
+        """
+        (Legacy) The admin password for ZIA. Can also be set via the `ZIA_PASSWORD` environment variable. Prefer OAuth2 credentials instead.
+        """
         return pulumi.get(self, "password")
 
     @_builtins.property
     @pulumi.getter(name="privateKey")
     def private_key(self) -> pulumi.Output[Optional[_builtins.str]]:
+        """
+        The private key for service principal authentication. Can also be set via the `ZSCALER_PRIVATE_KEY` environment variable.
+        """
         return pulumi.get(self, "private_key")
 
     @_builtins.property
     @pulumi.getter(name="sandboxCloud")
     def sandbox_cloud(self) -> pulumi.Output[Optional[_builtins.str]]:
+        """
+        The Zscaler Sandbox cloud name. Can also be set via the `ZIA_SANDBOX_CLOUD` environment variable.
+        """
         return pulumi.get(self, "sandbox_cloud")
 
     @_builtins.property
     @pulumi.getter(name="sandboxToken")
     def sandbox_token(self) -> pulumi.Output[Optional[_builtins.str]]:
+        """
+        The API token for Zscaler Sandbox. Can also be set via the `ZIA_SANDBOX_TOKEN` environment variable.
+        """
         return pulumi.get(self, "sandbox_token")
 
     @_builtins.property
     @pulumi.getter
     def username(self) -> pulumi.Output[Optional[_builtins.str]]:
+        """
+        (Legacy) The admin username for ZIA. Can also be set via the `ZIA_USERNAME` environment variable. Prefer OAuth2 credentials instead.
+        """
         return pulumi.get(self, "username")
 
     @_builtins.property
     @pulumi.getter(name="vanityDomain")
     def vanity_domain(self) -> pulumi.Output[Optional[_builtins.str]]:
+        """
+        The vanity domain for your Zscaler organization. Can also be set via the `ZSCALER_VANITY_DOMAIN` environment variable.
+        """
         return pulumi.get(self, "vanity_domain")
 
     @_builtins.property
     @pulumi.getter(name="ziaCloud")
     def zia_cloud(self) -> pulumi.Output[Optional[_builtins.str]]:
+        """
+        (Legacy) The ZIA cloud name. Can also be set via the `ZIA_CLOUD` environment variable. Prefer the 'cloud' parameter instead.
+        """
         return pulumi.get(self, "zia_cloud")
 

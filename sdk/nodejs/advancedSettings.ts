@@ -4,6 +4,30 @@
 import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "./utilities";
 
+/**
+ * The zia_advanced_settings resource manages advanced settings in the Zscaler Internet Access (ZIA) cloud service. This singleton resource controls a wide range of advanced proxy, authentication, DNS resolution, and security settings including domain fronting protection, HTTP tunnel tracking, surrogate IP enforcement, and session timeout configuration.
+ *
+ * For more information, see the [ZIA Advanced Settings documentation](https://help.zscaler.com/zia/advanced-settings).
+ *
+ * ## Example Usage
+ * ### Basic Advanced Settings
+ *
+ * ```typescript
+ * import * as zia from "@bdzscaler/pulumi-zia";
+ *
+ * const example = new zia.AdvancedSettings("example", {
+ *     enableOffice365: true,
+ *     logInternalIp: true,
+ *     blockHttpTunnelOnNonHttpPorts: true,
+ *     blockDomainFrontingOnHostHeader: true,
+ *     authBypassUrls: [".example.com"],
+ * });
+ * ```
+ *
+ * ## Import
+ *
+ * This is a singleton resource and does not support traditional import. It is automatically managed by the provider.
+ */
 export class AdvancedSettings extends pulumi.CustomResource {
     /**
      * Get an existing AdvancedSettings resource's state with the given name, ID, and optional extra
@@ -31,55 +55,205 @@ export class AdvancedSettings extends pulumi.CustomResource {
         return obj['__pulumiType'] === AdvancedSettings.__pulumiType;
     }
 
+    /**
+     * Cloud applications that bypass authentication.
+     */
     declare public readonly authBypassApps: pulumi.Output<string[] | undefined>;
+    /**
+     * URL categories that bypass authentication.
+     */
     declare public readonly authBypassUrlCategories: pulumi.Output<string[] | undefined>;
+    /**
+     * URLs that bypass authentication.
+     */
     declare public readonly authBypassUrls: pulumi.Output<string[] | undefined>;
+    /**
+     * Cloud applications that bypass basic authentication.
+     */
     declare public readonly basicBypassApps: pulumi.Output<string[] | undefined>;
+    /**
+     * URL categories that bypass basic authentication.
+     */
     declare public readonly basicBypassUrlCategories: pulumi.Output<string[] | undefined>;
+    /**
+     * Block connections where CONNECT host and SNI mismatch.
+     */
     declare public readonly blockConnectHostSniMismatch: pulumi.Output<boolean | undefined>;
+    /**
+     * Cloud applications for which domain fronting is blocked.
+     */
     declare public readonly blockDomainFrontingApps: pulumi.Output<string[] | undefined>;
+    /**
+     * Block domain fronting when the host header mismatches the SNI.
+     */
     declare public readonly blockDomainFrontingOnHostHeader: pulumi.Output<boolean | undefined>;
+    /**
+     * Block HTTP tunnels on non-HTTP ports.
+     */
     declare public readonly blockHttpTunnelOnNonHttpPorts: pulumi.Output<boolean | undefined>;
+    /**
+     * Block non-compliant HTTP requests on HTTP ports.
+     */
     declare public readonly blockNonCompliantHttpRequestOnHttpPorts: pulumi.Output<boolean | undefined>;
+    /**
+     * Block non-HTTP traffic on HTTP ports.
+     */
     declare public readonly blockNonHttpOnHttpPortEnabled: pulumi.Output<boolean | undefined>;
+    /**
+     * Enable cascading URL filtering.
+     */
     declare public readonly cascadeUrlFiltering: pulumi.Output<boolean | undefined>;
+    /**
+     * Cloud applications that bypass digest authentication.
+     */
     declare public readonly digestAuthBypassApps: pulumi.Output<string[] | undefined>;
+    /**
+     * URL categories that bypass digest authentication.
+     */
     declare public readonly digestAuthBypassUrlCategories: pulumi.Output<string[] | undefined>;
+    /**
+     * URLs that bypass digest authentication.
+     */
     declare public readonly digestAuthBypassUrls: pulumi.Output<string[] | undefined>;
+    /**
+     * Cloud applications with DNS resolution on transparent proxy enabled.
+     */
     declare public readonly dnsResolutionOnTransparentProxyApps: pulumi.Output<string[] | undefined>;
+    /**
+     * Cloud applications exempt from DNS resolution on transparent proxy.
+     */
     declare public readonly dnsResolutionOnTransparentProxyExemptApps: pulumi.Output<string[] | undefined>;
+    /**
+     * URL categories exempt from DNS resolution on transparent proxy.
+     */
     declare public readonly dnsResolutionOnTransparentProxyExemptUrlCategories: pulumi.Output<string[] | undefined>;
+    /**
+     * URLs exempt from DNS resolution on transparent proxy.
+     */
     declare public readonly dnsResolutionOnTransparentProxyExemptUrls: pulumi.Output<string[] | undefined>;
+    /**
+     * Cloud applications with IPv6 DNS resolution on transparent proxy enabled.
+     */
     declare public readonly dnsResolutionOnTransparentProxyIpv6Apps: pulumi.Output<string[] | undefined>;
+    /**
+     * Cloud applications exempt from IPv6 DNS resolution on transparent proxy.
+     */
     declare public readonly dnsResolutionOnTransparentProxyIpv6ExemptApps: pulumi.Output<string[] | undefined>;
+    /**
+     * URL categories exempt from IPv6 DNS resolution on transparent proxy.
+     */
     declare public readonly dnsResolutionOnTransparentProxyIpv6ExemptUrlCategories: pulumi.Output<string[] | undefined>;
+    /**
+     * URL categories with IPv6 DNS resolution on transparent proxy enabled.
+     */
     declare public readonly dnsResolutionOnTransparentProxyIpv6UrlCategories: pulumi.Output<string[] | undefined>;
+    /**
+     * URL categories with DNS resolution on transparent proxy enabled.
+     */
     declare public readonly dnsResolutionOnTransparentProxyUrlCategories: pulumi.Output<string[] | undefined>;
+    /**
+     * URLs with DNS resolution on transparent proxy enabled.
+     */
     declare public readonly dnsResolutionOnTransparentProxyUrls: pulumi.Output<string[] | undefined>;
+    /**
+     * URL categories that bypass domain fronting detection.
+     */
     declare public readonly domainFrontingBypassUrlCategories: pulumi.Output<string[] | undefined>;
+    /**
+     * Enable dynamic user risk scoring.
+     */
     declare public readonly dynamicUserRiskEnabled: pulumi.Output<boolean | undefined>;
+    /**
+     * Enable EDNS Client Subnet (ECS) for all DNS queries.
+     */
     declare public readonly ecsForAllEnabled: pulumi.Output<boolean | undefined>;
+    /**
+     * Enable admin rank-based access control.
+     */
     declare public readonly enableAdminRankAccess: pulumi.Output<boolean | undefined>;
+    /**
+     * Enable DNS resolution on transparent proxy.
+     */
     declare public readonly enableDnsResolutionOnTransparentProxy: pulumi.Output<boolean | undefined>;
+    /**
+     * Enable policy evaluation on global SSL bypass.
+     */
     declare public readonly enableEvaluatePolicyOnGlobalSslBypass: pulumi.Output<boolean | undefined>;
+    /**
+     * Enable IPv6 DNS optimization on all transparent proxy connections.
+     */
     declare public readonly enableIpv6DnsOptimizationOnAllTransparentProxy: pulumi.Output<boolean | undefined>;
+    /**
+     * Enable IPv6 DNS resolution on transparent proxy.
+     */
     declare public readonly enableIpv6DnsResolutionOnTransparentProxy: pulumi.Output<boolean | undefined>;
+    /**
+     * Enable Office 365 one-click configuration.
+     */
     declare public readonly enableOffice365: pulumi.Output<boolean | undefined>;
+    /**
+     * Enable policy evaluation for unauthenticated traffic.
+     */
     declare public readonly enablePolicyForUnauthenticatedTraffic: pulumi.Output<boolean | undefined>;
+    /**
+     * Enforce surrogate IP for Windows applications.
+     */
     declare public readonly enforceSurrogateIpForWindowsApp: pulumi.Output<boolean | undefined>;
+    /**
+     * Enable HTTP/2 for non-browser traffic.
+     */
     declare public readonly http2NonbrowserTrafficEnabled: pulumi.Output<boolean | undefined>;
+    /**
+     * URL categories for which HTTP range headers are removed.
+     */
     declare public readonly httpRangeHeaderRemoveUrlCategories: pulumi.Output<string[] | undefined>;
+    /**
+     * Cloud applications that bypass Kerberos authentication.
+     */
     declare public readonly kerberosBypassApps: pulumi.Output<string[] | undefined>;
+    /**
+     * URL categories that bypass Kerberos authentication.
+     */
     declare public readonly kerberosBypassUrlCategories: pulumi.Output<string[] | undefined>;
+    /**
+     * URLs that bypass Kerberos authentication.
+     */
     declare public readonly kerberosBypassUrls: pulumi.Output<string[] | undefined>;
+    /**
+     * Enable logging of internal IP addresses.
+     */
     declare public readonly logInternalIp: pulumi.Output<boolean | undefined>;
+    /**
+     * Prefer SNI over CONNECT host header for policy evaluation.
+     */
     declare public readonly preferSniOverConnHost: pulumi.Output<boolean | undefined>;
+    /**
+     * Cloud applications that prefer SNI over CONNECT host header.
+     */
     declare public readonly preferSniOverConnHostApps: pulumi.Output<string[] | undefined>;
+    /**
+     * The internal resource identifier for the advanced settings.
+     */
     declare public /*out*/ readonly resourceId: pulumi.Output<string>;
+    /**
+     * Enable X-Forwarded-For header for SIPA traffic.
+     */
     declare public readonly sipaXffHeaderEnabled: pulumi.Output<boolean | undefined>;
+    /**
+     * URL categories that bypass SNI/DNS optimization.
+     */
     declare public readonly sniDnsOptimizationBypassUrlCategories: pulumi.Output<string[] | undefined>;
+    /**
+     * Track HTTP tunnels on HTTP ports.
+     */
     declare public readonly trackHttpTunnelOnHttpPorts: pulumi.Output<boolean | undefined>;
+    /**
+     * UI session timeout in minutes.
+     */
     declare public readonly uiSessionTimeout: pulumi.Output<number | undefined>;
+    /**
+     * Include Zscaler Client Connector and PAC road warrior traffic in firewall policy.
+     */
     declare public readonly zscalerClientConnector1AndPacRoadWarriorInFirewall: pulumi.Output<boolean | undefined>;
 
     /**
@@ -204,53 +378,200 @@ export class AdvancedSettings extends pulumi.CustomResource {
  * The set of arguments for constructing a AdvancedSettings resource.
  */
 export interface AdvancedSettingsArgs {
+    /**
+     * Cloud applications that bypass authentication.
+     */
     authBypassApps?: pulumi.Input<pulumi.Input<string>[]>;
+    /**
+     * URL categories that bypass authentication.
+     */
     authBypassUrlCategories?: pulumi.Input<pulumi.Input<string>[]>;
+    /**
+     * URLs that bypass authentication.
+     */
     authBypassUrls?: pulumi.Input<pulumi.Input<string>[]>;
+    /**
+     * Cloud applications that bypass basic authentication.
+     */
     basicBypassApps?: pulumi.Input<pulumi.Input<string>[]>;
+    /**
+     * URL categories that bypass basic authentication.
+     */
     basicBypassUrlCategories?: pulumi.Input<pulumi.Input<string>[]>;
+    /**
+     * Block connections where CONNECT host and SNI mismatch.
+     */
     blockConnectHostSniMismatch?: pulumi.Input<boolean>;
+    /**
+     * Cloud applications for which domain fronting is blocked.
+     */
     blockDomainFrontingApps?: pulumi.Input<pulumi.Input<string>[]>;
+    /**
+     * Block domain fronting when the host header mismatches the SNI.
+     */
     blockDomainFrontingOnHostHeader?: pulumi.Input<boolean>;
+    /**
+     * Block HTTP tunnels on non-HTTP ports.
+     */
     blockHttpTunnelOnNonHttpPorts?: pulumi.Input<boolean>;
+    /**
+     * Block non-compliant HTTP requests on HTTP ports.
+     */
     blockNonCompliantHttpRequestOnHttpPorts?: pulumi.Input<boolean>;
+    /**
+     * Block non-HTTP traffic on HTTP ports.
+     */
     blockNonHttpOnHttpPortEnabled?: pulumi.Input<boolean>;
+    /**
+     * Enable cascading URL filtering.
+     */
     cascadeUrlFiltering?: pulumi.Input<boolean>;
+    /**
+     * Cloud applications that bypass digest authentication.
+     */
     digestAuthBypassApps?: pulumi.Input<pulumi.Input<string>[]>;
+    /**
+     * URL categories that bypass digest authentication.
+     */
     digestAuthBypassUrlCategories?: pulumi.Input<pulumi.Input<string>[]>;
+    /**
+     * URLs that bypass digest authentication.
+     */
     digestAuthBypassUrls?: pulumi.Input<pulumi.Input<string>[]>;
+    /**
+     * Cloud applications with DNS resolution on transparent proxy enabled.
+     */
     dnsResolutionOnTransparentProxyApps?: pulumi.Input<pulumi.Input<string>[]>;
+    /**
+     * Cloud applications exempt from DNS resolution on transparent proxy.
+     */
     dnsResolutionOnTransparentProxyExemptApps?: pulumi.Input<pulumi.Input<string>[]>;
+    /**
+     * URL categories exempt from DNS resolution on transparent proxy.
+     */
     dnsResolutionOnTransparentProxyExemptUrlCategories?: pulumi.Input<pulumi.Input<string>[]>;
+    /**
+     * URLs exempt from DNS resolution on transparent proxy.
+     */
     dnsResolutionOnTransparentProxyExemptUrls?: pulumi.Input<pulumi.Input<string>[]>;
+    /**
+     * Cloud applications with IPv6 DNS resolution on transparent proxy enabled.
+     */
     dnsResolutionOnTransparentProxyIpv6Apps?: pulumi.Input<pulumi.Input<string>[]>;
+    /**
+     * Cloud applications exempt from IPv6 DNS resolution on transparent proxy.
+     */
     dnsResolutionOnTransparentProxyIpv6ExemptApps?: pulumi.Input<pulumi.Input<string>[]>;
+    /**
+     * URL categories exempt from IPv6 DNS resolution on transparent proxy.
+     */
     dnsResolutionOnTransparentProxyIpv6ExemptUrlCategories?: pulumi.Input<pulumi.Input<string>[]>;
+    /**
+     * URL categories with IPv6 DNS resolution on transparent proxy enabled.
+     */
     dnsResolutionOnTransparentProxyIpv6UrlCategories?: pulumi.Input<pulumi.Input<string>[]>;
+    /**
+     * URL categories with DNS resolution on transparent proxy enabled.
+     */
     dnsResolutionOnTransparentProxyUrlCategories?: pulumi.Input<pulumi.Input<string>[]>;
+    /**
+     * URLs with DNS resolution on transparent proxy enabled.
+     */
     dnsResolutionOnTransparentProxyUrls?: pulumi.Input<pulumi.Input<string>[]>;
+    /**
+     * URL categories that bypass domain fronting detection.
+     */
     domainFrontingBypassUrlCategories?: pulumi.Input<pulumi.Input<string>[]>;
+    /**
+     * Enable dynamic user risk scoring.
+     */
     dynamicUserRiskEnabled?: pulumi.Input<boolean>;
+    /**
+     * Enable EDNS Client Subnet (ECS) for all DNS queries.
+     */
     ecsForAllEnabled?: pulumi.Input<boolean>;
+    /**
+     * Enable admin rank-based access control.
+     */
     enableAdminRankAccess?: pulumi.Input<boolean>;
+    /**
+     * Enable DNS resolution on transparent proxy.
+     */
     enableDnsResolutionOnTransparentProxy?: pulumi.Input<boolean>;
+    /**
+     * Enable policy evaluation on global SSL bypass.
+     */
     enableEvaluatePolicyOnGlobalSslBypass?: pulumi.Input<boolean>;
+    /**
+     * Enable IPv6 DNS optimization on all transparent proxy connections.
+     */
     enableIpv6DnsOptimizationOnAllTransparentProxy?: pulumi.Input<boolean>;
+    /**
+     * Enable IPv6 DNS resolution on transparent proxy.
+     */
     enableIpv6DnsResolutionOnTransparentProxy?: pulumi.Input<boolean>;
+    /**
+     * Enable Office 365 one-click configuration.
+     */
     enableOffice365?: pulumi.Input<boolean>;
+    /**
+     * Enable policy evaluation for unauthenticated traffic.
+     */
     enablePolicyForUnauthenticatedTraffic?: pulumi.Input<boolean>;
+    /**
+     * Enforce surrogate IP for Windows applications.
+     */
     enforceSurrogateIpForWindowsApp?: pulumi.Input<boolean>;
+    /**
+     * Enable HTTP/2 for non-browser traffic.
+     */
     http2NonbrowserTrafficEnabled?: pulumi.Input<boolean>;
+    /**
+     * URL categories for which HTTP range headers are removed.
+     */
     httpRangeHeaderRemoveUrlCategories?: pulumi.Input<pulumi.Input<string>[]>;
+    /**
+     * Cloud applications that bypass Kerberos authentication.
+     */
     kerberosBypassApps?: pulumi.Input<pulumi.Input<string>[]>;
+    /**
+     * URL categories that bypass Kerberos authentication.
+     */
     kerberosBypassUrlCategories?: pulumi.Input<pulumi.Input<string>[]>;
+    /**
+     * URLs that bypass Kerberos authentication.
+     */
     kerberosBypassUrls?: pulumi.Input<pulumi.Input<string>[]>;
+    /**
+     * Enable logging of internal IP addresses.
+     */
     logInternalIp?: pulumi.Input<boolean>;
+    /**
+     * Prefer SNI over CONNECT host header for policy evaluation.
+     */
     preferSniOverConnHost?: pulumi.Input<boolean>;
+    /**
+     * Cloud applications that prefer SNI over CONNECT host header.
+     */
     preferSniOverConnHostApps?: pulumi.Input<pulumi.Input<string>[]>;
+    /**
+     * Enable X-Forwarded-For header for SIPA traffic.
+     */
     sipaXffHeaderEnabled?: pulumi.Input<boolean>;
+    /**
+     * URL categories that bypass SNI/DNS optimization.
+     */
     sniDnsOptimizationBypassUrlCategories?: pulumi.Input<pulumi.Input<string>[]>;
+    /**
+     * Track HTTP tunnels on HTTP ports.
+     */
     trackHttpTunnelOnHttpPorts?: pulumi.Input<boolean>;
+    /**
+     * UI session timeout in minutes.
+     */
     uiSessionTimeout?: pulumi.Input<number>;
+    /**
+     * Include Zscaler Client Connector and PAC road warrior traffic in firewall policy.
+     */
     zscalerClientConnector1AndPacRoadWarriorInFirewall?: pulumi.Input<boolean>;
 }

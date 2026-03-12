@@ -20,219 +20,467 @@ public final class FileTypeControlRuleArgs extends com.pulumi.resources.Resource
 
     public static final FileTypeControlRuleArgs Empty = new FileTypeControlRuleArgs();
 
+    /**
+     * Whether the rule applies to files with active content.
+     * 
+     */
     @Import(name="activeContent")
     private @Nullable Output<Boolean> activeContent;
 
+    /**
+     * @return Whether the rule applies to files with active content.
+     * 
+     */
     public Optional<Output<Boolean>> activeContent() {
         return Optional.ofNullable(this.activeContent);
     }
 
+    /**
+     * The browser end-user notification template ID.
+     * 
+     */
     @Import(name="browserEunTemplateId")
     private @Nullable Output<Integer> browserEunTemplateId;
 
+    /**
+     * @return The browser end-user notification template ID.
+     * 
+     */
     public Optional<Output<Integer>> browserEunTemplateId() {
         return Optional.ofNullable(this.browserEunTemplateId);
     }
 
+    /**
+     * Whether to capture PCAP data for the rule.
+     * 
+     */
     @Import(name="capturePcap")
     private @Nullable Output<Boolean> capturePcap;
 
+    /**
+     * @return Whether to capture PCAP data for the rule.
+     * 
+     */
     public Optional<Output<Boolean>> capturePcap() {
         return Optional.ofNullable(this.capturePcap);
     }
 
+    /**
+     * List of cloud applications to which the rule applies.
+     * 
+     */
     @Import(name="cloudApplications")
     private @Nullable Output<List<String>> cloudApplications;
 
+    /**
+     * @return List of cloud applications to which the rule applies.
+     * 
+     */
     public Optional<Output<List<String>>> cloudApplications() {
         return Optional.ofNullable(this.cloudApplications);
     }
 
+    /**
+     * List of department IDs to which the rule applies.
+     * 
+     */
     @Import(name="departments")
     private @Nullable Output<List<Integer>> departments;
 
+    /**
+     * @return List of department IDs to which the rule applies.
+     * 
+     */
     public Optional<Output<List<Integer>>> departments() {
         return Optional.ofNullable(this.departments);
     }
 
+    /**
+     * Description of the file type control rule.
+     * 
+     */
     @Import(name="description")
     private @Nullable Output<String> description;
 
+    /**
+     * @return Description of the file type control rule.
+     * 
+     */
     public Optional<Output<String>> description() {
         return Optional.ofNullable(this.description);
     }
 
+    /**
+     * List of device group IDs to which the rule applies.
+     * 
+     */
     @Import(name="deviceGroups")
     private @Nullable Output<List<Integer>> deviceGroups;
 
+    /**
+     * @return List of device group IDs to which the rule applies.
+     * 
+     */
     public Optional<Output<List<Integer>>> deviceGroups() {
         return Optional.ofNullable(this.deviceGroups);
     }
 
+    /**
+     * List of device trust levels for the rule.
+     * 
+     */
     @Import(name="deviceTrustLevels")
     private @Nullable Output<List<String>> deviceTrustLevels;
 
+    /**
+     * @return List of device trust levels for the rule.
+     * 
+     */
     public Optional<Output<List<String>>> deviceTrustLevels() {
         return Optional.ofNullable(this.deviceTrustLevels);
     }
 
+    /**
+     * List of device IDs to which the rule applies.
+     * 
+     */
     @Import(name="devices")
     private @Nullable Output<List<Integer>> devices;
 
+    /**
+     * @return List of device IDs to which the rule applies.
+     * 
+     */
     public Optional<Output<List<Integer>>> devices() {
         return Optional.ofNullable(this.devices);
     }
 
+    /**
+     * List of file types to which the rule applies (e.g., &#39;EXE&#39;, &#39;DLL&#39;).
+     * 
+     */
     @Import(name="fileTypes")
     private @Nullable Output<List<String>> fileTypes;
 
+    /**
+     * @return List of file types to which the rule applies (e.g., &#39;EXE&#39;, &#39;DLL&#39;).
+     * 
+     */
     public Optional<Output<List<String>>> fileTypes() {
         return Optional.ofNullable(this.fileTypes);
     }
 
+    /**
+     * The action taken when traffic matches the rule (e.g., &#39;BLOCK&#39;, &#39;CAUTION&#39;, &#39;ALLOW&#39;).
+     * 
+     */
     @Import(name="filteringAction")
     private @Nullable Output<String> filteringAction;
 
+    /**
+     * @return The action taken when traffic matches the rule (e.g., &#39;BLOCK&#39;, &#39;CAUTION&#39;, &#39;ALLOW&#39;).
+     * 
+     */
     public Optional<Output<String>> filteringAction() {
         return Optional.ofNullable(this.filteringAction);
     }
 
+    /**
+     * List of group IDs to which the rule applies.
+     * 
+     */
     @Import(name="groups")
     private @Nullable Output<List<Integer>> groups;
 
+    /**
+     * @return List of group IDs to which the rule applies.
+     * 
+     */
     public Optional<Output<List<Integer>>> groups() {
         return Optional.ofNullable(this.groups);
     }
 
+    /**
+     * List of label IDs associated with the rule.
+     * 
+     */
     @Import(name="labels")
     private @Nullable Output<List<Integer>> labels;
 
+    /**
+     * @return List of label IDs associated with the rule.
+     * 
+     */
     public Optional<Output<List<Integer>>> labels() {
         return Optional.ofNullable(this.labels);
     }
 
+    /**
+     * List of location group IDs to which the rule applies.
+     * 
+     */
     @Import(name="locationGroups")
     private @Nullable Output<List<Integer>> locationGroups;
 
+    /**
+     * @return List of location group IDs to which the rule applies.
+     * 
+     */
     public Optional<Output<List<Integer>>> locationGroups() {
         return Optional.ofNullable(this.locationGroups);
     }
 
+    /**
+     * List of location IDs to which the rule applies.
+     * 
+     */
     @Import(name="locations")
     private @Nullable Output<List<Integer>> locations;
 
+    /**
+     * @return List of location IDs to which the rule applies.
+     * 
+     */
     public Optional<Output<List<Integer>>> locations() {
         return Optional.ofNullable(this.locations);
     }
 
+    /**
+     * Maximum file size in bytes for the rule to apply.
+     * 
+     */
     @Import(name="maxSize")
     private @Nullable Output<Integer> maxSize;
 
+    /**
+     * @return Maximum file size in bytes for the rule to apply.
+     * 
+     */
     public Optional<Output<Integer>> maxSize() {
         return Optional.ofNullable(this.maxSize);
     }
 
+    /**
+     * Minimum file size in bytes for the rule to apply.
+     * 
+     */
     @Import(name="minSize")
     private @Nullable Output<Integer> minSize;
 
+    /**
+     * @return Minimum file size in bytes for the rule to apply.
+     * 
+     */
     public Optional<Output<Integer>> minSize() {
         return Optional.ofNullable(this.minSize);
     }
 
+    /**
+     * Name of the file type control rule.
+     * 
+     */
     @Import(name="name", required=true)
     private Output<String> name;
 
+    /**
+     * @return Name of the file type control rule.
+     * 
+     */
     public Output<String> name() {
         return this.name;
     }
 
+    /**
+     * The type of file operation (e.g., &#39;DOWNLOAD&#39;, &#39;UPLOAD&#39;).
+     * 
+     */
     @Import(name="operation")
     private @Nullable Output<String> operation;
 
+    /**
+     * @return The type of file operation (e.g., &#39;DOWNLOAD&#39;, &#39;UPLOAD&#39;).
+     * 
+     */
     public Optional<Output<String>> operation() {
         return Optional.ofNullable(this.operation);
     }
 
+    /**
+     * The rule order of execution for the file type control rule.
+     * 
+     */
     @Import(name="order", required=true)
     private Output<Integer> order;
 
+    /**
+     * @return The rule order of execution for the file type control rule.
+     * 
+     */
     public Output<Integer> order() {
         return this.order;
     }
 
+    /**
+     * Whether the rule applies to password-protected files.
+     * 
+     */
     @Import(name="passwordProtected")
     private @Nullable Output<Boolean> passwordProtected;
 
+    /**
+     * @return Whether the rule applies to password-protected files.
+     * 
+     */
     public Optional<Output<Boolean>> passwordProtected() {
         return Optional.ofNullable(this.passwordProtected);
     }
 
+    /**
+     * List of protocols to which the rule applies (e.g., &#39;FTP_RULE&#39;, &#39;HTTPS_RULE&#39;).
+     * 
+     */
     @Import(name="protocols")
     private @Nullable Output<List<String>> protocols;
 
+    /**
+     * @return List of protocols to which the rule applies (e.g., &#39;FTP_RULE&#39;, &#39;HTTPS_RULE&#39;).
+     * 
+     */
     public Optional<Output<List<String>>> protocols() {
         return Optional.ofNullable(this.protocols);
     }
 
+    /**
+     * The admin rank of the rule. Default is 7.
+     * 
+     */
     @Import(name="rank")
     private @Nullable Output<Integer> rank;
 
+    /**
+     * @return The admin rank of the rule. Default is 7.
+     * 
+     */
     public Optional<Output<Integer>> rank() {
         return Optional.ofNullable(this.rank);
     }
 
+    /**
+     * Size quota in KB beyond which the URL filtering rule is applied.
+     * 
+     */
     @Import(name="sizeQuota")
     private @Nullable Output<Integer> sizeQuota;
 
+    /**
+     * @return Size quota in KB beyond which the URL filtering rule is applied.
+     * 
+     */
     public Optional<Output<Integer>> sizeQuota() {
         return Optional.ofNullable(this.sizeQuota);
     }
 
+    /**
+     * The rule state. Accepted values: &#39;ENABLED&#39; or &#39;DISABLED&#39;.
+     * 
+     */
     @Import(name="state")
     private @Nullable Output<String> state;
 
+    /**
+     * @return The rule state. Accepted values: &#39;ENABLED&#39; or &#39;DISABLED&#39;.
+     * 
+     */
     public Optional<Output<String>> state() {
         return Optional.ofNullable(this.state);
     }
 
+    /**
+     * Time quota in minutes after which the URL filtering rule is applied.
+     * 
+     */
     @Import(name="timeQuota")
     private @Nullable Output<Integer> timeQuota;
 
+    /**
+     * @return Time quota in minutes after which the URL filtering rule is applied.
+     * 
+     */
     public Optional<Output<Integer>> timeQuota() {
         return Optional.ofNullable(this.timeQuota);
     }
 
+    /**
+     * List of time window IDs during which the rule is active.
+     * 
+     */
     @Import(name="timeWindows")
     private @Nullable Output<List<Integer>> timeWindows;
 
+    /**
+     * @return List of time window IDs during which the rule is active.
+     * 
+     */
     public Optional<Output<List<Integer>>> timeWindows() {
         return Optional.ofNullable(this.timeWindows);
     }
 
+    /**
+     * Whether the rule applies to unscannable files.
+     * 
+     */
     @Import(name="unscannable")
     private @Nullable Output<Boolean> unscannable;
 
+    /**
+     * @return Whether the rule applies to unscannable files.
+     * 
+     */
     public Optional<Output<Boolean>> unscannable() {
         return Optional.ofNullable(this.unscannable);
     }
 
+    /**
+     * List of URL categories to which the rule applies.
+     * 
+     */
     @Import(name="urlCategories")
     private @Nullable Output<List<String>> urlCategories;
 
+    /**
+     * @return List of URL categories to which the rule applies.
+     * 
+     */
     public Optional<Output<List<String>>> urlCategories() {
         return Optional.ofNullable(this.urlCategories);
     }
 
+    /**
+     * List of user IDs to which the rule applies.
+     * 
+     */
     @Import(name="users")
     private @Nullable Output<List<Integer>> users;
 
+    /**
+     * @return List of user IDs to which the rule applies.
+     * 
+     */
     public Optional<Output<List<Integer>>> users() {
         return Optional.ofNullable(this.users);
     }
 
+    /**
+     * List of ZPA application segments for the rule.
+     * 
+     */
     @Import(name="zpaAppSegments")
     private @Nullable Output<List<ZPAAppSegmentInputArgs>> zpaAppSegments;
 
+    /**
+     * @return List of ZPA application segments for the rule.
+     * 
+     */
     public Optional<Output<List<ZPAAppSegmentInputArgs>>> zpaAppSegments() {
         return Optional.ofNullable(this.zpaAppSegments);
     }
@@ -291,341 +539,803 @@ public final class FileTypeControlRuleArgs extends com.pulumi.resources.Resource
             $ = new FileTypeControlRuleArgs(Objects.requireNonNull(defaults));
         }
 
+        /**
+         * @param activeContent Whether the rule applies to files with active content.
+         * 
+         * @return builder
+         * 
+         */
         public Builder activeContent(@Nullable Output<Boolean> activeContent) {
             $.activeContent = activeContent;
             return this;
         }
 
+        /**
+         * @param activeContent Whether the rule applies to files with active content.
+         * 
+         * @return builder
+         * 
+         */
         public Builder activeContent(Boolean activeContent) {
             return activeContent(Output.of(activeContent));
         }
 
+        /**
+         * @param browserEunTemplateId The browser end-user notification template ID.
+         * 
+         * @return builder
+         * 
+         */
         public Builder browserEunTemplateId(@Nullable Output<Integer> browserEunTemplateId) {
             $.browserEunTemplateId = browserEunTemplateId;
             return this;
         }
 
+        /**
+         * @param browserEunTemplateId The browser end-user notification template ID.
+         * 
+         * @return builder
+         * 
+         */
         public Builder browserEunTemplateId(Integer browserEunTemplateId) {
             return browserEunTemplateId(Output.of(browserEunTemplateId));
         }
 
+        /**
+         * @param capturePcap Whether to capture PCAP data for the rule.
+         * 
+         * @return builder
+         * 
+         */
         public Builder capturePcap(@Nullable Output<Boolean> capturePcap) {
             $.capturePcap = capturePcap;
             return this;
         }
 
+        /**
+         * @param capturePcap Whether to capture PCAP data for the rule.
+         * 
+         * @return builder
+         * 
+         */
         public Builder capturePcap(Boolean capturePcap) {
             return capturePcap(Output.of(capturePcap));
         }
 
+        /**
+         * @param cloudApplications List of cloud applications to which the rule applies.
+         * 
+         * @return builder
+         * 
+         */
         public Builder cloudApplications(@Nullable Output<List<String>> cloudApplications) {
             $.cloudApplications = cloudApplications;
             return this;
         }
 
+        /**
+         * @param cloudApplications List of cloud applications to which the rule applies.
+         * 
+         * @return builder
+         * 
+         */
         public Builder cloudApplications(List<String> cloudApplications) {
             return cloudApplications(Output.of(cloudApplications));
         }
 
+        /**
+         * @param cloudApplications List of cloud applications to which the rule applies.
+         * 
+         * @return builder
+         * 
+         */
         public Builder cloudApplications(String... cloudApplications) {
             return cloudApplications(List.of(cloudApplications));
         }
 
+        /**
+         * @param departments List of department IDs to which the rule applies.
+         * 
+         * @return builder
+         * 
+         */
         public Builder departments(@Nullable Output<List<Integer>> departments) {
             $.departments = departments;
             return this;
         }
 
+        /**
+         * @param departments List of department IDs to which the rule applies.
+         * 
+         * @return builder
+         * 
+         */
         public Builder departments(List<Integer> departments) {
             return departments(Output.of(departments));
         }
 
+        /**
+         * @param departments List of department IDs to which the rule applies.
+         * 
+         * @return builder
+         * 
+         */
         public Builder departments(Integer... departments) {
             return departments(List.of(departments));
         }
 
+        /**
+         * @param description Description of the file type control rule.
+         * 
+         * @return builder
+         * 
+         */
         public Builder description(@Nullable Output<String> description) {
             $.description = description;
             return this;
         }
 
+        /**
+         * @param description Description of the file type control rule.
+         * 
+         * @return builder
+         * 
+         */
         public Builder description(String description) {
             return description(Output.of(description));
         }
 
+        /**
+         * @param deviceGroups List of device group IDs to which the rule applies.
+         * 
+         * @return builder
+         * 
+         */
         public Builder deviceGroups(@Nullable Output<List<Integer>> deviceGroups) {
             $.deviceGroups = deviceGroups;
             return this;
         }
 
+        /**
+         * @param deviceGroups List of device group IDs to which the rule applies.
+         * 
+         * @return builder
+         * 
+         */
         public Builder deviceGroups(List<Integer> deviceGroups) {
             return deviceGroups(Output.of(deviceGroups));
         }
 
+        /**
+         * @param deviceGroups List of device group IDs to which the rule applies.
+         * 
+         * @return builder
+         * 
+         */
         public Builder deviceGroups(Integer... deviceGroups) {
             return deviceGroups(List.of(deviceGroups));
         }
 
+        /**
+         * @param deviceTrustLevels List of device trust levels for the rule.
+         * 
+         * @return builder
+         * 
+         */
         public Builder deviceTrustLevels(@Nullable Output<List<String>> deviceTrustLevels) {
             $.deviceTrustLevels = deviceTrustLevels;
             return this;
         }
 
+        /**
+         * @param deviceTrustLevels List of device trust levels for the rule.
+         * 
+         * @return builder
+         * 
+         */
         public Builder deviceTrustLevels(List<String> deviceTrustLevels) {
             return deviceTrustLevels(Output.of(deviceTrustLevels));
         }
 
+        /**
+         * @param deviceTrustLevels List of device trust levels for the rule.
+         * 
+         * @return builder
+         * 
+         */
         public Builder deviceTrustLevels(String... deviceTrustLevels) {
             return deviceTrustLevels(List.of(deviceTrustLevels));
         }
 
+        /**
+         * @param devices List of device IDs to which the rule applies.
+         * 
+         * @return builder
+         * 
+         */
         public Builder devices(@Nullable Output<List<Integer>> devices) {
             $.devices = devices;
             return this;
         }
 
+        /**
+         * @param devices List of device IDs to which the rule applies.
+         * 
+         * @return builder
+         * 
+         */
         public Builder devices(List<Integer> devices) {
             return devices(Output.of(devices));
         }
 
+        /**
+         * @param devices List of device IDs to which the rule applies.
+         * 
+         * @return builder
+         * 
+         */
         public Builder devices(Integer... devices) {
             return devices(List.of(devices));
         }
 
+        /**
+         * @param fileTypes List of file types to which the rule applies (e.g., &#39;EXE&#39;, &#39;DLL&#39;).
+         * 
+         * @return builder
+         * 
+         */
         public Builder fileTypes(@Nullable Output<List<String>> fileTypes) {
             $.fileTypes = fileTypes;
             return this;
         }
 
+        /**
+         * @param fileTypes List of file types to which the rule applies (e.g., &#39;EXE&#39;, &#39;DLL&#39;).
+         * 
+         * @return builder
+         * 
+         */
         public Builder fileTypes(List<String> fileTypes) {
             return fileTypes(Output.of(fileTypes));
         }
 
+        /**
+         * @param fileTypes List of file types to which the rule applies (e.g., &#39;EXE&#39;, &#39;DLL&#39;).
+         * 
+         * @return builder
+         * 
+         */
         public Builder fileTypes(String... fileTypes) {
             return fileTypes(List.of(fileTypes));
         }
 
+        /**
+         * @param filteringAction The action taken when traffic matches the rule (e.g., &#39;BLOCK&#39;, &#39;CAUTION&#39;, &#39;ALLOW&#39;).
+         * 
+         * @return builder
+         * 
+         */
         public Builder filteringAction(@Nullable Output<String> filteringAction) {
             $.filteringAction = filteringAction;
             return this;
         }
 
+        /**
+         * @param filteringAction The action taken when traffic matches the rule (e.g., &#39;BLOCK&#39;, &#39;CAUTION&#39;, &#39;ALLOW&#39;).
+         * 
+         * @return builder
+         * 
+         */
         public Builder filteringAction(String filteringAction) {
             return filteringAction(Output.of(filteringAction));
         }
 
+        /**
+         * @param groups List of group IDs to which the rule applies.
+         * 
+         * @return builder
+         * 
+         */
         public Builder groups(@Nullable Output<List<Integer>> groups) {
             $.groups = groups;
             return this;
         }
 
+        /**
+         * @param groups List of group IDs to which the rule applies.
+         * 
+         * @return builder
+         * 
+         */
         public Builder groups(List<Integer> groups) {
             return groups(Output.of(groups));
         }
 
+        /**
+         * @param groups List of group IDs to which the rule applies.
+         * 
+         * @return builder
+         * 
+         */
         public Builder groups(Integer... groups) {
             return groups(List.of(groups));
         }
 
+        /**
+         * @param labels List of label IDs associated with the rule.
+         * 
+         * @return builder
+         * 
+         */
         public Builder labels(@Nullable Output<List<Integer>> labels) {
             $.labels = labels;
             return this;
         }
 
+        /**
+         * @param labels List of label IDs associated with the rule.
+         * 
+         * @return builder
+         * 
+         */
         public Builder labels(List<Integer> labels) {
             return labels(Output.of(labels));
         }
 
+        /**
+         * @param labels List of label IDs associated with the rule.
+         * 
+         * @return builder
+         * 
+         */
         public Builder labels(Integer... labels) {
             return labels(List.of(labels));
         }
 
+        /**
+         * @param locationGroups List of location group IDs to which the rule applies.
+         * 
+         * @return builder
+         * 
+         */
         public Builder locationGroups(@Nullable Output<List<Integer>> locationGroups) {
             $.locationGroups = locationGroups;
             return this;
         }
 
+        /**
+         * @param locationGroups List of location group IDs to which the rule applies.
+         * 
+         * @return builder
+         * 
+         */
         public Builder locationGroups(List<Integer> locationGroups) {
             return locationGroups(Output.of(locationGroups));
         }
 
+        /**
+         * @param locationGroups List of location group IDs to which the rule applies.
+         * 
+         * @return builder
+         * 
+         */
         public Builder locationGroups(Integer... locationGroups) {
             return locationGroups(List.of(locationGroups));
         }
 
+        /**
+         * @param locations List of location IDs to which the rule applies.
+         * 
+         * @return builder
+         * 
+         */
         public Builder locations(@Nullable Output<List<Integer>> locations) {
             $.locations = locations;
             return this;
         }
 
+        /**
+         * @param locations List of location IDs to which the rule applies.
+         * 
+         * @return builder
+         * 
+         */
         public Builder locations(List<Integer> locations) {
             return locations(Output.of(locations));
         }
 
+        /**
+         * @param locations List of location IDs to which the rule applies.
+         * 
+         * @return builder
+         * 
+         */
         public Builder locations(Integer... locations) {
             return locations(List.of(locations));
         }
 
+        /**
+         * @param maxSize Maximum file size in bytes for the rule to apply.
+         * 
+         * @return builder
+         * 
+         */
         public Builder maxSize(@Nullable Output<Integer> maxSize) {
             $.maxSize = maxSize;
             return this;
         }
 
+        /**
+         * @param maxSize Maximum file size in bytes for the rule to apply.
+         * 
+         * @return builder
+         * 
+         */
         public Builder maxSize(Integer maxSize) {
             return maxSize(Output.of(maxSize));
         }
 
+        /**
+         * @param minSize Minimum file size in bytes for the rule to apply.
+         * 
+         * @return builder
+         * 
+         */
         public Builder minSize(@Nullable Output<Integer> minSize) {
             $.minSize = minSize;
             return this;
         }
 
+        /**
+         * @param minSize Minimum file size in bytes for the rule to apply.
+         * 
+         * @return builder
+         * 
+         */
         public Builder minSize(Integer minSize) {
             return minSize(Output.of(minSize));
         }
 
+        /**
+         * @param name Name of the file type control rule.
+         * 
+         * @return builder
+         * 
+         */
         public Builder name(Output<String> name) {
             $.name = name;
             return this;
         }
 
+        /**
+         * @param name Name of the file type control rule.
+         * 
+         * @return builder
+         * 
+         */
         public Builder name(String name) {
             return name(Output.of(name));
         }
 
+        /**
+         * @param operation The type of file operation (e.g., &#39;DOWNLOAD&#39;, &#39;UPLOAD&#39;).
+         * 
+         * @return builder
+         * 
+         */
         public Builder operation(@Nullable Output<String> operation) {
             $.operation = operation;
             return this;
         }
 
+        /**
+         * @param operation The type of file operation (e.g., &#39;DOWNLOAD&#39;, &#39;UPLOAD&#39;).
+         * 
+         * @return builder
+         * 
+         */
         public Builder operation(String operation) {
             return operation(Output.of(operation));
         }
 
+        /**
+         * @param order The rule order of execution for the file type control rule.
+         * 
+         * @return builder
+         * 
+         */
         public Builder order(Output<Integer> order) {
             $.order = order;
             return this;
         }
 
+        /**
+         * @param order The rule order of execution for the file type control rule.
+         * 
+         * @return builder
+         * 
+         */
         public Builder order(Integer order) {
             return order(Output.of(order));
         }
 
+        /**
+         * @param passwordProtected Whether the rule applies to password-protected files.
+         * 
+         * @return builder
+         * 
+         */
         public Builder passwordProtected(@Nullable Output<Boolean> passwordProtected) {
             $.passwordProtected = passwordProtected;
             return this;
         }
 
+        /**
+         * @param passwordProtected Whether the rule applies to password-protected files.
+         * 
+         * @return builder
+         * 
+         */
         public Builder passwordProtected(Boolean passwordProtected) {
             return passwordProtected(Output.of(passwordProtected));
         }
 
+        /**
+         * @param protocols List of protocols to which the rule applies (e.g., &#39;FTP_RULE&#39;, &#39;HTTPS_RULE&#39;).
+         * 
+         * @return builder
+         * 
+         */
         public Builder protocols(@Nullable Output<List<String>> protocols) {
             $.protocols = protocols;
             return this;
         }
 
+        /**
+         * @param protocols List of protocols to which the rule applies (e.g., &#39;FTP_RULE&#39;, &#39;HTTPS_RULE&#39;).
+         * 
+         * @return builder
+         * 
+         */
         public Builder protocols(List<String> protocols) {
             return protocols(Output.of(protocols));
         }
 
+        /**
+         * @param protocols List of protocols to which the rule applies (e.g., &#39;FTP_RULE&#39;, &#39;HTTPS_RULE&#39;).
+         * 
+         * @return builder
+         * 
+         */
         public Builder protocols(String... protocols) {
             return protocols(List.of(protocols));
         }
 
+        /**
+         * @param rank The admin rank of the rule. Default is 7.
+         * 
+         * @return builder
+         * 
+         */
         public Builder rank(@Nullable Output<Integer> rank) {
             $.rank = rank;
             return this;
         }
 
+        /**
+         * @param rank The admin rank of the rule. Default is 7.
+         * 
+         * @return builder
+         * 
+         */
         public Builder rank(Integer rank) {
             return rank(Output.of(rank));
         }
 
+        /**
+         * @param sizeQuota Size quota in KB beyond which the URL filtering rule is applied.
+         * 
+         * @return builder
+         * 
+         */
         public Builder sizeQuota(@Nullable Output<Integer> sizeQuota) {
             $.sizeQuota = sizeQuota;
             return this;
         }
 
+        /**
+         * @param sizeQuota Size quota in KB beyond which the URL filtering rule is applied.
+         * 
+         * @return builder
+         * 
+         */
         public Builder sizeQuota(Integer sizeQuota) {
             return sizeQuota(Output.of(sizeQuota));
         }
 
+        /**
+         * @param state The rule state. Accepted values: &#39;ENABLED&#39; or &#39;DISABLED&#39;.
+         * 
+         * @return builder
+         * 
+         */
         public Builder state(@Nullable Output<String> state) {
             $.state = state;
             return this;
         }
 
+        /**
+         * @param state The rule state. Accepted values: &#39;ENABLED&#39; or &#39;DISABLED&#39;.
+         * 
+         * @return builder
+         * 
+         */
         public Builder state(String state) {
             return state(Output.of(state));
         }
 
+        /**
+         * @param timeQuota Time quota in minutes after which the URL filtering rule is applied.
+         * 
+         * @return builder
+         * 
+         */
         public Builder timeQuota(@Nullable Output<Integer> timeQuota) {
             $.timeQuota = timeQuota;
             return this;
         }
 
+        /**
+         * @param timeQuota Time quota in minutes after which the URL filtering rule is applied.
+         * 
+         * @return builder
+         * 
+         */
         public Builder timeQuota(Integer timeQuota) {
             return timeQuota(Output.of(timeQuota));
         }
 
+        /**
+         * @param timeWindows List of time window IDs during which the rule is active.
+         * 
+         * @return builder
+         * 
+         */
         public Builder timeWindows(@Nullable Output<List<Integer>> timeWindows) {
             $.timeWindows = timeWindows;
             return this;
         }
 
+        /**
+         * @param timeWindows List of time window IDs during which the rule is active.
+         * 
+         * @return builder
+         * 
+         */
         public Builder timeWindows(List<Integer> timeWindows) {
             return timeWindows(Output.of(timeWindows));
         }
 
+        /**
+         * @param timeWindows List of time window IDs during which the rule is active.
+         * 
+         * @return builder
+         * 
+         */
         public Builder timeWindows(Integer... timeWindows) {
             return timeWindows(List.of(timeWindows));
         }
 
+        /**
+         * @param unscannable Whether the rule applies to unscannable files.
+         * 
+         * @return builder
+         * 
+         */
         public Builder unscannable(@Nullable Output<Boolean> unscannable) {
             $.unscannable = unscannable;
             return this;
         }
 
+        /**
+         * @param unscannable Whether the rule applies to unscannable files.
+         * 
+         * @return builder
+         * 
+         */
         public Builder unscannable(Boolean unscannable) {
             return unscannable(Output.of(unscannable));
         }
 
+        /**
+         * @param urlCategories List of URL categories to which the rule applies.
+         * 
+         * @return builder
+         * 
+         */
         public Builder urlCategories(@Nullable Output<List<String>> urlCategories) {
             $.urlCategories = urlCategories;
             return this;
         }
 
+        /**
+         * @param urlCategories List of URL categories to which the rule applies.
+         * 
+         * @return builder
+         * 
+         */
         public Builder urlCategories(List<String> urlCategories) {
             return urlCategories(Output.of(urlCategories));
         }
 
+        /**
+         * @param urlCategories List of URL categories to which the rule applies.
+         * 
+         * @return builder
+         * 
+         */
         public Builder urlCategories(String... urlCategories) {
             return urlCategories(List.of(urlCategories));
         }
 
+        /**
+         * @param users List of user IDs to which the rule applies.
+         * 
+         * @return builder
+         * 
+         */
         public Builder users(@Nullable Output<List<Integer>> users) {
             $.users = users;
             return this;
         }
 
+        /**
+         * @param users List of user IDs to which the rule applies.
+         * 
+         * @return builder
+         * 
+         */
         public Builder users(List<Integer> users) {
             return users(Output.of(users));
         }
 
+        /**
+         * @param users List of user IDs to which the rule applies.
+         * 
+         * @return builder
+         * 
+         */
         public Builder users(Integer... users) {
             return users(List.of(users));
         }
 
+        /**
+         * @param zpaAppSegments List of ZPA application segments for the rule.
+         * 
+         * @return builder
+         * 
+         */
         public Builder zpaAppSegments(@Nullable Output<List<ZPAAppSegmentInputArgs>> zpaAppSegments) {
             $.zpaAppSegments = zpaAppSegments;
             return this;
         }
 
+        /**
+         * @param zpaAppSegments List of ZPA application segments for the rule.
+         * 
+         * @return builder
+         * 
+         */
         public Builder zpaAppSegments(List<ZPAAppSegmentInputArgs> zpaAppSegments) {
             return zpaAppSegments(Output.of(zpaAppSegments));
         }
 
+        /**
+         * @param zpaAppSegments List of ZPA application segments for the rule.
+         * 
+         * @return builder
+         * 
+         */
         public Builder zpaAppSegments(ZPAAppSegmentInputArgs... zpaAppSegments) {
             return zpaAppSegments(List.of(zpaAppSegments));
         }

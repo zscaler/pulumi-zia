@@ -14,17 +14,45 @@ import java.util.List;
 import java.util.Optional;
 import javax.annotation.Nullable;
 
+/**
+ * The zia_auth_settings_urls resource manages the URLs that are exempted from user authentication in the Zscaler Internet Access (ZIA) cloud service. This singleton resource allows you to define a list of URLs that bypass the ZIA authentication process.
+ * 
+ * For more information, see the [ZIA User Authentication documentation](https://help.zscaler.com/zia/authentication-exemptions).
+ * 
+ * ## Example Usage
+ * 
+ * ## Import
+ * 
+ * This is a singleton resource and does not support traditional import. It is automatically managed by the provider.
+ * 
+ */
 @ResourceType(type="zia:index:AuthSettingsUrls")
 public class AuthSettingsUrls extends com.pulumi.resources.CustomResource {
+    /**
+     * The internal resource identifier for the authentication settings URLs.
+     * 
+     */
     @Export(name="resourceId", refs={String.class}, tree="[0]")
     private Output<String> resourceId;
 
+    /**
+     * @return The internal resource identifier for the authentication settings URLs.
+     * 
+     */
     public Output<String> resourceId() {
         return this.resourceId;
     }
+    /**
+     * List of URLs that are exempted from user authentication.
+     * 
+     */
     @Export(name="urls", refs={List.class,String.class}, tree="[0,1]")
     private Output</* @Nullable */ List<String>> urls;
 
+    /**
+     * @return List of URLs that are exempted from user authentication.
+     * 
+     */
     public Output<Optional<List<String>>> urls() {
         return Codegen.optional(this.urls);
     }
@@ -68,6 +96,7 @@ public class AuthSettingsUrls extends com.pulumi.resources.CustomResource {
     private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<java.lang.String> id) {
         var defaultOptions = com.pulumi.resources.CustomResourceOptions.builder()
             .version(Utilities.getVersion())
+            .pluginDownloadURL("github://api.github.com/zscaler")
             .build();
         return com.pulumi.resources.CustomResourceOptions.merge(defaultOptions, options, id);
     }

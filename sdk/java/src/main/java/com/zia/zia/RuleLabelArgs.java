@@ -15,16 +15,32 @@ public final class RuleLabelArgs extends com.pulumi.resources.ResourceArgs {
 
     public static final RuleLabelArgs Empty = new RuleLabelArgs();
 
+    /**
+     * Additional information about the rule label. Maximum 10240 characters.
+     * 
+     */
     @Import(name="description")
     private @Nullable Output<String> description;
 
+    /**
+     * @return Additional information about the rule label. Maximum 10240 characters.
+     * 
+     */
     public Optional<Output<String>> description() {
         return Optional.ofNullable(this.description);
     }
 
+    /**
+     * The name of the rule label. Maximum 255 characters.
+     * 
+     */
     @Import(name="name")
     private @Nullable Output<String> name;
 
+    /**
+     * @return The name of the rule label. Maximum 255 characters.
+     * 
+     */
     public Optional<Output<String>> name() {
         return Optional.ofNullable(this.name);
     }
@@ -54,20 +70,44 @@ public final class RuleLabelArgs extends com.pulumi.resources.ResourceArgs {
             $ = new RuleLabelArgs(Objects.requireNonNull(defaults));
         }
 
+        /**
+         * @param description Additional information about the rule label. Maximum 10240 characters.
+         * 
+         * @return builder
+         * 
+         */
         public Builder description(@Nullable Output<String> description) {
             $.description = description;
             return this;
         }
 
+        /**
+         * @param description Additional information about the rule label. Maximum 10240 characters.
+         * 
+         * @return builder
+         * 
+         */
         public Builder description(String description) {
             return description(Output.of(description));
         }
 
+        /**
+         * @param name The name of the rule label. Maximum 255 characters.
+         * 
+         * @return builder
+         * 
+         */
         public Builder name(@Nullable Output<String> name) {
             $.name = name;
             return this;
         }
 
+        /**
+         * @param name The name of the rule label. Maximum 255 characters.
+         * 
+         * @return builder
+         * 
+         */
         public Builder name(String name) {
             return name(Output.of(name));
         }

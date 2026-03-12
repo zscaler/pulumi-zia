@@ -16,155 +16,371 @@ import java.util.List;
 import java.util.Optional;
 import javax.annotation.Nullable;
 
+/**
+ * The zia_dlp_web_rules resource manages DLP (Data Loss Prevention) web rules in the Zscaler Internet Access (ZIA) cloud service. DLP web rules define how sensitive data is handled in web traffic, allowing organizations to control and monitor the transfer of confidential information.
+ * 
+ * For more information, see the [ZIA Data Loss Prevention documentation](https://help.zscaler.com/zia/data-loss-prevention).
+ * 
+ * ## Example Usage
+ * 
+ * ## Import
+ * 
+ * An existing DLP Web Rule can be imported using its resource ID, e.g.
+ * 
+ * ```sh
+ * $ pulumi import zia:index:DlpWebRule example 12345
+ * ```
+ * 
+ */
 @ResourceType(type="zia:index:DlpWebRule")
 public class DlpWebRule extends com.pulumi.resources.CustomResource {
+    /**
+     * Action taken when the rule is matched. Valid values: `ALLOW`, `BLOCK`, `ICAP_RESPONSE`.
+     * 
+     */
     @Export(name="action", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> action;
 
+    /**
+     * @return Action taken when the rule is matched. Valid values: `ALLOW`, `BLOCK`, `ICAP_RESPONSE`.
+     * 
+     */
     public Output<Optional<String>> action() {
         return Codegen.optional(this.action);
     }
+    /**
+     * List of cloud application names for which the rule is applied.
+     * 
+     */
     @Export(name="cloudApplications", refs={List.class,String.class}, tree="[0,1]")
     private Output</* @Nullable */ List<String>> cloudApplications;
 
+    /**
+     * @return List of cloud application names for which the rule is applied.
+     * 
+     */
     public Output<Optional<List<String>>> cloudApplications() {
         return Codegen.optional(this.cloudApplications);
     }
+    /**
+     * IDs of departments for which the rule must be applied.
+     * 
+     */
     @Export(name="departments", refs={List.class,Integer.class}, tree="[0,1]")
     private Output</* @Nullable */ List<Integer>> departments;
 
+    /**
+     * @return IDs of departments for which the rule must be applied.
+     * 
+     */
     public Output<Optional<List<Integer>>> departments() {
         return Codegen.optional(this.departments);
     }
+    /**
+     * Additional information about the DLP web rule.
+     * 
+     */
     @Export(name="description", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> description;
 
+    /**
+     * @return Additional information about the DLP web rule.
+     * 
+     */
     public Output<Optional<String>> description() {
         return Codegen.optional(this.description);
     }
+    /**
+     * If true, DLP scanning is enabled for file downloads.
+     * 
+     */
     @Export(name="dlpDownloadScanEnabled", refs={Boolean.class}, tree="[0]")
     private Output</* @Nullable */ Boolean> dlpDownloadScanEnabled;
 
+    /**
+     * @return If true, DLP scanning is enabled for file downloads.
+     * 
+     */
     public Output<Optional<Boolean>> dlpDownloadScanEnabled() {
         return Codegen.optional(this.dlpDownloadScanEnabled);
     }
+    /**
+     * The email address of an external auditor to whom DLP email notifications are sent.
+     * 
+     */
     @Export(name="externalAuditorEmail", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> externalAuditorEmail;
 
+    /**
+     * @return The email address of an external auditor to whom DLP email notifications are sent.
+     * 
+     */
     public Output<Optional<String>> externalAuditorEmail() {
         return Codegen.optional(this.externalAuditorEmail);
     }
+    /**
+     * List of file types to which the DLP policy rule must be applied.
+     * 
+     */
     @Export(name="fileTypes", refs={List.class,String.class}, tree="[0,1]")
     private Output</* @Nullable */ List<String>> fileTypes;
 
+    /**
+     * @return List of file types to which the DLP policy rule must be applied.
+     * 
+     */
     public Output<Optional<List<String>>> fileTypes() {
         return Codegen.optional(this.fileTypes);
     }
+    /**
+     * IDs of groups for which the rule must be applied.
+     * 
+     */
     @Export(name="groups", refs={List.class,Integer.class}, tree="[0,1]")
     private Output</* @Nullable */ List<Integer>> groups;
 
+    /**
+     * @return IDs of groups for which the rule must be applied.
+     * 
+     */
     public Output<Optional<List<Integer>>> groups() {
         return Codegen.optional(this.groups);
     }
+    /**
+     * IDs of labels associated with the DLP web rule.
+     * 
+     */
     @Export(name="labels", refs={List.class,Integer.class}, tree="[0,1]")
     private Output</* @Nullable */ List<Integer>> labels;
 
+    /**
+     * @return IDs of labels associated with the DLP web rule.
+     * 
+     */
     public Output<Optional<List<Integer>>> labels() {
         return Codegen.optional(this.labels);
     }
+    /**
+     * IDs of location groups for which the rule must be applied.
+     * 
+     */
     @Export(name="locationGroups", refs={List.class,Integer.class}, tree="[0,1]")
     private Output</* @Nullable */ List<Integer>> locationGroups;
 
+    /**
+     * @return IDs of location groups for which the rule must be applied.
+     * 
+     */
     public Output<Optional<List<Integer>>> locationGroups() {
         return Codegen.optional(this.locationGroups);
     }
+    /**
+     * IDs of locations for which the rule must be applied.
+     * 
+     */
     @Export(name="locations", refs={List.class,Integer.class}, tree="[0,1]")
     private Output</* @Nullable */ List<Integer>> locations;
 
+    /**
+     * @return IDs of locations for which the rule must be applied.
+     * 
+     */
     public Output<Optional<List<Integer>>> locations() {
         return Codegen.optional(this.locations);
     }
+    /**
+     * If true, the rule matches but does not enforce the action.
+     * 
+     */
     @Export(name="matchOnly", refs={Boolean.class}, tree="[0]")
     private Output</* @Nullable */ Boolean> matchOnly;
 
+    /**
+     * @return If true, the rule matches but does not enforce the action.
+     * 
+     */
     public Output<Optional<Boolean>> matchOnly() {
         return Codegen.optional(this.matchOnly);
     }
+    /**
+     * Minimum file size (in KB) used for evaluating the DLP policy rule.
+     * 
+     */
     @Export(name="minSize", refs={Integer.class}, tree="[0]")
     private Output</* @Nullable */ Integer> minSize;
 
+    /**
+     * @return Minimum file size (in KB) used for evaluating the DLP policy rule.
+     * 
+     */
     public Output<Optional<Integer>> minSize() {
         return Codegen.optional(this.minSize);
     }
+    /**
+     * The name of the DLP web rule. Must be unique.
+     * 
+     */
     @Export(name="name", refs={String.class}, tree="[0]")
     private Output<String> name;
 
+    /**
+     * @return The name of the DLP web rule. Must be unique.
+     * 
+     */
     public Output<String> name() {
         return this.name;
     }
+    /**
+     * If true, Optical Character Recognition (OCR) is enabled for the DLP rule.
+     * 
+     */
     @Export(name="ocrEnabled", refs={Boolean.class}, tree="[0]")
     private Output</* @Nullable */ Boolean> ocrEnabled;
 
+    /**
+     * @return If true, Optical Character Recognition (OCR) is enabled for the DLP rule.
+     * 
+     */
     public Output<Optional<Boolean>> ocrEnabled() {
         return Codegen.optional(this.ocrEnabled);
     }
+    /**
+     * The order of execution of the rule with respect to other DLP web rules.
+     * 
+     */
     @Export(name="order", refs={Integer.class}, tree="[0]")
     private Output<Integer> order;
 
+    /**
+     * @return The order of execution of the rule with respect to other DLP web rules.
+     * 
+     */
     public Output<Integer> order() {
         return this.order;
     }
+    /**
+     * Protocols to which the rule applies. Valid values: `FTP_RULE`, `HTTPS_RULE`, `HTTP_RULE`.
+     * 
+     */
     @Export(name="protocols", refs={List.class,String.class}, tree="[0,1]")
     private Output</* @Nullable */ List<String>> protocols;
 
+    /**
+     * @return Protocols to which the rule applies. Valid values: `FTP_RULE`, `HTTPS_RULE`, `HTTP_RULE`.
+     * 
+     */
     public Output<Optional<List<String>>> protocols() {
         return Codegen.optional(this.protocols);
     }
+    /**
+     * Admin rank of the DLP web rule. Valid values: 0-7. Default: 7.
+     * 
+     */
     @Export(name="rank", refs={Integer.class}, tree="[0]")
     private Output</* @Nullable */ Integer> rank;
 
+    /**
+     * @return Admin rank of the DLP web rule. Valid values: 0-7. Default: 7.
+     * 
+     */
     public Output<Optional<Integer>> rank() {
         return Codegen.optional(this.rank);
     }
+    /**
+     * The system-generated ID of the DLP web rule.
+     * 
+     */
     @Export(name="ruleId", refs={Integer.class}, tree="[0]")
     private Output<Integer> ruleId;
 
+    /**
+     * @return The system-generated ID of the DLP web rule.
+     * 
+     */
     public Output<Integer> ruleId() {
         return this.ruleId;
     }
+    /**
+     * IDs of source IP address groups for which the rule must be applied.
+     * 
+     */
     @Export(name="sourceIpGroups", refs={List.class,Integer.class}, tree="[0,1]")
     private Output</* @Nullable */ List<Integer>> sourceIpGroups;
 
+    /**
+     * @return IDs of source IP address groups for which the rule must be applied.
+     * 
+     */
     public Output<Optional<List<Integer>>> sourceIpGroups() {
         return Codegen.optional(this.sourceIpGroups);
     }
+    /**
+     * Rule state. Valid values: `ENABLED`, `DISABLED`.
+     * 
+     */
     @Export(name="state", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> state;
 
+    /**
+     * @return Rule state. Valid values: `ENABLED`, `DISABLED`.
+     * 
+     */
     public Output<Optional<String>> state() {
         return Codegen.optional(this.state);
     }
+    /**
+     * IDs of time intervals during which the rule must be enforced.
+     * 
+     */
     @Export(name="timeWindows", refs={List.class,Integer.class}, tree="[0,1]")
     private Output</* @Nullable */ List<Integer>> timeWindows;
 
+    /**
+     * @return IDs of time intervals during which the rule must be enforced.
+     * 
+     */
     public Output<Optional<List<Integer>>> timeWindows() {
         return Codegen.optional(this.timeWindows);
     }
+    /**
+     * IDs of users for which the rule must be applied.
+     * 
+     */
     @Export(name="users", refs={List.class,Integer.class}, tree="[0,1]")
     private Output</* @Nullable */ List<Integer>> users;
 
+    /**
+     * @return IDs of users for which the rule must be applied.
+     * 
+     */
     public Output<Optional<List<Integer>>> users() {
         return Codegen.optional(this.users);
     }
+    /**
+     * If true, the DLP rule is applied without inspecting content.
+     * 
+     */
     @Export(name="withoutContentInspection", refs={Boolean.class}, tree="[0]")
     private Output</* @Nullable */ Boolean> withoutContentInspection;
 
+    /**
+     * @return If true, the DLP rule is applied without inspecting content.
+     * 
+     */
     public Output<Optional<Boolean>> withoutContentInspection() {
         return Codegen.optional(this.withoutContentInspection);
     }
+    /**
+     * If true, Zscaler Client Connector notifications are enabled for this rule.
+     * 
+     */
     @Export(name="zccNotificationsEnabled", refs={Boolean.class}, tree="[0]")
     private Output</* @Nullable */ Boolean> zccNotificationsEnabled;
 
+    /**
+     * @return If true, Zscaler Client Connector notifications are enabled for this rule.
+     * 
+     */
     public Output<Optional<Boolean>> zccNotificationsEnabled() {
         return Codegen.optional(this.zccNotificationsEnabled);
     }
@@ -208,6 +424,7 @@ public class DlpWebRule extends com.pulumi.resources.CustomResource {
     private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<java.lang.String> id) {
         var defaultOptions = com.pulumi.resources.CustomResourceOptions.builder()
             .version(Utilities.getVersion())
+            .pluginDownloadURL("github://api.github.com/zscaler")
             .build();
         return com.pulumi.resources.CustomResourceOptions.merge(defaultOptions, options, id);
     }

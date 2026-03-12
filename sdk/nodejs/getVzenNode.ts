@@ -4,6 +4,9 @@
 import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "./utilities";
 
+/**
+ * Use this data source to look up a VZEN node by ID or name.
+ */
 export function getVzenNode(args?: GetVzenNodeArgs, opts?: pulumi.InvokeOptions): Promise<GetVzenNodeResult> {
     args = args || {};
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
@@ -14,28 +17,85 @@ export function getVzenNode(args?: GetVzenNodeArgs, opts?: pulumi.InvokeOptions)
 }
 
 export interface GetVzenNodeArgs {
+    /**
+     * The name of the VZEN node to look up.
+     */
     name?: string;
+    /**
+     * The ID of the VZEN node to look up.
+     */
     nodeId?: number;
 }
 
 export interface GetVzenNodeResult {
+    /**
+     * The cluster name if deployment mode is CLUSTER.
+     */
     readonly clusterName: string;
+    /**
+     * The default gateway of the VZEN node.
+     */
     readonly defaultGateway: string;
+    /**
+     * The deployment mode (STANDALONE or CLUSTER).
+     */
     readonly deploymentMode: string;
+    /**
+     * Whether establish support tunnel is enabled.
+     */
     readonly establishSupportTunnelEnabled: boolean;
+    /**
+     * Whether the node is in production.
+     */
     readonly inProduction: boolean;
+    /**
+     * The IP address of the VZEN node.
+     */
     readonly ipAddress: string;
+    /**
+     * Whether IPSec is enabled on the node.
+     */
     readonly ipSecEnabled: boolean;
+    /**
+     * The load balancer IP address.
+     */
     readonly loadBalancerIpAddress: string;
+    /**
+     * The name of the VZEN node.
+     */
     readonly name: string;
+    /**
+     * The ID of the VZEN node.
+     */
     readonly nodeId: number;
+    /**
+     * Whether on-demand support tunnel is enabled.
+     */
     readonly onDemandSupportTunnelEnabled: boolean;
+    /**
+     * The status of the VZEN node.
+     */
     readonly status: string;
+    /**
+     * The subnet mask of the VZEN node.
+     */
     readonly subnetMask: string;
+    /**
+     * The type of the VZEN node.
+     */
     readonly type: string;
+    /**
+     * The VZEN SKU type (SMALL, MEDIUM, or LARGE).
+     */
     readonly vzenSkuType: string;
+    /**
+     * The ZGateway ID associated with the VZEN node.
+     */
     readonly zGatewayId: number;
 }
+/**
+ * Use this data source to look up a VZEN node by ID or name.
+ */
 export function getVzenNodeOutput(args?: GetVzenNodeOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetVzenNodeResult> {
     args = args || {};
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
@@ -46,6 +106,12 @@ export function getVzenNodeOutput(args?: GetVzenNodeOutputArgs, opts?: pulumi.In
 }
 
 export interface GetVzenNodeOutputArgs {
+    /**
+     * The name of the VZEN node to look up.
+     */
     name?: pulumi.Input<string>;
+    /**
+     * The ID of the VZEN node to look up.
+     */
     nodeId?: pulumi.Input<number>;
 }

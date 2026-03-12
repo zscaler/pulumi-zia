@@ -34,6 +34,19 @@ class BandwidthControlRuleArgs:
                  time_windows: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.int]]]] = None):
         """
         The set of arguments for constructing a BandwidthControlRule resource.
+        :param pulumi.Input[_builtins.str] name: The name of the bandwidth control rule. Must be unique.
+        :param pulumi.Input[_builtins.int] order: The order of execution of the rule with respect to other bandwidth control rules.
+        :param pulumi.Input[Sequence[pulumi.Input[_builtins.int]]] bandwidth_classes: IDs of bandwidth classes associated with this rule.
+        :param pulumi.Input[_builtins.str] description: Additional information about the bandwidth control rule.
+        :param pulumi.Input[Sequence[pulumi.Input[_builtins.int]]] labels: IDs of labels associated with the bandwidth control rule.
+        :param pulumi.Input[Sequence[pulumi.Input[_builtins.int]]] location_groups: IDs of location groups for which the rule must be applied.
+        :param pulumi.Input[Sequence[pulumi.Input[_builtins.int]]] locations: IDs of locations for which the rule must be applied.
+        :param pulumi.Input[_builtins.int] max_bandwidth: The maximum bandwidth percentage allowed. Valid range: 0-100.
+        :param pulumi.Input[_builtins.int] min_bandwidth: The minimum bandwidth percentage allocated. Valid range: 0-100.
+        :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] protocols: Protocols to which the rule applies. Valid values: `ANY_RULE`, `TCP_RULE`, `UDP_RULE`, `SSL_RULE`.
+        :param pulumi.Input[_builtins.int] rank: Admin rank of the bandwidth control rule. Valid values: 0-7. Default: 7.
+        :param pulumi.Input[_builtins.str] state: Rule state. Valid values: `ENABLED`, `DISABLED`.
+        :param pulumi.Input[Sequence[pulumi.Input[_builtins.int]]] time_windows: IDs of time intervals during which the rule must be enforced.
         """
         pulumi.set(__self__, "name", name)
         pulumi.set(__self__, "order", order)
@@ -63,6 +76,9 @@ class BandwidthControlRuleArgs:
     @_builtins.property
     @pulumi.getter
     def name(self) -> pulumi.Input[_builtins.str]:
+        """
+        The name of the bandwidth control rule. Must be unique.
+        """
         return pulumi.get(self, "name")
 
     @name.setter
@@ -72,6 +88,9 @@ class BandwidthControlRuleArgs:
     @_builtins.property
     @pulumi.getter
     def order(self) -> pulumi.Input[_builtins.int]:
+        """
+        The order of execution of the rule with respect to other bandwidth control rules.
+        """
         return pulumi.get(self, "order")
 
     @order.setter
@@ -81,6 +100,9 @@ class BandwidthControlRuleArgs:
     @_builtins.property
     @pulumi.getter(name="bandwidthClasses")
     def bandwidth_classes(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.int]]]]:
+        """
+        IDs of bandwidth classes associated with this rule.
+        """
         return pulumi.get(self, "bandwidth_classes")
 
     @bandwidth_classes.setter
@@ -90,6 +112,9 @@ class BandwidthControlRuleArgs:
     @_builtins.property
     @pulumi.getter
     def description(self) -> Optional[pulumi.Input[_builtins.str]]:
+        """
+        Additional information about the bandwidth control rule.
+        """
         return pulumi.get(self, "description")
 
     @description.setter
@@ -99,6 +124,9 @@ class BandwidthControlRuleArgs:
     @_builtins.property
     @pulumi.getter
     def labels(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.int]]]]:
+        """
+        IDs of labels associated with the bandwidth control rule.
+        """
         return pulumi.get(self, "labels")
 
     @labels.setter
@@ -108,6 +136,9 @@ class BandwidthControlRuleArgs:
     @_builtins.property
     @pulumi.getter(name="locationGroups")
     def location_groups(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.int]]]]:
+        """
+        IDs of location groups for which the rule must be applied.
+        """
         return pulumi.get(self, "location_groups")
 
     @location_groups.setter
@@ -117,6 +148,9 @@ class BandwidthControlRuleArgs:
     @_builtins.property
     @pulumi.getter
     def locations(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.int]]]]:
+        """
+        IDs of locations for which the rule must be applied.
+        """
         return pulumi.get(self, "locations")
 
     @locations.setter
@@ -126,6 +160,9 @@ class BandwidthControlRuleArgs:
     @_builtins.property
     @pulumi.getter(name="maxBandwidth")
     def max_bandwidth(self) -> Optional[pulumi.Input[_builtins.int]]:
+        """
+        The maximum bandwidth percentage allowed. Valid range: 0-100.
+        """
         return pulumi.get(self, "max_bandwidth")
 
     @max_bandwidth.setter
@@ -135,6 +172,9 @@ class BandwidthControlRuleArgs:
     @_builtins.property
     @pulumi.getter(name="minBandwidth")
     def min_bandwidth(self) -> Optional[pulumi.Input[_builtins.int]]:
+        """
+        The minimum bandwidth percentage allocated. Valid range: 0-100.
+        """
         return pulumi.get(self, "min_bandwidth")
 
     @min_bandwidth.setter
@@ -144,6 +184,9 @@ class BandwidthControlRuleArgs:
     @_builtins.property
     @pulumi.getter
     def protocols(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
+        """
+        Protocols to which the rule applies. Valid values: `ANY_RULE`, `TCP_RULE`, `UDP_RULE`, `SSL_RULE`.
+        """
         return pulumi.get(self, "protocols")
 
     @protocols.setter
@@ -153,6 +196,9 @@ class BandwidthControlRuleArgs:
     @_builtins.property
     @pulumi.getter
     def rank(self) -> Optional[pulumi.Input[_builtins.int]]:
+        """
+        Admin rank of the bandwidth control rule. Valid values: 0-7. Default: 7.
+        """
         return pulumi.get(self, "rank")
 
     @rank.setter
@@ -162,6 +208,9 @@ class BandwidthControlRuleArgs:
     @_builtins.property
     @pulumi.getter
     def state(self) -> Optional[pulumi.Input[_builtins.str]]:
+        """
+        Rule state. Valid values: `ENABLED`, `DISABLED`.
+        """
         return pulumi.get(self, "state")
 
     @state.setter
@@ -171,6 +220,9 @@ class BandwidthControlRuleArgs:
     @_builtins.property
     @pulumi.getter(name="timeWindows")
     def time_windows(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.int]]]]:
+        """
+        IDs of time intervals during which the rule must be enforced.
+        """
         return pulumi.get(self, "time_windows")
 
     @time_windows.setter
@@ -199,9 +251,49 @@ class BandwidthControlRule(pulumi.CustomResource):
                  time_windows: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.int]]]] = None,
                  __props__=None):
         """
-        Create a BandwidthControlRule resource with the given unique name, props, and options.
+        The zia_bandwidth_control_rule resource manages bandwidth control rules in the Zscaler Internet Access (ZIA) cloud service. Bandwidth control rules allow administrators to define minimum and maximum bandwidth limits for specific traffic, locations, and time windows to ensure quality of service across the network.
+
+        For more information, see the [ZIA Bandwidth Control documentation](https://help.zscaler.com/zia/bandwidth-control).
+
+        ## Example Usage
+        ### Basic Bandwidth Control Rule
+
+        ```python
+        import zscaler_pulumi_zia as zia
+
+        example = zia.BandwidthControlRule("example",
+            name="Example Bandwidth Control Rule",
+            description="Limit streaming bandwidth",
+            order=1,
+            state="ENABLED",
+            max_bandwidth=50,
+            protocols=["ANY_RULE"],
+        )
+        ```
+
+        ## Import
+
+        An existing Bandwidth Control Rule can be imported using its resource ID, e.g.
+
+        ```sh
+        $ pulumi import zia:index:BandwidthControlRule example 12345
+        ```
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
+        :param pulumi.Input[Sequence[pulumi.Input[_builtins.int]]] bandwidth_classes: IDs of bandwidth classes associated with this rule.
+        :param pulumi.Input[_builtins.str] description: Additional information about the bandwidth control rule.
+        :param pulumi.Input[Sequence[pulumi.Input[_builtins.int]]] labels: IDs of labels associated with the bandwidth control rule.
+        :param pulumi.Input[Sequence[pulumi.Input[_builtins.int]]] location_groups: IDs of location groups for which the rule must be applied.
+        :param pulumi.Input[Sequence[pulumi.Input[_builtins.int]]] locations: IDs of locations for which the rule must be applied.
+        :param pulumi.Input[_builtins.int] max_bandwidth: The maximum bandwidth percentage allowed. Valid range: 0-100.
+        :param pulumi.Input[_builtins.int] min_bandwidth: The minimum bandwidth percentage allocated. Valid range: 0-100.
+        :param pulumi.Input[_builtins.str] name: The name of the bandwidth control rule. Must be unique.
+        :param pulumi.Input[_builtins.int] order: The order of execution of the rule with respect to other bandwidth control rules.
+        :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] protocols: Protocols to which the rule applies. Valid values: `ANY_RULE`, `TCP_RULE`, `UDP_RULE`, `SSL_RULE`.
+        :param pulumi.Input[_builtins.int] rank: Admin rank of the bandwidth control rule. Valid values: 0-7. Default: 7.
+        :param pulumi.Input[_builtins.str] state: Rule state. Valid values: `ENABLED`, `DISABLED`.
+        :param pulumi.Input[Sequence[pulumi.Input[_builtins.int]]] time_windows: IDs of time intervals during which the rule must be enforced.
         """
         ...
     @overload
@@ -210,7 +302,34 @@ class BandwidthControlRule(pulumi.CustomResource):
                  args: BandwidthControlRuleArgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
-        Create a BandwidthControlRule resource with the given unique name, props, and options.
+        The zia_bandwidth_control_rule resource manages bandwidth control rules in the Zscaler Internet Access (ZIA) cloud service. Bandwidth control rules allow administrators to define minimum and maximum bandwidth limits for specific traffic, locations, and time windows to ensure quality of service across the network.
+
+        For more information, see the [ZIA Bandwidth Control documentation](https://help.zscaler.com/zia/bandwidth-control).
+
+        ## Example Usage
+        ### Basic Bandwidth Control Rule
+
+        ```python
+        import zscaler_pulumi_zia as zia
+
+        example = zia.BandwidthControlRule("example",
+            name="Example Bandwidth Control Rule",
+            description="Limit streaming bandwidth",
+            order=1,
+            state="ENABLED",
+            max_bandwidth=50,
+            protocols=["ANY_RULE"],
+        )
+        ```
+
+        ## Import
+
+        An existing Bandwidth Control Rule can be imported using its resource ID, e.g.
+
+        ```sh
+        $ pulumi import zia:index:BandwidthControlRule example 12345
+        ```
+
         :param str resource_name: The name of the resource.
         :param BandwidthControlRuleArgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -307,70 +426,112 @@ class BandwidthControlRule(pulumi.CustomResource):
     @_builtins.property
     @pulumi.getter(name="bandwidthClasses")
     def bandwidth_classes(self) -> pulumi.Output[Optional[Sequence[_builtins.int]]]:
+        """
+        IDs of bandwidth classes associated with this rule.
+        """
         return pulumi.get(self, "bandwidth_classes")
 
     @_builtins.property
     @pulumi.getter
     def description(self) -> pulumi.Output[Optional[_builtins.str]]:
+        """
+        Additional information about the bandwidth control rule.
+        """
         return pulumi.get(self, "description")
 
     @_builtins.property
     @pulumi.getter
     def labels(self) -> pulumi.Output[Optional[Sequence[_builtins.int]]]:
+        """
+        IDs of labels associated with the bandwidth control rule.
+        """
         return pulumi.get(self, "labels")
 
     @_builtins.property
     @pulumi.getter(name="locationGroups")
     def location_groups(self) -> pulumi.Output[Optional[Sequence[_builtins.int]]]:
+        """
+        IDs of location groups for which the rule must be applied.
+        """
         return pulumi.get(self, "location_groups")
 
     @_builtins.property
     @pulumi.getter
     def locations(self) -> pulumi.Output[Optional[Sequence[_builtins.int]]]:
+        """
+        IDs of locations for which the rule must be applied.
+        """
         return pulumi.get(self, "locations")
 
     @_builtins.property
     @pulumi.getter(name="maxBandwidth")
     def max_bandwidth(self) -> pulumi.Output[Optional[_builtins.int]]:
+        """
+        The maximum bandwidth percentage allowed. Valid range: 0-100.
+        """
         return pulumi.get(self, "max_bandwidth")
 
     @_builtins.property
     @pulumi.getter(name="minBandwidth")
     def min_bandwidth(self) -> pulumi.Output[Optional[_builtins.int]]:
+        """
+        The minimum bandwidth percentage allocated. Valid range: 0-100.
+        """
         return pulumi.get(self, "min_bandwidth")
 
     @_builtins.property
     @pulumi.getter
     def name(self) -> pulumi.Output[_builtins.str]:
+        """
+        The name of the bandwidth control rule. Must be unique.
+        """
         return pulumi.get(self, "name")
 
     @_builtins.property
     @pulumi.getter
     def order(self) -> pulumi.Output[_builtins.int]:
+        """
+        The order of execution of the rule with respect to other bandwidth control rules.
+        """
         return pulumi.get(self, "order")
 
     @_builtins.property
     @pulumi.getter
     def protocols(self) -> pulumi.Output[Optional[Sequence[_builtins.str]]]:
+        """
+        Protocols to which the rule applies. Valid values: `ANY_RULE`, `TCP_RULE`, `UDP_RULE`, `SSL_RULE`.
+        """
         return pulumi.get(self, "protocols")
 
     @_builtins.property
     @pulumi.getter
     def rank(self) -> pulumi.Output[Optional[_builtins.int]]:
+        """
+        Admin rank of the bandwidth control rule. Valid values: 0-7. Default: 7.
+        """
         return pulumi.get(self, "rank")
 
     @_builtins.property
     @pulumi.getter(name="ruleId")
     def rule_id(self) -> pulumi.Output[_builtins.int]:
+        """
+        The system-generated ID of the bandwidth control rule.
+        """
         return pulumi.get(self, "rule_id")
 
     @_builtins.property
     @pulumi.getter
     def state(self) -> pulumi.Output[Optional[_builtins.str]]:
+        """
+        Rule state. Valid values: `ENABLED`, `DISABLED`.
+        """
         return pulumi.get(self, "state")
 
     @_builtins.property
     @pulumi.getter(name="timeWindows")
     def time_windows(self) -> pulumi.Output[Optional[Sequence[_builtins.int]]]:
+        """
+        IDs of time intervals during which the rule must be enforced.
+        """
         return pulumi.get(self, "time_windows")
 

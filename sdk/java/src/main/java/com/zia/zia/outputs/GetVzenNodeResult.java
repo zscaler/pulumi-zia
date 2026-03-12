@@ -12,69 +12,197 @@ import java.util.Objects;
 
 @CustomType
 public final class GetVzenNodeResult {
+    /**
+     * @return The cluster name if deployment mode is CLUSTER.
+     * 
+     */
     private String clusterName;
+    /**
+     * @return The default gateway of the VZEN node.
+     * 
+     */
     private String defaultGateway;
+    /**
+     * @return The deployment mode (STANDALONE or CLUSTER).
+     * 
+     */
     private String deploymentMode;
+    /**
+     * @return Whether establish support tunnel is enabled.
+     * 
+     */
     private Boolean establishSupportTunnelEnabled;
+    /**
+     * @return Whether the node is in production.
+     * 
+     */
     private Boolean inProduction;
+    /**
+     * @return The IP address of the VZEN node.
+     * 
+     */
     private String ipAddress;
+    /**
+     * @return Whether IPSec is enabled on the node.
+     * 
+     */
     private Boolean ipSecEnabled;
+    /**
+     * @return The load balancer IP address.
+     * 
+     */
     private String loadBalancerIpAddress;
+    /**
+     * @return The name of the VZEN node.
+     * 
+     */
     private String name;
+    /**
+     * @return The ID of the VZEN node.
+     * 
+     */
     private Integer nodeId;
+    /**
+     * @return Whether on-demand support tunnel is enabled.
+     * 
+     */
     private Boolean onDemandSupportTunnelEnabled;
+    /**
+     * @return The status of the VZEN node.
+     * 
+     */
     private String status;
+    /**
+     * @return The subnet mask of the VZEN node.
+     * 
+     */
     private String subnetMask;
+    /**
+     * @return The type of the VZEN node.
+     * 
+     */
     private String type;
+    /**
+     * @return The VZEN SKU type (SMALL, MEDIUM, or LARGE).
+     * 
+     */
     private String vzenSkuType;
+    /**
+     * @return The ZGateway ID associated with the VZEN node.
+     * 
+     */
     private Integer zGatewayId;
 
     private GetVzenNodeResult() {}
+    /**
+     * @return The cluster name if deployment mode is CLUSTER.
+     * 
+     */
     public String clusterName() {
         return this.clusterName;
     }
+    /**
+     * @return The default gateway of the VZEN node.
+     * 
+     */
     public String defaultGateway() {
         return this.defaultGateway;
     }
+    /**
+     * @return The deployment mode (STANDALONE or CLUSTER).
+     * 
+     */
     public String deploymentMode() {
         return this.deploymentMode;
     }
+    /**
+     * @return Whether establish support tunnel is enabled.
+     * 
+     */
     public Boolean establishSupportTunnelEnabled() {
         return this.establishSupportTunnelEnabled;
     }
+    /**
+     * @return Whether the node is in production.
+     * 
+     */
     public Boolean inProduction() {
         return this.inProduction;
     }
+    /**
+     * @return The IP address of the VZEN node.
+     * 
+     */
     public String ipAddress() {
         return this.ipAddress;
     }
+    /**
+     * @return Whether IPSec is enabled on the node.
+     * 
+     */
     public Boolean ipSecEnabled() {
         return this.ipSecEnabled;
     }
+    /**
+     * @return The load balancer IP address.
+     * 
+     */
     public String loadBalancerIpAddress() {
         return this.loadBalancerIpAddress;
     }
+    /**
+     * @return The name of the VZEN node.
+     * 
+     */
     public String name() {
         return this.name;
     }
+    /**
+     * @return The ID of the VZEN node.
+     * 
+     */
     public Integer nodeId() {
         return this.nodeId;
     }
+    /**
+     * @return Whether on-demand support tunnel is enabled.
+     * 
+     */
     public Boolean onDemandSupportTunnelEnabled() {
         return this.onDemandSupportTunnelEnabled;
     }
+    /**
+     * @return The status of the VZEN node.
+     * 
+     */
     public String status() {
         return this.status;
     }
+    /**
+     * @return The subnet mask of the VZEN node.
+     * 
+     */
     public String subnetMask() {
         return this.subnetMask;
     }
+    /**
+     * @return The type of the VZEN node.
+     * 
+     */
     public String type() {
         return this.type;
     }
+    /**
+     * @return The VZEN SKU type (SMALL, MEDIUM, or LARGE).
+     * 
+     */
     public String vzenSkuType() {
         return this.vzenSkuType;
     }
+    /**
+     * @return The ZGateway ID associated with the VZEN node.
+     * 
+     */
     public Integer zGatewayId() {
         return this.zGatewayId;
     }

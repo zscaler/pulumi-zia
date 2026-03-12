@@ -6,6 +6,9 @@ import * as inputs from "./types/input";
 import * as outputs from "./types/output";
 import * as utilities from "./utilities";
 
+/**
+ * Use this data source to look up a user management user by ID or name.
+ */
 export function getUserManagementUser(args?: GetUserManagementUserArgs, opts?: pulumi.InvokeOptions): Promise<GetUserManagementUserResult> {
     args = args || {};
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
@@ -16,22 +19,61 @@ export function getUserManagementUser(args?: GetUserManagementUserArgs, opts?: p
 }
 
 export interface GetUserManagementUserArgs {
+    /**
+     * The name of the user to look up.
+     */
     name?: string;
+    /**
+     * The ID of the user to look up.
+     */
     userId?: number;
 }
 
 export interface GetUserManagementUserResult {
+    /**
+     * Whether the user is an admin user.
+     */
     readonly adminUser: boolean;
+    /**
+     * The authentication methods configured for the user.
+     */
     readonly authMethods: string[];
+    /**
+     * Comments or notes about the user.
+     */
     readonly comments: string;
+    /**
+     * The department the user belongs to.
+     */
     readonly department?: outputs.UserDepartmentOutput;
+    /**
+     * The email address of the user.
+     */
     readonly email: string;
+    /**
+     * The list of groups the user belongs to.
+     */
     readonly groups: outputs.UserGroupOutput[];
+    /**
+     * The full name of the user.
+     */
     readonly name: string;
+    /**
+     * The temporary authentication email for the user.
+     */
     readonly tempAuthEmail: string;
+    /**
+     * The type of the user.
+     */
     readonly type: string;
+    /**
+     * The ID of the user.
+     */
     readonly userId: number;
 }
+/**
+ * Use this data source to look up a user management user by ID or name.
+ */
 export function getUserManagementUserOutput(args?: GetUserManagementUserOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetUserManagementUserResult> {
     args = args || {};
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
@@ -42,6 +84,12 @@ export function getUserManagementUserOutput(args?: GetUserManagementUserOutputAr
 }
 
 export interface GetUserManagementUserOutputArgs {
+    /**
+     * The name of the user to look up.
+     */
     name?: pulumi.Input<string>;
+    /**
+     * The ID of the user to look up.
+     */
     userId?: pulumi.Input<number>;
 }

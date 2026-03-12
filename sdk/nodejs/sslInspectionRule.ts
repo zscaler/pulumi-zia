@@ -6,6 +6,43 @@ import * as inputs from "./types/input";
 import * as outputs from "./types/output";
 import * as utilities from "./utilities";
 
+/**
+ * The zia_ssl_inspection_rules resource manages SSL inspection rules in the Zscaler Internet Access (ZIA) cloud service. SSL inspection rules determine whether to decrypt, not decrypt, or block SSL/TLS traffic based on criteria such as locations, departments, groups, users, URL categories, cloud applications, and platforms.
+ *
+ * For more information, see the [ZIA SSL Inspection documentation](https://help.zscaler.com/zia/about-ssl-inspection-policies).
+ *
+ * ## Example Usage
+ * ### Basic SSL Inspection Rule
+ *
+ * ```typescript
+ * import * as zia from "@bdzscaler/pulumi-zia";
+ *
+ * const example = new zia.SslInspectionRule("example", {
+ *     name: "Example SSL Inspection Rule",
+ *     description: "Decrypt corporate traffic",
+ *     order: 1,
+ *     state: "ENABLED",
+ *     action: {
+ *         type: "DECRYPT",
+ *         showEun: false,
+ *         decryptSubActions: {
+ *             serverCertificates: "ALLOW",
+ *             ocspCheck: true,
+ *             http2Enabled: true,
+ *         },
+ *     },
+ *     urlCategories: ["ANY"],
+ * });
+ * ```
+ *
+ * ## Import
+ *
+ * An existing SSL Inspection Rule can be imported using its resource ID, e.g.
+ *
+ * ```sh
+ * $ pulumi import zia:index:SslInspectionRule example 12345
+ * ```
+ */
 export class SslInspectionRule extends pulumi.CustomResource {
     /**
      * Get an existing SslInspectionRule resource's state with the given name, ID, and optional extra
@@ -33,31 +70,109 @@ export class SslInspectionRule extends pulumi.CustomResource {
         return obj['__pulumiType'] === SslInspectionRule.__pulumiType;
     }
 
+    /**
+     * The action configuration for the SSL inspection rule, including decrypt/do-not-decrypt sub-actions.
+     */
     declare public readonly action: pulumi.Output<outputs.SslInspectionActionInput>;
+    /**
+     * List of cloud application names to which the rule applies.
+     */
     declare public readonly cloudApplications: pulumi.Output<string[] | undefined>;
+    /**
+     * IDs of departments to which the rule applies.
+     */
     declare public readonly departments: pulumi.Output<number[] | undefined>;
+    /**
+     * Additional information about the SSL inspection rule.
+     */
     declare public readonly description: pulumi.Output<string | undefined>;
+    /**
+     * IDs of destination IP address groups for the rule.
+     */
     declare public readonly destIpGroups: pulumi.Output<number[] | undefined>;
+    /**
+     * IDs of device groups to which the rule applies.
+     */
     declare public readonly deviceGroups: pulumi.Output<number[] | undefined>;
+    /**
+     * Device trust levels for the rule. Valid values: `ANY`, `UNKNOWN_DEVICETRUSTLEVEL`, `LOW_TRUST`, `MEDIUM_TRUST`, `HIGH_TRUST`.
+     */
     declare public readonly deviceTrustLevels: pulumi.Output<string[] | undefined>;
+    /**
+     * IDs of devices to which the rule applies.
+     */
     declare public readonly devices: pulumi.Output<number[] | undefined>;
+    /**
+     * IDs of groups to which the rule applies.
+     */
     declare public readonly groups: pulumi.Output<number[] | undefined>;
+    /**
+     * IDs of labels associated with the rule.
+     */
     declare public readonly labels: pulumi.Output<number[] | undefined>;
+    /**
+     * IDs of location groups to which the rule applies.
+     */
     declare public readonly locationGroups: pulumi.Output<number[] | undefined>;
+    /**
+     * IDs of locations to which the rule applies.
+     */
     declare public readonly locations: pulumi.Output<number[] | undefined>;
+    /**
+     * The name of the SSL inspection rule. Must be unique.
+     */
     declare public readonly name: pulumi.Output<string>;
+    /**
+     * The order of execution of the rule with respect to other SSL inspection rules.
+     */
     declare public readonly order: pulumi.Output<number>;
+    /**
+     * Platforms to which the rule applies (e.g., `SCAN_IOS`, `SCAN_ANDROID`, `SCAN_MACOS`, `SCAN_WINDOWS`, `SCAN_LINUX`).
+     */
     declare public readonly platforms: pulumi.Output<string[] | undefined>;
+    /**
+     * IDs of proxy gateway configurations for the rule.
+     */
     declare public readonly proxyGateways: pulumi.Output<number[] | undefined>;
+    /**
+     * Admin rank of the SSL inspection policy rule. Valid values: 0-7. Default: 7.
+     */
     declare public readonly rank: pulumi.Output<number | undefined>;
+    /**
+     * Indicates whether the rule applies to road warrior (remote) users using Kerberos authentication.
+     */
     declare public readonly roadWarriorForKerberos: pulumi.Output<boolean | undefined>;
+    /**
+     * The system-generated ID of the SSL inspection rule.
+     */
     declare public /*out*/ readonly ruleId: pulumi.Output<number>;
+    /**
+     * IDs of source IP address groups for the rule.
+     */
     declare public readonly sourceIpGroups: pulumi.Output<number[] | undefined>;
+    /**
+     * Rule state. Valid values: `ENABLED`, `DISABLED`.
+     */
     declare public readonly state: pulumi.Output<string | undefined>;
+    /**
+     * IDs of time intervals during which the rule must be enforced.
+     */
     declare public readonly timeWindows: pulumi.Output<number[] | undefined>;
+    /**
+     * List of URL categories to which the rule applies.
+     */
     declare public readonly urlCategories: pulumi.Output<string[] | undefined>;
+    /**
+     * User agent types the rule applies to.
+     */
     declare public readonly userAgentTypes: pulumi.Output<string[] | undefined>;
+    /**
+     * IDs of users to which the rule applies.
+     */
     declare public readonly users: pulumi.Output<number[] | undefined>;
+    /**
+     * List of preconfigured workload groups to which the policy must be applied.
+     */
     declare public readonly workloadGroups: pulumi.Output<outputs.WorkloadGroupInput[] | undefined>;
 
     /**
@@ -143,29 +258,104 @@ export class SslInspectionRule extends pulumi.CustomResource {
  * The set of arguments for constructing a SslInspectionRule resource.
  */
 export interface SslInspectionRuleArgs {
+    /**
+     * The action configuration for the SSL inspection rule, including decrypt/do-not-decrypt sub-actions.
+     */
     action: pulumi.Input<inputs.SslInspectionActionInputArgs>;
+    /**
+     * List of cloud application names to which the rule applies.
+     */
     cloudApplications?: pulumi.Input<pulumi.Input<string>[]>;
+    /**
+     * IDs of departments to which the rule applies.
+     */
     departments?: pulumi.Input<pulumi.Input<number>[]>;
+    /**
+     * Additional information about the SSL inspection rule.
+     */
     description?: pulumi.Input<string>;
+    /**
+     * IDs of destination IP address groups for the rule.
+     */
     destIpGroups?: pulumi.Input<pulumi.Input<number>[]>;
+    /**
+     * IDs of device groups to which the rule applies.
+     */
     deviceGroups?: pulumi.Input<pulumi.Input<number>[]>;
+    /**
+     * Device trust levels for the rule. Valid values: `ANY`, `UNKNOWN_DEVICETRUSTLEVEL`, `LOW_TRUST`, `MEDIUM_TRUST`, `HIGH_TRUST`.
+     */
     deviceTrustLevels?: pulumi.Input<pulumi.Input<string>[]>;
+    /**
+     * IDs of devices to which the rule applies.
+     */
     devices?: pulumi.Input<pulumi.Input<number>[]>;
+    /**
+     * IDs of groups to which the rule applies.
+     */
     groups?: pulumi.Input<pulumi.Input<number>[]>;
+    /**
+     * IDs of labels associated with the rule.
+     */
     labels?: pulumi.Input<pulumi.Input<number>[]>;
+    /**
+     * IDs of location groups to which the rule applies.
+     */
     locationGroups?: pulumi.Input<pulumi.Input<number>[]>;
+    /**
+     * IDs of locations to which the rule applies.
+     */
     locations?: pulumi.Input<pulumi.Input<number>[]>;
+    /**
+     * The name of the SSL inspection rule. Must be unique.
+     */
     name: pulumi.Input<string>;
+    /**
+     * The order of execution of the rule with respect to other SSL inspection rules.
+     */
     order: pulumi.Input<number>;
+    /**
+     * Platforms to which the rule applies (e.g., `SCAN_IOS`, `SCAN_ANDROID`, `SCAN_MACOS`, `SCAN_WINDOWS`, `SCAN_LINUX`).
+     */
     platforms?: pulumi.Input<pulumi.Input<string>[]>;
+    /**
+     * IDs of proxy gateway configurations for the rule.
+     */
     proxyGateways?: pulumi.Input<pulumi.Input<number>[]>;
+    /**
+     * Admin rank of the SSL inspection policy rule. Valid values: 0-7. Default: 7.
+     */
     rank?: pulumi.Input<number>;
+    /**
+     * Indicates whether the rule applies to road warrior (remote) users using Kerberos authentication.
+     */
     roadWarriorForKerberos?: pulumi.Input<boolean>;
+    /**
+     * IDs of source IP address groups for the rule.
+     */
     sourceIpGroups?: pulumi.Input<pulumi.Input<number>[]>;
+    /**
+     * Rule state. Valid values: `ENABLED`, `DISABLED`.
+     */
     state?: pulumi.Input<string>;
+    /**
+     * IDs of time intervals during which the rule must be enforced.
+     */
     timeWindows?: pulumi.Input<pulumi.Input<number>[]>;
+    /**
+     * List of URL categories to which the rule applies.
+     */
     urlCategories?: pulumi.Input<pulumi.Input<string>[]>;
+    /**
+     * User agent types the rule applies to.
+     */
     userAgentTypes?: pulumi.Input<pulumi.Input<string>[]>;
+    /**
+     * IDs of users to which the rule applies.
+     */
     users?: pulumi.Input<pulumi.Input<number>[]>;
+    /**
+     * List of preconfigured workload groups to which the policy must be applied.
+     */
     workloadGroups?: pulumi.Input<pulumi.Input<inputs.WorkloadGroupInputArgs>[]>;
 }

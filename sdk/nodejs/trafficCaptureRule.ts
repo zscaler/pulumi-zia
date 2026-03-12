@@ -6,6 +6,36 @@ import * as inputs from "./types/input";
 import * as outputs from "./types/output";
 import * as utilities from "./utilities";
 
+/**
+ * The zia.TrafficCaptureRule resource manages traffic capture rules in the Zscaler Internet Access (ZIA) cloud.
+ * Traffic capture rules define criteria for capturing network traffic for analysis, specifying which traffic
+ * to capture based on source/destination IPs, locations, departments, users, applications, and other criteria.
+ *
+ * ## Example Usage
+ * ### Basic Traffic Capture Rule
+ *
+ * ```typescript
+ * import * as zia from "@bdzscaler/pulumi-zia";
+ *
+ * const example = new zia.TrafficCaptureRule("example", {
+ *     name: "Example Capture Rule",
+ *     order: 1,
+ *     description: "Managed by Pulumi",
+ *     state: "ENABLED",
+ *     action: "CAPTURE",
+ *     srcIps: ["192.168.1.0/24"],
+ *     destAddresses: ["10.0.0.0/8"],
+ * });
+ * ```
+ *
+ * ## Import
+ *
+ * An existing traffic capture rule can be imported using its ID, e.g.
+ *
+ * ```sh
+ * $ pulumi import zia:index:TrafficCaptureRule example 12345
+ * ```
+ */
 export class TrafficCaptureRule extends pulumi.CustomResource {
     /**
      * Get an existing TrafficCaptureRule resource's state with the given name, ID, and optional extra
@@ -33,39 +63,141 @@ export class TrafficCaptureRule extends pulumi.CustomResource {
         return obj['__pulumiType'] === TrafficCaptureRule.__pulumiType;
     }
 
+    /**
+     * The action taken when traffic matches the rule (e.g., 'CAPTURE'). Default: 'CAPTURE'.
+     */
     declare public readonly action: pulumi.Output<string | undefined>;
+    /**
+     * List of application service group IDs.
+     */
     declare public readonly appServiceGroups: pulumi.Output<number[] | undefined>;
+    /**
+     * Whether this is a default rule.
+     */
     declare public readonly defaultRule: pulumi.Output<boolean | undefined>;
+    /**
+     * List of department IDs.
+     */
     declare public readonly departments: pulumi.Output<number[] | undefined>;
+    /**
+     * Description of the traffic capture rule.
+     */
     declare public readonly description: pulumi.Output<string | undefined>;
+    /**
+     * List of destination addresses.
+     */
     declare public readonly destAddresses: pulumi.Output<string[] | undefined>;
+    /**
+     * List of destination country codes.
+     */
     declare public readonly destCountries: pulumi.Output<string[] | undefined>;
+    /**
+     * List of destination IP categories.
+     */
     declare public readonly destIpCategories: pulumi.Output<string[] | undefined>;
+    /**
+     * List of destination IP group IDs.
+     */
     declare public readonly destIpGroups: pulumi.Output<number[] | undefined>;
+    /**
+     * List of device group IDs.
+     */
     declare public readonly deviceGroups: pulumi.Output<number[] | undefined>;
+    /**
+     * List of device trust levels.
+     */
     declare public readonly deviceTrustLevels: pulumi.Output<string[] | undefined>;
+    /**
+     * List of device IDs.
+     */
     declare public readonly devices: pulumi.Output<number[] | undefined>;
+    /**
+     * List of group IDs.
+     */
     declare public readonly groups: pulumi.Output<number[] | undefined>;
+    /**
+     * List of label IDs.
+     */
     declare public readonly labels: pulumi.Output<number[] | undefined>;
+    /**
+     * List of location group IDs.
+     */
     declare public readonly locationGroups: pulumi.Output<number[] | undefined>;
+    /**
+     * List of location IDs.
+     */
     declare public readonly locations: pulumi.Output<number[] | undefined>;
+    /**
+     * Name of the traffic capture rule.
+     */
     declare public readonly name: pulumi.Output<string>;
+    /**
+     * List of network application group IDs.
+     */
     declare public readonly nwApplicationGroups: pulumi.Output<number[] | undefined>;
+    /**
+     * List of network applications.
+     */
     declare public readonly nwApplications: pulumi.Output<string[] | undefined>;
+    /**
+     * List of network service group IDs.
+     */
     declare public readonly nwServiceGroups: pulumi.Output<number[] | undefined>;
+    /**
+     * List of network service IDs.
+     */
     declare public readonly nwServices: pulumi.Output<number[] | undefined>;
+    /**
+     * The rule order of execution for the traffic capture rule.
+     */
     declare public readonly order: pulumi.Output<number>;
+    /**
+     * Whether this is a predefined rule.
+     */
     declare public readonly predefined: pulumi.Output<boolean | undefined>;
+    /**
+     * The admin rank of the rule. Default is 7.
+     */
     declare public readonly rank: pulumi.Output<number | undefined>;
+    /**
+     * The unique identifier for the traffic capture rule assigned by the ZIA cloud.
+     */
     declare public /*out*/ readonly ruleId: pulumi.Output<number>;
+    /**
+     * List of source country codes.
+     */
     declare public readonly sourceCountries: pulumi.Output<string[] | undefined>;
+    /**
+     * List of source IP group IDs.
+     */
     declare public readonly srcIpGroups: pulumi.Output<number[] | undefined>;
+    /**
+     * List of source IP addresses or CIDR ranges.
+     */
     declare public readonly srcIps: pulumi.Output<string[] | undefined>;
+    /**
+     * The rule state. Accepted values: 'ENABLED' or 'DISABLED'. Default: 'ENABLED'.
+     */
     declare public readonly state: pulumi.Output<string | undefined>;
+    /**
+     * List of time window IDs.
+     */
     declare public readonly timeWindows: pulumi.Output<number[] | undefined>;
+    /**
+     * Transaction sampling mode. Default: 'NONE'.
+     */
     declare public readonly txnSampling: pulumi.Output<string | undefined>;
+    /**
+     * Transaction size limit. Default: 'NONE'.
+     */
     declare public readonly txnSizeLimit: pulumi.Output<string | undefined>;
+    /**
+     * List of user IDs.
+     */
     declare public readonly users: pulumi.Output<number[] | undefined>;
+    /**
+     * List of workload groups.
+     */
     declare public readonly workloadGroups: pulumi.Output<outputs.WorkloadGroupInput[] | undefined>;
 
     /**
@@ -164,37 +296,136 @@ export class TrafficCaptureRule extends pulumi.CustomResource {
  * The set of arguments for constructing a TrafficCaptureRule resource.
  */
 export interface TrafficCaptureRuleArgs {
+    /**
+     * The action taken when traffic matches the rule (e.g., 'CAPTURE'). Default: 'CAPTURE'.
+     */
     action?: pulumi.Input<string>;
+    /**
+     * List of application service group IDs.
+     */
     appServiceGroups?: pulumi.Input<pulumi.Input<number>[]>;
+    /**
+     * Whether this is a default rule.
+     */
     defaultRule?: pulumi.Input<boolean>;
+    /**
+     * List of department IDs.
+     */
     departments?: pulumi.Input<pulumi.Input<number>[]>;
+    /**
+     * Description of the traffic capture rule.
+     */
     description?: pulumi.Input<string>;
+    /**
+     * List of destination addresses.
+     */
     destAddresses?: pulumi.Input<pulumi.Input<string>[]>;
+    /**
+     * List of destination country codes.
+     */
     destCountries?: pulumi.Input<pulumi.Input<string>[]>;
+    /**
+     * List of destination IP categories.
+     */
     destIpCategories?: pulumi.Input<pulumi.Input<string>[]>;
+    /**
+     * List of destination IP group IDs.
+     */
     destIpGroups?: pulumi.Input<pulumi.Input<number>[]>;
+    /**
+     * List of device group IDs.
+     */
     deviceGroups?: pulumi.Input<pulumi.Input<number>[]>;
+    /**
+     * List of device trust levels.
+     */
     deviceTrustLevels?: pulumi.Input<pulumi.Input<string>[]>;
+    /**
+     * List of device IDs.
+     */
     devices?: pulumi.Input<pulumi.Input<number>[]>;
+    /**
+     * List of group IDs.
+     */
     groups?: pulumi.Input<pulumi.Input<number>[]>;
+    /**
+     * List of label IDs.
+     */
     labels?: pulumi.Input<pulumi.Input<number>[]>;
+    /**
+     * List of location group IDs.
+     */
     locationGroups?: pulumi.Input<pulumi.Input<number>[]>;
+    /**
+     * List of location IDs.
+     */
     locations?: pulumi.Input<pulumi.Input<number>[]>;
+    /**
+     * Name of the traffic capture rule.
+     */
     name: pulumi.Input<string>;
+    /**
+     * List of network application group IDs.
+     */
     nwApplicationGroups?: pulumi.Input<pulumi.Input<number>[]>;
+    /**
+     * List of network applications.
+     */
     nwApplications?: pulumi.Input<pulumi.Input<string>[]>;
+    /**
+     * List of network service group IDs.
+     */
     nwServiceGroups?: pulumi.Input<pulumi.Input<number>[]>;
+    /**
+     * List of network service IDs.
+     */
     nwServices?: pulumi.Input<pulumi.Input<number>[]>;
+    /**
+     * The rule order of execution for the traffic capture rule.
+     */
     order: pulumi.Input<number>;
+    /**
+     * Whether this is a predefined rule.
+     */
     predefined?: pulumi.Input<boolean>;
+    /**
+     * The admin rank of the rule. Default is 7.
+     */
     rank?: pulumi.Input<number>;
+    /**
+     * List of source country codes.
+     */
     sourceCountries?: pulumi.Input<pulumi.Input<string>[]>;
+    /**
+     * List of source IP group IDs.
+     */
     srcIpGroups?: pulumi.Input<pulumi.Input<number>[]>;
+    /**
+     * List of source IP addresses or CIDR ranges.
+     */
     srcIps?: pulumi.Input<pulumi.Input<string>[]>;
+    /**
+     * The rule state. Accepted values: 'ENABLED' or 'DISABLED'. Default: 'ENABLED'.
+     */
     state?: pulumi.Input<string>;
+    /**
+     * List of time window IDs.
+     */
     timeWindows?: pulumi.Input<pulumi.Input<number>[]>;
+    /**
+     * Transaction sampling mode. Default: 'NONE'.
+     */
     txnSampling?: pulumi.Input<string>;
+    /**
+     * Transaction size limit. Default: 'NONE'.
+     */
     txnSizeLimit?: pulumi.Input<string>;
+    /**
+     * List of user IDs.
+     */
     users?: pulumi.Input<pulumi.Input<number>[]>;
+    /**
+     * List of workload groups.
+     */
     workloadGroups?: pulumi.Input<pulumi.Input<inputs.WorkloadGroupInputArgs>[]>;
 }

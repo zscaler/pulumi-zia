@@ -6,6 +6,36 @@ import * as inputs from "./types/input";
 import * as outputs from "./types/output";
 import * as utilities from "./utilities";
 
+/**
+ * The zia_cloud_app_control_rules resource manages cloud application control rules in the Zscaler Internet Access (ZIA) cloud service. Cloud app control rules define policies that govern user access to cloud applications, allowing administrators to allow, block, or isolate specific application activities.
+ *
+ * For more information, see the [ZIA Cloud App Control documentation](https://help.zscaler.com/zia/cloud-app-control).
+ *
+ * ## Example Usage
+ * ### Basic Cloud App Control Rule
+ *
+ * ```typescript
+ * import * as zia from "@bdzscaler/pulumi-zia";
+ *
+ * const example = new zia.CloudAppControlRule("example", {
+ *     name: "Example Cloud App Control Rule",
+ *     description: "Block file sharing uploads",
+ *     type: "STREAMING_MEDIA",
+ *     order: 1,
+ *     state: "ENABLED",
+ *     actions: ["BLOCK"],
+ *     applications: ["YOUTUBE"],
+ * });
+ * ```
+ *
+ * ## Import
+ *
+ * An existing Cloud App Control Rule can be imported using its resource ID, e.g.
+ *
+ * ```sh
+ * $ pulumi import zia:index:CloudAppControlRule example 12345
+ * ```
+ */
 export class CloudAppControlRule extends pulumi.CustomResource {
     /**
      * Get an existing CloudAppControlRule resource's state with the given name, ID, and optional extra
@@ -33,33 +63,117 @@ export class CloudAppControlRule extends pulumi.CustomResource {
         return obj['__pulumiType'] === CloudAppControlRule.__pulumiType;
     }
 
+    /**
+     * Actions taken when traffic matches rule criteria. Valid values: `ALLOW`, `BLOCK`, `CAUTION`, `ISOLATE`.
+     */
     declare public readonly actions: pulumi.Output<string[] | undefined>;
+    /**
+     * List of cloud application names to which the rule applies.
+     */
     declare public readonly applications: pulumi.Output<string[] | undefined>;
+    /**
+     * The ID of the Browser End User Notification template.
+     */
     declare public readonly browserEunTemplateId: pulumi.Output<number | undefined>;
+    /**
+     * If true, cascading to other rules is enabled when this rule matches.
+     */
     declare public readonly cascadingEnabled: pulumi.Output<boolean | undefined>;
+    /**
+     * The Cloud Browser Isolation (CBI) profile. Required when action is 'ISOLATE'.
+     */
     declare public readonly cbiProfile: pulumi.Output<outputs.CBIProfileInput | undefined>;
+    /**
+     * The ID of the cloud application risk profile associated with this rule.
+     */
     declare public readonly cloudAppRiskProfileId: pulumi.Output<number | undefined>;
+    /**
+     * IDs of departments for which the rule must be applied.
+     */
     declare public readonly departments: pulumi.Output<number[] | undefined>;
+    /**
+     * Additional information about the cloud app control rule.
+     */
     declare public readonly description: pulumi.Output<string | undefined>;
+    /**
+     * IDs of device groups for which the rule must be applied.
+     */
     declare public readonly deviceGroups: pulumi.Output<number[] | undefined>;
+    /**
+     * IDs of devices for which the rule must be applied.
+     */
     declare public readonly devices: pulumi.Output<number[] | undefined>;
+    /**
+     * Enforce a set validity time period for the rule.
+     */
     declare public readonly enforceTimeValidity: pulumi.Output<boolean | undefined>;
+    /**
+     * If true, End User Notification is enabled for this rule.
+     */
     declare public readonly eunEnabled: pulumi.Output<boolean | undefined>;
+    /**
+     * The ID of the End User Notification template.
+     */
     declare public readonly eunTemplateId: pulumi.Output<number | undefined>;
+    /**
+     * IDs of groups for which the rule must be applied.
+     */
     declare public readonly groups: pulumi.Output<number[] | undefined>;
+    /**
+     * IDs of labels associated with the cloud app control rule.
+     */
     declare public readonly labels: pulumi.Output<number[] | undefined>;
+    /**
+     * IDs of location groups for which the rule must be applied.
+     */
     declare public readonly locationGroups: pulumi.Output<number[] | undefined>;
+    /**
+     * IDs of locations for which the rule must be applied.
+     */
     declare public readonly locations: pulumi.Output<number[] | undefined>;
+    /**
+     * The name of the cloud app control rule. Must be unique.
+     */
     declare public readonly name: pulumi.Output<string>;
+    /**
+     * The order of execution of the rule with respect to other cloud app control rules.
+     */
     declare public readonly order: pulumi.Output<number>;
+    /**
+     * Admin rank of the cloud app control rule. Valid values: 0-7. Default: 7.
+     */
     declare public readonly rank: pulumi.Output<number | undefined>;
+    /**
+     * The system-generated ID of the cloud app control rule.
+     */
     declare public /*out*/ readonly ruleId: pulumi.Output<number>;
+    /**
+     * Size quota in MB beyond which the rule is applied. Not applicable when action is 'BLOCK'.
+     */
     declare public readonly sizeQuota: pulumi.Output<number | undefined>;
+    /**
+     * Rule state. Valid values: `ENABLED`, `DISABLED`.
+     */
     declare public readonly state: pulumi.Output<string | undefined>;
+    /**
+     * IDs of tenancy profiles for which the rule must be applied.
+     */
     declare public readonly tenancyProfileIds: pulumi.Output<number[] | undefined>;
+    /**
+     * Time quota in minutes, after which the rule is applied. Not applicable when action is 'BLOCK'.
+     */
     declare public readonly timeQuota: pulumi.Output<number | undefined>;
+    /**
+     * IDs of time intervals during which the rule must be enforced.
+     */
     declare public readonly timeWindows: pulumi.Output<number[] | undefined>;
+    /**
+     * The rule type, corresponding to the cloud application category. Valid values: `STREAMING_MEDIA`, `SOCIAL_NETWORKING`, `WEBMAIL`, `INSTANT_MESSAGING`, `FILE_SHARE`, `BUSINESS_PRODUCTIVITY`, `SYSTEM_AND_DEVELOPMENT`, `CONSUMER`, `HOSTING_PROVIDER`, `DNS_OVER_HTTPS`, `ENTERPRISE_COLLABORATION`, `GENERATIVE_AI`, `SALES_AND_MARKETING`, `HEALTH_CARE`, `LEGAL`, `HUMAN_RESOURCES`, `FINANCE`.
+     */
     declare public readonly type: pulumi.Output<string>;
+    /**
+     * IDs of users for which the rule must be applied.
+     */
     declare public readonly users: pulumi.Output<number[] | undefined>;
 
     /**
@@ -149,31 +263,112 @@ export class CloudAppControlRule extends pulumi.CustomResource {
  * The set of arguments for constructing a CloudAppControlRule resource.
  */
 export interface CloudAppControlRuleArgs {
+    /**
+     * Actions taken when traffic matches rule criteria. Valid values: `ALLOW`, `BLOCK`, `CAUTION`, `ISOLATE`.
+     */
     actions?: pulumi.Input<pulumi.Input<string>[]>;
+    /**
+     * List of cloud application names to which the rule applies.
+     */
     applications?: pulumi.Input<pulumi.Input<string>[]>;
+    /**
+     * The ID of the Browser End User Notification template.
+     */
     browserEunTemplateId?: pulumi.Input<number>;
+    /**
+     * If true, cascading to other rules is enabled when this rule matches.
+     */
     cascadingEnabled?: pulumi.Input<boolean>;
+    /**
+     * The Cloud Browser Isolation (CBI) profile. Required when action is 'ISOLATE'.
+     */
     cbiProfile?: pulumi.Input<inputs.CBIProfileInputArgs>;
+    /**
+     * The ID of the cloud application risk profile associated with this rule.
+     */
     cloudAppRiskProfileId?: pulumi.Input<number>;
+    /**
+     * IDs of departments for which the rule must be applied.
+     */
     departments?: pulumi.Input<pulumi.Input<number>[]>;
+    /**
+     * Additional information about the cloud app control rule.
+     */
     description?: pulumi.Input<string>;
+    /**
+     * IDs of device groups for which the rule must be applied.
+     */
     deviceGroups?: pulumi.Input<pulumi.Input<number>[]>;
+    /**
+     * IDs of devices for which the rule must be applied.
+     */
     devices?: pulumi.Input<pulumi.Input<number>[]>;
+    /**
+     * Enforce a set validity time period for the rule.
+     */
     enforceTimeValidity?: pulumi.Input<boolean>;
+    /**
+     * If true, End User Notification is enabled for this rule.
+     */
     eunEnabled?: pulumi.Input<boolean>;
+    /**
+     * The ID of the End User Notification template.
+     */
     eunTemplateId?: pulumi.Input<number>;
+    /**
+     * IDs of groups for which the rule must be applied.
+     */
     groups?: pulumi.Input<pulumi.Input<number>[]>;
+    /**
+     * IDs of labels associated with the cloud app control rule.
+     */
     labels?: pulumi.Input<pulumi.Input<number>[]>;
+    /**
+     * IDs of location groups for which the rule must be applied.
+     */
     locationGroups?: pulumi.Input<pulumi.Input<number>[]>;
+    /**
+     * IDs of locations for which the rule must be applied.
+     */
     locations?: pulumi.Input<pulumi.Input<number>[]>;
+    /**
+     * The name of the cloud app control rule. Must be unique.
+     */
     name: pulumi.Input<string>;
+    /**
+     * The order of execution of the rule with respect to other cloud app control rules.
+     */
     order: pulumi.Input<number>;
+    /**
+     * Admin rank of the cloud app control rule. Valid values: 0-7. Default: 7.
+     */
     rank?: pulumi.Input<number>;
+    /**
+     * Size quota in MB beyond which the rule is applied. Not applicable when action is 'BLOCK'.
+     */
     sizeQuota?: pulumi.Input<number>;
+    /**
+     * Rule state. Valid values: `ENABLED`, `DISABLED`.
+     */
     state?: pulumi.Input<string>;
+    /**
+     * IDs of tenancy profiles for which the rule must be applied.
+     */
     tenancyProfileIds?: pulumi.Input<pulumi.Input<number>[]>;
+    /**
+     * Time quota in minutes, after which the rule is applied. Not applicable when action is 'BLOCK'.
+     */
     timeQuota?: pulumi.Input<number>;
+    /**
+     * IDs of time intervals during which the rule must be enforced.
+     */
     timeWindows?: pulumi.Input<pulumi.Input<number>[]>;
+    /**
+     * The rule type, corresponding to the cloud application category. Valid values: `STREAMING_MEDIA`, `SOCIAL_NETWORKING`, `WEBMAIL`, `INSTANT_MESSAGING`, `FILE_SHARE`, `BUSINESS_PRODUCTIVITY`, `SYSTEM_AND_DEVELOPMENT`, `CONSUMER`, `HOSTING_PROVIDER`, `DNS_OVER_HTTPS`, `ENTERPRISE_COLLABORATION`, `GENERATIVE_AI`, `SALES_AND_MARKETING`, `HEALTH_CARE`, `LEGAL`, `HUMAN_RESOURCES`, `FINANCE`.
+     */
     type: pulumi.Input<string>;
+    /**
+     * IDs of users for which the rule must be applied.
+     */
     users?: pulumi.Input<pulumi.Input<number>[]>;
 }

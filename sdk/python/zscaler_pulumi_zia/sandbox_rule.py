@@ -44,6 +44,27 @@ class SandboxRuleArgs:
                  zpa_app_segments: Optional[pulumi.Input[Sequence[pulumi.Input['ZPAAppSegmentInputArgs']]]] = None):
         """
         The set of arguments for constructing a SandboxRule resource.
+        :param pulumi.Input[_builtins.str] name: The name of the sandbox rule. Must be unique.
+        :param pulumi.Input[_builtins.int] order: The order of execution of the rule with respect to other sandbox rules.
+        :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] ba_policy_categories: List of behavioral analysis policy categories.
+        :param pulumi.Input[_builtins.str] ba_rule_action: The action applied when the rule is matched. Valid values: `ALLOW`, `BLOCK`, `QUARANTINE`.
+        :param pulumi.Input[_builtins.int] by_threat_score: Threat score threshold for the rule. Files with a score above this value trigger the action.
+        :param pulumi.Input[Sequence[pulumi.Input[_builtins.int]]] departments: IDs of departments to which the rule applies.
+        :param pulumi.Input[_builtins.str] description: Additional information about the sandbox rule.
+        :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] file_types: List of file types for which the rule applies (e.g., `ALL_OUTBOUND`, `EXE`, `DLL`).
+        :param pulumi.Input[_builtins.bool] first_time_enable: If set to true, a first-time action is enabled.
+        :param pulumi.Input[_builtins.str] first_time_operation: The action for first-time file downloads. Valid values: `ALLOW_SCAN`, `QUARANTINE`.
+        :param pulumi.Input[Sequence[pulumi.Input[_builtins.int]]] groups: IDs of groups to which the rule applies.
+        :param pulumi.Input[Sequence[pulumi.Input[_builtins.int]]] labels: IDs of labels associated with the rule.
+        :param pulumi.Input[Sequence[pulumi.Input[_builtins.int]]] location_groups: IDs of location groups to which the rule applies.
+        :param pulumi.Input[Sequence[pulumi.Input[_builtins.int]]] locations: IDs of locations to which the rule applies.
+        :param pulumi.Input[_builtins.bool] ml_action_enabled: If set to true, machine learning-based analysis action is enabled.
+        :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] protocols: Protocols to which the rule applies. Valid values: `FTP_RULE`, `SSL_RULE`, `FOHTTP_RULE`, `HTTP_PROXY`.
+        :param pulumi.Input[_builtins.int] rank: Admin rank of the sandbox policy rule. Valid values: 0-7. Default: 7.
+        :param pulumi.Input[_builtins.str] state: Rule state. Valid values: `ENABLED`, `DISABLED`.
+        :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] url_categories: List of URL categories to which the rule applies.
+        :param pulumi.Input[Sequence[pulumi.Input[_builtins.int]]] users: IDs of users to which the rule applies.
+        :param pulumi.Input[Sequence[pulumi.Input['ZPAAppSegmentInputArgs']]] zpa_app_segments: List of ZPA application segments to which the rule applies.
         """
         pulumi.set(__self__, "name", name)
         pulumi.set(__self__, "order", order)
@@ -89,6 +110,9 @@ class SandboxRuleArgs:
     @_builtins.property
     @pulumi.getter
     def name(self) -> pulumi.Input[_builtins.str]:
+        """
+        The name of the sandbox rule. Must be unique.
+        """
         return pulumi.get(self, "name")
 
     @name.setter
@@ -98,6 +122,9 @@ class SandboxRuleArgs:
     @_builtins.property
     @pulumi.getter
     def order(self) -> pulumi.Input[_builtins.int]:
+        """
+        The order of execution of the rule with respect to other sandbox rules.
+        """
         return pulumi.get(self, "order")
 
     @order.setter
@@ -107,6 +134,9 @@ class SandboxRuleArgs:
     @_builtins.property
     @pulumi.getter(name="baPolicyCategories")
     def ba_policy_categories(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
+        """
+        List of behavioral analysis policy categories.
+        """
         return pulumi.get(self, "ba_policy_categories")
 
     @ba_policy_categories.setter
@@ -116,6 +146,9 @@ class SandboxRuleArgs:
     @_builtins.property
     @pulumi.getter(name="baRuleAction")
     def ba_rule_action(self) -> Optional[pulumi.Input[_builtins.str]]:
+        """
+        The action applied when the rule is matched. Valid values: `ALLOW`, `BLOCK`, `QUARANTINE`.
+        """
         return pulumi.get(self, "ba_rule_action")
 
     @ba_rule_action.setter
@@ -125,6 +158,9 @@ class SandboxRuleArgs:
     @_builtins.property
     @pulumi.getter(name="byThreatScore")
     def by_threat_score(self) -> Optional[pulumi.Input[_builtins.int]]:
+        """
+        Threat score threshold for the rule. Files with a score above this value trigger the action.
+        """
         return pulumi.get(self, "by_threat_score")
 
     @by_threat_score.setter
@@ -134,6 +170,9 @@ class SandboxRuleArgs:
     @_builtins.property
     @pulumi.getter
     def departments(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.int]]]]:
+        """
+        IDs of departments to which the rule applies.
+        """
         return pulumi.get(self, "departments")
 
     @departments.setter
@@ -143,6 +182,9 @@ class SandboxRuleArgs:
     @_builtins.property
     @pulumi.getter
     def description(self) -> Optional[pulumi.Input[_builtins.str]]:
+        """
+        Additional information about the sandbox rule.
+        """
         return pulumi.get(self, "description")
 
     @description.setter
@@ -152,6 +194,9 @@ class SandboxRuleArgs:
     @_builtins.property
     @pulumi.getter(name="fileTypes")
     def file_types(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
+        """
+        List of file types for which the rule applies (e.g., `ALL_OUTBOUND`, `EXE`, `DLL`).
+        """
         return pulumi.get(self, "file_types")
 
     @file_types.setter
@@ -161,6 +206,9 @@ class SandboxRuleArgs:
     @_builtins.property
     @pulumi.getter(name="firstTimeEnable")
     def first_time_enable(self) -> Optional[pulumi.Input[_builtins.bool]]:
+        """
+        If set to true, a first-time action is enabled.
+        """
         return pulumi.get(self, "first_time_enable")
 
     @first_time_enable.setter
@@ -170,6 +218,9 @@ class SandboxRuleArgs:
     @_builtins.property
     @pulumi.getter(name="firstTimeOperation")
     def first_time_operation(self) -> Optional[pulumi.Input[_builtins.str]]:
+        """
+        The action for first-time file downloads. Valid values: `ALLOW_SCAN`, `QUARANTINE`.
+        """
         return pulumi.get(self, "first_time_operation")
 
     @first_time_operation.setter
@@ -179,6 +230,9 @@ class SandboxRuleArgs:
     @_builtins.property
     @pulumi.getter
     def groups(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.int]]]]:
+        """
+        IDs of groups to which the rule applies.
+        """
         return pulumi.get(self, "groups")
 
     @groups.setter
@@ -188,6 +242,9 @@ class SandboxRuleArgs:
     @_builtins.property
     @pulumi.getter
     def labels(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.int]]]]:
+        """
+        IDs of labels associated with the rule.
+        """
         return pulumi.get(self, "labels")
 
     @labels.setter
@@ -197,6 +254,9 @@ class SandboxRuleArgs:
     @_builtins.property
     @pulumi.getter(name="locationGroups")
     def location_groups(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.int]]]]:
+        """
+        IDs of location groups to which the rule applies.
+        """
         return pulumi.get(self, "location_groups")
 
     @location_groups.setter
@@ -206,6 +266,9 @@ class SandboxRuleArgs:
     @_builtins.property
     @pulumi.getter
     def locations(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.int]]]]:
+        """
+        IDs of locations to which the rule applies.
+        """
         return pulumi.get(self, "locations")
 
     @locations.setter
@@ -215,6 +278,9 @@ class SandboxRuleArgs:
     @_builtins.property
     @pulumi.getter(name="mlActionEnabled")
     def ml_action_enabled(self) -> Optional[pulumi.Input[_builtins.bool]]:
+        """
+        If set to true, machine learning-based analysis action is enabled.
+        """
         return pulumi.get(self, "ml_action_enabled")
 
     @ml_action_enabled.setter
@@ -224,6 +290,9 @@ class SandboxRuleArgs:
     @_builtins.property
     @pulumi.getter
     def protocols(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
+        """
+        Protocols to which the rule applies. Valid values: `FTP_RULE`, `SSL_RULE`, `FOHTTP_RULE`, `HTTP_PROXY`.
+        """
         return pulumi.get(self, "protocols")
 
     @protocols.setter
@@ -233,6 +302,9 @@ class SandboxRuleArgs:
     @_builtins.property
     @pulumi.getter
     def rank(self) -> Optional[pulumi.Input[_builtins.int]]:
+        """
+        Admin rank of the sandbox policy rule. Valid values: 0-7. Default: 7.
+        """
         return pulumi.get(self, "rank")
 
     @rank.setter
@@ -242,6 +314,9 @@ class SandboxRuleArgs:
     @_builtins.property
     @pulumi.getter
     def state(self) -> Optional[pulumi.Input[_builtins.str]]:
+        """
+        Rule state. Valid values: `ENABLED`, `DISABLED`.
+        """
         return pulumi.get(self, "state")
 
     @state.setter
@@ -251,6 +326,9 @@ class SandboxRuleArgs:
     @_builtins.property
     @pulumi.getter(name="urlCategories")
     def url_categories(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
+        """
+        List of URL categories to which the rule applies.
+        """
         return pulumi.get(self, "url_categories")
 
     @url_categories.setter
@@ -260,6 +338,9 @@ class SandboxRuleArgs:
     @_builtins.property
     @pulumi.getter
     def users(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.int]]]]:
+        """
+        IDs of users to which the rule applies.
+        """
         return pulumi.get(self, "users")
 
     @users.setter
@@ -269,6 +350,9 @@ class SandboxRuleArgs:
     @_builtins.property
     @pulumi.getter(name="zpaAppSegments")
     def zpa_app_segments(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['ZPAAppSegmentInputArgs']]]]:
+        """
+        List of ZPA application segments to which the rule applies.
+        """
         return pulumi.get(self, "zpa_app_segments")
 
     @zpa_app_segments.setter
@@ -305,9 +389,58 @@ class SandboxRule(pulumi.CustomResource):
                  zpa_app_segments: Optional[pulumi.Input[Sequence[pulumi.Input[Union['ZPAAppSegmentInputArgs', 'ZPAAppSegmentInputArgsDict']]]]] = None,
                  __props__=None):
         """
-        Create a SandboxRule resource with the given unique name, props, and options.
+        The zia_sandbox_rules resource manages sandbox policy rules in the Zscaler Internet Access (ZIA) cloud service. Sandbox rules define actions for file analysis based on criteria such as locations, departments, groups, users, and file types.
+
+        For more information, see the [ZIA Cloud Sandbox documentation](https://help.zscaler.com/zia/about-cloud-sandbox-policies).
+
+        ## Example Usage
+        ### Basic Sandbox Rule
+
+        ```python
+        import zscaler_pulumi_zia as zia
+
+        example = zia.SandboxRule("example",
+            name="Example Sandbox Rule",
+            description="Block suspicious file types",
+            order=1,
+            state="ENABLED",
+            ba_rule_action="ALLOW",
+            file_types=["ALL_OUTBOUND"],
+            protocols=["FTP_RULE", "SSL_RULE", "FOHTTP_RULE", "HTTP_PROXY"],
+        )
+        ```
+
+        ## Import
+
+        An existing Sandbox Rule can be imported using its resource ID, e.g.
+
+        ```sh
+        $ pulumi import zia:index:SandboxRule example 12345
+        ```
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
+        :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] ba_policy_categories: List of behavioral analysis policy categories.
+        :param pulumi.Input[_builtins.str] ba_rule_action: The action applied when the rule is matched. Valid values: `ALLOW`, `BLOCK`, `QUARANTINE`.
+        :param pulumi.Input[_builtins.int] by_threat_score: Threat score threshold for the rule. Files with a score above this value trigger the action.
+        :param pulumi.Input[Sequence[pulumi.Input[_builtins.int]]] departments: IDs of departments to which the rule applies.
+        :param pulumi.Input[_builtins.str] description: Additional information about the sandbox rule.
+        :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] file_types: List of file types for which the rule applies (e.g., `ALL_OUTBOUND`, `EXE`, `DLL`).
+        :param pulumi.Input[_builtins.bool] first_time_enable: If set to true, a first-time action is enabled.
+        :param pulumi.Input[_builtins.str] first_time_operation: The action for first-time file downloads. Valid values: `ALLOW_SCAN`, `QUARANTINE`.
+        :param pulumi.Input[Sequence[pulumi.Input[_builtins.int]]] groups: IDs of groups to which the rule applies.
+        :param pulumi.Input[Sequence[pulumi.Input[_builtins.int]]] labels: IDs of labels associated with the rule.
+        :param pulumi.Input[Sequence[pulumi.Input[_builtins.int]]] location_groups: IDs of location groups to which the rule applies.
+        :param pulumi.Input[Sequence[pulumi.Input[_builtins.int]]] locations: IDs of locations to which the rule applies.
+        :param pulumi.Input[_builtins.bool] ml_action_enabled: If set to true, machine learning-based analysis action is enabled.
+        :param pulumi.Input[_builtins.str] name: The name of the sandbox rule. Must be unique.
+        :param pulumi.Input[_builtins.int] order: The order of execution of the rule with respect to other sandbox rules.
+        :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] protocols: Protocols to which the rule applies. Valid values: `FTP_RULE`, `SSL_RULE`, `FOHTTP_RULE`, `HTTP_PROXY`.
+        :param pulumi.Input[_builtins.int] rank: Admin rank of the sandbox policy rule. Valid values: 0-7. Default: 7.
+        :param pulumi.Input[_builtins.str] state: Rule state. Valid values: `ENABLED`, `DISABLED`.
+        :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] url_categories: List of URL categories to which the rule applies.
+        :param pulumi.Input[Sequence[pulumi.Input[_builtins.int]]] users: IDs of users to which the rule applies.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['ZPAAppSegmentInputArgs', 'ZPAAppSegmentInputArgsDict']]]] zpa_app_segments: List of ZPA application segments to which the rule applies.
         """
         ...
     @overload
@@ -316,7 +449,35 @@ class SandboxRule(pulumi.CustomResource):
                  args: SandboxRuleArgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
-        Create a SandboxRule resource with the given unique name, props, and options.
+        The zia_sandbox_rules resource manages sandbox policy rules in the Zscaler Internet Access (ZIA) cloud service. Sandbox rules define actions for file analysis based on criteria such as locations, departments, groups, users, and file types.
+
+        For more information, see the [ZIA Cloud Sandbox documentation](https://help.zscaler.com/zia/about-cloud-sandbox-policies).
+
+        ## Example Usage
+        ### Basic Sandbox Rule
+
+        ```python
+        import zscaler_pulumi_zia as zia
+
+        example = zia.SandboxRule("example",
+            name="Example Sandbox Rule",
+            description="Block suspicious file types",
+            order=1,
+            state="ENABLED",
+            ba_rule_action="ALLOW",
+            file_types=["ALL_OUTBOUND"],
+            protocols=["FTP_RULE", "SSL_RULE", "FOHTTP_RULE", "HTTP_PROXY"],
+        )
+        ```
+
+        ## Import
+
+        An existing Sandbox Rule can be imported using its resource ID, e.g.
+
+        ```sh
+        $ pulumi import zia:index:SandboxRule example 12345
+        ```
+
         :param str resource_name: The name of the resource.
         :param SandboxRuleArgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -437,110 +598,176 @@ class SandboxRule(pulumi.CustomResource):
     @_builtins.property
     @pulumi.getter(name="baPolicyCategories")
     def ba_policy_categories(self) -> pulumi.Output[Optional[Sequence[_builtins.str]]]:
+        """
+        List of behavioral analysis policy categories.
+        """
         return pulumi.get(self, "ba_policy_categories")
 
     @_builtins.property
     @pulumi.getter(name="baRuleAction")
     def ba_rule_action(self) -> pulumi.Output[Optional[_builtins.str]]:
+        """
+        The action applied when the rule is matched. Valid values: `ALLOW`, `BLOCK`, `QUARANTINE`.
+        """
         return pulumi.get(self, "ba_rule_action")
 
     @_builtins.property
     @pulumi.getter(name="byThreatScore")
     def by_threat_score(self) -> pulumi.Output[Optional[_builtins.int]]:
+        """
+        Threat score threshold for the rule. Files with a score above this value trigger the action.
+        """
         return pulumi.get(self, "by_threat_score")
 
     @_builtins.property
     @pulumi.getter
     def departments(self) -> pulumi.Output[Optional[Sequence[_builtins.int]]]:
+        """
+        IDs of departments to which the rule applies.
+        """
         return pulumi.get(self, "departments")
 
     @_builtins.property
     @pulumi.getter
     def description(self) -> pulumi.Output[Optional[_builtins.str]]:
+        """
+        Additional information about the sandbox rule.
+        """
         return pulumi.get(self, "description")
 
     @_builtins.property
     @pulumi.getter(name="fileTypes")
     def file_types(self) -> pulumi.Output[Optional[Sequence[_builtins.str]]]:
+        """
+        List of file types for which the rule applies (e.g., `ALL_OUTBOUND`, `EXE`, `DLL`).
+        """
         return pulumi.get(self, "file_types")
 
     @_builtins.property
     @pulumi.getter(name="firstTimeEnable")
     def first_time_enable(self) -> pulumi.Output[Optional[_builtins.bool]]:
+        """
+        If set to true, a first-time action is enabled.
+        """
         return pulumi.get(self, "first_time_enable")
 
     @_builtins.property
     @pulumi.getter(name="firstTimeOperation")
     def first_time_operation(self) -> pulumi.Output[Optional[_builtins.str]]:
+        """
+        The action for first-time file downloads. Valid values: `ALLOW_SCAN`, `QUARANTINE`.
+        """
         return pulumi.get(self, "first_time_operation")
 
     @_builtins.property
     @pulumi.getter
     def groups(self) -> pulumi.Output[Optional[Sequence[_builtins.int]]]:
+        """
+        IDs of groups to which the rule applies.
+        """
         return pulumi.get(self, "groups")
 
     @_builtins.property
     @pulumi.getter
     def labels(self) -> pulumi.Output[Optional[Sequence[_builtins.int]]]:
+        """
+        IDs of labels associated with the rule.
+        """
         return pulumi.get(self, "labels")
 
     @_builtins.property
     @pulumi.getter(name="locationGroups")
     def location_groups(self) -> pulumi.Output[Optional[Sequence[_builtins.int]]]:
+        """
+        IDs of location groups to which the rule applies.
+        """
         return pulumi.get(self, "location_groups")
 
     @_builtins.property
     @pulumi.getter
     def locations(self) -> pulumi.Output[Optional[Sequence[_builtins.int]]]:
+        """
+        IDs of locations to which the rule applies.
+        """
         return pulumi.get(self, "locations")
 
     @_builtins.property
     @pulumi.getter(name="mlActionEnabled")
     def ml_action_enabled(self) -> pulumi.Output[Optional[_builtins.bool]]:
+        """
+        If set to true, machine learning-based analysis action is enabled.
+        """
         return pulumi.get(self, "ml_action_enabled")
 
     @_builtins.property
     @pulumi.getter
     def name(self) -> pulumi.Output[_builtins.str]:
+        """
+        The name of the sandbox rule. Must be unique.
+        """
         return pulumi.get(self, "name")
 
     @_builtins.property
     @pulumi.getter
     def order(self) -> pulumi.Output[_builtins.int]:
+        """
+        The order of execution of the rule with respect to other sandbox rules.
+        """
         return pulumi.get(self, "order")
 
     @_builtins.property
     @pulumi.getter
     def protocols(self) -> pulumi.Output[Optional[Sequence[_builtins.str]]]:
+        """
+        Protocols to which the rule applies. Valid values: `FTP_RULE`, `SSL_RULE`, `FOHTTP_RULE`, `HTTP_PROXY`.
+        """
         return pulumi.get(self, "protocols")
 
     @_builtins.property
     @pulumi.getter
     def rank(self) -> pulumi.Output[Optional[_builtins.int]]:
+        """
+        Admin rank of the sandbox policy rule. Valid values: 0-7. Default: 7.
+        """
         return pulumi.get(self, "rank")
 
     @_builtins.property
     @pulumi.getter(name="ruleId")
     def rule_id(self) -> pulumi.Output[_builtins.int]:
+        """
+        The system-generated ID of the sandbox rule.
+        """
         return pulumi.get(self, "rule_id")
 
     @_builtins.property
     @pulumi.getter
     def state(self) -> pulumi.Output[Optional[_builtins.str]]:
+        """
+        Rule state. Valid values: `ENABLED`, `DISABLED`.
+        """
         return pulumi.get(self, "state")
 
     @_builtins.property
     @pulumi.getter(name="urlCategories")
     def url_categories(self) -> pulumi.Output[Optional[Sequence[_builtins.str]]]:
+        """
+        List of URL categories to which the rule applies.
+        """
         return pulumi.get(self, "url_categories")
 
     @_builtins.property
     @pulumi.getter
     def users(self) -> pulumi.Output[Optional[Sequence[_builtins.int]]]:
+        """
+        IDs of users to which the rule applies.
+        """
         return pulumi.get(self, "users")
 
     @_builtins.property
     @pulumi.getter(name="zpaAppSegments")
     def zpa_app_segments(self) -> pulumi.Output[Optional[Sequence['outputs.ZPAAppSegmentInput']]]:
+        """
+        List of ZPA application segments to which the rule applies.
+        """
         return pulumi.get(self, "zpa_app_segments")
 

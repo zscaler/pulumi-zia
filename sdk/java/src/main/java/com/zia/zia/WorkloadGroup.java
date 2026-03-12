@@ -15,29 +15,78 @@ import java.lang.String;
 import java.util.Optional;
 import javax.annotation.Nullable;
 
+/**
+ * The zia.WorkloadGroup resource manages workload groups in the Zscaler Internet Access (ZIA) cloud.
+ * Workload groups define sets of cloud workloads based on tag expressions that can be used in
+ * firewall rules, URL filtering rules, and other policy rules to apply policies to specific
+ * cloud workloads (e.g., VMs, subnets, ENIs).
+ * 
+ * ## Example Usage
+ * 
+ * ## Import
+ * 
+ * An existing workload group can be imported using its ID, e.g.
+ * 
+ * ```sh
+ * $ pulumi import zia:index:WorkloadGroup example 12345
+ * ```
+ * 
+ */
 @ResourceType(type="zia:index:WorkloadGroup")
 public class WorkloadGroup extends com.pulumi.resources.CustomResource {
+    /**
+     * Description of the workload group.
+     * 
+     */
     @Export(name="description", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> description;
 
+    /**
+     * @return Description of the workload group.
+     * 
+     */
     public Output<Optional<String>> description() {
         return Codegen.optional(this.description);
     }
+    /**
+     * The expression JSON that defines the workload group matching criteria using tag expressions.
+     * 
+     */
     @Export(name="expressionJson", refs={WorkloadGroupExpressionJsonInput.class}, tree="[0]")
     private Output</* @Nullable */ WorkloadGroupExpressionJsonInput> expressionJson;
 
+    /**
+     * @return The expression JSON that defines the workload group matching criteria using tag expressions.
+     * 
+     */
     public Output<Optional<WorkloadGroupExpressionJsonInput>> expressionJson() {
         return Codegen.optional(this.expressionJson);
     }
+    /**
+     * The unique identifier for the workload group assigned by the ZIA cloud.
+     * 
+     */
     @Export(name="groupId", refs={Integer.class}, tree="[0]")
     private Output<Integer> groupId;
 
+    /**
+     * @return The unique identifier for the workload group assigned by the ZIA cloud.
+     * 
+     */
     public Output<Integer> groupId() {
         return this.groupId;
     }
+    /**
+     * Name of the workload group.
+     * 
+     */
     @Export(name="name", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> name;
 
+    /**
+     * @return Name of the workload group.
+     * 
+     */
     public Output<Optional<String>> name() {
         return Codegen.optional(this.name);
     }
@@ -81,6 +130,7 @@ public class WorkloadGroup extends com.pulumi.resources.CustomResource {
     private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<java.lang.String> id) {
         var defaultOptions = com.pulumi.resources.CustomResourceOptions.builder()
             .version(Utilities.getVersion())
+            .pluginDownloadURL("github://api.github.com/zscaler")
             .build();
         return com.pulumi.resources.CustomResourceOptions.merge(defaultOptions, options, id);
     }

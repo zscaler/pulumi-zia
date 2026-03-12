@@ -16,23 +16,47 @@ public final class WorkloadGroupArgs extends com.pulumi.resources.ResourceArgs {
 
     public static final WorkloadGroupArgs Empty = new WorkloadGroupArgs();
 
+    /**
+     * Description of the workload group.
+     * 
+     */
     @Import(name="description")
     private @Nullable Output<String> description;
 
+    /**
+     * @return Description of the workload group.
+     * 
+     */
     public Optional<Output<String>> description() {
         return Optional.ofNullable(this.description);
     }
 
+    /**
+     * The expression JSON that defines the workload group matching criteria using tag expressions.
+     * 
+     */
     @Import(name="expressionJson")
     private @Nullable Output<WorkloadGroupExpressionJsonInputArgs> expressionJson;
 
+    /**
+     * @return The expression JSON that defines the workload group matching criteria using tag expressions.
+     * 
+     */
     public Optional<Output<WorkloadGroupExpressionJsonInputArgs>> expressionJson() {
         return Optional.ofNullable(this.expressionJson);
     }
 
+    /**
+     * Name of the workload group.
+     * 
+     */
     @Import(name="name")
     private @Nullable Output<String> name;
 
+    /**
+     * @return Name of the workload group.
+     * 
+     */
     public Optional<Output<String>> name() {
         return Optional.ofNullable(this.name);
     }
@@ -63,29 +87,65 @@ public final class WorkloadGroupArgs extends com.pulumi.resources.ResourceArgs {
             $ = new WorkloadGroupArgs(Objects.requireNonNull(defaults));
         }
 
+        /**
+         * @param description Description of the workload group.
+         * 
+         * @return builder
+         * 
+         */
         public Builder description(@Nullable Output<String> description) {
             $.description = description;
             return this;
         }
 
+        /**
+         * @param description Description of the workload group.
+         * 
+         * @return builder
+         * 
+         */
         public Builder description(String description) {
             return description(Output.of(description));
         }
 
+        /**
+         * @param expressionJson The expression JSON that defines the workload group matching criteria using tag expressions.
+         * 
+         * @return builder
+         * 
+         */
         public Builder expressionJson(@Nullable Output<WorkloadGroupExpressionJsonInputArgs> expressionJson) {
             $.expressionJson = expressionJson;
             return this;
         }
 
+        /**
+         * @param expressionJson The expression JSON that defines the workload group matching criteria using tag expressions.
+         * 
+         * @return builder
+         * 
+         */
         public Builder expressionJson(WorkloadGroupExpressionJsonInputArgs expressionJson) {
             return expressionJson(Output.of(expressionJson));
         }
 
+        /**
+         * @param name Name of the workload group.
+         * 
+         * @return builder
+         * 
+         */
         public Builder name(@Nullable Output<String> name) {
             $.name = name;
             return this;
         }
 
+        /**
+         * @param name Name of the workload group.
+         * 
+         * @return builder
+         * 
+         */
         public Builder name(String name) {
             return name(Output.of(name));
         }

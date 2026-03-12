@@ -16,100 +16,212 @@ public final class VzenNodeArgs extends com.pulumi.resources.ResourceArgs {
 
     public static final VzenNodeArgs Empty = new VzenNodeArgs();
 
+    /**
+     * The cluster name if deployment mode is CLUSTER.
+     * 
+     */
     @Import(name="clusterName")
     private @Nullable Output<String> clusterName;
 
+    /**
+     * @return The cluster name if deployment mode is CLUSTER.
+     * 
+     */
     public Optional<Output<String>> clusterName() {
         return Optional.ofNullable(this.clusterName);
     }
 
+    /**
+     * The default gateway of the VZEN node.
+     * 
+     */
     @Import(name="defaultGateway")
     private @Nullable Output<String> defaultGateway;
 
+    /**
+     * @return The default gateway of the VZEN node.
+     * 
+     */
     public Optional<Output<String>> defaultGateway() {
         return Optional.ofNullable(this.defaultGateway);
     }
 
+    /**
+     * The deployment mode. Accepted values: &#39;STANDALONE&#39; or &#39;CLUSTER&#39;.
+     * 
+     */
     @Import(name="deploymentMode")
     private @Nullable Output<String> deploymentMode;
 
+    /**
+     * @return The deployment mode. Accepted values: &#39;STANDALONE&#39; or &#39;CLUSTER&#39;.
+     * 
+     */
     public Optional<Output<String>> deploymentMode() {
         return Optional.ofNullable(this.deploymentMode);
     }
 
+    /**
+     * Whether establish support tunnel is enabled.
+     * 
+     */
     @Import(name="establishSupportTunnelEnabled")
     private @Nullable Output<Boolean> establishSupportTunnelEnabled;
 
+    /**
+     * @return Whether establish support tunnel is enabled.
+     * 
+     */
     public Optional<Output<Boolean>> establishSupportTunnelEnabled() {
         return Optional.ofNullable(this.establishSupportTunnelEnabled);
     }
 
+    /**
+     * Whether the node is in production.
+     * 
+     */
     @Import(name="inProduction")
     private @Nullable Output<Boolean> inProduction;
 
+    /**
+     * @return Whether the node is in production.
+     * 
+     */
     public Optional<Output<Boolean>> inProduction() {
         return Optional.ofNullable(this.inProduction);
     }
 
+    /**
+     * The IP address of the VZEN node.
+     * 
+     */
     @Import(name="ipAddress")
     private @Nullable Output<String> ipAddress;
 
+    /**
+     * @return The IP address of the VZEN node.
+     * 
+     */
     public Optional<Output<String>> ipAddress() {
         return Optional.ofNullable(this.ipAddress);
     }
 
+    /**
+     * Whether IPSec is enabled on the node.
+     * 
+     */
     @Import(name="ipSecEnabled")
     private @Nullable Output<Boolean> ipSecEnabled;
 
+    /**
+     * @return Whether IPSec is enabled on the node.
+     * 
+     */
     public Optional<Output<Boolean>> ipSecEnabled() {
         return Optional.ofNullable(this.ipSecEnabled);
     }
 
+    /**
+     * The load balancer IP address.
+     * 
+     */
     @Import(name="loadBalancerIpAddress")
     private @Nullable Output<String> loadBalancerIpAddress;
 
+    /**
+     * @return The load balancer IP address.
+     * 
+     */
     public Optional<Output<String>> loadBalancerIpAddress() {
         return Optional.ofNullable(this.loadBalancerIpAddress);
     }
 
+    /**
+     * Name of the VZEN node.
+     * 
+     */
     @Import(name="name")
     private @Nullable Output<String> name;
 
+    /**
+     * @return Name of the VZEN node.
+     * 
+     */
     public Optional<Output<String>> name() {
         return Optional.ofNullable(this.name);
     }
 
+    /**
+     * Whether on-demand support tunnel is enabled.
+     * 
+     */
     @Import(name="onDemandSupportTunnelEnabled")
     private @Nullable Output<Boolean> onDemandSupportTunnelEnabled;
 
+    /**
+     * @return Whether on-demand support tunnel is enabled.
+     * 
+     */
     public Optional<Output<Boolean>> onDemandSupportTunnelEnabled() {
         return Optional.ofNullable(this.onDemandSupportTunnelEnabled);
     }
 
+    /**
+     * The status of the node. Accepted values: &#39;ENABLED&#39;, &#39;DISABLED&#39;, &#39;DISABLED_BY_SERVICE_PROVIDER&#39;, &#39;NOT_PROVISIONED_IN_SERVICE_PROVIDER&#39;, &#39;IN_TRIAL&#39;.
+     * 
+     */
     @Import(name="status")
     private @Nullable Output<String> status;
 
+    /**
+     * @return The status of the node. Accepted values: &#39;ENABLED&#39;, &#39;DISABLED&#39;, &#39;DISABLED_BY_SERVICE_PROVIDER&#39;, &#39;NOT_PROVISIONED_IN_SERVICE_PROVIDER&#39;, &#39;IN_TRIAL&#39;.
+     * 
+     */
     public Optional<Output<String>> status() {
         return Optional.ofNullable(this.status);
     }
 
+    /**
+     * The subnet mask of the VZEN node.
+     * 
+     */
     @Import(name="subnetMask")
     private @Nullable Output<String> subnetMask;
 
+    /**
+     * @return The subnet mask of the VZEN node.
+     * 
+     */
     public Optional<Output<String>> subnetMask() {
         return Optional.ofNullable(this.subnetMask);
     }
 
+    /**
+     * The type of the VZEN node.
+     * 
+     */
     @Import(name="type")
     private @Nullable Output<String> type;
 
+    /**
+     * @return The type of the VZEN node.
+     * 
+     */
     public Optional<Output<String>> type() {
         return Optional.ofNullable(this.type);
     }
 
+    /**
+     * The VZEN SKU type. Accepted values: &#39;SMALL&#39;, &#39;MEDIUM&#39;, &#39;LARGE&#39;.
+     * 
+     */
     @Import(name="vzenSkuType")
     private @Nullable Output<String> vzenSkuType;
 
+    /**
+     * @return The VZEN SKU type. Accepted values: &#39;SMALL&#39;, &#39;MEDIUM&#39;, &#39;LARGE&#39;.
+     * 
+     */
     public Optional<Output<String>> vzenSkuType() {
         return Optional.ofNullable(this.vzenSkuType);
     }
@@ -151,128 +263,296 @@ public final class VzenNodeArgs extends com.pulumi.resources.ResourceArgs {
             $ = new VzenNodeArgs(Objects.requireNonNull(defaults));
         }
 
+        /**
+         * @param clusterName The cluster name if deployment mode is CLUSTER.
+         * 
+         * @return builder
+         * 
+         */
         public Builder clusterName(@Nullable Output<String> clusterName) {
             $.clusterName = clusterName;
             return this;
         }
 
+        /**
+         * @param clusterName The cluster name if deployment mode is CLUSTER.
+         * 
+         * @return builder
+         * 
+         */
         public Builder clusterName(String clusterName) {
             return clusterName(Output.of(clusterName));
         }
 
+        /**
+         * @param defaultGateway The default gateway of the VZEN node.
+         * 
+         * @return builder
+         * 
+         */
         public Builder defaultGateway(@Nullable Output<String> defaultGateway) {
             $.defaultGateway = defaultGateway;
             return this;
         }
 
+        /**
+         * @param defaultGateway The default gateway of the VZEN node.
+         * 
+         * @return builder
+         * 
+         */
         public Builder defaultGateway(String defaultGateway) {
             return defaultGateway(Output.of(defaultGateway));
         }
 
+        /**
+         * @param deploymentMode The deployment mode. Accepted values: &#39;STANDALONE&#39; or &#39;CLUSTER&#39;.
+         * 
+         * @return builder
+         * 
+         */
         public Builder deploymentMode(@Nullable Output<String> deploymentMode) {
             $.deploymentMode = deploymentMode;
             return this;
         }
 
+        /**
+         * @param deploymentMode The deployment mode. Accepted values: &#39;STANDALONE&#39; or &#39;CLUSTER&#39;.
+         * 
+         * @return builder
+         * 
+         */
         public Builder deploymentMode(String deploymentMode) {
             return deploymentMode(Output.of(deploymentMode));
         }
 
+        /**
+         * @param establishSupportTunnelEnabled Whether establish support tunnel is enabled.
+         * 
+         * @return builder
+         * 
+         */
         public Builder establishSupportTunnelEnabled(@Nullable Output<Boolean> establishSupportTunnelEnabled) {
             $.establishSupportTunnelEnabled = establishSupportTunnelEnabled;
             return this;
         }
 
+        /**
+         * @param establishSupportTunnelEnabled Whether establish support tunnel is enabled.
+         * 
+         * @return builder
+         * 
+         */
         public Builder establishSupportTunnelEnabled(Boolean establishSupportTunnelEnabled) {
             return establishSupportTunnelEnabled(Output.of(establishSupportTunnelEnabled));
         }
 
+        /**
+         * @param inProduction Whether the node is in production.
+         * 
+         * @return builder
+         * 
+         */
         public Builder inProduction(@Nullable Output<Boolean> inProduction) {
             $.inProduction = inProduction;
             return this;
         }
 
+        /**
+         * @param inProduction Whether the node is in production.
+         * 
+         * @return builder
+         * 
+         */
         public Builder inProduction(Boolean inProduction) {
             return inProduction(Output.of(inProduction));
         }
 
+        /**
+         * @param ipAddress The IP address of the VZEN node.
+         * 
+         * @return builder
+         * 
+         */
         public Builder ipAddress(@Nullable Output<String> ipAddress) {
             $.ipAddress = ipAddress;
             return this;
         }
 
+        /**
+         * @param ipAddress The IP address of the VZEN node.
+         * 
+         * @return builder
+         * 
+         */
         public Builder ipAddress(String ipAddress) {
             return ipAddress(Output.of(ipAddress));
         }
 
+        /**
+         * @param ipSecEnabled Whether IPSec is enabled on the node.
+         * 
+         * @return builder
+         * 
+         */
         public Builder ipSecEnabled(@Nullable Output<Boolean> ipSecEnabled) {
             $.ipSecEnabled = ipSecEnabled;
             return this;
         }
 
+        /**
+         * @param ipSecEnabled Whether IPSec is enabled on the node.
+         * 
+         * @return builder
+         * 
+         */
         public Builder ipSecEnabled(Boolean ipSecEnabled) {
             return ipSecEnabled(Output.of(ipSecEnabled));
         }
 
+        /**
+         * @param loadBalancerIpAddress The load balancer IP address.
+         * 
+         * @return builder
+         * 
+         */
         public Builder loadBalancerIpAddress(@Nullable Output<String> loadBalancerIpAddress) {
             $.loadBalancerIpAddress = loadBalancerIpAddress;
             return this;
         }
 
+        /**
+         * @param loadBalancerIpAddress The load balancer IP address.
+         * 
+         * @return builder
+         * 
+         */
         public Builder loadBalancerIpAddress(String loadBalancerIpAddress) {
             return loadBalancerIpAddress(Output.of(loadBalancerIpAddress));
         }
 
+        /**
+         * @param name Name of the VZEN node.
+         * 
+         * @return builder
+         * 
+         */
         public Builder name(@Nullable Output<String> name) {
             $.name = name;
             return this;
         }
 
+        /**
+         * @param name Name of the VZEN node.
+         * 
+         * @return builder
+         * 
+         */
         public Builder name(String name) {
             return name(Output.of(name));
         }
 
+        /**
+         * @param onDemandSupportTunnelEnabled Whether on-demand support tunnel is enabled.
+         * 
+         * @return builder
+         * 
+         */
         public Builder onDemandSupportTunnelEnabled(@Nullable Output<Boolean> onDemandSupportTunnelEnabled) {
             $.onDemandSupportTunnelEnabled = onDemandSupportTunnelEnabled;
             return this;
         }
 
+        /**
+         * @param onDemandSupportTunnelEnabled Whether on-demand support tunnel is enabled.
+         * 
+         * @return builder
+         * 
+         */
         public Builder onDemandSupportTunnelEnabled(Boolean onDemandSupportTunnelEnabled) {
             return onDemandSupportTunnelEnabled(Output.of(onDemandSupportTunnelEnabled));
         }
 
+        /**
+         * @param status The status of the node. Accepted values: &#39;ENABLED&#39;, &#39;DISABLED&#39;, &#39;DISABLED_BY_SERVICE_PROVIDER&#39;, &#39;NOT_PROVISIONED_IN_SERVICE_PROVIDER&#39;, &#39;IN_TRIAL&#39;.
+         * 
+         * @return builder
+         * 
+         */
         public Builder status(@Nullable Output<String> status) {
             $.status = status;
             return this;
         }
 
+        /**
+         * @param status The status of the node. Accepted values: &#39;ENABLED&#39;, &#39;DISABLED&#39;, &#39;DISABLED_BY_SERVICE_PROVIDER&#39;, &#39;NOT_PROVISIONED_IN_SERVICE_PROVIDER&#39;, &#39;IN_TRIAL&#39;.
+         * 
+         * @return builder
+         * 
+         */
         public Builder status(String status) {
             return status(Output.of(status));
         }
 
+        /**
+         * @param subnetMask The subnet mask of the VZEN node.
+         * 
+         * @return builder
+         * 
+         */
         public Builder subnetMask(@Nullable Output<String> subnetMask) {
             $.subnetMask = subnetMask;
             return this;
         }
 
+        /**
+         * @param subnetMask The subnet mask of the VZEN node.
+         * 
+         * @return builder
+         * 
+         */
         public Builder subnetMask(String subnetMask) {
             return subnetMask(Output.of(subnetMask));
         }
 
+        /**
+         * @param type The type of the VZEN node.
+         * 
+         * @return builder
+         * 
+         */
         public Builder type(@Nullable Output<String> type) {
             $.type = type;
             return this;
         }
 
+        /**
+         * @param type The type of the VZEN node.
+         * 
+         * @return builder
+         * 
+         */
         public Builder type(String type) {
             return type(Output.of(type));
         }
 
+        /**
+         * @param vzenSkuType The VZEN SKU type. Accepted values: &#39;SMALL&#39;, &#39;MEDIUM&#39;, &#39;LARGE&#39;.
+         * 
+         * @return builder
+         * 
+         */
         public Builder vzenSkuType(@Nullable Output<String> vzenSkuType) {
             $.vzenSkuType = vzenSkuType;
             return this;
         }
 
+        /**
+         * @param vzenSkuType The VZEN SKU type. Accepted values: &#39;SMALL&#39;, &#39;MEDIUM&#39;, &#39;LARGE&#39;.
+         * 
+         * @return builder
+         * 
+         */
         public Builder vzenSkuType(String vzenSkuType) {
             return vzenSkuType(Output.of(vzenSkuType));
         }

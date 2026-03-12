@@ -27,6 +27,12 @@ class UrlCategoryPredefinedArgs:
                  urls: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None):
         """
         The set of arguments for constructing a UrlCategoryPredefined resource.
+        :param pulumi.Input[_builtins.str] name: The name or ID of the predefined URL category to override (e.g., `FINANCE`, `SOCIAL_NETWORKING`).
+        :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] ip_ranges: List of custom IP address ranges to add to the predefined category.
+        :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] ip_ranges_retaining_parent_category: List of IP ranges that retain their parent category classification.
+        :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] keywords: List of custom keywords to add to the predefined category.
+        :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] keywords_retaining_parent_category: List of keywords that retain their parent category classification.
+        :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] urls: List of custom URLs to add to the predefined category.
         """
         pulumi.set(__self__, "name", name)
         if ip_ranges is not None:
@@ -43,6 +49,9 @@ class UrlCategoryPredefinedArgs:
     @_builtins.property
     @pulumi.getter
     def name(self) -> pulumi.Input[_builtins.str]:
+        """
+        The name or ID of the predefined URL category to override (e.g., `FINANCE`, `SOCIAL_NETWORKING`).
+        """
         return pulumi.get(self, "name")
 
     @name.setter
@@ -52,6 +61,9 @@ class UrlCategoryPredefinedArgs:
     @_builtins.property
     @pulumi.getter(name="ipRanges")
     def ip_ranges(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
+        """
+        List of custom IP address ranges to add to the predefined category.
+        """
         return pulumi.get(self, "ip_ranges")
 
     @ip_ranges.setter
@@ -61,6 +73,9 @@ class UrlCategoryPredefinedArgs:
     @_builtins.property
     @pulumi.getter(name="ipRangesRetainingParentCategory")
     def ip_ranges_retaining_parent_category(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
+        """
+        List of IP ranges that retain their parent category classification.
+        """
         return pulumi.get(self, "ip_ranges_retaining_parent_category")
 
     @ip_ranges_retaining_parent_category.setter
@@ -70,6 +85,9 @@ class UrlCategoryPredefinedArgs:
     @_builtins.property
     @pulumi.getter
     def keywords(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
+        """
+        List of custom keywords to add to the predefined category.
+        """
         return pulumi.get(self, "keywords")
 
     @keywords.setter
@@ -79,6 +97,9 @@ class UrlCategoryPredefinedArgs:
     @_builtins.property
     @pulumi.getter(name="keywordsRetainingParentCategory")
     def keywords_retaining_parent_category(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
+        """
+        List of keywords that retain their parent category classification.
+        """
         return pulumi.get(self, "keywords_retaining_parent_category")
 
     @keywords_retaining_parent_category.setter
@@ -88,6 +109,9 @@ class UrlCategoryPredefinedArgs:
     @_builtins.property
     @pulumi.getter
     def urls(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
+        """
+        List of custom URLs to add to the predefined category.
+        """
         return pulumi.get(self, "urls")
 
     @urls.setter
@@ -109,9 +133,42 @@ class UrlCategoryPredefined(pulumi.CustomResource):
                  urls: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
                  __props__=None):
         """
-        Create a UrlCategoryPredefined resource with the given unique name, props, and options.
+        The zia_url_categories_predefined resource manages predefined URL category overrides in the Zscaler Internet Access (ZIA) cloud service. This resource allows administrators to add custom URLs, keywords, and IP ranges to existing predefined (built-in) URL categories. Predefined categories cannot be deleted; the delete operation is a no-op.
+
+        For more information, see the [ZIA URL Categories documentation](https://help.zscaler.com/zia/url-categories).
+
+        ## Example Usage
+        ### Override a Predefined URL Category
+
+        ```python
+        import zscaler_pulumi_zia as zia
+
+        example = zia.UrlCategoryPredefined("example",
+            name="FINANCE",
+            urls=[
+                "finance.example.com",
+                "banking.example.com",
+            ],
+            keywords=["financial-portal"],
+        )
+        ```
+
+        ## Import
+
+        An existing Predefined URL Category override can be imported using its category ID, e.g.
+
+        ```sh
+        $ pulumi import zia:index:UrlCategoryPredefined example FINANCE
+        ```
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
+        :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] ip_ranges: List of custom IP address ranges to add to the predefined category.
+        :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] ip_ranges_retaining_parent_category: List of IP ranges that retain their parent category classification.
+        :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] keywords: List of custom keywords to add to the predefined category.
+        :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] keywords_retaining_parent_category: List of keywords that retain their parent category classification.
+        :param pulumi.Input[_builtins.str] name: The name or ID of the predefined URL category to override (e.g., `FINANCE`, `SOCIAL_NETWORKING`).
+        :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] urls: List of custom URLs to add to the predefined category.
         """
         ...
     @overload
@@ -120,7 +177,34 @@ class UrlCategoryPredefined(pulumi.CustomResource):
                  args: UrlCategoryPredefinedArgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
-        Create a UrlCategoryPredefined resource with the given unique name, props, and options.
+        The zia_url_categories_predefined resource manages predefined URL category overrides in the Zscaler Internet Access (ZIA) cloud service. This resource allows administrators to add custom URLs, keywords, and IP ranges to existing predefined (built-in) URL categories. Predefined categories cannot be deleted; the delete operation is a no-op.
+
+        For more information, see the [ZIA URL Categories documentation](https://help.zscaler.com/zia/url-categories).
+
+        ## Example Usage
+        ### Override a Predefined URL Category
+
+        ```python
+        import zscaler_pulumi_zia as zia
+
+        example = zia.UrlCategoryPredefined("example",
+            name="FINANCE",
+            urls=[
+                "finance.example.com",
+                "banking.example.com",
+            ],
+            keywords=["financial-portal"],
+        )
+        ```
+
+        ## Import
+
+        An existing Predefined URL Category override can be imported using its category ID, e.g.
+
+        ```sh
+        $ pulumi import zia:index:UrlCategoryPredefined example FINANCE
+        ```
+
         :param str resource_name: The name of the resource.
         :param UrlCategoryPredefinedArgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -216,90 +300,144 @@ class UrlCategoryPredefined(pulumi.CustomResource):
     @_builtins.property
     @pulumi.getter(name="categoryId")
     def category_id(self) -> pulumi.Output[_builtins.str]:
+        """
+        The system-generated ID of the predefined URL category.
+        """
         return pulumi.get(self, "category_id")
 
     @_builtins.property
     @pulumi.getter(name="configuredName")
     def configured_name(self) -> pulumi.Output[Optional[_builtins.str]]:
+        """
+        The configured display name of the predefined URL category.
+        """
         return pulumi.get(self, "configured_name")
 
     @_builtins.property
     @pulumi.getter(name="customIpRangesCount")
     def custom_ip_ranges_count(self) -> pulumi.Output[Optional[_builtins.int]]:
+        """
+        The number of custom IP ranges in the category.
+        """
         return pulumi.get(self, "custom_ip_ranges_count")
 
     @_builtins.property
     @pulumi.getter(name="customUrlsCount")
     def custom_urls_count(self) -> pulumi.Output[Optional[_builtins.int]]:
+        """
+        The number of custom URLs in the category.
+        """
         return pulumi.get(self, "custom_urls_count")
 
     @_builtins.property
     @pulumi.getter(name="dbCategorizedUrls")
     def db_categorized_urls(self) -> pulumi.Output[Optional[Sequence[_builtins.str]]]:
+        """
+        URLs in this category that have been categorized by the Zscaler database.
+        """
         return pulumi.get(self, "db_categorized_urls")
 
     @_builtins.property
     @pulumi.getter
     def editable(self) -> pulumi.Output[Optional[_builtins.bool]]:
+        """
+        Whether the predefined URL category is editable.
+        """
         return pulumi.get(self, "editable")
 
     @_builtins.property
     @pulumi.getter(name="ipRanges")
     def ip_ranges(self) -> pulumi.Output[Optional[Sequence[_builtins.str]]]:
+        """
+        List of custom IP address ranges to add to the predefined category.
+        """
         return pulumi.get(self, "ip_ranges")
 
     @_builtins.property
     @pulumi.getter(name="ipRangesRetainingParentCategory")
     def ip_ranges_retaining_parent_category(self) -> pulumi.Output[Optional[Sequence[_builtins.str]]]:
+        """
+        List of IP ranges that retain their parent category classification.
+        """
         return pulumi.get(self, "ip_ranges_retaining_parent_category")
 
     @_builtins.property
     @pulumi.getter(name="ipRangesRetainingParentCategoryCount")
     def ip_ranges_retaining_parent_category_count(self) -> pulumi.Output[Optional[_builtins.int]]:
+        """
+        The number of IP ranges retaining parent category.
+        """
         return pulumi.get(self, "ip_ranges_retaining_parent_category_count")
 
     @_builtins.property
     @pulumi.getter
     def keywords(self) -> pulumi.Output[Optional[Sequence[_builtins.str]]]:
+        """
+        List of custom keywords to add to the predefined category.
+        """
         return pulumi.get(self, "keywords")
 
     @_builtins.property
     @pulumi.getter(name="keywordsRetainingParentCategory")
     def keywords_retaining_parent_category(self) -> pulumi.Output[Optional[Sequence[_builtins.str]]]:
+        """
+        List of keywords that retain their parent category classification.
+        """
         return pulumi.get(self, "keywords_retaining_parent_category")
 
     @_builtins.property
     @pulumi.getter
     def name(self) -> pulumi.Output[_builtins.str]:
+        """
+        The name or ID of the predefined URL category to override (e.g., `FINANCE`, `SOCIAL_NETWORKING`).
+        """
         return pulumi.get(self, "name")
 
     @_builtins.property
     @pulumi.getter(name="superCategory")
     def super_category(self) -> pulumi.Output[Optional[_builtins.str]]:
+        """
+        The super category of the predefined URL category.
+        """
         return pulumi.get(self, "super_category")
 
     @_builtins.property
     @pulumi.getter
     def type(self) -> pulumi.Output[Optional[_builtins.str]]:
+        """
+        The type of the URL category.
+        """
         return pulumi.get(self, "type")
 
     @_builtins.property
     @pulumi.getter(name="urlType")
     def url_type(self) -> pulumi.Output[Optional[_builtins.str]]:
+        """
+        The URL type of the predefined category.
+        """
         return pulumi.get(self, "url_type")
 
     @_builtins.property
     @pulumi.getter
     def urls(self) -> pulumi.Output[Optional[Sequence[_builtins.str]]]:
+        """
+        List of custom URLs to add to the predefined category.
+        """
         return pulumi.get(self, "urls")
 
     @_builtins.property
     @pulumi.getter(name="urlsRetainingParentCategoryCount")
     def urls_retaining_parent_category_count(self) -> pulumi.Output[Optional[_builtins.int]]:
+        """
+        The number of URLs retaining parent category.
+        """
         return pulumi.get(self, "urls_retaining_parent_category_count")
 
     @_builtins.property
     @pulumi.getter
     def val(self) -> pulumi.Output[Optional[_builtins.int]]:
+        """
+        The internal numeric value of the URL category.
+        """
         return pulumi.get(self, "val")
 

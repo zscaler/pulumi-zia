@@ -17,137 +17,329 @@ import java.util.List;
 import java.util.Optional;
 import javax.annotation.Nullable;
 
+/**
+ * The zia_sandbox_rules resource manages sandbox policy rules in the Zscaler Internet Access (ZIA) cloud service. Sandbox rules define actions for file analysis based on criteria such as locations, departments, groups, users, and file types.
+ * 
+ * For more information, see the [ZIA Cloud Sandbox documentation](https://help.zscaler.com/zia/about-cloud-sandbox-policies).
+ * 
+ * ## Example Usage
+ * 
+ * ## Import
+ * 
+ * An existing Sandbox Rule can be imported using its resource ID, e.g.
+ * 
+ * ```sh
+ * $ pulumi import zia:index:SandboxRule example 12345
+ * ```
+ * 
+ */
 @ResourceType(type="zia:index:SandboxRule")
 public class SandboxRule extends com.pulumi.resources.CustomResource {
+    /**
+     * List of behavioral analysis policy categories.
+     * 
+     */
     @Export(name="baPolicyCategories", refs={List.class,String.class}, tree="[0,1]")
     private Output</* @Nullable */ List<String>> baPolicyCategories;
 
+    /**
+     * @return List of behavioral analysis policy categories.
+     * 
+     */
     public Output<Optional<List<String>>> baPolicyCategories() {
         return Codegen.optional(this.baPolicyCategories);
     }
+    /**
+     * The action applied when the rule is matched. Valid values: `ALLOW`, `BLOCK`, `QUARANTINE`.
+     * 
+     */
     @Export(name="baRuleAction", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> baRuleAction;
 
+    /**
+     * @return The action applied when the rule is matched. Valid values: `ALLOW`, `BLOCK`, `QUARANTINE`.
+     * 
+     */
     public Output<Optional<String>> baRuleAction() {
         return Codegen.optional(this.baRuleAction);
     }
+    /**
+     * Threat score threshold for the rule. Files with a score above this value trigger the action.
+     * 
+     */
     @Export(name="byThreatScore", refs={Integer.class}, tree="[0]")
     private Output</* @Nullable */ Integer> byThreatScore;
 
+    /**
+     * @return Threat score threshold for the rule. Files with a score above this value trigger the action.
+     * 
+     */
     public Output<Optional<Integer>> byThreatScore() {
         return Codegen.optional(this.byThreatScore);
     }
+    /**
+     * IDs of departments to which the rule applies.
+     * 
+     */
     @Export(name="departments", refs={List.class,Integer.class}, tree="[0,1]")
     private Output</* @Nullable */ List<Integer>> departments;
 
+    /**
+     * @return IDs of departments to which the rule applies.
+     * 
+     */
     public Output<Optional<List<Integer>>> departments() {
         return Codegen.optional(this.departments);
     }
+    /**
+     * Additional information about the sandbox rule.
+     * 
+     */
     @Export(name="description", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> description;
 
+    /**
+     * @return Additional information about the sandbox rule.
+     * 
+     */
     public Output<Optional<String>> description() {
         return Codegen.optional(this.description);
     }
+    /**
+     * List of file types for which the rule applies (e.g., `ALL_OUTBOUND`, `EXE`, `DLL`).
+     * 
+     */
     @Export(name="fileTypes", refs={List.class,String.class}, tree="[0,1]")
     private Output</* @Nullable */ List<String>> fileTypes;
 
+    /**
+     * @return List of file types for which the rule applies (e.g., `ALL_OUTBOUND`, `EXE`, `DLL`).
+     * 
+     */
     public Output<Optional<List<String>>> fileTypes() {
         return Codegen.optional(this.fileTypes);
     }
+    /**
+     * If set to true, a first-time action is enabled.
+     * 
+     */
     @Export(name="firstTimeEnable", refs={Boolean.class}, tree="[0]")
     private Output</* @Nullable */ Boolean> firstTimeEnable;
 
+    /**
+     * @return If set to true, a first-time action is enabled.
+     * 
+     */
     public Output<Optional<Boolean>> firstTimeEnable() {
         return Codegen.optional(this.firstTimeEnable);
     }
+    /**
+     * The action for first-time file downloads. Valid values: `ALLOW_SCAN`, `QUARANTINE`.
+     * 
+     */
     @Export(name="firstTimeOperation", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> firstTimeOperation;
 
+    /**
+     * @return The action for first-time file downloads. Valid values: `ALLOW_SCAN`, `QUARANTINE`.
+     * 
+     */
     public Output<Optional<String>> firstTimeOperation() {
         return Codegen.optional(this.firstTimeOperation);
     }
+    /**
+     * IDs of groups to which the rule applies.
+     * 
+     */
     @Export(name="groups", refs={List.class,Integer.class}, tree="[0,1]")
     private Output</* @Nullable */ List<Integer>> groups;
 
+    /**
+     * @return IDs of groups to which the rule applies.
+     * 
+     */
     public Output<Optional<List<Integer>>> groups() {
         return Codegen.optional(this.groups);
     }
+    /**
+     * IDs of labels associated with the rule.
+     * 
+     */
     @Export(name="labels", refs={List.class,Integer.class}, tree="[0,1]")
     private Output</* @Nullable */ List<Integer>> labels;
 
+    /**
+     * @return IDs of labels associated with the rule.
+     * 
+     */
     public Output<Optional<List<Integer>>> labels() {
         return Codegen.optional(this.labels);
     }
+    /**
+     * IDs of location groups to which the rule applies.
+     * 
+     */
     @Export(name="locationGroups", refs={List.class,Integer.class}, tree="[0,1]")
     private Output</* @Nullable */ List<Integer>> locationGroups;
 
+    /**
+     * @return IDs of location groups to which the rule applies.
+     * 
+     */
     public Output<Optional<List<Integer>>> locationGroups() {
         return Codegen.optional(this.locationGroups);
     }
+    /**
+     * IDs of locations to which the rule applies.
+     * 
+     */
     @Export(name="locations", refs={List.class,Integer.class}, tree="[0,1]")
     private Output</* @Nullable */ List<Integer>> locations;
 
+    /**
+     * @return IDs of locations to which the rule applies.
+     * 
+     */
     public Output<Optional<List<Integer>>> locations() {
         return Codegen.optional(this.locations);
     }
+    /**
+     * If set to true, machine learning-based analysis action is enabled.
+     * 
+     */
     @Export(name="mlActionEnabled", refs={Boolean.class}, tree="[0]")
     private Output</* @Nullable */ Boolean> mlActionEnabled;
 
+    /**
+     * @return If set to true, machine learning-based analysis action is enabled.
+     * 
+     */
     public Output<Optional<Boolean>> mlActionEnabled() {
         return Codegen.optional(this.mlActionEnabled);
     }
+    /**
+     * The name of the sandbox rule. Must be unique.
+     * 
+     */
     @Export(name="name", refs={String.class}, tree="[0]")
     private Output<String> name;
 
+    /**
+     * @return The name of the sandbox rule. Must be unique.
+     * 
+     */
     public Output<String> name() {
         return this.name;
     }
+    /**
+     * The order of execution of the rule with respect to other sandbox rules.
+     * 
+     */
     @Export(name="order", refs={Integer.class}, tree="[0]")
     private Output<Integer> order;
 
+    /**
+     * @return The order of execution of the rule with respect to other sandbox rules.
+     * 
+     */
     public Output<Integer> order() {
         return this.order;
     }
+    /**
+     * Protocols to which the rule applies. Valid values: `FTP_RULE`, `SSL_RULE`, `FOHTTP_RULE`, `HTTP_PROXY`.
+     * 
+     */
     @Export(name="protocols", refs={List.class,String.class}, tree="[0,1]")
     private Output</* @Nullable */ List<String>> protocols;
 
+    /**
+     * @return Protocols to which the rule applies. Valid values: `FTP_RULE`, `SSL_RULE`, `FOHTTP_RULE`, `HTTP_PROXY`.
+     * 
+     */
     public Output<Optional<List<String>>> protocols() {
         return Codegen.optional(this.protocols);
     }
+    /**
+     * Admin rank of the sandbox policy rule. Valid values: 0-7. Default: 7.
+     * 
+     */
     @Export(name="rank", refs={Integer.class}, tree="[0]")
     private Output</* @Nullable */ Integer> rank;
 
+    /**
+     * @return Admin rank of the sandbox policy rule. Valid values: 0-7. Default: 7.
+     * 
+     */
     public Output<Optional<Integer>> rank() {
         return Codegen.optional(this.rank);
     }
+    /**
+     * The system-generated ID of the sandbox rule.
+     * 
+     */
     @Export(name="ruleId", refs={Integer.class}, tree="[0]")
     private Output<Integer> ruleId;
 
+    /**
+     * @return The system-generated ID of the sandbox rule.
+     * 
+     */
     public Output<Integer> ruleId() {
         return this.ruleId;
     }
+    /**
+     * Rule state. Valid values: `ENABLED`, `DISABLED`.
+     * 
+     */
     @Export(name="state", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> state;
 
+    /**
+     * @return Rule state. Valid values: `ENABLED`, `DISABLED`.
+     * 
+     */
     public Output<Optional<String>> state() {
         return Codegen.optional(this.state);
     }
+    /**
+     * List of URL categories to which the rule applies.
+     * 
+     */
     @Export(name="urlCategories", refs={List.class,String.class}, tree="[0,1]")
     private Output</* @Nullable */ List<String>> urlCategories;
 
+    /**
+     * @return List of URL categories to which the rule applies.
+     * 
+     */
     public Output<Optional<List<String>>> urlCategories() {
         return Codegen.optional(this.urlCategories);
     }
+    /**
+     * IDs of users to which the rule applies.
+     * 
+     */
     @Export(name="users", refs={List.class,Integer.class}, tree="[0,1]")
     private Output</* @Nullable */ List<Integer>> users;
 
+    /**
+     * @return IDs of users to which the rule applies.
+     * 
+     */
     public Output<Optional<List<Integer>>> users() {
         return Codegen.optional(this.users);
     }
+    /**
+     * List of ZPA application segments to which the rule applies.
+     * 
+     */
     @Export(name="zpaAppSegments", refs={List.class,ZPAAppSegmentInput.class}, tree="[0,1]")
     private Output</* @Nullable */ List<ZPAAppSegmentInput>> zpaAppSegments;
 
+    /**
+     * @return List of ZPA application segments to which the rule applies.
+     * 
+     */
     public Output<Optional<List<ZPAAppSegmentInput>>> zpaAppSegments() {
         return Codegen.optional(this.zpaAppSegments);
     }
@@ -191,6 +383,7 @@ public class SandboxRule extends com.pulumi.resources.CustomResource {
     private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<java.lang.String> id) {
         var defaultOptions = com.pulumi.resources.CustomResourceOptions.builder()
             .version(Utilities.getVersion())
+            .pluginDownloadURL("github://api.github.com/zscaler")
             .build();
         return com.pulumi.resources.CustomResourceOptions.merge(defaultOptions, options, id);
     }

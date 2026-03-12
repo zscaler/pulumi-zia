@@ -18,143 +18,343 @@ import java.util.List;
 import java.util.Optional;
 import javax.annotation.Nullable;
 
+/**
+ * The zia_url_categories resource manages custom URL categories in the Zscaler Internet Access (ZIA) cloud service. Custom URL categories allow administrators to define their own groupings of URLs, keywords, and IP ranges for use in URL filtering policies.
+ * 
+ * For more information, see the [ZIA URL Categories documentation](https://help.zscaler.com/zia/url-categories).
+ * 
+ * ## Example Usage
+ * 
+ * ## Import
+ * 
+ * An existing URL Category can be imported using its resource ID, e.g.
+ * 
+ * ```sh
+ * $ pulumi import zia:index:UrlCategory example CUSTOM_01
+ * ```
+ * 
+ */
 @ResourceType(type="zia:index:UrlCategory")
 public class UrlCategory extends com.pulumi.resources.CustomResource {
+    /**
+     * The system-generated ID of the URL category.
+     * 
+     */
     @Export(name="categoryId", refs={String.class}, tree="[0]")
     private Output<String> categoryId;
 
+    /**
+     * @return The system-generated ID of the URL category.
+     * 
+     */
     public Output<String> categoryId() {
         return this.categoryId;
     }
+    /**
+     * The name of the URL category. Must be unique.
+     * 
+     */
     @Export(name="configuredName", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> configuredName;
 
+    /**
+     * @return The name of the URL category. Must be unique.
+     * 
+     */
     public Output<Optional<String>> configuredName() {
         return Codegen.optional(this.configuredName);
     }
+    /**
+     * If true, this is a custom URL category. Set to true for custom categories.
+     * 
+     */
     @Export(name="customCategory", refs={Boolean.class}, tree="[0]")
     private Output</* @Nullable */ Boolean> customCategory;
 
+    /**
+     * @return If true, this is a custom URL category. Set to true for custom categories.
+     * 
+     */
     public Output<Optional<Boolean>> customCategory() {
         return Codegen.optional(this.customCategory);
     }
+    /**
+     * The number of custom IP ranges in the category.
+     * 
+     */
     @Export(name="customIpRangesCount", refs={Integer.class}, tree="[0]")
     private Output</* @Nullable */ Integer> customIpRangesCount;
 
+    /**
+     * @return The number of custom IP ranges in the category.
+     * 
+     */
     public Output<Optional<Integer>> customIpRangesCount() {
         return Codegen.optional(this.customIpRangesCount);
     }
+    /**
+     * The number of custom URLs in the category.
+     * 
+     */
     @Export(name="customUrlsCount", refs={Integer.class}, tree="[0]")
     private Output</* @Nullable */ Integer> customUrlsCount;
 
+    /**
+     * @return The number of custom URLs in the category.
+     * 
+     */
     public Output<Optional<Integer>> customUrlsCount() {
         return Codegen.optional(this.customUrlsCount);
     }
+    /**
+     * URLs added to a custom URL category that have been categorized by the Zscaler database.
+     * 
+     */
     @Export(name="dbCategorizedUrls", refs={List.class,String.class}, tree="[0,1]")
     private Output</* @Nullable */ List<String>> dbCategorizedUrls;
 
+    /**
+     * @return URLs added to a custom URL category that have been categorized by the Zscaler database.
+     * 
+     */
     public Output<Optional<List<String>>> dbCategorizedUrls() {
         return Codegen.optional(this.dbCategorizedUrls);
     }
+    /**
+     * A description of the URL category. Maximum 256 characters.
+     * 
+     */
     @Export(name="description", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> description;
 
+    /**
+     * @return A description of the URL category. Maximum 256 characters.
+     * 
+     */
     public Output<Optional<String>> description() {
         return Codegen.optional(this.description);
     }
+    /**
+     * Whether the URL category is editable.
+     * 
+     */
     @Export(name="editable", refs={Boolean.class}, tree="[0]")
     private Output</* @Nullable */ Boolean> editable;
 
+    /**
+     * @return Whether the URL category is editable.
+     * 
+     */
     public Output<Optional<Boolean>> editable() {
         return Codegen.optional(this.editable);
     }
+    /**
+     * List of custom IP address ranges associated with the URL category.
+     * 
+     */
     @Export(name="ipRanges", refs={List.class,String.class}, tree="[0,1]")
     private Output</* @Nullable */ List<String>> ipRanges;
 
+    /**
+     * @return List of custom IP address ranges associated with the URL category.
+     * 
+     */
     public Output<Optional<List<String>>> ipRanges() {
         return Codegen.optional(this.ipRanges);
     }
+    /**
+     * List of IP ranges that retain their parent category classification.
+     * 
+     */
     @Export(name="ipRangesRetainingParentCategory", refs={List.class,String.class}, tree="[0,1]")
     private Output</* @Nullable */ List<String>> ipRangesRetainingParentCategory;
 
+    /**
+     * @return List of IP ranges that retain their parent category classification.
+     * 
+     */
     public Output<Optional<List<String>>> ipRangesRetainingParentCategory() {
         return Codegen.optional(this.ipRangesRetainingParentCategory);
     }
+    /**
+     * The number of IP ranges retaining parent category.
+     * 
+     */
     @Export(name="ipRangesRetainingParentCategoryCount", refs={Integer.class}, tree="[0]")
     private Output</* @Nullable */ Integer> ipRangesRetainingParentCategoryCount;
 
+    /**
+     * @return The number of IP ranges retaining parent category.
+     * 
+     */
     public Output<Optional<Integer>> ipRangesRetainingParentCategoryCount() {
         return Codegen.optional(this.ipRangesRetainingParentCategoryCount);
     }
+    /**
+     * List of custom keywords associated with the URL category.
+     * 
+     */
     @Export(name="keywords", refs={List.class,String.class}, tree="[0,1]")
     private Output</* @Nullable */ List<String>> keywords;
 
+    /**
+     * @return List of custom keywords associated with the URL category.
+     * 
+     */
     public Output<Optional<List<String>>> keywords() {
         return Codegen.optional(this.keywords);
     }
+    /**
+     * List of keywords that retain their parent category classification.
+     * 
+     */
     @Export(name="keywordsRetainingParentCategory", refs={List.class,String.class}, tree="[0,1]")
     private Output</* @Nullable */ List<String>> keywordsRetainingParentCategory;
 
+    /**
+     * @return List of keywords that retain their parent category classification.
+     * 
+     */
     public Output<Optional<List<String>>> keywordsRetainingParentCategory() {
         return Codegen.optional(this.keywordsRetainingParentCategory);
     }
+    /**
+     * List of regex-based patterns for URL matching.
+     * 
+     */
     @Export(name="regexPatterns", refs={List.class,String.class}, tree="[0,1]")
     private Output</* @Nullable */ List<String>> regexPatterns;
 
+    /**
+     * @return List of regex-based patterns for URL matching.
+     * 
+     */
     public Output<Optional<List<String>>> regexPatterns() {
         return Codegen.optional(this.regexPatterns);
     }
+    /**
+     * List of regex patterns that retain their parent category classification.
+     * 
+     */
     @Export(name="regexPatternsRetainingParentCategory", refs={List.class,String.class}, tree="[0,1]")
     private Output</* @Nullable */ List<String>> regexPatternsRetainingParentCategory;
 
+    /**
+     * @return List of regex patterns that retain their parent category classification.
+     * 
+     */
     public Output<Optional<List<String>>> regexPatternsRetainingParentCategory() {
         return Codegen.optional(this.regexPatternsRetainingParentCategory);
     }
+    /**
+     * Scopes for the custom URL category, defining location or department restrictions.
+     * 
+     */
     @Export(name="scopes", refs={List.class,UrlCategoryScopeInput.class}, tree="[0,1]")
     private Output</* @Nullable */ List<UrlCategoryScopeInput>> scopes;
 
+    /**
+     * @return Scopes for the custom URL category, defining location or department restrictions.
+     * 
+     */
     public Output<Optional<List<UrlCategoryScopeInput>>> scopes() {
         return Codegen.optional(this.scopes);
     }
+    /**
+     * The super category for the URL category (e.g., `USER_DEFINED`).
+     * 
+     */
     @Export(name="superCategory", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> superCategory;
 
+    /**
+     * @return The super category for the URL category (e.g., `USER_DEFINED`).
+     * 
+     */
     public Output<Optional<String>> superCategory() {
         return Codegen.optional(this.superCategory);
     }
+    /**
+     * The type of URL category. Valid values: `URL_CATEGORY`, `TLD_CATEGORY`, `ALL`.
+     * 
+     */
     @Export(name="type", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> type;
 
+    /**
+     * @return The type of URL category. Valid values: `URL_CATEGORY`, `TLD_CATEGORY`, `ALL`.
+     * 
+     */
     public Output<Optional<String>> type() {
         return Codegen.optional(this.type);
     }
+    /**
+     * URL and keyword count statistics for the category.
+     * 
+     */
     @Export(name="urlKeywordCounts", refs={UrlCategoryUrlKeywordCountsInput.class}, tree="[0]")
     private Output</* @Nullable */ UrlCategoryUrlKeywordCountsInput> urlKeywordCounts;
 
+    /**
+     * @return URL and keyword count statistics for the category.
+     * 
+     */
     public Output<Optional<UrlCategoryUrlKeywordCountsInput>> urlKeywordCounts() {
         return Codegen.optional(this.urlKeywordCounts);
     }
+    /**
+     * The URL type. Valid values: `EXACT`, `REGEX`.
+     * 
+     */
     @Export(name="urlType", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> urlType;
 
+    /**
+     * @return The URL type. Valid values: `EXACT`, `REGEX`.
+     * 
+     */
     public Output<Optional<String>> urlType() {
         return Codegen.optional(this.urlType);
     }
+    /**
+     * List of custom URLs to add to the category.
+     * 
+     */
     @Export(name="urls", refs={List.class,String.class}, tree="[0,1]")
     private Output</* @Nullable */ List<String>> urls;
 
+    /**
+     * @return List of custom URLs to add to the category.
+     * 
+     */
     public Output<Optional<List<String>>> urls() {
         return Codegen.optional(this.urls);
     }
+    /**
+     * The number of URLs retaining parent category.
+     * 
+     */
     @Export(name="urlsRetainingParentCategoryCount", refs={Integer.class}, tree="[0]")
     private Output</* @Nullable */ Integer> urlsRetainingParentCategoryCount;
 
+    /**
+     * @return The number of URLs retaining parent category.
+     * 
+     */
     public Output<Optional<Integer>> urlsRetainingParentCategoryCount() {
         return Codegen.optional(this.urlsRetainingParentCategoryCount);
     }
+    /**
+     * The internal numeric value of the URL category.
+     * 
+     */
     @Export(name="val", refs={Integer.class}, tree="[0]")
     private Output</* @Nullable */ Integer> val;
 
+    /**
+     * @return The internal numeric value of the URL category.
+     * 
+     */
     public Output<Optional<Integer>> val() {
         return Codegen.optional(this.val);
     }
@@ -198,6 +398,7 @@ public class UrlCategory extends com.pulumi.resources.CustomResource {
     private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<java.lang.String> id) {
         var defaultOptions = com.pulumi.resources.CustomResourceOptions.builder()
             .version(Utilities.getVersion())
+            .pluginDownloadURL("github://api.github.com/zscaler")
             .build();
         return com.pulumi.resources.CustomResourceOptions.merge(defaultOptions, options, id);
     }

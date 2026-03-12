@@ -16,9 +16,17 @@ public final class AtpMaliciousUrlsArgs extends com.pulumi.resources.ResourceArg
 
     public static final AtpMaliciousUrlsArgs Empty = new AtpMaliciousUrlsArgs();
 
+    /**
+     * List of URLs to be treated as malicious by Advanced Threat Protection.
+     * 
+     */
     @Import(name="maliciousUrls")
     private @Nullable Output<List<String>> maliciousUrls;
 
+    /**
+     * @return List of URLs to be treated as malicious by Advanced Threat Protection.
+     * 
+     */
     public Optional<Output<List<String>>> maliciousUrls() {
         return Optional.ofNullable(this.maliciousUrls);
     }
@@ -47,15 +55,33 @@ public final class AtpMaliciousUrlsArgs extends com.pulumi.resources.ResourceArg
             $ = new AtpMaliciousUrlsArgs(Objects.requireNonNull(defaults));
         }
 
+        /**
+         * @param maliciousUrls List of URLs to be treated as malicious by Advanced Threat Protection.
+         * 
+         * @return builder
+         * 
+         */
         public Builder maliciousUrls(@Nullable Output<List<String>> maliciousUrls) {
             $.maliciousUrls = maliciousUrls;
             return this;
         }
 
+        /**
+         * @param maliciousUrls List of URLs to be treated as malicious by Advanced Threat Protection.
+         * 
+         * @return builder
+         * 
+         */
         public Builder maliciousUrls(List<String> maliciousUrls) {
             return maliciousUrls(Output.of(maliciousUrls));
         }
 
+        /**
+         * @param maliciousUrls List of URLs to be treated as malicious by Advanced Threat Protection.
+         * 
+         * @return builder
+         * 
+         */
         public Builder maliciousUrls(String... maliciousUrls) {
             return maliciousUrls(List.of(maliciousUrls));
         }

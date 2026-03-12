@@ -16,16 +16,32 @@ public final class GetUserManagementUserArgs extends com.pulumi.resources.Invoke
 
     public static final GetUserManagementUserArgs Empty = new GetUserManagementUserArgs();
 
+    /**
+     * The name of the user to look up.
+     * 
+     */
     @Import(name="name")
     private @Nullable Output<String> name;
 
+    /**
+     * @return The name of the user to look up.
+     * 
+     */
     public Optional<Output<String>> name() {
         return Optional.ofNullable(this.name);
     }
 
+    /**
+     * The ID of the user to look up.
+     * 
+     */
     @Import(name="userId")
     private @Nullable Output<Integer> userId;
 
+    /**
+     * @return The ID of the user to look up.
+     * 
+     */
     public Optional<Output<Integer>> userId() {
         return Optional.ofNullable(this.userId);
     }
@@ -55,20 +71,44 @@ public final class GetUserManagementUserArgs extends com.pulumi.resources.Invoke
             $ = new GetUserManagementUserArgs(Objects.requireNonNull(defaults));
         }
 
+        /**
+         * @param name The name of the user to look up.
+         * 
+         * @return builder
+         * 
+         */
         public Builder name(@Nullable Output<String> name) {
             $.name = name;
             return this;
         }
 
+        /**
+         * @param name The name of the user to look up.
+         * 
+         * @return builder
+         * 
+         */
         public Builder name(String name) {
             return name(Output.of(name));
         }
 
+        /**
+         * @param userId The ID of the user to look up.
+         * 
+         * @return builder
+         * 
+         */
         public Builder userId(@Nullable Output<Integer> userId) {
             $.userId = userId;
             return this;
         }
 
+        /**
+         * @param userId The ID of the user to look up.
+         * 
+         * @return builder
+         * 
+         */
         public Builder userId(Integer userId) {
             return userId(Output.of(userId));
         }

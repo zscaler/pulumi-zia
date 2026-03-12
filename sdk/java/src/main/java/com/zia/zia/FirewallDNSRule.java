@@ -16,233 +16,553 @@ import java.util.List;
 import java.util.Optional;
 import javax.annotation.Nullable;
 
+/**
+ * The zia_firewall_dns_rule resource manages firewall DNS control rules in the Zscaler Internet Access (ZIA) cloud service. DNS control rules allow you to control DNS traffic by allowing, blocking, or redirecting DNS requests based on various criteria such as source, destination, applications, and DNS request types.
+ * 
+ * For more information, see the [ZIA DNS Control Policies documentation](https://help.zscaler.com/zia/dns-control-policies).
+ * 
+ * ## Example Usage
+ * 
+ * ## Import
+ * 
+ * An existing Firewall DNS Rule can be imported using its resource ID, e.g.
+ * 
+ * ```sh
+ * $ pulumi import zia:index:FirewallDNSRule example 12345
+ * ```
+ * 
+ */
 @ResourceType(type="zia:index:FirewallDNSRule")
 public class FirewallDNSRule extends com.pulumi.resources.CustomResource {
+    /**
+     * The action the rule takes when traffic matches. Valid values: `ALLOW`, `BLOCK_DROP`, `BLOCK_RESET`, `BLOCK_ICMP`, `REDIR_REQ`.
+     * 
+     */
     @Export(name="action", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> action;
 
+    /**
+     * @return The action the rule takes when traffic matches. Valid values: `ALLOW`, `BLOCK_DROP`, `BLOCK_RESET`, `BLOCK_ICMP`, `REDIR_REQ`.
+     * 
+     */
     public Output<Optional<String>> action() {
         return Codegen.optional(this.action);
     }
+    /**
+     * DNS application values to which the rule applies.
+     * 
+     */
     @Export(name="applications", refs={List.class,String.class}, tree="[0,1]")
     private Output</* @Nullable */ List<String>> applications;
 
+    /**
+     * @return DNS application values to which the rule applies.
+     * 
+     */
     public Output<Optional<List<String>>> applications() {
         return Codegen.optional(this.applications);
     }
+    /**
+     * The DNS response code to return when blocking. Valid values: `ANY`, `NONE`, `FORMERR`, `SERVFAIL`, `NXDOMAIN`, `NOTIMP`, `REFUSED`, `NOTAUTH`, `NXRRSET`.
+     * 
+     */
     @Export(name="blockResponseCode", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> blockResponseCode;
 
+    /**
+     * @return The DNS response code to return when blocking. Valid values: `ANY`, `NONE`, `FORMERR`, `SERVFAIL`, `NXDOMAIN`, `NOTIMP`, `REFUSED`, `NOTAUTH`, `NXRRSET`.
+     * 
+     */
     public Output<Optional<String>> blockResponseCode() {
         return Codegen.optional(this.blockResponseCode);
     }
+    /**
+     * If set to true, enables packet capture (PCAP) for the rule.
+     * 
+     */
     @Export(name="capturePcap", refs={Boolean.class}, tree="[0]")
     private Output</* @Nullable */ Boolean> capturePcap;
 
+    /**
+     * @return If set to true, enables packet capture (PCAP) for the rule.
+     * 
+     */
     public Output<Optional<Boolean>> capturePcap() {
         return Codegen.optional(this.capturePcap);
     }
+    /**
+     * Indicates whether this is the default firewall DNS rule.
+     * 
+     */
     @Export(name="defaultRule", refs={Boolean.class}, tree="[0]")
     private Output</* @Nullable */ Boolean> defaultRule;
 
+    /**
+     * @return Indicates whether this is the default firewall DNS rule.
+     * 
+     */
     public Output<Optional<Boolean>> defaultRule() {
         return Codegen.optional(this.defaultRule);
     }
+    /**
+     * IDs of departments to which the rule must be applied.
+     * 
+     */
     @Export(name="departments", refs={List.class,Integer.class}, tree="[0,1]")
     private Output</* @Nullable */ List<Integer>> departments;
 
+    /**
+     * @return IDs of departments to which the rule must be applied.
+     * 
+     */
     public Output<Optional<List<Integer>>> departments() {
         return Codegen.optional(this.departments);
     }
+    /**
+     * Additional information about the firewall DNS rule.
+     * 
+     */
     @Export(name="description", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> description;
 
+    /**
+     * @return Additional information about the firewall DNS rule.
+     * 
+     */
     public Output<Optional<String>> description() {
         return Codegen.optional(this.description);
     }
+    /**
+     * Destination IP addresses, FQDNs, or wildcard FQDNs for the rule.
+     * 
+     */
     @Export(name="destAddresses", refs={List.class,String.class}, tree="[0,1]")
     private Output</* @Nullable */ List<String>> destAddresses;
 
+    /**
+     * @return Destination IP addresses, FQDNs, or wildcard FQDNs for the rule.
+     * 
+     */
     public Output<Optional<List<String>>> destAddresses() {
         return Codegen.optional(this.destAddresses);
     }
+    /**
+     * Destination countries (ISO 3166-1 alpha-2 codes) for the rule.
+     * 
+     */
     @Export(name="destCountries", refs={List.class,String.class}, tree="[0,1]")
     private Output</* @Nullable */ List<String>> destCountries;
 
+    /**
+     * @return Destination countries (ISO 3166-1 alpha-2 codes) for the rule.
+     * 
+     */
     public Output<Optional<List<String>>> destCountries() {
         return Codegen.optional(this.destCountries);
     }
+    /**
+     * Destination IP address URL categories for the rule.
+     * 
+     */
     @Export(name="destIpCategories", refs={List.class,String.class}, tree="[0,1]")
     private Output</* @Nullable */ List<String>> destIpCategories;
 
+    /**
+     * @return Destination IP address URL categories for the rule.
+     * 
+     */
     public Output<Optional<List<String>>> destIpCategories() {
         return Codegen.optional(this.destIpCategories);
     }
+    /**
+     * IDs of destination IP address groups for the rule.
+     * 
+     */
     @Export(name="destIpGroups", refs={List.class,Integer.class}, tree="[0,1]")
     private Output</* @Nullable */ List<Integer>> destIpGroups;
 
+    /**
+     * @return IDs of destination IP address groups for the rule.
+     * 
+     */
     public Output<Optional<List<Integer>>> destIpGroups() {
         return Codegen.optional(this.destIpGroups);
     }
+    /**
+     * IDs of destination IPv6 address groups for the rule.
+     * 
+     */
     @Export(name="destIpv6Groups", refs={List.class,Integer.class}, tree="[0,1]")
     private Output</* @Nullable */ List<Integer>> destIpv6Groups;
 
+    /**
+     * @return IDs of destination IPv6 address groups for the rule.
+     * 
+     */
     public Output<Optional<List<Integer>>> destIpv6Groups() {
         return Codegen.optional(this.destIpv6Groups);
     }
+    /**
+     * IDs of device groups for which the rule must be applied. Applicable for devices managed using Zscaler Client Connector.
+     * 
+     */
     @Export(name="deviceGroups", refs={List.class,Integer.class}, tree="[0,1]")
     private Output</* @Nullable */ List<Integer>> deviceGroups;
 
+    /**
+     * @return IDs of device groups for which the rule must be applied. Applicable for devices managed using Zscaler Client Connector.
+     * 
+     */
     public Output<Optional<List<Integer>>> deviceGroups() {
         return Codegen.optional(this.deviceGroups);
     }
+    /**
+     * IDs of devices for which the rule must be applied.
+     * 
+     */
     @Export(name="devices", refs={List.class,Integer.class}, tree="[0,1]")
     private Output</* @Nullable */ List<Integer>> devices;
 
+    /**
+     * @return IDs of devices for which the rule must be applied.
+     * 
+     */
     public Output<Optional<List<Integer>>> devices() {
         return Codegen.optional(this.devices);
     }
+    /**
+     * The ID of the DNS gateway associated with the rule.
+     * 
+     */
     @Export(name="dnsGateway", refs={Integer.class}, tree="[0]")
     private Output</* @Nullable */ Integer> dnsGateway;
 
+    /**
+     * @return The ID of the DNS gateway associated with the rule.
+     * 
+     */
     public Output<Optional<Integer>> dnsGateway() {
         return Codegen.optional(this.dnsGateway);
     }
+    /**
+     * DNS request types to which the rule applies. Valid values: `A`, `AAAA`, `CNAME`, `MX`, `NS`, `SOA`, `TXT`, `SRV`, `PTR`, `ANY`.
+     * 
+     */
     @Export(name="dnsRuleRequestTypes", refs={List.class,String.class}, tree="[0,1]")
     private Output</* @Nullable */ List<String>> dnsRuleRequestTypes;
 
+    /**
+     * @return DNS request types to which the rule applies. Valid values: `A`, `AAAA`, `CNAME`, `MX`, `NS`, `SOA`, `TXT`, `SRV`, `PTR`, `ANY`.
+     * 
+     */
     public Output<Optional<List<String>>> dnsRuleRequestTypes() {
         return Codegen.optional(this.dnsRuleRequestTypes);
     }
+    /**
+     * The ID of the EDNS ECS object associated with the rule.
+     * 
+     */
     @Export(name="ednsEcsObject", refs={Integer.class}, tree="[0]")
     private Output</* @Nullable */ Integer> ednsEcsObject;
 
+    /**
+     * @return The ID of the EDNS ECS object associated with the rule.
+     * 
+     */
     public Output<Optional<Integer>> ednsEcsObject() {
         return Codegen.optional(this.ednsEcsObject);
     }
+    /**
+     * IDs of groups to which the rule must be applied.
+     * 
+     */
     @Export(name="groups", refs={List.class,Integer.class}, tree="[0,1]")
     private Output</* @Nullable */ List<Integer>> groups;
 
+    /**
+     * @return IDs of groups to which the rule must be applied.
+     * 
+     */
     public Output<Optional<List<Integer>>> groups() {
         return Codegen.optional(this.groups);
     }
+    /**
+     * If set to true, enables web end user notification for the rule.
+     * 
+     */
     @Export(name="isWebEunEnabled", refs={Boolean.class}, tree="[0]")
     private Output</* @Nullable */ Boolean> isWebEunEnabled;
 
+    /**
+     * @return If set to true, enables web end user notification for the rule.
+     * 
+     */
     public Output<Optional<Boolean>> isWebEunEnabled() {
         return Codegen.optional(this.isWebEunEnabled);
     }
+    /**
+     * IDs of labels associated with the rule.
+     * 
+     */
     @Export(name="labels", refs={List.class,Integer.class}, tree="[0,1]")
     private Output</* @Nullable */ List<Integer>> labels;
 
+    /**
+     * @return IDs of labels associated with the rule.
+     * 
+     */
     public Output<Optional<List<Integer>>> labels() {
         return Codegen.optional(this.labels);
     }
+    /**
+     * IDs of location groups to which the rule must be applied.
+     * 
+     */
     @Export(name="locationGroups", refs={List.class,Integer.class}, tree="[0,1]")
     private Output</* @Nullable */ List<Integer>> locationGroups;
 
+    /**
+     * @return IDs of location groups to which the rule must be applied.
+     * 
+     */
     public Output<Optional<List<Integer>>> locationGroups() {
         return Codegen.optional(this.locationGroups);
     }
+    /**
+     * IDs of locations to which the rule must be applied.
+     * 
+     */
     @Export(name="locations", refs={List.class,Integer.class}, tree="[0,1]")
     private Output</* @Nullable */ List<Integer>> locations;
 
+    /**
+     * @return IDs of locations to which the rule must be applied.
+     * 
+     */
     public Output<Optional<List<Integer>>> locations() {
         return Codegen.optional(this.locations);
     }
+    /**
+     * The name of the firewall DNS rule. Must be unique.
+     * 
+     */
     @Export(name="name", refs={String.class}, tree="[0]")
     private Output<String> name;
 
+    /**
+     * @return The name of the firewall DNS rule. Must be unique.
+     * 
+     */
     public Output<String> name() {
         return this.name;
     }
+    /**
+     * The order of execution of the rule with respect to other firewall DNS rules.
+     * 
+     */
     @Export(name="order", refs={Integer.class}, tree="[0]")
     private Output<Integer> order;
 
+    /**
+     * @return The order of execution of the rule with respect to other firewall DNS rules.
+     * 
+     */
     public Output<Integer> order() {
         return this.order;
     }
+    /**
+     * Indicates whether this is a predefined rule.
+     * 
+     */
     @Export(name="predefined", refs={Boolean.class}, tree="[0]")
     private Output</* @Nullable */ Boolean> predefined;
 
+    /**
+     * @return Indicates whether this is a predefined rule.
+     * 
+     */
     public Output<Optional<Boolean>> predefined() {
         return Codegen.optional(this.predefined);
     }
+    /**
+     * Protocols to which the rule applies. Valid values: `ANY_RULE`, `TCP_RULE`, `UDP_RULE`.
+     * 
+     */
     @Export(name="protocols", refs={List.class,String.class}, tree="[0,1]")
     private Output</* @Nullable */ List<String>> protocols;
 
+    /**
+     * @return Protocols to which the rule applies. Valid values: `ANY_RULE`, `TCP_RULE`, `UDP_RULE`.
+     * 
+     */
     public Output<Optional<List<String>>> protocols() {
         return Codegen.optional(this.protocols);
     }
+    /**
+     * Admin rank of the firewall DNS policy rule. Valid values: 0-7. Default: 7.
+     * 
+     */
     @Export(name="rank", refs={Integer.class}, tree="[0]")
     private Output</* @Nullable */ Integer> rank;
 
+    /**
+     * @return Admin rank of the firewall DNS policy rule. Valid values: 0-7. Default: 7.
+     * 
+     */
     public Output<Optional<Integer>> rank() {
         return Codegen.optional(this.rank);
     }
+    /**
+     * The IP address to redirect DNS requests to. Required when action is `REDIR_REQ`.
+     * 
+     */
     @Export(name="redirectIp", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> redirectIp;
 
+    /**
+     * @return The IP address to redirect DNS requests to. Required when action is `REDIR_REQ`.
+     * 
+     */
     public Output<Optional<String>> redirectIp() {
         return Codegen.optional(this.redirectIp);
     }
+    /**
+     * URL categories that apply to the response for the rule.
+     * 
+     */
     @Export(name="resCategories", refs={List.class,String.class}, tree="[0,1]")
     private Output</* @Nullable */ List<String>> resCategories;
 
+    /**
+     * @return URL categories that apply to the response for the rule.
+     * 
+     */
     public Output<Optional<List<String>>> resCategories() {
         return Codegen.optional(this.resCategories);
     }
+    /**
+     * The system-generated ID of the firewall DNS rule.
+     * 
+     */
     @Export(name="ruleId", refs={Integer.class}, tree="[0]")
     private Output<Integer> ruleId;
 
+    /**
+     * @return The system-generated ID of the firewall DNS rule.
+     * 
+     */
     public Output<Integer> ruleId() {
         return this.ruleId;
     }
+    /**
+     * Source countries (ISO 3166-1 alpha-2 codes) for the rule.
+     * 
+     */
     @Export(name="sourceCountries", refs={List.class,String.class}, tree="[0,1]")
     private Output</* @Nullable */ List<String>> sourceCountries;
 
+    /**
+     * @return Source countries (ISO 3166-1 alpha-2 codes) for the rule.
+     * 
+     */
     public Output<Optional<List<String>>> sourceCountries() {
         return Codegen.optional(this.sourceCountries);
     }
+    /**
+     * IDs of source IP address groups for the rule.
+     * 
+     */
     @Export(name="srcIpGroups", refs={List.class,Integer.class}, tree="[0,1]")
     private Output</* @Nullable */ List<Integer>> srcIpGroups;
 
+    /**
+     * @return IDs of source IP address groups for the rule.
+     * 
+     */
     public Output<Optional<List<Integer>>> srcIpGroups() {
         return Codegen.optional(this.srcIpGroups);
     }
+    /**
+     * Source IP addresses or CIDR ranges for the rule.
+     * 
+     */
     @Export(name="srcIps", refs={List.class,String.class}, tree="[0,1]")
     private Output</* @Nullable */ List<String>> srcIps;
 
+    /**
+     * @return Source IP addresses or CIDR ranges for the rule.
+     * 
+     */
     public Output<Optional<List<String>>> srcIps() {
         return Codegen.optional(this.srcIps);
     }
+    /**
+     * IDs of source IPv6 address groups for the rule.
+     * 
+     */
     @Export(name="srcIpv6Groups", refs={List.class,Integer.class}, tree="[0,1]")
     private Output</* @Nullable */ List<Integer>> srcIpv6Groups;
 
+    /**
+     * @return IDs of source IPv6 address groups for the rule.
+     * 
+     */
     public Output<Optional<List<Integer>>> srcIpv6Groups() {
         return Codegen.optional(this.srcIpv6Groups);
     }
+    /**
+     * Rule state. Valid values: `ENABLED`, `DISABLED`.
+     * 
+     */
     @Export(name="state", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> state;
 
+    /**
+     * @return Rule state. Valid values: `ENABLED`, `DISABLED`.
+     * 
+     */
     public Output<Optional<String>> state() {
         return Codegen.optional(this.state);
     }
+    /**
+     * IDs of time intervals during which the rule must be enforced.
+     * 
+     */
     @Export(name="timeWindows", refs={List.class,Integer.class}, tree="[0,1]")
     private Output</* @Nullable */ List<Integer>> timeWindows;
 
+    /**
+     * @return IDs of time intervals during which the rule must be enforced.
+     * 
+     */
     public Output<Optional<List<Integer>>> timeWindows() {
         return Codegen.optional(this.timeWindows);
     }
+    /**
+     * IDs of users to which the rule must be applied.
+     * 
+     */
     @Export(name="users", refs={List.class,Integer.class}, tree="[0,1]")
     private Output</* @Nullable */ List<Integer>> users;
 
+    /**
+     * @return IDs of users to which the rule must be applied.
+     * 
+     */
     public Output<Optional<List<Integer>>> users() {
         return Codegen.optional(this.users);
     }
+    /**
+     * The ID of the ZPA IP group associated with the rule.
+     * 
+     */
     @Export(name="zpaIpGroup", refs={Integer.class}, tree="[0]")
     private Output</* @Nullable */ Integer> zpaIpGroup;
 
+    /**
+     * @return The ID of the ZPA IP group associated with the rule.
+     * 
+     */
     public Output<Optional<Integer>> zpaIpGroup() {
         return Codegen.optional(this.zpaIpGroup);
     }
@@ -286,6 +606,7 @@ public class FirewallDNSRule extends com.pulumi.resources.CustomResource {
     private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<java.lang.String> id) {
         var defaultOptions = com.pulumi.resources.CustomResourceOptions.builder()
             .version(Utilities.getVersion())
+            .pluginDownloadURL("github://api.github.com/zscaler")
             .build();
         return com.pulumi.resources.CustomResourceOptions.merge(defaultOptions, options, id);
     }

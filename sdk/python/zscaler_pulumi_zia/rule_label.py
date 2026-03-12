@@ -23,6 +23,8 @@ class RuleLabelArgs:
                  name: Optional[pulumi.Input[_builtins.str]] = None):
         """
         The set of arguments for constructing a RuleLabel resource.
+        :param pulumi.Input[_builtins.str] description: Additional information about the rule label. Maximum 10240 characters.
+        :param pulumi.Input[_builtins.str] name: The name of the rule label. Maximum 255 characters.
         """
         if description is not None:
             pulumi.set(__self__, "description", description)
@@ -32,6 +34,9 @@ class RuleLabelArgs:
     @_builtins.property
     @pulumi.getter
     def description(self) -> Optional[pulumi.Input[_builtins.str]]:
+        """
+        Additional information about the rule label. Maximum 10240 characters.
+        """
         return pulumi.get(self, "description")
 
     @description.setter
@@ -41,6 +46,9 @@ class RuleLabelArgs:
     @_builtins.property
     @pulumi.getter
     def name(self) -> Optional[pulumi.Input[_builtins.str]]:
+        """
+        The name of the rule label. Maximum 255 characters.
+        """
         return pulumi.get(self, "name")
 
     @name.setter
@@ -58,9 +66,34 @@ class RuleLabel(pulumi.CustomResource):
                  name: Optional[pulumi.Input[_builtins.str]] = None,
                  __props__=None):
         """
-        Create a RuleLabel resource with the given unique name, props, and options.
+        The zia_rule_label resource manages rule labels in the Zscaler Internet Access (ZIA) cloud service. Rule labels are used to tag and organize firewall filtering rules, URL filtering rules, and other policy rules.
+
+        For more information, see the [ZIA Rule Labels documentation](https://help.zscaler.com/zia/rule-labels).
+
+        ## Example Usage
+        ### Basic Rule Label
+
+        ```python
+        import zscaler_pulumi_zia as zia
+
+        example = zia.RuleLabel("example",
+            name="Example Rule Label",
+            description="Label for branch office rules",
+        )
+        ```
+
+        ## Import
+
+        An existing rule label can be imported using its resource ID, e.g.
+
+        ```sh
+        $ pulumi import zia:index:RuleLabel example 12345
+        ```
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
+        :param pulumi.Input[_builtins.str] description: Additional information about the rule label. Maximum 10240 characters.
+        :param pulumi.Input[_builtins.str] name: The name of the rule label. Maximum 255 characters.
         """
         ...
     @overload
@@ -69,7 +102,30 @@ class RuleLabel(pulumi.CustomResource):
                  args: Optional[RuleLabelArgs] = None,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
-        Create a RuleLabel resource with the given unique name, props, and options.
+        The zia_rule_label resource manages rule labels in the Zscaler Internet Access (ZIA) cloud service. Rule labels are used to tag and organize firewall filtering rules, URL filtering rules, and other policy rules.
+
+        For more information, see the [ZIA Rule Labels documentation](https://help.zscaler.com/zia/rule-labels).
+
+        ## Example Usage
+        ### Basic Rule Label
+
+        ```python
+        import zscaler_pulumi_zia as zia
+
+        example = zia.RuleLabel("example",
+            name="Example Rule Label",
+            description="Label for branch office rules",
+        )
+        ```
+
+        ## Import
+
+        An existing rule label can be imported using its resource ID, e.g.
+
+        ```sh
+        $ pulumi import zia:index:RuleLabel example 12345
+        ```
+
         :param str resource_name: The name of the resource.
         :param RuleLabelArgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -129,15 +185,24 @@ class RuleLabel(pulumi.CustomResource):
     @_builtins.property
     @pulumi.getter
     def description(self) -> pulumi.Output[Optional[_builtins.str]]:
+        """
+        Additional information about the rule label. Maximum 10240 characters.
+        """
         return pulumi.get(self, "description")
 
     @_builtins.property
     @pulumi.getter
     def name(self) -> pulumi.Output[Optional[_builtins.str]]:
+        """
+        The name of the rule label. Maximum 255 characters.
+        """
         return pulumi.get(self, "name")
 
     @_builtins.property
     @pulumi.getter(name="ruleLabelId")
     def rule_label_id(self) -> pulumi.Output[_builtins.int]:
+        """
+        The system-generated ID of the rule label.
+        """
         return pulumi.get(self, "rule_label_id")
 

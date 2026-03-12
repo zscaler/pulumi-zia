@@ -54,6 +54,39 @@ class RiskProfileArgs:
                  weak_cipher_support: Optional[pulumi.Input[_builtins.str]] = None):
         """
         The set of arguments for constructing a RiskProfile resource.
+        :param pulumi.Input[_builtins.str] profile_name: Name of the risk profile.
+        :param pulumi.Input[_builtins.str] admin_audit_logs: Risk level for admin audit log support.
+        :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] certifications: List of required certifications (e.g., 'CSA_STAR', 'ISO_27001').
+        :param pulumi.Input[Sequence[pulumi.Input[_builtins.int]]] custom_tags: List of custom tag IDs associated with the profile.
+        :param pulumi.Input[_builtins.str] data_breach: Risk level for data breach history.
+        :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] data_encryption_in_transit: List of data encryption in transit protocols.
+        :param pulumi.Input[_builtins.str] dns_caa_policy: Risk level for DNS CAA policy.
+        :param pulumi.Input[_builtins.str] domain_based_message_auth: Risk level for DMARC support.
+        :param pulumi.Input[_builtins.str] domain_keys_identified_mail: Risk level for DKIM support.
+        :param pulumi.Input[_builtins.str] evasive: Risk level for evasive behavior.
+        :param pulumi.Input[_builtins.int] exclude_certificates: Number of certifications to exclude.
+        :param pulumi.Input[_builtins.str] file_sharing: Risk level for file sharing support.
+        :param pulumi.Input[_builtins.str] http_security_headers: Risk level for HTTP security headers.
+        :param pulumi.Input[_builtins.str] malware_scanning_for_content: Risk level for malware scanning.
+        :param pulumi.Input[_builtins.str] mfa_support: Risk level for MFA support.
+        :param pulumi.Input[_builtins.str] password_strength: Risk level for password strength enforcement.
+        :param pulumi.Input[_builtins.str] poor_items_of_service: Risk level for poor items of service.
+        :param pulumi.Input[_builtins.str] profile_type: The profile type (e.g., 'PREDEFINED', 'CUSTOM').
+        :param pulumi.Input[_builtins.str] remote_screen_sharing: Risk level for remote screen sharing support.
+        :param pulumi.Input[Sequence[pulumi.Input[_builtins.int]]] risk_index: List of risk index values.
+        :param pulumi.Input[_builtins.str] sender_policy_framework: Risk level for SPF support.
+        :param pulumi.Input[_builtins.str] source_ip_restrictions: Risk level for source IP restrictions.
+        :param pulumi.Input[_builtins.str] ssl_cert_key_size: Risk level for SSL certificate key size.
+        :param pulumi.Input[_builtins.str] ssl_cert_validity: Risk level for SSL certificate validity.
+        :param pulumi.Input[_builtins.str] ssl_pinned: Risk level for SSL pinning.
+        :param pulumi.Input[_builtins.str] status: The status of the risk profile (e.g., 'ENABLED', 'DISABLED').
+        :param pulumi.Input[_builtins.str] support_for_waf: Risk level for WAF support.
+        :param pulumi.Input[_builtins.str] vulnerability: Risk level for known vulnerabilities.
+        :param pulumi.Input[_builtins.str] vulnerability_disclosure: Risk level for vulnerability disclosure policy.
+        :param pulumi.Input[_builtins.str] vulnerable_to_heart_bleed: Risk level for HeartBleed vulnerability.
+        :param pulumi.Input[_builtins.str] vulnerable_to_log_jam: Risk level for LogJam vulnerability.
+        :param pulumi.Input[_builtins.str] vulnerable_to_poodle: Risk level for POODLE vulnerability.
+        :param pulumi.Input[_builtins.str] weak_cipher_support: Risk level for weak cipher support.
         """
         pulumi.set(__self__, "profile_name", profile_name)
         if admin_audit_logs is not None:
@@ -124,6 +157,9 @@ class RiskProfileArgs:
     @_builtins.property
     @pulumi.getter(name="profileName")
     def profile_name(self) -> pulumi.Input[_builtins.str]:
+        """
+        Name of the risk profile.
+        """
         return pulumi.get(self, "profile_name")
 
     @profile_name.setter
@@ -133,6 +169,9 @@ class RiskProfileArgs:
     @_builtins.property
     @pulumi.getter(name="adminAuditLogs")
     def admin_audit_logs(self) -> Optional[pulumi.Input[_builtins.str]]:
+        """
+        Risk level for admin audit log support.
+        """
         return pulumi.get(self, "admin_audit_logs")
 
     @admin_audit_logs.setter
@@ -142,6 +181,9 @@ class RiskProfileArgs:
     @_builtins.property
     @pulumi.getter
     def certifications(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
+        """
+        List of required certifications (e.g., 'CSA_STAR', 'ISO_27001').
+        """
         return pulumi.get(self, "certifications")
 
     @certifications.setter
@@ -151,6 +193,9 @@ class RiskProfileArgs:
     @_builtins.property
     @pulumi.getter(name="customTags")
     def custom_tags(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.int]]]]:
+        """
+        List of custom tag IDs associated with the profile.
+        """
         return pulumi.get(self, "custom_tags")
 
     @custom_tags.setter
@@ -160,6 +205,9 @@ class RiskProfileArgs:
     @_builtins.property
     @pulumi.getter(name="dataBreach")
     def data_breach(self) -> Optional[pulumi.Input[_builtins.str]]:
+        """
+        Risk level for data breach history.
+        """
         return pulumi.get(self, "data_breach")
 
     @data_breach.setter
@@ -169,6 +217,9 @@ class RiskProfileArgs:
     @_builtins.property
     @pulumi.getter(name="dataEncryptionInTransit")
     def data_encryption_in_transit(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
+        """
+        List of data encryption in transit protocols.
+        """
         return pulumi.get(self, "data_encryption_in_transit")
 
     @data_encryption_in_transit.setter
@@ -178,6 +229,9 @@ class RiskProfileArgs:
     @_builtins.property
     @pulumi.getter(name="dnsCaaPolicy")
     def dns_caa_policy(self) -> Optional[pulumi.Input[_builtins.str]]:
+        """
+        Risk level for DNS CAA policy.
+        """
         return pulumi.get(self, "dns_caa_policy")
 
     @dns_caa_policy.setter
@@ -187,6 +241,9 @@ class RiskProfileArgs:
     @_builtins.property
     @pulumi.getter(name="domainBasedMessageAuth")
     def domain_based_message_auth(self) -> Optional[pulumi.Input[_builtins.str]]:
+        """
+        Risk level for DMARC support.
+        """
         return pulumi.get(self, "domain_based_message_auth")
 
     @domain_based_message_auth.setter
@@ -196,6 +253,9 @@ class RiskProfileArgs:
     @_builtins.property
     @pulumi.getter(name="domainKeysIdentifiedMail")
     def domain_keys_identified_mail(self) -> Optional[pulumi.Input[_builtins.str]]:
+        """
+        Risk level for DKIM support.
+        """
         return pulumi.get(self, "domain_keys_identified_mail")
 
     @domain_keys_identified_mail.setter
@@ -205,6 +265,9 @@ class RiskProfileArgs:
     @_builtins.property
     @pulumi.getter
     def evasive(self) -> Optional[pulumi.Input[_builtins.str]]:
+        """
+        Risk level for evasive behavior.
+        """
         return pulumi.get(self, "evasive")
 
     @evasive.setter
@@ -214,6 +277,9 @@ class RiskProfileArgs:
     @_builtins.property
     @pulumi.getter(name="excludeCertificates")
     def exclude_certificates(self) -> Optional[pulumi.Input[_builtins.int]]:
+        """
+        Number of certifications to exclude.
+        """
         return pulumi.get(self, "exclude_certificates")
 
     @exclude_certificates.setter
@@ -223,6 +289,9 @@ class RiskProfileArgs:
     @_builtins.property
     @pulumi.getter(name="fileSharing")
     def file_sharing(self) -> Optional[pulumi.Input[_builtins.str]]:
+        """
+        Risk level for file sharing support.
+        """
         return pulumi.get(self, "file_sharing")
 
     @file_sharing.setter
@@ -232,6 +301,9 @@ class RiskProfileArgs:
     @_builtins.property
     @pulumi.getter(name="httpSecurityHeaders")
     def http_security_headers(self) -> Optional[pulumi.Input[_builtins.str]]:
+        """
+        Risk level for HTTP security headers.
+        """
         return pulumi.get(self, "http_security_headers")
 
     @http_security_headers.setter
@@ -241,6 +313,9 @@ class RiskProfileArgs:
     @_builtins.property
     @pulumi.getter(name="malwareScanningForContent")
     def malware_scanning_for_content(self) -> Optional[pulumi.Input[_builtins.str]]:
+        """
+        Risk level for malware scanning.
+        """
         return pulumi.get(self, "malware_scanning_for_content")
 
     @malware_scanning_for_content.setter
@@ -250,6 +325,9 @@ class RiskProfileArgs:
     @_builtins.property
     @pulumi.getter(name="mfaSupport")
     def mfa_support(self) -> Optional[pulumi.Input[_builtins.str]]:
+        """
+        Risk level for MFA support.
+        """
         return pulumi.get(self, "mfa_support")
 
     @mfa_support.setter
@@ -259,6 +337,9 @@ class RiskProfileArgs:
     @_builtins.property
     @pulumi.getter(name="passwordStrength")
     def password_strength(self) -> Optional[pulumi.Input[_builtins.str]]:
+        """
+        Risk level for password strength enforcement.
+        """
         return pulumi.get(self, "password_strength")
 
     @password_strength.setter
@@ -268,6 +349,9 @@ class RiskProfileArgs:
     @_builtins.property
     @pulumi.getter(name="poorItemsOfService")
     def poor_items_of_service(self) -> Optional[pulumi.Input[_builtins.str]]:
+        """
+        Risk level for poor items of service.
+        """
         return pulumi.get(self, "poor_items_of_service")
 
     @poor_items_of_service.setter
@@ -277,6 +361,9 @@ class RiskProfileArgs:
     @_builtins.property
     @pulumi.getter(name="profileType")
     def profile_type(self) -> Optional[pulumi.Input[_builtins.str]]:
+        """
+        The profile type (e.g., 'PREDEFINED', 'CUSTOM').
+        """
         return pulumi.get(self, "profile_type")
 
     @profile_type.setter
@@ -286,6 +373,9 @@ class RiskProfileArgs:
     @_builtins.property
     @pulumi.getter(name="remoteScreenSharing")
     def remote_screen_sharing(self) -> Optional[pulumi.Input[_builtins.str]]:
+        """
+        Risk level for remote screen sharing support.
+        """
         return pulumi.get(self, "remote_screen_sharing")
 
     @remote_screen_sharing.setter
@@ -295,6 +385,9 @@ class RiskProfileArgs:
     @_builtins.property
     @pulumi.getter(name="riskIndex")
     def risk_index(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.int]]]]:
+        """
+        List of risk index values.
+        """
         return pulumi.get(self, "risk_index")
 
     @risk_index.setter
@@ -304,6 +397,9 @@ class RiskProfileArgs:
     @_builtins.property
     @pulumi.getter(name="senderPolicyFramework")
     def sender_policy_framework(self) -> Optional[pulumi.Input[_builtins.str]]:
+        """
+        Risk level for SPF support.
+        """
         return pulumi.get(self, "sender_policy_framework")
 
     @sender_policy_framework.setter
@@ -313,6 +409,9 @@ class RiskProfileArgs:
     @_builtins.property
     @pulumi.getter(name="sourceIpRestrictions")
     def source_ip_restrictions(self) -> Optional[pulumi.Input[_builtins.str]]:
+        """
+        Risk level for source IP restrictions.
+        """
         return pulumi.get(self, "source_ip_restrictions")
 
     @source_ip_restrictions.setter
@@ -322,6 +421,9 @@ class RiskProfileArgs:
     @_builtins.property
     @pulumi.getter(name="sslCertKeySize")
     def ssl_cert_key_size(self) -> Optional[pulumi.Input[_builtins.str]]:
+        """
+        Risk level for SSL certificate key size.
+        """
         return pulumi.get(self, "ssl_cert_key_size")
 
     @ssl_cert_key_size.setter
@@ -331,6 +433,9 @@ class RiskProfileArgs:
     @_builtins.property
     @pulumi.getter(name="sslCertValidity")
     def ssl_cert_validity(self) -> Optional[pulumi.Input[_builtins.str]]:
+        """
+        Risk level for SSL certificate validity.
+        """
         return pulumi.get(self, "ssl_cert_validity")
 
     @ssl_cert_validity.setter
@@ -340,6 +445,9 @@ class RiskProfileArgs:
     @_builtins.property
     @pulumi.getter(name="sslPinned")
     def ssl_pinned(self) -> Optional[pulumi.Input[_builtins.str]]:
+        """
+        Risk level for SSL pinning.
+        """
         return pulumi.get(self, "ssl_pinned")
 
     @ssl_pinned.setter
@@ -349,6 +457,9 @@ class RiskProfileArgs:
     @_builtins.property
     @pulumi.getter
     def status(self) -> Optional[pulumi.Input[_builtins.str]]:
+        """
+        The status of the risk profile (e.g., 'ENABLED', 'DISABLED').
+        """
         return pulumi.get(self, "status")
 
     @status.setter
@@ -358,6 +469,9 @@ class RiskProfileArgs:
     @_builtins.property
     @pulumi.getter(name="supportForWaf")
     def support_for_waf(self) -> Optional[pulumi.Input[_builtins.str]]:
+        """
+        Risk level for WAF support.
+        """
         return pulumi.get(self, "support_for_waf")
 
     @support_for_waf.setter
@@ -367,6 +481,9 @@ class RiskProfileArgs:
     @_builtins.property
     @pulumi.getter
     def vulnerability(self) -> Optional[pulumi.Input[_builtins.str]]:
+        """
+        Risk level for known vulnerabilities.
+        """
         return pulumi.get(self, "vulnerability")
 
     @vulnerability.setter
@@ -376,6 +493,9 @@ class RiskProfileArgs:
     @_builtins.property
     @pulumi.getter(name="vulnerabilityDisclosure")
     def vulnerability_disclosure(self) -> Optional[pulumi.Input[_builtins.str]]:
+        """
+        Risk level for vulnerability disclosure policy.
+        """
         return pulumi.get(self, "vulnerability_disclosure")
 
     @vulnerability_disclosure.setter
@@ -385,6 +505,9 @@ class RiskProfileArgs:
     @_builtins.property
     @pulumi.getter(name="vulnerableToHeartBleed")
     def vulnerable_to_heart_bleed(self) -> Optional[pulumi.Input[_builtins.str]]:
+        """
+        Risk level for HeartBleed vulnerability.
+        """
         return pulumi.get(self, "vulnerable_to_heart_bleed")
 
     @vulnerable_to_heart_bleed.setter
@@ -394,6 +517,9 @@ class RiskProfileArgs:
     @_builtins.property
     @pulumi.getter(name="vulnerableToLogJam")
     def vulnerable_to_log_jam(self) -> Optional[pulumi.Input[_builtins.str]]:
+        """
+        Risk level for LogJam vulnerability.
+        """
         return pulumi.get(self, "vulnerable_to_log_jam")
 
     @vulnerable_to_log_jam.setter
@@ -403,6 +529,9 @@ class RiskProfileArgs:
     @_builtins.property
     @pulumi.getter(name="vulnerableToPoodle")
     def vulnerable_to_poodle(self) -> Optional[pulumi.Input[_builtins.str]]:
+        """
+        Risk level for POODLE vulnerability.
+        """
         return pulumi.get(self, "vulnerable_to_poodle")
 
     @vulnerable_to_poodle.setter
@@ -412,6 +541,9 @@ class RiskProfileArgs:
     @_builtins.property
     @pulumi.getter(name="weakCipherSupport")
     def weak_cipher_support(self) -> Optional[pulumi.Input[_builtins.str]]:
+        """
+        Risk level for weak cipher support.
+        """
         return pulumi.get(self, "weak_cipher_support")
 
     @weak_cipher_support.setter
@@ -460,9 +592,68 @@ class RiskProfile(pulumi.CustomResource):
                  weak_cipher_support: Optional[pulumi.Input[_builtins.str]] = None,
                  __props__=None):
         """
-        Create a RiskProfile resource with the given unique name, props, and options.
+        The zia.RiskProfile resource manages cloud application risk profiles in the Zscaler Internet Access (ZIA) cloud.
+        Risk profiles define criteria for evaluating the security posture of cloud applications based on factors such as
+        certifications, encryption, vulnerability disclosure, and more.
+
+        ## Example Usage
+        ### Basic Risk Profile
+
+        ```python
+        import zscaler_pulumi_zia as zia
+
+        example = zia.RiskProfile("example",
+            profile_name="Example Risk Profile",
+            profile_type="PREDEFINED",
+            status="ENABLED",
+            risk_index=[1, 2, 3],
+            certifications=["CSA_STAR", "ISO_27001"],
+        )
+        ```
+
+        ## Import
+
+        An existing risk profile can be imported using its ID, e.g.
+
+        ```sh
+        $ pulumi import zia:index:RiskProfile example 12345
+        ```
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
+        :param pulumi.Input[_builtins.str] admin_audit_logs: Risk level for admin audit log support.
+        :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] certifications: List of required certifications (e.g., 'CSA_STAR', 'ISO_27001').
+        :param pulumi.Input[Sequence[pulumi.Input[_builtins.int]]] custom_tags: List of custom tag IDs associated with the profile.
+        :param pulumi.Input[_builtins.str] data_breach: Risk level for data breach history.
+        :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] data_encryption_in_transit: List of data encryption in transit protocols.
+        :param pulumi.Input[_builtins.str] dns_caa_policy: Risk level for DNS CAA policy.
+        :param pulumi.Input[_builtins.str] domain_based_message_auth: Risk level for DMARC support.
+        :param pulumi.Input[_builtins.str] domain_keys_identified_mail: Risk level for DKIM support.
+        :param pulumi.Input[_builtins.str] evasive: Risk level for evasive behavior.
+        :param pulumi.Input[_builtins.int] exclude_certificates: Number of certifications to exclude.
+        :param pulumi.Input[_builtins.str] file_sharing: Risk level for file sharing support.
+        :param pulumi.Input[_builtins.str] http_security_headers: Risk level for HTTP security headers.
+        :param pulumi.Input[_builtins.str] malware_scanning_for_content: Risk level for malware scanning.
+        :param pulumi.Input[_builtins.str] mfa_support: Risk level for MFA support.
+        :param pulumi.Input[_builtins.str] password_strength: Risk level for password strength enforcement.
+        :param pulumi.Input[_builtins.str] poor_items_of_service: Risk level for poor items of service.
+        :param pulumi.Input[_builtins.str] profile_name: Name of the risk profile.
+        :param pulumi.Input[_builtins.str] profile_type: The profile type (e.g., 'PREDEFINED', 'CUSTOM').
+        :param pulumi.Input[_builtins.str] remote_screen_sharing: Risk level for remote screen sharing support.
+        :param pulumi.Input[Sequence[pulumi.Input[_builtins.int]]] risk_index: List of risk index values.
+        :param pulumi.Input[_builtins.str] sender_policy_framework: Risk level for SPF support.
+        :param pulumi.Input[_builtins.str] source_ip_restrictions: Risk level for source IP restrictions.
+        :param pulumi.Input[_builtins.str] ssl_cert_key_size: Risk level for SSL certificate key size.
+        :param pulumi.Input[_builtins.str] ssl_cert_validity: Risk level for SSL certificate validity.
+        :param pulumi.Input[_builtins.str] ssl_pinned: Risk level for SSL pinning.
+        :param pulumi.Input[_builtins.str] status: The status of the risk profile (e.g., 'ENABLED', 'DISABLED').
+        :param pulumi.Input[_builtins.str] support_for_waf: Risk level for WAF support.
+        :param pulumi.Input[_builtins.str] vulnerability: Risk level for known vulnerabilities.
+        :param pulumi.Input[_builtins.str] vulnerability_disclosure: Risk level for vulnerability disclosure policy.
+        :param pulumi.Input[_builtins.str] vulnerable_to_heart_bleed: Risk level for HeartBleed vulnerability.
+        :param pulumi.Input[_builtins.str] vulnerable_to_log_jam: Risk level for LogJam vulnerability.
+        :param pulumi.Input[_builtins.str] vulnerable_to_poodle: Risk level for POODLE vulnerability.
+        :param pulumi.Input[_builtins.str] weak_cipher_support: Risk level for weak cipher support.
         """
         ...
     @overload
@@ -471,7 +662,33 @@ class RiskProfile(pulumi.CustomResource):
                  args: RiskProfileArgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
-        Create a RiskProfile resource with the given unique name, props, and options.
+        The zia.RiskProfile resource manages cloud application risk profiles in the Zscaler Internet Access (ZIA) cloud.
+        Risk profiles define criteria for evaluating the security posture of cloud applications based on factors such as
+        certifications, encryption, vulnerability disclosure, and more.
+
+        ## Example Usage
+        ### Basic Risk Profile
+
+        ```python
+        import zscaler_pulumi_zia as zia
+
+        example = zia.RiskProfile("example",
+            profile_name="Example Risk Profile",
+            profile_type="PREDEFINED",
+            status="ENABLED",
+            risk_index=[1, 2, 3],
+            certifications=["CSA_STAR", "ISO_27001"],
+        )
+        ```
+
+        ## Import
+
+        An existing risk profile can be imported using its ID, e.g.
+
+        ```sh
+        $ pulumi import zia:index:RiskProfile example 12345
+        ```
+
         :param str resource_name: The name of the resource.
         :param RiskProfileArgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -626,170 +843,272 @@ class RiskProfile(pulumi.CustomResource):
     @_builtins.property
     @pulumi.getter(name="adminAuditLogs")
     def admin_audit_logs(self) -> pulumi.Output[Optional[_builtins.str]]:
+        """
+        Risk level for admin audit log support.
+        """
         return pulumi.get(self, "admin_audit_logs")
 
     @_builtins.property
     @pulumi.getter
     def certifications(self) -> pulumi.Output[Optional[Sequence[_builtins.str]]]:
+        """
+        List of required certifications (e.g., 'CSA_STAR', 'ISO_27001').
+        """
         return pulumi.get(self, "certifications")
 
     @_builtins.property
     @pulumi.getter(name="customTags")
     def custom_tags(self) -> pulumi.Output[Optional[Sequence[_builtins.int]]]:
+        """
+        List of custom tag IDs associated with the profile.
+        """
         return pulumi.get(self, "custom_tags")
 
     @_builtins.property
     @pulumi.getter(name="dataBreach")
     def data_breach(self) -> pulumi.Output[Optional[_builtins.str]]:
+        """
+        Risk level for data breach history.
+        """
         return pulumi.get(self, "data_breach")
 
     @_builtins.property
     @pulumi.getter(name="dataEncryptionInTransit")
     def data_encryption_in_transit(self) -> pulumi.Output[Optional[Sequence[_builtins.str]]]:
+        """
+        List of data encryption in transit protocols.
+        """
         return pulumi.get(self, "data_encryption_in_transit")
 
     @_builtins.property
     @pulumi.getter(name="dnsCaaPolicy")
     def dns_caa_policy(self) -> pulumi.Output[Optional[_builtins.str]]:
+        """
+        Risk level for DNS CAA policy.
+        """
         return pulumi.get(self, "dns_caa_policy")
 
     @_builtins.property
     @pulumi.getter(name="domainBasedMessageAuth")
     def domain_based_message_auth(self) -> pulumi.Output[Optional[_builtins.str]]:
+        """
+        Risk level for DMARC support.
+        """
         return pulumi.get(self, "domain_based_message_auth")
 
     @_builtins.property
     @pulumi.getter(name="domainKeysIdentifiedMail")
     def domain_keys_identified_mail(self) -> pulumi.Output[Optional[_builtins.str]]:
+        """
+        Risk level for DKIM support.
+        """
         return pulumi.get(self, "domain_keys_identified_mail")
 
     @_builtins.property
     @pulumi.getter
     def evasive(self) -> pulumi.Output[Optional[_builtins.str]]:
+        """
+        Risk level for evasive behavior.
+        """
         return pulumi.get(self, "evasive")
 
     @_builtins.property
     @pulumi.getter(name="excludeCertificates")
     def exclude_certificates(self) -> pulumi.Output[Optional[_builtins.int]]:
+        """
+        Number of certifications to exclude.
+        """
         return pulumi.get(self, "exclude_certificates")
 
     @_builtins.property
     @pulumi.getter(name="fileSharing")
     def file_sharing(self) -> pulumi.Output[Optional[_builtins.str]]:
+        """
+        Risk level for file sharing support.
+        """
         return pulumi.get(self, "file_sharing")
 
     @_builtins.property
     @pulumi.getter(name="httpSecurityHeaders")
     def http_security_headers(self) -> pulumi.Output[Optional[_builtins.str]]:
+        """
+        Risk level for HTTP security headers.
+        """
         return pulumi.get(self, "http_security_headers")
 
     @_builtins.property
     @pulumi.getter(name="malwareScanningForContent")
     def malware_scanning_for_content(self) -> pulumi.Output[Optional[_builtins.str]]:
+        """
+        Risk level for malware scanning.
+        """
         return pulumi.get(self, "malware_scanning_for_content")
 
     @_builtins.property
     @pulumi.getter(name="mfaSupport")
     def mfa_support(self) -> pulumi.Output[Optional[_builtins.str]]:
+        """
+        Risk level for MFA support.
+        """
         return pulumi.get(self, "mfa_support")
 
     @_builtins.property
     @pulumi.getter(name="passwordStrength")
     def password_strength(self) -> pulumi.Output[Optional[_builtins.str]]:
+        """
+        Risk level for password strength enforcement.
+        """
         return pulumi.get(self, "password_strength")
 
     @_builtins.property
     @pulumi.getter(name="poorItemsOfService")
     def poor_items_of_service(self) -> pulumi.Output[Optional[_builtins.str]]:
+        """
+        Risk level for poor items of service.
+        """
         return pulumi.get(self, "poor_items_of_service")
 
     @_builtins.property
     @pulumi.getter(name="profileId")
     def profile_id(self) -> pulumi.Output[_builtins.int]:
+        """
+        The unique identifier for the risk profile assigned by the ZIA cloud.
+        """
         return pulumi.get(self, "profile_id")
 
     @_builtins.property
     @pulumi.getter(name="profileName")
     def profile_name(self) -> pulumi.Output[_builtins.str]:
+        """
+        Name of the risk profile.
+        """
         return pulumi.get(self, "profile_name")
 
     @_builtins.property
     @pulumi.getter(name="profileType")
     def profile_type(self) -> pulumi.Output[Optional[_builtins.str]]:
+        """
+        The profile type (e.g., 'PREDEFINED', 'CUSTOM').
+        """
         return pulumi.get(self, "profile_type")
 
     @_builtins.property
     @pulumi.getter(name="remoteScreenSharing")
     def remote_screen_sharing(self) -> pulumi.Output[Optional[_builtins.str]]:
+        """
+        Risk level for remote screen sharing support.
+        """
         return pulumi.get(self, "remote_screen_sharing")
 
     @_builtins.property
     @pulumi.getter(name="riskIndex")
     def risk_index(self) -> pulumi.Output[Optional[Sequence[_builtins.int]]]:
+        """
+        List of risk index values.
+        """
         return pulumi.get(self, "risk_index")
 
     @_builtins.property
     @pulumi.getter(name="senderPolicyFramework")
     def sender_policy_framework(self) -> pulumi.Output[Optional[_builtins.str]]:
+        """
+        Risk level for SPF support.
+        """
         return pulumi.get(self, "sender_policy_framework")
 
     @_builtins.property
     @pulumi.getter(name="sourceIpRestrictions")
     def source_ip_restrictions(self) -> pulumi.Output[Optional[_builtins.str]]:
+        """
+        Risk level for source IP restrictions.
+        """
         return pulumi.get(self, "source_ip_restrictions")
 
     @_builtins.property
     @pulumi.getter(name="sslCertKeySize")
     def ssl_cert_key_size(self) -> pulumi.Output[Optional[_builtins.str]]:
+        """
+        Risk level for SSL certificate key size.
+        """
         return pulumi.get(self, "ssl_cert_key_size")
 
     @_builtins.property
     @pulumi.getter(name="sslCertValidity")
     def ssl_cert_validity(self) -> pulumi.Output[Optional[_builtins.str]]:
+        """
+        Risk level for SSL certificate validity.
+        """
         return pulumi.get(self, "ssl_cert_validity")
 
     @_builtins.property
     @pulumi.getter(name="sslPinned")
     def ssl_pinned(self) -> pulumi.Output[Optional[_builtins.str]]:
+        """
+        Risk level for SSL pinning.
+        """
         return pulumi.get(self, "ssl_pinned")
 
     @_builtins.property
     @pulumi.getter
     def status(self) -> pulumi.Output[Optional[_builtins.str]]:
+        """
+        The status of the risk profile (e.g., 'ENABLED', 'DISABLED').
+        """
         return pulumi.get(self, "status")
 
     @_builtins.property
     @pulumi.getter(name="supportForWaf")
     def support_for_waf(self) -> pulumi.Output[Optional[_builtins.str]]:
+        """
+        Risk level for WAF support.
+        """
         return pulumi.get(self, "support_for_waf")
 
     @_builtins.property
     @pulumi.getter
     def vulnerability(self) -> pulumi.Output[Optional[_builtins.str]]:
+        """
+        Risk level for known vulnerabilities.
+        """
         return pulumi.get(self, "vulnerability")
 
     @_builtins.property
     @pulumi.getter(name="vulnerabilityDisclosure")
     def vulnerability_disclosure(self) -> pulumi.Output[Optional[_builtins.str]]:
+        """
+        Risk level for vulnerability disclosure policy.
+        """
         return pulumi.get(self, "vulnerability_disclosure")
 
     @_builtins.property
     @pulumi.getter(name="vulnerableToHeartBleed")
     def vulnerable_to_heart_bleed(self) -> pulumi.Output[Optional[_builtins.str]]:
+        """
+        Risk level for HeartBleed vulnerability.
+        """
         return pulumi.get(self, "vulnerable_to_heart_bleed")
 
     @_builtins.property
     @pulumi.getter(name="vulnerableToLogJam")
     def vulnerable_to_log_jam(self) -> pulumi.Output[Optional[_builtins.str]]:
+        """
+        Risk level for LogJam vulnerability.
+        """
         return pulumi.get(self, "vulnerable_to_log_jam")
 
     @_builtins.property
     @pulumi.getter(name="vulnerableToPoodle")
     def vulnerable_to_poodle(self) -> pulumi.Output[Optional[_builtins.str]]:
+        """
+        Risk level for POODLE vulnerability.
+        """
         return pulumi.get(self, "vulnerable_to_poodle")
 
     @_builtins.property
     @pulumi.getter(name="weakCipherSupport")
     def weak_cipher_support(self) -> pulumi.Output[Optional[_builtins.str]]:
+        """
+        Risk level for weak cipher support.
+        """
         return pulumi.get(self, "weak_cipher_support")
 

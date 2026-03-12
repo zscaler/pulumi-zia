@@ -15,89 +15,217 @@ import java.util.List;
 import java.util.Optional;
 import javax.annotation.Nullable;
 
+/**
+ * The zia_bandwidth_control_rule resource manages bandwidth control rules in the Zscaler Internet Access (ZIA) cloud service. Bandwidth control rules allow administrators to define minimum and maximum bandwidth limits for specific traffic, locations, and time windows to ensure quality of service across the network.
+ * 
+ * For more information, see the [ZIA Bandwidth Control documentation](https://help.zscaler.com/zia/bandwidth-control).
+ * 
+ * ## Example Usage
+ * 
+ * ## Import
+ * 
+ * An existing Bandwidth Control Rule can be imported using its resource ID, e.g.
+ * 
+ * ```sh
+ * $ pulumi import zia:index:BandwidthControlRule example 12345
+ * ```
+ * 
+ */
 @ResourceType(type="zia:index:BandwidthControlRule")
 public class BandwidthControlRule extends com.pulumi.resources.CustomResource {
+    /**
+     * IDs of bandwidth classes associated with this rule.
+     * 
+     */
     @Export(name="bandwidthClasses", refs={List.class,Integer.class}, tree="[0,1]")
     private Output</* @Nullable */ List<Integer>> bandwidthClasses;
 
+    /**
+     * @return IDs of bandwidth classes associated with this rule.
+     * 
+     */
     public Output<Optional<List<Integer>>> bandwidthClasses() {
         return Codegen.optional(this.bandwidthClasses);
     }
+    /**
+     * Additional information about the bandwidth control rule.
+     * 
+     */
     @Export(name="description", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> description;
 
+    /**
+     * @return Additional information about the bandwidth control rule.
+     * 
+     */
     public Output<Optional<String>> description() {
         return Codegen.optional(this.description);
     }
+    /**
+     * IDs of labels associated with the bandwidth control rule.
+     * 
+     */
     @Export(name="labels", refs={List.class,Integer.class}, tree="[0,1]")
     private Output</* @Nullable */ List<Integer>> labels;
 
+    /**
+     * @return IDs of labels associated with the bandwidth control rule.
+     * 
+     */
     public Output<Optional<List<Integer>>> labels() {
         return Codegen.optional(this.labels);
     }
+    /**
+     * IDs of location groups for which the rule must be applied.
+     * 
+     */
     @Export(name="locationGroups", refs={List.class,Integer.class}, tree="[0,1]")
     private Output</* @Nullable */ List<Integer>> locationGroups;
 
+    /**
+     * @return IDs of location groups for which the rule must be applied.
+     * 
+     */
     public Output<Optional<List<Integer>>> locationGroups() {
         return Codegen.optional(this.locationGroups);
     }
+    /**
+     * IDs of locations for which the rule must be applied.
+     * 
+     */
     @Export(name="locations", refs={List.class,Integer.class}, tree="[0,1]")
     private Output</* @Nullable */ List<Integer>> locations;
 
+    /**
+     * @return IDs of locations for which the rule must be applied.
+     * 
+     */
     public Output<Optional<List<Integer>>> locations() {
         return Codegen.optional(this.locations);
     }
+    /**
+     * The maximum bandwidth percentage allowed. Valid range: 0-100.
+     * 
+     */
     @Export(name="maxBandwidth", refs={Integer.class}, tree="[0]")
     private Output</* @Nullable */ Integer> maxBandwidth;
 
+    /**
+     * @return The maximum bandwidth percentage allowed. Valid range: 0-100.
+     * 
+     */
     public Output<Optional<Integer>> maxBandwidth() {
         return Codegen.optional(this.maxBandwidth);
     }
+    /**
+     * The minimum bandwidth percentage allocated. Valid range: 0-100.
+     * 
+     */
     @Export(name="minBandwidth", refs={Integer.class}, tree="[0]")
     private Output</* @Nullable */ Integer> minBandwidth;
 
+    /**
+     * @return The minimum bandwidth percentage allocated. Valid range: 0-100.
+     * 
+     */
     public Output<Optional<Integer>> minBandwidth() {
         return Codegen.optional(this.minBandwidth);
     }
+    /**
+     * The name of the bandwidth control rule. Must be unique.
+     * 
+     */
     @Export(name="name", refs={String.class}, tree="[0]")
     private Output<String> name;
 
+    /**
+     * @return The name of the bandwidth control rule. Must be unique.
+     * 
+     */
     public Output<String> name() {
         return this.name;
     }
+    /**
+     * The order of execution of the rule with respect to other bandwidth control rules.
+     * 
+     */
     @Export(name="order", refs={Integer.class}, tree="[0]")
     private Output<Integer> order;
 
+    /**
+     * @return The order of execution of the rule with respect to other bandwidth control rules.
+     * 
+     */
     public Output<Integer> order() {
         return this.order;
     }
+    /**
+     * Protocols to which the rule applies. Valid values: `ANY_RULE`, `TCP_RULE`, `UDP_RULE`, `SSL_RULE`.
+     * 
+     */
     @Export(name="protocols", refs={List.class,String.class}, tree="[0,1]")
     private Output</* @Nullable */ List<String>> protocols;
 
+    /**
+     * @return Protocols to which the rule applies. Valid values: `ANY_RULE`, `TCP_RULE`, `UDP_RULE`, `SSL_RULE`.
+     * 
+     */
     public Output<Optional<List<String>>> protocols() {
         return Codegen.optional(this.protocols);
     }
+    /**
+     * Admin rank of the bandwidth control rule. Valid values: 0-7. Default: 7.
+     * 
+     */
     @Export(name="rank", refs={Integer.class}, tree="[0]")
     private Output</* @Nullable */ Integer> rank;
 
+    /**
+     * @return Admin rank of the bandwidth control rule. Valid values: 0-7. Default: 7.
+     * 
+     */
     public Output<Optional<Integer>> rank() {
         return Codegen.optional(this.rank);
     }
+    /**
+     * The system-generated ID of the bandwidth control rule.
+     * 
+     */
     @Export(name="ruleId", refs={Integer.class}, tree="[0]")
     private Output<Integer> ruleId;
 
+    /**
+     * @return The system-generated ID of the bandwidth control rule.
+     * 
+     */
     public Output<Integer> ruleId() {
         return this.ruleId;
     }
+    /**
+     * Rule state. Valid values: `ENABLED`, `DISABLED`.
+     * 
+     */
     @Export(name="state", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> state;
 
+    /**
+     * @return Rule state. Valid values: `ENABLED`, `DISABLED`.
+     * 
+     */
     public Output<Optional<String>> state() {
         return Codegen.optional(this.state);
     }
+    /**
+     * IDs of time intervals during which the rule must be enforced.
+     * 
+     */
     @Export(name="timeWindows", refs={List.class,Integer.class}, tree="[0,1]")
     private Output</* @Nullable */ List<Integer>> timeWindows;
 
+    /**
+     * @return IDs of time intervals during which the rule must be enforced.
+     * 
+     */
     public Output<Optional<List<Integer>>> timeWindows() {
         return Codegen.optional(this.timeWindows);
     }
@@ -141,6 +269,7 @@ public class BandwidthControlRule extends com.pulumi.resources.CustomResource {
     private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<java.lang.String> id) {
         var defaultOptions = com.pulumi.resources.CustomResourceOptions.builder()
             .version(Utilities.getVersion())
+            .pluginDownloadURL("github://api.github.com/zscaler")
             .build();
         return com.pulumi.resources.CustomResourceOptions.merge(defaultOptions, options, id);
     }

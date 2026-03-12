@@ -45,6 +45,30 @@ class DlpWebRuleArgs:
                  zcc_notifications_enabled: Optional[pulumi.Input[_builtins.bool]] = None):
         """
         The set of arguments for constructing a DlpWebRule resource.
+        :param pulumi.Input[_builtins.str] name: The name of the DLP web rule. Must be unique.
+        :param pulumi.Input[_builtins.int] order: The order of execution of the rule with respect to other DLP web rules.
+        :param pulumi.Input[_builtins.str] action: Action taken when the rule is matched. Valid values: `ALLOW`, `BLOCK`, `ICAP_RESPONSE`.
+        :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] cloud_applications: List of cloud application names for which the rule is applied.
+        :param pulumi.Input[Sequence[pulumi.Input[_builtins.int]]] departments: IDs of departments for which the rule must be applied.
+        :param pulumi.Input[_builtins.str] description: Additional information about the DLP web rule.
+        :param pulumi.Input[_builtins.bool] dlp_download_scan_enabled: If true, DLP scanning is enabled for file downloads.
+        :param pulumi.Input[_builtins.str] external_auditor_email: The email address of an external auditor to whom DLP email notifications are sent.
+        :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] file_types: List of file types to which the DLP policy rule must be applied.
+        :param pulumi.Input[Sequence[pulumi.Input[_builtins.int]]] groups: IDs of groups for which the rule must be applied.
+        :param pulumi.Input[Sequence[pulumi.Input[_builtins.int]]] labels: IDs of labels associated with the DLP web rule.
+        :param pulumi.Input[Sequence[pulumi.Input[_builtins.int]]] location_groups: IDs of location groups for which the rule must be applied.
+        :param pulumi.Input[Sequence[pulumi.Input[_builtins.int]]] locations: IDs of locations for which the rule must be applied.
+        :param pulumi.Input[_builtins.bool] match_only: If true, the rule matches but does not enforce the action.
+        :param pulumi.Input[_builtins.int] min_size: Minimum file size (in KB) used for evaluating the DLP policy rule.
+        :param pulumi.Input[_builtins.bool] ocr_enabled: If true, Optical Character Recognition (OCR) is enabled for the DLP rule.
+        :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] protocols: Protocols to which the rule applies. Valid values: `FTP_RULE`, `HTTPS_RULE`, `HTTP_RULE`.
+        :param pulumi.Input[_builtins.int] rank: Admin rank of the DLP web rule. Valid values: 0-7. Default: 7.
+        :param pulumi.Input[Sequence[pulumi.Input[_builtins.int]]] source_ip_groups: IDs of source IP address groups for which the rule must be applied.
+        :param pulumi.Input[_builtins.str] state: Rule state. Valid values: `ENABLED`, `DISABLED`.
+        :param pulumi.Input[Sequence[pulumi.Input[_builtins.int]]] time_windows: IDs of time intervals during which the rule must be enforced.
+        :param pulumi.Input[Sequence[pulumi.Input[_builtins.int]]] users: IDs of users for which the rule must be applied.
+        :param pulumi.Input[_builtins.bool] without_content_inspection: If true, the DLP rule is applied without inspecting content.
+        :param pulumi.Input[_builtins.bool] zcc_notifications_enabled: If true, Zscaler Client Connector notifications are enabled for this rule.
         """
         pulumi.set(__self__, "name", name)
         pulumi.set(__self__, "order", order)
@@ -96,6 +120,9 @@ class DlpWebRuleArgs:
     @_builtins.property
     @pulumi.getter
     def name(self) -> pulumi.Input[_builtins.str]:
+        """
+        The name of the DLP web rule. Must be unique.
+        """
         return pulumi.get(self, "name")
 
     @name.setter
@@ -105,6 +132,9 @@ class DlpWebRuleArgs:
     @_builtins.property
     @pulumi.getter
     def order(self) -> pulumi.Input[_builtins.int]:
+        """
+        The order of execution of the rule with respect to other DLP web rules.
+        """
         return pulumi.get(self, "order")
 
     @order.setter
@@ -114,6 +144,9 @@ class DlpWebRuleArgs:
     @_builtins.property
     @pulumi.getter
     def action(self) -> Optional[pulumi.Input[_builtins.str]]:
+        """
+        Action taken when the rule is matched. Valid values: `ALLOW`, `BLOCK`, `ICAP_RESPONSE`.
+        """
         return pulumi.get(self, "action")
 
     @action.setter
@@ -123,6 +156,9 @@ class DlpWebRuleArgs:
     @_builtins.property
     @pulumi.getter(name="cloudApplications")
     def cloud_applications(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
+        """
+        List of cloud application names for which the rule is applied.
+        """
         return pulumi.get(self, "cloud_applications")
 
     @cloud_applications.setter
@@ -132,6 +168,9 @@ class DlpWebRuleArgs:
     @_builtins.property
     @pulumi.getter
     def departments(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.int]]]]:
+        """
+        IDs of departments for which the rule must be applied.
+        """
         return pulumi.get(self, "departments")
 
     @departments.setter
@@ -141,6 +180,9 @@ class DlpWebRuleArgs:
     @_builtins.property
     @pulumi.getter
     def description(self) -> Optional[pulumi.Input[_builtins.str]]:
+        """
+        Additional information about the DLP web rule.
+        """
         return pulumi.get(self, "description")
 
     @description.setter
@@ -150,6 +192,9 @@ class DlpWebRuleArgs:
     @_builtins.property
     @pulumi.getter(name="dlpDownloadScanEnabled")
     def dlp_download_scan_enabled(self) -> Optional[pulumi.Input[_builtins.bool]]:
+        """
+        If true, DLP scanning is enabled for file downloads.
+        """
         return pulumi.get(self, "dlp_download_scan_enabled")
 
     @dlp_download_scan_enabled.setter
@@ -159,6 +204,9 @@ class DlpWebRuleArgs:
     @_builtins.property
     @pulumi.getter(name="externalAuditorEmail")
     def external_auditor_email(self) -> Optional[pulumi.Input[_builtins.str]]:
+        """
+        The email address of an external auditor to whom DLP email notifications are sent.
+        """
         return pulumi.get(self, "external_auditor_email")
 
     @external_auditor_email.setter
@@ -168,6 +216,9 @@ class DlpWebRuleArgs:
     @_builtins.property
     @pulumi.getter(name="fileTypes")
     def file_types(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
+        """
+        List of file types to which the DLP policy rule must be applied.
+        """
         return pulumi.get(self, "file_types")
 
     @file_types.setter
@@ -177,6 +228,9 @@ class DlpWebRuleArgs:
     @_builtins.property
     @pulumi.getter
     def groups(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.int]]]]:
+        """
+        IDs of groups for which the rule must be applied.
+        """
         return pulumi.get(self, "groups")
 
     @groups.setter
@@ -186,6 +240,9 @@ class DlpWebRuleArgs:
     @_builtins.property
     @pulumi.getter
     def labels(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.int]]]]:
+        """
+        IDs of labels associated with the DLP web rule.
+        """
         return pulumi.get(self, "labels")
 
     @labels.setter
@@ -195,6 +252,9 @@ class DlpWebRuleArgs:
     @_builtins.property
     @pulumi.getter(name="locationGroups")
     def location_groups(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.int]]]]:
+        """
+        IDs of location groups for which the rule must be applied.
+        """
         return pulumi.get(self, "location_groups")
 
     @location_groups.setter
@@ -204,6 +264,9 @@ class DlpWebRuleArgs:
     @_builtins.property
     @pulumi.getter
     def locations(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.int]]]]:
+        """
+        IDs of locations for which the rule must be applied.
+        """
         return pulumi.get(self, "locations")
 
     @locations.setter
@@ -213,6 +276,9 @@ class DlpWebRuleArgs:
     @_builtins.property
     @pulumi.getter(name="matchOnly")
     def match_only(self) -> Optional[pulumi.Input[_builtins.bool]]:
+        """
+        If true, the rule matches but does not enforce the action.
+        """
         return pulumi.get(self, "match_only")
 
     @match_only.setter
@@ -222,6 +288,9 @@ class DlpWebRuleArgs:
     @_builtins.property
     @pulumi.getter(name="minSize")
     def min_size(self) -> Optional[pulumi.Input[_builtins.int]]:
+        """
+        Minimum file size (in KB) used for evaluating the DLP policy rule.
+        """
         return pulumi.get(self, "min_size")
 
     @min_size.setter
@@ -231,6 +300,9 @@ class DlpWebRuleArgs:
     @_builtins.property
     @pulumi.getter(name="ocrEnabled")
     def ocr_enabled(self) -> Optional[pulumi.Input[_builtins.bool]]:
+        """
+        If true, Optical Character Recognition (OCR) is enabled for the DLP rule.
+        """
         return pulumi.get(self, "ocr_enabled")
 
     @ocr_enabled.setter
@@ -240,6 +312,9 @@ class DlpWebRuleArgs:
     @_builtins.property
     @pulumi.getter
     def protocols(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
+        """
+        Protocols to which the rule applies. Valid values: `FTP_RULE`, `HTTPS_RULE`, `HTTP_RULE`.
+        """
         return pulumi.get(self, "protocols")
 
     @protocols.setter
@@ -249,6 +324,9 @@ class DlpWebRuleArgs:
     @_builtins.property
     @pulumi.getter
     def rank(self) -> Optional[pulumi.Input[_builtins.int]]:
+        """
+        Admin rank of the DLP web rule. Valid values: 0-7. Default: 7.
+        """
         return pulumi.get(self, "rank")
 
     @rank.setter
@@ -258,6 +336,9 @@ class DlpWebRuleArgs:
     @_builtins.property
     @pulumi.getter(name="sourceIpGroups")
     def source_ip_groups(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.int]]]]:
+        """
+        IDs of source IP address groups for which the rule must be applied.
+        """
         return pulumi.get(self, "source_ip_groups")
 
     @source_ip_groups.setter
@@ -267,6 +348,9 @@ class DlpWebRuleArgs:
     @_builtins.property
     @pulumi.getter
     def state(self) -> Optional[pulumi.Input[_builtins.str]]:
+        """
+        Rule state. Valid values: `ENABLED`, `DISABLED`.
+        """
         return pulumi.get(self, "state")
 
     @state.setter
@@ -276,6 +360,9 @@ class DlpWebRuleArgs:
     @_builtins.property
     @pulumi.getter(name="timeWindows")
     def time_windows(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.int]]]]:
+        """
+        IDs of time intervals during which the rule must be enforced.
+        """
         return pulumi.get(self, "time_windows")
 
     @time_windows.setter
@@ -285,6 +372,9 @@ class DlpWebRuleArgs:
     @_builtins.property
     @pulumi.getter
     def users(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.int]]]]:
+        """
+        IDs of users for which the rule must be applied.
+        """
         return pulumi.get(self, "users")
 
     @users.setter
@@ -294,6 +384,9 @@ class DlpWebRuleArgs:
     @_builtins.property
     @pulumi.getter(name="withoutContentInspection")
     def without_content_inspection(self) -> Optional[pulumi.Input[_builtins.bool]]:
+        """
+        If true, the DLP rule is applied without inspecting content.
+        """
         return pulumi.get(self, "without_content_inspection")
 
     @without_content_inspection.setter
@@ -303,6 +396,9 @@ class DlpWebRuleArgs:
     @_builtins.property
     @pulumi.getter(name="zccNotificationsEnabled")
     def zcc_notifications_enabled(self) -> Optional[pulumi.Input[_builtins.bool]]:
+        """
+        If true, Zscaler Client Connector notifications are enabled for this rule.
+        """
         return pulumi.get(self, "zcc_notifications_enabled")
 
     @zcc_notifications_enabled.setter
@@ -342,9 +438,62 @@ class DlpWebRule(pulumi.CustomResource):
                  zcc_notifications_enabled: Optional[pulumi.Input[_builtins.bool]] = None,
                  __props__=None):
         """
-        Create a DlpWebRule resource with the given unique name, props, and options.
+        The zia_dlp_web_rules resource manages DLP (Data Loss Prevention) web rules in the Zscaler Internet Access (ZIA) cloud service. DLP web rules define how sensitive data is handled in web traffic, allowing organizations to control and monitor the transfer of confidential information.
+
+        For more information, see the [ZIA Data Loss Prevention documentation](https://help.zscaler.com/zia/data-loss-prevention).
+
+        ## Example Usage
+        ### Basic DLP Web Rule
+
+        ```python
+        import zscaler_pulumi_zia as zia
+
+        example = zia.DlpWebRule("example",
+            name="Example DLP Web Rule",
+            description="Block sensitive data uploads",
+            order=1,
+            state="ENABLED",
+            action="BLOCK",
+            protocols=["FTP_RULE", "HTTPS_RULE", "HTTP_RULE"],
+            file_types=["ALL_OUTBOUND"],
+            zcc_notifications_enabled=True,
+        )
+        ```
+
+        ## Import
+
+        An existing DLP Web Rule can be imported using its resource ID, e.g.
+
+        ```sh
+        $ pulumi import zia:index:DlpWebRule example 12345
+        ```
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
+        :param pulumi.Input[_builtins.str] action: Action taken when the rule is matched. Valid values: `ALLOW`, `BLOCK`, `ICAP_RESPONSE`.
+        :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] cloud_applications: List of cloud application names for which the rule is applied.
+        :param pulumi.Input[Sequence[pulumi.Input[_builtins.int]]] departments: IDs of departments for which the rule must be applied.
+        :param pulumi.Input[_builtins.str] description: Additional information about the DLP web rule.
+        :param pulumi.Input[_builtins.bool] dlp_download_scan_enabled: If true, DLP scanning is enabled for file downloads.
+        :param pulumi.Input[_builtins.str] external_auditor_email: The email address of an external auditor to whom DLP email notifications are sent.
+        :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] file_types: List of file types to which the DLP policy rule must be applied.
+        :param pulumi.Input[Sequence[pulumi.Input[_builtins.int]]] groups: IDs of groups for which the rule must be applied.
+        :param pulumi.Input[Sequence[pulumi.Input[_builtins.int]]] labels: IDs of labels associated with the DLP web rule.
+        :param pulumi.Input[Sequence[pulumi.Input[_builtins.int]]] location_groups: IDs of location groups for which the rule must be applied.
+        :param pulumi.Input[Sequence[pulumi.Input[_builtins.int]]] locations: IDs of locations for which the rule must be applied.
+        :param pulumi.Input[_builtins.bool] match_only: If true, the rule matches but does not enforce the action.
+        :param pulumi.Input[_builtins.int] min_size: Minimum file size (in KB) used for evaluating the DLP policy rule.
+        :param pulumi.Input[_builtins.str] name: The name of the DLP web rule. Must be unique.
+        :param pulumi.Input[_builtins.bool] ocr_enabled: If true, Optical Character Recognition (OCR) is enabled for the DLP rule.
+        :param pulumi.Input[_builtins.int] order: The order of execution of the rule with respect to other DLP web rules.
+        :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] protocols: Protocols to which the rule applies. Valid values: `FTP_RULE`, `HTTPS_RULE`, `HTTP_RULE`.
+        :param pulumi.Input[_builtins.int] rank: Admin rank of the DLP web rule. Valid values: 0-7. Default: 7.
+        :param pulumi.Input[Sequence[pulumi.Input[_builtins.int]]] source_ip_groups: IDs of source IP address groups for which the rule must be applied.
+        :param pulumi.Input[_builtins.str] state: Rule state. Valid values: `ENABLED`, `DISABLED`.
+        :param pulumi.Input[Sequence[pulumi.Input[_builtins.int]]] time_windows: IDs of time intervals during which the rule must be enforced.
+        :param pulumi.Input[Sequence[pulumi.Input[_builtins.int]]] users: IDs of users for which the rule must be applied.
+        :param pulumi.Input[_builtins.bool] without_content_inspection: If true, the DLP rule is applied without inspecting content.
+        :param pulumi.Input[_builtins.bool] zcc_notifications_enabled: If true, Zscaler Client Connector notifications are enabled for this rule.
         """
         ...
     @overload
@@ -353,7 +502,36 @@ class DlpWebRule(pulumi.CustomResource):
                  args: DlpWebRuleArgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
-        Create a DlpWebRule resource with the given unique name, props, and options.
+        The zia_dlp_web_rules resource manages DLP (Data Loss Prevention) web rules in the Zscaler Internet Access (ZIA) cloud service. DLP web rules define how sensitive data is handled in web traffic, allowing organizations to control and monitor the transfer of confidential information.
+
+        For more information, see the [ZIA Data Loss Prevention documentation](https://help.zscaler.com/zia/data-loss-prevention).
+
+        ## Example Usage
+        ### Basic DLP Web Rule
+
+        ```python
+        import zscaler_pulumi_zia as zia
+
+        example = zia.DlpWebRule("example",
+            name="Example DLP Web Rule",
+            description="Block sensitive data uploads",
+            order=1,
+            state="ENABLED",
+            action="BLOCK",
+            protocols=["FTP_RULE", "HTTPS_RULE", "HTTP_RULE"],
+            file_types=["ALL_OUTBOUND"],
+            zcc_notifications_enabled=True,
+        )
+        ```
+
+        ## Import
+
+        An existing DLP Web Rule can be imported using its resource ID, e.g.
+
+        ```sh
+        $ pulumi import zia:index:DlpWebRule example 12345
+        ```
+
         :param str resource_name: The name of the resource.
         :param DlpWebRuleArgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -483,125 +661,200 @@ class DlpWebRule(pulumi.CustomResource):
     @_builtins.property
     @pulumi.getter
     def action(self) -> pulumi.Output[Optional[_builtins.str]]:
+        """
+        Action taken when the rule is matched. Valid values: `ALLOW`, `BLOCK`, `ICAP_RESPONSE`.
+        """
         return pulumi.get(self, "action")
 
     @_builtins.property
     @pulumi.getter(name="cloudApplications")
     def cloud_applications(self) -> pulumi.Output[Optional[Sequence[_builtins.str]]]:
+        """
+        List of cloud application names for which the rule is applied.
+        """
         return pulumi.get(self, "cloud_applications")
 
     @_builtins.property
     @pulumi.getter
     def departments(self) -> pulumi.Output[Optional[Sequence[_builtins.int]]]:
+        """
+        IDs of departments for which the rule must be applied.
+        """
         return pulumi.get(self, "departments")
 
     @_builtins.property
     @pulumi.getter
     def description(self) -> pulumi.Output[Optional[_builtins.str]]:
+        """
+        Additional information about the DLP web rule.
+        """
         return pulumi.get(self, "description")
 
     @_builtins.property
     @pulumi.getter(name="dlpDownloadScanEnabled")
     def dlp_download_scan_enabled(self) -> pulumi.Output[Optional[_builtins.bool]]:
+        """
+        If true, DLP scanning is enabled for file downloads.
+        """
         return pulumi.get(self, "dlp_download_scan_enabled")
 
     @_builtins.property
     @pulumi.getter(name="externalAuditorEmail")
     def external_auditor_email(self) -> pulumi.Output[Optional[_builtins.str]]:
+        """
+        The email address of an external auditor to whom DLP email notifications are sent.
+        """
         return pulumi.get(self, "external_auditor_email")
 
     @_builtins.property
     @pulumi.getter(name="fileTypes")
     def file_types(self) -> pulumi.Output[Optional[Sequence[_builtins.str]]]:
+        """
+        List of file types to which the DLP policy rule must be applied.
+        """
         return pulumi.get(self, "file_types")
 
     @_builtins.property
     @pulumi.getter
     def groups(self) -> pulumi.Output[Optional[Sequence[_builtins.int]]]:
+        """
+        IDs of groups for which the rule must be applied.
+        """
         return pulumi.get(self, "groups")
 
     @_builtins.property
     @pulumi.getter
     def labels(self) -> pulumi.Output[Optional[Sequence[_builtins.int]]]:
+        """
+        IDs of labels associated with the DLP web rule.
+        """
         return pulumi.get(self, "labels")
 
     @_builtins.property
     @pulumi.getter(name="locationGroups")
     def location_groups(self) -> pulumi.Output[Optional[Sequence[_builtins.int]]]:
+        """
+        IDs of location groups for which the rule must be applied.
+        """
         return pulumi.get(self, "location_groups")
 
     @_builtins.property
     @pulumi.getter
     def locations(self) -> pulumi.Output[Optional[Sequence[_builtins.int]]]:
+        """
+        IDs of locations for which the rule must be applied.
+        """
         return pulumi.get(self, "locations")
 
     @_builtins.property
     @pulumi.getter(name="matchOnly")
     def match_only(self) -> pulumi.Output[Optional[_builtins.bool]]:
+        """
+        If true, the rule matches but does not enforce the action.
+        """
         return pulumi.get(self, "match_only")
 
     @_builtins.property
     @pulumi.getter(name="minSize")
     def min_size(self) -> pulumi.Output[Optional[_builtins.int]]:
+        """
+        Minimum file size (in KB) used for evaluating the DLP policy rule.
+        """
         return pulumi.get(self, "min_size")
 
     @_builtins.property
     @pulumi.getter
     def name(self) -> pulumi.Output[_builtins.str]:
+        """
+        The name of the DLP web rule. Must be unique.
+        """
         return pulumi.get(self, "name")
 
     @_builtins.property
     @pulumi.getter(name="ocrEnabled")
     def ocr_enabled(self) -> pulumi.Output[Optional[_builtins.bool]]:
+        """
+        If true, Optical Character Recognition (OCR) is enabled for the DLP rule.
+        """
         return pulumi.get(self, "ocr_enabled")
 
     @_builtins.property
     @pulumi.getter
     def order(self) -> pulumi.Output[_builtins.int]:
+        """
+        The order of execution of the rule with respect to other DLP web rules.
+        """
         return pulumi.get(self, "order")
 
     @_builtins.property
     @pulumi.getter
     def protocols(self) -> pulumi.Output[Optional[Sequence[_builtins.str]]]:
+        """
+        Protocols to which the rule applies. Valid values: `FTP_RULE`, `HTTPS_RULE`, `HTTP_RULE`.
+        """
         return pulumi.get(self, "protocols")
 
     @_builtins.property
     @pulumi.getter
     def rank(self) -> pulumi.Output[Optional[_builtins.int]]:
+        """
+        Admin rank of the DLP web rule. Valid values: 0-7. Default: 7.
+        """
         return pulumi.get(self, "rank")
 
     @_builtins.property
     @pulumi.getter(name="ruleId")
     def rule_id(self) -> pulumi.Output[_builtins.int]:
+        """
+        The system-generated ID of the DLP web rule.
+        """
         return pulumi.get(self, "rule_id")
 
     @_builtins.property
     @pulumi.getter(name="sourceIpGroups")
     def source_ip_groups(self) -> pulumi.Output[Optional[Sequence[_builtins.int]]]:
+        """
+        IDs of source IP address groups for which the rule must be applied.
+        """
         return pulumi.get(self, "source_ip_groups")
 
     @_builtins.property
     @pulumi.getter
     def state(self) -> pulumi.Output[Optional[_builtins.str]]:
+        """
+        Rule state. Valid values: `ENABLED`, `DISABLED`.
+        """
         return pulumi.get(self, "state")
 
     @_builtins.property
     @pulumi.getter(name="timeWindows")
     def time_windows(self) -> pulumi.Output[Optional[Sequence[_builtins.int]]]:
+        """
+        IDs of time intervals during which the rule must be enforced.
+        """
         return pulumi.get(self, "time_windows")
 
     @_builtins.property
     @pulumi.getter
     def users(self) -> pulumi.Output[Optional[Sequence[_builtins.int]]]:
+        """
+        IDs of users for which the rule must be applied.
+        """
         return pulumi.get(self, "users")
 
     @_builtins.property
     @pulumi.getter(name="withoutContentInspection")
     def without_content_inspection(self) -> pulumi.Output[Optional[_builtins.bool]]:
+        """
+        If true, the DLP rule is applied without inspecting content.
+        """
         return pulumi.get(self, "without_content_inspection")
 
     @_builtins.property
     @pulumi.getter(name="zccNotificationsEnabled")
     def zcc_notifications_enabled(self) -> pulumi.Output[Optional[_builtins.bool]]:
+        """
+        If true, Zscaler Client Connector notifications are enabled for this rule.
+        """
         return pulumi.get(self, "zcc_notifications_enabled")
 

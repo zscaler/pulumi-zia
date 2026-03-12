@@ -2,6 +2,7 @@
     "name": "@bdzscaler/pulumi-zia",
     "version": "1.0.0-alpha.0+dev",
     "homepage": "https://github.com/zscaler/pulumi-zia",
+    "repository": "https://github.com/zscaler/pulumi-zia",
     "scripts": {
         "build": "tsc"
     },
@@ -15,6 +16,7 @@
     "pulumi": {
         "resource": true,
         "name": "zia",
-        "version": "1.0.0-alpha.0+dev"
+        "version": "1.0.0-alpha.0+dev",
+        "server": "github://api.github.com/zscaler"
     }
 }

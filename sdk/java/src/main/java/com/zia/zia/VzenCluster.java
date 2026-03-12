@@ -16,59 +16,147 @@ import java.util.List;
 import java.util.Optional;
 import javax.annotation.Nullable;
 
+/**
+ * The zia.VzenCluster resource manages Virtual ZEN (VZEN) cluster configurations in the
+ * Zscaler Internet Access (ZIA) cloud. VZEN clusters group multiple VZEN nodes for high availability
+ * and load balancing of traffic processing.
+ * 
+ * ## Example Usage
+ * 
+ * ## Import
+ * 
+ * An existing VZEN cluster can be imported using its ID, e.g.
+ * 
+ * ```sh
+ * $ pulumi import zia:index:VzenCluster example 12345
+ * ```
+ * 
+ */
 @ResourceType(type="zia:index:VzenCluster")
 public class VzenCluster extends com.pulumi.resources.CustomResource {
+    /**
+     * The unique identifier for the VZEN cluster assigned by the ZIA cloud.
+     * 
+     */
     @Export(name="clusterId", refs={Integer.class}, tree="[0]")
     private Output<Integer> clusterId;
 
+    /**
+     * @return The unique identifier for the VZEN cluster assigned by the ZIA cloud.
+     * 
+     */
     public Output<Integer> clusterId() {
         return this.clusterId;
     }
+    /**
+     * The default gateway of the VZEN cluster.
+     * 
+     */
     @Export(name="defaultGateway", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> defaultGateway;
 
+    /**
+     * @return The default gateway of the VZEN cluster.
+     * 
+     */
     public Output<Optional<String>> defaultGateway() {
         return Codegen.optional(this.defaultGateway);
     }
+    /**
+     * The IP address of the VZEN cluster.
+     * 
+     */
     @Export(name="ipAddress", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> ipAddress;
 
+    /**
+     * @return The IP address of the VZEN cluster.
+     * 
+     */
     public Output<Optional<String>> ipAddress() {
         return Codegen.optional(this.ipAddress);
     }
+    /**
+     * Whether IPSec is enabled on the cluster.
+     * 
+     */
     @Export(name="ipSecEnabled", refs={Boolean.class}, tree="[0]")
     private Output</* @Nullable */ Boolean> ipSecEnabled;
 
+    /**
+     * @return Whether IPSec is enabled on the cluster.
+     * 
+     */
     public Output<Optional<Boolean>> ipSecEnabled() {
         return Codegen.optional(this.ipSecEnabled);
     }
+    /**
+     * Name of the VZEN cluster.
+     * 
+     */
     @Export(name="name", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> name;
 
+    /**
+     * @return Name of the VZEN cluster.
+     * 
+     */
     public Output<Optional<String>> name() {
         return Codegen.optional(this.name);
     }
+    /**
+     * The status of the cluster (e.g., &#39;ENABLED&#39;, &#39;DISABLED&#39;).
+     * 
+     */
     @Export(name="status", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> status;
 
+    /**
+     * @return The status of the cluster (e.g., &#39;ENABLED&#39;, &#39;DISABLED&#39;).
+     * 
+     */
     public Output<Optional<String>> status() {
         return Codegen.optional(this.status);
     }
+    /**
+     * The subnet mask of the VZEN cluster.
+     * 
+     */
     @Export(name="subnetMask", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> subnetMask;
 
+    /**
+     * @return The subnet mask of the VZEN cluster.
+     * 
+     */
     public Output<Optional<String>> subnetMask() {
         return Codegen.optional(this.subnetMask);
     }
+    /**
+     * The type of the VZEN cluster.
+     * 
+     */
     @Export(name="type", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> type;
 
+    /**
+     * @return The type of the VZEN cluster.
+     * 
+     */
     public Output<Optional<String>> type() {
         return Codegen.optional(this.type);
     }
+    /**
+     * List of VZEN node IDs that belong to this cluster.
+     * 
+     */
     @Export(name="virtualZenNodes", refs={List.class,Integer.class}, tree="[0,1]")
     private Output</* @Nullable */ List<Integer>> virtualZenNodes;
 
+    /**
+     * @return List of VZEN node IDs that belong to this cluster.
+     * 
+     */
     public Output<Optional<List<Integer>>> virtualZenNodes() {
         return Codegen.optional(this.virtualZenNodes);
     }
@@ -112,6 +200,7 @@ public class VzenCluster extends com.pulumi.resources.CustomResource {
     private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<java.lang.String> id) {
         var defaultOptions = com.pulumi.resources.CustomResourceOptions.builder()
             .version(Utilities.getVersion())
+            .pluginDownloadURL("github://api.github.com/zscaler")
             .build();
         return com.pulumi.resources.CustomResourceOptions.merge(defaultOptions, options, id);
     }

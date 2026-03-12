@@ -19,114 +19,242 @@ public final class UrlCategoryArgs extends com.pulumi.resources.ResourceArgs {
 
     public static final UrlCategoryArgs Empty = new UrlCategoryArgs();
 
+    /**
+     * The name of the URL category. Must be unique.
+     * 
+     */
     @Import(name="configuredName")
     private @Nullable Output<String> configuredName;
 
+    /**
+     * @return The name of the URL category. Must be unique.
+     * 
+     */
     public Optional<Output<String>> configuredName() {
         return Optional.ofNullable(this.configuredName);
     }
 
+    /**
+     * If true, this is a custom URL category. Set to true for custom categories.
+     * 
+     */
     @Import(name="customCategory")
     private @Nullable Output<Boolean> customCategory;
 
+    /**
+     * @return If true, this is a custom URL category. Set to true for custom categories.
+     * 
+     */
     public Optional<Output<Boolean>> customCategory() {
         return Optional.ofNullable(this.customCategory);
     }
 
+    /**
+     * URLs added to a custom URL category that have been categorized by the Zscaler database.
+     * 
+     */
     @Import(name="dbCategorizedUrls")
     private @Nullable Output<List<String>> dbCategorizedUrls;
 
+    /**
+     * @return URLs added to a custom URL category that have been categorized by the Zscaler database.
+     * 
+     */
     public Optional<Output<List<String>>> dbCategorizedUrls() {
         return Optional.ofNullable(this.dbCategorizedUrls);
     }
 
+    /**
+     * A description of the URL category. Maximum 256 characters.
+     * 
+     */
     @Import(name="description")
     private @Nullable Output<String> description;
 
+    /**
+     * @return A description of the URL category. Maximum 256 characters.
+     * 
+     */
     public Optional<Output<String>> description() {
         return Optional.ofNullable(this.description);
     }
 
+    /**
+     * List of custom IP address ranges associated with the URL category.
+     * 
+     */
     @Import(name="ipRanges")
     private @Nullable Output<List<String>> ipRanges;
 
+    /**
+     * @return List of custom IP address ranges associated with the URL category.
+     * 
+     */
     public Optional<Output<List<String>>> ipRanges() {
         return Optional.ofNullable(this.ipRanges);
     }
 
+    /**
+     * List of IP ranges that retain their parent category classification.
+     * 
+     */
     @Import(name="ipRangesRetainingParentCategory")
     private @Nullable Output<List<String>> ipRangesRetainingParentCategory;
 
+    /**
+     * @return List of IP ranges that retain their parent category classification.
+     * 
+     */
     public Optional<Output<List<String>>> ipRangesRetainingParentCategory() {
         return Optional.ofNullable(this.ipRangesRetainingParentCategory);
     }
 
+    /**
+     * List of custom keywords associated with the URL category.
+     * 
+     */
     @Import(name="keywords")
     private @Nullable Output<List<String>> keywords;
 
+    /**
+     * @return List of custom keywords associated with the URL category.
+     * 
+     */
     public Optional<Output<List<String>>> keywords() {
         return Optional.ofNullable(this.keywords);
     }
 
+    /**
+     * List of keywords that retain their parent category classification.
+     * 
+     */
     @Import(name="keywordsRetainingParentCategory")
     private @Nullable Output<List<String>> keywordsRetainingParentCategory;
 
+    /**
+     * @return List of keywords that retain their parent category classification.
+     * 
+     */
     public Optional<Output<List<String>>> keywordsRetainingParentCategory() {
         return Optional.ofNullable(this.keywordsRetainingParentCategory);
     }
 
+    /**
+     * List of regex-based patterns for URL matching.
+     * 
+     */
     @Import(name="regexPatterns")
     private @Nullable Output<List<String>> regexPatterns;
 
+    /**
+     * @return List of regex-based patterns for URL matching.
+     * 
+     */
     public Optional<Output<List<String>>> regexPatterns() {
         return Optional.ofNullable(this.regexPatterns);
     }
 
+    /**
+     * List of regex patterns that retain their parent category classification.
+     * 
+     */
     @Import(name="regexPatternsRetainingParentCategory")
     private @Nullable Output<List<String>> regexPatternsRetainingParentCategory;
 
+    /**
+     * @return List of regex patterns that retain their parent category classification.
+     * 
+     */
     public Optional<Output<List<String>>> regexPatternsRetainingParentCategory() {
         return Optional.ofNullable(this.regexPatternsRetainingParentCategory);
     }
 
+    /**
+     * Scopes for the custom URL category, defining location or department restrictions.
+     * 
+     */
     @Import(name="scopes")
     private @Nullable Output<List<UrlCategoryScopeInputArgs>> scopes;
 
+    /**
+     * @return Scopes for the custom URL category, defining location or department restrictions.
+     * 
+     */
     public Optional<Output<List<UrlCategoryScopeInputArgs>>> scopes() {
         return Optional.ofNullable(this.scopes);
     }
 
+    /**
+     * The super category for the URL category (e.g., `USER_DEFINED`).
+     * 
+     */
     @Import(name="superCategory")
     private @Nullable Output<String> superCategory;
 
+    /**
+     * @return The super category for the URL category (e.g., `USER_DEFINED`).
+     * 
+     */
     public Optional<Output<String>> superCategory() {
         return Optional.ofNullable(this.superCategory);
     }
 
+    /**
+     * The type of URL category. Valid values: `URL_CATEGORY`, `TLD_CATEGORY`, `ALL`.
+     * 
+     */
     @Import(name="type")
     private @Nullable Output<String> type;
 
+    /**
+     * @return The type of URL category. Valid values: `URL_CATEGORY`, `TLD_CATEGORY`, `ALL`.
+     * 
+     */
     public Optional<Output<String>> type() {
         return Optional.ofNullable(this.type);
     }
 
+    /**
+     * URL and keyword count statistics for the category.
+     * 
+     */
     @Import(name="urlKeywordCounts")
     private @Nullable Output<UrlCategoryUrlKeywordCountsInputArgs> urlKeywordCounts;
 
+    /**
+     * @return URL and keyword count statistics for the category.
+     * 
+     */
     public Optional<Output<UrlCategoryUrlKeywordCountsInputArgs>> urlKeywordCounts() {
         return Optional.ofNullable(this.urlKeywordCounts);
     }
 
+    /**
+     * The URL type. Valid values: `EXACT`, `REGEX`.
+     * 
+     */
     @Import(name="urlType")
     private @Nullable Output<String> urlType;
 
+    /**
+     * @return The URL type. Valid values: `EXACT`, `REGEX`.
+     * 
+     */
     public Optional<Output<String>> urlType() {
         return Optional.ofNullable(this.urlType);
     }
 
+    /**
+     * List of custom URLs to add to the category.
+     * 
+     */
     @Import(name="urls")
     private @Nullable Output<List<String>> urls;
 
+    /**
+     * @return List of custom URLs to add to the category.
+     * 
+     */
     public Optional<Output<List<String>>> urls() {
         return Optional.ofNullable(this.urls);
     }
@@ -170,182 +298,428 @@ public final class UrlCategoryArgs extends com.pulumi.resources.ResourceArgs {
             $ = new UrlCategoryArgs(Objects.requireNonNull(defaults));
         }
 
+        /**
+         * @param configuredName The name of the URL category. Must be unique.
+         * 
+         * @return builder
+         * 
+         */
         public Builder configuredName(@Nullable Output<String> configuredName) {
             $.configuredName = configuredName;
             return this;
         }
 
+        /**
+         * @param configuredName The name of the URL category. Must be unique.
+         * 
+         * @return builder
+         * 
+         */
         public Builder configuredName(String configuredName) {
             return configuredName(Output.of(configuredName));
         }
 
+        /**
+         * @param customCategory If true, this is a custom URL category. Set to true for custom categories.
+         * 
+         * @return builder
+         * 
+         */
         public Builder customCategory(@Nullable Output<Boolean> customCategory) {
             $.customCategory = customCategory;
             return this;
         }
 
+        /**
+         * @param customCategory If true, this is a custom URL category. Set to true for custom categories.
+         * 
+         * @return builder
+         * 
+         */
         public Builder customCategory(Boolean customCategory) {
             return customCategory(Output.of(customCategory));
         }
 
+        /**
+         * @param dbCategorizedUrls URLs added to a custom URL category that have been categorized by the Zscaler database.
+         * 
+         * @return builder
+         * 
+         */
         public Builder dbCategorizedUrls(@Nullable Output<List<String>> dbCategorizedUrls) {
             $.dbCategorizedUrls = dbCategorizedUrls;
             return this;
         }
 
+        /**
+         * @param dbCategorizedUrls URLs added to a custom URL category that have been categorized by the Zscaler database.
+         * 
+         * @return builder
+         * 
+         */
         public Builder dbCategorizedUrls(List<String> dbCategorizedUrls) {
             return dbCategorizedUrls(Output.of(dbCategorizedUrls));
         }
 
+        /**
+         * @param dbCategorizedUrls URLs added to a custom URL category that have been categorized by the Zscaler database.
+         * 
+         * @return builder
+         * 
+         */
         public Builder dbCategorizedUrls(String... dbCategorizedUrls) {
             return dbCategorizedUrls(List.of(dbCategorizedUrls));
         }
 
+        /**
+         * @param description A description of the URL category. Maximum 256 characters.
+         * 
+         * @return builder
+         * 
+         */
         public Builder description(@Nullable Output<String> description) {
             $.description = description;
             return this;
         }
 
+        /**
+         * @param description A description of the URL category. Maximum 256 characters.
+         * 
+         * @return builder
+         * 
+         */
         public Builder description(String description) {
             return description(Output.of(description));
         }
 
+        /**
+         * @param ipRanges List of custom IP address ranges associated with the URL category.
+         * 
+         * @return builder
+         * 
+         */
         public Builder ipRanges(@Nullable Output<List<String>> ipRanges) {
             $.ipRanges = ipRanges;
             return this;
         }
 
+        /**
+         * @param ipRanges List of custom IP address ranges associated with the URL category.
+         * 
+         * @return builder
+         * 
+         */
         public Builder ipRanges(List<String> ipRanges) {
             return ipRanges(Output.of(ipRanges));
         }
 
+        /**
+         * @param ipRanges List of custom IP address ranges associated with the URL category.
+         * 
+         * @return builder
+         * 
+         */
         public Builder ipRanges(String... ipRanges) {
             return ipRanges(List.of(ipRanges));
         }
 
+        /**
+         * @param ipRangesRetainingParentCategory List of IP ranges that retain their parent category classification.
+         * 
+         * @return builder
+         * 
+         */
         public Builder ipRangesRetainingParentCategory(@Nullable Output<List<String>> ipRangesRetainingParentCategory) {
             $.ipRangesRetainingParentCategory = ipRangesRetainingParentCategory;
             return this;
         }
 
+        /**
+         * @param ipRangesRetainingParentCategory List of IP ranges that retain their parent category classification.
+         * 
+         * @return builder
+         * 
+         */
         public Builder ipRangesRetainingParentCategory(List<String> ipRangesRetainingParentCategory) {
             return ipRangesRetainingParentCategory(Output.of(ipRangesRetainingParentCategory));
         }
 
+        /**
+         * @param ipRangesRetainingParentCategory List of IP ranges that retain their parent category classification.
+         * 
+         * @return builder
+         * 
+         */
         public Builder ipRangesRetainingParentCategory(String... ipRangesRetainingParentCategory) {
             return ipRangesRetainingParentCategory(List.of(ipRangesRetainingParentCategory));
         }
 
+        /**
+         * @param keywords List of custom keywords associated with the URL category.
+         * 
+         * @return builder
+         * 
+         */
         public Builder keywords(@Nullable Output<List<String>> keywords) {
             $.keywords = keywords;
             return this;
         }
 
+        /**
+         * @param keywords List of custom keywords associated with the URL category.
+         * 
+         * @return builder
+         * 
+         */
         public Builder keywords(List<String> keywords) {
             return keywords(Output.of(keywords));
         }
 
+        /**
+         * @param keywords List of custom keywords associated with the URL category.
+         * 
+         * @return builder
+         * 
+         */
         public Builder keywords(String... keywords) {
             return keywords(List.of(keywords));
         }
 
+        /**
+         * @param keywordsRetainingParentCategory List of keywords that retain their parent category classification.
+         * 
+         * @return builder
+         * 
+         */
         public Builder keywordsRetainingParentCategory(@Nullable Output<List<String>> keywordsRetainingParentCategory) {
             $.keywordsRetainingParentCategory = keywordsRetainingParentCategory;
             return this;
         }
 
+        /**
+         * @param keywordsRetainingParentCategory List of keywords that retain their parent category classification.
+         * 
+         * @return builder
+         * 
+         */
         public Builder keywordsRetainingParentCategory(List<String> keywordsRetainingParentCategory) {
             return keywordsRetainingParentCategory(Output.of(keywordsRetainingParentCategory));
         }
 
+        /**
+         * @param keywordsRetainingParentCategory List of keywords that retain their parent category classification.
+         * 
+         * @return builder
+         * 
+         */
         public Builder keywordsRetainingParentCategory(String... keywordsRetainingParentCategory) {
             return keywordsRetainingParentCategory(List.of(keywordsRetainingParentCategory));
         }
 
+        /**
+         * @param regexPatterns List of regex-based patterns for URL matching.
+         * 
+         * @return builder
+         * 
+         */
         public Builder regexPatterns(@Nullable Output<List<String>> regexPatterns) {
             $.regexPatterns = regexPatterns;
             return this;
         }
 
+        /**
+         * @param regexPatterns List of regex-based patterns for URL matching.
+         * 
+         * @return builder
+         * 
+         */
         public Builder regexPatterns(List<String> regexPatterns) {
             return regexPatterns(Output.of(regexPatterns));
         }
 
+        /**
+         * @param regexPatterns List of regex-based patterns for URL matching.
+         * 
+         * @return builder
+         * 
+         */
         public Builder regexPatterns(String... regexPatterns) {
             return regexPatterns(List.of(regexPatterns));
         }
 
+        /**
+         * @param regexPatternsRetainingParentCategory List of regex patterns that retain their parent category classification.
+         * 
+         * @return builder
+         * 
+         */
         public Builder regexPatternsRetainingParentCategory(@Nullable Output<List<String>> regexPatternsRetainingParentCategory) {
             $.regexPatternsRetainingParentCategory = regexPatternsRetainingParentCategory;
             return this;
         }
 
+        /**
+         * @param regexPatternsRetainingParentCategory List of regex patterns that retain their parent category classification.
+         * 
+         * @return builder
+         * 
+         */
         public Builder regexPatternsRetainingParentCategory(List<String> regexPatternsRetainingParentCategory) {
             return regexPatternsRetainingParentCategory(Output.of(regexPatternsRetainingParentCategory));
         }
 
+        /**
+         * @param regexPatternsRetainingParentCategory List of regex patterns that retain their parent category classification.
+         * 
+         * @return builder
+         * 
+         */
         public Builder regexPatternsRetainingParentCategory(String... regexPatternsRetainingParentCategory) {
             return regexPatternsRetainingParentCategory(List.of(regexPatternsRetainingParentCategory));
         }
 
+        /**
+         * @param scopes Scopes for the custom URL category, defining location or department restrictions.
+         * 
+         * @return builder
+         * 
+         */
         public Builder scopes(@Nullable Output<List<UrlCategoryScopeInputArgs>> scopes) {
             $.scopes = scopes;
             return this;
         }
 
+        /**
+         * @param scopes Scopes for the custom URL category, defining location or department restrictions.
+         * 
+         * @return builder
+         * 
+         */
         public Builder scopes(List<UrlCategoryScopeInputArgs> scopes) {
             return scopes(Output.of(scopes));
         }
 
+        /**
+         * @param scopes Scopes for the custom URL category, defining location or department restrictions.
+         * 
+         * @return builder
+         * 
+         */
         public Builder scopes(UrlCategoryScopeInputArgs... scopes) {
             return scopes(List.of(scopes));
         }
 
+        /**
+         * @param superCategory The super category for the URL category (e.g., `USER_DEFINED`).
+         * 
+         * @return builder
+         * 
+         */
         public Builder superCategory(@Nullable Output<String> superCategory) {
             $.superCategory = superCategory;
             return this;
         }
 
+        /**
+         * @param superCategory The super category for the URL category (e.g., `USER_DEFINED`).
+         * 
+         * @return builder
+         * 
+         */
         public Builder superCategory(String superCategory) {
             return superCategory(Output.of(superCategory));
         }
 
+        /**
+         * @param type The type of URL category. Valid values: `URL_CATEGORY`, `TLD_CATEGORY`, `ALL`.
+         * 
+         * @return builder
+         * 
+         */
         public Builder type(@Nullable Output<String> type) {
             $.type = type;
             return this;
         }
 
+        /**
+         * @param type The type of URL category. Valid values: `URL_CATEGORY`, `TLD_CATEGORY`, `ALL`.
+         * 
+         * @return builder
+         * 
+         */
         public Builder type(String type) {
             return type(Output.of(type));
         }
 
+        /**
+         * @param urlKeywordCounts URL and keyword count statistics for the category.
+         * 
+         * @return builder
+         * 
+         */
         public Builder urlKeywordCounts(@Nullable Output<UrlCategoryUrlKeywordCountsInputArgs> urlKeywordCounts) {
             $.urlKeywordCounts = urlKeywordCounts;
             return this;
         }
 
+        /**
+         * @param urlKeywordCounts URL and keyword count statistics for the category.
+         * 
+         * @return builder
+         * 
+         */
         public Builder urlKeywordCounts(UrlCategoryUrlKeywordCountsInputArgs urlKeywordCounts) {
             return urlKeywordCounts(Output.of(urlKeywordCounts));
         }
 
+        /**
+         * @param urlType The URL type. Valid values: `EXACT`, `REGEX`.
+         * 
+         * @return builder
+         * 
+         */
         public Builder urlType(@Nullable Output<String> urlType) {
             $.urlType = urlType;
             return this;
         }
 
+        /**
+         * @param urlType The URL type. Valid values: `EXACT`, `REGEX`.
+         * 
+         * @return builder
+         * 
+         */
         public Builder urlType(String urlType) {
             return urlType(Output.of(urlType));
         }
 
+        /**
+         * @param urls List of custom URLs to add to the category.
+         * 
+         * @return builder
+         * 
+         */
         public Builder urls(@Nullable Output<List<String>> urls) {
             $.urls = urls;
             return this;
         }
 
+        /**
+         * @param urls List of custom URLs to add to the category.
+         * 
+         * @return builder
+         * 
+         */
         public Builder urls(List<String> urls) {
             return urls(Output.of(urls));
         }
 
+        /**
+         * @param urls List of custom URLs to add to the category.
+         * 
+         * @return builder
+         * 
+         */
         public Builder urls(String... urls) {
             return urls(List.of(urls));
         }

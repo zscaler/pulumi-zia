@@ -18,44 +18,92 @@ public final class TrafficForwardingStaticIpArgs extends com.pulumi.resources.Re
 
     public static final TrafficForwardingStaticIpArgs Empty = new TrafficForwardingStaticIpArgs();
 
+    /**
+     * Additional information about the static IP.
+     * 
+     */
     @Import(name="comment")
     private @Nullable Output<String> comment;
 
+    /**
+     * @return Additional information about the static IP.
+     * 
+     */
     public Optional<Output<String>> comment() {
         return Optional.ofNullable(this.comment);
     }
 
+    /**
+     * If not set, geographic coordinates and city are automatically determined from the IP address. When set to true, manually-specified latitude and longitude are used instead.
+     * 
+     */
     @Import(name="geoOverride")
     private @Nullable Output<Boolean> geoOverride;
 
+    /**
+     * @return If not set, geographic coordinates and city are automatically determined from the IP address. When set to true, manually-specified latitude and longitude are used instead.
+     * 
+     */
     public Optional<Output<Boolean>> geoOverride() {
         return Optional.ofNullable(this.geoOverride);
     }
 
+    /**
+     * The static IP address.
+     * 
+     */
     @Import(name="ipAddress", required=true)
     private Output<String> ipAddress;
 
+    /**
+     * @return The static IP address.
+     * 
+     */
     public Output<String> ipAddress() {
         return this.ipAddress;
     }
 
+    /**
+     * Required only if geoOverride is true. Latitude of the static IP. Valid range: -90 to 90.
+     * 
+     */
     @Import(name="latitude")
     private @Nullable Output<Double> latitude;
 
+    /**
+     * @return Required only if geoOverride is true. Latitude of the static IP. Valid range: -90 to 90.
+     * 
+     */
     public Optional<Output<Double>> latitude() {
         return Optional.ofNullable(this.latitude);
     }
 
+    /**
+     * Required only if geoOverride is true. Longitude of the static IP. Valid range: -180 to 180.
+     * 
+     */
     @Import(name="longitude")
     private @Nullable Output<Double> longitude;
 
+    /**
+     * @return Required only if geoOverride is true. Longitude of the static IP. Valid range: -180 to 180.
+     * 
+     */
     public Optional<Output<Double>> longitude() {
         return Optional.ofNullable(this.longitude);
     }
 
+    /**
+     * Indicates whether a non-RFC 1918 IP address is publicly routable.
+     * 
+     */
     @Import(name="routableIp")
     private @Nullable Output<Boolean> routableIp;
 
+    /**
+     * @return Indicates whether a non-RFC 1918 IP address is publicly routable.
+     * 
+     */
     public Optional<Output<Boolean>> routableIp() {
         return Optional.ofNullable(this.routableIp);
     }
@@ -89,56 +137,128 @@ public final class TrafficForwardingStaticIpArgs extends com.pulumi.resources.Re
             $ = new TrafficForwardingStaticIpArgs(Objects.requireNonNull(defaults));
         }
 
+        /**
+         * @param comment Additional information about the static IP.
+         * 
+         * @return builder
+         * 
+         */
         public Builder comment(@Nullable Output<String> comment) {
             $.comment = comment;
             return this;
         }
 
+        /**
+         * @param comment Additional information about the static IP.
+         * 
+         * @return builder
+         * 
+         */
         public Builder comment(String comment) {
             return comment(Output.of(comment));
         }
 
+        /**
+         * @param geoOverride If not set, geographic coordinates and city are automatically determined from the IP address. When set to true, manually-specified latitude and longitude are used instead.
+         * 
+         * @return builder
+         * 
+         */
         public Builder geoOverride(@Nullable Output<Boolean> geoOverride) {
             $.geoOverride = geoOverride;
             return this;
         }
 
+        /**
+         * @param geoOverride If not set, geographic coordinates and city are automatically determined from the IP address. When set to true, manually-specified latitude and longitude are used instead.
+         * 
+         * @return builder
+         * 
+         */
         public Builder geoOverride(Boolean geoOverride) {
             return geoOverride(Output.of(geoOverride));
         }
 
+        /**
+         * @param ipAddress The static IP address.
+         * 
+         * @return builder
+         * 
+         */
         public Builder ipAddress(Output<String> ipAddress) {
             $.ipAddress = ipAddress;
             return this;
         }
 
+        /**
+         * @param ipAddress The static IP address.
+         * 
+         * @return builder
+         * 
+         */
         public Builder ipAddress(String ipAddress) {
             return ipAddress(Output.of(ipAddress));
         }
 
+        /**
+         * @param latitude Required only if geoOverride is true. Latitude of the static IP. Valid range: -90 to 90.
+         * 
+         * @return builder
+         * 
+         */
         public Builder latitude(@Nullable Output<Double> latitude) {
             $.latitude = latitude;
             return this;
         }
 
+        /**
+         * @param latitude Required only if geoOverride is true. Latitude of the static IP. Valid range: -90 to 90.
+         * 
+         * @return builder
+         * 
+         */
         public Builder latitude(Double latitude) {
             return latitude(Output.of(latitude));
         }
 
+        /**
+         * @param longitude Required only if geoOverride is true. Longitude of the static IP. Valid range: -180 to 180.
+         * 
+         * @return builder
+         * 
+         */
         public Builder longitude(@Nullable Output<Double> longitude) {
             $.longitude = longitude;
             return this;
         }
 
+        /**
+         * @param longitude Required only if geoOverride is true. Longitude of the static IP. Valid range: -180 to 180.
+         * 
+         * @return builder
+         * 
+         */
         public Builder longitude(Double longitude) {
             return longitude(Output.of(longitude));
         }
 
+        /**
+         * @param routableIp Indicates whether a non-RFC 1918 IP address is publicly routable.
+         * 
+         * @return builder
+         * 
+         */
         public Builder routableIp(@Nullable Output<Boolean> routableIp) {
             $.routableIp = routableIp;
             return this;
         }
 
+        /**
+         * @param routableIp Indicates whether a non-RFC 1918 IP address is publicly routable.
+         * 
+         * @return builder
+         * 
+         */
         public Builder routableIp(Boolean routableIp) {
             return routableIp(Output.of(routableIp));
         }

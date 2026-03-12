@@ -58,6 +58,41 @@ class FirewallFilteringRuleArgs:
                  zpa_app_segments: Optional[pulumi.Input[Sequence[pulumi.Input['ZPAAppSegmentInputArgs']]]] = None):
         """
         The set of arguments for constructing a FirewallFilteringRule resource.
+        :param pulumi.Input[_builtins.str] name: The name of the firewall filtering rule. Must be unique.
+        :param pulumi.Input[_builtins.int] order: The order of execution of the rule with respect to other firewall filtering rules.
+        :param pulumi.Input[_builtins.str] action: The action the rule takes when traffic matches. Valid values: `ALLOW`, `BLOCK_DROP`, `BLOCK_RESET`, `BLOCK_ICMP`, `EVAL_NWAPP`.
+        :param pulumi.Input[Sequence[pulumi.Input[_builtins.int]]] app_service_groups: IDs of application service groups to which the rule applies.
+        :param pulumi.Input[Sequence[pulumi.Input[_builtins.int]]] app_services: IDs of application services to which the rule applies.
+        :param pulumi.Input[_builtins.bool] default_rule: Indicates whether this is the default firewall filtering rule.
+        :param pulumi.Input[Sequence[pulumi.Input[_builtins.int]]] departments: IDs of departments to which the rule must be applied.
+        :param pulumi.Input[_builtins.str] description: Additional information about the firewall filtering rule.
+        :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] dest_addresses: Destination IP addresses, FQDNs, or wildcard FQDNs for the rule.
+        :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] dest_countries: Destination countries (ISO 3166-1 alpha-2 codes) for the rule.
+        :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] dest_ip_categories: Destination IP address URL categories. Allows you to identify destinations based on the URL category of the domain.
+        :param pulumi.Input[Sequence[pulumi.Input[_builtins.int]]] dest_ip_groups: IDs of destination IP address groups for the rule.
+        :param pulumi.Input[Sequence[pulumi.Input[_builtins.int]]] device_groups: IDs of device groups for which the rule must be applied. Applicable for devices managed using Zscaler Client Connector.
+        :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] device_trust_levels: Device trust levels for the rule. Valid values: `ANY`, `UNKNOWN_DEVICETRUSTLEVEL`, `LOW_TRUST`, `MEDIUM_TRUST`, `HIGH_TRUST`.
+        :param pulumi.Input[Sequence[pulumi.Input[_builtins.int]]] devices: IDs of devices for which the rule must be applied.
+        :param pulumi.Input[_builtins.bool] enable_full_logging: If set to true, enables full logging for the rule.
+        :param pulumi.Input[_builtins.bool] exclude_src_countries: If set to true, the countries specified in sourceCountries are excluded from the rule.
+        :param pulumi.Input[Sequence[pulumi.Input[_builtins.int]]] groups: IDs of groups to which the rule must be applied.
+        :param pulumi.Input[Sequence[pulumi.Input[_builtins.int]]] labels: IDs of labels associated with the rule.
+        :param pulumi.Input[Sequence[pulumi.Input[_builtins.int]]] location_groups: IDs of location groups to which the rule must be applied.
+        :param pulumi.Input[Sequence[pulumi.Input[_builtins.int]]] locations: IDs of locations to which the rule must be applied.
+        :param pulumi.Input[Sequence[pulumi.Input[_builtins.int]]] nw_application_groups: IDs of network application groups to which the rule applies.
+        :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] nw_applications: Network application values to which the rule applies (e.g., `APNS`, `DNS`, `HTTP`).
+        :param pulumi.Input[Sequence[pulumi.Input[_builtins.int]]] nw_service_groups: IDs of network service groups to which the rule applies.
+        :param pulumi.Input[Sequence[pulumi.Input[_builtins.int]]] nw_services: IDs of network services to which the rule applies.
+        :param pulumi.Input[_builtins.bool] predefined: Indicates whether this is a predefined rule.
+        :param pulumi.Input[_builtins.int] rank: Admin rank of the firewall filtering policy rule. Valid values: 0-7. Default: 7.
+        :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] source_countries: Source countries (ISO 3166-1 alpha-2 codes) for the rule.
+        :param pulumi.Input[Sequence[pulumi.Input[_builtins.int]]] src_ip_groups: IDs of source IP address groups for the rule.
+        :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] src_ips: Source IP addresses or CIDR ranges for the rule.
+        :param pulumi.Input[_builtins.str] state: Rule state. Valid values: `ENABLED`, `DISABLED`.
+        :param pulumi.Input[Sequence[pulumi.Input[_builtins.int]]] time_windows: IDs of time intervals during which the rule must be enforced.
+        :param pulumi.Input[Sequence[pulumi.Input[_builtins.int]]] users: IDs of users to which the rule must be applied.
+        :param pulumi.Input[Sequence[pulumi.Input['WorkloadGroupInputArgs']]] workload_groups: List of preconfigured workload groups to which the policy must be applied.
+        :param pulumi.Input[Sequence[pulumi.Input['ZPAAppSegmentInputArgs']]] zpa_app_segments: List of ZPA application segments for which this rule is applicable. This field is applicable only for the ZPA gateway forwarding method.
         """
         pulumi.set(__self__, "name", name)
         pulumi.set(__self__, "order", order)
@@ -131,6 +166,9 @@ class FirewallFilteringRuleArgs:
     @_builtins.property
     @pulumi.getter
     def name(self) -> pulumi.Input[_builtins.str]:
+        """
+        The name of the firewall filtering rule. Must be unique.
+        """
         return pulumi.get(self, "name")
 
     @name.setter
@@ -140,6 +178,9 @@ class FirewallFilteringRuleArgs:
     @_builtins.property
     @pulumi.getter
     def order(self) -> pulumi.Input[_builtins.int]:
+        """
+        The order of execution of the rule with respect to other firewall filtering rules.
+        """
         return pulumi.get(self, "order")
 
     @order.setter
@@ -149,6 +190,9 @@ class FirewallFilteringRuleArgs:
     @_builtins.property
     @pulumi.getter
     def action(self) -> Optional[pulumi.Input[_builtins.str]]:
+        """
+        The action the rule takes when traffic matches. Valid values: `ALLOW`, `BLOCK_DROP`, `BLOCK_RESET`, `BLOCK_ICMP`, `EVAL_NWAPP`.
+        """
         return pulumi.get(self, "action")
 
     @action.setter
@@ -158,6 +202,9 @@ class FirewallFilteringRuleArgs:
     @_builtins.property
     @pulumi.getter(name="appServiceGroups")
     def app_service_groups(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.int]]]]:
+        """
+        IDs of application service groups to which the rule applies.
+        """
         return pulumi.get(self, "app_service_groups")
 
     @app_service_groups.setter
@@ -167,6 +214,9 @@ class FirewallFilteringRuleArgs:
     @_builtins.property
     @pulumi.getter(name="appServices")
     def app_services(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.int]]]]:
+        """
+        IDs of application services to which the rule applies.
+        """
         return pulumi.get(self, "app_services")
 
     @app_services.setter
@@ -176,6 +226,9 @@ class FirewallFilteringRuleArgs:
     @_builtins.property
     @pulumi.getter(name="defaultRule")
     def default_rule(self) -> Optional[pulumi.Input[_builtins.bool]]:
+        """
+        Indicates whether this is the default firewall filtering rule.
+        """
         return pulumi.get(self, "default_rule")
 
     @default_rule.setter
@@ -185,6 +238,9 @@ class FirewallFilteringRuleArgs:
     @_builtins.property
     @pulumi.getter
     def departments(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.int]]]]:
+        """
+        IDs of departments to which the rule must be applied.
+        """
         return pulumi.get(self, "departments")
 
     @departments.setter
@@ -194,6 +250,9 @@ class FirewallFilteringRuleArgs:
     @_builtins.property
     @pulumi.getter
     def description(self) -> Optional[pulumi.Input[_builtins.str]]:
+        """
+        Additional information about the firewall filtering rule.
+        """
         return pulumi.get(self, "description")
 
     @description.setter
@@ -203,6 +262,9 @@ class FirewallFilteringRuleArgs:
     @_builtins.property
     @pulumi.getter(name="destAddresses")
     def dest_addresses(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
+        """
+        Destination IP addresses, FQDNs, or wildcard FQDNs for the rule.
+        """
         return pulumi.get(self, "dest_addresses")
 
     @dest_addresses.setter
@@ -212,6 +274,9 @@ class FirewallFilteringRuleArgs:
     @_builtins.property
     @pulumi.getter(name="destCountries")
     def dest_countries(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
+        """
+        Destination countries (ISO 3166-1 alpha-2 codes) for the rule.
+        """
         return pulumi.get(self, "dest_countries")
 
     @dest_countries.setter
@@ -221,6 +286,9 @@ class FirewallFilteringRuleArgs:
     @_builtins.property
     @pulumi.getter(name="destIpCategories")
     def dest_ip_categories(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
+        """
+        Destination IP address URL categories. Allows you to identify destinations based on the URL category of the domain.
+        """
         return pulumi.get(self, "dest_ip_categories")
 
     @dest_ip_categories.setter
@@ -230,6 +298,9 @@ class FirewallFilteringRuleArgs:
     @_builtins.property
     @pulumi.getter(name="destIpGroups")
     def dest_ip_groups(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.int]]]]:
+        """
+        IDs of destination IP address groups for the rule.
+        """
         return pulumi.get(self, "dest_ip_groups")
 
     @dest_ip_groups.setter
@@ -239,6 +310,9 @@ class FirewallFilteringRuleArgs:
     @_builtins.property
     @pulumi.getter(name="deviceGroups")
     def device_groups(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.int]]]]:
+        """
+        IDs of device groups for which the rule must be applied. Applicable for devices managed using Zscaler Client Connector.
+        """
         return pulumi.get(self, "device_groups")
 
     @device_groups.setter
@@ -248,6 +322,9 @@ class FirewallFilteringRuleArgs:
     @_builtins.property
     @pulumi.getter(name="deviceTrustLevels")
     def device_trust_levels(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
+        """
+        Device trust levels for the rule. Valid values: `ANY`, `UNKNOWN_DEVICETRUSTLEVEL`, `LOW_TRUST`, `MEDIUM_TRUST`, `HIGH_TRUST`.
+        """
         return pulumi.get(self, "device_trust_levels")
 
     @device_trust_levels.setter
@@ -257,6 +334,9 @@ class FirewallFilteringRuleArgs:
     @_builtins.property
     @pulumi.getter
     def devices(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.int]]]]:
+        """
+        IDs of devices for which the rule must be applied.
+        """
         return pulumi.get(self, "devices")
 
     @devices.setter
@@ -266,6 +346,9 @@ class FirewallFilteringRuleArgs:
     @_builtins.property
     @pulumi.getter(name="enableFullLogging")
     def enable_full_logging(self) -> Optional[pulumi.Input[_builtins.bool]]:
+        """
+        If set to true, enables full logging for the rule.
+        """
         return pulumi.get(self, "enable_full_logging")
 
     @enable_full_logging.setter
@@ -275,6 +358,9 @@ class FirewallFilteringRuleArgs:
     @_builtins.property
     @pulumi.getter(name="excludeSrcCountries")
     def exclude_src_countries(self) -> Optional[pulumi.Input[_builtins.bool]]:
+        """
+        If set to true, the countries specified in sourceCountries are excluded from the rule.
+        """
         return pulumi.get(self, "exclude_src_countries")
 
     @exclude_src_countries.setter
@@ -284,6 +370,9 @@ class FirewallFilteringRuleArgs:
     @_builtins.property
     @pulumi.getter
     def groups(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.int]]]]:
+        """
+        IDs of groups to which the rule must be applied.
+        """
         return pulumi.get(self, "groups")
 
     @groups.setter
@@ -293,6 +382,9 @@ class FirewallFilteringRuleArgs:
     @_builtins.property
     @pulumi.getter
     def labels(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.int]]]]:
+        """
+        IDs of labels associated with the rule.
+        """
         return pulumi.get(self, "labels")
 
     @labels.setter
@@ -302,6 +394,9 @@ class FirewallFilteringRuleArgs:
     @_builtins.property
     @pulumi.getter(name="locationGroups")
     def location_groups(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.int]]]]:
+        """
+        IDs of location groups to which the rule must be applied.
+        """
         return pulumi.get(self, "location_groups")
 
     @location_groups.setter
@@ -311,6 +406,9 @@ class FirewallFilteringRuleArgs:
     @_builtins.property
     @pulumi.getter
     def locations(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.int]]]]:
+        """
+        IDs of locations to which the rule must be applied.
+        """
         return pulumi.get(self, "locations")
 
     @locations.setter
@@ -320,6 +418,9 @@ class FirewallFilteringRuleArgs:
     @_builtins.property
     @pulumi.getter(name="nwApplicationGroups")
     def nw_application_groups(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.int]]]]:
+        """
+        IDs of network application groups to which the rule applies.
+        """
         return pulumi.get(self, "nw_application_groups")
 
     @nw_application_groups.setter
@@ -329,6 +430,9 @@ class FirewallFilteringRuleArgs:
     @_builtins.property
     @pulumi.getter(name="nwApplications")
     def nw_applications(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
+        """
+        Network application values to which the rule applies (e.g., `APNS`, `DNS`, `HTTP`).
+        """
         return pulumi.get(self, "nw_applications")
 
     @nw_applications.setter
@@ -338,6 +442,9 @@ class FirewallFilteringRuleArgs:
     @_builtins.property
     @pulumi.getter(name="nwServiceGroups")
     def nw_service_groups(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.int]]]]:
+        """
+        IDs of network service groups to which the rule applies.
+        """
         return pulumi.get(self, "nw_service_groups")
 
     @nw_service_groups.setter
@@ -347,6 +454,9 @@ class FirewallFilteringRuleArgs:
     @_builtins.property
     @pulumi.getter(name="nwServices")
     def nw_services(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.int]]]]:
+        """
+        IDs of network services to which the rule applies.
+        """
         return pulumi.get(self, "nw_services")
 
     @nw_services.setter
@@ -356,6 +466,9 @@ class FirewallFilteringRuleArgs:
     @_builtins.property
     @pulumi.getter
     def predefined(self) -> Optional[pulumi.Input[_builtins.bool]]:
+        """
+        Indicates whether this is a predefined rule.
+        """
         return pulumi.get(self, "predefined")
 
     @predefined.setter
@@ -365,6 +478,9 @@ class FirewallFilteringRuleArgs:
     @_builtins.property
     @pulumi.getter
     def rank(self) -> Optional[pulumi.Input[_builtins.int]]:
+        """
+        Admin rank of the firewall filtering policy rule. Valid values: 0-7. Default: 7.
+        """
         return pulumi.get(self, "rank")
 
     @rank.setter
@@ -374,6 +490,9 @@ class FirewallFilteringRuleArgs:
     @_builtins.property
     @pulumi.getter(name="sourceCountries")
     def source_countries(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
+        """
+        Source countries (ISO 3166-1 alpha-2 codes) for the rule.
+        """
         return pulumi.get(self, "source_countries")
 
     @source_countries.setter
@@ -383,6 +502,9 @@ class FirewallFilteringRuleArgs:
     @_builtins.property
     @pulumi.getter(name="srcIpGroups")
     def src_ip_groups(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.int]]]]:
+        """
+        IDs of source IP address groups for the rule.
+        """
         return pulumi.get(self, "src_ip_groups")
 
     @src_ip_groups.setter
@@ -392,6 +514,9 @@ class FirewallFilteringRuleArgs:
     @_builtins.property
     @pulumi.getter(name="srcIps")
     def src_ips(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
+        """
+        Source IP addresses or CIDR ranges for the rule.
+        """
         return pulumi.get(self, "src_ips")
 
     @src_ips.setter
@@ -401,6 +526,9 @@ class FirewallFilteringRuleArgs:
     @_builtins.property
     @pulumi.getter
     def state(self) -> Optional[pulumi.Input[_builtins.str]]:
+        """
+        Rule state. Valid values: `ENABLED`, `DISABLED`.
+        """
         return pulumi.get(self, "state")
 
     @state.setter
@@ -410,6 +538,9 @@ class FirewallFilteringRuleArgs:
     @_builtins.property
     @pulumi.getter(name="timeWindows")
     def time_windows(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.int]]]]:
+        """
+        IDs of time intervals during which the rule must be enforced.
+        """
         return pulumi.get(self, "time_windows")
 
     @time_windows.setter
@@ -419,6 +550,9 @@ class FirewallFilteringRuleArgs:
     @_builtins.property
     @pulumi.getter
     def users(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.int]]]]:
+        """
+        IDs of users to which the rule must be applied.
+        """
         return pulumi.get(self, "users")
 
     @users.setter
@@ -428,6 +562,9 @@ class FirewallFilteringRuleArgs:
     @_builtins.property
     @pulumi.getter(name="workloadGroups")
     def workload_groups(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['WorkloadGroupInputArgs']]]]:
+        """
+        List of preconfigured workload groups to which the policy must be applied.
+        """
         return pulumi.get(self, "workload_groups")
 
     @workload_groups.setter
@@ -437,6 +574,9 @@ class FirewallFilteringRuleArgs:
     @_builtins.property
     @pulumi.getter(name="zpaAppSegments")
     def zpa_app_segments(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['ZPAAppSegmentInputArgs']]]]:
+        """
+        List of ZPA application segments for which this rule is applicable. This field is applicable only for the ZPA gateway forwarding method.
+        """
         return pulumi.get(self, "zpa_app_segments")
 
     @zpa_app_segments.setter
@@ -487,9 +627,70 @@ class FirewallFilteringRule(pulumi.CustomResource):
                  zpa_app_segments: Optional[pulumi.Input[Sequence[pulumi.Input[Union['ZPAAppSegmentInputArgs', 'ZPAAppSegmentInputArgsDict']]]]] = None,
                  __props__=None):
         """
-        Create a FirewallFilteringRule resource with the given unique name, props, and options.
+        The zia_firewall_filtering_rule resource manages firewall filtering rules in the Zscaler Internet Access (ZIA) cloud service. Cloud firewall rules control traffic that is forwarded to the Zscaler service for inspection, allowing you to allow, block, or apply specific actions based on source, destination, applications, and other criteria.
+
+        For more information, see the [ZIA Cloud Firewall documentation](https://help.zscaler.com/zia/firewall-policies).
+
+        ## Example Usage
+        ### Basic Firewall Filtering Rule
+
+        ```python
+        import zscaler_pulumi_zia as zia
+
+        example = zia.FirewallFilteringRule("example",
+            name="Example Firewall Rule",
+            description="Allow outbound traffic",
+            order=1,
+            state="ENABLED",
+            action="ALLOW",
+        )
+        ```
+
+        ## Import
+
+        An existing Firewall Filtering Rule can be imported using its resource ID, e.g.
+
+        ```sh
+        $ pulumi import zia:index:FirewallFilteringRule example 12345
+        ```
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
+        :param pulumi.Input[_builtins.str] action: The action the rule takes when traffic matches. Valid values: `ALLOW`, `BLOCK_DROP`, `BLOCK_RESET`, `BLOCK_ICMP`, `EVAL_NWAPP`.
+        :param pulumi.Input[Sequence[pulumi.Input[_builtins.int]]] app_service_groups: IDs of application service groups to which the rule applies.
+        :param pulumi.Input[Sequence[pulumi.Input[_builtins.int]]] app_services: IDs of application services to which the rule applies.
+        :param pulumi.Input[_builtins.bool] default_rule: Indicates whether this is the default firewall filtering rule.
+        :param pulumi.Input[Sequence[pulumi.Input[_builtins.int]]] departments: IDs of departments to which the rule must be applied.
+        :param pulumi.Input[_builtins.str] description: Additional information about the firewall filtering rule.
+        :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] dest_addresses: Destination IP addresses, FQDNs, or wildcard FQDNs for the rule.
+        :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] dest_countries: Destination countries (ISO 3166-1 alpha-2 codes) for the rule.
+        :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] dest_ip_categories: Destination IP address URL categories. Allows you to identify destinations based on the URL category of the domain.
+        :param pulumi.Input[Sequence[pulumi.Input[_builtins.int]]] dest_ip_groups: IDs of destination IP address groups for the rule.
+        :param pulumi.Input[Sequence[pulumi.Input[_builtins.int]]] device_groups: IDs of device groups for which the rule must be applied. Applicable for devices managed using Zscaler Client Connector.
+        :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] device_trust_levels: Device trust levels for the rule. Valid values: `ANY`, `UNKNOWN_DEVICETRUSTLEVEL`, `LOW_TRUST`, `MEDIUM_TRUST`, `HIGH_TRUST`.
+        :param pulumi.Input[Sequence[pulumi.Input[_builtins.int]]] devices: IDs of devices for which the rule must be applied.
+        :param pulumi.Input[_builtins.bool] enable_full_logging: If set to true, enables full logging for the rule.
+        :param pulumi.Input[_builtins.bool] exclude_src_countries: If set to true, the countries specified in sourceCountries are excluded from the rule.
+        :param pulumi.Input[Sequence[pulumi.Input[_builtins.int]]] groups: IDs of groups to which the rule must be applied.
+        :param pulumi.Input[Sequence[pulumi.Input[_builtins.int]]] labels: IDs of labels associated with the rule.
+        :param pulumi.Input[Sequence[pulumi.Input[_builtins.int]]] location_groups: IDs of location groups to which the rule must be applied.
+        :param pulumi.Input[Sequence[pulumi.Input[_builtins.int]]] locations: IDs of locations to which the rule must be applied.
+        :param pulumi.Input[_builtins.str] name: The name of the firewall filtering rule. Must be unique.
+        :param pulumi.Input[Sequence[pulumi.Input[_builtins.int]]] nw_application_groups: IDs of network application groups to which the rule applies.
+        :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] nw_applications: Network application values to which the rule applies (e.g., `APNS`, `DNS`, `HTTP`).
+        :param pulumi.Input[Sequence[pulumi.Input[_builtins.int]]] nw_service_groups: IDs of network service groups to which the rule applies.
+        :param pulumi.Input[Sequence[pulumi.Input[_builtins.int]]] nw_services: IDs of network services to which the rule applies.
+        :param pulumi.Input[_builtins.int] order: The order of execution of the rule with respect to other firewall filtering rules.
+        :param pulumi.Input[_builtins.bool] predefined: Indicates whether this is a predefined rule.
+        :param pulumi.Input[_builtins.int] rank: Admin rank of the firewall filtering policy rule. Valid values: 0-7. Default: 7.
+        :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] source_countries: Source countries (ISO 3166-1 alpha-2 codes) for the rule.
+        :param pulumi.Input[Sequence[pulumi.Input[_builtins.int]]] src_ip_groups: IDs of source IP address groups for the rule.
+        :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] src_ips: Source IP addresses or CIDR ranges for the rule.
+        :param pulumi.Input[_builtins.str] state: Rule state. Valid values: `ENABLED`, `DISABLED`.
+        :param pulumi.Input[Sequence[pulumi.Input[_builtins.int]]] time_windows: IDs of time intervals during which the rule must be enforced.
+        :param pulumi.Input[Sequence[pulumi.Input[_builtins.int]]] users: IDs of users to which the rule must be applied.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['WorkloadGroupInputArgs', 'WorkloadGroupInputArgsDict']]]] workload_groups: List of preconfigured workload groups to which the policy must be applied.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['ZPAAppSegmentInputArgs', 'ZPAAppSegmentInputArgsDict']]]] zpa_app_segments: List of ZPA application segments for which this rule is applicable. This field is applicable only for the ZPA gateway forwarding method.
         """
         ...
     @overload
@@ -498,7 +699,33 @@ class FirewallFilteringRule(pulumi.CustomResource):
                  args: FirewallFilteringRuleArgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
-        Create a FirewallFilteringRule resource with the given unique name, props, and options.
+        The zia_firewall_filtering_rule resource manages firewall filtering rules in the Zscaler Internet Access (ZIA) cloud service. Cloud firewall rules control traffic that is forwarded to the Zscaler service for inspection, allowing you to allow, block, or apply specific actions based on source, destination, applications, and other criteria.
+
+        For more information, see the [ZIA Cloud Firewall documentation](https://help.zscaler.com/zia/firewall-policies).
+
+        ## Example Usage
+        ### Basic Firewall Filtering Rule
+
+        ```python
+        import zscaler_pulumi_zia as zia
+
+        example = zia.FirewallFilteringRule("example",
+            name="Example Firewall Rule",
+            description="Allow outbound traffic",
+            order=1,
+            state="ENABLED",
+            action="ALLOW",
+        )
+        ```
+
+        ## Import
+
+        An existing Firewall Filtering Rule can be imported using its resource ID, e.g.
+
+        ```sh
+        $ pulumi import zia:index:FirewallFilteringRule example 12345
+        ```
+
         :param str resource_name: The name of the resource.
         :param FirewallFilteringRuleArgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -661,180 +888,288 @@ class FirewallFilteringRule(pulumi.CustomResource):
     @_builtins.property
     @pulumi.getter
     def action(self) -> pulumi.Output[Optional[_builtins.str]]:
+        """
+        The action the rule takes when traffic matches. Valid values: `ALLOW`, `BLOCK_DROP`, `BLOCK_RESET`, `BLOCK_ICMP`, `EVAL_NWAPP`.
+        """
         return pulumi.get(self, "action")
 
     @_builtins.property
     @pulumi.getter(name="appServiceGroups")
     def app_service_groups(self) -> pulumi.Output[Optional[Sequence[_builtins.int]]]:
+        """
+        IDs of application service groups to which the rule applies.
+        """
         return pulumi.get(self, "app_service_groups")
 
     @_builtins.property
     @pulumi.getter(name="appServices")
     def app_services(self) -> pulumi.Output[Optional[Sequence[_builtins.int]]]:
+        """
+        IDs of application services to which the rule applies.
+        """
         return pulumi.get(self, "app_services")
 
     @_builtins.property
     @pulumi.getter(name="defaultRule")
     def default_rule(self) -> pulumi.Output[Optional[_builtins.bool]]:
+        """
+        Indicates whether this is the default firewall filtering rule.
+        """
         return pulumi.get(self, "default_rule")
 
     @_builtins.property
     @pulumi.getter
     def departments(self) -> pulumi.Output[Optional[Sequence[_builtins.int]]]:
+        """
+        IDs of departments to which the rule must be applied.
+        """
         return pulumi.get(self, "departments")
 
     @_builtins.property
     @pulumi.getter
     def description(self) -> pulumi.Output[Optional[_builtins.str]]:
+        """
+        Additional information about the firewall filtering rule.
+        """
         return pulumi.get(self, "description")
 
     @_builtins.property
     @pulumi.getter(name="destAddresses")
     def dest_addresses(self) -> pulumi.Output[Optional[Sequence[_builtins.str]]]:
+        """
+        Destination IP addresses, FQDNs, or wildcard FQDNs for the rule.
+        """
         return pulumi.get(self, "dest_addresses")
 
     @_builtins.property
     @pulumi.getter(name="destCountries")
     def dest_countries(self) -> pulumi.Output[Optional[Sequence[_builtins.str]]]:
+        """
+        Destination countries (ISO 3166-1 alpha-2 codes) for the rule.
+        """
         return pulumi.get(self, "dest_countries")
 
     @_builtins.property
     @pulumi.getter(name="destIpCategories")
     def dest_ip_categories(self) -> pulumi.Output[Optional[Sequence[_builtins.str]]]:
+        """
+        Destination IP address URL categories. Allows you to identify destinations based on the URL category of the domain.
+        """
         return pulumi.get(self, "dest_ip_categories")
 
     @_builtins.property
     @pulumi.getter(name="destIpGroups")
     def dest_ip_groups(self) -> pulumi.Output[Optional[Sequence[_builtins.int]]]:
+        """
+        IDs of destination IP address groups for the rule.
+        """
         return pulumi.get(self, "dest_ip_groups")
 
     @_builtins.property
     @pulumi.getter(name="deviceGroups")
     def device_groups(self) -> pulumi.Output[Optional[Sequence[_builtins.int]]]:
+        """
+        IDs of device groups for which the rule must be applied. Applicable for devices managed using Zscaler Client Connector.
+        """
         return pulumi.get(self, "device_groups")
 
     @_builtins.property
     @pulumi.getter(name="deviceTrustLevels")
     def device_trust_levels(self) -> pulumi.Output[Optional[Sequence[_builtins.str]]]:
+        """
+        Device trust levels for the rule. Valid values: `ANY`, `UNKNOWN_DEVICETRUSTLEVEL`, `LOW_TRUST`, `MEDIUM_TRUST`, `HIGH_TRUST`.
+        """
         return pulumi.get(self, "device_trust_levels")
 
     @_builtins.property
     @pulumi.getter
     def devices(self) -> pulumi.Output[Optional[Sequence[_builtins.int]]]:
+        """
+        IDs of devices for which the rule must be applied.
+        """
         return pulumi.get(self, "devices")
 
     @_builtins.property
     @pulumi.getter(name="enableFullLogging")
     def enable_full_logging(self) -> pulumi.Output[Optional[_builtins.bool]]:
+        """
+        If set to true, enables full logging for the rule.
+        """
         return pulumi.get(self, "enable_full_logging")
 
     @_builtins.property
     @pulumi.getter(name="excludeSrcCountries")
     def exclude_src_countries(self) -> pulumi.Output[Optional[_builtins.bool]]:
+        """
+        If set to true, the countries specified in sourceCountries are excluded from the rule.
+        """
         return pulumi.get(self, "exclude_src_countries")
 
     @_builtins.property
     @pulumi.getter
     def groups(self) -> pulumi.Output[Optional[Sequence[_builtins.int]]]:
+        """
+        IDs of groups to which the rule must be applied.
+        """
         return pulumi.get(self, "groups")
 
     @_builtins.property
     @pulumi.getter
     def labels(self) -> pulumi.Output[Optional[Sequence[_builtins.int]]]:
+        """
+        IDs of labels associated with the rule.
+        """
         return pulumi.get(self, "labels")
 
     @_builtins.property
     @pulumi.getter(name="locationGroups")
     def location_groups(self) -> pulumi.Output[Optional[Sequence[_builtins.int]]]:
+        """
+        IDs of location groups to which the rule must be applied.
+        """
         return pulumi.get(self, "location_groups")
 
     @_builtins.property
     @pulumi.getter
     def locations(self) -> pulumi.Output[Optional[Sequence[_builtins.int]]]:
+        """
+        IDs of locations to which the rule must be applied.
+        """
         return pulumi.get(self, "locations")
 
     @_builtins.property
     @pulumi.getter
     def name(self) -> pulumi.Output[_builtins.str]:
+        """
+        The name of the firewall filtering rule. Must be unique.
+        """
         return pulumi.get(self, "name")
 
     @_builtins.property
     @pulumi.getter(name="nwApplicationGroups")
     def nw_application_groups(self) -> pulumi.Output[Optional[Sequence[_builtins.int]]]:
+        """
+        IDs of network application groups to which the rule applies.
+        """
         return pulumi.get(self, "nw_application_groups")
 
     @_builtins.property
     @pulumi.getter(name="nwApplications")
     def nw_applications(self) -> pulumi.Output[Optional[Sequence[_builtins.str]]]:
+        """
+        Network application values to which the rule applies (e.g., `APNS`, `DNS`, `HTTP`).
+        """
         return pulumi.get(self, "nw_applications")
 
     @_builtins.property
     @pulumi.getter(name="nwServiceGroups")
     def nw_service_groups(self) -> pulumi.Output[Optional[Sequence[_builtins.int]]]:
+        """
+        IDs of network service groups to which the rule applies.
+        """
         return pulumi.get(self, "nw_service_groups")
 
     @_builtins.property
     @pulumi.getter(name="nwServices")
     def nw_services(self) -> pulumi.Output[Optional[Sequence[_builtins.int]]]:
+        """
+        IDs of network services to which the rule applies.
+        """
         return pulumi.get(self, "nw_services")
 
     @_builtins.property
     @pulumi.getter
     def order(self) -> pulumi.Output[_builtins.int]:
+        """
+        The order of execution of the rule with respect to other firewall filtering rules.
+        """
         return pulumi.get(self, "order")
 
     @_builtins.property
     @pulumi.getter
     def predefined(self) -> pulumi.Output[Optional[_builtins.bool]]:
+        """
+        Indicates whether this is a predefined rule.
+        """
         return pulumi.get(self, "predefined")
 
     @_builtins.property
     @pulumi.getter
     def rank(self) -> pulumi.Output[Optional[_builtins.int]]:
+        """
+        Admin rank of the firewall filtering policy rule. Valid values: 0-7. Default: 7.
+        """
         return pulumi.get(self, "rank")
 
     @_builtins.property
     @pulumi.getter(name="ruleId")
     def rule_id(self) -> pulumi.Output[_builtins.int]:
+        """
+        The system-generated ID of the firewall filtering rule.
+        """
         return pulumi.get(self, "rule_id")
 
     @_builtins.property
     @pulumi.getter(name="sourceCountries")
     def source_countries(self) -> pulumi.Output[Optional[Sequence[_builtins.str]]]:
+        """
+        Source countries (ISO 3166-1 alpha-2 codes) for the rule.
+        """
         return pulumi.get(self, "source_countries")
 
     @_builtins.property
     @pulumi.getter(name="srcIpGroups")
     def src_ip_groups(self) -> pulumi.Output[Optional[Sequence[_builtins.int]]]:
+        """
+        IDs of source IP address groups for the rule.
+        """
         return pulumi.get(self, "src_ip_groups")
 
     @_builtins.property
     @pulumi.getter(name="srcIps")
     def src_ips(self) -> pulumi.Output[Optional[Sequence[_builtins.str]]]:
+        """
+        Source IP addresses or CIDR ranges for the rule.
+        """
         return pulumi.get(self, "src_ips")
 
     @_builtins.property
     @pulumi.getter
     def state(self) -> pulumi.Output[Optional[_builtins.str]]:
+        """
+        Rule state. Valid values: `ENABLED`, `DISABLED`.
+        """
         return pulumi.get(self, "state")
 
     @_builtins.property
     @pulumi.getter(name="timeWindows")
     def time_windows(self) -> pulumi.Output[Optional[Sequence[_builtins.int]]]:
+        """
+        IDs of time intervals during which the rule must be enforced.
+        """
         return pulumi.get(self, "time_windows")
 
     @_builtins.property
     @pulumi.getter
     def users(self) -> pulumi.Output[Optional[Sequence[_builtins.int]]]:
+        """
+        IDs of users to which the rule must be applied.
+        """
         return pulumi.get(self, "users")
 
     @_builtins.property
     @pulumi.getter(name="workloadGroups")
     def workload_groups(self) -> pulumi.Output[Optional[Sequence['outputs.WorkloadGroupInput']]]:
+        """
+        List of preconfigured workload groups to which the policy must be applied.
+        """
         return pulumi.get(self, "workload_groups")
 
     @_builtins.property
     @pulumi.getter(name="zpaAppSegments")
     def zpa_app_segments(self) -> pulumi.Output[Optional[Sequence['outputs.ZPAAppSegmentInput']]]:
+        """
+        List of ZPA application segments for which this rule is applicable. This field is applicable only for the ZPA gateway forwarding method.
+        """
         return pulumi.get(self, "zpa_app_segments")
 

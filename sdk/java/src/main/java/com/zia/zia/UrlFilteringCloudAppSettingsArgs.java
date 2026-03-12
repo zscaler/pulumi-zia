@@ -17,151 +17,439 @@ public final class UrlFilteringCloudAppSettingsArgs extends com.pulumi.resources
 
     public static final UrlFilteringCloudAppSettingsArgs Empty = new UrlFilteringCloudAppSettingsArgs();
 
+    /**
+     * If true, Skype is blocked.
+     * 
+     */
     @Import(name="blockSkype")
     private @Nullable Output<Boolean> blockSkype;
 
+    /**
+     * @return If true, Skype is blocked.
+     * 
+     */
     public Optional<Output<Boolean>> blockSkype() {
         return Optional.ofNullable(this.blockSkype);
     }
 
+    /**
+     * If true, embedded sites within web pages are considered for URL filtering.
+     * 
+     */
     @Import(name="considerEmbeddedSites")
     private @Nullable Output<Boolean> considerEmbeddedSites;
 
+    /**
+     * @return If true, embedded sites within web pages are considered for URL filtering.
+     * 
+     */
     public Optional<Output<Boolean>> considerEmbeddedSites() {
         return Optional.ofNullable(this.considerEmbeddedSites);
     }
 
+    /**
+     * If true, block override is enabled for non-authenticated users.
+     * 
+     */
     @Import(name="enableBlockOverrideForNonAuthUser")
     private @Nullable Output<Boolean> enableBlockOverrideForNonAuthUser;
 
+    /**
+     * @return If true, block override is enabled for non-authenticated users.
+     * 
+     */
     public Optional<Output<Boolean>> enableBlockOverrideForNonAuthUser() {
         return Optional.ofNullable(this.enableBlockOverrideForNonAuthUser);
     }
 
+    /**
+     * If true, ChatGPT prompt visibility and logging is enabled.
+     * 
+     */
     @Import(name="enableChatgptPrompt")
     private @Nullable Output<Boolean> enableChatgptPrompt;
 
+    /**
+     * @return If true, ChatGPT prompt visibility and logging is enabled.
+     * 
+     */
     public Optional<Output<Boolean>> enableChatgptPrompt() {
         return Optional.ofNullable(this.enableChatgptPrompt);
     }
 
+    /**
+     * If true, CIPA (Children&#39;s Internet Protection Act) compliance mode is enabled.
+     * 
+     */
     @Import(name="enableCipaCompliance")
     private @Nullable Output<Boolean> enableCipaCompliance;
 
+    /**
+     * @return If true, CIPA (Children&#39;s Internet Protection Act) compliance mode is enabled.
+     * 
+     */
     public Optional<Output<Boolean>> enableCipaCompliance() {
         return Optional.ofNullable(this.enableCipaCompliance);
     }
 
+    /**
+     * If true, Claude AI prompt visibility and logging is enabled.
+     * 
+     */
+    @Import(name="enableClaudePrompt")
+    private @Nullable Output<Boolean> enableClaudePrompt;
+
+    /**
+     * @return If true, Claude AI prompt visibility and logging is enabled.
+     * 
+     */
+    public Optional<Output<Boolean>> enableClaudePrompt() {
+        return Optional.ofNullable(this.enableClaudePrompt);
+    }
+
+    /**
+     * If true, Creative Commons search results are enabled.
+     * 
+     */
+    @Import(name="enableCreativeCommonsSearchResults")
+    private @Nullable Output<Boolean> enableCreativeCommonsSearchResults;
+
+    /**
+     * @return If true, Creative Commons search results are enabled.
+     * 
+     */
+    public Optional<Output<Boolean>> enableCreativeCommonsSearchResults() {
+        return Optional.ofNullable(this.enableCreativeCommonsSearchResults);
+    }
+
+    /**
+     * If true, DeepSeek AI prompt visibility and logging is enabled.
+     * 
+     */
+    @Import(name="enableDeepSeekPrompt")
+    private @Nullable Output<Boolean> enableDeepSeekPrompt;
+
+    /**
+     * @return If true, DeepSeek AI prompt visibility and logging is enabled.
+     * 
+     */
+    public Optional<Output<Boolean>> enableDeepSeekPrompt() {
+        return Optional.ofNullable(this.enableDeepSeekPrompt);
+    }
+
+    /**
+     * If true, dynamic content categorization is enabled.
+     * 
+     */
     @Import(name="enableDynamicContentCat")
     private @Nullable Output<Boolean> enableDynamicContentCat;
 
+    /**
+     * @return If true, dynamic content categorization is enabled.
+     * 
+     */
     public Optional<Output<Boolean>> enableDynamicContentCat() {
         return Optional.ofNullable(this.enableDynamicContentCat);
     }
 
+    /**
+     * If true, Google Gemini prompt visibility and logging is enabled.
+     * 
+     */
     @Import(name="enableGeminiPrompt")
     private @Nullable Output<Boolean> enableGeminiPrompt;
 
+    /**
+     * @return If true, Google Gemini prompt visibility and logging is enabled.
+     * 
+     */
     public Optional<Output<Boolean>> enableGeminiPrompt() {
         return Optional.ofNullable(this.enableGeminiPrompt);
     }
 
+    /**
+     * If true, Grammarly AI prompt visibility and logging is enabled.
+     * 
+     */
+    @Import(name="enableGrammarlyPrompt")
+    private @Nullable Output<Boolean> enableGrammarlyPrompt;
+
+    /**
+     * @return If true, Grammarly AI prompt visibility and logging is enabled.
+     * 
+     */
+    public Optional<Output<Boolean>> enableGrammarlyPrompt() {
+        return Optional.ofNullable(this.enableGrammarlyPrompt);
+    }
+
+    /**
+     * If true, Grok AI prompt visibility and logging is enabled.
+     * 
+     */
+    @Import(name="enableGrokPrompt")
+    private @Nullable Output<Boolean> enableGrokPrompt;
+
+    /**
+     * @return If true, Grok AI prompt visibility and logging is enabled.
+     * 
+     */
+    public Optional<Output<Boolean>> enableGrokPrompt() {
+        return Optional.ofNullable(this.enableGrokPrompt);
+    }
+
+    /**
+     * If true, Meta AI prompt visibility and logging is enabled.
+     * 
+     */
     @Import(name="enableMetaPrompt")
     private @Nullable Output<Boolean> enableMetaPrompt;
 
+    /**
+     * @return If true, Meta AI prompt visibility and logging is enabled.
+     * 
+     */
     public Optional<Output<Boolean>> enableMetaPrompt() {
         return Optional.ofNullable(this.enableMetaPrompt);
     }
 
+    /**
+     * If true, Microsoft Copilot prompt visibility and logging is enabled.
+     * 
+     */
     @Import(name="enableMicrosoftCopilotPrompt")
     private @Nullable Output<Boolean> enableMicrosoftCopilotPrompt;
 
+    /**
+     * @return If true, Microsoft Copilot prompt visibility and logging is enabled.
+     * 
+     */
     public Optional<Output<Boolean>> enableMicrosoftCopilotPrompt() {
         return Optional.ofNullable(this.enableMicrosoftCopilotPrompt);
     }
 
+    /**
+     * If true, Mistral AI prompt visibility and logging is enabled.
+     * 
+     */
+    @Import(name="enableMistralAiPrompt")
+    private @Nullable Output<Boolean> enableMistralAiPrompt;
+
+    /**
+     * @return If true, Mistral AI prompt visibility and logging is enabled.
+     * 
+     */
+    public Optional<Output<Boolean>> enableMistralAiPrompt() {
+        return Optional.ofNullable(this.enableMistralAiPrompt);
+    }
+
+    /**
+     * If true, Microsoft Office 365 optimization is enabled.
+     * 
+     */
     @Import(name="enableMsftO365")
     private @Nullable Output<Boolean> enableMsftO365;
 
+    /**
+     * @return If true, Microsoft Office 365 optimization is enabled.
+     * 
+     */
     public Optional<Output<Boolean>> enableMsftO365() {
         return Optional.ofNullable(this.enableMsftO365);
     }
 
+    /**
+     * If true, newly registered domains detection is enabled.
+     * 
+     */
     @Import(name="enableNewlyRegisteredDomains")
     private @Nullable Output<Boolean> enableNewlyRegisteredDomains;
 
+    /**
+     * @return If true, newly registered domains detection is enabled.
+     * 
+     */
     public Optional<Output<Boolean>> enableNewlyRegisteredDomains() {
         return Optional.ofNullable(this.enableNewlyRegisteredDomains);
     }
 
+    /**
+     * If true, Office 365 one-click configuration is enabled.
+     * 
+     */
     @Import(name="enableOffice365")
     private @Nullable Output<Boolean> enableOffice365;
 
+    /**
+     * @return If true, Office 365 one-click configuration is enabled.
+     * 
+     */
     public Optional<Output<Boolean>> enableOffice365() {
         return Optional.ofNullable(this.enableOffice365);
     }
 
+    /**
+     * If true, Perplexity AI prompt visibility and logging is enabled.
+     * 
+     */
     @Import(name="enablePerPlexityPrompt")
     private @Nullable Output<Boolean> enablePerPlexityPrompt;
 
+    /**
+     * @return If true, Perplexity AI prompt visibility and logging is enabled.
+     * 
+     */
     public Optional<Output<Boolean>> enablePerPlexityPrompt() {
         return Optional.ofNullable(this.enablePerPlexityPrompt);
     }
 
+    /**
+     * If true, POE prompt visibility and logging is enabled.
+     * 
+     */
     @Import(name="enablePoepPrompt")
     private @Nullable Output<Boolean> enablePoepPrompt;
 
+    /**
+     * @return If true, POE prompt visibility and logging is enabled.
+     * 
+     */
     public Optional<Output<Boolean>> enablePoepPrompt() {
         return Optional.ofNullable(this.enablePoepPrompt);
     }
 
+    /**
+     * If true, UCaaS controls for LogMeIn are enabled.
+     * 
+     */
     @Import(name="enableUcaasLogmein")
     private @Nullable Output<Boolean> enableUcaasLogmein;
 
+    /**
+     * @return If true, UCaaS controls for LogMeIn are enabled.
+     * 
+     */
     public Optional<Output<Boolean>> enableUcaasLogmein() {
         return Optional.ofNullable(this.enableUcaasLogmein);
     }
 
+    /**
+     * If true, UCaaS controls for RingCentral are enabled.
+     * 
+     */
     @Import(name="enableUcaasRingCentral")
     private @Nullable Output<Boolean> enableUcaasRingCentral;
 
+    /**
+     * @return If true, UCaaS controls for RingCentral are enabled.
+     * 
+     */
     public Optional<Output<Boolean>> enableUcaasRingCentral() {
         return Optional.ofNullable(this.enableUcaasRingCentral);
     }
 
+    /**
+     * If true, UCaaS controls for Talkdesk are enabled.
+     * 
+     */
     @Import(name="enableUcaasTalkdesk")
     private @Nullable Output<Boolean> enableUcaasTalkdesk;
 
+    /**
+     * @return If true, UCaaS controls for Talkdesk are enabled.
+     * 
+     */
     public Optional<Output<Boolean>> enableUcaasTalkdesk() {
         return Optional.ofNullable(this.enableUcaasTalkdesk);
     }
 
+    /**
+     * If true, UCaaS controls for Webex are enabled.
+     * 
+     */
     @Import(name="enableUcaasWebex")
     private @Nullable Output<Boolean> enableUcaasWebex;
 
+    /**
+     * @return If true, UCaaS controls for Webex are enabled.
+     * 
+     */
     public Optional<Output<Boolean>> enableUcaasWebex() {
         return Optional.ofNullable(this.enableUcaasWebex);
     }
 
+    /**
+     * If true, UCaaS controls for Zoom are enabled.
+     * 
+     */
     @Import(name="enableUcaasZoom")
     private @Nullable Output<Boolean> enableUcaasZoom;
 
+    /**
+     * @return If true, UCaaS controls for Zoom are enabled.
+     * 
+     */
     public Optional<Output<Boolean>> enableUcaasZoom() {
         return Optional.ofNullable(this.enableUcaasZoom);
     }
 
+    /**
+     * If true, Writer AI prompt visibility and logging is enabled.
+     * 
+     */
+    @Import(name="enableWriterPrompt")
+    private @Nullable Output<Boolean> enableWriterPrompt;
+
+    /**
+     * @return If true, Writer AI prompt visibility and logging is enabled.
+     * 
+     */
+    public Optional<Output<Boolean>> enableWriterPrompt() {
+        return Optional.ofNullable(this.enableWriterPrompt);
+    }
+
+    /**
+     * If true, safe search is enforced for supported search engines.
+     * 
+     */
     @Import(name="enforceSafeSearch")
     private @Nullable Output<Boolean> enforceSafeSearch;
 
+    /**
+     * @return If true, safe search is enforced for supported search engines.
+     * 
+     */
     public Optional<Output<Boolean>> enforceSafeSearch() {
         return Optional.ofNullable(this.enforceSafeSearch);
     }
 
+    /**
+     * List of application names for which safe search is enforced.
+     * 
+     */
     @Import(name="safeSearchApps")
     private @Nullable Output<List<String>> safeSearchApps;
 
+    /**
+     * @return List of application names for which safe search is enforced.
+     * 
+     */
     public Optional<Output<List<String>>> safeSearchApps() {
         return Optional.ofNullable(this.safeSearchApps);
+    }
+
+    /**
+     * If true, Zvelo database lookup is disabled.
+     * 
+     */
+    @Import(name="zveloDbLookupDisabled")
+    private @Nullable Output<Boolean> zveloDbLookupDisabled;
+
+    /**
+     * @return If true, Zvelo database lookup is disabled.
+     * 
+     */
+    public Optional<Output<Boolean>> zveloDbLookupDisabled() {
+        return Optional.ofNullable(this.zveloDbLookupDisabled);
     }
 
     private UrlFilteringCloudAppSettingsArgs() {}
@@ -172,10 +460,16 @@ public final class UrlFilteringCloudAppSettingsArgs extends com.pulumi.resources
         this.enableBlockOverrideForNonAuthUser = $.enableBlockOverrideForNonAuthUser;
         this.enableChatgptPrompt = $.enableChatgptPrompt;
         this.enableCipaCompliance = $.enableCipaCompliance;
+        this.enableClaudePrompt = $.enableClaudePrompt;
+        this.enableCreativeCommonsSearchResults = $.enableCreativeCommonsSearchResults;
+        this.enableDeepSeekPrompt = $.enableDeepSeekPrompt;
         this.enableDynamicContentCat = $.enableDynamicContentCat;
         this.enableGeminiPrompt = $.enableGeminiPrompt;
+        this.enableGrammarlyPrompt = $.enableGrammarlyPrompt;
+        this.enableGrokPrompt = $.enableGrokPrompt;
         this.enableMetaPrompt = $.enableMetaPrompt;
         this.enableMicrosoftCopilotPrompt = $.enableMicrosoftCopilotPrompt;
+        this.enableMistralAiPrompt = $.enableMistralAiPrompt;
         this.enableMsftO365 = $.enableMsftO365;
         this.enableNewlyRegisteredDomains = $.enableNewlyRegisteredDomains;
         this.enableOffice365 = $.enableOffice365;
@@ -186,8 +480,10 @@ public final class UrlFilteringCloudAppSettingsArgs extends com.pulumi.resources
         this.enableUcaasTalkdesk = $.enableUcaasTalkdesk;
         this.enableUcaasWebex = $.enableUcaasWebex;
         this.enableUcaasZoom = $.enableUcaasZoom;
+        this.enableWriterPrompt = $.enableWriterPrompt;
         this.enforceSafeSearch = $.enforceSafeSearch;
         this.safeSearchApps = $.safeSearchApps;
+        this.zveloDbLookupDisabled = $.zveloDbLookupDisabled;
     }
 
     public static Builder builder() {
@@ -208,197 +504,623 @@ public final class UrlFilteringCloudAppSettingsArgs extends com.pulumi.resources
             $ = new UrlFilteringCloudAppSettingsArgs(Objects.requireNonNull(defaults));
         }
 
+        /**
+         * @param blockSkype If true, Skype is blocked.
+         * 
+         * @return builder
+         * 
+         */
         public Builder blockSkype(@Nullable Output<Boolean> blockSkype) {
             $.blockSkype = blockSkype;
             return this;
         }
 
+        /**
+         * @param blockSkype If true, Skype is blocked.
+         * 
+         * @return builder
+         * 
+         */
         public Builder blockSkype(Boolean blockSkype) {
             return blockSkype(Output.of(blockSkype));
         }
 
+        /**
+         * @param considerEmbeddedSites If true, embedded sites within web pages are considered for URL filtering.
+         * 
+         * @return builder
+         * 
+         */
         public Builder considerEmbeddedSites(@Nullable Output<Boolean> considerEmbeddedSites) {
             $.considerEmbeddedSites = considerEmbeddedSites;
             return this;
         }
 
+        /**
+         * @param considerEmbeddedSites If true, embedded sites within web pages are considered for URL filtering.
+         * 
+         * @return builder
+         * 
+         */
         public Builder considerEmbeddedSites(Boolean considerEmbeddedSites) {
             return considerEmbeddedSites(Output.of(considerEmbeddedSites));
         }
 
+        /**
+         * @param enableBlockOverrideForNonAuthUser If true, block override is enabled for non-authenticated users.
+         * 
+         * @return builder
+         * 
+         */
         public Builder enableBlockOverrideForNonAuthUser(@Nullable Output<Boolean> enableBlockOverrideForNonAuthUser) {
             $.enableBlockOverrideForNonAuthUser = enableBlockOverrideForNonAuthUser;
             return this;
         }
 
+        /**
+         * @param enableBlockOverrideForNonAuthUser If true, block override is enabled for non-authenticated users.
+         * 
+         * @return builder
+         * 
+         */
         public Builder enableBlockOverrideForNonAuthUser(Boolean enableBlockOverrideForNonAuthUser) {
             return enableBlockOverrideForNonAuthUser(Output.of(enableBlockOverrideForNonAuthUser));
         }
 
+        /**
+         * @param enableChatgptPrompt If true, ChatGPT prompt visibility and logging is enabled.
+         * 
+         * @return builder
+         * 
+         */
         public Builder enableChatgptPrompt(@Nullable Output<Boolean> enableChatgptPrompt) {
             $.enableChatgptPrompt = enableChatgptPrompt;
             return this;
         }
 
+        /**
+         * @param enableChatgptPrompt If true, ChatGPT prompt visibility and logging is enabled.
+         * 
+         * @return builder
+         * 
+         */
         public Builder enableChatgptPrompt(Boolean enableChatgptPrompt) {
             return enableChatgptPrompt(Output.of(enableChatgptPrompt));
         }
 
+        /**
+         * @param enableCipaCompliance If true, CIPA (Children&#39;s Internet Protection Act) compliance mode is enabled.
+         * 
+         * @return builder
+         * 
+         */
         public Builder enableCipaCompliance(@Nullable Output<Boolean> enableCipaCompliance) {
             $.enableCipaCompliance = enableCipaCompliance;
             return this;
         }
 
+        /**
+         * @param enableCipaCompliance If true, CIPA (Children&#39;s Internet Protection Act) compliance mode is enabled.
+         * 
+         * @return builder
+         * 
+         */
         public Builder enableCipaCompliance(Boolean enableCipaCompliance) {
             return enableCipaCompliance(Output.of(enableCipaCompliance));
         }
 
+        /**
+         * @param enableClaudePrompt If true, Claude AI prompt visibility and logging is enabled.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder enableClaudePrompt(@Nullable Output<Boolean> enableClaudePrompt) {
+            $.enableClaudePrompt = enableClaudePrompt;
+            return this;
+        }
+
+        /**
+         * @param enableClaudePrompt If true, Claude AI prompt visibility and logging is enabled.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder enableClaudePrompt(Boolean enableClaudePrompt) {
+            return enableClaudePrompt(Output.of(enableClaudePrompt));
+        }
+
+        /**
+         * @param enableCreativeCommonsSearchResults If true, Creative Commons search results are enabled.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder enableCreativeCommonsSearchResults(@Nullable Output<Boolean> enableCreativeCommonsSearchResults) {
+            $.enableCreativeCommonsSearchResults = enableCreativeCommonsSearchResults;
+            return this;
+        }
+
+        /**
+         * @param enableCreativeCommonsSearchResults If true, Creative Commons search results are enabled.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder enableCreativeCommonsSearchResults(Boolean enableCreativeCommonsSearchResults) {
+            return enableCreativeCommonsSearchResults(Output.of(enableCreativeCommonsSearchResults));
+        }
+
+        /**
+         * @param enableDeepSeekPrompt If true, DeepSeek AI prompt visibility and logging is enabled.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder enableDeepSeekPrompt(@Nullable Output<Boolean> enableDeepSeekPrompt) {
+            $.enableDeepSeekPrompt = enableDeepSeekPrompt;
+            return this;
+        }
+
+        /**
+         * @param enableDeepSeekPrompt If true, DeepSeek AI prompt visibility and logging is enabled.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder enableDeepSeekPrompt(Boolean enableDeepSeekPrompt) {
+            return enableDeepSeekPrompt(Output.of(enableDeepSeekPrompt));
+        }
+
+        /**
+         * @param enableDynamicContentCat If true, dynamic content categorization is enabled.
+         * 
+         * @return builder
+         * 
+         */
         public Builder enableDynamicContentCat(@Nullable Output<Boolean> enableDynamicContentCat) {
             $.enableDynamicContentCat = enableDynamicContentCat;
             return this;
         }
 
+        /**
+         * @param enableDynamicContentCat If true, dynamic content categorization is enabled.
+         * 
+         * @return builder
+         * 
+         */
         public Builder enableDynamicContentCat(Boolean enableDynamicContentCat) {
             return enableDynamicContentCat(Output.of(enableDynamicContentCat));
         }
 
+        /**
+         * @param enableGeminiPrompt If true, Google Gemini prompt visibility and logging is enabled.
+         * 
+         * @return builder
+         * 
+         */
         public Builder enableGeminiPrompt(@Nullable Output<Boolean> enableGeminiPrompt) {
             $.enableGeminiPrompt = enableGeminiPrompt;
             return this;
         }
 
+        /**
+         * @param enableGeminiPrompt If true, Google Gemini prompt visibility and logging is enabled.
+         * 
+         * @return builder
+         * 
+         */
         public Builder enableGeminiPrompt(Boolean enableGeminiPrompt) {
             return enableGeminiPrompt(Output.of(enableGeminiPrompt));
         }
 
+        /**
+         * @param enableGrammarlyPrompt If true, Grammarly AI prompt visibility and logging is enabled.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder enableGrammarlyPrompt(@Nullable Output<Boolean> enableGrammarlyPrompt) {
+            $.enableGrammarlyPrompt = enableGrammarlyPrompt;
+            return this;
+        }
+
+        /**
+         * @param enableGrammarlyPrompt If true, Grammarly AI prompt visibility and logging is enabled.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder enableGrammarlyPrompt(Boolean enableGrammarlyPrompt) {
+            return enableGrammarlyPrompt(Output.of(enableGrammarlyPrompt));
+        }
+
+        /**
+         * @param enableGrokPrompt If true, Grok AI prompt visibility and logging is enabled.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder enableGrokPrompt(@Nullable Output<Boolean> enableGrokPrompt) {
+            $.enableGrokPrompt = enableGrokPrompt;
+            return this;
+        }
+
+        /**
+         * @param enableGrokPrompt If true, Grok AI prompt visibility and logging is enabled.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder enableGrokPrompt(Boolean enableGrokPrompt) {
+            return enableGrokPrompt(Output.of(enableGrokPrompt));
+        }
+
+        /**
+         * @param enableMetaPrompt If true, Meta AI prompt visibility and logging is enabled.
+         * 
+         * @return builder
+         * 
+         */
         public Builder enableMetaPrompt(@Nullable Output<Boolean> enableMetaPrompt) {
             $.enableMetaPrompt = enableMetaPrompt;
             return this;
         }
 
+        /**
+         * @param enableMetaPrompt If true, Meta AI prompt visibility and logging is enabled.
+         * 
+         * @return builder
+         * 
+         */
         public Builder enableMetaPrompt(Boolean enableMetaPrompt) {
             return enableMetaPrompt(Output.of(enableMetaPrompt));
         }
 
+        /**
+         * @param enableMicrosoftCopilotPrompt If true, Microsoft Copilot prompt visibility and logging is enabled.
+         * 
+         * @return builder
+         * 
+         */
         public Builder enableMicrosoftCopilotPrompt(@Nullable Output<Boolean> enableMicrosoftCopilotPrompt) {
             $.enableMicrosoftCopilotPrompt = enableMicrosoftCopilotPrompt;
             return this;
         }
 
+        /**
+         * @param enableMicrosoftCopilotPrompt If true, Microsoft Copilot prompt visibility and logging is enabled.
+         * 
+         * @return builder
+         * 
+         */
         public Builder enableMicrosoftCopilotPrompt(Boolean enableMicrosoftCopilotPrompt) {
             return enableMicrosoftCopilotPrompt(Output.of(enableMicrosoftCopilotPrompt));
         }
 
+        /**
+         * @param enableMistralAiPrompt If true, Mistral AI prompt visibility and logging is enabled.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder enableMistralAiPrompt(@Nullable Output<Boolean> enableMistralAiPrompt) {
+            $.enableMistralAiPrompt = enableMistralAiPrompt;
+            return this;
+        }
+
+        /**
+         * @param enableMistralAiPrompt If true, Mistral AI prompt visibility and logging is enabled.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder enableMistralAiPrompt(Boolean enableMistralAiPrompt) {
+            return enableMistralAiPrompt(Output.of(enableMistralAiPrompt));
+        }
+
+        /**
+         * @param enableMsftO365 If true, Microsoft Office 365 optimization is enabled.
+         * 
+         * @return builder
+         * 
+         */
         public Builder enableMsftO365(@Nullable Output<Boolean> enableMsftO365) {
             $.enableMsftO365 = enableMsftO365;
             return this;
         }
 
+        /**
+         * @param enableMsftO365 If true, Microsoft Office 365 optimization is enabled.
+         * 
+         * @return builder
+         * 
+         */
         public Builder enableMsftO365(Boolean enableMsftO365) {
             return enableMsftO365(Output.of(enableMsftO365));
         }
 
+        /**
+         * @param enableNewlyRegisteredDomains If true, newly registered domains detection is enabled.
+         * 
+         * @return builder
+         * 
+         */
         public Builder enableNewlyRegisteredDomains(@Nullable Output<Boolean> enableNewlyRegisteredDomains) {
             $.enableNewlyRegisteredDomains = enableNewlyRegisteredDomains;
             return this;
         }
 
+        /**
+         * @param enableNewlyRegisteredDomains If true, newly registered domains detection is enabled.
+         * 
+         * @return builder
+         * 
+         */
         public Builder enableNewlyRegisteredDomains(Boolean enableNewlyRegisteredDomains) {
             return enableNewlyRegisteredDomains(Output.of(enableNewlyRegisteredDomains));
         }
 
+        /**
+         * @param enableOffice365 If true, Office 365 one-click configuration is enabled.
+         * 
+         * @return builder
+         * 
+         */
         public Builder enableOffice365(@Nullable Output<Boolean> enableOffice365) {
             $.enableOffice365 = enableOffice365;
             return this;
         }
 
+        /**
+         * @param enableOffice365 If true, Office 365 one-click configuration is enabled.
+         * 
+         * @return builder
+         * 
+         */
         public Builder enableOffice365(Boolean enableOffice365) {
             return enableOffice365(Output.of(enableOffice365));
         }
 
+        /**
+         * @param enablePerPlexityPrompt If true, Perplexity AI prompt visibility and logging is enabled.
+         * 
+         * @return builder
+         * 
+         */
         public Builder enablePerPlexityPrompt(@Nullable Output<Boolean> enablePerPlexityPrompt) {
             $.enablePerPlexityPrompt = enablePerPlexityPrompt;
             return this;
         }
 
+        /**
+         * @param enablePerPlexityPrompt If true, Perplexity AI prompt visibility and logging is enabled.
+         * 
+         * @return builder
+         * 
+         */
         public Builder enablePerPlexityPrompt(Boolean enablePerPlexityPrompt) {
             return enablePerPlexityPrompt(Output.of(enablePerPlexityPrompt));
         }
 
+        /**
+         * @param enablePoepPrompt If true, POE prompt visibility and logging is enabled.
+         * 
+         * @return builder
+         * 
+         */
         public Builder enablePoepPrompt(@Nullable Output<Boolean> enablePoepPrompt) {
             $.enablePoepPrompt = enablePoepPrompt;
             return this;
         }
 
+        /**
+         * @param enablePoepPrompt If true, POE prompt visibility and logging is enabled.
+         * 
+         * @return builder
+         * 
+         */
         public Builder enablePoepPrompt(Boolean enablePoepPrompt) {
             return enablePoepPrompt(Output.of(enablePoepPrompt));
         }
 
+        /**
+         * @param enableUcaasLogmein If true, UCaaS controls for LogMeIn are enabled.
+         * 
+         * @return builder
+         * 
+         */
         public Builder enableUcaasLogmein(@Nullable Output<Boolean> enableUcaasLogmein) {
             $.enableUcaasLogmein = enableUcaasLogmein;
             return this;
         }
 
+        /**
+         * @param enableUcaasLogmein If true, UCaaS controls for LogMeIn are enabled.
+         * 
+         * @return builder
+         * 
+         */
         public Builder enableUcaasLogmein(Boolean enableUcaasLogmein) {
             return enableUcaasLogmein(Output.of(enableUcaasLogmein));
         }
 
+        /**
+         * @param enableUcaasRingCentral If true, UCaaS controls for RingCentral are enabled.
+         * 
+         * @return builder
+         * 
+         */
         public Builder enableUcaasRingCentral(@Nullable Output<Boolean> enableUcaasRingCentral) {
             $.enableUcaasRingCentral = enableUcaasRingCentral;
             return this;
         }
 
+        /**
+         * @param enableUcaasRingCentral If true, UCaaS controls for RingCentral are enabled.
+         * 
+         * @return builder
+         * 
+         */
         public Builder enableUcaasRingCentral(Boolean enableUcaasRingCentral) {
             return enableUcaasRingCentral(Output.of(enableUcaasRingCentral));
         }
 
+        /**
+         * @param enableUcaasTalkdesk If true, UCaaS controls for Talkdesk are enabled.
+         * 
+         * @return builder
+         * 
+         */
         public Builder enableUcaasTalkdesk(@Nullable Output<Boolean> enableUcaasTalkdesk) {
             $.enableUcaasTalkdesk = enableUcaasTalkdesk;
             return this;
         }
 
+        /**
+         * @param enableUcaasTalkdesk If true, UCaaS controls for Talkdesk are enabled.
+         * 
+         * @return builder
+         * 
+         */
         public Builder enableUcaasTalkdesk(Boolean enableUcaasTalkdesk) {
             return enableUcaasTalkdesk(Output.of(enableUcaasTalkdesk));
         }
 
+        /**
+         * @param enableUcaasWebex If true, UCaaS controls for Webex are enabled.
+         * 
+         * @return builder
+         * 
+         */
         public Builder enableUcaasWebex(@Nullable Output<Boolean> enableUcaasWebex) {
             $.enableUcaasWebex = enableUcaasWebex;
             return this;
         }
 
+        /**
+         * @param enableUcaasWebex If true, UCaaS controls for Webex are enabled.
+         * 
+         * @return builder
+         * 
+         */
         public Builder enableUcaasWebex(Boolean enableUcaasWebex) {
             return enableUcaasWebex(Output.of(enableUcaasWebex));
         }
 
+        /**
+         * @param enableUcaasZoom If true, UCaaS controls for Zoom are enabled.
+         * 
+         * @return builder
+         * 
+         */
         public Builder enableUcaasZoom(@Nullable Output<Boolean> enableUcaasZoom) {
             $.enableUcaasZoom = enableUcaasZoom;
             return this;
         }
 
+        /**
+         * @param enableUcaasZoom If true, UCaaS controls for Zoom are enabled.
+         * 
+         * @return builder
+         * 
+         */
         public Builder enableUcaasZoom(Boolean enableUcaasZoom) {
             return enableUcaasZoom(Output.of(enableUcaasZoom));
         }
 
+        /**
+         * @param enableWriterPrompt If true, Writer AI prompt visibility and logging is enabled.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder enableWriterPrompt(@Nullable Output<Boolean> enableWriterPrompt) {
+            $.enableWriterPrompt = enableWriterPrompt;
+            return this;
+        }
+
+        /**
+         * @param enableWriterPrompt If true, Writer AI prompt visibility and logging is enabled.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder enableWriterPrompt(Boolean enableWriterPrompt) {
+            return enableWriterPrompt(Output.of(enableWriterPrompt));
+        }
+
+        /**
+         * @param enforceSafeSearch If true, safe search is enforced for supported search engines.
+         * 
+         * @return builder
+         * 
+         */
         public Builder enforceSafeSearch(@Nullable Output<Boolean> enforceSafeSearch) {
             $.enforceSafeSearch = enforceSafeSearch;
             return this;
         }
 
+        /**
+         * @param enforceSafeSearch If true, safe search is enforced for supported search engines.
+         * 
+         * @return builder
+         * 
+         */
         public Builder enforceSafeSearch(Boolean enforceSafeSearch) {
             return enforceSafeSearch(Output.of(enforceSafeSearch));
         }
 
+        /**
+         * @param safeSearchApps List of application names for which safe search is enforced.
+         * 
+         * @return builder
+         * 
+         */
         public Builder safeSearchApps(@Nullable Output<List<String>> safeSearchApps) {
             $.safeSearchApps = safeSearchApps;
             return this;
         }
 
+        /**
+         * @param safeSearchApps List of application names for which safe search is enforced.
+         * 
+         * @return builder
+         * 
+         */
         public Builder safeSearchApps(List<String> safeSearchApps) {
             return safeSearchApps(Output.of(safeSearchApps));
         }
 
+        /**
+         * @param safeSearchApps List of application names for which safe search is enforced.
+         * 
+         * @return builder
+         * 
+         */
         public Builder safeSearchApps(String... safeSearchApps) {
             return safeSearchApps(List.of(safeSearchApps));
+        }
+
+        /**
+         * @param zveloDbLookupDisabled If true, Zvelo database lookup is disabled.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder zveloDbLookupDisabled(@Nullable Output<Boolean> zveloDbLookupDisabled) {
+            $.zveloDbLookupDisabled = zveloDbLookupDisabled;
+            return this;
+        }
+
+        /**
+         * @param zveloDbLookupDisabled If true, Zvelo database lookup is disabled.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder zveloDbLookupDisabled(Boolean zveloDbLookupDisabled) {
+            return zveloDbLookupDisabled(Output.of(zveloDbLookupDisabled));
         }
 
         public UrlFilteringCloudAppSettingsArgs build() {

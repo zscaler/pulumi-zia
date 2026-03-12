@@ -15,95 +15,230 @@ import java.lang.String;
 import java.util.Optional;
 import javax.annotation.Nullable;
 
+/**
+ * The zia.VzenNode resource manages Virtual ZEN (VZEN) node configurations in the Zscaler Internet Access (ZIA) cloud.
+ * VZEN nodes are virtual appliances deployed on-premises to process traffic locally before forwarding to the ZIA cloud.
+ * 
+ * ## Example Usage
+ * 
+ * ## Import
+ * 
+ * An existing VZEN node can be imported using its ID, e.g.
+ * 
+ * ```sh
+ * $ pulumi import zia:index:VzenNode example 12345
+ * ```
+ * 
+ */
 @ResourceType(type="zia:index:VzenNode")
 public class VzenNode extends com.pulumi.resources.CustomResource {
+    /**
+     * The cluster name if deployment mode is CLUSTER.
+     * 
+     */
     @Export(name="clusterName", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> clusterName;
 
+    /**
+     * @return The cluster name if deployment mode is CLUSTER.
+     * 
+     */
     public Output<Optional<String>> clusterName() {
         return Codegen.optional(this.clusterName);
     }
+    /**
+     * The default gateway of the VZEN node.
+     * 
+     */
     @Export(name="defaultGateway", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> defaultGateway;
 
+    /**
+     * @return The default gateway of the VZEN node.
+     * 
+     */
     public Output<Optional<String>> defaultGateway() {
         return Codegen.optional(this.defaultGateway);
     }
+    /**
+     * The deployment mode. Accepted values: &#39;STANDALONE&#39; or &#39;CLUSTER&#39;.
+     * 
+     */
     @Export(name="deploymentMode", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> deploymentMode;
 
+    /**
+     * @return The deployment mode. Accepted values: &#39;STANDALONE&#39; or &#39;CLUSTER&#39;.
+     * 
+     */
     public Output<Optional<String>> deploymentMode() {
         return Codegen.optional(this.deploymentMode);
     }
+    /**
+     * Whether establish support tunnel is enabled.
+     * 
+     */
     @Export(name="establishSupportTunnelEnabled", refs={Boolean.class}, tree="[0]")
     private Output</* @Nullable */ Boolean> establishSupportTunnelEnabled;
 
+    /**
+     * @return Whether establish support tunnel is enabled.
+     * 
+     */
     public Output<Optional<Boolean>> establishSupportTunnelEnabled() {
         return Codegen.optional(this.establishSupportTunnelEnabled);
     }
+    /**
+     * Whether the node is in production.
+     * 
+     */
     @Export(name="inProduction", refs={Boolean.class}, tree="[0]")
     private Output</* @Nullable */ Boolean> inProduction;
 
+    /**
+     * @return Whether the node is in production.
+     * 
+     */
     public Output<Optional<Boolean>> inProduction() {
         return Codegen.optional(this.inProduction);
     }
+    /**
+     * The IP address of the VZEN node.
+     * 
+     */
     @Export(name="ipAddress", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> ipAddress;
 
+    /**
+     * @return The IP address of the VZEN node.
+     * 
+     */
     public Output<Optional<String>> ipAddress() {
         return Codegen.optional(this.ipAddress);
     }
+    /**
+     * Whether IPSec is enabled on the node.
+     * 
+     */
     @Export(name="ipSecEnabled", refs={Boolean.class}, tree="[0]")
     private Output</* @Nullable */ Boolean> ipSecEnabled;
 
+    /**
+     * @return Whether IPSec is enabled on the node.
+     * 
+     */
     public Output<Optional<Boolean>> ipSecEnabled() {
         return Codegen.optional(this.ipSecEnabled);
     }
+    /**
+     * The load balancer IP address.
+     * 
+     */
     @Export(name="loadBalancerIpAddress", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> loadBalancerIpAddress;
 
+    /**
+     * @return The load balancer IP address.
+     * 
+     */
     public Output<Optional<String>> loadBalancerIpAddress() {
         return Codegen.optional(this.loadBalancerIpAddress);
     }
+    /**
+     * Name of the VZEN node.
+     * 
+     */
     @Export(name="name", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> name;
 
+    /**
+     * @return Name of the VZEN node.
+     * 
+     */
     public Output<Optional<String>> name() {
         return Codegen.optional(this.name);
     }
+    /**
+     * The unique identifier for the VZEN node assigned by the ZIA cloud.
+     * 
+     */
     @Export(name="nodeId", refs={Integer.class}, tree="[0]")
     private Output<Integer> nodeId;
 
+    /**
+     * @return The unique identifier for the VZEN node assigned by the ZIA cloud.
+     * 
+     */
     public Output<Integer> nodeId() {
         return this.nodeId;
     }
+    /**
+     * Whether on-demand support tunnel is enabled.
+     * 
+     */
     @Export(name="onDemandSupportTunnelEnabled", refs={Boolean.class}, tree="[0]")
     private Output</* @Nullable */ Boolean> onDemandSupportTunnelEnabled;
 
+    /**
+     * @return Whether on-demand support tunnel is enabled.
+     * 
+     */
     public Output<Optional<Boolean>> onDemandSupportTunnelEnabled() {
         return Codegen.optional(this.onDemandSupportTunnelEnabled);
     }
+    /**
+     * The status of the node. Accepted values: &#39;ENABLED&#39;, &#39;DISABLED&#39;, &#39;DISABLED_BY_SERVICE_PROVIDER&#39;, &#39;NOT_PROVISIONED_IN_SERVICE_PROVIDER&#39;, &#39;IN_TRIAL&#39;.
+     * 
+     */
     @Export(name="status", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> status;
 
+    /**
+     * @return The status of the node. Accepted values: &#39;ENABLED&#39;, &#39;DISABLED&#39;, &#39;DISABLED_BY_SERVICE_PROVIDER&#39;, &#39;NOT_PROVISIONED_IN_SERVICE_PROVIDER&#39;, &#39;IN_TRIAL&#39;.
+     * 
+     */
     public Output<Optional<String>> status() {
         return Codegen.optional(this.status);
     }
+    /**
+     * The subnet mask of the VZEN node.
+     * 
+     */
     @Export(name="subnetMask", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> subnetMask;
 
+    /**
+     * @return The subnet mask of the VZEN node.
+     * 
+     */
     public Output<Optional<String>> subnetMask() {
         return Codegen.optional(this.subnetMask);
     }
+    /**
+     * The type of the VZEN node.
+     * 
+     */
     @Export(name="type", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> type;
 
+    /**
+     * @return The type of the VZEN node.
+     * 
+     */
     public Output<Optional<String>> type() {
         return Codegen.optional(this.type);
     }
+    /**
+     * The VZEN SKU type. Accepted values: &#39;SMALL&#39;, &#39;MEDIUM&#39;, &#39;LARGE&#39;.
+     * 
+     */
     @Export(name="vzenSkuType", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> vzenSkuType;
 
+    /**
+     * @return The VZEN SKU type. Accepted values: &#39;SMALL&#39;, &#39;MEDIUM&#39;, &#39;LARGE&#39;.
+     * 
+     */
     public Output<Optional<String>> vzenSkuType() {
         return Codegen.optional(this.vzenSkuType);
     }
@@ -147,6 +282,7 @@ public class VzenNode extends com.pulumi.resources.CustomResource {
     private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<java.lang.String> id) {
         var defaultOptions = com.pulumi.resources.CustomResourceOptions.builder()
             .version(Utilities.getVersion())
+            .pluginDownloadURL("github://api.github.com/zscaler")
             .build();
         return com.pulumi.resources.CustomResourceOptions.merge(defaultOptions, options, id);
     }

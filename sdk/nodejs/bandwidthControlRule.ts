@@ -4,6 +4,35 @@
 import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "./utilities";
 
+/**
+ * The zia_bandwidth_control_rule resource manages bandwidth control rules in the Zscaler Internet Access (ZIA) cloud service. Bandwidth control rules allow administrators to define minimum and maximum bandwidth limits for specific traffic, locations, and time windows to ensure quality of service across the network.
+ *
+ * For more information, see the [ZIA Bandwidth Control documentation](https://help.zscaler.com/zia/bandwidth-control).
+ *
+ * ## Example Usage
+ * ### Basic Bandwidth Control Rule
+ *
+ * ```typescript
+ * import * as zia from "@bdzscaler/pulumi-zia";
+ *
+ * const example = new zia.BandwidthControlRule("example", {
+ *     name: "Example Bandwidth Control Rule",
+ *     description: "Limit streaming bandwidth",
+ *     order: 1,
+ *     state: "ENABLED",
+ *     maxBandwidth: 50,
+ *     protocols: ["ANY_RULE"],
+ * });
+ * ```
+ *
+ * ## Import
+ *
+ * An existing Bandwidth Control Rule can be imported using its resource ID, e.g.
+ *
+ * ```sh
+ * $ pulumi import zia:index:BandwidthControlRule example 12345
+ * ```
+ */
 export class BandwidthControlRule extends pulumi.CustomResource {
     /**
      * Get an existing BandwidthControlRule resource's state with the given name, ID, and optional extra
@@ -31,19 +60,61 @@ export class BandwidthControlRule extends pulumi.CustomResource {
         return obj['__pulumiType'] === BandwidthControlRule.__pulumiType;
     }
 
+    /**
+     * IDs of bandwidth classes associated with this rule.
+     */
     declare public readonly bandwidthClasses: pulumi.Output<number[] | undefined>;
+    /**
+     * Additional information about the bandwidth control rule.
+     */
     declare public readonly description: pulumi.Output<string | undefined>;
+    /**
+     * IDs of labels associated with the bandwidth control rule.
+     */
     declare public readonly labels: pulumi.Output<number[] | undefined>;
+    /**
+     * IDs of location groups for which the rule must be applied.
+     */
     declare public readonly locationGroups: pulumi.Output<number[] | undefined>;
+    /**
+     * IDs of locations for which the rule must be applied.
+     */
     declare public readonly locations: pulumi.Output<number[] | undefined>;
+    /**
+     * The maximum bandwidth percentage allowed. Valid range: 0-100.
+     */
     declare public readonly maxBandwidth: pulumi.Output<number | undefined>;
+    /**
+     * The minimum bandwidth percentage allocated. Valid range: 0-100.
+     */
     declare public readonly minBandwidth: pulumi.Output<number | undefined>;
+    /**
+     * The name of the bandwidth control rule. Must be unique.
+     */
     declare public readonly name: pulumi.Output<string>;
+    /**
+     * The order of execution of the rule with respect to other bandwidth control rules.
+     */
     declare public readonly order: pulumi.Output<number>;
+    /**
+     * Protocols to which the rule applies. Valid values: `ANY_RULE`, `TCP_RULE`, `UDP_RULE`, `SSL_RULE`.
+     */
     declare public readonly protocols: pulumi.Output<string[] | undefined>;
+    /**
+     * Admin rank of the bandwidth control rule. Valid values: 0-7. Default: 7.
+     */
     declare public readonly rank: pulumi.Output<number | undefined>;
+    /**
+     * The system-generated ID of the bandwidth control rule.
+     */
     declare public /*out*/ readonly ruleId: pulumi.Output<number>;
+    /**
+     * Rule state. Valid values: `ENABLED`, `DISABLED`.
+     */
     declare public readonly state: pulumi.Output<string | undefined>;
+    /**
+     * IDs of time intervals during which the rule must be enforced.
+     */
     declare public readonly timeWindows: pulumi.Output<number[] | undefined>;
 
     /**
@@ -102,17 +173,56 @@ export class BandwidthControlRule extends pulumi.CustomResource {
  * The set of arguments for constructing a BandwidthControlRule resource.
  */
 export interface BandwidthControlRuleArgs {
+    /**
+     * IDs of bandwidth classes associated with this rule.
+     */
     bandwidthClasses?: pulumi.Input<pulumi.Input<number>[]>;
+    /**
+     * Additional information about the bandwidth control rule.
+     */
     description?: pulumi.Input<string>;
+    /**
+     * IDs of labels associated with the bandwidth control rule.
+     */
     labels?: pulumi.Input<pulumi.Input<number>[]>;
+    /**
+     * IDs of location groups for which the rule must be applied.
+     */
     locationGroups?: pulumi.Input<pulumi.Input<number>[]>;
+    /**
+     * IDs of locations for which the rule must be applied.
+     */
     locations?: pulumi.Input<pulumi.Input<number>[]>;
+    /**
+     * The maximum bandwidth percentage allowed. Valid range: 0-100.
+     */
     maxBandwidth?: pulumi.Input<number>;
+    /**
+     * The minimum bandwidth percentage allocated. Valid range: 0-100.
+     */
     minBandwidth?: pulumi.Input<number>;
+    /**
+     * The name of the bandwidth control rule. Must be unique.
+     */
     name: pulumi.Input<string>;
+    /**
+     * The order of execution of the rule with respect to other bandwidth control rules.
+     */
     order: pulumi.Input<number>;
+    /**
+     * Protocols to which the rule applies. Valid values: `ANY_RULE`, `TCP_RULE`, `UDP_RULE`, `SSL_RULE`.
+     */
     protocols?: pulumi.Input<pulumi.Input<string>[]>;
+    /**
+     * Admin rank of the bandwidth control rule. Valid values: 0-7. Default: 7.
+     */
     rank?: pulumi.Input<number>;
+    /**
+     * Rule state. Valid values: `ENABLED`, `DISABLED`.
+     */
     state?: pulumi.Input<string>;
+    /**
+     * IDs of time intervals during which the rule must be enforced.
+     */
     timeWindows?: pulumi.Input<pulumi.Input<number>[]>;
 }

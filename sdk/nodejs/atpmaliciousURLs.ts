@@ -4,6 +4,28 @@
 import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "./utilities";
 
+/**
+ * The zia_atp_malicious_urls resource manages the list of malicious URL exceptions for Advanced Threat Protection (ATP) in the Zscaler Internet Access (ZIA) cloud service. URLs added to this list are treated as known malicious and will be blocked. This is a singleton resource.
+ *
+ * For more information, see the [ZIA Advanced Threat Protection documentation](https://help.zscaler.com/zia/about-advanced-threat-protection-policy).
+ *
+ * ## Example Usage
+ * ### Configure ATP Malicious URL Exceptions
+ *
+ * ```typescript
+ * import * as zia from "@bdzscaler/pulumi-zia";
+ *
+ * const example = new zia.AtpMaliciousUrls("example", {
+ *     maliciousUrls: [
+ *         "malicious-site.com",
+ *         "phishing-example.net",
+ *         "bad-domain.org",
+ *     ],
+ * });
+ * ```
+ *
+ * > This is a singleton resource. Import is not applicable.
+ */
 export class AtpMaliciousUrls extends pulumi.CustomResource {
     /**
      * Get an existing AtpMaliciousUrls resource's state with the given name, ID, and optional extra
@@ -31,7 +53,13 @@ export class AtpMaliciousUrls extends pulumi.CustomResource {
         return obj['__pulumiType'] === AtpMaliciousUrls.__pulumiType;
     }
 
+    /**
+     * List of URLs to be treated as malicious by Advanced Threat Protection.
+     */
     declare public readonly maliciousUrls: pulumi.Output<string[] | undefined>;
+    /**
+     * The internal resource identifier for the ATP malicious URLs.
+     */
     declare public /*out*/ readonly resourceId: pulumi.Output<string>;
 
     /**
@@ -60,5 +88,8 @@ export class AtpMaliciousUrls extends pulumi.CustomResource {
  * The set of arguments for constructing a AtpMaliciousUrls resource.
  */
 export interface AtpMaliciousUrlsArgs {
+    /**
+     * List of URLs to be treated as malicious by Advanced Threat Protection.
+     */
     maliciousUrls?: pulumi.Input<pulumi.Input<string>[]>;
 }

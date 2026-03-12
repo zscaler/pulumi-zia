@@ -4,6 +4,26 @@
 import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "./utilities";
 
+/**
+ * The zia_sandbox_submission resource submits files to the Zscaler cloud sandbox for analysis. Files can be submitted for full analysis or a quick discan (distributed scan). This resource is create-only; there is no remote GET API, and delete is a no-op.
+ *
+ * For more information, see the [ZIA Cloud Sandbox Submission documentation](https://help.zscaler.com/zia/about-sandbox-analysis).
+ *
+ * ## Example Usage
+ * ### Submit a File for Sandbox Analysis
+ *
+ * ```typescript
+ * import * as zia from "@bdzscaler/pulumi-zia";
+ *
+ * const example = new zia.SandboxSubmission("example", {
+ *     filePath: "/tmp/suspicious-file.exe",
+ *     submissionMethod: "submit",
+ *     force: true,
+ * });
+ * ```
+ *
+ * > Import is not supported for this resource.
+ */
 export class SandboxSubmission extends pulumi.CustomResource {
     /**
      * Get an existing SandboxSubmission resource's state with the given name, ID, and optional extra
@@ -31,15 +51,45 @@ export class SandboxSubmission extends pulumi.CustomResource {
         return obj['__pulumiType'] === SandboxSubmission.__pulumiType;
     }
 
+    /**
+     * The response status code from the sandbox submission.
+     */
     declare public /*out*/ readonly code: pulumi.Output<number | undefined>;
+    /**
+     * The local file path of the file to submit for sandbox analysis.
+     */
     declare public readonly filePath: pulumi.Output<string>;
+    /**
+     * The detected file type of the submitted file.
+     */
     declare public /*out*/ readonly fileType: pulumi.Output<string | undefined>;
+    /**
+     * Force re-analysis of a previously submitted file. Only applicable for 'submit' method. Not applicable for 'discan'.
+     */
     declare public readonly force: pulumi.Output<boolean | undefined>;
+    /**
+     * The MD5 hash of the submitted file.
+     */
     declare public /*out*/ readonly md5: pulumi.Output<string | undefined>;
+    /**
+     * The response message from the sandbox submission.
+     */
     declare public /*out*/ readonly message: pulumi.Output<string | undefined>;
+    /**
+     * The submission method. Valid values: `submit` (full analysis) or `discan` (distributed scan).
+     */
     declare public readonly submissionMethod: pulumi.Output<string>;
+    /**
+     * The sandbox submission result string.
+     */
     declare public /*out*/ readonly submissionResult: pulumi.Output<string | undefined>;
+    /**
+     * The virus name if the file is detected as malicious.
+     */
     declare public /*out*/ readonly virusName: pulumi.Output<string | undefined>;
+    /**
+     * The virus type if the file is detected as malicious.
+     */
     declare public /*out*/ readonly virusType: pulumi.Output<string | undefined>;
 
     /**
@@ -90,7 +140,16 @@ export class SandboxSubmission extends pulumi.CustomResource {
  * The set of arguments for constructing a SandboxSubmission resource.
  */
 export interface SandboxSubmissionArgs {
+    /**
+     * The local file path of the file to submit for sandbox analysis.
+     */
     filePath: pulumi.Input<string>;
+    /**
+     * Force re-analysis of a previously submitted file. Only applicable for 'submit' method. Not applicable for 'discan'.
+     */
     force?: pulumi.Input<boolean>;
+    /**
+     * The submission method. Valid values: `submit` (full analysis) or `discan` (distributed scan).
+     */
     submissionMethod: pulumi.Input<string>;
 }

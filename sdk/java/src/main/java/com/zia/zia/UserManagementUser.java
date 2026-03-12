@@ -16,59 +16,147 @@ import java.util.List;
 import java.util.Optional;
 import javax.annotation.Nullable;
 
+/**
+ * The zia.UserManagementUser resource manages user accounts in the Zscaler Internet Access (ZIA) cloud.
+ * Users can be assigned to departments and groups, and enrolled with authentication methods such as
+ * BASIC or DIGEST.
+ * 
+ * ## Example Usage
+ * 
+ * ## Import
+ * 
+ * An existing user can be imported using its ID, e.g.
+ * 
+ * ```sh
+ * $ pulumi import zia:index:UserManagementUser example 12345
+ * ```
+ * 
+ */
 @ResourceType(type="zia:index:UserManagementUser")
 public class UserManagementUser extends com.pulumi.resources.CustomResource {
+    /**
+     * Authentication methods for the user. Accepted values: &#39;BASIC&#39;, &#39;DIGEST&#39;.
+     * 
+     */
     @Export(name="authMethods", refs={List.class,String.class}, tree="[0,1]")
     private Output</* @Nullable */ List<String>> authMethods;
 
+    /**
+     * @return Authentication methods for the user. Accepted values: &#39;BASIC&#39;, &#39;DIGEST&#39;.
+     * 
+     */
     public Output<Optional<List<String>>> authMethods() {
         return Codegen.optional(this.authMethods);
     }
+    /**
+     * Comments or notes about the user. Maximum 10240 characters.
+     * 
+     */
     @Export(name="comments", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> comments;
 
+    /**
+     * @return Comments or notes about the user. Maximum 10240 characters.
+     * 
+     */
     public Output<Optional<String>> comments() {
         return Codegen.optional(this.comments);
     }
+    /**
+     * The department the user belongs to.
+     * 
+     */
     @Export(name="department", refs={UserDepartmentInput.class}, tree="[0]")
     private Output</* @Nullable */ UserDepartmentInput> department;
 
+    /**
+     * @return The department the user belongs to.
+     * 
+     */
     public Output<Optional<UserDepartmentInput>> department() {
         return Codegen.optional(this.department);
     }
+    /**
+     * The user&#39;s email address. Maximum 127 characters.
+     * 
+     */
     @Export(name="email", refs={String.class}, tree="[0]")
     private Output<String> email;
 
+    /**
+     * @return The user&#39;s email address. Maximum 127 characters.
+     * 
+     */
     public Output<String> email() {
         return this.email;
     }
+    /**
+     * List of group IDs the user belongs to.
+     * 
+     */
     @Export(name="groups", refs={List.class,Integer.class}, tree="[0,1]")
     private Output</* @Nullable */ List<Integer>> groups;
 
+    /**
+     * @return List of group IDs the user belongs to.
+     * 
+     */
     public Output<Optional<List<Integer>>> groups() {
         return Codegen.optional(this.groups);
     }
+    /**
+     * The user&#39;s full name. Maximum 127 characters.
+     * 
+     */
     @Export(name="name", refs={String.class}, tree="[0]")
     private Output<String> name;
 
+    /**
+     * @return The user&#39;s full name. Maximum 127 characters.
+     * 
+     */
     public Output<String> name() {
         return this.name;
     }
+    /**
+     * The user&#39;s password. This is a secret and will not be stored in plaintext in the state.
+     * 
+     */
     @Export(name="password", refs={String.class}, tree="[0]")
     private Output<String> password;
 
+    /**
+     * @return The user&#39;s password. This is a secret and will not be stored in plaintext in the state.
+     * 
+     */
     public Output<String> password() {
         return this.password;
     }
+    /**
+     * Temporary authentication email for the user.
+     * 
+     */
     @Export(name="tempAuthEmail", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> tempAuthEmail;
 
+    /**
+     * @return Temporary authentication email for the user.
+     * 
+     */
     public Output<Optional<String>> tempAuthEmail() {
         return Codegen.optional(this.tempAuthEmail);
     }
+    /**
+     * The unique identifier for the user assigned by the ZIA cloud.
+     * 
+     */
     @Export(name="userId", refs={Integer.class}, tree="[0]")
     private Output<Integer> userId;
 
+    /**
+     * @return The unique identifier for the user assigned by the ZIA cloud.
+     * 
+     */
     public Output<Integer> userId() {
         return this.userId;
     }
@@ -112,6 +200,7 @@ public class UserManagementUser extends com.pulumi.resources.CustomResource {
     private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<java.lang.String> id) {
         var defaultOptions = com.pulumi.resources.CustomResourceOptions.builder()
             .version(Utilities.getVersion())
+            .pluginDownloadURL("github://api.github.com/zscaler")
             .additionalSecretOutputs(List.of(
                 "password"
             ))

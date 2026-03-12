@@ -31,6 +31,14 @@ class UserManagementUserArgs:
                  temp_auth_email: Optional[pulumi.Input[_builtins.str]] = None):
         """
         The set of arguments for constructing a UserManagementUser resource.
+        :param pulumi.Input[_builtins.str] email: The user's email address. Maximum 127 characters.
+        :param pulumi.Input[_builtins.str] name: The user's full name. Maximum 127 characters.
+        :param pulumi.Input[_builtins.str] password: The user's password. This is a secret and will not be stored in plaintext in the state.
+        :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] auth_methods: Authentication methods for the user. Accepted values: 'BASIC', 'DIGEST'.
+        :param pulumi.Input[_builtins.str] comments: Comments or notes about the user. Maximum 10240 characters.
+        :param pulumi.Input['UserDepartmentInputArgs'] department: The department the user belongs to.
+        :param pulumi.Input[Sequence[pulumi.Input[_builtins.int]]] groups: List of group IDs the user belongs to.
+        :param pulumi.Input[_builtins.str] temp_auth_email: Temporary authentication email for the user.
         """
         pulumi.set(__self__, "email", email)
         pulumi.set(__self__, "name", name)
@@ -49,6 +57,9 @@ class UserManagementUserArgs:
     @_builtins.property
     @pulumi.getter
     def email(self) -> pulumi.Input[_builtins.str]:
+        """
+        The user's email address. Maximum 127 characters.
+        """
         return pulumi.get(self, "email")
 
     @email.setter
@@ -58,6 +69,9 @@ class UserManagementUserArgs:
     @_builtins.property
     @pulumi.getter
     def name(self) -> pulumi.Input[_builtins.str]:
+        """
+        The user's full name. Maximum 127 characters.
+        """
         return pulumi.get(self, "name")
 
     @name.setter
@@ -67,6 +81,9 @@ class UserManagementUserArgs:
     @_builtins.property
     @pulumi.getter
     def password(self) -> pulumi.Input[_builtins.str]:
+        """
+        The user's password. This is a secret and will not be stored in plaintext in the state.
+        """
         return pulumi.get(self, "password")
 
     @password.setter
@@ -76,6 +93,9 @@ class UserManagementUserArgs:
     @_builtins.property
     @pulumi.getter(name="authMethods")
     def auth_methods(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
+        """
+        Authentication methods for the user. Accepted values: 'BASIC', 'DIGEST'.
+        """
         return pulumi.get(self, "auth_methods")
 
     @auth_methods.setter
@@ -85,6 +105,9 @@ class UserManagementUserArgs:
     @_builtins.property
     @pulumi.getter
     def comments(self) -> Optional[pulumi.Input[_builtins.str]]:
+        """
+        Comments or notes about the user. Maximum 10240 characters.
+        """
         return pulumi.get(self, "comments")
 
     @comments.setter
@@ -94,6 +117,9 @@ class UserManagementUserArgs:
     @_builtins.property
     @pulumi.getter
     def department(self) -> Optional[pulumi.Input['UserDepartmentInputArgs']]:
+        """
+        The department the user belongs to.
+        """
         return pulumi.get(self, "department")
 
     @department.setter
@@ -103,6 +129,9 @@ class UserManagementUserArgs:
     @_builtins.property
     @pulumi.getter
     def groups(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.int]]]]:
+        """
+        List of group IDs the user belongs to.
+        """
         return pulumi.get(self, "groups")
 
     @groups.setter
@@ -112,6 +141,9 @@ class UserManagementUserArgs:
     @_builtins.property
     @pulumi.getter(name="tempAuthEmail")
     def temp_auth_email(self) -> Optional[pulumi.Input[_builtins.str]]:
+        """
+        Temporary authentication email for the user.
+        """
         return pulumi.get(self, "temp_auth_email")
 
     @temp_auth_email.setter
@@ -135,9 +167,49 @@ class UserManagementUser(pulumi.CustomResource):
                  temp_auth_email: Optional[pulumi.Input[_builtins.str]] = None,
                  __props__=None):
         """
-        Create a UserManagementUser resource with the given unique name, props, and options.
+        The zia.UserManagementUser resource manages user accounts in the Zscaler Internet Access (ZIA) cloud.
+        Users can be assigned to departments and groups, and enrolled with authentication methods such as
+        BASIC or DIGEST.
+
+        ## Example Usage
+        ### Basic User Management
+
+        ```python
+        import zscaler_pulumi_zia as zia
+
+        cfg = pulumi.Config()
+        user_password = cfg.require_secret("userPassword")
+
+        example = zia.UserManagementUser("example",
+            name="John Doe",
+            email="john.doe@example.com",
+            password=user_password,
+            auth_methods=["BASIC"],
+            groups=[12345],
+            department={
+                "id": 67890,
+            },
+        )
+        ```
+
+        ## Import
+
+        An existing user can be imported using its ID, e.g.
+
+        ```sh
+        $ pulumi import zia:index:UserManagementUser example 12345
+        ```
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
+        :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] auth_methods: Authentication methods for the user. Accepted values: 'BASIC', 'DIGEST'.
+        :param pulumi.Input[_builtins.str] comments: Comments or notes about the user. Maximum 10240 characters.
+        :param pulumi.Input[Union['UserDepartmentInputArgs', 'UserDepartmentInputArgsDict']] department: The department the user belongs to.
+        :param pulumi.Input[_builtins.str] email: The user's email address. Maximum 127 characters.
+        :param pulumi.Input[Sequence[pulumi.Input[_builtins.int]]] groups: List of group IDs the user belongs to.
+        :param pulumi.Input[_builtins.str] name: The user's full name. Maximum 127 characters.
+        :param pulumi.Input[_builtins.str] password: The user's password. This is a secret and will not be stored in plaintext in the state.
+        :param pulumi.Input[_builtins.str] temp_auth_email: Temporary authentication email for the user.
         """
         ...
     @overload
@@ -146,7 +218,39 @@ class UserManagementUser(pulumi.CustomResource):
                  args: UserManagementUserArgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
-        Create a UserManagementUser resource with the given unique name, props, and options.
+        The zia.UserManagementUser resource manages user accounts in the Zscaler Internet Access (ZIA) cloud.
+        Users can be assigned to departments and groups, and enrolled with authentication methods such as
+        BASIC or DIGEST.
+
+        ## Example Usage
+        ### Basic User Management
+
+        ```python
+        import zscaler_pulumi_zia as zia
+
+        cfg = pulumi.Config()
+        user_password = cfg.require_secret("userPassword")
+
+        example = zia.UserManagementUser("example",
+            name="John Doe",
+            email="john.doe@example.com",
+            password=user_password,
+            auth_methods=["BASIC"],
+            groups=[12345],
+            department={
+                "id": 67890,
+            },
+        )
+        ```
+
+        ## Import
+
+        An existing user can be imported using its ID, e.g.
+
+        ```sh
+        $ pulumi import zia:index:UserManagementUser example 12345
+        ```
+
         :param str resource_name: The name of the resource.
         :param UserManagementUserArgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -232,45 +336,72 @@ class UserManagementUser(pulumi.CustomResource):
     @_builtins.property
     @pulumi.getter(name="authMethods")
     def auth_methods(self) -> pulumi.Output[Optional[Sequence[_builtins.str]]]:
+        """
+        Authentication methods for the user. Accepted values: 'BASIC', 'DIGEST'.
+        """
         return pulumi.get(self, "auth_methods")
 
     @_builtins.property
     @pulumi.getter
     def comments(self) -> pulumi.Output[Optional[_builtins.str]]:
+        """
+        Comments or notes about the user. Maximum 10240 characters.
+        """
         return pulumi.get(self, "comments")
 
     @_builtins.property
     @pulumi.getter
     def department(self) -> pulumi.Output[Optional['outputs.UserDepartmentInput']]:
+        """
+        The department the user belongs to.
+        """
         return pulumi.get(self, "department")
 
     @_builtins.property
     @pulumi.getter
     def email(self) -> pulumi.Output[_builtins.str]:
+        """
+        The user's email address. Maximum 127 characters.
+        """
         return pulumi.get(self, "email")
 
     @_builtins.property
     @pulumi.getter
     def groups(self) -> pulumi.Output[Optional[Sequence[_builtins.int]]]:
+        """
+        List of group IDs the user belongs to.
+        """
         return pulumi.get(self, "groups")
 
     @_builtins.property
     @pulumi.getter
     def name(self) -> pulumi.Output[_builtins.str]:
+        """
+        The user's full name. Maximum 127 characters.
+        """
         return pulumi.get(self, "name")
 
     @_builtins.property
     @pulumi.getter
     def password(self) -> pulumi.Output[_builtins.str]:
+        """
+        The user's password. This is a secret and will not be stored in plaintext in the state.
+        """
         return pulumi.get(self, "password")
 
     @_builtins.property
     @pulumi.getter(name="tempAuthEmail")
     def temp_auth_email(self) -> pulumi.Output[Optional[_builtins.str]]:
+        """
+        Temporary authentication email for the user.
+        """
         return pulumi.get(self, "temp_auth_email")
 
     @_builtins.property
     @pulumi.getter(name="userId")
     def user_id(self) -> pulumi.Output[_builtins.int]:
+        """
+        The unique identifier for the user assigned by the ZIA cloud.
+        """
         return pulumi.get(self, "user_id")
 

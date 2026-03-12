@@ -18,26 +18,50 @@ from . import outputs
 __all__ = [
     'AdminUserRoleInput',
     'CBIProfileInput',
+    'ClassificationOutput',
+    'CloudApplicationItem',
+    'DatacenterInfo',
     'DecryptSubActionsInput',
+    'DeviceGroupItem',
+    'DlpDictionaryPatternInput',
+    'DlpDictionaryPhraseInput',
     'DoNotDecryptSubActionsInput',
+    'ExtranetDnsListInput',
+    'ExtranetIpPoolListInput',
+    'FilePropertiesOutput',
+    'FileTypeCategoryItem',
     'GreTunnelDestVipOutput',
+    'IdNameExtensionsOutput',
+    'InstanceIdentifierInput',
+    'LastModifiedByOutput',
+    'LastValidationMsgOutput',
+    'Md5HashValueInput',
+    'NetworkPortInput',
+    'OnboardableEntityOutput',
+    'OriginOutput',
+    'SandboxRssOutput',
+    'SmartIsolationProfileInput',
     'SslInspectionActionInput',
     'SslInterceptionCertInput',
     'SubCloudDcOutput',
     'SubCloudExclusionDatacenterInput',
     'SubCloudExclusionInput',
+    'SummaryDetailOutput',
     'UrlCategoryScopeInput',
     'UrlCategoryUrlKeywordCountsInput',
     'UserDepartmentInput',
     'UserDepartmentOutput',
     'UserGroupOutput',
     'VirtualZenNodeOutput',
+    'VpnCredentialInput',
     'WorkloadGroupExpressionContainerInput',
     'WorkloadGroupExpressionJsonInput',
     'WorkloadGroupInput',
     'WorkloadGroupTagContainerInput',
     'WorkloadGroupTagInput',
     'ZPAAppSegmentInput',
+    'ZpaGatewayAppSegmentInput',
+    'ZpaServerGroupInput',
 ]
 
 @pulumi.output_type
@@ -60,6 +84,8 @@ class CBIProfileInput(dict):
         suggest = None
         if key == "profileSeq":
             suggest = "profile_seq"
+        elif key == "resourceId":
+            suggest = "resource_id"
 
         if suggest:
             pulumi.log.warn(f"Key '{key}' not found in CBIProfileInput. Access the value via the '{suggest}' property getter instead.")
@@ -73,23 +99,18 @@ class CBIProfileInput(dict):
         return super().get(key, default)
 
     def __init__(__self__, *,
-                 id: Optional[_builtins.str] = None,
                  name: Optional[_builtins.str] = None,
                  profile_seq: Optional[_builtins.int] = None,
+                 resource_id: Optional[_builtins.str] = None,
                  url: Optional[_builtins.str] = None):
-        if id is not None:
-            pulumi.set(__self__, "id", id)
         if name is not None:
             pulumi.set(__self__, "name", name)
         if profile_seq is not None:
             pulumi.set(__self__, "profile_seq", profile_seq)
+        if resource_id is not None:
+            pulumi.set(__self__, "resource_id", resource_id)
         if url is not None:
             pulumi.set(__self__, "url", url)
-
-    @_builtins.property
-    @pulumi.getter
-    def id(self) -> Optional[_builtins.str]:
-        return pulumi.get(self, "id")
 
     @_builtins.property
     @pulumi.getter
@@ -102,9 +123,246 @@ class CBIProfileInput(dict):
         return pulumi.get(self, "profile_seq")
 
     @_builtins.property
+    @pulumi.getter(name="resourceId")
+    def resource_id(self) -> Optional[_builtins.str]:
+        return pulumi.get(self, "resource_id")
+
+    @_builtins.property
     @pulumi.getter
     def url(self) -> Optional[_builtins.str]:
         return pulumi.get(self, "url")
+
+
+@pulumi.output_type
+class ClassificationOutput(dict):
+    def __init__(__self__, *,
+                 category: _builtins.str,
+                 detected_malware: _builtins.str,
+                 score: _builtins.int,
+                 type: _builtins.str):
+        pulumi.set(__self__, "category", category)
+        pulumi.set(__self__, "detected_malware", detected_malware)
+        pulumi.set(__self__, "score", score)
+        pulumi.set(__self__, "type", type)
+
+    @_builtins.property
+    @pulumi.getter
+    def category(self) -> _builtins.str:
+        return pulumi.get(self, "category")
+
+    @_builtins.property
+    @pulumi.getter(name="detectedMalware")
+    def detected_malware(self) -> _builtins.str:
+        return pulumi.get(self, "detected_malware")
+
+    @_builtins.property
+    @pulumi.getter
+    def score(self) -> _builtins.int:
+        return pulumi.get(self, "score")
+
+    @_builtins.property
+    @pulumi.getter
+    def type(self) -> _builtins.str:
+        return pulumi.get(self, "type")
+
+
+@pulumi.output_type
+class CloudApplicationItem(dict):
+    def __init__(__self__, *,
+                 app: _builtins.str,
+                 app_name: _builtins.str,
+                 parent: _builtins.str,
+                 parent_name: _builtins.str):
+        pulumi.set(__self__, "app", app)
+        pulumi.set(__self__, "app_name", app_name)
+        pulumi.set(__self__, "parent", parent)
+        pulumi.set(__self__, "parent_name", parent_name)
+
+    @_builtins.property
+    @pulumi.getter
+    def app(self) -> _builtins.str:
+        return pulumi.get(self, "app")
+
+    @_builtins.property
+    @pulumi.getter(name="appName")
+    def app_name(self) -> _builtins.str:
+        return pulumi.get(self, "app_name")
+
+    @_builtins.property
+    @pulumi.getter
+    def parent(self) -> _builtins.str:
+        return pulumi.get(self, "parent")
+
+    @_builtins.property
+    @pulumi.getter(name="parentName")
+    def parent_name(self) -> _builtins.str:
+        return pulumi.get(self, "parent_name")
+
+
+@pulumi.output_type
+class DatacenterInfo(dict):
+    def __init__(__self__, *,
+                 city: _builtins.str,
+                 create_time: _builtins.int,
+                 dont_provision: _builtins.bool,
+                 dont_publish: _builtins.bool,
+                 download_bandwidth: _builtins.int,
+                 for_future_use: _builtins.bool,
+                 gov_only: _builtins.bool,
+                 id: _builtins.int,
+                 last_modified_time: _builtins.int,
+                 lat: _builtins.int,
+                 latitude: _builtins.float,
+                 longi: _builtins.int,
+                 longitude: _builtins.float,
+                 managed_bcp: _builtins.bool,
+                 name: _builtins.str,
+                 not_ready_for_use: _builtins.bool,
+                 owned_by_customer: _builtins.bool,
+                 provider: _builtins.str,
+                 regional_surcharge: _builtins.bool,
+                 third_party_cloud: _builtins.bool,
+                 timezone: _builtins.str,
+                 upload_bandwidth: _builtins.int,
+                 virtual: _builtins.bool):
+        pulumi.set(__self__, "city", city)
+        pulumi.set(__self__, "create_time", create_time)
+        pulumi.set(__self__, "dont_provision", dont_provision)
+        pulumi.set(__self__, "dont_publish", dont_publish)
+        pulumi.set(__self__, "download_bandwidth", download_bandwidth)
+        pulumi.set(__self__, "for_future_use", for_future_use)
+        pulumi.set(__self__, "gov_only", gov_only)
+        pulumi.set(__self__, "id", id)
+        pulumi.set(__self__, "last_modified_time", last_modified_time)
+        pulumi.set(__self__, "lat", lat)
+        pulumi.set(__self__, "latitude", latitude)
+        pulumi.set(__self__, "longi", longi)
+        pulumi.set(__self__, "longitude", longitude)
+        pulumi.set(__self__, "managed_bcp", managed_bcp)
+        pulumi.set(__self__, "name", name)
+        pulumi.set(__self__, "not_ready_for_use", not_ready_for_use)
+        pulumi.set(__self__, "owned_by_customer", owned_by_customer)
+        pulumi.set(__self__, "provider", provider)
+        pulumi.set(__self__, "regional_surcharge", regional_surcharge)
+        pulumi.set(__self__, "third_party_cloud", third_party_cloud)
+        pulumi.set(__self__, "timezone", timezone)
+        pulumi.set(__self__, "upload_bandwidth", upload_bandwidth)
+        pulumi.set(__self__, "virtual", virtual)
+
+    @_builtins.property
+    @pulumi.getter
+    def city(self) -> _builtins.str:
+        return pulumi.get(self, "city")
+
+    @_builtins.property
+    @pulumi.getter(name="createTime")
+    def create_time(self) -> _builtins.int:
+        return pulumi.get(self, "create_time")
+
+    @_builtins.property
+    @pulumi.getter(name="dontProvision")
+    def dont_provision(self) -> _builtins.bool:
+        return pulumi.get(self, "dont_provision")
+
+    @_builtins.property
+    @pulumi.getter(name="dontPublish")
+    def dont_publish(self) -> _builtins.bool:
+        return pulumi.get(self, "dont_publish")
+
+    @_builtins.property
+    @pulumi.getter(name="downloadBandwidth")
+    def download_bandwidth(self) -> _builtins.int:
+        return pulumi.get(self, "download_bandwidth")
+
+    @_builtins.property
+    @pulumi.getter(name="forFutureUse")
+    def for_future_use(self) -> _builtins.bool:
+        return pulumi.get(self, "for_future_use")
+
+    @_builtins.property
+    @pulumi.getter(name="govOnly")
+    def gov_only(self) -> _builtins.bool:
+        return pulumi.get(self, "gov_only")
+
+    @_builtins.property
+    @pulumi.getter
+    def id(self) -> _builtins.int:
+        return pulumi.get(self, "id")
+
+    @_builtins.property
+    @pulumi.getter(name="lastModifiedTime")
+    def last_modified_time(self) -> _builtins.int:
+        return pulumi.get(self, "last_modified_time")
+
+    @_builtins.property
+    @pulumi.getter
+    def lat(self) -> _builtins.int:
+        return pulumi.get(self, "lat")
+
+    @_builtins.property
+    @pulumi.getter
+    def latitude(self) -> _builtins.float:
+        return pulumi.get(self, "latitude")
+
+    @_builtins.property
+    @pulumi.getter
+    def longi(self) -> _builtins.int:
+        return pulumi.get(self, "longi")
+
+    @_builtins.property
+    @pulumi.getter
+    def longitude(self) -> _builtins.float:
+        return pulumi.get(self, "longitude")
+
+    @_builtins.property
+    @pulumi.getter(name="managedBcp")
+    def managed_bcp(self) -> _builtins.bool:
+        return pulumi.get(self, "managed_bcp")
+
+    @_builtins.property
+    @pulumi.getter
+    def name(self) -> _builtins.str:
+        return pulumi.get(self, "name")
+
+    @_builtins.property
+    @pulumi.getter(name="notReadyForUse")
+    def not_ready_for_use(self) -> _builtins.bool:
+        return pulumi.get(self, "not_ready_for_use")
+
+    @_builtins.property
+    @pulumi.getter(name="ownedByCustomer")
+    def owned_by_customer(self) -> _builtins.bool:
+        return pulumi.get(self, "owned_by_customer")
+
+    @_builtins.property
+    @pulumi.getter
+    def provider(self) -> _builtins.str:
+        return pulumi.get(self, "provider")
+
+    @_builtins.property
+    @pulumi.getter(name="regionalSurcharge")
+    def regional_surcharge(self) -> _builtins.bool:
+        return pulumi.get(self, "regional_surcharge")
+
+    @_builtins.property
+    @pulumi.getter(name="thirdPartyCloud")
+    def third_party_cloud(self) -> _builtins.bool:
+        return pulumi.get(self, "third_party_cloud")
+
+    @_builtins.property
+    @pulumi.getter
+    def timezone(self) -> _builtins.str:
+        return pulumi.get(self, "timezone")
+
+    @_builtins.property
+    @pulumi.getter(name="uploadBandwidth")
+    def upload_bandwidth(self) -> _builtins.int:
+        return pulumi.get(self, "upload_bandwidth")
+
+    @_builtins.property
+    @pulumi.getter
+    def virtual(self) -> _builtins.bool:
+        return pulumi.get(self, "virtual")
 
 
 @pulumi.output_type
@@ -198,6 +456,109 @@ class DecryptSubActionsInput(dict):
 
 
 @pulumi.output_type
+class DeviceGroupItem(dict):
+    def __init__(__self__, *,
+                 description: _builtins.str,
+                 device_count: _builtins.int,
+                 device_names: _builtins.str,
+                 group_type: _builtins.str,
+                 name: _builtins.str,
+                 os_type: _builtins.str,
+                 predefined: _builtins.bool,
+                 resource_id: _builtins.int):
+        pulumi.set(__self__, "description", description)
+        pulumi.set(__self__, "device_count", device_count)
+        pulumi.set(__self__, "device_names", device_names)
+        pulumi.set(__self__, "group_type", group_type)
+        pulumi.set(__self__, "name", name)
+        pulumi.set(__self__, "os_type", os_type)
+        pulumi.set(__self__, "predefined", predefined)
+        pulumi.set(__self__, "resource_id", resource_id)
+
+    @_builtins.property
+    @pulumi.getter
+    def description(self) -> _builtins.str:
+        return pulumi.get(self, "description")
+
+    @_builtins.property
+    @pulumi.getter(name="deviceCount")
+    def device_count(self) -> _builtins.int:
+        return pulumi.get(self, "device_count")
+
+    @_builtins.property
+    @pulumi.getter(name="deviceNames")
+    def device_names(self) -> _builtins.str:
+        return pulumi.get(self, "device_names")
+
+    @_builtins.property
+    @pulumi.getter(name="groupType")
+    def group_type(self) -> _builtins.str:
+        return pulumi.get(self, "group_type")
+
+    @_builtins.property
+    @pulumi.getter
+    def name(self) -> _builtins.str:
+        return pulumi.get(self, "name")
+
+    @_builtins.property
+    @pulumi.getter(name="osType")
+    def os_type(self) -> _builtins.str:
+        return pulumi.get(self, "os_type")
+
+    @_builtins.property
+    @pulumi.getter
+    def predefined(self) -> _builtins.bool:
+        return pulumi.get(self, "predefined")
+
+    @_builtins.property
+    @pulumi.getter(name="resourceId")
+    def resource_id(self) -> _builtins.int:
+        return pulumi.get(self, "resource_id")
+
+
+@pulumi.output_type
+class DlpDictionaryPatternInput(dict):
+    def __init__(__self__, *,
+                 action: Optional[_builtins.str] = None,
+                 pattern: Optional[_builtins.str] = None):
+        if action is not None:
+            pulumi.set(__self__, "action", action)
+        if pattern is not None:
+            pulumi.set(__self__, "pattern", pattern)
+
+    @_builtins.property
+    @pulumi.getter
+    def action(self) -> Optional[_builtins.str]:
+        return pulumi.get(self, "action")
+
+    @_builtins.property
+    @pulumi.getter
+    def pattern(self) -> Optional[_builtins.str]:
+        return pulumi.get(self, "pattern")
+
+
+@pulumi.output_type
+class DlpDictionaryPhraseInput(dict):
+    def __init__(__self__, *,
+                 action: Optional[_builtins.str] = None,
+                 phrase: Optional[_builtins.str] = None):
+        if action is not None:
+            pulumi.set(__self__, "action", action)
+        if phrase is not None:
+            pulumi.set(__self__, "phrase", phrase)
+
+    @_builtins.property
+    @pulumi.getter
+    def action(self) -> Optional[_builtins.str]:
+        return pulumi.get(self, "action")
+
+    @_builtins.property
+    @pulumi.getter
+    def phrase(self) -> Optional[_builtins.str]:
+        return pulumi.get(self, "phrase")
+
+
+@pulumi.output_type
 class DoNotDecryptSubActionsInput(dict):
     @staticmethod
     def __key_warning(key: str):
@@ -268,6 +629,232 @@ class DoNotDecryptSubActionsInput(dict):
 
 
 @pulumi.output_type
+class ExtranetDnsListInput(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "primaryDnsServer":
+            suggest = "primary_dns_server"
+        elif key == "secondaryDnsServer":
+            suggest = "secondary_dns_server"
+        elif key == "useAsDefault":
+            suggest = "use_as_default"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in ExtranetDnsListInput. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        ExtranetDnsListInput.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        ExtranetDnsListInput.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 id: Optional[_builtins.int] = None,
+                 name: Optional[_builtins.str] = None,
+                 primary_dns_server: Optional[_builtins.str] = None,
+                 secondary_dns_server: Optional[_builtins.str] = None,
+                 use_as_default: Optional[_builtins.bool] = None):
+        if id is not None:
+            pulumi.set(__self__, "id", id)
+        if name is not None:
+            pulumi.set(__self__, "name", name)
+        if primary_dns_server is not None:
+            pulumi.set(__self__, "primary_dns_server", primary_dns_server)
+        if secondary_dns_server is not None:
+            pulumi.set(__self__, "secondary_dns_server", secondary_dns_server)
+        if use_as_default is not None:
+            pulumi.set(__self__, "use_as_default", use_as_default)
+
+    @_builtins.property
+    @pulumi.getter
+    def id(self) -> Optional[_builtins.int]:
+        return pulumi.get(self, "id")
+
+    @_builtins.property
+    @pulumi.getter
+    def name(self) -> Optional[_builtins.str]:
+        return pulumi.get(self, "name")
+
+    @_builtins.property
+    @pulumi.getter(name="primaryDnsServer")
+    def primary_dns_server(self) -> Optional[_builtins.str]:
+        return pulumi.get(self, "primary_dns_server")
+
+    @_builtins.property
+    @pulumi.getter(name="secondaryDnsServer")
+    def secondary_dns_server(self) -> Optional[_builtins.str]:
+        return pulumi.get(self, "secondary_dns_server")
+
+    @_builtins.property
+    @pulumi.getter(name="useAsDefault")
+    def use_as_default(self) -> Optional[_builtins.bool]:
+        return pulumi.get(self, "use_as_default")
+
+
+@pulumi.output_type
+class ExtranetIpPoolListInput(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "ipEnd":
+            suggest = "ip_end"
+        elif key == "ipStart":
+            suggest = "ip_start"
+        elif key == "useAsDefault":
+            suggest = "use_as_default"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in ExtranetIpPoolListInput. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        ExtranetIpPoolListInput.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        ExtranetIpPoolListInput.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 id: Optional[_builtins.int] = None,
+                 ip_end: Optional[_builtins.str] = None,
+                 ip_start: Optional[_builtins.str] = None,
+                 name: Optional[_builtins.str] = None,
+                 use_as_default: Optional[_builtins.bool] = None):
+        if id is not None:
+            pulumi.set(__self__, "id", id)
+        if ip_end is not None:
+            pulumi.set(__self__, "ip_end", ip_end)
+        if ip_start is not None:
+            pulumi.set(__self__, "ip_start", ip_start)
+        if name is not None:
+            pulumi.set(__self__, "name", name)
+        if use_as_default is not None:
+            pulumi.set(__self__, "use_as_default", use_as_default)
+
+    @_builtins.property
+    @pulumi.getter
+    def id(self) -> Optional[_builtins.int]:
+        return pulumi.get(self, "id")
+
+    @_builtins.property
+    @pulumi.getter(name="ipEnd")
+    def ip_end(self) -> Optional[_builtins.str]:
+        return pulumi.get(self, "ip_end")
+
+    @_builtins.property
+    @pulumi.getter(name="ipStart")
+    def ip_start(self) -> Optional[_builtins.str]:
+        return pulumi.get(self, "ip_start")
+
+    @_builtins.property
+    @pulumi.getter
+    def name(self) -> Optional[_builtins.str]:
+        return pulumi.get(self, "name")
+
+    @_builtins.property
+    @pulumi.getter(name="useAsDefault")
+    def use_as_default(self) -> Optional[_builtins.bool]:
+        return pulumi.get(self, "use_as_default")
+
+
+@pulumi.output_type
+class FilePropertiesOutput(dict):
+    def __init__(__self__, *,
+                 digital_certificate: _builtins.str,
+                 file_size: _builtins.int,
+                 file_type: _builtins.str,
+                 issuer: _builtins.str,
+                 md5: _builtins.str,
+                 root_ca: _builtins.str,
+                 sha1: _builtins.str,
+                 sha256: _builtins.str,
+                 ssdeep: _builtins.str):
+        pulumi.set(__self__, "digital_certificate", digital_certificate)
+        pulumi.set(__self__, "file_size", file_size)
+        pulumi.set(__self__, "file_type", file_type)
+        pulumi.set(__self__, "issuer", issuer)
+        pulumi.set(__self__, "md5", md5)
+        pulumi.set(__self__, "root_ca", root_ca)
+        pulumi.set(__self__, "sha1", sha1)
+        pulumi.set(__self__, "sha256", sha256)
+        pulumi.set(__self__, "ssdeep", ssdeep)
+
+    @_builtins.property
+    @pulumi.getter(name="digitalCertificate")
+    def digital_certificate(self) -> _builtins.str:
+        return pulumi.get(self, "digital_certificate")
+
+    @_builtins.property
+    @pulumi.getter(name="fileSize")
+    def file_size(self) -> _builtins.int:
+        return pulumi.get(self, "file_size")
+
+    @_builtins.property
+    @pulumi.getter(name="fileType")
+    def file_type(self) -> _builtins.str:
+        return pulumi.get(self, "file_type")
+
+    @_builtins.property
+    @pulumi.getter
+    def issuer(self) -> _builtins.str:
+        return pulumi.get(self, "issuer")
+
+    @_builtins.property
+    @pulumi.getter
+    def md5(self) -> _builtins.str:
+        return pulumi.get(self, "md5")
+
+    @_builtins.property
+    @pulumi.getter(name="rootCa")
+    def root_ca(self) -> _builtins.str:
+        return pulumi.get(self, "root_ca")
+
+    @_builtins.property
+    @pulumi.getter
+    def sha1(self) -> _builtins.str:
+        return pulumi.get(self, "sha1")
+
+    @_builtins.property
+    @pulumi.getter
+    def sha256(self) -> _builtins.str:
+        return pulumi.get(self, "sha256")
+
+    @_builtins.property
+    @pulumi.getter
+    def ssdeep(self) -> _builtins.str:
+        return pulumi.get(self, "ssdeep")
+
+
+@pulumi.output_type
+class FileTypeCategoryItem(dict):
+    def __init__(__self__, *,
+                 name: _builtins.str,
+                 parent: _builtins.str,
+                 resource_id: _builtins.int):
+        pulumi.set(__self__, "name", name)
+        pulumi.set(__self__, "parent", parent)
+        pulumi.set(__self__, "resource_id", resource_id)
+
+    @_builtins.property
+    @pulumi.getter
+    def name(self) -> _builtins.str:
+        return pulumi.get(self, "name")
+
+    @_builtins.property
+    @pulumi.getter
+    def parent(self) -> _builtins.str:
+        return pulumi.get(self, "parent")
+
+    @_builtins.property
+    @pulumi.getter(name="resourceId")
+    def resource_id(self) -> _builtins.int:
+        return pulumi.get(self, "resource_id")
+
+
+@pulumi.output_type
 class GreTunnelDestVipOutput(dict):
     @staticmethod
     def __key_warning(key: str):
@@ -311,6 +898,311 @@ class GreTunnelDestVipOutput(dict):
     @pulumi.getter(name="virtualIp")
     def virtual_ip(self) -> Optional[_builtins.str]:
         return pulumi.get(self, "virtual_ip")
+
+
+@pulumi.output_type
+class IdNameExtensionsOutput(dict):
+    def __init__(__self__, *,
+                 name: _builtins.str,
+                 resource_id: _builtins.int):
+        pulumi.set(__self__, "name", name)
+        pulumi.set(__self__, "resource_id", resource_id)
+
+    @_builtins.property
+    @pulumi.getter
+    def name(self) -> _builtins.str:
+        return pulumi.get(self, "name")
+
+    @_builtins.property
+    @pulumi.getter(name="resourceId")
+    def resource_id(self) -> _builtins.int:
+        return pulumi.get(self, "resource_id")
+
+
+@pulumi.output_type
+class InstanceIdentifierInput(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "identifierType":
+            suggest = "identifier_type"
+        elif key == "instanceId":
+            suggest = "instance_id"
+        elif key == "instanceIdentifier":
+            suggest = "instance_identifier"
+        elif key == "instanceIdentifierName":
+            suggest = "instance_identifier_name"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in InstanceIdentifierInput. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        InstanceIdentifierInput.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        InstanceIdentifierInput.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 identifier_type: Optional[_builtins.str] = None,
+                 instance_id: Optional[_builtins.int] = None,
+                 instance_identifier: Optional[_builtins.str] = None,
+                 instance_identifier_name: Optional[_builtins.str] = None):
+        if identifier_type is not None:
+            pulumi.set(__self__, "identifier_type", identifier_type)
+        if instance_id is not None:
+            pulumi.set(__self__, "instance_id", instance_id)
+        if instance_identifier is not None:
+            pulumi.set(__self__, "instance_identifier", instance_identifier)
+        if instance_identifier_name is not None:
+            pulumi.set(__self__, "instance_identifier_name", instance_identifier_name)
+
+    @_builtins.property
+    @pulumi.getter(name="identifierType")
+    def identifier_type(self) -> Optional[_builtins.str]:
+        return pulumi.get(self, "identifier_type")
+
+    @_builtins.property
+    @pulumi.getter(name="instanceId")
+    def instance_id(self) -> Optional[_builtins.int]:
+        return pulumi.get(self, "instance_id")
+
+    @_builtins.property
+    @pulumi.getter(name="instanceIdentifier")
+    def instance_identifier(self) -> Optional[_builtins.str]:
+        return pulumi.get(self, "instance_identifier")
+
+    @_builtins.property
+    @pulumi.getter(name="instanceIdentifierName")
+    def instance_identifier_name(self) -> Optional[_builtins.str]:
+        return pulumi.get(self, "instance_identifier_name")
+
+
+@pulumi.output_type
+class LastModifiedByOutput(dict):
+    def __init__(__self__, *,
+                 name: _builtins.str,
+                 resource_id: _builtins.int):
+        pulumi.set(__self__, "name", name)
+        pulumi.set(__self__, "resource_id", resource_id)
+
+    @_builtins.property
+    @pulumi.getter
+    def name(self) -> _builtins.str:
+        return pulumi.get(self, "name")
+
+    @_builtins.property
+    @pulumi.getter(name="resourceId")
+    def resource_id(self) -> _builtins.int:
+        return pulumi.get(self, "resource_id")
+
+
+@pulumi.output_type
+class LastValidationMsgOutput(dict):
+    def __init__(__self__, *,
+                 error_code: _builtins.str,
+                 error_msg: _builtins.str):
+        pulumi.set(__self__, "error_code", error_code)
+        pulumi.set(__self__, "error_msg", error_msg)
+
+    @_builtins.property
+    @pulumi.getter(name="errorCode")
+    def error_code(self) -> _builtins.str:
+        return pulumi.get(self, "error_code")
+
+    @_builtins.property
+    @pulumi.getter(name="errorMsg")
+    def error_msg(self) -> _builtins.str:
+        return pulumi.get(self, "error_msg")
+
+
+@pulumi.output_type
+class Md5HashValueInput(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "urlComment":
+            suggest = "url_comment"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in Md5HashValueInput. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        Md5HashValueInput.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        Md5HashValueInput.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 type: Optional[_builtins.str] = None,
+                 url: Optional[_builtins.str] = None,
+                 url_comment: Optional[_builtins.str] = None):
+        if type is not None:
+            pulumi.set(__self__, "type", type)
+        if url is not None:
+            pulumi.set(__self__, "url", url)
+        if url_comment is not None:
+            pulumi.set(__self__, "url_comment", url_comment)
+
+    @_builtins.property
+    @pulumi.getter
+    def type(self) -> Optional[_builtins.str]:
+        return pulumi.get(self, "type")
+
+    @_builtins.property
+    @pulumi.getter
+    def url(self) -> Optional[_builtins.str]:
+        return pulumi.get(self, "url")
+
+    @_builtins.property
+    @pulumi.getter(name="urlComment")
+    def url_comment(self) -> Optional[_builtins.str]:
+        return pulumi.get(self, "url_comment")
+
+
+@pulumi.output_type
+class NetworkPortInput(dict):
+    def __init__(__self__, *,
+                 end: Optional[_builtins.int] = None,
+                 start: Optional[_builtins.int] = None):
+        if end is not None:
+            pulumi.set(__self__, "end", end)
+        if start is not None:
+            pulumi.set(__self__, "start", start)
+
+    @_builtins.property
+    @pulumi.getter
+    def end(self) -> Optional[_builtins.int]:
+        return pulumi.get(self, "end")
+
+    @_builtins.property
+    @pulumi.getter
+    def start(self) -> Optional[_builtins.int]:
+        return pulumi.get(self, "start")
+
+
+@pulumi.output_type
+class OnboardableEntityOutput(dict):
+    def __init__(__self__, *,
+                 application: _builtins.str,
+                 enterprise_tenant_id: _builtins.str,
+                 name: _builtins.str,
+                 resource_id: _builtins.int,
+                 type: _builtins.str,
+                 last_validation_msg: Optional['outputs.LastValidationMsgOutput'] = None,
+                 zscaler_app_tenant_id: Optional['outputs.LastModifiedByOutput'] = None):
+        pulumi.set(__self__, "application", application)
+        pulumi.set(__self__, "enterprise_tenant_id", enterprise_tenant_id)
+        pulumi.set(__self__, "name", name)
+        pulumi.set(__self__, "resource_id", resource_id)
+        pulumi.set(__self__, "type", type)
+        if last_validation_msg is not None:
+            pulumi.set(__self__, "last_validation_msg", last_validation_msg)
+        if zscaler_app_tenant_id is not None:
+            pulumi.set(__self__, "zscaler_app_tenant_id", zscaler_app_tenant_id)
+
+    @_builtins.property
+    @pulumi.getter
+    def application(self) -> _builtins.str:
+        return pulumi.get(self, "application")
+
+    @_builtins.property
+    @pulumi.getter(name="enterpriseTenantId")
+    def enterprise_tenant_id(self) -> _builtins.str:
+        return pulumi.get(self, "enterprise_tenant_id")
+
+    @_builtins.property
+    @pulumi.getter
+    def name(self) -> _builtins.str:
+        return pulumi.get(self, "name")
+
+    @_builtins.property
+    @pulumi.getter(name="resourceId")
+    def resource_id(self) -> _builtins.int:
+        return pulumi.get(self, "resource_id")
+
+    @_builtins.property
+    @pulumi.getter
+    def type(self) -> _builtins.str:
+        return pulumi.get(self, "type")
+
+    @_builtins.property
+    @pulumi.getter(name="lastValidationMsg")
+    def last_validation_msg(self) -> Optional['outputs.LastValidationMsgOutput']:
+        return pulumi.get(self, "last_validation_msg")
+
+    @_builtins.property
+    @pulumi.getter(name="zscalerAppTenantId")
+    def zscaler_app_tenant_id(self) -> Optional['outputs.LastModifiedByOutput']:
+        return pulumi.get(self, "zscaler_app_tenant_id")
+
+
+@pulumi.output_type
+class OriginOutput(dict):
+    def __init__(__self__, *,
+                 country: _builtins.str,
+                 language: _builtins.str,
+                 risk: _builtins.str):
+        pulumi.set(__self__, "country", country)
+        pulumi.set(__self__, "language", language)
+        pulumi.set(__self__, "risk", risk)
+
+    @_builtins.property
+    @pulumi.getter
+    def country(self) -> _builtins.str:
+        return pulumi.get(self, "country")
+
+    @_builtins.property
+    @pulumi.getter
+    def language(self) -> _builtins.str:
+        return pulumi.get(self, "language")
+
+    @_builtins.property
+    @pulumi.getter
+    def risk(self) -> _builtins.str:
+        return pulumi.get(self, "risk")
+
+
+@pulumi.output_type
+class SandboxRssOutput(dict):
+    def __init__(__self__, *,
+                 risk: _builtins.str,
+                 signature: _builtins.str,
+                 signature_sources: Sequence[_builtins.str]):
+        pulumi.set(__self__, "risk", risk)
+        pulumi.set(__self__, "signature", signature)
+        pulumi.set(__self__, "signature_sources", signature_sources)
+
+    @_builtins.property
+    @pulumi.getter
+    def risk(self) -> _builtins.str:
+        return pulumi.get(self, "risk")
+
+    @_builtins.property
+    @pulumi.getter
+    def signature(self) -> _builtins.str:
+        return pulumi.get(self, "signature")
+
+    @_builtins.property
+    @pulumi.getter(name="signatureSources")
+    def signature_sources(self) -> Sequence[_builtins.str]:
+        return pulumi.get(self, "signature_sources")
+
+
+@pulumi.output_type
+class SmartIsolationProfileInput(dict):
+    def __init__(__self__, *,
+                 id: Optional[_builtins.str] = None):
+        if id is not None:
+            pulumi.set(__self__, "id", id)
+
+    @_builtins.property
+    @pulumi.getter
+    def id(self) -> Optional[_builtins.str]:
+        return pulumi.get(self, "id")
 
 
 @pulumi.output_type
@@ -416,13 +1308,30 @@ class SslInterceptionCertInput(dict):
 
 @pulumi.output_type
 class SubCloudDcOutput(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "resourceId":
+            suggest = "resource_id"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in SubCloudDcOutput. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        SubCloudDcOutput.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        SubCloudDcOutput.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  country: _builtins.str,
-                 id: _builtins.int,
-                 name: _builtins.str):
+                 name: _builtins.str,
+                 resource_id: _builtins.int):
         pulumi.set(__self__, "country", country)
-        pulumi.set(__self__, "id", id)
         pulumi.set(__self__, "name", name)
+        pulumi.set(__self__, "resource_id", resource_id)
 
     @_builtins.property
     @pulumi.getter
@@ -431,31 +1340,48 @@ class SubCloudDcOutput(dict):
 
     @_builtins.property
     @pulumi.getter
-    def id(self) -> _builtins.int:
-        return pulumi.get(self, "id")
-
-    @_builtins.property
-    @pulumi.getter
     def name(self) -> _builtins.str:
         return pulumi.get(self, "name")
+
+    @_builtins.property
+    @pulumi.getter(name="resourceId")
+    def resource_id(self) -> _builtins.int:
+        return pulumi.get(self, "resource_id")
 
 
 @pulumi.output_type
 class SubCloudExclusionDatacenterInput(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "resourceId":
+            suggest = "resource_id"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in SubCloudExclusionDatacenterInput. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        SubCloudExclusionDatacenterInput.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        SubCloudExclusionDatacenterInput.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
-                 id: _builtins.int,
+                 resource_id: _builtins.int,
                  country: Optional[_builtins.str] = None,
                  name: Optional[_builtins.str] = None):
-        pulumi.set(__self__, "id", id)
+        pulumi.set(__self__, "resource_id", resource_id)
         if country is not None:
             pulumi.set(__self__, "country", country)
         if name is not None:
             pulumi.set(__self__, "name", name)
 
     @_builtins.property
-    @pulumi.getter
-    def id(self) -> _builtins.int:
-        return pulumi.get(self, "id")
+    @pulumi.getter(name="resourceId")
+    def resource_id(self) -> _builtins.int:
+        return pulumi.get(self, "resource_id")
 
     @_builtins.property
     @pulumi.getter
@@ -520,6 +1446,46 @@ class SubCloudExclusionInput(dict):
     @pulumi.getter(name="endTimeUtc")
     def end_time_utc(self) -> Optional[_builtins.str]:
         return pulumi.get(self, "end_time_utc")
+
+
+@pulumi.output_type
+class SummaryDetailOutput(dict):
+    def __init__(__self__, *,
+                 category: _builtins.str,
+                 duration: _builtins.int,
+                 file_type: _builtins.str,
+                 start_time: _builtins.int,
+                 status: _builtins.str):
+        pulumi.set(__self__, "category", category)
+        pulumi.set(__self__, "duration", duration)
+        pulumi.set(__self__, "file_type", file_type)
+        pulumi.set(__self__, "start_time", start_time)
+        pulumi.set(__self__, "status", status)
+
+    @_builtins.property
+    @pulumi.getter
+    def category(self) -> _builtins.str:
+        return pulumi.get(self, "category")
+
+    @_builtins.property
+    @pulumi.getter
+    def duration(self) -> _builtins.int:
+        return pulumi.get(self, "duration")
+
+    @_builtins.property
+    @pulumi.getter(name="fileType")
+    def file_type(self) -> _builtins.str:
+        return pulumi.get(self, "file_type")
+
+    @_builtins.property
+    @pulumi.getter(name="startTime")
+    def start_time(self) -> _builtins.int:
+        return pulumi.get(self, "start_time")
+
+    @_builtins.property
+    @pulumi.getter
+    def status(self) -> _builtins.str:
+        return pulumi.get(self, "status")
 
 
 @pulumi.output_type
@@ -785,6 +1751,70 @@ class VirtualZenNodeOutput(dict):
 
 
 @pulumi.output_type
+class VpnCredentialInput(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "ipAddress":
+            suggest = "ip_address"
+        elif key == "preSharedKey":
+            suggest = "pre_shared_key"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in VpnCredentialInput. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        VpnCredentialInput.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        VpnCredentialInput.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 fqdn: Optional[_builtins.str] = None,
+                 id: Optional[_builtins.int] = None,
+                 ip_address: Optional[_builtins.str] = None,
+                 pre_shared_key: Optional[_builtins.str] = None,
+                 type: Optional[_builtins.str] = None):
+        if fqdn is not None:
+            pulumi.set(__self__, "fqdn", fqdn)
+        if id is not None:
+            pulumi.set(__self__, "id", id)
+        if ip_address is not None:
+            pulumi.set(__self__, "ip_address", ip_address)
+        if pre_shared_key is not None:
+            pulumi.set(__self__, "pre_shared_key", pre_shared_key)
+        if type is not None:
+            pulumi.set(__self__, "type", type)
+
+    @_builtins.property
+    @pulumi.getter
+    def fqdn(self) -> Optional[_builtins.str]:
+        return pulumi.get(self, "fqdn")
+
+    @_builtins.property
+    @pulumi.getter
+    def id(self) -> Optional[_builtins.int]:
+        return pulumi.get(self, "id")
+
+    @_builtins.property
+    @pulumi.getter(name="ipAddress")
+    def ip_address(self) -> Optional[_builtins.str]:
+        return pulumi.get(self, "ip_address")
+
+    @_builtins.property
+    @pulumi.getter(name="preSharedKey")
+    def pre_shared_key(self) -> Optional[_builtins.str]:
+        return pulumi.get(self, "pre_shared_key")
+
+    @_builtins.property
+    @pulumi.getter
+    def type(self) -> Optional[_builtins.str]:
+        return pulumi.get(self, "type")
+
+
+@pulumi.output_type
 class WorkloadGroupExpressionContainerInput(dict):
     @staticmethod
     def __key_warning(key: str):
@@ -864,17 +1894,34 @@ class WorkloadGroupExpressionJsonInput(dict):
 
 @pulumi.output_type
 class WorkloadGroupInput(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "resourceId":
+            suggest = "resource_id"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in WorkloadGroupInput. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        WorkloadGroupInput.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        WorkloadGroupInput.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
-                 id: _builtins.int,
+                 resource_id: _builtins.int,
                  name: Optional[_builtins.str] = None):
-        pulumi.set(__self__, "id", id)
+        pulumi.set(__self__, "resource_id", resource_id)
         if name is not None:
             pulumi.set(__self__, "name", name)
 
     @_builtins.property
-    @pulumi.getter
-    def id(self) -> _builtins.int:
-        return pulumi.get(self, "id")
+    @pulumi.getter(name="resourceId")
+    def resource_id(self) -> _builtins.int:
+        return pulumi.get(self, "resource_id")
 
     @_builtins.property
     @pulumi.getter
@@ -957,6 +2004,82 @@ class ZPAAppSegmentInput(dict):
     @_builtins.property
     @pulumi.getter
     def name(self) -> _builtins.str:
+        return pulumi.get(self, "name")
+
+
+@pulumi.output_type
+class ZpaGatewayAppSegmentInput(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "externalId":
+            suggest = "external_id"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in ZpaGatewayAppSegmentInput. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        ZpaGatewayAppSegmentInput.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        ZpaGatewayAppSegmentInput.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 external_id: Optional[_builtins.str] = None,
+                 name: Optional[_builtins.str] = None):
+        if external_id is not None:
+            pulumi.set(__self__, "external_id", external_id)
+        if name is not None:
+            pulumi.set(__self__, "name", name)
+
+    @_builtins.property
+    @pulumi.getter(name="externalId")
+    def external_id(self) -> Optional[_builtins.str]:
+        return pulumi.get(self, "external_id")
+
+    @_builtins.property
+    @pulumi.getter
+    def name(self) -> Optional[_builtins.str]:
+        return pulumi.get(self, "name")
+
+
+@pulumi.output_type
+class ZpaServerGroupInput(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "externalId":
+            suggest = "external_id"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in ZpaServerGroupInput. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        ZpaServerGroupInput.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        ZpaServerGroupInput.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 external_id: Optional[_builtins.str] = None,
+                 name: Optional[_builtins.str] = None):
+        if external_id is not None:
+            pulumi.set(__self__, "external_id", external_id)
+        if name is not None:
+            pulumi.set(__self__, "name", name)
+
+    @_builtins.property
+    @pulumi.getter(name="externalId")
+    def external_id(self) -> Optional[_builtins.str]:
+        return pulumi.get(self, "external_id")
+
+    @_builtins.property
+    @pulumi.getter
+    def name(self) -> Optional[_builtins.str]:
         return pulumi.get(self, "name")
 
 

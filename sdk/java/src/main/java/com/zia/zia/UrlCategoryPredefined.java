@@ -16,113 +16,273 @@ import java.util.List;
 import java.util.Optional;
 import javax.annotation.Nullable;
 
+/**
+ * The zia_url_categories_predefined resource manages predefined URL category overrides in the Zscaler Internet Access (ZIA) cloud service. This resource allows administrators to add custom URLs, keywords, and IP ranges to existing predefined (built-in) URL categories. Predefined categories cannot be deleted; the delete operation is a no-op.
+ * 
+ * For more information, see the [ZIA URL Categories documentation](https://help.zscaler.com/zia/url-categories).
+ * 
+ * ## Example Usage
+ * 
+ * ## Import
+ * 
+ * An existing Predefined URL Category override can be imported using its category ID, e.g.
+ * 
+ * ```sh
+ * $ pulumi import zia:index:UrlCategoryPredefined example FINANCE
+ * ```
+ * 
+ */
 @ResourceType(type="zia:index:UrlCategoryPredefined")
 public class UrlCategoryPredefined extends com.pulumi.resources.CustomResource {
+    /**
+     * The system-generated ID of the predefined URL category.
+     * 
+     */
     @Export(name="categoryId", refs={String.class}, tree="[0]")
     private Output<String> categoryId;
 
+    /**
+     * @return The system-generated ID of the predefined URL category.
+     * 
+     */
     public Output<String> categoryId() {
         return this.categoryId;
     }
+    /**
+     * The configured display name of the predefined URL category.
+     * 
+     */
     @Export(name="configuredName", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> configuredName;
 
+    /**
+     * @return The configured display name of the predefined URL category.
+     * 
+     */
     public Output<Optional<String>> configuredName() {
         return Codegen.optional(this.configuredName);
     }
+    /**
+     * The number of custom IP ranges in the category.
+     * 
+     */
     @Export(name="customIpRangesCount", refs={Integer.class}, tree="[0]")
     private Output</* @Nullable */ Integer> customIpRangesCount;
 
+    /**
+     * @return The number of custom IP ranges in the category.
+     * 
+     */
     public Output<Optional<Integer>> customIpRangesCount() {
         return Codegen.optional(this.customIpRangesCount);
     }
+    /**
+     * The number of custom URLs in the category.
+     * 
+     */
     @Export(name="customUrlsCount", refs={Integer.class}, tree="[0]")
     private Output</* @Nullable */ Integer> customUrlsCount;
 
+    /**
+     * @return The number of custom URLs in the category.
+     * 
+     */
     public Output<Optional<Integer>> customUrlsCount() {
         return Codegen.optional(this.customUrlsCount);
     }
+    /**
+     * URLs in this category that have been categorized by the Zscaler database.
+     * 
+     */
     @Export(name="dbCategorizedUrls", refs={List.class,String.class}, tree="[0,1]")
     private Output</* @Nullable */ List<String>> dbCategorizedUrls;
 
+    /**
+     * @return URLs in this category that have been categorized by the Zscaler database.
+     * 
+     */
     public Output<Optional<List<String>>> dbCategorizedUrls() {
         return Codegen.optional(this.dbCategorizedUrls);
     }
+    /**
+     * Whether the predefined URL category is editable.
+     * 
+     */
     @Export(name="editable", refs={Boolean.class}, tree="[0]")
     private Output</* @Nullable */ Boolean> editable;
 
+    /**
+     * @return Whether the predefined URL category is editable.
+     * 
+     */
     public Output<Optional<Boolean>> editable() {
         return Codegen.optional(this.editable);
     }
+    /**
+     * List of custom IP address ranges to add to the predefined category.
+     * 
+     */
     @Export(name="ipRanges", refs={List.class,String.class}, tree="[0,1]")
     private Output</* @Nullable */ List<String>> ipRanges;
 
+    /**
+     * @return List of custom IP address ranges to add to the predefined category.
+     * 
+     */
     public Output<Optional<List<String>>> ipRanges() {
         return Codegen.optional(this.ipRanges);
     }
+    /**
+     * List of IP ranges that retain their parent category classification.
+     * 
+     */
     @Export(name="ipRangesRetainingParentCategory", refs={List.class,String.class}, tree="[0,1]")
     private Output</* @Nullable */ List<String>> ipRangesRetainingParentCategory;
 
+    /**
+     * @return List of IP ranges that retain their parent category classification.
+     * 
+     */
     public Output<Optional<List<String>>> ipRangesRetainingParentCategory() {
         return Codegen.optional(this.ipRangesRetainingParentCategory);
     }
+    /**
+     * The number of IP ranges retaining parent category.
+     * 
+     */
     @Export(name="ipRangesRetainingParentCategoryCount", refs={Integer.class}, tree="[0]")
     private Output</* @Nullable */ Integer> ipRangesRetainingParentCategoryCount;
 
+    /**
+     * @return The number of IP ranges retaining parent category.
+     * 
+     */
     public Output<Optional<Integer>> ipRangesRetainingParentCategoryCount() {
         return Codegen.optional(this.ipRangesRetainingParentCategoryCount);
     }
+    /**
+     * List of custom keywords to add to the predefined category.
+     * 
+     */
     @Export(name="keywords", refs={List.class,String.class}, tree="[0,1]")
     private Output</* @Nullable */ List<String>> keywords;
 
+    /**
+     * @return List of custom keywords to add to the predefined category.
+     * 
+     */
     public Output<Optional<List<String>>> keywords() {
         return Codegen.optional(this.keywords);
     }
+    /**
+     * List of keywords that retain their parent category classification.
+     * 
+     */
     @Export(name="keywordsRetainingParentCategory", refs={List.class,String.class}, tree="[0,1]")
     private Output</* @Nullable */ List<String>> keywordsRetainingParentCategory;
 
+    /**
+     * @return List of keywords that retain their parent category classification.
+     * 
+     */
     public Output<Optional<List<String>>> keywordsRetainingParentCategory() {
         return Codegen.optional(this.keywordsRetainingParentCategory);
     }
+    /**
+     * The name or ID of the predefined URL category to override (e.g., `FINANCE`, `SOCIAL_NETWORKING`).
+     * 
+     */
     @Export(name="name", refs={String.class}, tree="[0]")
     private Output<String> name;
 
+    /**
+     * @return The name or ID of the predefined URL category to override (e.g., `FINANCE`, `SOCIAL_NETWORKING`).
+     * 
+     */
     public Output<String> name() {
         return this.name;
     }
+    /**
+     * The super category of the predefined URL category.
+     * 
+     */
     @Export(name="superCategory", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> superCategory;
 
+    /**
+     * @return The super category of the predefined URL category.
+     * 
+     */
     public Output<Optional<String>> superCategory() {
         return Codegen.optional(this.superCategory);
     }
+    /**
+     * The type of the URL category.
+     * 
+     */
     @Export(name="type", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> type;
 
+    /**
+     * @return The type of the URL category.
+     * 
+     */
     public Output<Optional<String>> type() {
         return Codegen.optional(this.type);
     }
+    /**
+     * The URL type of the predefined category.
+     * 
+     */
     @Export(name="urlType", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> urlType;
 
+    /**
+     * @return The URL type of the predefined category.
+     * 
+     */
     public Output<Optional<String>> urlType() {
         return Codegen.optional(this.urlType);
     }
+    /**
+     * List of custom URLs to add to the predefined category.
+     * 
+     */
     @Export(name="urls", refs={List.class,String.class}, tree="[0,1]")
     private Output</* @Nullable */ List<String>> urls;
 
+    /**
+     * @return List of custom URLs to add to the predefined category.
+     * 
+     */
     public Output<Optional<List<String>>> urls() {
         return Codegen.optional(this.urls);
     }
+    /**
+     * The number of URLs retaining parent category.
+     * 
+     */
     @Export(name="urlsRetainingParentCategoryCount", refs={Integer.class}, tree="[0]")
     private Output</* @Nullable */ Integer> urlsRetainingParentCategoryCount;
 
+    /**
+     * @return The number of URLs retaining parent category.
+     * 
+     */
     public Output<Optional<Integer>> urlsRetainingParentCategoryCount() {
         return Codegen.optional(this.urlsRetainingParentCategoryCount);
     }
+    /**
+     * The internal numeric value of the URL category.
+     * 
+     */
     @Export(name="val", refs={Integer.class}, tree="[0]")
     private Output</* @Nullable */ Integer> val;
 
+    /**
+     * @return The internal numeric value of the URL category.
+     * 
+     */
     public Output<Optional<Integer>> val() {
         return Codegen.optional(this.val);
     }
@@ -166,6 +326,7 @@ public class UrlCategoryPredefined extends com.pulumi.resources.CustomResource {
     private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<java.lang.String> id) {
         var defaultOptions = com.pulumi.resources.CustomResourceOptions.builder()
             .version(Utilities.getVersion())
+            .pluginDownloadURL("github://api.github.com/zscaler")
             .build();
         return com.pulumi.resources.CustomResourceOptions.merge(defaultOptions, options, id);
     }

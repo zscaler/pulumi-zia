@@ -12,48 +12,115 @@ import java.util.Optional;
 public final class Config {
 
     private static final com.pulumi.Config config = com.pulumi.Config.of("zia");
+/**
+ * (Legacy) The API key for ZIA. Can also be set via the `ZIA_API_KEY` environment variable. Prefer OAuth2 credentials instead.
+ * 
+ */
     public Optional<String> apiKey() {
         return Codegen.stringProp("apiKey").config(config).get();
     }
+/**
+ * The OAuth2 client ID for authenticating with the Zscaler API. Can also be set via the `ZSCALER_CLIENT_ID` environment variable.
+ * 
+ */
     public Optional<String> clientId() {
         return Codegen.stringProp("clientId").config(config).get();
     }
+/**
+ * The OAuth2 client secret for authenticating with the Zscaler API. Can also be set via the `ZSCALER_CLIENT_SECRET` environment variable.
+ * 
+ */
     public Optional<String> clientSecret() {
         return Codegen.stringProp("clientSecret").config(config).get();
     }
+/**
+ * The Zscaler cloud name (e.g. &#39;zscaler&#39;, &#39;zscalerone&#39;, &#39;zscalertwo&#39;, &#39;zscalerthree&#39;, &#39;zscloud&#39;, &#39;zscalerbeta&#39;, &#39;zscalergov&#39;). Can also be set via the `ZSCALER_CLOUD` environment variable.
+ * 
+ */
     public Optional<String> cloud() {
         return Codegen.stringProp("cloud").config(config).get();
     }
+/**
+ * If true, enables verbose Zscaler SDK logging (API requests/responses). Logs are written to stderr and optionally to the file specified by the `ZSCALER_SDK_LOG_FILE` environment variable.
+ * 
+ */
+    public Optional<Boolean> debug() {
+        return Codegen.booleanProp("debug").config(config).get();
+    }
+/**
+ * HTTP proxy URL for API requests (e.g. &#39;http://proxy.example.com:8080&#39;). Can also be set via the `ZSCALER_HTTP_PROXY` environment variable.
+ * 
+ */
     public Optional<String> httpProxy() {
         return Codegen.stringProp("httpProxy").config(config).get();
     }
+/**
+ * Maximum number of retries for API requests. Default is determined by the SDK.
+ * 
+ */
     public Optional<Integer> maxRetries() {
         return Codegen.integerProp("maxRetries").config(config).get();
     }
+/**
+ * (Legacy) The admin password for ZIA. Can also be set via the `ZIA_PASSWORD` environment variable. Prefer OAuth2 credentials instead.
+ * 
+ */
     public Optional<String> password() {
         return Codegen.stringProp("password").config(config).get();
     }
+/**
+ * The private key for service principal authentication. Can also be set via the `ZSCALER_PRIVATE_KEY` environment variable.
+ * 
+ */
     public Optional<String> privateKey() {
         return Codegen.stringProp("privateKey").config(config).get();
     }
+/**
+ * Timeout in seconds for API requests.
+ * 
+ */
     public Optional<Integer> requestTimeout() {
         return Codegen.integerProp("requestTimeout").config(config).get();
     }
+/**
+ * The Zscaler Sandbox cloud name. Can also be set via the `ZIA_SANDBOX_CLOUD` environment variable.
+ * 
+ */
     public Optional<String> sandboxCloud() {
         return Codegen.stringProp("sandboxCloud").config(config).get();
     }
+/**
+ * The API token for Zscaler Sandbox. Can also be set via the `ZIA_SANDBOX_TOKEN` environment variable.
+ * 
+ */
     public Optional<String> sandboxToken() {
         return Codegen.stringProp("sandboxToken").config(config).get();
     }
+/**
+ * If true, use the legacy ZIA client authentication instead of OAuth2.
+ * 
+ */
     public Optional<Boolean> useLegacyClient() {
         return Codegen.booleanProp("useLegacyClient").config(config).get();
     }
+/**
+ * (Legacy) The admin username for ZIA. Can also be set via the `ZIA_USERNAME` environment variable. Prefer OAuth2 credentials instead.
+ * 
+ */
     public Optional<String> username() {
         return Codegen.stringProp("username").config(config).get();
     }
+/**
+ * The vanity domain for your Zscaler organization. Can also be set via the `ZSCALER_VANITY_DOMAIN` environment variable.
+ * 
+ */
     public Optional<String> vanityDomain() {
         return Codegen.stringProp("vanityDomain").config(config).get();
     }
+/**
+ * (Legacy) The ZIA cloud name. Can also be set via the `ZIA_CLOUD` environment variable. Prefer the &#39;cloud&#39; parameter instead.
+ * 
+ */
     public Optional<String> ziaCloud() {
         return Codegen.stringProp("ziaCloud").config(config).get();
     }

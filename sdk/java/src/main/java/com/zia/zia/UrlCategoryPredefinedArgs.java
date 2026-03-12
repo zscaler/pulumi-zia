@@ -17,44 +17,92 @@ public final class UrlCategoryPredefinedArgs extends com.pulumi.resources.Resour
 
     public static final UrlCategoryPredefinedArgs Empty = new UrlCategoryPredefinedArgs();
 
+    /**
+     * List of custom IP address ranges to add to the predefined category.
+     * 
+     */
     @Import(name="ipRanges")
     private @Nullable Output<List<String>> ipRanges;
 
+    /**
+     * @return List of custom IP address ranges to add to the predefined category.
+     * 
+     */
     public Optional<Output<List<String>>> ipRanges() {
         return Optional.ofNullable(this.ipRanges);
     }
 
+    /**
+     * List of IP ranges that retain their parent category classification.
+     * 
+     */
     @Import(name="ipRangesRetainingParentCategory")
     private @Nullable Output<List<String>> ipRangesRetainingParentCategory;
 
+    /**
+     * @return List of IP ranges that retain their parent category classification.
+     * 
+     */
     public Optional<Output<List<String>>> ipRangesRetainingParentCategory() {
         return Optional.ofNullable(this.ipRangesRetainingParentCategory);
     }
 
+    /**
+     * List of custom keywords to add to the predefined category.
+     * 
+     */
     @Import(name="keywords")
     private @Nullable Output<List<String>> keywords;
 
+    /**
+     * @return List of custom keywords to add to the predefined category.
+     * 
+     */
     public Optional<Output<List<String>>> keywords() {
         return Optional.ofNullable(this.keywords);
     }
 
+    /**
+     * List of keywords that retain their parent category classification.
+     * 
+     */
     @Import(name="keywordsRetainingParentCategory")
     private @Nullable Output<List<String>> keywordsRetainingParentCategory;
 
+    /**
+     * @return List of keywords that retain their parent category classification.
+     * 
+     */
     public Optional<Output<List<String>>> keywordsRetainingParentCategory() {
         return Optional.ofNullable(this.keywordsRetainingParentCategory);
     }
 
+    /**
+     * The name or ID of the predefined URL category to override (e.g., `FINANCE`, `SOCIAL_NETWORKING`).
+     * 
+     */
     @Import(name="name", required=true)
     private Output<String> name;
 
+    /**
+     * @return The name or ID of the predefined URL category to override (e.g., `FINANCE`, `SOCIAL_NETWORKING`).
+     * 
+     */
     public Output<String> name() {
         return this.name;
     }
 
+    /**
+     * List of custom URLs to add to the predefined category.
+     * 
+     */
     @Import(name="urls")
     private @Nullable Output<List<String>> urls;
 
+    /**
+     * @return List of custom URLs to add to the predefined category.
+     * 
+     */
     public Optional<Output<List<String>>> urls() {
         return Optional.ofNullable(this.urls);
     }
@@ -88,76 +136,178 @@ public final class UrlCategoryPredefinedArgs extends com.pulumi.resources.Resour
             $ = new UrlCategoryPredefinedArgs(Objects.requireNonNull(defaults));
         }
 
+        /**
+         * @param ipRanges List of custom IP address ranges to add to the predefined category.
+         * 
+         * @return builder
+         * 
+         */
         public Builder ipRanges(@Nullable Output<List<String>> ipRanges) {
             $.ipRanges = ipRanges;
             return this;
         }
 
+        /**
+         * @param ipRanges List of custom IP address ranges to add to the predefined category.
+         * 
+         * @return builder
+         * 
+         */
         public Builder ipRanges(List<String> ipRanges) {
             return ipRanges(Output.of(ipRanges));
         }
 
+        /**
+         * @param ipRanges List of custom IP address ranges to add to the predefined category.
+         * 
+         * @return builder
+         * 
+         */
         public Builder ipRanges(String... ipRanges) {
             return ipRanges(List.of(ipRanges));
         }
 
+        /**
+         * @param ipRangesRetainingParentCategory List of IP ranges that retain their parent category classification.
+         * 
+         * @return builder
+         * 
+         */
         public Builder ipRangesRetainingParentCategory(@Nullable Output<List<String>> ipRangesRetainingParentCategory) {
             $.ipRangesRetainingParentCategory = ipRangesRetainingParentCategory;
             return this;
         }
 
+        /**
+         * @param ipRangesRetainingParentCategory List of IP ranges that retain their parent category classification.
+         * 
+         * @return builder
+         * 
+         */
         public Builder ipRangesRetainingParentCategory(List<String> ipRangesRetainingParentCategory) {
             return ipRangesRetainingParentCategory(Output.of(ipRangesRetainingParentCategory));
         }
 
+        /**
+         * @param ipRangesRetainingParentCategory List of IP ranges that retain their parent category classification.
+         * 
+         * @return builder
+         * 
+         */
         public Builder ipRangesRetainingParentCategory(String... ipRangesRetainingParentCategory) {
             return ipRangesRetainingParentCategory(List.of(ipRangesRetainingParentCategory));
         }
 
+        /**
+         * @param keywords List of custom keywords to add to the predefined category.
+         * 
+         * @return builder
+         * 
+         */
         public Builder keywords(@Nullable Output<List<String>> keywords) {
             $.keywords = keywords;
             return this;
         }
 
+        /**
+         * @param keywords List of custom keywords to add to the predefined category.
+         * 
+         * @return builder
+         * 
+         */
         public Builder keywords(List<String> keywords) {
             return keywords(Output.of(keywords));
         }
 
+        /**
+         * @param keywords List of custom keywords to add to the predefined category.
+         * 
+         * @return builder
+         * 
+         */
         public Builder keywords(String... keywords) {
             return keywords(List.of(keywords));
         }
 
+        /**
+         * @param keywordsRetainingParentCategory List of keywords that retain their parent category classification.
+         * 
+         * @return builder
+         * 
+         */
         public Builder keywordsRetainingParentCategory(@Nullable Output<List<String>> keywordsRetainingParentCategory) {
             $.keywordsRetainingParentCategory = keywordsRetainingParentCategory;
             return this;
         }
 
+        /**
+         * @param keywordsRetainingParentCategory List of keywords that retain their parent category classification.
+         * 
+         * @return builder
+         * 
+         */
         public Builder keywordsRetainingParentCategory(List<String> keywordsRetainingParentCategory) {
             return keywordsRetainingParentCategory(Output.of(keywordsRetainingParentCategory));
         }
 
+        /**
+         * @param keywordsRetainingParentCategory List of keywords that retain their parent category classification.
+         * 
+         * @return builder
+         * 
+         */
         public Builder keywordsRetainingParentCategory(String... keywordsRetainingParentCategory) {
             return keywordsRetainingParentCategory(List.of(keywordsRetainingParentCategory));
         }
 
+        /**
+         * @param name The name or ID of the predefined URL category to override (e.g., `FINANCE`, `SOCIAL_NETWORKING`).
+         * 
+         * @return builder
+         * 
+         */
         public Builder name(Output<String> name) {
             $.name = name;
             return this;
         }
 
+        /**
+         * @param name The name or ID of the predefined URL category to override (e.g., `FINANCE`, `SOCIAL_NETWORKING`).
+         * 
+         * @return builder
+         * 
+         */
         public Builder name(String name) {
             return name(Output.of(name));
         }
 
+        /**
+         * @param urls List of custom URLs to add to the predefined category.
+         * 
+         * @return builder
+         * 
+         */
         public Builder urls(@Nullable Output<List<String>> urls) {
             $.urls = urls;
             return this;
         }
 
+        /**
+         * @param urls List of custom URLs to add to the predefined category.
+         * 
+         * @return builder
+         * 
+         */
         public Builder urls(List<String> urls) {
             return urls(Output.of(urls));
         }
 
+        /**
+         * @param urls List of custom URLs to add to the predefined category.
+         * 
+         * @return builder
+         * 
+         */
         public Builder urls(String... urls) {
             return urls(List.of(urls));
         }

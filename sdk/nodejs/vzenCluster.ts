@@ -4,6 +4,37 @@
 import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "./utilities";
 
+/**
+ * The zia.VzenCluster resource manages Virtual ZEN (VZEN) cluster configurations in the
+ * Zscaler Internet Access (ZIA) cloud. VZEN clusters group multiple VZEN nodes for high availability
+ * and load balancing of traffic processing.
+ *
+ * ## Example Usage
+ * ### Basic VZEN Cluster
+ *
+ * ```typescript
+ * import * as zia from "@bdzscaler/pulumi-zia";
+ *
+ * const example = new zia.VzenCluster("example", {
+ *     name: "Example VZEN Cluster",
+ *     status: "ENABLED",
+ *     type: "VZEN",
+ *     ipAddress: "10.0.0.20",
+ *     subnetMask: "255.255.255.0",
+ *     defaultGateway: "10.0.0.1",
+ *     ipSecEnabled: true,
+ *     virtualZenNodes: [12345, 67890],
+ * });
+ * ```
+ *
+ * ## Import
+ *
+ * An existing VZEN cluster can be imported using its ID, e.g.
+ *
+ * ```sh
+ * $ pulumi import zia:index:VzenCluster example 12345
+ * ```
+ */
 export class VzenCluster extends pulumi.CustomResource {
     /**
      * Get an existing VzenCluster resource's state with the given name, ID, and optional extra
@@ -31,14 +62,41 @@ export class VzenCluster extends pulumi.CustomResource {
         return obj['__pulumiType'] === VzenCluster.__pulumiType;
     }
 
+    /**
+     * The unique identifier for the VZEN cluster assigned by the ZIA cloud.
+     */
     declare public /*out*/ readonly clusterId: pulumi.Output<number>;
+    /**
+     * The default gateway of the VZEN cluster.
+     */
     declare public readonly defaultGateway: pulumi.Output<string | undefined>;
+    /**
+     * The IP address of the VZEN cluster.
+     */
     declare public readonly ipAddress: pulumi.Output<string | undefined>;
+    /**
+     * Whether IPSec is enabled on the cluster.
+     */
     declare public readonly ipSecEnabled: pulumi.Output<boolean | undefined>;
+    /**
+     * Name of the VZEN cluster.
+     */
     declare public readonly name: pulumi.Output<string | undefined>;
+    /**
+     * The status of the cluster (e.g., 'ENABLED', 'DISABLED').
+     */
     declare public readonly status: pulumi.Output<string | undefined>;
+    /**
+     * The subnet mask of the VZEN cluster.
+     */
     declare public readonly subnetMask: pulumi.Output<string | undefined>;
+    /**
+     * The type of the VZEN cluster.
+     */
     declare public readonly type: pulumi.Output<string | undefined>;
+    /**
+     * List of VZEN node IDs that belong to this cluster.
+     */
     declare public readonly virtualZenNodes: pulumi.Output<number[] | undefined>;
 
     /**
@@ -81,12 +139,36 @@ export class VzenCluster extends pulumi.CustomResource {
  * The set of arguments for constructing a VzenCluster resource.
  */
 export interface VzenClusterArgs {
+    /**
+     * The default gateway of the VZEN cluster.
+     */
     defaultGateway?: pulumi.Input<string>;
+    /**
+     * The IP address of the VZEN cluster.
+     */
     ipAddress?: pulumi.Input<string>;
+    /**
+     * Whether IPSec is enabled on the cluster.
+     */
     ipSecEnabled?: pulumi.Input<boolean>;
+    /**
+     * Name of the VZEN cluster.
+     */
     name?: pulumi.Input<string>;
+    /**
+     * The status of the cluster (e.g., 'ENABLED', 'DISABLED').
+     */
     status?: pulumi.Input<string>;
+    /**
+     * The subnet mask of the VZEN cluster.
+     */
     subnetMask?: pulumi.Input<string>;
+    /**
+     * The type of the VZEN cluster.
+     */
     type?: pulumi.Input<string>;
+    /**
+     * List of VZEN node IDs that belong to this cluster.
+     */
     virtualZenNodes?: pulumi.Input<pulumi.Input<number>[]>;
 }

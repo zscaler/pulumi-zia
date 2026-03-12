@@ -16,16 +16,32 @@ public final class GetWorkloadGroupArgs extends com.pulumi.resources.InvokeArgs 
 
     public static final GetWorkloadGroupArgs Empty = new GetWorkloadGroupArgs();
 
+    /**
+     * The ID of the workload group to look up.
+     * 
+     */
     @Import(name="groupId")
     private @Nullable Output<Integer> groupId;
 
+    /**
+     * @return The ID of the workload group to look up.
+     * 
+     */
     public Optional<Output<Integer>> groupId() {
         return Optional.ofNullable(this.groupId);
     }
 
+    /**
+     * The name of the workload group to look up.
+     * 
+     */
     @Import(name="name")
     private @Nullable Output<String> name;
 
+    /**
+     * @return The name of the workload group to look up.
+     * 
+     */
     public Optional<Output<String>> name() {
         return Optional.ofNullable(this.name);
     }
@@ -55,20 +71,44 @@ public final class GetWorkloadGroupArgs extends com.pulumi.resources.InvokeArgs 
             $ = new GetWorkloadGroupArgs(Objects.requireNonNull(defaults));
         }
 
+        /**
+         * @param groupId The ID of the workload group to look up.
+         * 
+         * @return builder
+         * 
+         */
         public Builder groupId(@Nullable Output<Integer> groupId) {
             $.groupId = groupId;
             return this;
         }
 
+        /**
+         * @param groupId The ID of the workload group to look up.
+         * 
+         * @return builder
+         * 
+         */
         public Builder groupId(Integer groupId) {
             return groupId(Output.of(groupId));
         }
 
+        /**
+         * @param name The name of the workload group to look up.
+         * 
+         * @return builder
+         * 
+         */
         public Builder name(@Nullable Output<String> name) {
             $.name = name;
             return this;
         }
 
+        /**
+         * @param name The name of the workload group to look up.
+         * 
+         * @return builder
+         * 
+         */
         public Builder name(String name) {
             return name(Output.of(name));
         }

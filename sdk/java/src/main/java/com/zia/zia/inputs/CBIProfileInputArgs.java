@@ -16,13 +16,6 @@ public final class CBIProfileInputArgs extends com.pulumi.resources.ResourceArgs
 
     public static final CBIProfileInputArgs Empty = new CBIProfileInputArgs();
 
-    @Import(name="id")
-    private @Nullable Output<String> id;
-
-    public Optional<Output<String>> id() {
-        return Optional.ofNullable(this.id);
-    }
-
     @Import(name="name")
     private @Nullable Output<String> name;
 
@@ -37,6 +30,13 @@ public final class CBIProfileInputArgs extends com.pulumi.resources.ResourceArgs
         return Optional.ofNullable(this.profileSeq);
     }
 
+    @Import(name="resourceId")
+    private @Nullable Output<String> resourceId;
+
+    public Optional<Output<String>> resourceId() {
+        return Optional.ofNullable(this.resourceId);
+    }
+
     @Import(name="url")
     private @Nullable Output<String> url;
 
@@ -47,9 +47,9 @@ public final class CBIProfileInputArgs extends com.pulumi.resources.ResourceArgs
     private CBIProfileInputArgs() {}
 
     private CBIProfileInputArgs(CBIProfileInputArgs $) {
-        this.id = $.id;
         this.name = $.name;
         this.profileSeq = $.profileSeq;
+        this.resourceId = $.resourceId;
         this.url = $.url;
     }
 
@@ -71,15 +71,6 @@ public final class CBIProfileInputArgs extends com.pulumi.resources.ResourceArgs
             $ = new CBIProfileInputArgs(Objects.requireNonNull(defaults));
         }
 
-        public Builder id(@Nullable Output<String> id) {
-            $.id = id;
-            return this;
-        }
-
-        public Builder id(String id) {
-            return id(Output.of(id));
-        }
-
         public Builder name(@Nullable Output<String> name) {
             $.name = name;
             return this;
@@ -96,6 +87,15 @@ public final class CBIProfileInputArgs extends com.pulumi.resources.ResourceArgs
 
         public Builder profileSeq(Integer profileSeq) {
             return profileSeq(Output.of(profileSeq));
+        }
+
+        public Builder resourceId(@Nullable Output<String> resourceId) {
+            $.resourceId = resourceId;
+            return this;
+        }
+
+        public Builder resourceId(String resourceId) {
+            return resourceId(Output.of(resourceId));
         }
 
         public Builder url(@Nullable Output<String> url) {

@@ -7,6 +7,9 @@ import * as utilities from "../utilities";
 declare var exports: any;
 const __config = new pulumi.Config("zia");
 
+/**
+ * (Legacy) The API key for ZIA. Can also be set via the `ZIA_API_KEY` environment variable. Prefer OAuth2 credentials instead.
+ */
 export declare const apiKey: string | undefined;
 Object.defineProperty(exports, "apiKey", {
     get() {
@@ -15,6 +18,9 @@ Object.defineProperty(exports, "apiKey", {
     enumerable: true,
 });
 
+/**
+ * The OAuth2 client ID for authenticating with the Zscaler API. Can also be set via the `ZSCALER_CLIENT_ID` environment variable.
+ */
 export declare const clientId: string | undefined;
 Object.defineProperty(exports, "clientId", {
     get() {
@@ -23,6 +29,9 @@ Object.defineProperty(exports, "clientId", {
     enumerable: true,
 });
 
+/**
+ * The OAuth2 client secret for authenticating with the Zscaler API. Can also be set via the `ZSCALER_CLIENT_SECRET` environment variable.
+ */
 export declare const clientSecret: string | undefined;
 Object.defineProperty(exports, "clientSecret", {
     get() {
@@ -31,6 +40,9 @@ Object.defineProperty(exports, "clientSecret", {
     enumerable: true,
 });
 
+/**
+ * The Zscaler cloud name (e.g. 'zscaler', 'zscalerone', 'zscalertwo', 'zscalerthree', 'zscloud', 'zscalerbeta', 'zscalergov'). Can also be set via the `ZSCALER_CLOUD` environment variable.
+ */
 export declare const cloud: string | undefined;
 Object.defineProperty(exports, "cloud", {
     get() {
@@ -39,6 +51,20 @@ Object.defineProperty(exports, "cloud", {
     enumerable: true,
 });
 
+/**
+ * If true, enables verbose Zscaler SDK logging (API requests/responses). Logs are written to stderr and optionally to the file specified by the `ZSCALER_SDK_LOG_FILE` environment variable.
+ */
+export declare const debug: boolean | undefined;
+Object.defineProperty(exports, "debug", {
+    get() {
+        return __config.getObject<boolean>("debug");
+    },
+    enumerable: true,
+});
+
+/**
+ * HTTP proxy URL for API requests (e.g. 'http://proxy.example.com:8080'). Can also be set via the `ZSCALER_HTTP_PROXY` environment variable.
+ */
 export declare const httpProxy: string | undefined;
 Object.defineProperty(exports, "httpProxy", {
     get() {
@@ -47,6 +73,9 @@ Object.defineProperty(exports, "httpProxy", {
     enumerable: true,
 });
 
+/**
+ * Maximum number of retries for API requests. Default is determined by the SDK.
+ */
 export declare const maxRetries: number | undefined;
 Object.defineProperty(exports, "maxRetries", {
     get() {
@@ -55,6 +84,9 @@ Object.defineProperty(exports, "maxRetries", {
     enumerable: true,
 });
 
+/**
+ * (Legacy) The admin password for ZIA. Can also be set via the `ZIA_PASSWORD` environment variable. Prefer OAuth2 credentials instead.
+ */
 export declare const password: string | undefined;
 Object.defineProperty(exports, "password", {
     get() {
@@ -63,6 +95,9 @@ Object.defineProperty(exports, "password", {
     enumerable: true,
 });
 
+/**
+ * The private key for service principal authentication. Can also be set via the `ZSCALER_PRIVATE_KEY` environment variable.
+ */
 export declare const privateKey: string | undefined;
 Object.defineProperty(exports, "privateKey", {
     get() {
@@ -71,6 +106,9 @@ Object.defineProperty(exports, "privateKey", {
     enumerable: true,
 });
 
+/**
+ * Timeout in seconds for API requests.
+ */
 export declare const requestTimeout: number | undefined;
 Object.defineProperty(exports, "requestTimeout", {
     get() {
@@ -79,6 +117,9 @@ Object.defineProperty(exports, "requestTimeout", {
     enumerable: true,
 });
 
+/**
+ * The Zscaler Sandbox cloud name. Can also be set via the `ZIA_SANDBOX_CLOUD` environment variable.
+ */
 export declare const sandboxCloud: string | undefined;
 Object.defineProperty(exports, "sandboxCloud", {
     get() {
@@ -87,6 +128,9 @@ Object.defineProperty(exports, "sandboxCloud", {
     enumerable: true,
 });
 
+/**
+ * The API token for Zscaler Sandbox. Can also be set via the `ZIA_SANDBOX_TOKEN` environment variable.
+ */
 export declare const sandboxToken: string | undefined;
 Object.defineProperty(exports, "sandboxToken", {
     get() {
@@ -95,6 +139,9 @@ Object.defineProperty(exports, "sandboxToken", {
     enumerable: true,
 });
 
+/**
+ * If true, use the legacy ZIA client authentication instead of OAuth2.
+ */
 export declare const useLegacyClient: boolean | undefined;
 Object.defineProperty(exports, "useLegacyClient", {
     get() {
@@ -103,6 +150,9 @@ Object.defineProperty(exports, "useLegacyClient", {
     enumerable: true,
 });
 
+/**
+ * (Legacy) The admin username for ZIA. Can also be set via the `ZIA_USERNAME` environment variable. Prefer OAuth2 credentials instead.
+ */
 export declare const username: string | undefined;
 Object.defineProperty(exports, "username", {
     get() {
@@ -111,6 +161,9 @@ Object.defineProperty(exports, "username", {
     enumerable: true,
 });
 
+/**
+ * The vanity domain for your Zscaler organization. Can also be set via the `ZSCALER_VANITY_DOMAIN` environment variable.
+ */
 export declare const vanityDomain: string | undefined;
 Object.defineProperty(exports, "vanityDomain", {
     get() {
@@ -119,6 +172,9 @@ Object.defineProperty(exports, "vanityDomain", {
     enumerable: true,
 });
 
+/**
+ * (Legacy) The ZIA cloud name. Can also be set via the `ZIA_CLOUD` environment variable. Prefer the 'cloud' parameter instead.
+ */
 export declare const ziaCloud: string | undefined;
 Object.defineProperty(exports, "ziaCloud", {
     get() {

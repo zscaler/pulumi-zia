@@ -17,13 +17,6 @@ public final class WorkloadGroupInputArgs extends com.pulumi.resources.ResourceA
 
     public static final WorkloadGroupInputArgs Empty = new WorkloadGroupInputArgs();
 
-    @Import(name="id", required=true)
-    private Output<Integer> id;
-
-    public Output<Integer> id() {
-        return this.id;
-    }
-
     @Import(name="name")
     private @Nullable Output<String> name;
 
@@ -31,11 +24,18 @@ public final class WorkloadGroupInputArgs extends com.pulumi.resources.ResourceA
         return Optional.ofNullable(this.name);
     }
 
+    @Import(name="resourceId", required=true)
+    private Output<Integer> resourceId;
+
+    public Output<Integer> resourceId() {
+        return this.resourceId;
+    }
+
     private WorkloadGroupInputArgs() {}
 
     private WorkloadGroupInputArgs(WorkloadGroupInputArgs $) {
-        this.id = $.id;
         this.name = $.name;
+        this.resourceId = $.resourceId;
     }
 
     public static Builder builder() {
@@ -56,15 +56,6 @@ public final class WorkloadGroupInputArgs extends com.pulumi.resources.ResourceA
             $ = new WorkloadGroupInputArgs(Objects.requireNonNull(defaults));
         }
 
-        public Builder id(Output<Integer> id) {
-            $.id = id;
-            return this;
-        }
-
-        public Builder id(Integer id) {
-            return id(Output.of(id));
-        }
-
         public Builder name(@Nullable Output<String> name) {
             $.name = name;
             return this;
@@ -74,9 +65,18 @@ public final class WorkloadGroupInputArgs extends com.pulumi.resources.ResourceA
             return name(Output.of(name));
         }
 
+        public Builder resourceId(Output<Integer> resourceId) {
+            $.resourceId = resourceId;
+            return this;
+        }
+
+        public Builder resourceId(Integer resourceId) {
+            return resourceId(Output.of(resourceId));
+        }
+
         public WorkloadGroupInputArgs build() {
-            if ($.id == null) {
-                throw new MissingRequiredPropertyException("WorkloadGroupInputArgs", "id");
+            if ($.resourceId == null) {
+                throw new MissingRequiredPropertyException("WorkloadGroupInputArgs", "resourceId");
             }
             return $;
         }

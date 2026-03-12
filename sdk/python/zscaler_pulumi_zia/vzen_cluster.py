@@ -29,6 +29,14 @@ class VzenClusterArgs:
                  virtual_zen_nodes: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.int]]]] = None):
         """
         The set of arguments for constructing a VzenCluster resource.
+        :param pulumi.Input[_builtins.str] default_gateway: The default gateway of the VZEN cluster.
+        :param pulumi.Input[_builtins.str] ip_address: The IP address of the VZEN cluster.
+        :param pulumi.Input[_builtins.bool] ip_sec_enabled: Whether IPSec is enabled on the cluster.
+        :param pulumi.Input[_builtins.str] name: Name of the VZEN cluster.
+        :param pulumi.Input[_builtins.str] status: The status of the cluster (e.g., 'ENABLED', 'DISABLED').
+        :param pulumi.Input[_builtins.str] subnet_mask: The subnet mask of the VZEN cluster.
+        :param pulumi.Input[_builtins.str] type: The type of the VZEN cluster.
+        :param pulumi.Input[Sequence[pulumi.Input[_builtins.int]]] virtual_zen_nodes: List of VZEN node IDs that belong to this cluster.
         """
         if default_gateway is not None:
             pulumi.set(__self__, "default_gateway", default_gateway)
@@ -50,6 +58,9 @@ class VzenClusterArgs:
     @_builtins.property
     @pulumi.getter(name="defaultGateway")
     def default_gateway(self) -> Optional[pulumi.Input[_builtins.str]]:
+        """
+        The default gateway of the VZEN cluster.
+        """
         return pulumi.get(self, "default_gateway")
 
     @default_gateway.setter
@@ -59,6 +70,9 @@ class VzenClusterArgs:
     @_builtins.property
     @pulumi.getter(name="ipAddress")
     def ip_address(self) -> Optional[pulumi.Input[_builtins.str]]:
+        """
+        The IP address of the VZEN cluster.
+        """
         return pulumi.get(self, "ip_address")
 
     @ip_address.setter
@@ -68,6 +82,9 @@ class VzenClusterArgs:
     @_builtins.property
     @pulumi.getter(name="ipSecEnabled")
     def ip_sec_enabled(self) -> Optional[pulumi.Input[_builtins.bool]]:
+        """
+        Whether IPSec is enabled on the cluster.
+        """
         return pulumi.get(self, "ip_sec_enabled")
 
     @ip_sec_enabled.setter
@@ -77,6 +94,9 @@ class VzenClusterArgs:
     @_builtins.property
     @pulumi.getter
     def name(self) -> Optional[pulumi.Input[_builtins.str]]:
+        """
+        Name of the VZEN cluster.
+        """
         return pulumi.get(self, "name")
 
     @name.setter
@@ -86,6 +106,9 @@ class VzenClusterArgs:
     @_builtins.property
     @pulumi.getter
     def status(self) -> Optional[pulumi.Input[_builtins.str]]:
+        """
+        The status of the cluster (e.g., 'ENABLED', 'DISABLED').
+        """
         return pulumi.get(self, "status")
 
     @status.setter
@@ -95,6 +118,9 @@ class VzenClusterArgs:
     @_builtins.property
     @pulumi.getter(name="subnetMask")
     def subnet_mask(self) -> Optional[pulumi.Input[_builtins.str]]:
+        """
+        The subnet mask of the VZEN cluster.
+        """
         return pulumi.get(self, "subnet_mask")
 
     @subnet_mask.setter
@@ -104,6 +130,9 @@ class VzenClusterArgs:
     @_builtins.property
     @pulumi.getter
     def type(self) -> Optional[pulumi.Input[_builtins.str]]:
+        """
+        The type of the VZEN cluster.
+        """
         return pulumi.get(self, "type")
 
     @type.setter
@@ -113,6 +142,9 @@ class VzenClusterArgs:
     @_builtins.property
     @pulumi.getter(name="virtualZenNodes")
     def virtual_zen_nodes(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.int]]]]:
+        """
+        List of VZEN node IDs that belong to this cluster.
+        """
         return pulumi.get(self, "virtual_zen_nodes")
 
     @virtual_zen_nodes.setter
@@ -136,9 +168,46 @@ class VzenCluster(pulumi.CustomResource):
                  virtual_zen_nodes: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.int]]]] = None,
                  __props__=None):
         """
-        Create a VzenCluster resource with the given unique name, props, and options.
+        The zia.VzenCluster resource manages Virtual ZEN (VZEN) cluster configurations in the
+        Zscaler Internet Access (ZIA) cloud. VZEN clusters group multiple VZEN nodes for high availability
+        and load balancing of traffic processing.
+
+        ## Example Usage
+        ### Basic VZEN Cluster
+
+        ```python
+        import zscaler_pulumi_zia as zia
+
+        example = zia.VzenCluster("example",
+            name="Example VZEN Cluster",
+            status="ENABLED",
+            type="VZEN",
+            ip_address="10.0.0.20",
+            subnet_mask="255.255.255.0",
+            default_gateway="10.0.0.1",
+            ip_sec_enabled=True,
+            virtual_zen_nodes=[12345, 67890],
+        )
+        ```
+
+        ## Import
+
+        An existing VZEN cluster can be imported using its ID, e.g.
+
+        ```sh
+        $ pulumi import zia:index:VzenCluster example 12345
+        ```
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
+        :param pulumi.Input[_builtins.str] default_gateway: The default gateway of the VZEN cluster.
+        :param pulumi.Input[_builtins.str] ip_address: The IP address of the VZEN cluster.
+        :param pulumi.Input[_builtins.bool] ip_sec_enabled: Whether IPSec is enabled on the cluster.
+        :param pulumi.Input[_builtins.str] name: Name of the VZEN cluster.
+        :param pulumi.Input[_builtins.str] status: The status of the cluster (e.g., 'ENABLED', 'DISABLED').
+        :param pulumi.Input[_builtins.str] subnet_mask: The subnet mask of the VZEN cluster.
+        :param pulumi.Input[_builtins.str] type: The type of the VZEN cluster.
+        :param pulumi.Input[Sequence[pulumi.Input[_builtins.int]]] virtual_zen_nodes: List of VZEN node IDs that belong to this cluster.
         """
         ...
     @overload
@@ -147,7 +216,36 @@ class VzenCluster(pulumi.CustomResource):
                  args: Optional[VzenClusterArgs] = None,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
-        Create a VzenCluster resource with the given unique name, props, and options.
+        The zia.VzenCluster resource manages Virtual ZEN (VZEN) cluster configurations in the
+        Zscaler Internet Access (ZIA) cloud. VZEN clusters group multiple VZEN nodes for high availability
+        and load balancing of traffic processing.
+
+        ## Example Usage
+        ### Basic VZEN Cluster
+
+        ```python
+        import zscaler_pulumi_zia as zia
+
+        example = zia.VzenCluster("example",
+            name="Example VZEN Cluster",
+            status="ENABLED",
+            type="VZEN",
+            ip_address="10.0.0.20",
+            subnet_mask="255.255.255.0",
+            default_gateway="10.0.0.1",
+            ip_sec_enabled=True,
+            virtual_zen_nodes=[12345, 67890],
+        )
+        ```
+
+        ## Import
+
+        An existing VZEN cluster can be imported using its ID, e.g.
+
+        ```sh
+        $ pulumi import zia:index:VzenCluster example 12345
+        ```
+
         :param str resource_name: The name of the resource.
         :param VzenClusterArgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -225,45 +323,72 @@ class VzenCluster(pulumi.CustomResource):
     @_builtins.property
     @pulumi.getter(name="clusterId")
     def cluster_id(self) -> pulumi.Output[_builtins.int]:
+        """
+        The unique identifier for the VZEN cluster assigned by the ZIA cloud.
+        """
         return pulumi.get(self, "cluster_id")
 
     @_builtins.property
     @pulumi.getter(name="defaultGateway")
     def default_gateway(self) -> pulumi.Output[Optional[_builtins.str]]:
+        """
+        The default gateway of the VZEN cluster.
+        """
         return pulumi.get(self, "default_gateway")
 
     @_builtins.property
     @pulumi.getter(name="ipAddress")
     def ip_address(self) -> pulumi.Output[Optional[_builtins.str]]:
+        """
+        The IP address of the VZEN cluster.
+        """
         return pulumi.get(self, "ip_address")
 
     @_builtins.property
     @pulumi.getter(name="ipSecEnabled")
     def ip_sec_enabled(self) -> pulumi.Output[Optional[_builtins.bool]]:
+        """
+        Whether IPSec is enabled on the cluster.
+        """
         return pulumi.get(self, "ip_sec_enabled")
 
     @_builtins.property
     @pulumi.getter
     def name(self) -> pulumi.Output[Optional[_builtins.str]]:
+        """
+        Name of the VZEN cluster.
+        """
         return pulumi.get(self, "name")
 
     @_builtins.property
     @pulumi.getter
     def status(self) -> pulumi.Output[Optional[_builtins.str]]:
+        """
+        The status of the cluster (e.g., 'ENABLED', 'DISABLED').
+        """
         return pulumi.get(self, "status")
 
     @_builtins.property
     @pulumi.getter(name="subnetMask")
     def subnet_mask(self) -> pulumi.Output[Optional[_builtins.str]]:
+        """
+        The subnet mask of the VZEN cluster.
+        """
         return pulumi.get(self, "subnet_mask")
 
     @_builtins.property
     @pulumi.getter
     def type(self) -> pulumi.Output[Optional[_builtins.str]]:
+        """
+        The type of the VZEN cluster.
+        """
         return pulumi.get(self, "type")
 
     @_builtins.property
     @pulumi.getter(name="virtualZenNodes")
     def virtual_zen_nodes(self) -> pulumi.Output[Optional[Sequence[_builtins.int]]]:
+        """
+        List of VZEN node IDs that belong to this cluster.
+        """
         return pulumi.get(self, "virtual_zen_nodes")
 

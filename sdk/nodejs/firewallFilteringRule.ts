@@ -6,6 +6,34 @@ import * as inputs from "./types/input";
 import * as outputs from "./types/output";
 import * as utilities from "./utilities";
 
+/**
+ * The zia_firewall_filtering_rule resource manages firewall filtering rules in the Zscaler Internet Access (ZIA) cloud service. Cloud firewall rules control traffic that is forwarded to the Zscaler service for inspection, allowing you to allow, block, or apply specific actions based on source, destination, applications, and other criteria.
+ *
+ * For more information, see the [ZIA Cloud Firewall documentation](https://help.zscaler.com/zia/firewall-policies).
+ *
+ * ## Example Usage
+ * ### Basic Firewall Filtering Rule
+ *
+ * ```typescript
+ * import * as zia from "@bdzscaler/pulumi-zia";
+ *
+ * const example = new zia.FirewallFilteringRule("example", {
+ *     name: "Example Firewall Rule",
+ *     description: "Allow outbound traffic",
+ *     order: 1,
+ *     state: "ENABLED",
+ *     action: "ALLOW",
+ * });
+ * ```
+ *
+ * ## Import
+ *
+ * An existing Firewall Filtering Rule can be imported using its resource ID, e.g.
+ *
+ * ```sh
+ * $ pulumi import zia:index:FirewallFilteringRule example 12345
+ * ```
+ */
 export class FirewallFilteringRule extends pulumi.CustomResource {
     /**
      * Get an existing FirewallFilteringRule resource's state with the given name, ID, and optional extra
@@ -33,41 +61,149 @@ export class FirewallFilteringRule extends pulumi.CustomResource {
         return obj['__pulumiType'] === FirewallFilteringRule.__pulumiType;
     }
 
+    /**
+     * The action the rule takes when traffic matches. Valid values: `ALLOW`, `BLOCK_DROP`, `BLOCK_RESET`, `BLOCK_ICMP`, `EVAL_NWAPP`.
+     */
     declare public readonly action: pulumi.Output<string | undefined>;
+    /**
+     * IDs of application service groups to which the rule applies.
+     */
     declare public readonly appServiceGroups: pulumi.Output<number[] | undefined>;
+    /**
+     * IDs of application services to which the rule applies.
+     */
     declare public readonly appServices: pulumi.Output<number[] | undefined>;
+    /**
+     * Indicates whether this is the default firewall filtering rule.
+     */
     declare public readonly defaultRule: pulumi.Output<boolean | undefined>;
+    /**
+     * IDs of departments to which the rule must be applied.
+     */
     declare public readonly departments: pulumi.Output<number[] | undefined>;
+    /**
+     * Additional information about the firewall filtering rule.
+     */
     declare public readonly description: pulumi.Output<string | undefined>;
+    /**
+     * Destination IP addresses, FQDNs, or wildcard FQDNs for the rule.
+     */
     declare public readonly destAddresses: pulumi.Output<string[] | undefined>;
+    /**
+     * Destination countries (ISO 3166-1 alpha-2 codes) for the rule.
+     */
     declare public readonly destCountries: pulumi.Output<string[] | undefined>;
+    /**
+     * Destination IP address URL categories. Allows you to identify destinations based on the URL category of the domain.
+     */
     declare public readonly destIpCategories: pulumi.Output<string[] | undefined>;
+    /**
+     * IDs of destination IP address groups for the rule.
+     */
     declare public readonly destIpGroups: pulumi.Output<number[] | undefined>;
+    /**
+     * IDs of device groups for which the rule must be applied. Applicable for devices managed using Zscaler Client Connector.
+     */
     declare public readonly deviceGroups: pulumi.Output<number[] | undefined>;
+    /**
+     * Device trust levels for the rule. Valid values: `ANY`, `UNKNOWN_DEVICETRUSTLEVEL`, `LOW_TRUST`, `MEDIUM_TRUST`, `HIGH_TRUST`.
+     */
     declare public readonly deviceTrustLevels: pulumi.Output<string[] | undefined>;
+    /**
+     * IDs of devices for which the rule must be applied.
+     */
     declare public readonly devices: pulumi.Output<number[] | undefined>;
+    /**
+     * If set to true, enables full logging for the rule.
+     */
     declare public readonly enableFullLogging: pulumi.Output<boolean | undefined>;
+    /**
+     * If set to true, the countries specified in sourceCountries are excluded from the rule.
+     */
     declare public readonly excludeSrcCountries: pulumi.Output<boolean | undefined>;
+    /**
+     * IDs of groups to which the rule must be applied.
+     */
     declare public readonly groups: pulumi.Output<number[] | undefined>;
+    /**
+     * IDs of labels associated with the rule.
+     */
     declare public readonly labels: pulumi.Output<number[] | undefined>;
+    /**
+     * IDs of location groups to which the rule must be applied.
+     */
     declare public readonly locationGroups: pulumi.Output<number[] | undefined>;
+    /**
+     * IDs of locations to which the rule must be applied.
+     */
     declare public readonly locations: pulumi.Output<number[] | undefined>;
+    /**
+     * The name of the firewall filtering rule. Must be unique.
+     */
     declare public readonly name: pulumi.Output<string>;
+    /**
+     * IDs of network application groups to which the rule applies.
+     */
     declare public readonly nwApplicationGroups: pulumi.Output<number[] | undefined>;
+    /**
+     * Network application values to which the rule applies (e.g., `APNS`, `DNS`, `HTTP`).
+     */
     declare public readonly nwApplications: pulumi.Output<string[] | undefined>;
+    /**
+     * IDs of network service groups to which the rule applies.
+     */
     declare public readonly nwServiceGroups: pulumi.Output<number[] | undefined>;
+    /**
+     * IDs of network services to which the rule applies.
+     */
     declare public readonly nwServices: pulumi.Output<number[] | undefined>;
+    /**
+     * The order of execution of the rule with respect to other firewall filtering rules.
+     */
     declare public readonly order: pulumi.Output<number>;
+    /**
+     * Indicates whether this is a predefined rule.
+     */
     declare public readonly predefined: pulumi.Output<boolean | undefined>;
+    /**
+     * Admin rank of the firewall filtering policy rule. Valid values: 0-7. Default: 7.
+     */
     declare public readonly rank: pulumi.Output<number | undefined>;
+    /**
+     * The system-generated ID of the firewall filtering rule.
+     */
     declare public /*out*/ readonly ruleId: pulumi.Output<number>;
+    /**
+     * Source countries (ISO 3166-1 alpha-2 codes) for the rule.
+     */
     declare public readonly sourceCountries: pulumi.Output<string[] | undefined>;
+    /**
+     * IDs of source IP address groups for the rule.
+     */
     declare public readonly srcIpGroups: pulumi.Output<number[] | undefined>;
+    /**
+     * Source IP addresses or CIDR ranges for the rule.
+     */
     declare public readonly srcIps: pulumi.Output<string[] | undefined>;
+    /**
+     * Rule state. Valid values: `ENABLED`, `DISABLED`.
+     */
     declare public readonly state: pulumi.Output<string | undefined>;
+    /**
+     * IDs of time intervals during which the rule must be enforced.
+     */
     declare public readonly timeWindows: pulumi.Output<number[] | undefined>;
+    /**
+     * IDs of users to which the rule must be applied.
+     */
     declare public readonly users: pulumi.Output<number[] | undefined>;
+    /**
+     * List of preconfigured workload groups to which the policy must be applied.
+     */
     declare public readonly workloadGroups: pulumi.Output<outputs.WorkloadGroupInput[] | undefined>;
+    /**
+     * List of ZPA application segments for which this rule is applicable. This field is applicable only for the ZPA gateway forwarding method.
+     */
     declare public readonly zpaAppSegments: pulumi.Output<outputs.ZPAAppSegmentInput[] | undefined>;
 
     /**
@@ -170,39 +306,144 @@ export class FirewallFilteringRule extends pulumi.CustomResource {
  * The set of arguments for constructing a FirewallFilteringRule resource.
  */
 export interface FirewallFilteringRuleArgs {
+    /**
+     * The action the rule takes when traffic matches. Valid values: `ALLOW`, `BLOCK_DROP`, `BLOCK_RESET`, `BLOCK_ICMP`, `EVAL_NWAPP`.
+     */
     action?: pulumi.Input<string>;
+    /**
+     * IDs of application service groups to which the rule applies.
+     */
     appServiceGroups?: pulumi.Input<pulumi.Input<number>[]>;
+    /**
+     * IDs of application services to which the rule applies.
+     */
     appServices?: pulumi.Input<pulumi.Input<number>[]>;
+    /**
+     * Indicates whether this is the default firewall filtering rule.
+     */
     defaultRule?: pulumi.Input<boolean>;
+    /**
+     * IDs of departments to which the rule must be applied.
+     */
     departments?: pulumi.Input<pulumi.Input<number>[]>;
+    /**
+     * Additional information about the firewall filtering rule.
+     */
     description?: pulumi.Input<string>;
+    /**
+     * Destination IP addresses, FQDNs, or wildcard FQDNs for the rule.
+     */
     destAddresses?: pulumi.Input<pulumi.Input<string>[]>;
+    /**
+     * Destination countries (ISO 3166-1 alpha-2 codes) for the rule.
+     */
     destCountries?: pulumi.Input<pulumi.Input<string>[]>;
+    /**
+     * Destination IP address URL categories. Allows you to identify destinations based on the URL category of the domain.
+     */
     destIpCategories?: pulumi.Input<pulumi.Input<string>[]>;
+    /**
+     * IDs of destination IP address groups for the rule.
+     */
     destIpGroups?: pulumi.Input<pulumi.Input<number>[]>;
+    /**
+     * IDs of device groups for which the rule must be applied. Applicable for devices managed using Zscaler Client Connector.
+     */
     deviceGroups?: pulumi.Input<pulumi.Input<number>[]>;
+    /**
+     * Device trust levels for the rule. Valid values: `ANY`, `UNKNOWN_DEVICETRUSTLEVEL`, `LOW_TRUST`, `MEDIUM_TRUST`, `HIGH_TRUST`.
+     */
     deviceTrustLevels?: pulumi.Input<pulumi.Input<string>[]>;
+    /**
+     * IDs of devices for which the rule must be applied.
+     */
     devices?: pulumi.Input<pulumi.Input<number>[]>;
+    /**
+     * If set to true, enables full logging for the rule.
+     */
     enableFullLogging?: pulumi.Input<boolean>;
+    /**
+     * If set to true, the countries specified in sourceCountries are excluded from the rule.
+     */
     excludeSrcCountries?: pulumi.Input<boolean>;
+    /**
+     * IDs of groups to which the rule must be applied.
+     */
     groups?: pulumi.Input<pulumi.Input<number>[]>;
+    /**
+     * IDs of labels associated with the rule.
+     */
     labels?: pulumi.Input<pulumi.Input<number>[]>;
+    /**
+     * IDs of location groups to which the rule must be applied.
+     */
     locationGroups?: pulumi.Input<pulumi.Input<number>[]>;
+    /**
+     * IDs of locations to which the rule must be applied.
+     */
     locations?: pulumi.Input<pulumi.Input<number>[]>;
+    /**
+     * The name of the firewall filtering rule. Must be unique.
+     */
     name: pulumi.Input<string>;
+    /**
+     * IDs of network application groups to which the rule applies.
+     */
     nwApplicationGroups?: pulumi.Input<pulumi.Input<number>[]>;
+    /**
+     * Network application values to which the rule applies (e.g., `APNS`, `DNS`, `HTTP`).
+     */
     nwApplications?: pulumi.Input<pulumi.Input<string>[]>;
+    /**
+     * IDs of network service groups to which the rule applies.
+     */
     nwServiceGroups?: pulumi.Input<pulumi.Input<number>[]>;
+    /**
+     * IDs of network services to which the rule applies.
+     */
     nwServices?: pulumi.Input<pulumi.Input<number>[]>;
+    /**
+     * The order of execution of the rule with respect to other firewall filtering rules.
+     */
     order: pulumi.Input<number>;
+    /**
+     * Indicates whether this is a predefined rule.
+     */
     predefined?: pulumi.Input<boolean>;
+    /**
+     * Admin rank of the firewall filtering policy rule. Valid values: 0-7. Default: 7.
+     */
     rank?: pulumi.Input<number>;
+    /**
+     * Source countries (ISO 3166-1 alpha-2 codes) for the rule.
+     */
     sourceCountries?: pulumi.Input<pulumi.Input<string>[]>;
+    /**
+     * IDs of source IP address groups for the rule.
+     */
     srcIpGroups?: pulumi.Input<pulumi.Input<number>[]>;
+    /**
+     * Source IP addresses or CIDR ranges for the rule.
+     */
     srcIps?: pulumi.Input<pulumi.Input<string>[]>;
+    /**
+     * Rule state. Valid values: `ENABLED`, `DISABLED`.
+     */
     state?: pulumi.Input<string>;
+    /**
+     * IDs of time intervals during which the rule must be enforced.
+     */
     timeWindows?: pulumi.Input<pulumi.Input<number>[]>;
+    /**
+     * IDs of users to which the rule must be applied.
+     */
     users?: pulumi.Input<pulumi.Input<number>[]>;
+    /**
+     * List of preconfigured workload groups to which the policy must be applied.
+     */
     workloadGroups?: pulumi.Input<pulumi.Input<inputs.WorkloadGroupInputArgs>[]>;
+    /**
+     * List of ZPA application segments for which this rule is applicable. This field is applicable only for the ZPA gateway forwarding method.
+     */
     zpaAppSegments?: pulumi.Input<pulumi.Input<inputs.ZPAAppSegmentInputArgs>[]>;
 }

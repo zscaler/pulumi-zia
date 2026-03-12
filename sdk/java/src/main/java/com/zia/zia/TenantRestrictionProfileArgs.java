@@ -18,93 +18,197 @@ public final class TenantRestrictionProfileArgs extends com.pulumi.resources.Res
 
     public static final TenantRestrictionProfileArgs Empty = new TenantRestrictionProfileArgs();
 
+    /**
+     * Whether to allow GCP Cloud Storage read access.
+     * 
+     */
     @Import(name="allowGcpCloudStorageRead")
     private @Nullable Output<Boolean> allowGcpCloudStorageRead;
 
+    /**
+     * @return Whether to allow GCP Cloud Storage read access.
+     * 
+     */
     public Optional<Output<Boolean>> allowGcpCloudStorageRead() {
         return Optional.ofNullable(this.allowGcpCloudStorageRead);
     }
 
+    /**
+     * Whether to allow Google consumer accounts.
+     * 
+     */
     @Import(name="allowGoogleConsumers")
     private @Nullable Output<Boolean> allowGoogleConsumers;
 
+    /**
+     * @return Whether to allow Google consumer accounts.
+     * 
+     */
     public Optional<Output<Boolean>> allowGoogleConsumers() {
         return Optional.ofNullable(this.allowGoogleConsumers);
     }
 
+    /**
+     * Whether to allow Google visitor accounts.
+     * 
+     */
     @Import(name="allowGoogleVisitors")
     private @Nullable Output<Boolean> allowGoogleVisitors;
 
+    /**
+     * @return Whether to allow Google visitor accounts.
+     * 
+     */
     public Optional<Output<Boolean>> allowGoogleVisitors() {
         return Optional.ofNullable(this.allowGoogleVisitors);
     }
 
+    /**
+     * The cloud application type (e.g., &#39;MICROSOFT&#39;, &#39;GOOGLE&#39;).
+     * 
+     */
     @Import(name="appType")
     private @Nullable Output<String> appType;
 
+    /**
+     * @return The cloud application type (e.g., &#39;MICROSOFT&#39;, &#39;GOOGLE&#39;).
+     * 
+     */
     public Optional<Output<String>> appType() {
         return Optional.ofNullable(this.appType);
     }
 
+    /**
+     * Description of the tenant restriction profile.
+     * 
+     */
     @Import(name="description")
     private @Nullable Output<String> description;
 
+    /**
+     * @return Description of the tenant restriction profile.
+     * 
+     */
     public Optional<Output<String>> description() {
         return Optional.ofNullable(this.description);
     }
 
+    /**
+     * List of primary item data values (e.g., tenant IDs).
+     * 
+     */
     @Import(name="itemDataPrimary")
     private @Nullable Output<List<String>> itemDataPrimary;
 
+    /**
+     * @return List of primary item data values (e.g., tenant IDs).
+     * 
+     */
     public Optional<Output<List<String>>> itemDataPrimary() {
         return Optional.ofNullable(this.itemDataPrimary);
     }
 
+    /**
+     * List of secondary item data values.
+     * 
+     */
     @Import(name="itemDataSecondary")
     private @Nullable Output<List<String>> itemDataSecondary;
 
+    /**
+     * @return List of secondary item data values.
+     * 
+     */
     public Optional<Output<List<String>>> itemDataSecondary() {
         return Optional.ofNullable(this.itemDataSecondary);
     }
 
+    /**
+     * The primary item type (e.g., &#39;TENANT_ID&#39;).
+     * 
+     */
     @Import(name="itemTypePrimary")
     private @Nullable Output<String> itemTypePrimary;
 
+    /**
+     * @return The primary item type (e.g., &#39;TENANT_ID&#39;).
+     * 
+     */
     public Optional<Output<String>> itemTypePrimary() {
         return Optional.ofNullable(this.itemTypePrimary);
     }
 
+    /**
+     * The secondary item type.
+     * 
+     */
     @Import(name="itemTypeSecondary")
     private @Nullable Output<String> itemTypeSecondary;
 
+    /**
+     * @return The secondary item type.
+     * 
+     */
     public Optional<Output<String>> itemTypeSecondary() {
         return Optional.ofNullable(this.itemTypeSecondary);
     }
 
+    /**
+     * List of item values.
+     * 
+     */
     @Import(name="itemValue")
     private @Nullable Output<List<String>> itemValue;
 
+    /**
+     * @return List of item values.
+     * 
+     */
     public Optional<Output<List<String>>> itemValue() {
         return Optional.ofNullable(this.itemValue);
     }
 
+    /**
+     * Whether to enable Microsoft login services tenant restriction v2.
+     * 
+     */
     @Import(name="msLoginServicesTrV2")
     private @Nullable Output<Boolean> msLoginServicesTrV2;
 
+    /**
+     * @return Whether to enable Microsoft login services tenant restriction v2.
+     * 
+     */
     public Optional<Output<Boolean>> msLoginServicesTrV2() {
         return Optional.ofNullable(this.msLoginServicesTrV2);
     }
 
+    /**
+     * Name of the tenant restriction profile.
+     * 
+     */
     @Import(name="name", required=true)
     private Output<String> name;
 
+    /**
+     * @return Name of the tenant restriction profile.
+     * 
+     */
     public Output<String> name() {
         return this.name;
     }
 
+    /**
+     * Whether to restrict personal Office 365 domains.
+     * 
+     */
     @Import(name="restrictPersonalO365Domains")
     private @Nullable Output<Boolean> restrictPersonalO365Domains;
 
+    /**
+     * @return Whether to restrict personal Office 365 domains.
+     * 
+     */
     public Optional<Output<Boolean>> restrictPersonalO365Domains() {
         return Optional.ofNullable(this.restrictPersonalO365Domains);
     }
@@ -145,131 +249,305 @@ public final class TenantRestrictionProfileArgs extends com.pulumi.resources.Res
             $ = new TenantRestrictionProfileArgs(Objects.requireNonNull(defaults));
         }
 
+        /**
+         * @param allowGcpCloudStorageRead Whether to allow GCP Cloud Storage read access.
+         * 
+         * @return builder
+         * 
+         */
         public Builder allowGcpCloudStorageRead(@Nullable Output<Boolean> allowGcpCloudStorageRead) {
             $.allowGcpCloudStorageRead = allowGcpCloudStorageRead;
             return this;
         }
 
+        /**
+         * @param allowGcpCloudStorageRead Whether to allow GCP Cloud Storage read access.
+         * 
+         * @return builder
+         * 
+         */
         public Builder allowGcpCloudStorageRead(Boolean allowGcpCloudStorageRead) {
             return allowGcpCloudStorageRead(Output.of(allowGcpCloudStorageRead));
         }
 
+        /**
+         * @param allowGoogleConsumers Whether to allow Google consumer accounts.
+         * 
+         * @return builder
+         * 
+         */
         public Builder allowGoogleConsumers(@Nullable Output<Boolean> allowGoogleConsumers) {
             $.allowGoogleConsumers = allowGoogleConsumers;
             return this;
         }
 
+        /**
+         * @param allowGoogleConsumers Whether to allow Google consumer accounts.
+         * 
+         * @return builder
+         * 
+         */
         public Builder allowGoogleConsumers(Boolean allowGoogleConsumers) {
             return allowGoogleConsumers(Output.of(allowGoogleConsumers));
         }
 
+        /**
+         * @param allowGoogleVisitors Whether to allow Google visitor accounts.
+         * 
+         * @return builder
+         * 
+         */
         public Builder allowGoogleVisitors(@Nullable Output<Boolean> allowGoogleVisitors) {
             $.allowGoogleVisitors = allowGoogleVisitors;
             return this;
         }
 
+        /**
+         * @param allowGoogleVisitors Whether to allow Google visitor accounts.
+         * 
+         * @return builder
+         * 
+         */
         public Builder allowGoogleVisitors(Boolean allowGoogleVisitors) {
             return allowGoogleVisitors(Output.of(allowGoogleVisitors));
         }
 
+        /**
+         * @param appType The cloud application type (e.g., &#39;MICROSOFT&#39;, &#39;GOOGLE&#39;).
+         * 
+         * @return builder
+         * 
+         */
         public Builder appType(@Nullable Output<String> appType) {
             $.appType = appType;
             return this;
         }
 
+        /**
+         * @param appType The cloud application type (e.g., &#39;MICROSOFT&#39;, &#39;GOOGLE&#39;).
+         * 
+         * @return builder
+         * 
+         */
         public Builder appType(String appType) {
             return appType(Output.of(appType));
         }
 
+        /**
+         * @param description Description of the tenant restriction profile.
+         * 
+         * @return builder
+         * 
+         */
         public Builder description(@Nullable Output<String> description) {
             $.description = description;
             return this;
         }
 
+        /**
+         * @param description Description of the tenant restriction profile.
+         * 
+         * @return builder
+         * 
+         */
         public Builder description(String description) {
             return description(Output.of(description));
         }
 
+        /**
+         * @param itemDataPrimary List of primary item data values (e.g., tenant IDs).
+         * 
+         * @return builder
+         * 
+         */
         public Builder itemDataPrimary(@Nullable Output<List<String>> itemDataPrimary) {
             $.itemDataPrimary = itemDataPrimary;
             return this;
         }
 
+        /**
+         * @param itemDataPrimary List of primary item data values (e.g., tenant IDs).
+         * 
+         * @return builder
+         * 
+         */
         public Builder itemDataPrimary(List<String> itemDataPrimary) {
             return itemDataPrimary(Output.of(itemDataPrimary));
         }
 
+        /**
+         * @param itemDataPrimary List of primary item data values (e.g., tenant IDs).
+         * 
+         * @return builder
+         * 
+         */
         public Builder itemDataPrimary(String... itemDataPrimary) {
             return itemDataPrimary(List.of(itemDataPrimary));
         }
 
+        /**
+         * @param itemDataSecondary List of secondary item data values.
+         * 
+         * @return builder
+         * 
+         */
         public Builder itemDataSecondary(@Nullable Output<List<String>> itemDataSecondary) {
             $.itemDataSecondary = itemDataSecondary;
             return this;
         }
 
+        /**
+         * @param itemDataSecondary List of secondary item data values.
+         * 
+         * @return builder
+         * 
+         */
         public Builder itemDataSecondary(List<String> itemDataSecondary) {
             return itemDataSecondary(Output.of(itemDataSecondary));
         }
 
+        /**
+         * @param itemDataSecondary List of secondary item data values.
+         * 
+         * @return builder
+         * 
+         */
         public Builder itemDataSecondary(String... itemDataSecondary) {
             return itemDataSecondary(List.of(itemDataSecondary));
         }
 
+        /**
+         * @param itemTypePrimary The primary item type (e.g., &#39;TENANT_ID&#39;).
+         * 
+         * @return builder
+         * 
+         */
         public Builder itemTypePrimary(@Nullable Output<String> itemTypePrimary) {
             $.itemTypePrimary = itemTypePrimary;
             return this;
         }
 
+        /**
+         * @param itemTypePrimary The primary item type (e.g., &#39;TENANT_ID&#39;).
+         * 
+         * @return builder
+         * 
+         */
         public Builder itemTypePrimary(String itemTypePrimary) {
             return itemTypePrimary(Output.of(itemTypePrimary));
         }
 
+        /**
+         * @param itemTypeSecondary The secondary item type.
+         * 
+         * @return builder
+         * 
+         */
         public Builder itemTypeSecondary(@Nullable Output<String> itemTypeSecondary) {
             $.itemTypeSecondary = itemTypeSecondary;
             return this;
         }
 
+        /**
+         * @param itemTypeSecondary The secondary item type.
+         * 
+         * @return builder
+         * 
+         */
         public Builder itemTypeSecondary(String itemTypeSecondary) {
             return itemTypeSecondary(Output.of(itemTypeSecondary));
         }
 
+        /**
+         * @param itemValue List of item values.
+         * 
+         * @return builder
+         * 
+         */
         public Builder itemValue(@Nullable Output<List<String>> itemValue) {
             $.itemValue = itemValue;
             return this;
         }
 
+        /**
+         * @param itemValue List of item values.
+         * 
+         * @return builder
+         * 
+         */
         public Builder itemValue(List<String> itemValue) {
             return itemValue(Output.of(itemValue));
         }
 
+        /**
+         * @param itemValue List of item values.
+         * 
+         * @return builder
+         * 
+         */
         public Builder itemValue(String... itemValue) {
             return itemValue(List.of(itemValue));
         }
 
+        /**
+         * @param msLoginServicesTrV2 Whether to enable Microsoft login services tenant restriction v2.
+         * 
+         * @return builder
+         * 
+         */
         public Builder msLoginServicesTrV2(@Nullable Output<Boolean> msLoginServicesTrV2) {
             $.msLoginServicesTrV2 = msLoginServicesTrV2;
             return this;
         }
 
+        /**
+         * @param msLoginServicesTrV2 Whether to enable Microsoft login services tenant restriction v2.
+         * 
+         * @return builder
+         * 
+         */
         public Builder msLoginServicesTrV2(Boolean msLoginServicesTrV2) {
             return msLoginServicesTrV2(Output.of(msLoginServicesTrV2));
         }
 
+        /**
+         * @param name Name of the tenant restriction profile.
+         * 
+         * @return builder
+         * 
+         */
         public Builder name(Output<String> name) {
             $.name = name;
             return this;
         }
 
+        /**
+         * @param name Name of the tenant restriction profile.
+         * 
+         * @return builder
+         * 
+         */
         public Builder name(String name) {
             return name(Output.of(name));
         }
 
+        /**
+         * @param restrictPersonalO365Domains Whether to restrict personal Office 365 domains.
+         * 
+         * @return builder
+         * 
+         */
         public Builder restrictPersonalO365Domains(@Nullable Output<Boolean> restrictPersonalO365Domains) {
             $.restrictPersonalO365Domains = restrictPersonalO365Domains;
             return this;
         }
 
+        /**
+         * @param restrictPersonalO365Domains Whether to restrict personal Office 365 domains.
+         * 
+         * @return builder
+         * 
+         */
         public Builder restrictPersonalO365Domains(Boolean restrictPersonalO365Domains) {
             return restrictPersonalO365Domains(Output.of(restrictPersonalO365Domains));
         }

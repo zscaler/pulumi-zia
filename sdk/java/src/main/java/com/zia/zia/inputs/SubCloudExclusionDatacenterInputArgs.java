@@ -24,13 +24,6 @@ public final class SubCloudExclusionDatacenterInputArgs extends com.pulumi.resou
         return Optional.ofNullable(this.country);
     }
 
-    @Import(name="id", required=true)
-    private Output<Integer> id;
-
-    public Output<Integer> id() {
-        return this.id;
-    }
-
     @Import(name="name")
     private @Nullable Output<String> name;
 
@@ -38,12 +31,19 @@ public final class SubCloudExclusionDatacenterInputArgs extends com.pulumi.resou
         return Optional.ofNullable(this.name);
     }
 
+    @Import(name="resourceId", required=true)
+    private Output<Integer> resourceId;
+
+    public Output<Integer> resourceId() {
+        return this.resourceId;
+    }
+
     private SubCloudExclusionDatacenterInputArgs() {}
 
     private SubCloudExclusionDatacenterInputArgs(SubCloudExclusionDatacenterInputArgs $) {
         this.country = $.country;
-        this.id = $.id;
         this.name = $.name;
+        this.resourceId = $.resourceId;
     }
 
     public static Builder builder() {
@@ -73,15 +73,6 @@ public final class SubCloudExclusionDatacenterInputArgs extends com.pulumi.resou
             return country(Output.of(country));
         }
 
-        public Builder id(Output<Integer> id) {
-            $.id = id;
-            return this;
-        }
-
-        public Builder id(Integer id) {
-            return id(Output.of(id));
-        }
-
         public Builder name(@Nullable Output<String> name) {
             $.name = name;
             return this;
@@ -91,9 +82,18 @@ public final class SubCloudExclusionDatacenterInputArgs extends com.pulumi.resou
             return name(Output.of(name));
         }
 
+        public Builder resourceId(Output<Integer> resourceId) {
+            $.resourceId = resourceId;
+            return this;
+        }
+
+        public Builder resourceId(Integer resourceId) {
+            return resourceId(Output.of(resourceId));
+        }
+
         public SubCloudExclusionDatacenterInputArgs build() {
-            if ($.id == null) {
-                throw new MissingRequiredPropertyException("SubCloudExclusionDatacenterInputArgs", "id");
+            if ($.resourceId == null) {
+                throw new MissingRequiredPropertyException("SubCloudExclusionDatacenterInputArgs", "resourceId");
             }
             return $;
         }

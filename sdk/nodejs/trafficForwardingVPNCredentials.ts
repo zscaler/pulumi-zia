@@ -4,6 +4,38 @@
 import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "./utilities";
 
+/**
+ * The zia_traffic_forwarding_vpn_credentials resource manages VPN credentials for traffic forwarding in the Zscaler Internet Access (ZIA) cloud service. VPN credentials are used to authenticate IPSec VPN tunnels between on-premises equipment and the Zscaler cloud.
+ *
+ * For more information, see the [ZIA Traffic Forwarding documentation](https://help.zscaler.com/zia/traffic-forwarding).
+ *
+ * ## Example Usage
+ * ### Basic VPN Credentials (UFQDN)
+ *
+ * ```typescript
+ * import * as zia from "@bdzscaler/pulumi-zia";
+ *
+ * import * as pulumi from "@pulumi/pulumi";
+ *
+ * const cfg = new pulumi.Config();
+ * const vpnPreSharedKey = cfg.requireSecret("vpnPreSharedKey");
+ *
+ * const example = new zia.TrafficForwardingVpnCredentials("example", {
+ *     type: "UFQDN",
+ *     fqdn: "user@example.com",
+ *     preSharedKey: vpnPreSharedKey,
+ *     comments: "Branch office VPN credentials",
+ * });
+ * ```
+ *
+ * ## Import
+ *
+ * An existing VPN credential can be imported using its resource ID, e.g.
+ *
+ * ```sh
+ * $ pulumi import zia:index:TrafficForwardingVpnCredentials example 12345
+ * ```
+ */
 export class TrafficForwardingVpnCredentials extends pulumi.CustomResource {
     /**
      * Get an existing TrafficForwardingVpnCredentials resource's state with the given name, ID, and optional extra
@@ -31,11 +63,29 @@ export class TrafficForwardingVpnCredentials extends pulumi.CustomResource {
         return obj['__pulumiType'] === TrafficForwardingVpnCredentials.__pulumiType;
     }
 
+    /**
+     * Additional information about the VPN credential. Maximum 10240 characters.
+     */
     declare public readonly comments: pulumi.Output<string | undefined>;
+    /**
+     * Fully Qualified Domain Name (FQDN). Required when type is `UFQDN`.
+     */
     declare public readonly fqdn: pulumi.Output<string | undefined>;
+    /**
+     * The static IP address associated with the VPN credential. Required when type is `IP`.
+     */
     declare public readonly ipAddress: pulumi.Output<string | undefined>;
+    /**
+     * Pre-shared key (PSK) for the VPN credential. This is a secret value.
+     */
     declare public readonly preSharedKey: pulumi.Output<string | undefined>;
+    /**
+     * VPN credential type. Valid values: `IP`, `UFQDN`.
+     */
     declare public readonly type: pulumi.Output<string | undefined>;
+    /**
+     * The system-generated ID of the VPN credential.
+     */
     declare public /*out*/ readonly vpnId: pulumi.Output<number>;
 
     /**
@@ -74,9 +124,24 @@ export class TrafficForwardingVpnCredentials extends pulumi.CustomResource {
  * The set of arguments for constructing a TrafficForwardingVpnCredentials resource.
  */
 export interface TrafficForwardingVpnCredentialsArgs {
+    /**
+     * Additional information about the VPN credential. Maximum 10240 characters.
+     */
     comments?: pulumi.Input<string>;
+    /**
+     * Fully Qualified Domain Name (FQDN). Required when type is `UFQDN`.
+     */
     fqdn?: pulumi.Input<string>;
+    /**
+     * The static IP address associated with the VPN credential. Required when type is `IP`.
+     */
     ipAddress?: pulumi.Input<string>;
+    /**
+     * Pre-shared key (PSK) for the VPN credential. This is a secret value.
+     */
     preSharedKey?: pulumi.Input<string>;
+    /**
+     * VPN credential type. Valid values: `IP`, `UFQDN`.
+     */
     type?: pulumi.Input<string>;
 }

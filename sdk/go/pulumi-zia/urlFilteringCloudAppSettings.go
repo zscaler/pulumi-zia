@@ -61,14 +61,26 @@ type UrlFilteringCloudAppSettings struct {
 	EnableChatgptPrompt pulumi.BoolPtrOutput `pulumi:"enableChatgptPrompt"`
 	// If true, CIPA (Children's Internet Protection Act) compliance mode is enabled.
 	EnableCipaCompliance pulumi.BoolPtrOutput `pulumi:"enableCipaCompliance"`
+	// If true, Claude AI prompt visibility and logging is enabled.
+	EnableClaudePrompt pulumi.BoolPtrOutput `pulumi:"enableClaudePrompt"`
+	// If true, Creative Commons search results are enabled.
+	EnableCreativeCommonsSearchResults pulumi.BoolPtrOutput `pulumi:"enableCreativeCommonsSearchResults"`
+	// If true, DeepSeek AI prompt visibility and logging is enabled.
+	EnableDeepSeekPrompt pulumi.BoolPtrOutput `pulumi:"enableDeepSeekPrompt"`
 	// If true, dynamic content categorization is enabled.
 	EnableDynamicContentCat pulumi.BoolPtrOutput `pulumi:"enableDynamicContentCat"`
 	// If true, Google Gemini prompt visibility and logging is enabled.
 	EnableGeminiPrompt pulumi.BoolPtrOutput `pulumi:"enableGeminiPrompt"`
+	// If true, Grammarly AI prompt visibility and logging is enabled.
+	EnableGrammarlyPrompt pulumi.BoolPtrOutput `pulumi:"enableGrammarlyPrompt"`
+	// If true, Grok AI prompt visibility and logging is enabled.
+	EnableGrokPrompt pulumi.BoolPtrOutput `pulumi:"enableGrokPrompt"`
 	// If true, Meta AI prompt visibility and logging is enabled.
 	EnableMetaPrompt pulumi.BoolPtrOutput `pulumi:"enableMetaPrompt"`
 	// If true, Microsoft Copilot prompt visibility and logging is enabled.
 	EnableMicrosoftCopilotPrompt pulumi.BoolPtrOutput `pulumi:"enableMicrosoftCopilotPrompt"`
+	// If true, Mistral AI prompt visibility and logging is enabled.
+	EnableMistralAiPrompt pulumi.BoolPtrOutput `pulumi:"enableMistralAiPrompt"`
 	// If true, Microsoft Office 365 optimization is enabled.
 	EnableMsftO365 pulumi.BoolPtrOutput `pulumi:"enableMsftO365"`
 	// If true, newly registered domains detection is enabled.
@@ -89,12 +101,16 @@ type UrlFilteringCloudAppSettings struct {
 	EnableUcaasWebex pulumi.BoolPtrOutput `pulumi:"enableUcaasWebex"`
 	// If true, UCaaS controls for Zoom are enabled.
 	EnableUcaasZoom pulumi.BoolPtrOutput `pulumi:"enableUcaasZoom"`
+	// If true, Writer AI prompt visibility and logging is enabled.
+	EnableWriterPrompt pulumi.BoolPtrOutput `pulumi:"enableWriterPrompt"`
 	// If true, safe search is enforced for supported search engines.
 	EnforceSafeSearch pulumi.BoolPtrOutput `pulumi:"enforceSafeSearch"`
 	// The fixed resource ID of the singleton URL filtering cloud app settings.
 	ResourceId pulumi.StringOutput `pulumi:"resourceId"`
 	// List of application names for which safe search is enforced.
 	SafeSearchApps pulumi.StringArrayOutput `pulumi:"safeSearchApps"`
+	// If true, Zvelo database lookup is disabled.
+	ZveloDbLookupDisabled pulumi.BoolPtrOutput `pulumi:"zveloDbLookupDisabled"`
 }
 
 // NewUrlFilteringCloudAppSettings registers a new resource with the given unique name, arguments, and options.
@@ -147,14 +163,26 @@ type urlFilteringCloudAppSettingsArgs struct {
 	EnableChatgptPrompt *bool `pulumi:"enableChatgptPrompt"`
 	// If true, CIPA (Children's Internet Protection Act) compliance mode is enabled.
 	EnableCipaCompliance *bool `pulumi:"enableCipaCompliance"`
+	// If true, Claude AI prompt visibility and logging is enabled.
+	EnableClaudePrompt *bool `pulumi:"enableClaudePrompt"`
+	// If true, Creative Commons search results are enabled.
+	EnableCreativeCommonsSearchResults *bool `pulumi:"enableCreativeCommonsSearchResults"`
+	// If true, DeepSeek AI prompt visibility and logging is enabled.
+	EnableDeepSeekPrompt *bool `pulumi:"enableDeepSeekPrompt"`
 	// If true, dynamic content categorization is enabled.
 	EnableDynamicContentCat *bool `pulumi:"enableDynamicContentCat"`
 	// If true, Google Gemini prompt visibility and logging is enabled.
 	EnableGeminiPrompt *bool `pulumi:"enableGeminiPrompt"`
+	// If true, Grammarly AI prompt visibility and logging is enabled.
+	EnableGrammarlyPrompt *bool `pulumi:"enableGrammarlyPrompt"`
+	// If true, Grok AI prompt visibility and logging is enabled.
+	EnableGrokPrompt *bool `pulumi:"enableGrokPrompt"`
 	// If true, Meta AI prompt visibility and logging is enabled.
 	EnableMetaPrompt *bool `pulumi:"enableMetaPrompt"`
 	// If true, Microsoft Copilot prompt visibility and logging is enabled.
 	EnableMicrosoftCopilotPrompt *bool `pulumi:"enableMicrosoftCopilotPrompt"`
+	// If true, Mistral AI prompt visibility and logging is enabled.
+	EnableMistralAiPrompt *bool `pulumi:"enableMistralAiPrompt"`
 	// If true, Microsoft Office 365 optimization is enabled.
 	EnableMsftO365 *bool `pulumi:"enableMsftO365"`
 	// If true, newly registered domains detection is enabled.
@@ -175,10 +203,14 @@ type urlFilteringCloudAppSettingsArgs struct {
 	EnableUcaasWebex *bool `pulumi:"enableUcaasWebex"`
 	// If true, UCaaS controls for Zoom are enabled.
 	EnableUcaasZoom *bool `pulumi:"enableUcaasZoom"`
+	// If true, Writer AI prompt visibility and logging is enabled.
+	EnableWriterPrompt *bool `pulumi:"enableWriterPrompt"`
 	// If true, safe search is enforced for supported search engines.
 	EnforceSafeSearch *bool `pulumi:"enforceSafeSearch"`
 	// List of application names for which safe search is enforced.
 	SafeSearchApps []string `pulumi:"safeSearchApps"`
+	// If true, Zvelo database lookup is disabled.
+	ZveloDbLookupDisabled *bool `pulumi:"zveloDbLookupDisabled"`
 }
 
 // The set of arguments for constructing a UrlFilteringCloudAppSettings resource.
@@ -193,14 +225,26 @@ type UrlFilteringCloudAppSettingsArgs struct {
 	EnableChatgptPrompt pulumi.BoolPtrInput
 	// If true, CIPA (Children's Internet Protection Act) compliance mode is enabled.
 	EnableCipaCompliance pulumi.BoolPtrInput
+	// If true, Claude AI prompt visibility and logging is enabled.
+	EnableClaudePrompt pulumi.BoolPtrInput
+	// If true, Creative Commons search results are enabled.
+	EnableCreativeCommonsSearchResults pulumi.BoolPtrInput
+	// If true, DeepSeek AI prompt visibility and logging is enabled.
+	EnableDeepSeekPrompt pulumi.BoolPtrInput
 	// If true, dynamic content categorization is enabled.
 	EnableDynamicContentCat pulumi.BoolPtrInput
 	// If true, Google Gemini prompt visibility and logging is enabled.
 	EnableGeminiPrompt pulumi.BoolPtrInput
+	// If true, Grammarly AI prompt visibility and logging is enabled.
+	EnableGrammarlyPrompt pulumi.BoolPtrInput
+	// If true, Grok AI prompt visibility and logging is enabled.
+	EnableGrokPrompt pulumi.BoolPtrInput
 	// If true, Meta AI prompt visibility and logging is enabled.
 	EnableMetaPrompt pulumi.BoolPtrInput
 	// If true, Microsoft Copilot prompt visibility and logging is enabled.
 	EnableMicrosoftCopilotPrompt pulumi.BoolPtrInput
+	// If true, Mistral AI prompt visibility and logging is enabled.
+	EnableMistralAiPrompt pulumi.BoolPtrInput
 	// If true, Microsoft Office 365 optimization is enabled.
 	EnableMsftO365 pulumi.BoolPtrInput
 	// If true, newly registered domains detection is enabled.
@@ -221,10 +265,14 @@ type UrlFilteringCloudAppSettingsArgs struct {
 	EnableUcaasWebex pulumi.BoolPtrInput
 	// If true, UCaaS controls for Zoom are enabled.
 	EnableUcaasZoom pulumi.BoolPtrInput
+	// If true, Writer AI prompt visibility and logging is enabled.
+	EnableWriterPrompt pulumi.BoolPtrInput
 	// If true, safe search is enforced for supported search engines.
 	EnforceSafeSearch pulumi.BoolPtrInput
 	// List of application names for which safe search is enforced.
 	SafeSearchApps pulumi.StringArrayInput
+	// If true, Zvelo database lookup is disabled.
+	ZveloDbLookupDisabled pulumi.BoolPtrInput
 }
 
 func (UrlFilteringCloudAppSettingsArgs) ElementType() reflect.Type {
@@ -339,6 +387,23 @@ func (o UrlFilteringCloudAppSettingsOutput) EnableCipaCompliance() pulumi.BoolPt
 	return o.ApplyT(func(v *UrlFilteringCloudAppSettings) pulumi.BoolPtrOutput { return v.EnableCipaCompliance }).(pulumi.BoolPtrOutput)
 }
 
+// If true, Claude AI prompt visibility and logging is enabled.
+func (o UrlFilteringCloudAppSettingsOutput) EnableClaudePrompt() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *UrlFilteringCloudAppSettings) pulumi.BoolPtrOutput { return v.EnableClaudePrompt }).(pulumi.BoolPtrOutput)
+}
+
+// If true, Creative Commons search results are enabled.
+func (o UrlFilteringCloudAppSettingsOutput) EnableCreativeCommonsSearchResults() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *UrlFilteringCloudAppSettings) pulumi.BoolPtrOutput {
+		return v.EnableCreativeCommonsSearchResults
+	}).(pulumi.BoolPtrOutput)
+}
+
+// If true, DeepSeek AI prompt visibility and logging is enabled.
+func (o UrlFilteringCloudAppSettingsOutput) EnableDeepSeekPrompt() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *UrlFilteringCloudAppSettings) pulumi.BoolPtrOutput { return v.EnableDeepSeekPrompt }).(pulumi.BoolPtrOutput)
+}
+
 // If true, dynamic content categorization is enabled.
 func (o UrlFilteringCloudAppSettingsOutput) EnableDynamicContentCat() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *UrlFilteringCloudAppSettings) pulumi.BoolPtrOutput { return v.EnableDynamicContentCat }).(pulumi.BoolPtrOutput)
@@ -349,6 +414,16 @@ func (o UrlFilteringCloudAppSettingsOutput) EnableGeminiPrompt() pulumi.BoolPtrO
 	return o.ApplyT(func(v *UrlFilteringCloudAppSettings) pulumi.BoolPtrOutput { return v.EnableGeminiPrompt }).(pulumi.BoolPtrOutput)
 }
 
+// If true, Grammarly AI prompt visibility and logging is enabled.
+func (o UrlFilteringCloudAppSettingsOutput) EnableGrammarlyPrompt() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *UrlFilteringCloudAppSettings) pulumi.BoolPtrOutput { return v.EnableGrammarlyPrompt }).(pulumi.BoolPtrOutput)
+}
+
+// If true, Grok AI prompt visibility and logging is enabled.
+func (o UrlFilteringCloudAppSettingsOutput) EnableGrokPrompt() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *UrlFilteringCloudAppSettings) pulumi.BoolPtrOutput { return v.EnableGrokPrompt }).(pulumi.BoolPtrOutput)
+}
+
 // If true, Meta AI prompt visibility and logging is enabled.
 func (o UrlFilteringCloudAppSettingsOutput) EnableMetaPrompt() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *UrlFilteringCloudAppSettings) pulumi.BoolPtrOutput { return v.EnableMetaPrompt }).(pulumi.BoolPtrOutput)
@@ -357,6 +432,11 @@ func (o UrlFilteringCloudAppSettingsOutput) EnableMetaPrompt() pulumi.BoolPtrOut
 // If true, Microsoft Copilot prompt visibility and logging is enabled.
 func (o UrlFilteringCloudAppSettingsOutput) EnableMicrosoftCopilotPrompt() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *UrlFilteringCloudAppSettings) pulumi.BoolPtrOutput { return v.EnableMicrosoftCopilotPrompt }).(pulumi.BoolPtrOutput)
+}
+
+// If true, Mistral AI prompt visibility and logging is enabled.
+func (o UrlFilteringCloudAppSettingsOutput) EnableMistralAiPrompt() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *UrlFilteringCloudAppSettings) pulumi.BoolPtrOutput { return v.EnableMistralAiPrompt }).(pulumi.BoolPtrOutput)
 }
 
 // If true, Microsoft Office 365 optimization is enabled.
@@ -409,6 +489,11 @@ func (o UrlFilteringCloudAppSettingsOutput) EnableUcaasZoom() pulumi.BoolPtrOutp
 	return o.ApplyT(func(v *UrlFilteringCloudAppSettings) pulumi.BoolPtrOutput { return v.EnableUcaasZoom }).(pulumi.BoolPtrOutput)
 }
 
+// If true, Writer AI prompt visibility and logging is enabled.
+func (o UrlFilteringCloudAppSettingsOutput) EnableWriterPrompt() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *UrlFilteringCloudAppSettings) pulumi.BoolPtrOutput { return v.EnableWriterPrompt }).(pulumi.BoolPtrOutput)
+}
+
 // If true, safe search is enforced for supported search engines.
 func (o UrlFilteringCloudAppSettingsOutput) EnforceSafeSearch() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *UrlFilteringCloudAppSettings) pulumi.BoolPtrOutput { return v.EnforceSafeSearch }).(pulumi.BoolPtrOutput)
@@ -422,6 +507,11 @@ func (o UrlFilteringCloudAppSettingsOutput) ResourceId() pulumi.StringOutput {
 // List of application names for which safe search is enforced.
 func (o UrlFilteringCloudAppSettingsOutput) SafeSearchApps() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *UrlFilteringCloudAppSettings) pulumi.StringArrayOutput { return v.SafeSearchApps }).(pulumi.StringArrayOutput)
+}
+
+// If true, Zvelo database lookup is disabled.
+func (o UrlFilteringCloudAppSettingsOutput) ZveloDbLookupDisabled() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *UrlFilteringCloudAppSettings) pulumi.BoolPtrOutput { return v.ZveloDbLookupDisabled }).(pulumi.BoolPtrOutput)
 }
 
 type UrlFilteringCloudAppSettingsArrayOutput struct{ *pulumi.OutputState }

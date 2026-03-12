@@ -18,58 +18,122 @@ public final class VzenClusterArgs extends com.pulumi.resources.ResourceArgs {
 
     public static final VzenClusterArgs Empty = new VzenClusterArgs();
 
+    /**
+     * The default gateway of the VZEN cluster.
+     * 
+     */
     @Import(name="defaultGateway")
     private @Nullable Output<String> defaultGateway;
 
+    /**
+     * @return The default gateway of the VZEN cluster.
+     * 
+     */
     public Optional<Output<String>> defaultGateway() {
         return Optional.ofNullable(this.defaultGateway);
     }
 
+    /**
+     * The IP address of the VZEN cluster.
+     * 
+     */
     @Import(name="ipAddress")
     private @Nullable Output<String> ipAddress;
 
+    /**
+     * @return The IP address of the VZEN cluster.
+     * 
+     */
     public Optional<Output<String>> ipAddress() {
         return Optional.ofNullable(this.ipAddress);
     }
 
+    /**
+     * Whether IPSec is enabled on the cluster.
+     * 
+     */
     @Import(name="ipSecEnabled")
     private @Nullable Output<Boolean> ipSecEnabled;
 
+    /**
+     * @return Whether IPSec is enabled on the cluster.
+     * 
+     */
     public Optional<Output<Boolean>> ipSecEnabled() {
         return Optional.ofNullable(this.ipSecEnabled);
     }
 
+    /**
+     * Name of the VZEN cluster.
+     * 
+     */
     @Import(name="name")
     private @Nullable Output<String> name;
 
+    /**
+     * @return Name of the VZEN cluster.
+     * 
+     */
     public Optional<Output<String>> name() {
         return Optional.ofNullable(this.name);
     }
 
+    /**
+     * The status of the cluster (e.g., &#39;ENABLED&#39;, &#39;DISABLED&#39;).
+     * 
+     */
     @Import(name="status")
     private @Nullable Output<String> status;
 
+    /**
+     * @return The status of the cluster (e.g., &#39;ENABLED&#39;, &#39;DISABLED&#39;).
+     * 
+     */
     public Optional<Output<String>> status() {
         return Optional.ofNullable(this.status);
     }
 
+    /**
+     * The subnet mask of the VZEN cluster.
+     * 
+     */
     @Import(name="subnetMask")
     private @Nullable Output<String> subnetMask;
 
+    /**
+     * @return The subnet mask of the VZEN cluster.
+     * 
+     */
     public Optional<Output<String>> subnetMask() {
         return Optional.ofNullable(this.subnetMask);
     }
 
+    /**
+     * The type of the VZEN cluster.
+     * 
+     */
     @Import(name="type")
     private @Nullable Output<String> type;
 
+    /**
+     * @return The type of the VZEN cluster.
+     * 
+     */
     public Optional<Output<String>> type() {
         return Optional.ofNullable(this.type);
     }
 
+    /**
+     * List of VZEN node IDs that belong to this cluster.
+     * 
+     */
     @Import(name="virtualZenNodes")
     private @Nullable Output<List<Integer>> virtualZenNodes;
 
+    /**
+     * @return List of VZEN node IDs that belong to this cluster.
+     * 
+     */
     public Optional<Output<List<Integer>>> virtualZenNodes() {
         return Optional.ofNullable(this.virtualZenNodes);
     }
@@ -105,78 +169,180 @@ public final class VzenClusterArgs extends com.pulumi.resources.ResourceArgs {
             $ = new VzenClusterArgs(Objects.requireNonNull(defaults));
         }
 
+        /**
+         * @param defaultGateway The default gateway of the VZEN cluster.
+         * 
+         * @return builder
+         * 
+         */
         public Builder defaultGateway(@Nullable Output<String> defaultGateway) {
             $.defaultGateway = defaultGateway;
             return this;
         }
 
+        /**
+         * @param defaultGateway The default gateway of the VZEN cluster.
+         * 
+         * @return builder
+         * 
+         */
         public Builder defaultGateway(String defaultGateway) {
             return defaultGateway(Output.of(defaultGateway));
         }
 
+        /**
+         * @param ipAddress The IP address of the VZEN cluster.
+         * 
+         * @return builder
+         * 
+         */
         public Builder ipAddress(@Nullable Output<String> ipAddress) {
             $.ipAddress = ipAddress;
             return this;
         }
 
+        /**
+         * @param ipAddress The IP address of the VZEN cluster.
+         * 
+         * @return builder
+         * 
+         */
         public Builder ipAddress(String ipAddress) {
             return ipAddress(Output.of(ipAddress));
         }
 
+        /**
+         * @param ipSecEnabled Whether IPSec is enabled on the cluster.
+         * 
+         * @return builder
+         * 
+         */
         public Builder ipSecEnabled(@Nullable Output<Boolean> ipSecEnabled) {
             $.ipSecEnabled = ipSecEnabled;
             return this;
         }
 
+        /**
+         * @param ipSecEnabled Whether IPSec is enabled on the cluster.
+         * 
+         * @return builder
+         * 
+         */
         public Builder ipSecEnabled(Boolean ipSecEnabled) {
             return ipSecEnabled(Output.of(ipSecEnabled));
         }
 
+        /**
+         * @param name Name of the VZEN cluster.
+         * 
+         * @return builder
+         * 
+         */
         public Builder name(@Nullable Output<String> name) {
             $.name = name;
             return this;
         }
 
+        /**
+         * @param name Name of the VZEN cluster.
+         * 
+         * @return builder
+         * 
+         */
         public Builder name(String name) {
             return name(Output.of(name));
         }
 
+        /**
+         * @param status The status of the cluster (e.g., &#39;ENABLED&#39;, &#39;DISABLED&#39;).
+         * 
+         * @return builder
+         * 
+         */
         public Builder status(@Nullable Output<String> status) {
             $.status = status;
             return this;
         }
 
+        /**
+         * @param status The status of the cluster (e.g., &#39;ENABLED&#39;, &#39;DISABLED&#39;).
+         * 
+         * @return builder
+         * 
+         */
         public Builder status(String status) {
             return status(Output.of(status));
         }
 
+        /**
+         * @param subnetMask The subnet mask of the VZEN cluster.
+         * 
+         * @return builder
+         * 
+         */
         public Builder subnetMask(@Nullable Output<String> subnetMask) {
             $.subnetMask = subnetMask;
             return this;
         }
 
+        /**
+         * @param subnetMask The subnet mask of the VZEN cluster.
+         * 
+         * @return builder
+         * 
+         */
         public Builder subnetMask(String subnetMask) {
             return subnetMask(Output.of(subnetMask));
         }
 
+        /**
+         * @param type The type of the VZEN cluster.
+         * 
+         * @return builder
+         * 
+         */
         public Builder type(@Nullable Output<String> type) {
             $.type = type;
             return this;
         }
 
+        /**
+         * @param type The type of the VZEN cluster.
+         * 
+         * @return builder
+         * 
+         */
         public Builder type(String type) {
             return type(Output.of(type));
         }
 
+        /**
+         * @param virtualZenNodes List of VZEN node IDs that belong to this cluster.
+         * 
+         * @return builder
+         * 
+         */
         public Builder virtualZenNodes(@Nullable Output<List<Integer>> virtualZenNodes) {
             $.virtualZenNodes = virtualZenNodes;
             return this;
         }
 
+        /**
+         * @param virtualZenNodes List of VZEN node IDs that belong to this cluster.
+         * 
+         * @return builder
+         * 
+         */
         public Builder virtualZenNodes(List<Integer> virtualZenNodes) {
             return virtualZenNodes(Output.of(virtualZenNodes));
         }
 
+        /**
+         * @param virtualZenNodes List of VZEN node IDs that belong to this cluster.
+         * 
+         * @return builder
+         * 
+         */
         public Builder virtualZenNodes(Integer... virtualZenNodes) {
             return virtualZenNodes(List.of(virtualZenNodes));
         }

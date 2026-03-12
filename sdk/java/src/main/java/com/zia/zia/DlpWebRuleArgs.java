@@ -19,170 +19,362 @@ public final class DlpWebRuleArgs extends com.pulumi.resources.ResourceArgs {
 
     public static final DlpWebRuleArgs Empty = new DlpWebRuleArgs();
 
+    /**
+     * Action taken when the rule is matched. Valid values: `ALLOW`, `BLOCK`, `ICAP_RESPONSE`.
+     * 
+     */
     @Import(name="action")
     private @Nullable Output<String> action;
 
+    /**
+     * @return Action taken when the rule is matched. Valid values: `ALLOW`, `BLOCK`, `ICAP_RESPONSE`.
+     * 
+     */
     public Optional<Output<String>> action() {
         return Optional.ofNullable(this.action);
     }
 
+    /**
+     * List of cloud application names for which the rule is applied.
+     * 
+     */
     @Import(name="cloudApplications")
     private @Nullable Output<List<String>> cloudApplications;
 
+    /**
+     * @return List of cloud application names for which the rule is applied.
+     * 
+     */
     public Optional<Output<List<String>>> cloudApplications() {
         return Optional.ofNullable(this.cloudApplications);
     }
 
+    /**
+     * IDs of departments for which the rule must be applied.
+     * 
+     */
     @Import(name="departments")
     private @Nullable Output<List<Integer>> departments;
 
+    /**
+     * @return IDs of departments for which the rule must be applied.
+     * 
+     */
     public Optional<Output<List<Integer>>> departments() {
         return Optional.ofNullable(this.departments);
     }
 
+    /**
+     * Additional information about the DLP web rule.
+     * 
+     */
     @Import(name="description")
     private @Nullable Output<String> description;
 
+    /**
+     * @return Additional information about the DLP web rule.
+     * 
+     */
     public Optional<Output<String>> description() {
         return Optional.ofNullable(this.description);
     }
 
+    /**
+     * If true, DLP scanning is enabled for file downloads.
+     * 
+     */
     @Import(name="dlpDownloadScanEnabled")
     private @Nullable Output<Boolean> dlpDownloadScanEnabled;
 
+    /**
+     * @return If true, DLP scanning is enabled for file downloads.
+     * 
+     */
     public Optional<Output<Boolean>> dlpDownloadScanEnabled() {
         return Optional.ofNullable(this.dlpDownloadScanEnabled);
     }
 
+    /**
+     * The email address of an external auditor to whom DLP email notifications are sent.
+     * 
+     */
     @Import(name="externalAuditorEmail")
     private @Nullable Output<String> externalAuditorEmail;
 
+    /**
+     * @return The email address of an external auditor to whom DLP email notifications are sent.
+     * 
+     */
     public Optional<Output<String>> externalAuditorEmail() {
         return Optional.ofNullable(this.externalAuditorEmail);
     }
 
+    /**
+     * List of file types to which the DLP policy rule must be applied.
+     * 
+     */
     @Import(name="fileTypes")
     private @Nullable Output<List<String>> fileTypes;
 
+    /**
+     * @return List of file types to which the DLP policy rule must be applied.
+     * 
+     */
     public Optional<Output<List<String>>> fileTypes() {
         return Optional.ofNullable(this.fileTypes);
     }
 
+    /**
+     * IDs of groups for which the rule must be applied.
+     * 
+     */
     @Import(name="groups")
     private @Nullable Output<List<Integer>> groups;
 
+    /**
+     * @return IDs of groups for which the rule must be applied.
+     * 
+     */
     public Optional<Output<List<Integer>>> groups() {
         return Optional.ofNullable(this.groups);
     }
 
+    /**
+     * IDs of labels associated with the DLP web rule.
+     * 
+     */
     @Import(name="labels")
     private @Nullable Output<List<Integer>> labels;
 
+    /**
+     * @return IDs of labels associated with the DLP web rule.
+     * 
+     */
     public Optional<Output<List<Integer>>> labels() {
         return Optional.ofNullable(this.labels);
     }
 
+    /**
+     * IDs of location groups for which the rule must be applied.
+     * 
+     */
     @Import(name="locationGroups")
     private @Nullable Output<List<Integer>> locationGroups;
 
+    /**
+     * @return IDs of location groups for which the rule must be applied.
+     * 
+     */
     public Optional<Output<List<Integer>>> locationGroups() {
         return Optional.ofNullable(this.locationGroups);
     }
 
+    /**
+     * IDs of locations for which the rule must be applied.
+     * 
+     */
     @Import(name="locations")
     private @Nullable Output<List<Integer>> locations;
 
+    /**
+     * @return IDs of locations for which the rule must be applied.
+     * 
+     */
     public Optional<Output<List<Integer>>> locations() {
         return Optional.ofNullable(this.locations);
     }
 
+    /**
+     * If true, the rule matches but does not enforce the action.
+     * 
+     */
     @Import(name="matchOnly")
     private @Nullable Output<Boolean> matchOnly;
 
+    /**
+     * @return If true, the rule matches but does not enforce the action.
+     * 
+     */
     public Optional<Output<Boolean>> matchOnly() {
         return Optional.ofNullable(this.matchOnly);
     }
 
+    /**
+     * Minimum file size (in KB) used for evaluating the DLP policy rule.
+     * 
+     */
     @Import(name="minSize")
     private @Nullable Output<Integer> minSize;
 
+    /**
+     * @return Minimum file size (in KB) used for evaluating the DLP policy rule.
+     * 
+     */
     public Optional<Output<Integer>> minSize() {
         return Optional.ofNullable(this.minSize);
     }
 
+    /**
+     * The name of the DLP web rule. Must be unique.
+     * 
+     */
     @Import(name="name", required=true)
     private Output<String> name;
 
+    /**
+     * @return The name of the DLP web rule. Must be unique.
+     * 
+     */
     public Output<String> name() {
         return this.name;
     }
 
+    /**
+     * If true, Optical Character Recognition (OCR) is enabled for the DLP rule.
+     * 
+     */
     @Import(name="ocrEnabled")
     private @Nullable Output<Boolean> ocrEnabled;
 
+    /**
+     * @return If true, Optical Character Recognition (OCR) is enabled for the DLP rule.
+     * 
+     */
     public Optional<Output<Boolean>> ocrEnabled() {
         return Optional.ofNullable(this.ocrEnabled);
     }
 
+    /**
+     * The order of execution of the rule with respect to other DLP web rules.
+     * 
+     */
     @Import(name="order", required=true)
     private Output<Integer> order;
 
+    /**
+     * @return The order of execution of the rule with respect to other DLP web rules.
+     * 
+     */
     public Output<Integer> order() {
         return this.order;
     }
 
+    /**
+     * Protocols to which the rule applies. Valid values: `FTP_RULE`, `HTTPS_RULE`, `HTTP_RULE`.
+     * 
+     */
     @Import(name="protocols")
     private @Nullable Output<List<String>> protocols;
 
+    /**
+     * @return Protocols to which the rule applies. Valid values: `FTP_RULE`, `HTTPS_RULE`, `HTTP_RULE`.
+     * 
+     */
     public Optional<Output<List<String>>> protocols() {
         return Optional.ofNullable(this.protocols);
     }
 
+    /**
+     * Admin rank of the DLP web rule. Valid values: 0-7. Default: 7.
+     * 
+     */
     @Import(name="rank")
     private @Nullable Output<Integer> rank;
 
+    /**
+     * @return Admin rank of the DLP web rule. Valid values: 0-7. Default: 7.
+     * 
+     */
     public Optional<Output<Integer>> rank() {
         return Optional.ofNullable(this.rank);
     }
 
+    /**
+     * IDs of source IP address groups for which the rule must be applied.
+     * 
+     */
     @Import(name="sourceIpGroups")
     private @Nullable Output<List<Integer>> sourceIpGroups;
 
+    /**
+     * @return IDs of source IP address groups for which the rule must be applied.
+     * 
+     */
     public Optional<Output<List<Integer>>> sourceIpGroups() {
         return Optional.ofNullable(this.sourceIpGroups);
     }
 
+    /**
+     * Rule state. Valid values: `ENABLED`, `DISABLED`.
+     * 
+     */
     @Import(name="state")
     private @Nullable Output<String> state;
 
+    /**
+     * @return Rule state. Valid values: `ENABLED`, `DISABLED`.
+     * 
+     */
     public Optional<Output<String>> state() {
         return Optional.ofNullable(this.state);
     }
 
+    /**
+     * IDs of time intervals during which the rule must be enforced.
+     * 
+     */
     @Import(name="timeWindows")
     private @Nullable Output<List<Integer>> timeWindows;
 
+    /**
+     * @return IDs of time intervals during which the rule must be enforced.
+     * 
+     */
     public Optional<Output<List<Integer>>> timeWindows() {
         return Optional.ofNullable(this.timeWindows);
     }
 
+    /**
+     * IDs of users for which the rule must be applied.
+     * 
+     */
     @Import(name="users")
     private @Nullable Output<List<Integer>> users;
 
+    /**
+     * @return IDs of users for which the rule must be applied.
+     * 
+     */
     public Optional<Output<List<Integer>>> users() {
         return Optional.ofNullable(this.users);
     }
 
+    /**
+     * If true, the DLP rule is applied without inspecting content.
+     * 
+     */
     @Import(name="withoutContentInspection")
     private @Nullable Output<Boolean> withoutContentInspection;
 
+    /**
+     * @return If true, the DLP rule is applied without inspecting content.
+     * 
+     */
     public Optional<Output<Boolean>> withoutContentInspection() {
         return Optional.ofNullable(this.withoutContentInspection);
     }
 
+    /**
+     * If true, Zscaler Client Connector notifications are enabled for this rule.
+     * 
+     */
     @Import(name="zccNotificationsEnabled")
     private @Nullable Output<Boolean> zccNotificationsEnabled;
 
+    /**
+     * @return If true, Zscaler Client Connector notifications are enabled for this rule.
+     * 
+     */
     public Optional<Output<Boolean>> zccNotificationsEnabled() {
         return Optional.ofNullable(this.zccNotificationsEnabled);
     }
@@ -234,262 +426,616 @@ public final class DlpWebRuleArgs extends com.pulumi.resources.ResourceArgs {
             $ = new DlpWebRuleArgs(Objects.requireNonNull(defaults));
         }
 
+        /**
+         * @param action Action taken when the rule is matched. Valid values: `ALLOW`, `BLOCK`, `ICAP_RESPONSE`.
+         * 
+         * @return builder
+         * 
+         */
         public Builder action(@Nullable Output<String> action) {
             $.action = action;
             return this;
         }
 
+        /**
+         * @param action Action taken when the rule is matched. Valid values: `ALLOW`, `BLOCK`, `ICAP_RESPONSE`.
+         * 
+         * @return builder
+         * 
+         */
         public Builder action(String action) {
             return action(Output.of(action));
         }
 
+        /**
+         * @param cloudApplications List of cloud application names for which the rule is applied.
+         * 
+         * @return builder
+         * 
+         */
         public Builder cloudApplications(@Nullable Output<List<String>> cloudApplications) {
             $.cloudApplications = cloudApplications;
             return this;
         }
 
+        /**
+         * @param cloudApplications List of cloud application names for which the rule is applied.
+         * 
+         * @return builder
+         * 
+         */
         public Builder cloudApplications(List<String> cloudApplications) {
             return cloudApplications(Output.of(cloudApplications));
         }
 
+        /**
+         * @param cloudApplications List of cloud application names for which the rule is applied.
+         * 
+         * @return builder
+         * 
+         */
         public Builder cloudApplications(String... cloudApplications) {
             return cloudApplications(List.of(cloudApplications));
         }
 
+        /**
+         * @param departments IDs of departments for which the rule must be applied.
+         * 
+         * @return builder
+         * 
+         */
         public Builder departments(@Nullable Output<List<Integer>> departments) {
             $.departments = departments;
             return this;
         }
 
+        /**
+         * @param departments IDs of departments for which the rule must be applied.
+         * 
+         * @return builder
+         * 
+         */
         public Builder departments(List<Integer> departments) {
             return departments(Output.of(departments));
         }
 
+        /**
+         * @param departments IDs of departments for which the rule must be applied.
+         * 
+         * @return builder
+         * 
+         */
         public Builder departments(Integer... departments) {
             return departments(List.of(departments));
         }
 
+        /**
+         * @param description Additional information about the DLP web rule.
+         * 
+         * @return builder
+         * 
+         */
         public Builder description(@Nullable Output<String> description) {
             $.description = description;
             return this;
         }
 
+        /**
+         * @param description Additional information about the DLP web rule.
+         * 
+         * @return builder
+         * 
+         */
         public Builder description(String description) {
             return description(Output.of(description));
         }
 
+        /**
+         * @param dlpDownloadScanEnabled If true, DLP scanning is enabled for file downloads.
+         * 
+         * @return builder
+         * 
+         */
         public Builder dlpDownloadScanEnabled(@Nullable Output<Boolean> dlpDownloadScanEnabled) {
             $.dlpDownloadScanEnabled = dlpDownloadScanEnabled;
             return this;
         }
 
+        /**
+         * @param dlpDownloadScanEnabled If true, DLP scanning is enabled for file downloads.
+         * 
+         * @return builder
+         * 
+         */
         public Builder dlpDownloadScanEnabled(Boolean dlpDownloadScanEnabled) {
             return dlpDownloadScanEnabled(Output.of(dlpDownloadScanEnabled));
         }
 
+        /**
+         * @param externalAuditorEmail The email address of an external auditor to whom DLP email notifications are sent.
+         * 
+         * @return builder
+         * 
+         */
         public Builder externalAuditorEmail(@Nullable Output<String> externalAuditorEmail) {
             $.externalAuditorEmail = externalAuditorEmail;
             return this;
         }
 
+        /**
+         * @param externalAuditorEmail The email address of an external auditor to whom DLP email notifications are sent.
+         * 
+         * @return builder
+         * 
+         */
         public Builder externalAuditorEmail(String externalAuditorEmail) {
             return externalAuditorEmail(Output.of(externalAuditorEmail));
         }
 
+        /**
+         * @param fileTypes List of file types to which the DLP policy rule must be applied.
+         * 
+         * @return builder
+         * 
+         */
         public Builder fileTypes(@Nullable Output<List<String>> fileTypes) {
             $.fileTypes = fileTypes;
             return this;
         }
 
+        /**
+         * @param fileTypes List of file types to which the DLP policy rule must be applied.
+         * 
+         * @return builder
+         * 
+         */
         public Builder fileTypes(List<String> fileTypes) {
             return fileTypes(Output.of(fileTypes));
         }
 
+        /**
+         * @param fileTypes List of file types to which the DLP policy rule must be applied.
+         * 
+         * @return builder
+         * 
+         */
         public Builder fileTypes(String... fileTypes) {
             return fileTypes(List.of(fileTypes));
         }
 
+        /**
+         * @param groups IDs of groups for which the rule must be applied.
+         * 
+         * @return builder
+         * 
+         */
         public Builder groups(@Nullable Output<List<Integer>> groups) {
             $.groups = groups;
             return this;
         }
 
+        /**
+         * @param groups IDs of groups for which the rule must be applied.
+         * 
+         * @return builder
+         * 
+         */
         public Builder groups(List<Integer> groups) {
             return groups(Output.of(groups));
         }
 
+        /**
+         * @param groups IDs of groups for which the rule must be applied.
+         * 
+         * @return builder
+         * 
+         */
         public Builder groups(Integer... groups) {
             return groups(List.of(groups));
         }
 
+        /**
+         * @param labels IDs of labels associated with the DLP web rule.
+         * 
+         * @return builder
+         * 
+         */
         public Builder labels(@Nullable Output<List<Integer>> labels) {
             $.labels = labels;
             return this;
         }
 
+        /**
+         * @param labels IDs of labels associated with the DLP web rule.
+         * 
+         * @return builder
+         * 
+         */
         public Builder labels(List<Integer> labels) {
             return labels(Output.of(labels));
         }
 
+        /**
+         * @param labels IDs of labels associated with the DLP web rule.
+         * 
+         * @return builder
+         * 
+         */
         public Builder labels(Integer... labels) {
             return labels(List.of(labels));
         }
 
+        /**
+         * @param locationGroups IDs of location groups for which the rule must be applied.
+         * 
+         * @return builder
+         * 
+         */
         public Builder locationGroups(@Nullable Output<List<Integer>> locationGroups) {
             $.locationGroups = locationGroups;
             return this;
         }
 
+        /**
+         * @param locationGroups IDs of location groups for which the rule must be applied.
+         * 
+         * @return builder
+         * 
+         */
         public Builder locationGroups(List<Integer> locationGroups) {
             return locationGroups(Output.of(locationGroups));
         }
 
+        /**
+         * @param locationGroups IDs of location groups for which the rule must be applied.
+         * 
+         * @return builder
+         * 
+         */
         public Builder locationGroups(Integer... locationGroups) {
             return locationGroups(List.of(locationGroups));
         }
 
+        /**
+         * @param locations IDs of locations for which the rule must be applied.
+         * 
+         * @return builder
+         * 
+         */
         public Builder locations(@Nullable Output<List<Integer>> locations) {
             $.locations = locations;
             return this;
         }
 
+        /**
+         * @param locations IDs of locations for which the rule must be applied.
+         * 
+         * @return builder
+         * 
+         */
         public Builder locations(List<Integer> locations) {
             return locations(Output.of(locations));
         }
 
+        /**
+         * @param locations IDs of locations for which the rule must be applied.
+         * 
+         * @return builder
+         * 
+         */
         public Builder locations(Integer... locations) {
             return locations(List.of(locations));
         }
 
+        /**
+         * @param matchOnly If true, the rule matches but does not enforce the action.
+         * 
+         * @return builder
+         * 
+         */
         public Builder matchOnly(@Nullable Output<Boolean> matchOnly) {
             $.matchOnly = matchOnly;
             return this;
         }
 
+        /**
+         * @param matchOnly If true, the rule matches but does not enforce the action.
+         * 
+         * @return builder
+         * 
+         */
         public Builder matchOnly(Boolean matchOnly) {
             return matchOnly(Output.of(matchOnly));
         }
 
+        /**
+         * @param minSize Minimum file size (in KB) used for evaluating the DLP policy rule.
+         * 
+         * @return builder
+         * 
+         */
         public Builder minSize(@Nullable Output<Integer> minSize) {
             $.minSize = minSize;
             return this;
         }
 
+        /**
+         * @param minSize Minimum file size (in KB) used for evaluating the DLP policy rule.
+         * 
+         * @return builder
+         * 
+         */
         public Builder minSize(Integer minSize) {
             return minSize(Output.of(minSize));
         }
 
+        /**
+         * @param name The name of the DLP web rule. Must be unique.
+         * 
+         * @return builder
+         * 
+         */
         public Builder name(Output<String> name) {
             $.name = name;
             return this;
         }
 
+        /**
+         * @param name The name of the DLP web rule. Must be unique.
+         * 
+         * @return builder
+         * 
+         */
         public Builder name(String name) {
             return name(Output.of(name));
         }
 
+        /**
+         * @param ocrEnabled If true, Optical Character Recognition (OCR) is enabled for the DLP rule.
+         * 
+         * @return builder
+         * 
+         */
         public Builder ocrEnabled(@Nullable Output<Boolean> ocrEnabled) {
             $.ocrEnabled = ocrEnabled;
             return this;
         }
 
+        /**
+         * @param ocrEnabled If true, Optical Character Recognition (OCR) is enabled for the DLP rule.
+         * 
+         * @return builder
+         * 
+         */
         public Builder ocrEnabled(Boolean ocrEnabled) {
             return ocrEnabled(Output.of(ocrEnabled));
         }
 
+        /**
+         * @param order The order of execution of the rule with respect to other DLP web rules.
+         * 
+         * @return builder
+         * 
+         */
         public Builder order(Output<Integer> order) {
             $.order = order;
             return this;
         }
 
+        /**
+         * @param order The order of execution of the rule with respect to other DLP web rules.
+         * 
+         * @return builder
+         * 
+         */
         public Builder order(Integer order) {
             return order(Output.of(order));
         }
 
+        /**
+         * @param protocols Protocols to which the rule applies. Valid values: `FTP_RULE`, `HTTPS_RULE`, `HTTP_RULE`.
+         * 
+         * @return builder
+         * 
+         */
         public Builder protocols(@Nullable Output<List<String>> protocols) {
             $.protocols = protocols;
             return this;
         }
 
+        /**
+         * @param protocols Protocols to which the rule applies. Valid values: `FTP_RULE`, `HTTPS_RULE`, `HTTP_RULE`.
+         * 
+         * @return builder
+         * 
+         */
         public Builder protocols(List<String> protocols) {
             return protocols(Output.of(protocols));
         }
 
+        /**
+         * @param protocols Protocols to which the rule applies. Valid values: `FTP_RULE`, `HTTPS_RULE`, `HTTP_RULE`.
+         * 
+         * @return builder
+         * 
+         */
         public Builder protocols(String... protocols) {
             return protocols(List.of(protocols));
         }
 
+        /**
+         * @param rank Admin rank of the DLP web rule. Valid values: 0-7. Default: 7.
+         * 
+         * @return builder
+         * 
+         */
         public Builder rank(@Nullable Output<Integer> rank) {
             $.rank = rank;
             return this;
         }
 
+        /**
+         * @param rank Admin rank of the DLP web rule. Valid values: 0-7. Default: 7.
+         * 
+         * @return builder
+         * 
+         */
         public Builder rank(Integer rank) {
             return rank(Output.of(rank));
         }
 
+        /**
+         * @param sourceIpGroups IDs of source IP address groups for which the rule must be applied.
+         * 
+         * @return builder
+         * 
+         */
         public Builder sourceIpGroups(@Nullable Output<List<Integer>> sourceIpGroups) {
             $.sourceIpGroups = sourceIpGroups;
             return this;
         }
 
+        /**
+         * @param sourceIpGroups IDs of source IP address groups for which the rule must be applied.
+         * 
+         * @return builder
+         * 
+         */
         public Builder sourceIpGroups(List<Integer> sourceIpGroups) {
             return sourceIpGroups(Output.of(sourceIpGroups));
         }
 
+        /**
+         * @param sourceIpGroups IDs of source IP address groups for which the rule must be applied.
+         * 
+         * @return builder
+         * 
+         */
         public Builder sourceIpGroups(Integer... sourceIpGroups) {
             return sourceIpGroups(List.of(sourceIpGroups));
         }
 
+        /**
+         * @param state Rule state. Valid values: `ENABLED`, `DISABLED`.
+         * 
+         * @return builder
+         * 
+         */
         public Builder state(@Nullable Output<String> state) {
             $.state = state;
             return this;
         }
 
+        /**
+         * @param state Rule state. Valid values: `ENABLED`, `DISABLED`.
+         * 
+         * @return builder
+         * 
+         */
         public Builder state(String state) {
             return state(Output.of(state));
         }
 
+        /**
+         * @param timeWindows IDs of time intervals during which the rule must be enforced.
+         * 
+         * @return builder
+         * 
+         */
         public Builder timeWindows(@Nullable Output<List<Integer>> timeWindows) {
             $.timeWindows = timeWindows;
             return this;
         }
 
+        /**
+         * @param timeWindows IDs of time intervals during which the rule must be enforced.
+         * 
+         * @return builder
+         * 
+         */
         public Builder timeWindows(List<Integer> timeWindows) {
             return timeWindows(Output.of(timeWindows));
         }
 
+        /**
+         * @param timeWindows IDs of time intervals during which the rule must be enforced.
+         * 
+         * @return builder
+         * 
+         */
         public Builder timeWindows(Integer... timeWindows) {
             return timeWindows(List.of(timeWindows));
         }
 
+        /**
+         * @param users IDs of users for which the rule must be applied.
+         * 
+         * @return builder
+         * 
+         */
         public Builder users(@Nullable Output<List<Integer>> users) {
             $.users = users;
             return this;
         }
 
+        /**
+         * @param users IDs of users for which the rule must be applied.
+         * 
+         * @return builder
+         * 
+         */
         public Builder users(List<Integer> users) {
             return users(Output.of(users));
         }
 
+        /**
+         * @param users IDs of users for which the rule must be applied.
+         * 
+         * @return builder
+         * 
+         */
         public Builder users(Integer... users) {
             return users(List.of(users));
         }
 
+        /**
+         * @param withoutContentInspection If true, the DLP rule is applied without inspecting content.
+         * 
+         * @return builder
+         * 
+         */
         public Builder withoutContentInspection(@Nullable Output<Boolean> withoutContentInspection) {
             $.withoutContentInspection = withoutContentInspection;
             return this;
         }
 
+        /**
+         * @param withoutContentInspection If true, the DLP rule is applied without inspecting content.
+         * 
+         * @return builder
+         * 
+         */
         public Builder withoutContentInspection(Boolean withoutContentInspection) {
             return withoutContentInspection(Output.of(withoutContentInspection));
         }
 
+        /**
+         * @param zccNotificationsEnabled If true, Zscaler Client Connector notifications are enabled for this rule.
+         * 
+         * @return builder
+         * 
+         */
         public Builder zccNotificationsEnabled(@Nullable Output<Boolean> zccNotificationsEnabled) {
             $.zccNotificationsEnabled = zccNotificationsEnabled;
             return this;
         }
 
+        /**
+         * @param zccNotificationsEnabled If true, Zscaler Client Connector notifications are enabled for this rule.
+         * 
+         * @return builder
+         * 
+         */
         public Builder zccNotificationsEnabled(Boolean zccNotificationsEnabled) {
             return zccNotificationsEnabled(Output.of(zccNotificationsEnabled));
         }

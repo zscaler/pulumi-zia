@@ -6,6 +6,41 @@ import * as inputs from "./types/input";
 import * as outputs from "./types/output";
 import * as utilities from "./utilities";
 
+/**
+ * The zia_admin_users resource manages administrator users in the Zscaler Internet Access (ZIA) cloud service. Administrator users have access to the ZIA Admin Portal and can manage policies, configurations, and other administrative tasks based on their assigned role.
+ *
+ * For more information, see the [ZIA Admin User Management documentation](https://help.zscaler.com/zia/admin-user-management).
+ *
+ * ## Example Usage
+ * ### Basic Admin User
+ *
+ * ```typescript
+ * import * as zia from "@bdzscaler/pulumi-zia";
+ *
+ * import * as pulumi from "@pulumi/pulumi";
+ *
+ * const cfg = new pulumi.Config();
+ * const adminPassword = cfg.requireSecret("adminPassword");
+ *
+ * const example = new zia.AdminUsers("example", {
+ *     loginName: "admin@example.com",
+ *     username: "Example Admin",
+ *     email: "admin@example.com",
+ *     password: adminPassword,
+ *     isPasswordLoginAllowed: true,
+ *     role: { id: 12345 },
+ *     adminScopeType: "ORGANIZATION",
+ * });
+ * ```
+ *
+ * ## Import
+ *
+ * An existing admin user can be imported using its resource ID, e.g.
+ *
+ * ```sh
+ * $ pulumi import zia:index:AdminUsers example 12345
+ * ```
+ */
 export class AdminUsers extends pulumi.CustomResource {
     /**
      * Get an existing AdminUsers resource's state with the given name, ID, and optional extra
@@ -33,23 +68,77 @@ export class AdminUsers extends pulumi.CustomResource {
         return obj['__pulumiType'] === AdminUsers.__pulumiType;
     }
 
+    /**
+     * The system-generated ID of the admin user.
+     */
     declare public /*out*/ readonly adminId: pulumi.Output<number>;
+    /**
+     * IDs of the admin scope entities (departments, locations, or location groups) when adminScopeType is not `ORGANIZATION`.
+     */
     declare public readonly adminScopeEntities: pulumi.Output<number[] | undefined>;
+    /**
+     * The admin scope type. Valid values: `ORGANIZATION`, `DEPARTMENT`, `LOCATION`, `LOCATION_GROUP`.
+     */
     declare public readonly adminScopeType: pulumi.Output<string | undefined>;
+    /**
+     * Additional information about the admin user.
+     */
     declare public readonly comments: pulumi.Output<string | undefined>;
+    /**
+     * Whether the admin account is disabled.
+     */
     declare public readonly disabled: pulumi.Output<boolean | undefined>;
+    /**
+     * The admin user's email address.
+     */
     declare public readonly email: pulumi.Output<string>;
+    /**
+     * Indicates whether the admin is an auditor.
+     */
     declare public readonly isAuditor: pulumi.Output<boolean | undefined>;
+    /**
+     * Whether Executive Insights App access is enabled. Can only be set when adminScopeType is `ORGANIZATION`.
+     */
     declare public readonly isExecMobileAppEnabled: pulumi.Output<boolean | undefined>;
+    /**
+     * Indicates whether the admin user is non-editable (read-only in the ZIA Admin Portal).
+     */
     declare public readonly isNonEditable: pulumi.Output<boolean | undefined>;
+    /**
+     * Indicates whether the admin user's password has expired.
+     */
     declare public readonly isPasswordExpired: pulumi.Output<boolean | undefined>;
+    /**
+     * Whether password-based login is allowed for the admin user.
+     */
     declare public readonly isPasswordLoginAllowed: pulumi.Output<boolean | undefined>;
+    /**
+     * Whether the admin can receive product update communications.
+     */
     declare public readonly isProductUpdateCommEnabled: pulumi.Output<boolean | undefined>;
+    /**
+     * Whether the admin can receive security report communications.
+     */
     declare public readonly isSecurityReportCommEnabled: pulumi.Output<boolean | undefined>;
+    /**
+     * Whether the admin can receive service update communications.
+     */
     declare public readonly isServiceUpdateCommEnabled: pulumi.Output<boolean | undefined>;
+    /**
+     * The admin user's login name (email format). Must be unique.
+     */
     declare public readonly loginName: pulumi.Output<string>;
+    /**
+     * The admin user's password. Required when isPasswordLoginAllowed is true. Must be 8 to 100 characters.
+     */
     declare public readonly password: pulumi.Output<string | undefined>;
+    /**
+     * The role assigned to the admin user. Provide the role ID.
+     */
     declare public readonly role: pulumi.Output<outputs.AdminUserRoleInput | undefined>;
+    /**
+     * The admin user's display name.
+     */
     declare public readonly username: pulumi.Output<string>;
 
     /**
@@ -121,21 +210,72 @@ export class AdminUsers extends pulumi.CustomResource {
  * The set of arguments for constructing a AdminUsers resource.
  */
 export interface AdminUsersArgs {
+    /**
+     * IDs of the admin scope entities (departments, locations, or location groups) when adminScopeType is not `ORGANIZATION`.
+     */
     adminScopeEntities?: pulumi.Input<pulumi.Input<number>[]>;
+    /**
+     * The admin scope type. Valid values: `ORGANIZATION`, `DEPARTMENT`, `LOCATION`, `LOCATION_GROUP`.
+     */
     adminScopeType?: pulumi.Input<string>;
+    /**
+     * Additional information about the admin user.
+     */
     comments?: pulumi.Input<string>;
+    /**
+     * Whether the admin account is disabled.
+     */
     disabled?: pulumi.Input<boolean>;
+    /**
+     * The admin user's email address.
+     */
     email: pulumi.Input<string>;
+    /**
+     * Indicates whether the admin is an auditor.
+     */
     isAuditor?: pulumi.Input<boolean>;
+    /**
+     * Whether Executive Insights App access is enabled. Can only be set when adminScopeType is `ORGANIZATION`.
+     */
     isExecMobileAppEnabled?: pulumi.Input<boolean>;
+    /**
+     * Indicates whether the admin user is non-editable (read-only in the ZIA Admin Portal).
+     */
     isNonEditable?: pulumi.Input<boolean>;
+    /**
+     * Indicates whether the admin user's password has expired.
+     */
     isPasswordExpired?: pulumi.Input<boolean>;
+    /**
+     * Whether password-based login is allowed for the admin user.
+     */
     isPasswordLoginAllowed?: pulumi.Input<boolean>;
+    /**
+     * Whether the admin can receive product update communications.
+     */
     isProductUpdateCommEnabled?: pulumi.Input<boolean>;
+    /**
+     * Whether the admin can receive security report communications.
+     */
     isSecurityReportCommEnabled?: pulumi.Input<boolean>;
+    /**
+     * Whether the admin can receive service update communications.
+     */
     isServiceUpdateCommEnabled?: pulumi.Input<boolean>;
+    /**
+     * The admin user's login name (email format). Must be unique.
+     */
     loginName: pulumi.Input<string>;
+    /**
+     * The admin user's password. Required when isPasswordLoginAllowed is true. Must be 8 to 100 characters.
+     */
     password?: pulumi.Input<string>;
+    /**
+     * The role assigned to the admin user. Provide the role ID.
+     */
     role?: pulumi.Input<inputs.AdminUserRoleInputArgs>;
+    /**
+     * The admin user's display name.
+     */
     username: pulumi.Input<string>;
 }

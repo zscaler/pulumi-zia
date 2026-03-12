@@ -16,16 +16,32 @@ public final class SecurityPolicySettingsArgs extends com.pulumi.resources.Resou
 
     public static final SecurityPolicySettingsArgs Empty = new SecurityPolicySettingsArgs();
 
+    /**
+     * List of URLs that are always blocked (blacklisted) by the security policy.
+     * 
+     */
     @Import(name="blacklistUrls")
     private @Nullable Output<List<String>> blacklistUrls;
 
+    /**
+     * @return List of URLs that are always blocked (blacklisted) by the security policy.
+     * 
+     */
     public Optional<Output<List<String>>> blacklistUrls() {
         return Optional.ofNullable(this.blacklistUrls);
     }
 
+    /**
+     * List of URLs that are always allowed (whitelisted) by the security policy.
+     * 
+     */
     @Import(name="whitelistUrls")
     private @Nullable Output<List<String>> whitelistUrls;
 
+    /**
+     * @return List of URLs that are always allowed (whitelisted) by the security policy.
+     * 
+     */
     public Optional<Output<List<String>>> whitelistUrls() {
         return Optional.ofNullable(this.whitelistUrls);
     }
@@ -55,28 +71,64 @@ public final class SecurityPolicySettingsArgs extends com.pulumi.resources.Resou
             $ = new SecurityPolicySettingsArgs(Objects.requireNonNull(defaults));
         }
 
+        /**
+         * @param blacklistUrls List of URLs that are always blocked (blacklisted) by the security policy.
+         * 
+         * @return builder
+         * 
+         */
         public Builder blacklistUrls(@Nullable Output<List<String>> blacklistUrls) {
             $.blacklistUrls = blacklistUrls;
             return this;
         }
 
+        /**
+         * @param blacklistUrls List of URLs that are always blocked (blacklisted) by the security policy.
+         * 
+         * @return builder
+         * 
+         */
         public Builder blacklistUrls(List<String> blacklistUrls) {
             return blacklistUrls(Output.of(blacklistUrls));
         }
 
+        /**
+         * @param blacklistUrls List of URLs that are always blocked (blacklisted) by the security policy.
+         * 
+         * @return builder
+         * 
+         */
         public Builder blacklistUrls(String... blacklistUrls) {
             return blacklistUrls(List.of(blacklistUrls));
         }
 
+        /**
+         * @param whitelistUrls List of URLs that are always allowed (whitelisted) by the security policy.
+         * 
+         * @return builder
+         * 
+         */
         public Builder whitelistUrls(@Nullable Output<List<String>> whitelistUrls) {
             $.whitelistUrls = whitelistUrls;
             return this;
         }
 
+        /**
+         * @param whitelistUrls List of URLs that are always allowed (whitelisted) by the security policy.
+         * 
+         * @return builder
+         * 
+         */
         public Builder whitelistUrls(List<String> whitelistUrls) {
             return whitelistUrls(Output.of(whitelistUrls));
         }
 
+        /**
+         * @param whitelistUrls List of URLs that are always allowed (whitelisted) by the security policy.
+         * 
+         * @return builder
+         * 
+         */
         public Builder whitelistUrls(String... whitelistUrls) {
             return whitelistUrls(List.of(whitelistUrls));
         }

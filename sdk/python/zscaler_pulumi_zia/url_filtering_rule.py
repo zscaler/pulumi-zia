@@ -60,6 +60,43 @@ class URLFilteringRuleArgs:
                  workload_groups: Optional[pulumi.Input[Sequence[pulumi.Input['WorkloadGroupInputArgs']]]] = None):
         """
         The set of arguments for constructing a URLFilteringRule resource.
+        :param pulumi.Input[_builtins.str] name: The name of the URL filtering rule. Must be unique.
+        :param pulumi.Input[_builtins.int] order: The order of execution of the rule with respect to other URL filtering rules.
+        :param pulumi.Input[_builtins.str] action: Action taken when traffic matches rule criteria. Valid values: `BLOCK`, `CAUTION`, `ALLOW`, `ISOLATE`.
+        :param pulumi.Input[_builtins.bool] block_override: When set to true, a 'BLOCK' action can be overridden. Can only be set when action is 'BLOCK'.
+        :param pulumi.Input[_builtins.int] browser_eun_template_id: Browser End User Notification template ID. Only applicable when action is 'BLOCK' or 'CAUTION'.
+        :param pulumi.Input['CBIProfileInputArgs'] cbi_profile: The Cloud Browser Isolation (CBI) profile. Required when action is 'ISOLATE'.
+        :param pulumi.Input[_builtins.bool] ciparule: If set to true, the CIPA Compliance rule is enabled.
+        :param pulumi.Input[Sequence[pulumi.Input[_builtins.int]]] departments: IDs of departments for which the rule must be applied.
+        :param pulumi.Input[_builtins.str] description: Additional information about the URL filtering rule. Maximum 10240 characters.
+        :param pulumi.Input[Sequence[pulumi.Input[_builtins.int]]] device_groups: IDs of device groups for which the rule must be applied. Applicable for devices managed using Zscaler Client Connector.
+        :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] device_trust_levels: Device trust levels for the rule. Valid values: `ANY`, `UNKNOWN_DEVICETRUSTLEVEL`, `LOW_TRUST`, `MEDIUM_TRUST`, `HIGH_TRUST`.
+        :param pulumi.Input[Sequence[pulumi.Input[_builtins.int]]] devices: IDs of devices for which the rule must be applied.
+        :param pulumi.Input[_builtins.str] end_user_notification_url: URL of end user notification page to be displayed when the rule is matched. Not applicable if either 'overrideUsers' or 'overrideGroups' is specified.
+        :param pulumi.Input[_builtins.bool] enforce_time_validity: Enforce a set validity time period for the URL filtering rule.
+        :param pulumi.Input[Sequence[pulumi.Input[_builtins.int]]] groups: IDs of groups for which the rule must be applied.
+        :param pulumi.Input[Sequence[pulumi.Input[_builtins.int]]] labels: IDs of labels associated with the URL filtering rule.
+        :param pulumi.Input[Sequence[pulumi.Input[_builtins.int]]] location_groups: IDs of location groups to which the rule must be applied.
+        :param pulumi.Input[Sequence[pulumi.Input[_builtins.int]]] locations: IDs of locations for which the rule must be applied.
+        :param pulumi.Input[Sequence[pulumi.Input[_builtins.int]]] override_groups: IDs of groups for which this rule can be overridden. Only applicable when action is 'BLOCK' and blockOverride is true.
+        :param pulumi.Input[Sequence[pulumi.Input[_builtins.int]]] override_users: IDs of users for which this rule can be overridden. Only applicable when action is 'BLOCK' and blockOverride is true.
+        :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] protocols: Protocols to which the rule applies. Valid values: `SMRULEF_ZPA_BROKERS_RULE`, `ANY_RULE`, `TCP_RULE`, `UDP_RULE`, `DOHTTPS_RULE`, `TUNNELSSL_RULE`, `HTTP_PROXY`, `FOHTTP_RULE`, `FTP_RULE`, `SSL_RULE`.
+        :param pulumi.Input[_builtins.int] rank: Admin rank of the URL filtering policy rule. Valid values: 0-7. Default: 7.
+        :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] request_methods: Request methods to which the rule applies. Valid values: `CONNECT`, `DELETE`, `GET`, `HEAD`, `OPTIONS`, `OTHER`, `POST`, `PUT`, `TRACE`.
+        :param pulumi.Input[_builtins.int] size_quota: Size quota in MB beyond which the URL filtering rule is applied. If not set, no quota is enforced. Valid range: 10-100000. Not applicable when action is 'BLOCK'.
+        :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] source_countries: Source countries (ISO 3166-1 alpha-2 codes) for the rule.
+        :param pulumi.Input[Sequence[pulumi.Input[_builtins.int]]] source_ip_groups: IDs of source IP address groups.
+        :param pulumi.Input[_builtins.str] state: Rule state. Valid values: `ENABLED`, `DISABLED`.
+        :param pulumi.Input[_builtins.int] time_quota: Time quota in minutes, after which the URL filtering rule is applied. If not set, no quota is enforced. Valid range: 15-600. Not applicable when action is 'BLOCK'.
+        :param pulumi.Input[Sequence[pulumi.Input[_builtins.int]]] time_windows: IDs of time intervals during which the rule must be enforced.
+        :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] url_categories: List of URL categories to which the rule applies. See the [URL Categories API](https://help.zscaler.com/zia/url-categories#/urlCategories-get) for available categories.
+        :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] user_agent_types: User agent types the rule applies to. Valid values: `CHROME`, `FIREFOX`, `MSIE`, `MSEDGE`, `MSCHREDGE`, `OPERA`, `SAFARI`, `OTHER`.
+        :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] user_risk_score_levels: User risk score levels for the rule. Valid values: `LOW`, `MEDIUM`, `HIGH`, `CRITICAL`.
+        :param pulumi.Input[Sequence[pulumi.Input[_builtins.int]]] users: IDs of users for which the rule must be applied.
+        :param pulumi.Input[_builtins.str] validity_end_time: If enforceTimeValidity is set to true, the URL filtering rule ceases to be valid on this end date and time (RFC 1123 format).
+        :param pulumi.Input[_builtins.str] validity_start_time: If enforceTimeValidity is set to true, the URL filtering rule is valid starting on this date and time (RFC 1123 format).
+        :param pulumi.Input[_builtins.str] validity_time_zone_id: If enforceTimeValidity is set to true, the URL filtering rule date and time is valid based on this time zone ID. Use IANA format (e.g. 'America/Los_Angeles'). See https://nodatime.org/TimeZones for the complete list.
+        :param pulumi.Input[Sequence[pulumi.Input['WorkloadGroupInputArgs']]] workload_groups: List of preconfigured workload groups to which the policy must be applied.
         """
         pulumi.set(__self__, "name", name)
         pulumi.set(__self__, "order", order)
@@ -137,6 +174,9 @@ class URLFilteringRuleArgs:
     @_builtins.property
     @pulumi.getter
     def name(self) -> pulumi.Input[_builtins.str]:
+        """
+        The name of the URL filtering rule. Must be unique.
+        """
         return pulumi.get(self, "name")
 
     @name.setter
@@ -146,6 +186,9 @@ class URLFilteringRuleArgs:
     @_builtins.property
     @pulumi.getter
     def order(self) -> pulumi.Input[_builtins.int]:
+        """
+        The order of execution of the rule with respect to other URL filtering rules.
+        """
         return pulumi.get(self, "order")
 
     @order.setter
@@ -155,6 +198,9 @@ class URLFilteringRuleArgs:
     @_builtins.property
     @pulumi.getter
     def action(self) -> Optional[pulumi.Input[_builtins.str]]:
+        """
+        Action taken when traffic matches rule criteria. Valid values: `BLOCK`, `CAUTION`, `ALLOW`, `ISOLATE`.
+        """
         return pulumi.get(self, "action")
 
     @action.setter
@@ -164,6 +210,9 @@ class URLFilteringRuleArgs:
     @_builtins.property
     @pulumi.getter(name="blockOverride")
     def block_override(self) -> Optional[pulumi.Input[_builtins.bool]]:
+        """
+        When set to true, a 'BLOCK' action can be overridden. Can only be set when action is 'BLOCK'.
+        """
         return pulumi.get(self, "block_override")
 
     @block_override.setter
@@ -173,6 +222,9 @@ class URLFilteringRuleArgs:
     @_builtins.property
     @pulumi.getter(name="browserEunTemplateId")
     def browser_eun_template_id(self) -> Optional[pulumi.Input[_builtins.int]]:
+        """
+        Browser End User Notification template ID. Only applicable when action is 'BLOCK' or 'CAUTION'.
+        """
         return pulumi.get(self, "browser_eun_template_id")
 
     @browser_eun_template_id.setter
@@ -182,6 +234,9 @@ class URLFilteringRuleArgs:
     @_builtins.property
     @pulumi.getter(name="cbiProfile")
     def cbi_profile(self) -> Optional[pulumi.Input['CBIProfileInputArgs']]:
+        """
+        The Cloud Browser Isolation (CBI) profile. Required when action is 'ISOLATE'.
+        """
         return pulumi.get(self, "cbi_profile")
 
     @cbi_profile.setter
@@ -191,6 +246,9 @@ class URLFilteringRuleArgs:
     @_builtins.property
     @pulumi.getter
     def ciparule(self) -> Optional[pulumi.Input[_builtins.bool]]:
+        """
+        If set to true, the CIPA Compliance rule is enabled.
+        """
         return pulumi.get(self, "ciparule")
 
     @ciparule.setter
@@ -200,6 +258,9 @@ class URLFilteringRuleArgs:
     @_builtins.property
     @pulumi.getter
     def departments(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.int]]]]:
+        """
+        IDs of departments for which the rule must be applied.
+        """
         return pulumi.get(self, "departments")
 
     @departments.setter
@@ -209,6 +270,9 @@ class URLFilteringRuleArgs:
     @_builtins.property
     @pulumi.getter
     def description(self) -> Optional[pulumi.Input[_builtins.str]]:
+        """
+        Additional information about the URL filtering rule. Maximum 10240 characters.
+        """
         return pulumi.get(self, "description")
 
     @description.setter
@@ -218,6 +282,9 @@ class URLFilteringRuleArgs:
     @_builtins.property
     @pulumi.getter(name="deviceGroups")
     def device_groups(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.int]]]]:
+        """
+        IDs of device groups for which the rule must be applied. Applicable for devices managed using Zscaler Client Connector.
+        """
         return pulumi.get(self, "device_groups")
 
     @device_groups.setter
@@ -227,6 +294,9 @@ class URLFilteringRuleArgs:
     @_builtins.property
     @pulumi.getter(name="deviceTrustLevels")
     def device_trust_levels(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
+        """
+        Device trust levels for the rule. Valid values: `ANY`, `UNKNOWN_DEVICETRUSTLEVEL`, `LOW_TRUST`, `MEDIUM_TRUST`, `HIGH_TRUST`.
+        """
         return pulumi.get(self, "device_trust_levels")
 
     @device_trust_levels.setter
@@ -236,6 +306,9 @@ class URLFilteringRuleArgs:
     @_builtins.property
     @pulumi.getter
     def devices(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.int]]]]:
+        """
+        IDs of devices for which the rule must be applied.
+        """
         return pulumi.get(self, "devices")
 
     @devices.setter
@@ -245,6 +318,9 @@ class URLFilteringRuleArgs:
     @_builtins.property
     @pulumi.getter(name="endUserNotificationUrl")
     def end_user_notification_url(self) -> Optional[pulumi.Input[_builtins.str]]:
+        """
+        URL of end user notification page to be displayed when the rule is matched. Not applicable if either 'overrideUsers' or 'overrideGroups' is specified.
+        """
         return pulumi.get(self, "end_user_notification_url")
 
     @end_user_notification_url.setter
@@ -254,6 +330,9 @@ class URLFilteringRuleArgs:
     @_builtins.property
     @pulumi.getter(name="enforceTimeValidity")
     def enforce_time_validity(self) -> Optional[pulumi.Input[_builtins.bool]]:
+        """
+        Enforce a set validity time period for the URL filtering rule.
+        """
         return pulumi.get(self, "enforce_time_validity")
 
     @enforce_time_validity.setter
@@ -263,6 +342,9 @@ class URLFilteringRuleArgs:
     @_builtins.property
     @pulumi.getter
     def groups(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.int]]]]:
+        """
+        IDs of groups for which the rule must be applied.
+        """
         return pulumi.get(self, "groups")
 
     @groups.setter
@@ -272,6 +354,9 @@ class URLFilteringRuleArgs:
     @_builtins.property
     @pulumi.getter
     def labels(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.int]]]]:
+        """
+        IDs of labels associated with the URL filtering rule.
+        """
         return pulumi.get(self, "labels")
 
     @labels.setter
@@ -281,6 +366,9 @@ class URLFilteringRuleArgs:
     @_builtins.property
     @pulumi.getter(name="locationGroups")
     def location_groups(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.int]]]]:
+        """
+        IDs of location groups to which the rule must be applied.
+        """
         return pulumi.get(self, "location_groups")
 
     @location_groups.setter
@@ -290,6 +378,9 @@ class URLFilteringRuleArgs:
     @_builtins.property
     @pulumi.getter
     def locations(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.int]]]]:
+        """
+        IDs of locations for which the rule must be applied.
+        """
         return pulumi.get(self, "locations")
 
     @locations.setter
@@ -299,6 +390,9 @@ class URLFilteringRuleArgs:
     @_builtins.property
     @pulumi.getter(name="overrideGroups")
     def override_groups(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.int]]]]:
+        """
+        IDs of groups for which this rule can be overridden. Only applicable when action is 'BLOCK' and blockOverride is true.
+        """
         return pulumi.get(self, "override_groups")
 
     @override_groups.setter
@@ -308,6 +402,9 @@ class URLFilteringRuleArgs:
     @_builtins.property
     @pulumi.getter(name="overrideUsers")
     def override_users(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.int]]]]:
+        """
+        IDs of users for which this rule can be overridden. Only applicable when action is 'BLOCK' and blockOverride is true.
+        """
         return pulumi.get(self, "override_users")
 
     @override_users.setter
@@ -317,6 +414,9 @@ class URLFilteringRuleArgs:
     @_builtins.property
     @pulumi.getter
     def protocols(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
+        """
+        Protocols to which the rule applies. Valid values: `SMRULEF_ZPA_BROKERS_RULE`, `ANY_RULE`, `TCP_RULE`, `UDP_RULE`, `DOHTTPS_RULE`, `TUNNELSSL_RULE`, `HTTP_PROXY`, `FOHTTP_RULE`, `FTP_RULE`, `SSL_RULE`.
+        """
         return pulumi.get(self, "protocols")
 
     @protocols.setter
@@ -326,6 +426,9 @@ class URLFilteringRuleArgs:
     @_builtins.property
     @pulumi.getter
     def rank(self) -> Optional[pulumi.Input[_builtins.int]]:
+        """
+        Admin rank of the URL filtering policy rule. Valid values: 0-7. Default: 7.
+        """
         return pulumi.get(self, "rank")
 
     @rank.setter
@@ -335,6 +438,9 @@ class URLFilteringRuleArgs:
     @_builtins.property
     @pulumi.getter(name="requestMethods")
     def request_methods(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
+        """
+        Request methods to which the rule applies. Valid values: `CONNECT`, `DELETE`, `GET`, `HEAD`, `OPTIONS`, `OTHER`, `POST`, `PUT`, `TRACE`.
+        """
         return pulumi.get(self, "request_methods")
 
     @request_methods.setter
@@ -344,6 +450,9 @@ class URLFilteringRuleArgs:
     @_builtins.property
     @pulumi.getter(name="sizeQuota")
     def size_quota(self) -> Optional[pulumi.Input[_builtins.int]]:
+        """
+        Size quota in MB beyond which the URL filtering rule is applied. If not set, no quota is enforced. Valid range: 10-100000. Not applicable when action is 'BLOCK'.
+        """
         return pulumi.get(self, "size_quota")
 
     @size_quota.setter
@@ -353,6 +462,9 @@ class URLFilteringRuleArgs:
     @_builtins.property
     @pulumi.getter(name="sourceCountries")
     def source_countries(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
+        """
+        Source countries (ISO 3166-1 alpha-2 codes) for the rule.
+        """
         return pulumi.get(self, "source_countries")
 
     @source_countries.setter
@@ -362,6 +474,9 @@ class URLFilteringRuleArgs:
     @_builtins.property
     @pulumi.getter(name="sourceIpGroups")
     def source_ip_groups(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.int]]]]:
+        """
+        IDs of source IP address groups.
+        """
         return pulumi.get(self, "source_ip_groups")
 
     @source_ip_groups.setter
@@ -371,6 +486,9 @@ class URLFilteringRuleArgs:
     @_builtins.property
     @pulumi.getter
     def state(self) -> Optional[pulumi.Input[_builtins.str]]:
+        """
+        Rule state. Valid values: `ENABLED`, `DISABLED`.
+        """
         return pulumi.get(self, "state")
 
     @state.setter
@@ -380,6 +498,9 @@ class URLFilteringRuleArgs:
     @_builtins.property
     @pulumi.getter(name="timeQuota")
     def time_quota(self) -> Optional[pulumi.Input[_builtins.int]]:
+        """
+        Time quota in minutes, after which the URL filtering rule is applied. If not set, no quota is enforced. Valid range: 15-600. Not applicable when action is 'BLOCK'.
+        """
         return pulumi.get(self, "time_quota")
 
     @time_quota.setter
@@ -389,6 +510,9 @@ class URLFilteringRuleArgs:
     @_builtins.property
     @pulumi.getter(name="timeWindows")
     def time_windows(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.int]]]]:
+        """
+        IDs of time intervals during which the rule must be enforced.
+        """
         return pulumi.get(self, "time_windows")
 
     @time_windows.setter
@@ -398,6 +522,9 @@ class URLFilteringRuleArgs:
     @_builtins.property
     @pulumi.getter(name="urlCategories")
     def url_categories(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
+        """
+        List of URL categories to which the rule applies. See the [URL Categories API](https://help.zscaler.com/zia/url-categories#/urlCategories-get) for available categories.
+        """
         return pulumi.get(self, "url_categories")
 
     @url_categories.setter
@@ -407,6 +534,9 @@ class URLFilteringRuleArgs:
     @_builtins.property
     @pulumi.getter(name="userAgentTypes")
     def user_agent_types(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
+        """
+        User agent types the rule applies to. Valid values: `CHROME`, `FIREFOX`, `MSIE`, `MSEDGE`, `MSCHREDGE`, `OPERA`, `SAFARI`, `OTHER`.
+        """
         return pulumi.get(self, "user_agent_types")
 
     @user_agent_types.setter
@@ -416,6 +546,9 @@ class URLFilteringRuleArgs:
     @_builtins.property
     @pulumi.getter(name="userRiskScoreLevels")
     def user_risk_score_levels(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
+        """
+        User risk score levels for the rule. Valid values: `LOW`, `MEDIUM`, `HIGH`, `CRITICAL`.
+        """
         return pulumi.get(self, "user_risk_score_levels")
 
     @user_risk_score_levels.setter
@@ -425,6 +558,9 @@ class URLFilteringRuleArgs:
     @_builtins.property
     @pulumi.getter
     def users(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.int]]]]:
+        """
+        IDs of users for which the rule must be applied.
+        """
         return pulumi.get(self, "users")
 
     @users.setter
@@ -434,6 +570,9 @@ class URLFilteringRuleArgs:
     @_builtins.property
     @pulumi.getter(name="validityEndTime")
     def validity_end_time(self) -> Optional[pulumi.Input[_builtins.str]]:
+        """
+        If enforceTimeValidity is set to true, the URL filtering rule ceases to be valid on this end date and time (RFC 1123 format).
+        """
         return pulumi.get(self, "validity_end_time")
 
     @validity_end_time.setter
@@ -443,6 +582,9 @@ class URLFilteringRuleArgs:
     @_builtins.property
     @pulumi.getter(name="validityStartTime")
     def validity_start_time(self) -> Optional[pulumi.Input[_builtins.str]]:
+        """
+        If enforceTimeValidity is set to true, the URL filtering rule is valid starting on this date and time (RFC 1123 format).
+        """
         return pulumi.get(self, "validity_start_time")
 
     @validity_start_time.setter
@@ -452,6 +594,9 @@ class URLFilteringRuleArgs:
     @_builtins.property
     @pulumi.getter(name="validityTimeZoneId")
     def validity_time_zone_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+        """
+        If enforceTimeValidity is set to true, the URL filtering rule date and time is valid based on this time zone ID. Use IANA format (e.g. 'America/Los_Angeles'). See https://nodatime.org/TimeZones for the complete list.
+        """
         return pulumi.get(self, "validity_time_zone_id")
 
     @validity_time_zone_id.setter
@@ -461,6 +606,9 @@ class URLFilteringRuleArgs:
     @_builtins.property
     @pulumi.getter(name="workloadGroups")
     def workload_groups(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['WorkloadGroupInputArgs']]]]:
+        """
+        List of preconfigured workload groups to which the policy must be applied.
+        """
         return pulumi.get(self, "workload_groups")
 
     @workload_groups.setter
@@ -513,9 +661,74 @@ class URLFilteringRule(pulumi.CustomResource):
                  workload_groups: Optional[pulumi.Input[Sequence[pulumi.Input[Union['WorkloadGroupInputArgs', 'WorkloadGroupInputArgsDict']]]]] = None,
                  __props__=None):
         """
-        Create a URLFilteringRule resource with the given unique name, props, and options.
+        The zia_url_filtering_rules resource manages URL filtering rules in the Zscaler Internet Access (ZIA) cloud service. URL filtering rules define the actions to take when users access URLs that match specific categories, protocols, locations, departments, groups, or users.
+
+        For more information, see the [ZIA URL Filtering documentation](https://help.zscaler.com/zia/url-filtering).
+
+        ## Example Usage
+        ### Basic URL Filtering Rule
+
+        ```python
+        import zscaler_pulumi_zia as zia
+
+        example = zia.URLFilteringRule("example",
+            name="Example URL Filtering Rule",
+            description="Allow access to business URLs",
+            order=1,
+            state="ENABLED",
+            action="ALLOW",
+            protocols=["ANY_RULE"],
+            url_categories=["ANY"],
+        )
+        ```
+
+        ## Import
+
+        An existing URL Filtering Rule can be imported using its resource ID, e.g.
+
+        ```sh
+        $ pulumi import zia:index:URLFilteringRule example 12345
+        ```
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
+        :param pulumi.Input[_builtins.str] action: Action taken when traffic matches rule criteria. Valid values: `BLOCK`, `CAUTION`, `ALLOW`, `ISOLATE`.
+        :param pulumi.Input[_builtins.bool] block_override: When set to true, a 'BLOCK' action can be overridden. Can only be set when action is 'BLOCK'.
+        :param pulumi.Input[_builtins.int] browser_eun_template_id: Browser End User Notification template ID. Only applicable when action is 'BLOCK' or 'CAUTION'.
+        :param pulumi.Input[Union['CBIProfileInputArgs', 'CBIProfileInputArgsDict']] cbi_profile: The Cloud Browser Isolation (CBI) profile. Required when action is 'ISOLATE'.
+        :param pulumi.Input[_builtins.bool] ciparule: If set to true, the CIPA Compliance rule is enabled.
+        :param pulumi.Input[Sequence[pulumi.Input[_builtins.int]]] departments: IDs of departments for which the rule must be applied.
+        :param pulumi.Input[_builtins.str] description: Additional information about the URL filtering rule. Maximum 10240 characters.
+        :param pulumi.Input[Sequence[pulumi.Input[_builtins.int]]] device_groups: IDs of device groups for which the rule must be applied. Applicable for devices managed using Zscaler Client Connector.
+        :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] device_trust_levels: Device trust levels for the rule. Valid values: `ANY`, `UNKNOWN_DEVICETRUSTLEVEL`, `LOW_TRUST`, `MEDIUM_TRUST`, `HIGH_TRUST`.
+        :param pulumi.Input[Sequence[pulumi.Input[_builtins.int]]] devices: IDs of devices for which the rule must be applied.
+        :param pulumi.Input[_builtins.str] end_user_notification_url: URL of end user notification page to be displayed when the rule is matched. Not applicable if either 'overrideUsers' or 'overrideGroups' is specified.
+        :param pulumi.Input[_builtins.bool] enforce_time_validity: Enforce a set validity time period for the URL filtering rule.
+        :param pulumi.Input[Sequence[pulumi.Input[_builtins.int]]] groups: IDs of groups for which the rule must be applied.
+        :param pulumi.Input[Sequence[pulumi.Input[_builtins.int]]] labels: IDs of labels associated with the URL filtering rule.
+        :param pulumi.Input[Sequence[pulumi.Input[_builtins.int]]] location_groups: IDs of location groups to which the rule must be applied.
+        :param pulumi.Input[Sequence[pulumi.Input[_builtins.int]]] locations: IDs of locations for which the rule must be applied.
+        :param pulumi.Input[_builtins.str] name: The name of the URL filtering rule. Must be unique.
+        :param pulumi.Input[_builtins.int] order: The order of execution of the rule with respect to other URL filtering rules.
+        :param pulumi.Input[Sequence[pulumi.Input[_builtins.int]]] override_groups: IDs of groups for which this rule can be overridden. Only applicable when action is 'BLOCK' and blockOverride is true.
+        :param pulumi.Input[Sequence[pulumi.Input[_builtins.int]]] override_users: IDs of users for which this rule can be overridden. Only applicable when action is 'BLOCK' and blockOverride is true.
+        :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] protocols: Protocols to which the rule applies. Valid values: `SMRULEF_ZPA_BROKERS_RULE`, `ANY_RULE`, `TCP_RULE`, `UDP_RULE`, `DOHTTPS_RULE`, `TUNNELSSL_RULE`, `HTTP_PROXY`, `FOHTTP_RULE`, `FTP_RULE`, `SSL_RULE`.
+        :param pulumi.Input[_builtins.int] rank: Admin rank of the URL filtering policy rule. Valid values: 0-7. Default: 7.
+        :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] request_methods: Request methods to which the rule applies. Valid values: `CONNECT`, `DELETE`, `GET`, `HEAD`, `OPTIONS`, `OTHER`, `POST`, `PUT`, `TRACE`.
+        :param pulumi.Input[_builtins.int] size_quota: Size quota in MB beyond which the URL filtering rule is applied. If not set, no quota is enforced. Valid range: 10-100000. Not applicable when action is 'BLOCK'.
+        :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] source_countries: Source countries (ISO 3166-1 alpha-2 codes) for the rule.
+        :param pulumi.Input[Sequence[pulumi.Input[_builtins.int]]] source_ip_groups: IDs of source IP address groups.
+        :param pulumi.Input[_builtins.str] state: Rule state. Valid values: `ENABLED`, `DISABLED`.
+        :param pulumi.Input[_builtins.int] time_quota: Time quota in minutes, after which the URL filtering rule is applied. If not set, no quota is enforced. Valid range: 15-600. Not applicable when action is 'BLOCK'.
+        :param pulumi.Input[Sequence[pulumi.Input[_builtins.int]]] time_windows: IDs of time intervals during which the rule must be enforced.
+        :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] url_categories: List of URL categories to which the rule applies. See the [URL Categories API](https://help.zscaler.com/zia/url-categories#/urlCategories-get) for available categories.
+        :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] user_agent_types: User agent types the rule applies to. Valid values: `CHROME`, `FIREFOX`, `MSIE`, `MSEDGE`, `MSCHREDGE`, `OPERA`, `SAFARI`, `OTHER`.
+        :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] user_risk_score_levels: User risk score levels for the rule. Valid values: `LOW`, `MEDIUM`, `HIGH`, `CRITICAL`.
+        :param pulumi.Input[Sequence[pulumi.Input[_builtins.int]]] users: IDs of users for which the rule must be applied.
+        :param pulumi.Input[_builtins.str] validity_end_time: If enforceTimeValidity is set to true, the URL filtering rule ceases to be valid on this end date and time (RFC 1123 format).
+        :param pulumi.Input[_builtins.str] validity_start_time: If enforceTimeValidity is set to true, the URL filtering rule is valid starting on this date and time (RFC 1123 format).
+        :param pulumi.Input[_builtins.str] validity_time_zone_id: If enforceTimeValidity is set to true, the URL filtering rule date and time is valid based on this time zone ID. Use IANA format (e.g. 'America/Los_Angeles'). See https://nodatime.org/TimeZones for the complete list.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['WorkloadGroupInputArgs', 'WorkloadGroupInputArgsDict']]]] workload_groups: List of preconfigured workload groups to which the policy must be applied.
         """
         ...
     @overload
@@ -524,7 +737,35 @@ class URLFilteringRule(pulumi.CustomResource):
                  args: URLFilteringRuleArgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
-        Create a URLFilteringRule resource with the given unique name, props, and options.
+        The zia_url_filtering_rules resource manages URL filtering rules in the Zscaler Internet Access (ZIA) cloud service. URL filtering rules define the actions to take when users access URLs that match specific categories, protocols, locations, departments, groups, or users.
+
+        For more information, see the [ZIA URL Filtering documentation](https://help.zscaler.com/zia/url-filtering).
+
+        ## Example Usage
+        ### Basic URL Filtering Rule
+
+        ```python
+        import zscaler_pulumi_zia as zia
+
+        example = zia.URLFilteringRule("example",
+            name="Example URL Filtering Rule",
+            description="Allow access to business URLs",
+            order=1,
+            state="ENABLED",
+            action="ALLOW",
+            protocols=["ANY_RULE"],
+            url_categories=["ANY"],
+        )
+        ```
+
+        ## Import
+
+        An existing URL Filtering Rule can be imported using its resource ID, e.g.
+
+        ```sh
+        $ pulumi import zia:index:URLFilteringRule example 12345
+        ```
+
         :param str resource_name: The name of the resource.
         :param URLFilteringRuleArgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -693,190 +934,304 @@ class URLFilteringRule(pulumi.CustomResource):
     @_builtins.property
     @pulumi.getter
     def action(self) -> pulumi.Output[Optional[_builtins.str]]:
+        """
+        Action taken when traffic matches rule criteria. Valid values: `BLOCK`, `CAUTION`, `ALLOW`, `ISOLATE`.
+        """
         return pulumi.get(self, "action")
 
     @_builtins.property
     @pulumi.getter(name="blockOverride")
     def block_override(self) -> pulumi.Output[Optional[_builtins.bool]]:
+        """
+        When set to true, a 'BLOCK' action can be overridden. Can only be set when action is 'BLOCK'.
+        """
         return pulumi.get(self, "block_override")
 
     @_builtins.property
     @pulumi.getter(name="browserEunTemplateId")
     def browser_eun_template_id(self) -> pulumi.Output[Optional[_builtins.int]]:
+        """
+        Browser End User Notification template ID. Only applicable when action is 'BLOCK' or 'CAUTION'.
+        """
         return pulumi.get(self, "browser_eun_template_id")
 
     @_builtins.property
     @pulumi.getter(name="cbiProfile")
     def cbi_profile(self) -> pulumi.Output[Optional['outputs.CBIProfileInput']]:
+        """
+        The Cloud Browser Isolation (CBI) profile. Required when action is 'ISOLATE'.
+        """
         return pulumi.get(self, "cbi_profile")
 
     @_builtins.property
     @pulumi.getter
     def ciparule(self) -> pulumi.Output[Optional[_builtins.bool]]:
+        """
+        If set to true, the CIPA Compliance rule is enabled.
+        """
         return pulumi.get(self, "ciparule")
 
     @_builtins.property
     @pulumi.getter
     def departments(self) -> pulumi.Output[Optional[Sequence[_builtins.int]]]:
+        """
+        IDs of departments for which the rule must be applied.
+        """
         return pulumi.get(self, "departments")
 
     @_builtins.property
     @pulumi.getter
     def description(self) -> pulumi.Output[Optional[_builtins.str]]:
+        """
+        Additional information about the URL filtering rule. Maximum 10240 characters.
+        """
         return pulumi.get(self, "description")
 
     @_builtins.property
     @pulumi.getter(name="deviceGroups")
     def device_groups(self) -> pulumi.Output[Optional[Sequence[_builtins.int]]]:
+        """
+        IDs of device groups for which the rule must be applied. Applicable for devices managed using Zscaler Client Connector.
+        """
         return pulumi.get(self, "device_groups")
 
     @_builtins.property
     @pulumi.getter(name="deviceTrustLevels")
     def device_trust_levels(self) -> pulumi.Output[Optional[Sequence[_builtins.str]]]:
+        """
+        Device trust levels for the rule. Valid values: `ANY`, `UNKNOWN_DEVICETRUSTLEVEL`, `LOW_TRUST`, `MEDIUM_TRUST`, `HIGH_TRUST`.
+        """
         return pulumi.get(self, "device_trust_levels")
 
     @_builtins.property
     @pulumi.getter
     def devices(self) -> pulumi.Output[Optional[Sequence[_builtins.int]]]:
+        """
+        IDs of devices for which the rule must be applied.
+        """
         return pulumi.get(self, "devices")
 
     @_builtins.property
     @pulumi.getter(name="endUserNotificationUrl")
     def end_user_notification_url(self) -> pulumi.Output[Optional[_builtins.str]]:
+        """
+        URL of end user notification page to be displayed when the rule is matched. Not applicable if either 'overrideUsers' or 'overrideGroups' is specified.
+        """
         return pulumi.get(self, "end_user_notification_url")
 
     @_builtins.property
     @pulumi.getter(name="enforceTimeValidity")
     def enforce_time_validity(self) -> pulumi.Output[Optional[_builtins.bool]]:
+        """
+        Enforce a set validity time period for the URL filtering rule.
+        """
         return pulumi.get(self, "enforce_time_validity")
 
     @_builtins.property
     @pulumi.getter
     def groups(self) -> pulumi.Output[Optional[Sequence[_builtins.int]]]:
+        """
+        IDs of groups for which the rule must be applied.
+        """
         return pulumi.get(self, "groups")
 
     @_builtins.property
     @pulumi.getter
     def labels(self) -> pulumi.Output[Optional[Sequence[_builtins.int]]]:
+        """
+        IDs of labels associated with the URL filtering rule.
+        """
         return pulumi.get(self, "labels")
 
     @_builtins.property
     @pulumi.getter(name="locationGroups")
     def location_groups(self) -> pulumi.Output[Optional[Sequence[_builtins.int]]]:
+        """
+        IDs of location groups to which the rule must be applied.
+        """
         return pulumi.get(self, "location_groups")
 
     @_builtins.property
     @pulumi.getter
     def locations(self) -> pulumi.Output[Optional[Sequence[_builtins.int]]]:
+        """
+        IDs of locations for which the rule must be applied.
+        """
         return pulumi.get(self, "locations")
 
     @_builtins.property
     @pulumi.getter
     def name(self) -> pulumi.Output[_builtins.str]:
+        """
+        The name of the URL filtering rule. Must be unique.
+        """
         return pulumi.get(self, "name")
 
     @_builtins.property
     @pulumi.getter
     def order(self) -> pulumi.Output[_builtins.int]:
+        """
+        The order of execution of the rule with respect to other URL filtering rules.
+        """
         return pulumi.get(self, "order")
 
     @_builtins.property
     @pulumi.getter(name="overrideGroups")
     def override_groups(self) -> pulumi.Output[Optional[Sequence[_builtins.int]]]:
+        """
+        IDs of groups for which this rule can be overridden. Only applicable when action is 'BLOCK' and blockOverride is true.
+        """
         return pulumi.get(self, "override_groups")
 
     @_builtins.property
     @pulumi.getter(name="overrideUsers")
     def override_users(self) -> pulumi.Output[Optional[Sequence[_builtins.int]]]:
+        """
+        IDs of users for which this rule can be overridden. Only applicable when action is 'BLOCK' and blockOverride is true.
+        """
         return pulumi.get(self, "override_users")
 
     @_builtins.property
     @pulumi.getter
     def protocols(self) -> pulumi.Output[Optional[Sequence[_builtins.str]]]:
+        """
+        Protocols to which the rule applies. Valid values: `SMRULEF_ZPA_BROKERS_RULE`, `ANY_RULE`, `TCP_RULE`, `UDP_RULE`, `DOHTTPS_RULE`, `TUNNELSSL_RULE`, `HTTP_PROXY`, `FOHTTP_RULE`, `FTP_RULE`, `SSL_RULE`.
+        """
         return pulumi.get(self, "protocols")
 
     @_builtins.property
     @pulumi.getter
     def rank(self) -> pulumi.Output[Optional[_builtins.int]]:
+        """
+        Admin rank of the URL filtering policy rule. Valid values: 0-7. Default: 7.
+        """
         return pulumi.get(self, "rank")
 
     @_builtins.property
     @pulumi.getter(name="requestMethods")
     def request_methods(self) -> pulumi.Output[Optional[Sequence[_builtins.str]]]:
+        """
+        Request methods to which the rule applies. Valid values: `CONNECT`, `DELETE`, `GET`, `HEAD`, `OPTIONS`, `OTHER`, `POST`, `PUT`, `TRACE`.
+        """
         return pulumi.get(self, "request_methods")
 
     @_builtins.property
     @pulumi.getter(name="ruleId")
     def rule_id(self) -> pulumi.Output[_builtins.int]:
+        """
+        The system-generated ID of the URL filtering rule.
+        """
         return pulumi.get(self, "rule_id")
 
     @_builtins.property
     @pulumi.getter(name="sizeQuota")
     def size_quota(self) -> pulumi.Output[Optional[_builtins.int]]:
+        """
+        Size quota in MB beyond which the URL filtering rule is applied. If not set, no quota is enforced. Valid range: 10-100000. Not applicable when action is 'BLOCK'.
+        """
         return pulumi.get(self, "size_quota")
 
     @_builtins.property
     @pulumi.getter(name="sourceCountries")
     def source_countries(self) -> pulumi.Output[Optional[Sequence[_builtins.str]]]:
+        """
+        Source countries (ISO 3166-1 alpha-2 codes) for the rule.
+        """
         return pulumi.get(self, "source_countries")
 
     @_builtins.property
     @pulumi.getter(name="sourceIpGroups")
     def source_ip_groups(self) -> pulumi.Output[Optional[Sequence[_builtins.int]]]:
+        """
+        IDs of source IP address groups.
+        """
         return pulumi.get(self, "source_ip_groups")
 
     @_builtins.property
     @pulumi.getter
     def state(self) -> pulumi.Output[Optional[_builtins.str]]:
+        """
+        Rule state. Valid values: `ENABLED`, `DISABLED`.
+        """
         return pulumi.get(self, "state")
 
     @_builtins.property
     @pulumi.getter(name="timeQuota")
     def time_quota(self) -> pulumi.Output[Optional[_builtins.int]]:
+        """
+        Time quota in minutes, after which the URL filtering rule is applied. If not set, no quota is enforced. Valid range: 15-600. Not applicable when action is 'BLOCK'.
+        """
         return pulumi.get(self, "time_quota")
 
     @_builtins.property
     @pulumi.getter(name="timeWindows")
     def time_windows(self) -> pulumi.Output[Optional[Sequence[_builtins.int]]]:
+        """
+        IDs of time intervals during which the rule must be enforced.
+        """
         return pulumi.get(self, "time_windows")
 
     @_builtins.property
     @pulumi.getter(name="urlCategories")
     def url_categories(self) -> pulumi.Output[Optional[Sequence[_builtins.str]]]:
+        """
+        List of URL categories to which the rule applies. See the [URL Categories API](https://help.zscaler.com/zia/url-categories#/urlCategories-get) for available categories.
+        """
         return pulumi.get(self, "url_categories")
 
     @_builtins.property
     @pulumi.getter(name="userAgentTypes")
     def user_agent_types(self) -> pulumi.Output[Optional[Sequence[_builtins.str]]]:
+        """
+        User agent types the rule applies to. Valid values: `CHROME`, `FIREFOX`, `MSIE`, `MSEDGE`, `MSCHREDGE`, `OPERA`, `SAFARI`, `OTHER`.
+        """
         return pulumi.get(self, "user_agent_types")
 
     @_builtins.property
     @pulumi.getter(name="userRiskScoreLevels")
     def user_risk_score_levels(self) -> pulumi.Output[Optional[Sequence[_builtins.str]]]:
+        """
+        User risk score levels for the rule. Valid values: `LOW`, `MEDIUM`, `HIGH`, `CRITICAL`.
+        """
         return pulumi.get(self, "user_risk_score_levels")
 
     @_builtins.property
     @pulumi.getter
     def users(self) -> pulumi.Output[Optional[Sequence[_builtins.int]]]:
+        """
+        IDs of users for which the rule must be applied.
+        """
         return pulumi.get(self, "users")
 
     @_builtins.property
     @pulumi.getter(name="validityEndTime")
     def validity_end_time(self) -> pulumi.Output[Optional[_builtins.str]]:
+        """
+        If enforceTimeValidity is set to true, the URL filtering rule ceases to be valid on this end date and time (RFC 1123 format).
+        """
         return pulumi.get(self, "validity_end_time")
 
     @_builtins.property
     @pulumi.getter(name="validityStartTime")
     def validity_start_time(self) -> pulumi.Output[Optional[_builtins.str]]:
+        """
+        If enforceTimeValidity is set to true, the URL filtering rule is valid starting on this date and time (RFC 1123 format).
+        """
         return pulumi.get(self, "validity_start_time")
 
     @_builtins.property
     @pulumi.getter(name="validityTimeZoneId")
     def validity_time_zone_id(self) -> pulumi.Output[Optional[_builtins.str]]:
+        """
+        If enforceTimeValidity is set to true, the URL filtering rule date and time is valid based on this time zone ID. Use IANA format (e.g. 'America/Los_Angeles'). See https://nodatime.org/TimeZones for the complete list.
+        """
         return pulumi.get(self, "validity_time_zone_id")
 
     @_builtins.property
     @pulumi.getter(name="workloadGroups")
     def workload_groups(self) -> pulumi.Output[Optional[Sequence['outputs.WorkloadGroupInput']]]:
+        """
+        List of preconfigured workload groups to which the policy must be applied.
+        """
         return pulumi.get(self, "workload_groups")
 

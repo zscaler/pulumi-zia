@@ -28,6 +28,13 @@ class SubscriptionAlertArgs:
                  system_severities: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None):
         """
         The set of arguments for constructing a SubscriptionAlert resource.
+        :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] comply_severities: Severity levels for compliance alerts.
+        :param pulumi.Input[_builtins.str] description: Additional information about the subscription alert.
+        :param pulumi.Input[_builtins.str] email: The email address to which alerts are sent.
+        :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] manage_severities: Severity levels for management alerts.
+        :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] pt0_severities: Severity levels for Pt0 alerts.
+        :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] secure_severities: Severity levels for security alerts.
+        :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] system_severities: Severity levels for system alerts.
         """
         if comply_severities is not None:
             pulumi.set(__self__, "comply_severities", comply_severities)
@@ -47,6 +54,9 @@ class SubscriptionAlertArgs:
     @_builtins.property
     @pulumi.getter(name="complySeverities")
     def comply_severities(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
+        """
+        Severity levels for compliance alerts.
+        """
         return pulumi.get(self, "comply_severities")
 
     @comply_severities.setter
@@ -56,6 +66,9 @@ class SubscriptionAlertArgs:
     @_builtins.property
     @pulumi.getter
     def description(self) -> Optional[pulumi.Input[_builtins.str]]:
+        """
+        Additional information about the subscription alert.
+        """
         return pulumi.get(self, "description")
 
     @description.setter
@@ -65,6 +78,9 @@ class SubscriptionAlertArgs:
     @_builtins.property
     @pulumi.getter
     def email(self) -> Optional[pulumi.Input[_builtins.str]]:
+        """
+        The email address to which alerts are sent.
+        """
         return pulumi.get(self, "email")
 
     @email.setter
@@ -74,6 +90,9 @@ class SubscriptionAlertArgs:
     @_builtins.property
     @pulumi.getter(name="manageSeverities")
     def manage_severities(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
+        """
+        Severity levels for management alerts.
+        """
         return pulumi.get(self, "manage_severities")
 
     @manage_severities.setter
@@ -83,6 +102,9 @@ class SubscriptionAlertArgs:
     @_builtins.property
     @pulumi.getter(name="pt0Severities")
     def pt0_severities(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
+        """
+        Severity levels for Pt0 alerts.
+        """
         return pulumi.get(self, "pt0_severities")
 
     @pt0_severities.setter
@@ -92,6 +114,9 @@ class SubscriptionAlertArgs:
     @_builtins.property
     @pulumi.getter(name="secureSeverities")
     def secure_severities(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
+        """
+        Severity levels for security alerts.
+        """
         return pulumi.get(self, "secure_severities")
 
     @secure_severities.setter
@@ -101,6 +126,9 @@ class SubscriptionAlertArgs:
     @_builtins.property
     @pulumi.getter(name="systemSeverities")
     def system_severities(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
+        """
+        Severity levels for system alerts.
+        """
         return pulumi.get(self, "system_severities")
 
     @system_severities.setter
@@ -123,9 +151,41 @@ class SubscriptionAlert(pulumi.CustomResource):
                  system_severities: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
                  __props__=None):
         """
-        Create a SubscriptionAlert resource with the given unique name, props, and options.
+        The zia_subscription_alert resource manages subscription alert configurations in the Zscaler Internet Access (ZIA) cloud service. Subscription alerts notify administrators about various system events with configurable severity levels across different categories including security, management, compliance, and system alerts.
+
+        For more information, see the [ZIA Subscription Alerts documentation](https://help.zscaler.com/zia/subscription-alerts).
+
+        ## Example Usage
+        ### Basic Subscription Alert
+
+        ```python
+        import zscaler_pulumi_zia as zia
+
+        example = zia.SubscriptionAlert("example",
+            email="admin@example.com",
+            description="Critical security alerts",
+            secure_severities=["CRITICAL", "HIGH"],
+            system_severities=["CRITICAL"],
+        )
+        ```
+
+        ## Import
+
+        An existing Subscription Alert can be imported using its resource ID, e.g.
+
+        ```sh
+        $ pulumi import zia:index:SubscriptionAlert example 12345
+        ```
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
+        :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] comply_severities: Severity levels for compliance alerts.
+        :param pulumi.Input[_builtins.str] description: Additional information about the subscription alert.
+        :param pulumi.Input[_builtins.str] email: The email address to which alerts are sent.
+        :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] manage_severities: Severity levels for management alerts.
+        :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] pt0_severities: Severity levels for Pt0 alerts.
+        :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] secure_severities: Severity levels for security alerts.
+        :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] system_severities: Severity levels for system alerts.
         """
         ...
     @overload
@@ -134,7 +194,32 @@ class SubscriptionAlert(pulumi.CustomResource):
                  args: Optional[SubscriptionAlertArgs] = None,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
-        Create a SubscriptionAlert resource with the given unique name, props, and options.
+        The zia_subscription_alert resource manages subscription alert configurations in the Zscaler Internet Access (ZIA) cloud service. Subscription alerts notify administrators about various system events with configurable severity levels across different categories including security, management, compliance, and system alerts.
+
+        For more information, see the [ZIA Subscription Alerts documentation](https://help.zscaler.com/zia/subscription-alerts).
+
+        ## Example Usage
+        ### Basic Subscription Alert
+
+        ```python
+        import zscaler_pulumi_zia as zia
+
+        example = zia.SubscriptionAlert("example",
+            email="admin@example.com",
+            description="Critical security alerts",
+            secure_severities=["CRITICAL", "HIGH"],
+            system_severities=["CRITICAL"],
+        )
+        ```
+
+        ## Import
+
+        An existing Subscription Alert can be imported using its resource ID, e.g.
+
+        ```sh
+        $ pulumi import zia:index:SubscriptionAlert example 12345
+        ```
+
         :param str resource_name: The name of the resource.
         :param SubscriptionAlertArgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -209,40 +294,64 @@ class SubscriptionAlert(pulumi.CustomResource):
     @_builtins.property
     @pulumi.getter(name="alertId")
     def alert_id(self) -> pulumi.Output[_builtins.int]:
+        """
+        The system-generated ID of the subscription alert.
+        """
         return pulumi.get(self, "alert_id")
 
     @_builtins.property
     @pulumi.getter(name="complySeverities")
     def comply_severities(self) -> pulumi.Output[Optional[Sequence[_builtins.str]]]:
+        """
+        Severity levels for compliance alerts.
+        """
         return pulumi.get(self, "comply_severities")
 
     @_builtins.property
     @pulumi.getter
     def description(self) -> pulumi.Output[Optional[_builtins.str]]:
+        """
+        Additional information about the subscription alert.
+        """
         return pulumi.get(self, "description")
 
     @_builtins.property
     @pulumi.getter
     def email(self) -> pulumi.Output[Optional[_builtins.str]]:
+        """
+        The email address to which alerts are sent.
+        """
         return pulumi.get(self, "email")
 
     @_builtins.property
     @pulumi.getter(name="manageSeverities")
     def manage_severities(self) -> pulumi.Output[Optional[Sequence[_builtins.str]]]:
+        """
+        Severity levels for management alerts.
+        """
         return pulumi.get(self, "manage_severities")
 
     @_builtins.property
     @pulumi.getter(name="pt0Severities")
     def pt0_severities(self) -> pulumi.Output[Optional[Sequence[_builtins.str]]]:
+        """
+        Severity levels for Pt0 alerts.
+        """
         return pulumi.get(self, "pt0_severities")
 
     @_builtins.property
     @pulumi.getter(name="secureSeverities")
     def secure_severities(self) -> pulumi.Output[Optional[Sequence[_builtins.str]]]:
+        """
+        Severity levels for security alerts.
+        """
         return pulumi.get(self, "secure_severities")
 
     @_builtins.property
     @pulumi.getter(name="systemSeverities")
     def system_severities(self) -> pulumi.Output[Optional[Sequence[_builtins.str]]]:
+        """
+        Severity levels for system alerts.
+        """
         return pulumi.get(self, "system_severities")
 

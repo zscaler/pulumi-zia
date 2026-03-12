@@ -22,6 +22,7 @@ class AuthSettingsUrlsArgs:
                  urls: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None):
         """
         The set of arguments for constructing a AuthSettingsUrls resource.
+        :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] urls: List of URLs that are exempted from user authentication.
         """
         if urls is not None:
             pulumi.set(__self__, "urls", urls)
@@ -29,6 +30,9 @@ class AuthSettingsUrlsArgs:
     @_builtins.property
     @pulumi.getter
     def urls(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
+        """
+        List of URLs that are exempted from user authentication.
+        """
         return pulumi.get(self, "urls")
 
     @urls.setter
@@ -45,9 +49,31 @@ class AuthSettingsUrls(pulumi.CustomResource):
                  urls: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
                  __props__=None):
         """
-        Create a AuthSettingsUrls resource with the given unique name, props, and options.
+        The zia_auth_settings_urls resource manages the URLs that are exempted from user authentication in the Zscaler Internet Access (ZIA) cloud service. This singleton resource allows you to define a list of URLs that bypass the ZIA authentication process.
+
+        For more information, see the [ZIA User Authentication documentation](https://help.zscaler.com/zia/authentication-exemptions).
+
+        ## Example Usage
+        ### Basic Authentication Settings URLs
+
+        ```python
+        import zscaler_pulumi_zia as zia
+
+        example = zia.AuthSettingsUrls("example",
+            urls=[
+                ".example.com",
+                ".internal.corp.com",
+            ],
+        )
+        ```
+
+        ## Import
+
+        This is a singleton resource and does not support traditional import. It is automatically managed by the provider.
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
+        :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] urls: List of URLs that are exempted from user authentication.
         """
         ...
     @overload
@@ -56,7 +82,28 @@ class AuthSettingsUrls(pulumi.CustomResource):
                  args: Optional[AuthSettingsUrlsArgs] = None,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
-        Create a AuthSettingsUrls resource with the given unique name, props, and options.
+        The zia_auth_settings_urls resource manages the URLs that are exempted from user authentication in the Zscaler Internet Access (ZIA) cloud service. This singleton resource allows you to define a list of URLs that bypass the ZIA authentication process.
+
+        For more information, see the [ZIA User Authentication documentation](https://help.zscaler.com/zia/authentication-exemptions).
+
+        ## Example Usage
+        ### Basic Authentication Settings URLs
+
+        ```python
+        import zscaler_pulumi_zia as zia
+
+        example = zia.AuthSettingsUrls("example",
+            urls=[
+                ".example.com",
+                ".internal.corp.com",
+            ],
+        )
+        ```
+
+        ## Import
+
+        This is a singleton resource and does not support traditional import. It is automatically managed by the provider.
+
         :param str resource_name: The name of the resource.
         :param AuthSettingsUrlsArgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -113,10 +160,16 @@ class AuthSettingsUrls(pulumi.CustomResource):
     @_builtins.property
     @pulumi.getter(name="resourceId")
     def resource_id(self) -> pulumi.Output[_builtins.str]:
+        """
+        The internal resource identifier for the authentication settings URLs.
+        """
         return pulumi.get(self, "resource_id")
 
     @_builtins.property
     @pulumi.getter
     def urls(self) -> pulumi.Output[Optional[Sequence[_builtins.str]]]:
+        """
+        List of URLs that are exempted from user authentication.
+        """
         return pulumi.get(self, "urls")
 

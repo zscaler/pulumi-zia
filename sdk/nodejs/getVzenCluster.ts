@@ -6,6 +6,9 @@ import * as inputs from "./types/input";
 import * as outputs from "./types/output";
 import * as utilities from "./utilities";
 
+/**
+ * Use this data source to look up a VZEN cluster by ID or name.
+ */
 export function getVzenCluster(args?: GetVzenClusterArgs, opts?: pulumi.InvokeOptions): Promise<GetVzenClusterResult> {
     args = args || {};
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
@@ -16,21 +19,57 @@ export function getVzenCluster(args?: GetVzenClusterArgs, opts?: pulumi.InvokeOp
 }
 
 export interface GetVzenClusterArgs {
+    /**
+     * The ID of the VZEN cluster to look up.
+     */
     clusterId?: number;
+    /**
+     * The name of the VZEN cluster to look up.
+     */
     name?: string;
 }
 
 export interface GetVzenClusterResult {
+    /**
+     * The ID of the VZEN cluster.
+     */
     readonly clusterId: number;
+    /**
+     * The default gateway of the VZEN cluster.
+     */
     readonly defaultGateway: string;
+    /**
+     * The IP address of the VZEN cluster.
+     */
     readonly ipAddress: string;
+    /**
+     * Whether IPSec is enabled on the cluster.
+     */
     readonly ipSecEnabled: boolean;
+    /**
+     * The name of the VZEN cluster.
+     */
     readonly name: string;
+    /**
+     * The status of the VZEN cluster.
+     */
     readonly status: string;
+    /**
+     * The subnet mask of the VZEN cluster.
+     */
     readonly subnetMask: string;
+    /**
+     * The type of the VZEN cluster.
+     */
     readonly type: string;
+    /**
+     * The list of virtual ZEN nodes in this cluster.
+     */
     readonly virtualZenNodes: outputs.VirtualZenNodeOutput[];
 }
+/**
+ * Use this data source to look up a VZEN cluster by ID or name.
+ */
 export function getVzenClusterOutput(args?: GetVzenClusterOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetVzenClusterResult> {
     args = args || {};
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
@@ -41,6 +80,12 @@ export function getVzenClusterOutput(args?: GetVzenClusterOutputArgs, opts?: pul
 }
 
 export interface GetVzenClusterOutputArgs {
+    /**
+     * The ID of the VZEN cluster to look up.
+     */
     clusterId?: pulumi.Input<number>;
+    /**
+     * The name of the VZEN cluster to look up.
+     */
     name?: pulumi.Input<string>;
 }

@@ -20,121 +20,257 @@ public final class AdminUsersArgs extends com.pulumi.resources.ResourceArgs {
 
     public static final AdminUsersArgs Empty = new AdminUsersArgs();
 
+    /**
+     * IDs of the admin scope entities (departments, locations, or location groups) when adminScopeType is not `ORGANIZATION`.
+     * 
+     */
     @Import(name="adminScopeEntities")
     private @Nullable Output<List<Integer>> adminScopeEntities;
 
+    /**
+     * @return IDs of the admin scope entities (departments, locations, or location groups) when adminScopeType is not `ORGANIZATION`.
+     * 
+     */
     public Optional<Output<List<Integer>>> adminScopeEntities() {
         return Optional.ofNullable(this.adminScopeEntities);
     }
 
+    /**
+     * The admin scope type. Valid values: `ORGANIZATION`, `DEPARTMENT`, `LOCATION`, `LOCATION_GROUP`.
+     * 
+     */
     @Import(name="adminScopeType")
     private @Nullable Output<String> adminScopeType;
 
+    /**
+     * @return The admin scope type. Valid values: `ORGANIZATION`, `DEPARTMENT`, `LOCATION`, `LOCATION_GROUP`.
+     * 
+     */
     public Optional<Output<String>> adminScopeType() {
         return Optional.ofNullable(this.adminScopeType);
     }
 
+    /**
+     * Additional information about the admin user.
+     * 
+     */
     @Import(name="comments")
     private @Nullable Output<String> comments;
 
+    /**
+     * @return Additional information about the admin user.
+     * 
+     */
     public Optional<Output<String>> comments() {
         return Optional.ofNullable(this.comments);
     }
 
+    /**
+     * Whether the admin account is disabled.
+     * 
+     */
     @Import(name="disabled")
     private @Nullable Output<Boolean> disabled;
 
+    /**
+     * @return Whether the admin account is disabled.
+     * 
+     */
     public Optional<Output<Boolean>> disabled() {
         return Optional.ofNullable(this.disabled);
     }
 
+    /**
+     * The admin user&#39;s email address.
+     * 
+     */
     @Import(name="email", required=true)
     private Output<String> email;
 
+    /**
+     * @return The admin user&#39;s email address.
+     * 
+     */
     public Output<String> email() {
         return this.email;
     }
 
+    /**
+     * Indicates whether the admin is an auditor.
+     * 
+     */
     @Import(name="isAuditor")
     private @Nullable Output<Boolean> isAuditor;
 
+    /**
+     * @return Indicates whether the admin is an auditor.
+     * 
+     */
     public Optional<Output<Boolean>> isAuditor() {
         return Optional.ofNullable(this.isAuditor);
     }
 
+    /**
+     * Whether Executive Insights App access is enabled. Can only be set when adminScopeType is `ORGANIZATION`.
+     * 
+     */
     @Import(name="isExecMobileAppEnabled")
     private @Nullable Output<Boolean> isExecMobileAppEnabled;
 
+    /**
+     * @return Whether Executive Insights App access is enabled. Can only be set when adminScopeType is `ORGANIZATION`.
+     * 
+     */
     public Optional<Output<Boolean>> isExecMobileAppEnabled() {
         return Optional.ofNullable(this.isExecMobileAppEnabled);
     }
 
+    /**
+     * Indicates whether the admin user is non-editable (read-only in the ZIA Admin Portal).
+     * 
+     */
     @Import(name="isNonEditable")
     private @Nullable Output<Boolean> isNonEditable;
 
+    /**
+     * @return Indicates whether the admin user is non-editable (read-only in the ZIA Admin Portal).
+     * 
+     */
     public Optional<Output<Boolean>> isNonEditable() {
         return Optional.ofNullable(this.isNonEditable);
     }
 
+    /**
+     * Indicates whether the admin user&#39;s password has expired.
+     * 
+     */
     @Import(name="isPasswordExpired")
     private @Nullable Output<Boolean> isPasswordExpired;
 
+    /**
+     * @return Indicates whether the admin user&#39;s password has expired.
+     * 
+     */
     public Optional<Output<Boolean>> isPasswordExpired() {
         return Optional.ofNullable(this.isPasswordExpired);
     }
 
+    /**
+     * Whether password-based login is allowed for the admin user.
+     * 
+     */
     @Import(name="isPasswordLoginAllowed")
     private @Nullable Output<Boolean> isPasswordLoginAllowed;
 
+    /**
+     * @return Whether password-based login is allowed for the admin user.
+     * 
+     */
     public Optional<Output<Boolean>> isPasswordLoginAllowed() {
         return Optional.ofNullable(this.isPasswordLoginAllowed);
     }
 
+    /**
+     * Whether the admin can receive product update communications.
+     * 
+     */
     @Import(name="isProductUpdateCommEnabled")
     private @Nullable Output<Boolean> isProductUpdateCommEnabled;
 
+    /**
+     * @return Whether the admin can receive product update communications.
+     * 
+     */
     public Optional<Output<Boolean>> isProductUpdateCommEnabled() {
         return Optional.ofNullable(this.isProductUpdateCommEnabled);
     }
 
+    /**
+     * Whether the admin can receive security report communications.
+     * 
+     */
     @Import(name="isSecurityReportCommEnabled")
     private @Nullable Output<Boolean> isSecurityReportCommEnabled;
 
+    /**
+     * @return Whether the admin can receive security report communications.
+     * 
+     */
     public Optional<Output<Boolean>> isSecurityReportCommEnabled() {
         return Optional.ofNullable(this.isSecurityReportCommEnabled);
     }
 
+    /**
+     * Whether the admin can receive service update communications.
+     * 
+     */
     @Import(name="isServiceUpdateCommEnabled")
     private @Nullable Output<Boolean> isServiceUpdateCommEnabled;
 
+    /**
+     * @return Whether the admin can receive service update communications.
+     * 
+     */
     public Optional<Output<Boolean>> isServiceUpdateCommEnabled() {
         return Optional.ofNullable(this.isServiceUpdateCommEnabled);
     }
 
+    /**
+     * The admin user&#39;s login name (email format). Must be unique.
+     * 
+     */
     @Import(name="loginName", required=true)
     private Output<String> loginName;
 
+    /**
+     * @return The admin user&#39;s login name (email format). Must be unique.
+     * 
+     */
     public Output<String> loginName() {
         return this.loginName;
     }
 
+    /**
+     * The admin user&#39;s password. Required when isPasswordLoginAllowed is true. Must be 8 to 100 characters.
+     * 
+     */
     @Import(name="password")
     private @Nullable Output<String> password;
 
+    /**
+     * @return The admin user&#39;s password. Required when isPasswordLoginAllowed is true. Must be 8 to 100 characters.
+     * 
+     */
     public Optional<Output<String>> password() {
         return Optional.ofNullable(this.password);
     }
 
+    /**
+     * The role assigned to the admin user. Provide the role ID.
+     * 
+     */
     @Import(name="role")
     private @Nullable Output<AdminUserRoleInputArgs> role;
 
+    /**
+     * @return The role assigned to the admin user. Provide the role ID.
+     * 
+     */
     public Optional<Output<AdminUserRoleInputArgs>> role() {
         return Optional.ofNullable(this.role);
     }
 
+    /**
+     * The admin user&#39;s display name.
+     * 
+     */
     @Import(name="username", required=true)
     private Output<String> username;
 
+    /**
+     * @return The admin user&#39;s display name.
+     * 
+     */
     public Output<String> username() {
         return this.username;
     }
@@ -179,159 +315,369 @@ public final class AdminUsersArgs extends com.pulumi.resources.ResourceArgs {
             $ = new AdminUsersArgs(Objects.requireNonNull(defaults));
         }
 
+        /**
+         * @param adminScopeEntities IDs of the admin scope entities (departments, locations, or location groups) when adminScopeType is not `ORGANIZATION`.
+         * 
+         * @return builder
+         * 
+         */
         public Builder adminScopeEntities(@Nullable Output<List<Integer>> adminScopeEntities) {
             $.adminScopeEntities = adminScopeEntities;
             return this;
         }
 
+        /**
+         * @param adminScopeEntities IDs of the admin scope entities (departments, locations, or location groups) when adminScopeType is not `ORGANIZATION`.
+         * 
+         * @return builder
+         * 
+         */
         public Builder adminScopeEntities(List<Integer> adminScopeEntities) {
             return adminScopeEntities(Output.of(adminScopeEntities));
         }
 
+        /**
+         * @param adminScopeEntities IDs of the admin scope entities (departments, locations, or location groups) when adminScopeType is not `ORGANIZATION`.
+         * 
+         * @return builder
+         * 
+         */
         public Builder adminScopeEntities(Integer... adminScopeEntities) {
             return adminScopeEntities(List.of(adminScopeEntities));
         }
 
+        /**
+         * @param adminScopeType The admin scope type. Valid values: `ORGANIZATION`, `DEPARTMENT`, `LOCATION`, `LOCATION_GROUP`.
+         * 
+         * @return builder
+         * 
+         */
         public Builder adminScopeType(@Nullable Output<String> adminScopeType) {
             $.adminScopeType = adminScopeType;
             return this;
         }
 
+        /**
+         * @param adminScopeType The admin scope type. Valid values: `ORGANIZATION`, `DEPARTMENT`, `LOCATION`, `LOCATION_GROUP`.
+         * 
+         * @return builder
+         * 
+         */
         public Builder adminScopeType(String adminScopeType) {
             return adminScopeType(Output.of(adminScopeType));
         }
 
+        /**
+         * @param comments Additional information about the admin user.
+         * 
+         * @return builder
+         * 
+         */
         public Builder comments(@Nullable Output<String> comments) {
             $.comments = comments;
             return this;
         }
 
+        /**
+         * @param comments Additional information about the admin user.
+         * 
+         * @return builder
+         * 
+         */
         public Builder comments(String comments) {
             return comments(Output.of(comments));
         }
 
+        /**
+         * @param disabled Whether the admin account is disabled.
+         * 
+         * @return builder
+         * 
+         */
         public Builder disabled(@Nullable Output<Boolean> disabled) {
             $.disabled = disabled;
             return this;
         }
 
+        /**
+         * @param disabled Whether the admin account is disabled.
+         * 
+         * @return builder
+         * 
+         */
         public Builder disabled(Boolean disabled) {
             return disabled(Output.of(disabled));
         }
 
+        /**
+         * @param email The admin user&#39;s email address.
+         * 
+         * @return builder
+         * 
+         */
         public Builder email(Output<String> email) {
             $.email = email;
             return this;
         }
 
+        /**
+         * @param email The admin user&#39;s email address.
+         * 
+         * @return builder
+         * 
+         */
         public Builder email(String email) {
             return email(Output.of(email));
         }
 
+        /**
+         * @param isAuditor Indicates whether the admin is an auditor.
+         * 
+         * @return builder
+         * 
+         */
         public Builder isAuditor(@Nullable Output<Boolean> isAuditor) {
             $.isAuditor = isAuditor;
             return this;
         }
 
+        /**
+         * @param isAuditor Indicates whether the admin is an auditor.
+         * 
+         * @return builder
+         * 
+         */
         public Builder isAuditor(Boolean isAuditor) {
             return isAuditor(Output.of(isAuditor));
         }
 
+        /**
+         * @param isExecMobileAppEnabled Whether Executive Insights App access is enabled. Can only be set when adminScopeType is `ORGANIZATION`.
+         * 
+         * @return builder
+         * 
+         */
         public Builder isExecMobileAppEnabled(@Nullable Output<Boolean> isExecMobileAppEnabled) {
             $.isExecMobileAppEnabled = isExecMobileAppEnabled;
             return this;
         }
 
+        /**
+         * @param isExecMobileAppEnabled Whether Executive Insights App access is enabled. Can only be set when adminScopeType is `ORGANIZATION`.
+         * 
+         * @return builder
+         * 
+         */
         public Builder isExecMobileAppEnabled(Boolean isExecMobileAppEnabled) {
             return isExecMobileAppEnabled(Output.of(isExecMobileAppEnabled));
         }
 
+        /**
+         * @param isNonEditable Indicates whether the admin user is non-editable (read-only in the ZIA Admin Portal).
+         * 
+         * @return builder
+         * 
+         */
         public Builder isNonEditable(@Nullable Output<Boolean> isNonEditable) {
             $.isNonEditable = isNonEditable;
             return this;
         }
 
+        /**
+         * @param isNonEditable Indicates whether the admin user is non-editable (read-only in the ZIA Admin Portal).
+         * 
+         * @return builder
+         * 
+         */
         public Builder isNonEditable(Boolean isNonEditable) {
             return isNonEditable(Output.of(isNonEditable));
         }
 
+        /**
+         * @param isPasswordExpired Indicates whether the admin user&#39;s password has expired.
+         * 
+         * @return builder
+         * 
+         */
         public Builder isPasswordExpired(@Nullable Output<Boolean> isPasswordExpired) {
             $.isPasswordExpired = isPasswordExpired;
             return this;
         }
 
+        /**
+         * @param isPasswordExpired Indicates whether the admin user&#39;s password has expired.
+         * 
+         * @return builder
+         * 
+         */
         public Builder isPasswordExpired(Boolean isPasswordExpired) {
             return isPasswordExpired(Output.of(isPasswordExpired));
         }
 
+        /**
+         * @param isPasswordLoginAllowed Whether password-based login is allowed for the admin user.
+         * 
+         * @return builder
+         * 
+         */
         public Builder isPasswordLoginAllowed(@Nullable Output<Boolean> isPasswordLoginAllowed) {
             $.isPasswordLoginAllowed = isPasswordLoginAllowed;
             return this;
         }
 
+        /**
+         * @param isPasswordLoginAllowed Whether password-based login is allowed for the admin user.
+         * 
+         * @return builder
+         * 
+         */
         public Builder isPasswordLoginAllowed(Boolean isPasswordLoginAllowed) {
             return isPasswordLoginAllowed(Output.of(isPasswordLoginAllowed));
         }
 
+        /**
+         * @param isProductUpdateCommEnabled Whether the admin can receive product update communications.
+         * 
+         * @return builder
+         * 
+         */
         public Builder isProductUpdateCommEnabled(@Nullable Output<Boolean> isProductUpdateCommEnabled) {
             $.isProductUpdateCommEnabled = isProductUpdateCommEnabled;
             return this;
         }
 
+        /**
+         * @param isProductUpdateCommEnabled Whether the admin can receive product update communications.
+         * 
+         * @return builder
+         * 
+         */
         public Builder isProductUpdateCommEnabled(Boolean isProductUpdateCommEnabled) {
             return isProductUpdateCommEnabled(Output.of(isProductUpdateCommEnabled));
         }
 
+        /**
+         * @param isSecurityReportCommEnabled Whether the admin can receive security report communications.
+         * 
+         * @return builder
+         * 
+         */
         public Builder isSecurityReportCommEnabled(@Nullable Output<Boolean> isSecurityReportCommEnabled) {
             $.isSecurityReportCommEnabled = isSecurityReportCommEnabled;
             return this;
         }
 
+        /**
+         * @param isSecurityReportCommEnabled Whether the admin can receive security report communications.
+         * 
+         * @return builder
+         * 
+         */
         public Builder isSecurityReportCommEnabled(Boolean isSecurityReportCommEnabled) {
             return isSecurityReportCommEnabled(Output.of(isSecurityReportCommEnabled));
         }
 
+        /**
+         * @param isServiceUpdateCommEnabled Whether the admin can receive service update communications.
+         * 
+         * @return builder
+         * 
+         */
         public Builder isServiceUpdateCommEnabled(@Nullable Output<Boolean> isServiceUpdateCommEnabled) {
             $.isServiceUpdateCommEnabled = isServiceUpdateCommEnabled;
             return this;
         }
 
+        /**
+         * @param isServiceUpdateCommEnabled Whether the admin can receive service update communications.
+         * 
+         * @return builder
+         * 
+         */
         public Builder isServiceUpdateCommEnabled(Boolean isServiceUpdateCommEnabled) {
             return isServiceUpdateCommEnabled(Output.of(isServiceUpdateCommEnabled));
         }
 
+        /**
+         * @param loginName The admin user&#39;s login name (email format). Must be unique.
+         * 
+         * @return builder
+         * 
+         */
         public Builder loginName(Output<String> loginName) {
             $.loginName = loginName;
             return this;
         }
 
+        /**
+         * @param loginName The admin user&#39;s login name (email format). Must be unique.
+         * 
+         * @return builder
+         * 
+         */
         public Builder loginName(String loginName) {
             return loginName(Output.of(loginName));
         }
 
+        /**
+         * @param password The admin user&#39;s password. Required when isPasswordLoginAllowed is true. Must be 8 to 100 characters.
+         * 
+         * @return builder
+         * 
+         */
         public Builder password(@Nullable Output<String> password) {
             $.password = password;
             return this;
         }
 
+        /**
+         * @param password The admin user&#39;s password. Required when isPasswordLoginAllowed is true. Must be 8 to 100 characters.
+         * 
+         * @return builder
+         * 
+         */
         public Builder password(String password) {
             return password(Output.of(password));
         }
 
+        /**
+         * @param role The role assigned to the admin user. Provide the role ID.
+         * 
+         * @return builder
+         * 
+         */
         public Builder role(@Nullable Output<AdminUserRoleInputArgs> role) {
             $.role = role;
             return this;
         }
 
+        /**
+         * @param role The role assigned to the admin user. Provide the role ID.
+         * 
+         * @return builder
+         * 
+         */
         public Builder role(AdminUserRoleInputArgs role) {
             return role(Output.of(role));
         }
 
+        /**
+         * @param username The admin user&#39;s display name.
+         * 
+         * @return builder
+         * 
+         */
         public Builder username(Output<String> username) {
             $.username = username;
             return this;
         }
 
+        /**
+         * @param username The admin user&#39;s display name.
+         * 
+         * @return builder
+         * 
+         */
         public Builder username(String username) {
             return username(Output.of(username));
         }

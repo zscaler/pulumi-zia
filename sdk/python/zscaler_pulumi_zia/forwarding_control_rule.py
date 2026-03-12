@@ -25,6 +25,7 @@ class ForwardingControlRuleArgs:
                  name: pulumi.Input[_builtins.str],
                  order: pulumi.Input[_builtins.int],
                  app_service_groups: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.int]]]] = None,
+                 dedicated_ip_gateway_id: Optional[pulumi.Input[_builtins.int]] = None,
                  departments: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.int]]]] = None,
                  description: Optional[pulumi.Input[_builtins.str]] = None,
                  dest_addresses: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
@@ -54,12 +55,46 @@ class ForwardingControlRuleArgs:
                  zpa_gateway_id: Optional[pulumi.Input[_builtins.int]] = None):
         """
         The set of arguments for constructing a ForwardingControlRule resource.
+        :param pulumi.Input[_builtins.str] forward_method: The type of traffic forwarding method. Valid values: `INVALID`, `DIRECT`, `PROXYCHAIN`, `ZPA`, `ECZPA`, `ZIA`, `ECSELF`, `DROP`, `ENATDEDIP`.
+        :param pulumi.Input[_builtins.str] name: The name of the forwarding control rule. Must be unique.
+        :param pulumi.Input[_builtins.int] order: The order of execution of the rule with respect to other forwarding control rules.
+        :param pulumi.Input[Sequence[pulumi.Input[_builtins.int]]] app_service_groups: IDs of application service groups to which the rule applies.
+        :param pulumi.Input[_builtins.int] dedicated_ip_gateway_id: The ID of the dedicated IP gateway. Applicable only for the Proxy Chaining forwarding method.
+        :param pulumi.Input[Sequence[pulumi.Input[_builtins.int]]] departments: IDs of departments to which the rule must be applied.
+        :param pulumi.Input[_builtins.str] description: Additional information about the forwarding control rule.
+        :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] dest_addresses: Destination IP addresses, FQDNs, or wildcard FQDNs for the rule.
+        :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] dest_countries: Destination countries (ISO 3166-1 alpha-2 codes) for the rule.
+        :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] dest_ip_categories: Destination IP address URL categories for the rule.
+        :param pulumi.Input[Sequence[pulumi.Input[_builtins.int]]] dest_ip_groups: IDs of destination IP address groups for the rule.
+        :param pulumi.Input[Sequence[pulumi.Input[_builtins.int]]] dest_ipv6_groups: IDs of destination IPv6 address groups for the rule.
+        :param pulumi.Input[Sequence[pulumi.Input[_builtins.int]]] device_groups: IDs of device groups for which the rule must be applied. Applicable for devices managed using Zscaler Client Connector.
+        :param pulumi.Input[Sequence[pulumi.Input[_builtins.int]]] ec_groups: IDs of Zscaler Edge Connector groups to which the rule applies.
+        :param pulumi.Input[Sequence[pulumi.Input[_builtins.int]]] groups: IDs of groups to which the rule must be applied.
+        :param pulumi.Input[Sequence[pulumi.Input[_builtins.int]]] labels: IDs of labels associated with the rule.
+        :param pulumi.Input[Sequence[pulumi.Input[_builtins.int]]] location_groups: IDs of location groups to which the rule must be applied.
+        :param pulumi.Input[Sequence[pulumi.Input[_builtins.int]]] locations: IDs of locations to which the rule must be applied.
+        :param pulumi.Input[Sequence[pulumi.Input[_builtins.int]]] nw_application_groups: IDs of network application groups to which the rule applies.
+        :param pulumi.Input[Sequence[pulumi.Input[_builtins.int]]] nw_service_groups: IDs of network service groups to which the rule applies.
+        :param pulumi.Input[Sequence[pulumi.Input[_builtins.int]]] nw_services: IDs of network services to which the rule applies.
+        :param pulumi.Input[_builtins.int] proxy_gateway_id: The ID of the proxy gateway. Required when forwardMethod is `PROXYCHAIN`.
+        :param pulumi.Input[_builtins.int] rank: Admin rank of the forwarding control policy rule. Valid values: 0-7. Default: 7.
+        :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] res_categories: URL categories that apply to the response for the rule.
+        :param pulumi.Input[Sequence[pulumi.Input[_builtins.int]]] src_ip_groups: IDs of source IP address groups for the rule.
+        :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] src_ips: Source IP addresses or CIDR ranges for the rule.
+        :param pulumi.Input[Sequence[pulumi.Input[_builtins.int]]] src_ipv6_groups: IDs of source IPv6 address groups for the rule.
+        :param pulumi.Input[_builtins.str] state: Rule state. Valid values: `ENABLED`, `DISABLED`.
+        :param pulumi.Input[_builtins.str] type: The rule type. Valid values: `FORWARDING`.
+        :param pulumi.Input[Sequence[pulumi.Input[_builtins.int]]] users: IDs of users to which the rule must be applied.
+        :param pulumi.Input[Sequence[pulumi.Input['ZPAAppSegmentInputArgs']]] zpa_app_segments: List of ZPA application segments for which this rule is applicable. This field is applicable only when forwardMethod is `ZPA`.
+        :param pulumi.Input[_builtins.int] zpa_gateway_id: The ID of the ZPA gateway. Required when forwardMethod is `ZPA`.
         """
         pulumi.set(__self__, "forward_method", forward_method)
         pulumi.set(__self__, "name", name)
         pulumi.set(__self__, "order", order)
         if app_service_groups is not None:
             pulumi.set(__self__, "app_service_groups", app_service_groups)
+        if dedicated_ip_gateway_id is not None:
+            pulumi.set(__self__, "dedicated_ip_gateway_id", dedicated_ip_gateway_id)
         if departments is not None:
             pulumi.set(__self__, "departments", departments)
         if description is not None:
@@ -118,6 +153,9 @@ class ForwardingControlRuleArgs:
     @_builtins.property
     @pulumi.getter(name="forwardMethod")
     def forward_method(self) -> pulumi.Input[_builtins.str]:
+        """
+        The type of traffic forwarding method. Valid values: `INVALID`, `DIRECT`, `PROXYCHAIN`, `ZPA`, `ECZPA`, `ZIA`, `ECSELF`, `DROP`, `ENATDEDIP`.
+        """
         return pulumi.get(self, "forward_method")
 
     @forward_method.setter
@@ -127,6 +165,9 @@ class ForwardingControlRuleArgs:
     @_builtins.property
     @pulumi.getter
     def name(self) -> pulumi.Input[_builtins.str]:
+        """
+        The name of the forwarding control rule. Must be unique.
+        """
         return pulumi.get(self, "name")
 
     @name.setter
@@ -136,6 +177,9 @@ class ForwardingControlRuleArgs:
     @_builtins.property
     @pulumi.getter
     def order(self) -> pulumi.Input[_builtins.int]:
+        """
+        The order of execution of the rule with respect to other forwarding control rules.
+        """
         return pulumi.get(self, "order")
 
     @order.setter
@@ -145,6 +189,9 @@ class ForwardingControlRuleArgs:
     @_builtins.property
     @pulumi.getter(name="appServiceGroups")
     def app_service_groups(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.int]]]]:
+        """
+        IDs of application service groups to which the rule applies.
+        """
         return pulumi.get(self, "app_service_groups")
 
     @app_service_groups.setter
@@ -152,8 +199,23 @@ class ForwardingControlRuleArgs:
         pulumi.set(self, "app_service_groups", value)
 
     @_builtins.property
+    @pulumi.getter(name="dedicatedIpGatewayId")
+    def dedicated_ip_gateway_id(self) -> Optional[pulumi.Input[_builtins.int]]:
+        """
+        The ID of the dedicated IP gateway. Applicable only for the Proxy Chaining forwarding method.
+        """
+        return pulumi.get(self, "dedicated_ip_gateway_id")
+
+    @dedicated_ip_gateway_id.setter
+    def dedicated_ip_gateway_id(self, value: Optional[pulumi.Input[_builtins.int]]):
+        pulumi.set(self, "dedicated_ip_gateway_id", value)
+
+    @_builtins.property
     @pulumi.getter
     def departments(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.int]]]]:
+        """
+        IDs of departments to which the rule must be applied.
+        """
         return pulumi.get(self, "departments")
 
     @departments.setter
@@ -163,6 +225,9 @@ class ForwardingControlRuleArgs:
     @_builtins.property
     @pulumi.getter
     def description(self) -> Optional[pulumi.Input[_builtins.str]]:
+        """
+        Additional information about the forwarding control rule.
+        """
         return pulumi.get(self, "description")
 
     @description.setter
@@ -172,6 +237,9 @@ class ForwardingControlRuleArgs:
     @_builtins.property
     @pulumi.getter(name="destAddresses")
     def dest_addresses(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
+        """
+        Destination IP addresses, FQDNs, or wildcard FQDNs for the rule.
+        """
         return pulumi.get(self, "dest_addresses")
 
     @dest_addresses.setter
@@ -181,6 +249,9 @@ class ForwardingControlRuleArgs:
     @_builtins.property
     @pulumi.getter(name="destCountries")
     def dest_countries(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
+        """
+        Destination countries (ISO 3166-1 alpha-2 codes) for the rule.
+        """
         return pulumi.get(self, "dest_countries")
 
     @dest_countries.setter
@@ -190,6 +261,9 @@ class ForwardingControlRuleArgs:
     @_builtins.property
     @pulumi.getter(name="destIpCategories")
     def dest_ip_categories(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
+        """
+        Destination IP address URL categories for the rule.
+        """
         return pulumi.get(self, "dest_ip_categories")
 
     @dest_ip_categories.setter
@@ -199,6 +273,9 @@ class ForwardingControlRuleArgs:
     @_builtins.property
     @pulumi.getter(name="destIpGroups")
     def dest_ip_groups(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.int]]]]:
+        """
+        IDs of destination IP address groups for the rule.
+        """
         return pulumi.get(self, "dest_ip_groups")
 
     @dest_ip_groups.setter
@@ -208,6 +285,9 @@ class ForwardingControlRuleArgs:
     @_builtins.property
     @pulumi.getter(name="destIpv6Groups")
     def dest_ipv6_groups(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.int]]]]:
+        """
+        IDs of destination IPv6 address groups for the rule.
+        """
         return pulumi.get(self, "dest_ipv6_groups")
 
     @dest_ipv6_groups.setter
@@ -217,6 +297,9 @@ class ForwardingControlRuleArgs:
     @_builtins.property
     @pulumi.getter(name="deviceGroups")
     def device_groups(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.int]]]]:
+        """
+        IDs of device groups for which the rule must be applied. Applicable for devices managed using Zscaler Client Connector.
+        """
         return pulumi.get(self, "device_groups")
 
     @device_groups.setter
@@ -226,6 +309,9 @@ class ForwardingControlRuleArgs:
     @_builtins.property
     @pulumi.getter(name="ecGroups")
     def ec_groups(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.int]]]]:
+        """
+        IDs of Zscaler Edge Connector groups to which the rule applies.
+        """
         return pulumi.get(self, "ec_groups")
 
     @ec_groups.setter
@@ -235,6 +321,9 @@ class ForwardingControlRuleArgs:
     @_builtins.property
     @pulumi.getter
     def groups(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.int]]]]:
+        """
+        IDs of groups to which the rule must be applied.
+        """
         return pulumi.get(self, "groups")
 
     @groups.setter
@@ -244,6 +333,9 @@ class ForwardingControlRuleArgs:
     @_builtins.property
     @pulumi.getter
     def labels(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.int]]]]:
+        """
+        IDs of labels associated with the rule.
+        """
         return pulumi.get(self, "labels")
 
     @labels.setter
@@ -253,6 +345,9 @@ class ForwardingControlRuleArgs:
     @_builtins.property
     @pulumi.getter(name="locationGroups")
     def location_groups(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.int]]]]:
+        """
+        IDs of location groups to which the rule must be applied.
+        """
         return pulumi.get(self, "location_groups")
 
     @location_groups.setter
@@ -262,6 +357,9 @@ class ForwardingControlRuleArgs:
     @_builtins.property
     @pulumi.getter
     def locations(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.int]]]]:
+        """
+        IDs of locations to which the rule must be applied.
+        """
         return pulumi.get(self, "locations")
 
     @locations.setter
@@ -271,6 +369,9 @@ class ForwardingControlRuleArgs:
     @_builtins.property
     @pulumi.getter(name="nwApplicationGroups")
     def nw_application_groups(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.int]]]]:
+        """
+        IDs of network application groups to which the rule applies.
+        """
         return pulumi.get(self, "nw_application_groups")
 
     @nw_application_groups.setter
@@ -280,6 +381,9 @@ class ForwardingControlRuleArgs:
     @_builtins.property
     @pulumi.getter(name="nwServiceGroups")
     def nw_service_groups(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.int]]]]:
+        """
+        IDs of network service groups to which the rule applies.
+        """
         return pulumi.get(self, "nw_service_groups")
 
     @nw_service_groups.setter
@@ -289,6 +393,9 @@ class ForwardingControlRuleArgs:
     @_builtins.property
     @pulumi.getter(name="nwServices")
     def nw_services(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.int]]]]:
+        """
+        IDs of network services to which the rule applies.
+        """
         return pulumi.get(self, "nw_services")
 
     @nw_services.setter
@@ -298,6 +405,9 @@ class ForwardingControlRuleArgs:
     @_builtins.property
     @pulumi.getter(name="proxyGatewayId")
     def proxy_gateway_id(self) -> Optional[pulumi.Input[_builtins.int]]:
+        """
+        The ID of the proxy gateway. Required when forwardMethod is `PROXYCHAIN`.
+        """
         return pulumi.get(self, "proxy_gateway_id")
 
     @proxy_gateway_id.setter
@@ -307,6 +417,9 @@ class ForwardingControlRuleArgs:
     @_builtins.property
     @pulumi.getter
     def rank(self) -> Optional[pulumi.Input[_builtins.int]]:
+        """
+        Admin rank of the forwarding control policy rule. Valid values: 0-7. Default: 7.
+        """
         return pulumi.get(self, "rank")
 
     @rank.setter
@@ -316,6 +429,9 @@ class ForwardingControlRuleArgs:
     @_builtins.property
     @pulumi.getter(name="resCategories")
     def res_categories(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
+        """
+        URL categories that apply to the response for the rule.
+        """
         return pulumi.get(self, "res_categories")
 
     @res_categories.setter
@@ -325,6 +441,9 @@ class ForwardingControlRuleArgs:
     @_builtins.property
     @pulumi.getter(name="srcIpGroups")
     def src_ip_groups(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.int]]]]:
+        """
+        IDs of source IP address groups for the rule.
+        """
         return pulumi.get(self, "src_ip_groups")
 
     @src_ip_groups.setter
@@ -334,6 +453,9 @@ class ForwardingControlRuleArgs:
     @_builtins.property
     @pulumi.getter(name="srcIps")
     def src_ips(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
+        """
+        Source IP addresses or CIDR ranges for the rule.
+        """
         return pulumi.get(self, "src_ips")
 
     @src_ips.setter
@@ -343,6 +465,9 @@ class ForwardingControlRuleArgs:
     @_builtins.property
     @pulumi.getter(name="srcIpv6Groups")
     def src_ipv6_groups(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.int]]]]:
+        """
+        IDs of source IPv6 address groups for the rule.
+        """
         return pulumi.get(self, "src_ipv6_groups")
 
     @src_ipv6_groups.setter
@@ -352,6 +477,9 @@ class ForwardingControlRuleArgs:
     @_builtins.property
     @pulumi.getter
     def state(self) -> Optional[pulumi.Input[_builtins.str]]:
+        """
+        Rule state. Valid values: `ENABLED`, `DISABLED`.
+        """
         return pulumi.get(self, "state")
 
     @state.setter
@@ -361,6 +489,9 @@ class ForwardingControlRuleArgs:
     @_builtins.property
     @pulumi.getter
     def type(self) -> Optional[pulumi.Input[_builtins.str]]:
+        """
+        The rule type. Valid values: `FORWARDING`.
+        """
         return pulumi.get(self, "type")
 
     @type.setter
@@ -370,6 +501,9 @@ class ForwardingControlRuleArgs:
     @_builtins.property
     @pulumi.getter
     def users(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.int]]]]:
+        """
+        IDs of users to which the rule must be applied.
+        """
         return pulumi.get(self, "users")
 
     @users.setter
@@ -379,6 +513,9 @@ class ForwardingControlRuleArgs:
     @_builtins.property
     @pulumi.getter(name="zpaAppSegments")
     def zpa_app_segments(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['ZPAAppSegmentInputArgs']]]]:
+        """
+        List of ZPA application segments for which this rule is applicable. This field is applicable only when forwardMethod is `ZPA`.
+        """
         return pulumi.get(self, "zpa_app_segments")
 
     @zpa_app_segments.setter
@@ -388,6 +525,9 @@ class ForwardingControlRuleArgs:
     @_builtins.property
     @pulumi.getter(name="zpaGatewayId")
     def zpa_gateway_id(self) -> Optional[pulumi.Input[_builtins.int]]:
+        """
+        The ID of the ZPA gateway. Required when forwardMethod is `ZPA`.
+        """
         return pulumi.get(self, "zpa_gateway_id")
 
     @zpa_gateway_id.setter
@@ -402,6 +542,7 @@ class ForwardingControlRule(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  app_service_groups: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.int]]]] = None,
+                 dedicated_ip_gateway_id: Optional[pulumi.Input[_builtins.int]] = None,
                  departments: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.int]]]] = None,
                  description: Optional[pulumi.Input[_builtins.str]] = None,
                  dest_addresses: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
@@ -434,9 +575,67 @@ class ForwardingControlRule(pulumi.CustomResource):
                  zpa_gateway_id: Optional[pulumi.Input[_builtins.int]] = None,
                  __props__=None):
         """
-        Create a ForwardingControlRule resource with the given unique name, props, and options.
+        The zia_forwarding_control_rule resource manages forwarding control rules in the Zscaler Internet Access (ZIA) cloud service. Forwarding control rules determine how traffic is forwarded — directly to the internet, via an explicit proxy, or through Zscaler Private Access (ZPA).
+
+        For more information, see the [ZIA Forwarding Control documentation](https://help.zscaler.com/zia/forwarding-control-policies).
+
+        ## Example Usage
+        ### Basic Forwarding Control Rule
+
+        ```python
+        import zscaler_pulumi_zia as zia
+
+        example = zia.ForwardingControlRule("example",
+            name="Example Forwarding Rule",
+            description="Forward traffic directly",
+            order=1,
+            state="ENABLED",
+            forward_method="DIRECT",
+        )
+        ```
+
+        ## Import
+
+        An existing Forwarding Control Rule can be imported using its resource ID, e.g.
+
+        ```sh
+        $ pulumi import zia:index:ForwardingControlRule example 12345
+        ```
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
+        :param pulumi.Input[Sequence[pulumi.Input[_builtins.int]]] app_service_groups: IDs of application service groups to which the rule applies.
+        :param pulumi.Input[_builtins.int] dedicated_ip_gateway_id: The ID of the dedicated IP gateway. Applicable only for the Proxy Chaining forwarding method.
+        :param pulumi.Input[Sequence[pulumi.Input[_builtins.int]]] departments: IDs of departments to which the rule must be applied.
+        :param pulumi.Input[_builtins.str] description: Additional information about the forwarding control rule.
+        :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] dest_addresses: Destination IP addresses, FQDNs, or wildcard FQDNs for the rule.
+        :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] dest_countries: Destination countries (ISO 3166-1 alpha-2 codes) for the rule.
+        :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] dest_ip_categories: Destination IP address URL categories for the rule.
+        :param pulumi.Input[Sequence[pulumi.Input[_builtins.int]]] dest_ip_groups: IDs of destination IP address groups for the rule.
+        :param pulumi.Input[Sequence[pulumi.Input[_builtins.int]]] dest_ipv6_groups: IDs of destination IPv6 address groups for the rule.
+        :param pulumi.Input[Sequence[pulumi.Input[_builtins.int]]] device_groups: IDs of device groups for which the rule must be applied. Applicable for devices managed using Zscaler Client Connector.
+        :param pulumi.Input[Sequence[pulumi.Input[_builtins.int]]] ec_groups: IDs of Zscaler Edge Connector groups to which the rule applies.
+        :param pulumi.Input[_builtins.str] forward_method: The type of traffic forwarding method. Valid values: `INVALID`, `DIRECT`, `PROXYCHAIN`, `ZPA`, `ECZPA`, `ZIA`, `ECSELF`, `DROP`, `ENATDEDIP`.
+        :param pulumi.Input[Sequence[pulumi.Input[_builtins.int]]] groups: IDs of groups to which the rule must be applied.
+        :param pulumi.Input[Sequence[pulumi.Input[_builtins.int]]] labels: IDs of labels associated with the rule.
+        :param pulumi.Input[Sequence[pulumi.Input[_builtins.int]]] location_groups: IDs of location groups to which the rule must be applied.
+        :param pulumi.Input[Sequence[pulumi.Input[_builtins.int]]] locations: IDs of locations to which the rule must be applied.
+        :param pulumi.Input[_builtins.str] name: The name of the forwarding control rule. Must be unique.
+        :param pulumi.Input[Sequence[pulumi.Input[_builtins.int]]] nw_application_groups: IDs of network application groups to which the rule applies.
+        :param pulumi.Input[Sequence[pulumi.Input[_builtins.int]]] nw_service_groups: IDs of network service groups to which the rule applies.
+        :param pulumi.Input[Sequence[pulumi.Input[_builtins.int]]] nw_services: IDs of network services to which the rule applies.
+        :param pulumi.Input[_builtins.int] order: The order of execution of the rule with respect to other forwarding control rules.
+        :param pulumi.Input[_builtins.int] proxy_gateway_id: The ID of the proxy gateway. Required when forwardMethod is `PROXYCHAIN`.
+        :param pulumi.Input[_builtins.int] rank: Admin rank of the forwarding control policy rule. Valid values: 0-7. Default: 7.
+        :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] res_categories: URL categories that apply to the response for the rule.
+        :param pulumi.Input[Sequence[pulumi.Input[_builtins.int]]] src_ip_groups: IDs of source IP address groups for the rule.
+        :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] src_ips: Source IP addresses or CIDR ranges for the rule.
+        :param pulumi.Input[Sequence[pulumi.Input[_builtins.int]]] src_ipv6_groups: IDs of source IPv6 address groups for the rule.
+        :param pulumi.Input[_builtins.str] state: Rule state. Valid values: `ENABLED`, `DISABLED`.
+        :param pulumi.Input[_builtins.str] type: The rule type. Valid values: `FORWARDING`.
+        :param pulumi.Input[Sequence[pulumi.Input[_builtins.int]]] users: IDs of users to which the rule must be applied.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['ZPAAppSegmentInputArgs', 'ZPAAppSegmentInputArgsDict']]]] zpa_app_segments: List of ZPA application segments for which this rule is applicable. This field is applicable only when forwardMethod is `ZPA`.
+        :param pulumi.Input[_builtins.int] zpa_gateway_id: The ID of the ZPA gateway. Required when forwardMethod is `ZPA`.
         """
         ...
     @overload
@@ -445,7 +644,33 @@ class ForwardingControlRule(pulumi.CustomResource):
                  args: ForwardingControlRuleArgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
-        Create a ForwardingControlRule resource with the given unique name, props, and options.
+        The zia_forwarding_control_rule resource manages forwarding control rules in the Zscaler Internet Access (ZIA) cloud service. Forwarding control rules determine how traffic is forwarded — directly to the internet, via an explicit proxy, or through Zscaler Private Access (ZPA).
+
+        For more information, see the [ZIA Forwarding Control documentation](https://help.zscaler.com/zia/forwarding-control-policies).
+
+        ## Example Usage
+        ### Basic Forwarding Control Rule
+
+        ```python
+        import zscaler_pulumi_zia as zia
+
+        example = zia.ForwardingControlRule("example",
+            name="Example Forwarding Rule",
+            description="Forward traffic directly",
+            order=1,
+            state="ENABLED",
+            forward_method="DIRECT",
+        )
+        ```
+
+        ## Import
+
+        An existing Forwarding Control Rule can be imported using its resource ID, e.g.
+
+        ```sh
+        $ pulumi import zia:index:ForwardingControlRule example 12345
+        ```
+
         :param str resource_name: The name of the resource.
         :param ForwardingControlRuleArgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -462,6 +687,7 @@ class ForwardingControlRule(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  app_service_groups: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.int]]]] = None,
+                 dedicated_ip_gateway_id: Optional[pulumi.Input[_builtins.int]] = None,
                  departments: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.int]]]] = None,
                  description: Optional[pulumi.Input[_builtins.str]] = None,
                  dest_addresses: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
@@ -502,6 +728,7 @@ class ForwardingControlRule(pulumi.CustomResource):
             __props__ = ForwardingControlRuleArgs.__new__(ForwardingControlRuleArgs)
 
             __props__.__dict__["app_service_groups"] = app_service_groups
+            __props__.__dict__["dedicated_ip_gateway_id"] = dedicated_ip_gateway_id
             __props__.__dict__["departments"] = departments
             __props__.__dict__["description"] = description
             __props__.__dict__["dest_addresses"] = dest_addresses
@@ -562,6 +789,7 @@ class ForwardingControlRule(pulumi.CustomResource):
         __props__ = ForwardingControlRuleArgs.__new__(ForwardingControlRuleArgs)
 
         __props__.__dict__["app_service_groups"] = None
+        __props__.__dict__["dedicated_ip_gateway_id"] = None
         __props__.__dict__["departments"] = None
         __props__.__dict__["description"] = None
         __props__.__dict__["dest_addresses"] = None
@@ -598,160 +826,264 @@ class ForwardingControlRule(pulumi.CustomResource):
     @_builtins.property
     @pulumi.getter(name="appServiceGroups")
     def app_service_groups(self) -> pulumi.Output[Optional[Sequence[_builtins.int]]]:
+        """
+        IDs of application service groups to which the rule applies.
+        """
         return pulumi.get(self, "app_service_groups")
+
+    @_builtins.property
+    @pulumi.getter(name="dedicatedIpGatewayId")
+    def dedicated_ip_gateway_id(self) -> pulumi.Output[Optional[_builtins.int]]:
+        """
+        The ID of the dedicated IP gateway. Applicable only for the Proxy Chaining forwarding method.
+        """
+        return pulumi.get(self, "dedicated_ip_gateway_id")
 
     @_builtins.property
     @pulumi.getter
     def departments(self) -> pulumi.Output[Optional[Sequence[_builtins.int]]]:
+        """
+        IDs of departments to which the rule must be applied.
+        """
         return pulumi.get(self, "departments")
 
     @_builtins.property
     @pulumi.getter
     def description(self) -> pulumi.Output[Optional[_builtins.str]]:
+        """
+        Additional information about the forwarding control rule.
+        """
         return pulumi.get(self, "description")
 
     @_builtins.property
     @pulumi.getter(name="destAddresses")
     def dest_addresses(self) -> pulumi.Output[Optional[Sequence[_builtins.str]]]:
+        """
+        Destination IP addresses, FQDNs, or wildcard FQDNs for the rule.
+        """
         return pulumi.get(self, "dest_addresses")
 
     @_builtins.property
     @pulumi.getter(name="destCountries")
     def dest_countries(self) -> pulumi.Output[Optional[Sequence[_builtins.str]]]:
+        """
+        Destination countries (ISO 3166-1 alpha-2 codes) for the rule.
+        """
         return pulumi.get(self, "dest_countries")
 
     @_builtins.property
     @pulumi.getter(name="destIpCategories")
     def dest_ip_categories(self) -> pulumi.Output[Optional[Sequence[_builtins.str]]]:
+        """
+        Destination IP address URL categories for the rule.
+        """
         return pulumi.get(self, "dest_ip_categories")
 
     @_builtins.property
     @pulumi.getter(name="destIpGroups")
     def dest_ip_groups(self) -> pulumi.Output[Optional[Sequence[_builtins.int]]]:
+        """
+        IDs of destination IP address groups for the rule.
+        """
         return pulumi.get(self, "dest_ip_groups")
 
     @_builtins.property
     @pulumi.getter(name="destIpv6Groups")
     def dest_ipv6_groups(self) -> pulumi.Output[Optional[Sequence[_builtins.int]]]:
+        """
+        IDs of destination IPv6 address groups for the rule.
+        """
         return pulumi.get(self, "dest_ipv6_groups")
 
     @_builtins.property
     @pulumi.getter(name="deviceGroups")
     def device_groups(self) -> pulumi.Output[Optional[Sequence[_builtins.int]]]:
+        """
+        IDs of device groups for which the rule must be applied. Applicable for devices managed using Zscaler Client Connector.
+        """
         return pulumi.get(self, "device_groups")
 
     @_builtins.property
     @pulumi.getter(name="ecGroups")
     def ec_groups(self) -> pulumi.Output[Optional[Sequence[_builtins.int]]]:
+        """
+        IDs of Zscaler Edge Connector groups to which the rule applies.
+        """
         return pulumi.get(self, "ec_groups")
 
     @_builtins.property
     @pulumi.getter(name="forwardMethod")
     def forward_method(self) -> pulumi.Output[_builtins.str]:
+        """
+        The type of traffic forwarding method. Valid values: `INVALID`, `DIRECT`, `PROXYCHAIN`, `ZPA`, `ECZPA`, `ZIA`, `ECSELF`, `DROP`, `ENATDEDIP`.
+        """
         return pulumi.get(self, "forward_method")
 
     @_builtins.property
     @pulumi.getter
     def groups(self) -> pulumi.Output[Optional[Sequence[_builtins.int]]]:
+        """
+        IDs of groups to which the rule must be applied.
+        """
         return pulumi.get(self, "groups")
 
     @_builtins.property
     @pulumi.getter
     def labels(self) -> pulumi.Output[Optional[Sequence[_builtins.int]]]:
+        """
+        IDs of labels associated with the rule.
+        """
         return pulumi.get(self, "labels")
 
     @_builtins.property
     @pulumi.getter(name="locationGroups")
     def location_groups(self) -> pulumi.Output[Optional[Sequence[_builtins.int]]]:
+        """
+        IDs of location groups to which the rule must be applied.
+        """
         return pulumi.get(self, "location_groups")
 
     @_builtins.property
     @pulumi.getter
     def locations(self) -> pulumi.Output[Optional[Sequence[_builtins.int]]]:
+        """
+        IDs of locations to which the rule must be applied.
+        """
         return pulumi.get(self, "locations")
 
     @_builtins.property
     @pulumi.getter
     def name(self) -> pulumi.Output[_builtins.str]:
+        """
+        The name of the forwarding control rule. Must be unique.
+        """
         return pulumi.get(self, "name")
 
     @_builtins.property
     @pulumi.getter(name="nwApplicationGroups")
     def nw_application_groups(self) -> pulumi.Output[Optional[Sequence[_builtins.int]]]:
+        """
+        IDs of network application groups to which the rule applies.
+        """
         return pulumi.get(self, "nw_application_groups")
 
     @_builtins.property
     @pulumi.getter(name="nwServiceGroups")
     def nw_service_groups(self) -> pulumi.Output[Optional[Sequence[_builtins.int]]]:
+        """
+        IDs of network service groups to which the rule applies.
+        """
         return pulumi.get(self, "nw_service_groups")
 
     @_builtins.property
     @pulumi.getter(name="nwServices")
     def nw_services(self) -> pulumi.Output[Optional[Sequence[_builtins.int]]]:
+        """
+        IDs of network services to which the rule applies.
+        """
         return pulumi.get(self, "nw_services")
 
     @_builtins.property
     @pulumi.getter
     def order(self) -> pulumi.Output[_builtins.int]:
+        """
+        The order of execution of the rule with respect to other forwarding control rules.
+        """
         return pulumi.get(self, "order")
 
     @_builtins.property
     @pulumi.getter(name="proxyGatewayId")
     def proxy_gateway_id(self) -> pulumi.Output[Optional[_builtins.int]]:
+        """
+        The ID of the proxy gateway. Required when forwardMethod is `PROXYCHAIN`.
+        """
         return pulumi.get(self, "proxy_gateway_id")
 
     @_builtins.property
     @pulumi.getter
     def rank(self) -> pulumi.Output[Optional[_builtins.int]]:
+        """
+        Admin rank of the forwarding control policy rule. Valid values: 0-7. Default: 7.
+        """
         return pulumi.get(self, "rank")
 
     @_builtins.property
     @pulumi.getter(name="resCategories")
     def res_categories(self) -> pulumi.Output[Optional[Sequence[_builtins.str]]]:
+        """
+        URL categories that apply to the response for the rule.
+        """
         return pulumi.get(self, "res_categories")
 
     @_builtins.property
     @pulumi.getter(name="ruleId")
     def rule_id(self) -> pulumi.Output[_builtins.int]:
+        """
+        The system-generated ID of the forwarding control rule.
+        """
         return pulumi.get(self, "rule_id")
 
     @_builtins.property
     @pulumi.getter(name="srcIpGroups")
     def src_ip_groups(self) -> pulumi.Output[Optional[Sequence[_builtins.int]]]:
+        """
+        IDs of source IP address groups for the rule.
+        """
         return pulumi.get(self, "src_ip_groups")
 
     @_builtins.property
     @pulumi.getter(name="srcIps")
     def src_ips(self) -> pulumi.Output[Optional[Sequence[_builtins.str]]]:
+        """
+        Source IP addresses or CIDR ranges for the rule.
+        """
         return pulumi.get(self, "src_ips")
 
     @_builtins.property
     @pulumi.getter(name="srcIpv6Groups")
     def src_ipv6_groups(self) -> pulumi.Output[Optional[Sequence[_builtins.int]]]:
+        """
+        IDs of source IPv6 address groups for the rule.
+        """
         return pulumi.get(self, "src_ipv6_groups")
 
     @_builtins.property
     @pulumi.getter
     def state(self) -> pulumi.Output[Optional[_builtins.str]]:
+        """
+        Rule state. Valid values: `ENABLED`, `DISABLED`.
+        """
         return pulumi.get(self, "state")
 
     @_builtins.property
     @pulumi.getter
     def type(self) -> pulumi.Output[Optional[_builtins.str]]:
+        """
+        The rule type. Valid values: `FORWARDING`.
+        """
         return pulumi.get(self, "type")
 
     @_builtins.property
     @pulumi.getter
     def users(self) -> pulumi.Output[Optional[Sequence[_builtins.int]]]:
+        """
+        IDs of users to which the rule must be applied.
+        """
         return pulumi.get(self, "users")
 
     @_builtins.property
     @pulumi.getter(name="zpaAppSegments")
     def zpa_app_segments(self) -> pulumi.Output[Optional[Sequence['outputs.ZPAAppSegmentInput']]]:
+        """
+        List of ZPA application segments for which this rule is applicable. This field is applicable only when forwardMethod is `ZPA`.
+        """
         return pulumi.get(self, "zpa_app_segments")
 
     @_builtins.property
     @pulumi.getter(name="zpaGatewayId")
     def zpa_gateway_id(self) -> pulumi.Output[Optional[_builtins.int]]:
+        """
+        The ID of the ZPA gateway. Required when forwardMethod is `ZPA`.
+        """
         return pulumi.get(self, "zpa_gateway_id")
 

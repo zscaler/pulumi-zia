@@ -19,219 +19,482 @@ public final class ForwardingControlRuleArgs extends com.pulumi.resources.Resour
 
     public static final ForwardingControlRuleArgs Empty = new ForwardingControlRuleArgs();
 
+    /**
+     * IDs of application service groups to which the rule applies.
+     * 
+     */
     @Import(name="appServiceGroups")
     private @Nullable Output<List<Integer>> appServiceGroups;
 
+    /**
+     * @return IDs of application service groups to which the rule applies.
+     * 
+     */
     public Optional<Output<List<Integer>>> appServiceGroups() {
         return Optional.ofNullable(this.appServiceGroups);
     }
 
+    /**
+     * The ID of the dedicated IP gateway. Applicable only for the Proxy Chaining forwarding method.
+     * 
+     */
+    @Import(name="dedicatedIpGatewayId")
+    private @Nullable Output<Integer> dedicatedIpGatewayId;
+
+    /**
+     * @return The ID of the dedicated IP gateway. Applicable only for the Proxy Chaining forwarding method.
+     * 
+     */
+    public Optional<Output<Integer>> dedicatedIpGatewayId() {
+        return Optional.ofNullable(this.dedicatedIpGatewayId);
+    }
+
+    /**
+     * IDs of departments to which the rule must be applied.
+     * 
+     */
     @Import(name="departments")
     private @Nullable Output<List<Integer>> departments;
 
+    /**
+     * @return IDs of departments to which the rule must be applied.
+     * 
+     */
     public Optional<Output<List<Integer>>> departments() {
         return Optional.ofNullable(this.departments);
     }
 
+    /**
+     * Additional information about the forwarding control rule.
+     * 
+     */
     @Import(name="description")
     private @Nullable Output<String> description;
 
+    /**
+     * @return Additional information about the forwarding control rule.
+     * 
+     */
     public Optional<Output<String>> description() {
         return Optional.ofNullable(this.description);
     }
 
+    /**
+     * Destination IP addresses, FQDNs, or wildcard FQDNs for the rule.
+     * 
+     */
     @Import(name="destAddresses")
     private @Nullable Output<List<String>> destAddresses;
 
+    /**
+     * @return Destination IP addresses, FQDNs, or wildcard FQDNs for the rule.
+     * 
+     */
     public Optional<Output<List<String>>> destAddresses() {
         return Optional.ofNullable(this.destAddresses);
     }
 
+    /**
+     * Destination countries (ISO 3166-1 alpha-2 codes) for the rule.
+     * 
+     */
     @Import(name="destCountries")
     private @Nullable Output<List<String>> destCountries;
 
+    /**
+     * @return Destination countries (ISO 3166-1 alpha-2 codes) for the rule.
+     * 
+     */
     public Optional<Output<List<String>>> destCountries() {
         return Optional.ofNullable(this.destCountries);
     }
 
+    /**
+     * Destination IP address URL categories for the rule.
+     * 
+     */
     @Import(name="destIpCategories")
     private @Nullable Output<List<String>> destIpCategories;
 
+    /**
+     * @return Destination IP address URL categories for the rule.
+     * 
+     */
     public Optional<Output<List<String>>> destIpCategories() {
         return Optional.ofNullable(this.destIpCategories);
     }
 
+    /**
+     * IDs of destination IP address groups for the rule.
+     * 
+     */
     @Import(name="destIpGroups")
     private @Nullable Output<List<Integer>> destIpGroups;
 
+    /**
+     * @return IDs of destination IP address groups for the rule.
+     * 
+     */
     public Optional<Output<List<Integer>>> destIpGroups() {
         return Optional.ofNullable(this.destIpGroups);
     }
 
+    /**
+     * IDs of destination IPv6 address groups for the rule.
+     * 
+     */
     @Import(name="destIpv6Groups")
     private @Nullable Output<List<Integer>> destIpv6Groups;
 
+    /**
+     * @return IDs of destination IPv6 address groups for the rule.
+     * 
+     */
     public Optional<Output<List<Integer>>> destIpv6Groups() {
         return Optional.ofNullable(this.destIpv6Groups);
     }
 
+    /**
+     * IDs of device groups for which the rule must be applied. Applicable for devices managed using Zscaler Client Connector.
+     * 
+     */
     @Import(name="deviceGroups")
     private @Nullable Output<List<Integer>> deviceGroups;
 
+    /**
+     * @return IDs of device groups for which the rule must be applied. Applicable for devices managed using Zscaler Client Connector.
+     * 
+     */
     public Optional<Output<List<Integer>>> deviceGroups() {
         return Optional.ofNullable(this.deviceGroups);
     }
 
+    /**
+     * IDs of Zscaler Edge Connector groups to which the rule applies.
+     * 
+     */
     @Import(name="ecGroups")
     private @Nullable Output<List<Integer>> ecGroups;
 
+    /**
+     * @return IDs of Zscaler Edge Connector groups to which the rule applies.
+     * 
+     */
     public Optional<Output<List<Integer>>> ecGroups() {
         return Optional.ofNullable(this.ecGroups);
     }
 
+    /**
+     * The type of traffic forwarding method. Valid values: `INVALID`, `DIRECT`, `PROXYCHAIN`, `ZPA`, `ECZPA`, `ZIA`, `ECSELF`, `DROP`, `ENATDEDIP`.
+     * 
+     */
     @Import(name="forwardMethod", required=true)
     private Output<String> forwardMethod;
 
+    /**
+     * @return The type of traffic forwarding method. Valid values: `INVALID`, `DIRECT`, `PROXYCHAIN`, `ZPA`, `ECZPA`, `ZIA`, `ECSELF`, `DROP`, `ENATDEDIP`.
+     * 
+     */
     public Output<String> forwardMethod() {
         return this.forwardMethod;
     }
 
+    /**
+     * IDs of groups to which the rule must be applied.
+     * 
+     */
     @Import(name="groups")
     private @Nullable Output<List<Integer>> groups;
 
+    /**
+     * @return IDs of groups to which the rule must be applied.
+     * 
+     */
     public Optional<Output<List<Integer>>> groups() {
         return Optional.ofNullable(this.groups);
     }
 
+    /**
+     * IDs of labels associated with the rule.
+     * 
+     */
     @Import(name="labels")
     private @Nullable Output<List<Integer>> labels;
 
+    /**
+     * @return IDs of labels associated with the rule.
+     * 
+     */
     public Optional<Output<List<Integer>>> labels() {
         return Optional.ofNullable(this.labels);
     }
 
+    /**
+     * IDs of location groups to which the rule must be applied.
+     * 
+     */
     @Import(name="locationGroups")
     private @Nullable Output<List<Integer>> locationGroups;
 
+    /**
+     * @return IDs of location groups to which the rule must be applied.
+     * 
+     */
     public Optional<Output<List<Integer>>> locationGroups() {
         return Optional.ofNullable(this.locationGroups);
     }
 
+    /**
+     * IDs of locations to which the rule must be applied.
+     * 
+     */
     @Import(name="locations")
     private @Nullable Output<List<Integer>> locations;
 
+    /**
+     * @return IDs of locations to which the rule must be applied.
+     * 
+     */
     public Optional<Output<List<Integer>>> locations() {
         return Optional.ofNullable(this.locations);
     }
 
+    /**
+     * The name of the forwarding control rule. Must be unique.
+     * 
+     */
     @Import(name="name", required=true)
     private Output<String> name;
 
+    /**
+     * @return The name of the forwarding control rule. Must be unique.
+     * 
+     */
     public Output<String> name() {
         return this.name;
     }
 
+    /**
+     * IDs of network application groups to which the rule applies.
+     * 
+     */
     @Import(name="nwApplicationGroups")
     private @Nullable Output<List<Integer>> nwApplicationGroups;
 
+    /**
+     * @return IDs of network application groups to which the rule applies.
+     * 
+     */
     public Optional<Output<List<Integer>>> nwApplicationGroups() {
         return Optional.ofNullable(this.nwApplicationGroups);
     }
 
+    /**
+     * IDs of network service groups to which the rule applies.
+     * 
+     */
     @Import(name="nwServiceGroups")
     private @Nullable Output<List<Integer>> nwServiceGroups;
 
+    /**
+     * @return IDs of network service groups to which the rule applies.
+     * 
+     */
     public Optional<Output<List<Integer>>> nwServiceGroups() {
         return Optional.ofNullable(this.nwServiceGroups);
     }
 
+    /**
+     * IDs of network services to which the rule applies.
+     * 
+     */
     @Import(name="nwServices")
     private @Nullable Output<List<Integer>> nwServices;
 
+    /**
+     * @return IDs of network services to which the rule applies.
+     * 
+     */
     public Optional<Output<List<Integer>>> nwServices() {
         return Optional.ofNullable(this.nwServices);
     }
 
+    /**
+     * The order of execution of the rule with respect to other forwarding control rules.
+     * 
+     */
     @Import(name="order", required=true)
     private Output<Integer> order;
 
+    /**
+     * @return The order of execution of the rule with respect to other forwarding control rules.
+     * 
+     */
     public Output<Integer> order() {
         return this.order;
     }
 
+    /**
+     * The ID of the proxy gateway. Required when forwardMethod is `PROXYCHAIN`.
+     * 
+     */
     @Import(name="proxyGatewayId")
     private @Nullable Output<Integer> proxyGatewayId;
 
+    /**
+     * @return The ID of the proxy gateway. Required when forwardMethod is `PROXYCHAIN`.
+     * 
+     */
     public Optional<Output<Integer>> proxyGatewayId() {
         return Optional.ofNullable(this.proxyGatewayId);
     }
 
+    /**
+     * Admin rank of the forwarding control policy rule. Valid values: 0-7. Default: 7.
+     * 
+     */
     @Import(name="rank")
     private @Nullable Output<Integer> rank;
 
+    /**
+     * @return Admin rank of the forwarding control policy rule. Valid values: 0-7. Default: 7.
+     * 
+     */
     public Optional<Output<Integer>> rank() {
         return Optional.ofNullable(this.rank);
     }
 
+    /**
+     * URL categories that apply to the response for the rule.
+     * 
+     */
     @Import(name="resCategories")
     private @Nullable Output<List<String>> resCategories;
 
+    /**
+     * @return URL categories that apply to the response for the rule.
+     * 
+     */
     public Optional<Output<List<String>>> resCategories() {
         return Optional.ofNullable(this.resCategories);
     }
 
+    /**
+     * IDs of source IP address groups for the rule.
+     * 
+     */
     @Import(name="srcIpGroups")
     private @Nullable Output<List<Integer>> srcIpGroups;
 
+    /**
+     * @return IDs of source IP address groups for the rule.
+     * 
+     */
     public Optional<Output<List<Integer>>> srcIpGroups() {
         return Optional.ofNullable(this.srcIpGroups);
     }
 
+    /**
+     * Source IP addresses or CIDR ranges for the rule.
+     * 
+     */
     @Import(name="srcIps")
     private @Nullable Output<List<String>> srcIps;
 
+    /**
+     * @return Source IP addresses or CIDR ranges for the rule.
+     * 
+     */
     public Optional<Output<List<String>>> srcIps() {
         return Optional.ofNullable(this.srcIps);
     }
 
+    /**
+     * IDs of source IPv6 address groups for the rule.
+     * 
+     */
     @Import(name="srcIpv6Groups")
     private @Nullable Output<List<Integer>> srcIpv6Groups;
 
+    /**
+     * @return IDs of source IPv6 address groups for the rule.
+     * 
+     */
     public Optional<Output<List<Integer>>> srcIpv6Groups() {
         return Optional.ofNullable(this.srcIpv6Groups);
     }
 
+    /**
+     * Rule state. Valid values: `ENABLED`, `DISABLED`.
+     * 
+     */
     @Import(name="state")
     private @Nullable Output<String> state;
 
+    /**
+     * @return Rule state. Valid values: `ENABLED`, `DISABLED`.
+     * 
+     */
     public Optional<Output<String>> state() {
         return Optional.ofNullable(this.state);
     }
 
+    /**
+     * The rule type. Valid values: `FORWARDING`.
+     * 
+     */
     @Import(name="type")
     private @Nullable Output<String> type;
 
+    /**
+     * @return The rule type. Valid values: `FORWARDING`.
+     * 
+     */
     public Optional<Output<String>> type() {
         return Optional.ofNullable(this.type);
     }
 
+    /**
+     * IDs of users to which the rule must be applied.
+     * 
+     */
     @Import(name="users")
     private @Nullable Output<List<Integer>> users;
 
+    /**
+     * @return IDs of users to which the rule must be applied.
+     * 
+     */
     public Optional<Output<List<Integer>>> users() {
         return Optional.ofNullable(this.users);
     }
 
+    /**
+     * List of ZPA application segments for which this rule is applicable. This field is applicable only when forwardMethod is `ZPA`.
+     * 
+     */
     @Import(name="zpaAppSegments")
     private @Nullable Output<List<ZPAAppSegmentInputArgs>> zpaAppSegments;
 
+    /**
+     * @return List of ZPA application segments for which this rule is applicable. This field is applicable only when forwardMethod is `ZPA`.
+     * 
+     */
     public Optional<Output<List<ZPAAppSegmentInputArgs>>> zpaAppSegments() {
         return Optional.ofNullable(this.zpaAppSegments);
     }
 
+    /**
+     * The ID of the ZPA gateway. Required when forwardMethod is `ZPA`.
+     * 
+     */
     @Import(name="zpaGatewayId")
     private @Nullable Output<Integer> zpaGatewayId;
 
+    /**
+     * @return The ID of the ZPA gateway. Required when forwardMethod is `ZPA`.
+     * 
+     */
     public Optional<Output<Integer>> zpaGatewayId() {
         return Optional.ofNullable(this.zpaGatewayId);
     }
@@ -240,6 +503,7 @@ public final class ForwardingControlRuleArgs extends com.pulumi.resources.Resour
 
     private ForwardingControlRuleArgs(ForwardingControlRuleArgs $) {
         this.appServiceGroups = $.appServiceGroups;
+        this.dedicatedIpGatewayId = $.dedicatedIpGatewayId;
         this.departments = $.departments;
         this.description = $.description;
         this.destAddresses = $.destAddresses;
@@ -290,369 +554,894 @@ public final class ForwardingControlRuleArgs extends com.pulumi.resources.Resour
             $ = new ForwardingControlRuleArgs(Objects.requireNonNull(defaults));
         }
 
+        /**
+         * @param appServiceGroups IDs of application service groups to which the rule applies.
+         * 
+         * @return builder
+         * 
+         */
         public Builder appServiceGroups(@Nullable Output<List<Integer>> appServiceGroups) {
             $.appServiceGroups = appServiceGroups;
             return this;
         }
 
+        /**
+         * @param appServiceGroups IDs of application service groups to which the rule applies.
+         * 
+         * @return builder
+         * 
+         */
         public Builder appServiceGroups(List<Integer> appServiceGroups) {
             return appServiceGroups(Output.of(appServiceGroups));
         }
 
+        /**
+         * @param appServiceGroups IDs of application service groups to which the rule applies.
+         * 
+         * @return builder
+         * 
+         */
         public Builder appServiceGroups(Integer... appServiceGroups) {
             return appServiceGroups(List.of(appServiceGroups));
         }
 
+        /**
+         * @param dedicatedIpGatewayId The ID of the dedicated IP gateway. Applicable only for the Proxy Chaining forwarding method.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder dedicatedIpGatewayId(@Nullable Output<Integer> dedicatedIpGatewayId) {
+            $.dedicatedIpGatewayId = dedicatedIpGatewayId;
+            return this;
+        }
+
+        /**
+         * @param dedicatedIpGatewayId The ID of the dedicated IP gateway. Applicable only for the Proxy Chaining forwarding method.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder dedicatedIpGatewayId(Integer dedicatedIpGatewayId) {
+            return dedicatedIpGatewayId(Output.of(dedicatedIpGatewayId));
+        }
+
+        /**
+         * @param departments IDs of departments to which the rule must be applied.
+         * 
+         * @return builder
+         * 
+         */
         public Builder departments(@Nullable Output<List<Integer>> departments) {
             $.departments = departments;
             return this;
         }
 
+        /**
+         * @param departments IDs of departments to which the rule must be applied.
+         * 
+         * @return builder
+         * 
+         */
         public Builder departments(List<Integer> departments) {
             return departments(Output.of(departments));
         }
 
+        /**
+         * @param departments IDs of departments to which the rule must be applied.
+         * 
+         * @return builder
+         * 
+         */
         public Builder departments(Integer... departments) {
             return departments(List.of(departments));
         }
 
+        /**
+         * @param description Additional information about the forwarding control rule.
+         * 
+         * @return builder
+         * 
+         */
         public Builder description(@Nullable Output<String> description) {
             $.description = description;
             return this;
         }
 
+        /**
+         * @param description Additional information about the forwarding control rule.
+         * 
+         * @return builder
+         * 
+         */
         public Builder description(String description) {
             return description(Output.of(description));
         }
 
+        /**
+         * @param destAddresses Destination IP addresses, FQDNs, or wildcard FQDNs for the rule.
+         * 
+         * @return builder
+         * 
+         */
         public Builder destAddresses(@Nullable Output<List<String>> destAddresses) {
             $.destAddresses = destAddresses;
             return this;
         }
 
+        /**
+         * @param destAddresses Destination IP addresses, FQDNs, or wildcard FQDNs for the rule.
+         * 
+         * @return builder
+         * 
+         */
         public Builder destAddresses(List<String> destAddresses) {
             return destAddresses(Output.of(destAddresses));
         }
 
+        /**
+         * @param destAddresses Destination IP addresses, FQDNs, or wildcard FQDNs for the rule.
+         * 
+         * @return builder
+         * 
+         */
         public Builder destAddresses(String... destAddresses) {
             return destAddresses(List.of(destAddresses));
         }
 
+        /**
+         * @param destCountries Destination countries (ISO 3166-1 alpha-2 codes) for the rule.
+         * 
+         * @return builder
+         * 
+         */
         public Builder destCountries(@Nullable Output<List<String>> destCountries) {
             $.destCountries = destCountries;
             return this;
         }
 
+        /**
+         * @param destCountries Destination countries (ISO 3166-1 alpha-2 codes) for the rule.
+         * 
+         * @return builder
+         * 
+         */
         public Builder destCountries(List<String> destCountries) {
             return destCountries(Output.of(destCountries));
         }
 
+        /**
+         * @param destCountries Destination countries (ISO 3166-1 alpha-2 codes) for the rule.
+         * 
+         * @return builder
+         * 
+         */
         public Builder destCountries(String... destCountries) {
             return destCountries(List.of(destCountries));
         }
 
+        /**
+         * @param destIpCategories Destination IP address URL categories for the rule.
+         * 
+         * @return builder
+         * 
+         */
         public Builder destIpCategories(@Nullable Output<List<String>> destIpCategories) {
             $.destIpCategories = destIpCategories;
             return this;
         }
 
+        /**
+         * @param destIpCategories Destination IP address URL categories for the rule.
+         * 
+         * @return builder
+         * 
+         */
         public Builder destIpCategories(List<String> destIpCategories) {
             return destIpCategories(Output.of(destIpCategories));
         }
 
+        /**
+         * @param destIpCategories Destination IP address URL categories for the rule.
+         * 
+         * @return builder
+         * 
+         */
         public Builder destIpCategories(String... destIpCategories) {
             return destIpCategories(List.of(destIpCategories));
         }
 
+        /**
+         * @param destIpGroups IDs of destination IP address groups for the rule.
+         * 
+         * @return builder
+         * 
+         */
         public Builder destIpGroups(@Nullable Output<List<Integer>> destIpGroups) {
             $.destIpGroups = destIpGroups;
             return this;
         }
 
+        /**
+         * @param destIpGroups IDs of destination IP address groups for the rule.
+         * 
+         * @return builder
+         * 
+         */
         public Builder destIpGroups(List<Integer> destIpGroups) {
             return destIpGroups(Output.of(destIpGroups));
         }
 
+        /**
+         * @param destIpGroups IDs of destination IP address groups for the rule.
+         * 
+         * @return builder
+         * 
+         */
         public Builder destIpGroups(Integer... destIpGroups) {
             return destIpGroups(List.of(destIpGroups));
         }
 
+        /**
+         * @param destIpv6Groups IDs of destination IPv6 address groups for the rule.
+         * 
+         * @return builder
+         * 
+         */
         public Builder destIpv6Groups(@Nullable Output<List<Integer>> destIpv6Groups) {
             $.destIpv6Groups = destIpv6Groups;
             return this;
         }
 
+        /**
+         * @param destIpv6Groups IDs of destination IPv6 address groups for the rule.
+         * 
+         * @return builder
+         * 
+         */
         public Builder destIpv6Groups(List<Integer> destIpv6Groups) {
             return destIpv6Groups(Output.of(destIpv6Groups));
         }
 
+        /**
+         * @param destIpv6Groups IDs of destination IPv6 address groups for the rule.
+         * 
+         * @return builder
+         * 
+         */
         public Builder destIpv6Groups(Integer... destIpv6Groups) {
             return destIpv6Groups(List.of(destIpv6Groups));
         }
 
+        /**
+         * @param deviceGroups IDs of device groups for which the rule must be applied. Applicable for devices managed using Zscaler Client Connector.
+         * 
+         * @return builder
+         * 
+         */
         public Builder deviceGroups(@Nullable Output<List<Integer>> deviceGroups) {
             $.deviceGroups = deviceGroups;
             return this;
         }
 
+        /**
+         * @param deviceGroups IDs of device groups for which the rule must be applied. Applicable for devices managed using Zscaler Client Connector.
+         * 
+         * @return builder
+         * 
+         */
         public Builder deviceGroups(List<Integer> deviceGroups) {
             return deviceGroups(Output.of(deviceGroups));
         }
 
+        /**
+         * @param deviceGroups IDs of device groups for which the rule must be applied. Applicable for devices managed using Zscaler Client Connector.
+         * 
+         * @return builder
+         * 
+         */
         public Builder deviceGroups(Integer... deviceGroups) {
             return deviceGroups(List.of(deviceGroups));
         }
 
+        /**
+         * @param ecGroups IDs of Zscaler Edge Connector groups to which the rule applies.
+         * 
+         * @return builder
+         * 
+         */
         public Builder ecGroups(@Nullable Output<List<Integer>> ecGroups) {
             $.ecGroups = ecGroups;
             return this;
         }
 
+        /**
+         * @param ecGroups IDs of Zscaler Edge Connector groups to which the rule applies.
+         * 
+         * @return builder
+         * 
+         */
         public Builder ecGroups(List<Integer> ecGroups) {
             return ecGroups(Output.of(ecGroups));
         }
 
+        /**
+         * @param ecGroups IDs of Zscaler Edge Connector groups to which the rule applies.
+         * 
+         * @return builder
+         * 
+         */
         public Builder ecGroups(Integer... ecGroups) {
             return ecGroups(List.of(ecGroups));
         }
 
+        /**
+         * @param forwardMethod The type of traffic forwarding method. Valid values: `INVALID`, `DIRECT`, `PROXYCHAIN`, `ZPA`, `ECZPA`, `ZIA`, `ECSELF`, `DROP`, `ENATDEDIP`.
+         * 
+         * @return builder
+         * 
+         */
         public Builder forwardMethod(Output<String> forwardMethod) {
             $.forwardMethod = forwardMethod;
             return this;
         }
 
+        /**
+         * @param forwardMethod The type of traffic forwarding method. Valid values: `INVALID`, `DIRECT`, `PROXYCHAIN`, `ZPA`, `ECZPA`, `ZIA`, `ECSELF`, `DROP`, `ENATDEDIP`.
+         * 
+         * @return builder
+         * 
+         */
         public Builder forwardMethod(String forwardMethod) {
             return forwardMethod(Output.of(forwardMethod));
         }
 
+        /**
+         * @param groups IDs of groups to which the rule must be applied.
+         * 
+         * @return builder
+         * 
+         */
         public Builder groups(@Nullable Output<List<Integer>> groups) {
             $.groups = groups;
             return this;
         }
 
+        /**
+         * @param groups IDs of groups to which the rule must be applied.
+         * 
+         * @return builder
+         * 
+         */
         public Builder groups(List<Integer> groups) {
             return groups(Output.of(groups));
         }
 
+        /**
+         * @param groups IDs of groups to which the rule must be applied.
+         * 
+         * @return builder
+         * 
+         */
         public Builder groups(Integer... groups) {
             return groups(List.of(groups));
         }
 
+        /**
+         * @param labels IDs of labels associated with the rule.
+         * 
+         * @return builder
+         * 
+         */
         public Builder labels(@Nullable Output<List<Integer>> labels) {
             $.labels = labels;
             return this;
         }
 
+        /**
+         * @param labels IDs of labels associated with the rule.
+         * 
+         * @return builder
+         * 
+         */
         public Builder labels(List<Integer> labels) {
             return labels(Output.of(labels));
         }
 
+        /**
+         * @param labels IDs of labels associated with the rule.
+         * 
+         * @return builder
+         * 
+         */
         public Builder labels(Integer... labels) {
             return labels(List.of(labels));
         }
 
+        /**
+         * @param locationGroups IDs of location groups to which the rule must be applied.
+         * 
+         * @return builder
+         * 
+         */
         public Builder locationGroups(@Nullable Output<List<Integer>> locationGroups) {
             $.locationGroups = locationGroups;
             return this;
         }
 
+        /**
+         * @param locationGroups IDs of location groups to which the rule must be applied.
+         * 
+         * @return builder
+         * 
+         */
         public Builder locationGroups(List<Integer> locationGroups) {
             return locationGroups(Output.of(locationGroups));
         }
 
+        /**
+         * @param locationGroups IDs of location groups to which the rule must be applied.
+         * 
+         * @return builder
+         * 
+         */
         public Builder locationGroups(Integer... locationGroups) {
             return locationGroups(List.of(locationGroups));
         }
 
+        /**
+         * @param locations IDs of locations to which the rule must be applied.
+         * 
+         * @return builder
+         * 
+         */
         public Builder locations(@Nullable Output<List<Integer>> locations) {
             $.locations = locations;
             return this;
         }
 
+        /**
+         * @param locations IDs of locations to which the rule must be applied.
+         * 
+         * @return builder
+         * 
+         */
         public Builder locations(List<Integer> locations) {
             return locations(Output.of(locations));
         }
 
+        /**
+         * @param locations IDs of locations to which the rule must be applied.
+         * 
+         * @return builder
+         * 
+         */
         public Builder locations(Integer... locations) {
             return locations(List.of(locations));
         }
 
+        /**
+         * @param name The name of the forwarding control rule. Must be unique.
+         * 
+         * @return builder
+         * 
+         */
         public Builder name(Output<String> name) {
             $.name = name;
             return this;
         }
 
+        /**
+         * @param name The name of the forwarding control rule. Must be unique.
+         * 
+         * @return builder
+         * 
+         */
         public Builder name(String name) {
             return name(Output.of(name));
         }
 
+        /**
+         * @param nwApplicationGroups IDs of network application groups to which the rule applies.
+         * 
+         * @return builder
+         * 
+         */
         public Builder nwApplicationGroups(@Nullable Output<List<Integer>> nwApplicationGroups) {
             $.nwApplicationGroups = nwApplicationGroups;
             return this;
         }
 
+        /**
+         * @param nwApplicationGroups IDs of network application groups to which the rule applies.
+         * 
+         * @return builder
+         * 
+         */
         public Builder nwApplicationGroups(List<Integer> nwApplicationGroups) {
             return nwApplicationGroups(Output.of(nwApplicationGroups));
         }
 
+        /**
+         * @param nwApplicationGroups IDs of network application groups to which the rule applies.
+         * 
+         * @return builder
+         * 
+         */
         public Builder nwApplicationGroups(Integer... nwApplicationGroups) {
             return nwApplicationGroups(List.of(nwApplicationGroups));
         }
 
+        /**
+         * @param nwServiceGroups IDs of network service groups to which the rule applies.
+         * 
+         * @return builder
+         * 
+         */
         public Builder nwServiceGroups(@Nullable Output<List<Integer>> nwServiceGroups) {
             $.nwServiceGroups = nwServiceGroups;
             return this;
         }
 
+        /**
+         * @param nwServiceGroups IDs of network service groups to which the rule applies.
+         * 
+         * @return builder
+         * 
+         */
         public Builder nwServiceGroups(List<Integer> nwServiceGroups) {
             return nwServiceGroups(Output.of(nwServiceGroups));
         }
 
+        /**
+         * @param nwServiceGroups IDs of network service groups to which the rule applies.
+         * 
+         * @return builder
+         * 
+         */
         public Builder nwServiceGroups(Integer... nwServiceGroups) {
             return nwServiceGroups(List.of(nwServiceGroups));
         }
 
+        /**
+         * @param nwServices IDs of network services to which the rule applies.
+         * 
+         * @return builder
+         * 
+         */
         public Builder nwServices(@Nullable Output<List<Integer>> nwServices) {
             $.nwServices = nwServices;
             return this;
         }
 
+        /**
+         * @param nwServices IDs of network services to which the rule applies.
+         * 
+         * @return builder
+         * 
+         */
         public Builder nwServices(List<Integer> nwServices) {
             return nwServices(Output.of(nwServices));
         }
 
+        /**
+         * @param nwServices IDs of network services to which the rule applies.
+         * 
+         * @return builder
+         * 
+         */
         public Builder nwServices(Integer... nwServices) {
             return nwServices(List.of(nwServices));
         }
 
+        /**
+         * @param order The order of execution of the rule with respect to other forwarding control rules.
+         * 
+         * @return builder
+         * 
+         */
         public Builder order(Output<Integer> order) {
             $.order = order;
             return this;
         }
 
+        /**
+         * @param order The order of execution of the rule with respect to other forwarding control rules.
+         * 
+         * @return builder
+         * 
+         */
         public Builder order(Integer order) {
             return order(Output.of(order));
         }
 
+        /**
+         * @param proxyGatewayId The ID of the proxy gateway. Required when forwardMethod is `PROXYCHAIN`.
+         * 
+         * @return builder
+         * 
+         */
         public Builder proxyGatewayId(@Nullable Output<Integer> proxyGatewayId) {
             $.proxyGatewayId = proxyGatewayId;
             return this;
         }
 
+        /**
+         * @param proxyGatewayId The ID of the proxy gateway. Required when forwardMethod is `PROXYCHAIN`.
+         * 
+         * @return builder
+         * 
+         */
         public Builder proxyGatewayId(Integer proxyGatewayId) {
             return proxyGatewayId(Output.of(proxyGatewayId));
         }
 
+        /**
+         * @param rank Admin rank of the forwarding control policy rule. Valid values: 0-7. Default: 7.
+         * 
+         * @return builder
+         * 
+         */
         public Builder rank(@Nullable Output<Integer> rank) {
             $.rank = rank;
             return this;
         }
 
+        /**
+         * @param rank Admin rank of the forwarding control policy rule. Valid values: 0-7. Default: 7.
+         * 
+         * @return builder
+         * 
+         */
         public Builder rank(Integer rank) {
             return rank(Output.of(rank));
         }
 
+        /**
+         * @param resCategories URL categories that apply to the response for the rule.
+         * 
+         * @return builder
+         * 
+         */
         public Builder resCategories(@Nullable Output<List<String>> resCategories) {
             $.resCategories = resCategories;
             return this;
         }
 
+        /**
+         * @param resCategories URL categories that apply to the response for the rule.
+         * 
+         * @return builder
+         * 
+         */
         public Builder resCategories(List<String> resCategories) {
             return resCategories(Output.of(resCategories));
         }
 
+        /**
+         * @param resCategories URL categories that apply to the response for the rule.
+         * 
+         * @return builder
+         * 
+         */
         public Builder resCategories(String... resCategories) {
             return resCategories(List.of(resCategories));
         }
 
+        /**
+         * @param srcIpGroups IDs of source IP address groups for the rule.
+         * 
+         * @return builder
+         * 
+         */
         public Builder srcIpGroups(@Nullable Output<List<Integer>> srcIpGroups) {
             $.srcIpGroups = srcIpGroups;
             return this;
         }
 
+        /**
+         * @param srcIpGroups IDs of source IP address groups for the rule.
+         * 
+         * @return builder
+         * 
+         */
         public Builder srcIpGroups(List<Integer> srcIpGroups) {
             return srcIpGroups(Output.of(srcIpGroups));
         }
 
+        /**
+         * @param srcIpGroups IDs of source IP address groups for the rule.
+         * 
+         * @return builder
+         * 
+         */
         public Builder srcIpGroups(Integer... srcIpGroups) {
             return srcIpGroups(List.of(srcIpGroups));
         }
 
+        /**
+         * @param srcIps Source IP addresses or CIDR ranges for the rule.
+         * 
+         * @return builder
+         * 
+         */
         public Builder srcIps(@Nullable Output<List<String>> srcIps) {
             $.srcIps = srcIps;
             return this;
         }
 
+        /**
+         * @param srcIps Source IP addresses or CIDR ranges for the rule.
+         * 
+         * @return builder
+         * 
+         */
         public Builder srcIps(List<String> srcIps) {
             return srcIps(Output.of(srcIps));
         }
 
+        /**
+         * @param srcIps Source IP addresses or CIDR ranges for the rule.
+         * 
+         * @return builder
+         * 
+         */
         public Builder srcIps(String... srcIps) {
             return srcIps(List.of(srcIps));
         }
 
+        /**
+         * @param srcIpv6Groups IDs of source IPv6 address groups for the rule.
+         * 
+         * @return builder
+         * 
+         */
         public Builder srcIpv6Groups(@Nullable Output<List<Integer>> srcIpv6Groups) {
             $.srcIpv6Groups = srcIpv6Groups;
             return this;
         }
 
+        /**
+         * @param srcIpv6Groups IDs of source IPv6 address groups for the rule.
+         * 
+         * @return builder
+         * 
+         */
         public Builder srcIpv6Groups(List<Integer> srcIpv6Groups) {
             return srcIpv6Groups(Output.of(srcIpv6Groups));
         }
 
+        /**
+         * @param srcIpv6Groups IDs of source IPv6 address groups for the rule.
+         * 
+         * @return builder
+         * 
+         */
         public Builder srcIpv6Groups(Integer... srcIpv6Groups) {
             return srcIpv6Groups(List.of(srcIpv6Groups));
         }
 
+        /**
+         * @param state Rule state. Valid values: `ENABLED`, `DISABLED`.
+         * 
+         * @return builder
+         * 
+         */
         public Builder state(@Nullable Output<String> state) {
             $.state = state;
             return this;
         }
 
+        /**
+         * @param state Rule state. Valid values: `ENABLED`, `DISABLED`.
+         * 
+         * @return builder
+         * 
+         */
         public Builder state(String state) {
             return state(Output.of(state));
         }
 
+        /**
+         * @param type The rule type. Valid values: `FORWARDING`.
+         * 
+         * @return builder
+         * 
+         */
         public Builder type(@Nullable Output<String> type) {
             $.type = type;
             return this;
         }
 
+        /**
+         * @param type The rule type. Valid values: `FORWARDING`.
+         * 
+         * @return builder
+         * 
+         */
         public Builder type(String type) {
             return type(Output.of(type));
         }
 
+        /**
+         * @param users IDs of users to which the rule must be applied.
+         * 
+         * @return builder
+         * 
+         */
         public Builder users(@Nullable Output<List<Integer>> users) {
             $.users = users;
             return this;
         }
 
+        /**
+         * @param users IDs of users to which the rule must be applied.
+         * 
+         * @return builder
+         * 
+         */
         public Builder users(List<Integer> users) {
             return users(Output.of(users));
         }
 
+        /**
+         * @param users IDs of users to which the rule must be applied.
+         * 
+         * @return builder
+         * 
+         */
         public Builder users(Integer... users) {
             return users(List.of(users));
         }
 
+        /**
+         * @param zpaAppSegments List of ZPA application segments for which this rule is applicable. This field is applicable only when forwardMethod is `ZPA`.
+         * 
+         * @return builder
+         * 
+         */
         public Builder zpaAppSegments(@Nullable Output<List<ZPAAppSegmentInputArgs>> zpaAppSegments) {
             $.zpaAppSegments = zpaAppSegments;
             return this;
         }
 
+        /**
+         * @param zpaAppSegments List of ZPA application segments for which this rule is applicable. This field is applicable only when forwardMethod is `ZPA`.
+         * 
+         * @return builder
+         * 
+         */
         public Builder zpaAppSegments(List<ZPAAppSegmentInputArgs> zpaAppSegments) {
             return zpaAppSegments(Output.of(zpaAppSegments));
         }
 
+        /**
+         * @param zpaAppSegments List of ZPA application segments for which this rule is applicable. This field is applicable only when forwardMethod is `ZPA`.
+         * 
+         * @return builder
+         * 
+         */
         public Builder zpaAppSegments(ZPAAppSegmentInputArgs... zpaAppSegments) {
             return zpaAppSegments(List.of(zpaAppSegments));
         }
 
+        /**
+         * @param zpaGatewayId The ID of the ZPA gateway. Required when forwardMethod is `ZPA`.
+         * 
+         * @return builder
+         * 
+         */
         public Builder zpaGatewayId(@Nullable Output<Integer> zpaGatewayId) {
             $.zpaGatewayId = zpaGatewayId;
             return this;
         }
 
+        /**
+         * @param zpaGatewayId The ID of the ZPA gateway. Required when forwardMethod is `ZPA`.
+         * 
+         * @return builder
+         * 
+         */
         public Builder zpaGatewayId(Integer zpaGatewayId) {
             return zpaGatewayId(Output.of(zpaGatewayId));
         }

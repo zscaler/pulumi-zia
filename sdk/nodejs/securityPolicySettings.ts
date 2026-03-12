@@ -4,6 +4,31 @@
 import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "./utilities";
 
+/**
+ * The zia_security_policy_settings resource manages the whitelist and blacklist URL configuration for the ZIA security policy. This is a singleton resource that controls which URLs are always allowed (whitelisted) or always blocked (blacklisted) across the organization.
+ *
+ * For more information, see the [ZIA Security Policy Settings documentation](https://help.zscaler.com/zia/configuring-security-policy).
+ *
+ * ## Example Usage
+ * ### Basic Security Policy Settings
+ *
+ * ```typescript
+ * import * as zia from "@bdzscaler/pulumi-zia";
+ *
+ * const example = new zia.SecurityPolicySettings("example", {
+ *     whitelistUrls: [
+ *         "example.com",
+ *         "trusted-site.org",
+ *     ],
+ *     blacklistUrls: [
+ *         "malicious-site.com",
+ *         "phishing-site.net",
+ *     ],
+ * });
+ * ```
+ *
+ * > This is a singleton resource. Import is not applicable.
+ */
 export class SecurityPolicySettings extends pulumi.CustomResource {
     /**
      * Get an existing SecurityPolicySettings resource's state with the given name, ID, and optional extra
@@ -31,8 +56,17 @@ export class SecurityPolicySettings extends pulumi.CustomResource {
         return obj['__pulumiType'] === SecurityPolicySettings.__pulumiType;
     }
 
+    /**
+     * List of URLs that are always blocked (blacklisted) by the security policy.
+     */
     declare public readonly blacklistUrls: pulumi.Output<string[] | undefined>;
+    /**
+     * The internal resource identifier for the security policy settings.
+     */
     declare public /*out*/ readonly resourceId: pulumi.Output<string>;
+    /**
+     * List of URLs that are always allowed (whitelisted) by the security policy.
+     */
     declare public readonly whitelistUrls: pulumi.Output<string[] | undefined>;
 
     /**
@@ -63,6 +97,12 @@ export class SecurityPolicySettings extends pulumi.CustomResource {
  * The set of arguments for constructing a SecurityPolicySettings resource.
  */
 export interface SecurityPolicySettingsArgs {
+    /**
+     * List of URLs that are always blocked (blacklisted) by the security policy.
+     */
     blacklistUrls?: pulumi.Input<pulumi.Input<string>[]>;
+    /**
+     * List of URLs that are always allowed (whitelisted) by the security policy.
+     */
     whitelistUrls?: pulumi.Input<pulumi.Input<string>[]>;
 }

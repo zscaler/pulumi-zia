@@ -4,6 +4,33 @@
 import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "./utilities";
 
+/**
+ * The zia_nat_control_rule resource manages NAT control rules in the Zscaler Internet Access (ZIA) cloud service. NAT control rules allow you to redirect traffic to specific IP addresses or FQDNs and ports based on various criteria such as source, destination, users, and locations.
+ *
+ * For more information, see the [ZIA NAT Control documentation](https://help.zscaler.com/zia/nat-control-policies).
+ *
+ * ## Example Usage
+ * ### Basic NAT Control Rule
+ *
+ * ```typescript
+ * import * as zia from "@bdzscaler/pulumi-zia";
+ *
+ * const example = new zia.NatControlRule("example", {
+ *     name: "Example NAT Control Rule",
+ *     description: "Redirect traffic",
+ *     order: 1,
+ *     state: "ENABLED",
+ * });
+ * ```
+ *
+ * ## Import
+ *
+ * An existing NAT Control Rule can be imported using its resource ID, e.g.
+ *
+ * ```sh
+ * $ pulumi import zia:index:NatControlRule example 12345
+ * ```
+ */
 export class NatControlRule extends pulumi.CustomResource {
     /**
      * Get an existing NatControlRule resource's state with the given name, ID, and optional extra
@@ -31,37 +58,133 @@ export class NatControlRule extends pulumi.CustomResource {
         return obj['__pulumiType'] === NatControlRule.__pulumiType;
     }
 
+    /**
+     * Indicates whether this is the default NAT control rule.
+     */
     declare public readonly defaultRule: pulumi.Output<boolean | undefined>;
+    /**
+     * IDs of departments to which the rule must be applied.
+     */
     declare public readonly departments: pulumi.Output<number[] | undefined>;
+    /**
+     * Additional information about the NAT control rule.
+     */
     declare public readonly description: pulumi.Output<string | undefined>;
+    /**
+     * Destination IP addresses, FQDNs, or wildcard FQDNs for the rule.
+     */
     declare public readonly destAddresses: pulumi.Output<string[] | undefined>;
+    /**
+     * Destination countries (ISO 3166-1 alpha-2 codes) for the rule.
+     */
     declare public readonly destCountries: pulumi.Output<string[] | undefined>;
+    /**
+     * Destination IP address URL categories for the rule.
+     */
     declare public readonly destIpCategories: pulumi.Output<string[] | undefined>;
+    /**
+     * IDs of destination IP address groups for the rule.
+     */
     declare public readonly destIpGroups: pulumi.Output<number[] | undefined>;
+    /**
+     * IDs of destination IPv6 address groups for the rule.
+     */
     declare public readonly destIpv6Groups: pulumi.Output<number[] | undefined>;
+    /**
+     * IDs of device groups for which the rule must be applied. Applicable for devices managed using Zscaler Client Connector.
+     */
     declare public readonly deviceGroups: pulumi.Output<number[] | undefined>;
+    /**
+     * IDs of devices for which the rule must be applied.
+     */
     declare public readonly devices: pulumi.Output<number[] | undefined>;
+    /**
+     * If set to true, enables full logging for the rule.
+     */
     declare public readonly enableFullLogging: pulumi.Output<boolean | undefined>;
+    /**
+     * IDs of groups to which the rule must be applied.
+     */
     declare public readonly groups: pulumi.Output<number[] | undefined>;
+    /**
+     * IDs of labels associated with the rule.
+     */
     declare public readonly labels: pulumi.Output<number[] | undefined>;
+    /**
+     * IDs of location groups to which the rule must be applied.
+     */
     declare public readonly locationGroups: pulumi.Output<number[] | undefined>;
+    /**
+     * IDs of locations to which the rule must be applied.
+     */
     declare public readonly locations: pulumi.Output<number[] | undefined>;
+    /**
+     * The name of the NAT control rule. Must be unique.
+     */
     declare public readonly name: pulumi.Output<string>;
+    /**
+     * IDs of network service groups to which the rule applies.
+     */
     declare public readonly nwServiceGroups: pulumi.Output<number[] | undefined>;
+    /**
+     * IDs of network services to which the rule applies.
+     */
     declare public readonly nwServices: pulumi.Output<number[] | undefined>;
+    /**
+     * The order of execution of the rule with respect to other NAT control rules.
+     */
     declare public readonly order: pulumi.Output<number>;
+    /**
+     * Indicates whether this is a predefined rule.
+     */
     declare public readonly predefined: pulumi.Output<boolean | undefined>;
+    /**
+     * Admin rank of the NAT control policy rule. Valid values: 0-7. Default: 7.
+     */
     declare public readonly rank: pulumi.Output<number | undefined>;
+    /**
+     * The FQDN to which traffic should be redirected.
+     */
     declare public readonly redirectFqdn: pulumi.Output<string | undefined>;
+    /**
+     * The IP address to which traffic should be redirected.
+     */
     declare public readonly redirectIp: pulumi.Output<string | undefined>;
+    /**
+     * The port to which traffic should be redirected.
+     */
     declare public readonly redirectPort: pulumi.Output<number | undefined>;
+    /**
+     * URL categories that apply to the response for the rule.
+     */
     declare public readonly resCategories: pulumi.Output<string[] | undefined>;
+    /**
+     * The system-generated ID of the NAT control rule.
+     */
     declare public /*out*/ readonly ruleId: pulumi.Output<number>;
+    /**
+     * IDs of source IP address groups for the rule.
+     */
     declare public readonly srcIpGroups: pulumi.Output<number[] | undefined>;
+    /**
+     * Source IP addresses or CIDR ranges for the rule.
+     */
     declare public readonly srcIps: pulumi.Output<string[] | undefined>;
+    /**
+     * IDs of source IPv6 address groups for the rule.
+     */
     declare public readonly srcIpv6Groups: pulumi.Output<number[] | undefined>;
+    /**
+     * Rule state. Valid values: `ENABLED`, `DISABLED`.
+     */
     declare public readonly state: pulumi.Output<string | undefined>;
+    /**
+     * IDs of time intervals during which the rule must be enforced.
+     */
     declare public readonly timeWindows: pulumi.Output<number[] | undefined>;
+    /**
+     * IDs of users to which the rule must be applied.
+     */
     declare public readonly users: pulumi.Output<number[] | undefined>;
 
     /**
@@ -156,35 +279,128 @@ export class NatControlRule extends pulumi.CustomResource {
  * The set of arguments for constructing a NatControlRule resource.
  */
 export interface NatControlRuleArgs {
+    /**
+     * Indicates whether this is the default NAT control rule.
+     */
     defaultRule?: pulumi.Input<boolean>;
+    /**
+     * IDs of departments to which the rule must be applied.
+     */
     departments?: pulumi.Input<pulumi.Input<number>[]>;
+    /**
+     * Additional information about the NAT control rule.
+     */
     description?: pulumi.Input<string>;
+    /**
+     * Destination IP addresses, FQDNs, or wildcard FQDNs for the rule.
+     */
     destAddresses?: pulumi.Input<pulumi.Input<string>[]>;
+    /**
+     * Destination countries (ISO 3166-1 alpha-2 codes) for the rule.
+     */
     destCountries?: pulumi.Input<pulumi.Input<string>[]>;
+    /**
+     * Destination IP address URL categories for the rule.
+     */
     destIpCategories?: pulumi.Input<pulumi.Input<string>[]>;
+    /**
+     * IDs of destination IP address groups for the rule.
+     */
     destIpGroups?: pulumi.Input<pulumi.Input<number>[]>;
+    /**
+     * IDs of destination IPv6 address groups for the rule.
+     */
     destIpv6Groups?: pulumi.Input<pulumi.Input<number>[]>;
+    /**
+     * IDs of device groups for which the rule must be applied. Applicable for devices managed using Zscaler Client Connector.
+     */
     deviceGroups?: pulumi.Input<pulumi.Input<number>[]>;
+    /**
+     * IDs of devices for which the rule must be applied.
+     */
     devices?: pulumi.Input<pulumi.Input<number>[]>;
+    /**
+     * If set to true, enables full logging for the rule.
+     */
     enableFullLogging?: pulumi.Input<boolean>;
+    /**
+     * IDs of groups to which the rule must be applied.
+     */
     groups?: pulumi.Input<pulumi.Input<number>[]>;
+    /**
+     * IDs of labels associated with the rule.
+     */
     labels?: pulumi.Input<pulumi.Input<number>[]>;
+    /**
+     * IDs of location groups to which the rule must be applied.
+     */
     locationGroups?: pulumi.Input<pulumi.Input<number>[]>;
+    /**
+     * IDs of locations to which the rule must be applied.
+     */
     locations?: pulumi.Input<pulumi.Input<number>[]>;
+    /**
+     * The name of the NAT control rule. Must be unique.
+     */
     name: pulumi.Input<string>;
+    /**
+     * IDs of network service groups to which the rule applies.
+     */
     nwServiceGroups?: pulumi.Input<pulumi.Input<number>[]>;
+    /**
+     * IDs of network services to which the rule applies.
+     */
     nwServices?: pulumi.Input<pulumi.Input<number>[]>;
+    /**
+     * The order of execution of the rule with respect to other NAT control rules.
+     */
     order: pulumi.Input<number>;
+    /**
+     * Indicates whether this is a predefined rule.
+     */
     predefined?: pulumi.Input<boolean>;
+    /**
+     * Admin rank of the NAT control policy rule. Valid values: 0-7. Default: 7.
+     */
     rank?: pulumi.Input<number>;
+    /**
+     * The FQDN to which traffic should be redirected.
+     */
     redirectFqdn?: pulumi.Input<string>;
+    /**
+     * The IP address to which traffic should be redirected.
+     */
     redirectIp?: pulumi.Input<string>;
+    /**
+     * The port to which traffic should be redirected.
+     */
     redirectPort?: pulumi.Input<number>;
+    /**
+     * URL categories that apply to the response for the rule.
+     */
     resCategories?: pulumi.Input<pulumi.Input<string>[]>;
+    /**
+     * IDs of source IP address groups for the rule.
+     */
     srcIpGroups?: pulumi.Input<pulumi.Input<number>[]>;
+    /**
+     * Source IP addresses or CIDR ranges for the rule.
+     */
     srcIps?: pulumi.Input<pulumi.Input<string>[]>;
+    /**
+     * IDs of source IPv6 address groups for the rule.
+     */
     srcIpv6Groups?: pulumi.Input<pulumi.Input<number>[]>;
+    /**
+     * Rule state. Valid values: `ENABLED`, `DISABLED`.
+     */
     state?: pulumi.Input<string>;
+    /**
+     * IDs of time intervals during which the rule must be enforced.
+     */
     timeWindows?: pulumi.Input<pulumi.Input<number>[]>;
+    /**
+     * IDs of users to which the rule must be applied.
+     */
     users?: pulumi.Input<pulumi.Input<number>[]>;
 }

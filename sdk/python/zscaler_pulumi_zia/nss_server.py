@@ -25,6 +25,10 @@ class NssServerArgs:
                  type: Optional[pulumi.Input[_builtins.str]] = None):
         """
         The set of arguments for constructing a NssServer resource.
+        :param pulumi.Input[_builtins.str] name: Name of the NSS server.
+        :param pulumi.Input[_builtins.int] icap_svr_id: The ICAP server ID associated with the NSS server.
+        :param pulumi.Input[_builtins.str] status: The status of the NSS server. Accepted values: 'ENABLED' or 'DISABLED'. Default: 'ENABLED'.
+        :param pulumi.Input[_builtins.str] type: The NSS server type. Accepted values: 'NSS_FOR_FIREWALL', 'NSS_FOR_WEB'. Default: 'NSS_FOR_FIREWALL'.
         """
         pulumi.set(__self__, "name", name)
         if icap_svr_id is not None:
@@ -37,6 +41,9 @@ class NssServerArgs:
     @_builtins.property
     @pulumi.getter
     def name(self) -> pulumi.Input[_builtins.str]:
+        """
+        Name of the NSS server.
+        """
         return pulumi.get(self, "name")
 
     @name.setter
@@ -46,6 +53,9 @@ class NssServerArgs:
     @_builtins.property
     @pulumi.getter(name="icapSvrId")
     def icap_svr_id(self) -> Optional[pulumi.Input[_builtins.int]]:
+        """
+        The ICAP server ID associated with the NSS server.
+        """
         return pulumi.get(self, "icap_svr_id")
 
     @icap_svr_id.setter
@@ -55,6 +65,9 @@ class NssServerArgs:
     @_builtins.property
     @pulumi.getter
     def status(self) -> Optional[pulumi.Input[_builtins.str]]:
+        """
+        The status of the NSS server. Accepted values: 'ENABLED' or 'DISABLED'. Default: 'ENABLED'.
+        """
         return pulumi.get(self, "status")
 
     @status.setter
@@ -64,6 +77,9 @@ class NssServerArgs:
     @_builtins.property
     @pulumi.getter
     def type(self) -> Optional[pulumi.Input[_builtins.str]]:
+        """
+        The NSS server type. Accepted values: 'NSS_FOR_FIREWALL', 'NSS_FOR_WEB'. Default: 'NSS_FOR_FIREWALL'.
+        """
         return pulumi.get(self, "type")
 
     @type.setter
@@ -83,9 +99,37 @@ class NssServer(pulumi.CustomResource):
                  type: Optional[pulumi.Input[_builtins.str]] = None,
                  __props__=None):
         """
-        Create a NssServer resource with the given unique name, props, and options.
+        The zia.NssServer resource manages NSS (Nanolog Streaming Service) server configurations in the
+        Zscaler Internet Access (ZIA) cloud. NSS servers are used to stream logs from ZIA to external SIEM
+        or log management systems.
+
+        ## Example Usage
+        ### Basic NSS Server
+
+        ```python
+        import zscaler_pulumi_zia as zia
+
+        example = zia.NssServer("example",
+            name="Example NSS Server",
+            status="ENABLED",
+            type="NSS_FOR_FIREWALL",
+        )
+        ```
+
+        ## Import
+
+        An existing NSS server can be imported using its ID, e.g.
+
+        ```sh
+        $ pulumi import zia:index:NssServer example 12345
+        ```
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
+        :param pulumi.Input[_builtins.int] icap_svr_id: The ICAP server ID associated with the NSS server.
+        :param pulumi.Input[_builtins.str] name: Name of the NSS server.
+        :param pulumi.Input[_builtins.str] status: The status of the NSS server. Accepted values: 'ENABLED' or 'DISABLED'. Default: 'ENABLED'.
+        :param pulumi.Input[_builtins.str] type: The NSS server type. Accepted values: 'NSS_FOR_FIREWALL', 'NSS_FOR_WEB'. Default: 'NSS_FOR_FIREWALL'.
         """
         ...
     @overload
@@ -94,7 +138,31 @@ class NssServer(pulumi.CustomResource):
                  args: NssServerArgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
-        Create a NssServer resource with the given unique name, props, and options.
+        The zia.NssServer resource manages NSS (Nanolog Streaming Service) server configurations in the
+        Zscaler Internet Access (ZIA) cloud. NSS servers are used to stream logs from ZIA to external SIEM
+        or log management systems.
+
+        ## Example Usage
+        ### Basic NSS Server
+
+        ```python
+        import zscaler_pulumi_zia as zia
+
+        example = zia.NssServer("example",
+            name="Example NSS Server",
+            status="ENABLED",
+            type="NSS_FOR_FIREWALL",
+        )
+        ```
+
+        ## Import
+
+        An existing NSS server can be imported using its ID, e.g.
+
+        ```sh
+        $ pulumi import zia:index:NssServer example 12345
+        ```
+
         :param str resource_name: The name of the resource.
         :param NssServerArgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -162,25 +230,40 @@ class NssServer(pulumi.CustomResource):
     @_builtins.property
     @pulumi.getter(name="icapSvrId")
     def icap_svr_id(self) -> pulumi.Output[Optional[_builtins.int]]:
+        """
+        The ICAP server ID associated with the NSS server.
+        """
         return pulumi.get(self, "icap_svr_id")
 
     @_builtins.property
     @pulumi.getter
     def name(self) -> pulumi.Output[_builtins.str]:
+        """
+        Name of the NSS server.
+        """
         return pulumi.get(self, "name")
 
     @_builtins.property
     @pulumi.getter(name="nssId")
     def nss_id(self) -> pulumi.Output[_builtins.int]:
+        """
+        The unique identifier for the NSS server assigned by the ZIA cloud.
+        """
         return pulumi.get(self, "nss_id")
 
     @_builtins.property
     @pulumi.getter
     def status(self) -> pulumi.Output[Optional[_builtins.str]]:
+        """
+        The status of the NSS server. Accepted values: 'ENABLED' or 'DISABLED'. Default: 'ENABLED'.
+        """
         return pulumi.get(self, "status")
 
     @_builtins.property
     @pulumi.getter
     def type(self) -> pulumi.Output[Optional[_builtins.str]]:
+        """
+        The NSS server type. Accepted values: 'NSS_FOR_FIREWALL', 'NSS_FOR_WEB'. Default: 'NSS_FOR_FIREWALL'.
+        """
         return pulumi.get(self, "type")
 

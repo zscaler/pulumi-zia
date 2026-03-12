@@ -17,173 +17,413 @@ import java.util.List;
 import java.util.Optional;
 import javax.annotation.Nullable;
 
+/**
+ * The zia_cloud_app_control_rules resource manages cloud application control rules in the Zscaler Internet Access (ZIA) cloud service. Cloud app control rules define policies that govern user access to cloud applications, allowing administrators to allow, block, or isolate specific application activities.
+ * 
+ * For more information, see the [ZIA Cloud App Control documentation](https://help.zscaler.com/zia/cloud-app-control).
+ * 
+ * ## Example Usage
+ * 
+ * ## Import
+ * 
+ * An existing Cloud App Control Rule can be imported using its resource ID, e.g.
+ * 
+ * ```sh
+ * $ pulumi import zia:index:CloudAppControlRule example 12345
+ * ```
+ * 
+ */
 @ResourceType(type="zia:index:CloudAppControlRule")
 public class CloudAppControlRule extends com.pulumi.resources.CustomResource {
+    /**
+     * Actions taken when traffic matches rule criteria. Valid values: `ALLOW`, `BLOCK`, `CAUTION`, `ISOLATE`.
+     * 
+     */
     @Export(name="actions", refs={List.class,String.class}, tree="[0,1]")
     private Output</* @Nullable */ List<String>> actions;
 
+    /**
+     * @return Actions taken when traffic matches rule criteria. Valid values: `ALLOW`, `BLOCK`, `CAUTION`, `ISOLATE`.
+     * 
+     */
     public Output<Optional<List<String>>> actions() {
         return Codegen.optional(this.actions);
     }
+    /**
+     * List of cloud application names to which the rule applies.
+     * 
+     */
     @Export(name="applications", refs={List.class,String.class}, tree="[0,1]")
     private Output</* @Nullable */ List<String>> applications;
 
+    /**
+     * @return List of cloud application names to which the rule applies.
+     * 
+     */
     public Output<Optional<List<String>>> applications() {
         return Codegen.optional(this.applications);
     }
+    /**
+     * The ID of the Browser End User Notification template.
+     * 
+     */
     @Export(name="browserEunTemplateId", refs={Integer.class}, tree="[0]")
     private Output</* @Nullable */ Integer> browserEunTemplateId;
 
+    /**
+     * @return The ID of the Browser End User Notification template.
+     * 
+     */
     public Output<Optional<Integer>> browserEunTemplateId() {
         return Codegen.optional(this.browserEunTemplateId);
     }
+    /**
+     * If true, cascading to other rules is enabled when this rule matches.
+     * 
+     */
     @Export(name="cascadingEnabled", refs={Boolean.class}, tree="[0]")
     private Output</* @Nullable */ Boolean> cascadingEnabled;
 
+    /**
+     * @return If true, cascading to other rules is enabled when this rule matches.
+     * 
+     */
     public Output<Optional<Boolean>> cascadingEnabled() {
         return Codegen.optional(this.cascadingEnabled);
     }
+    /**
+     * The Cloud Browser Isolation (CBI) profile. Required when action is &#39;ISOLATE&#39;.
+     * 
+     */
     @Export(name="cbiProfile", refs={CBIProfileInput.class}, tree="[0]")
     private Output</* @Nullable */ CBIProfileInput> cbiProfile;
 
+    /**
+     * @return The Cloud Browser Isolation (CBI) profile. Required when action is &#39;ISOLATE&#39;.
+     * 
+     */
     public Output<Optional<CBIProfileInput>> cbiProfile() {
         return Codegen.optional(this.cbiProfile);
     }
+    /**
+     * The ID of the cloud application risk profile associated with this rule.
+     * 
+     */
     @Export(name="cloudAppRiskProfileId", refs={Integer.class}, tree="[0]")
     private Output</* @Nullable */ Integer> cloudAppRiskProfileId;
 
+    /**
+     * @return The ID of the cloud application risk profile associated with this rule.
+     * 
+     */
     public Output<Optional<Integer>> cloudAppRiskProfileId() {
         return Codegen.optional(this.cloudAppRiskProfileId);
     }
+    /**
+     * IDs of departments for which the rule must be applied.
+     * 
+     */
     @Export(name="departments", refs={List.class,Integer.class}, tree="[0,1]")
     private Output</* @Nullable */ List<Integer>> departments;
 
+    /**
+     * @return IDs of departments for which the rule must be applied.
+     * 
+     */
     public Output<Optional<List<Integer>>> departments() {
         return Codegen.optional(this.departments);
     }
+    /**
+     * Additional information about the cloud app control rule.
+     * 
+     */
     @Export(name="description", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> description;
 
+    /**
+     * @return Additional information about the cloud app control rule.
+     * 
+     */
     public Output<Optional<String>> description() {
         return Codegen.optional(this.description);
     }
+    /**
+     * IDs of device groups for which the rule must be applied.
+     * 
+     */
     @Export(name="deviceGroups", refs={List.class,Integer.class}, tree="[0,1]")
     private Output</* @Nullable */ List<Integer>> deviceGroups;
 
+    /**
+     * @return IDs of device groups for which the rule must be applied.
+     * 
+     */
     public Output<Optional<List<Integer>>> deviceGroups() {
         return Codegen.optional(this.deviceGroups);
     }
+    /**
+     * IDs of devices for which the rule must be applied.
+     * 
+     */
     @Export(name="devices", refs={List.class,Integer.class}, tree="[0,1]")
     private Output</* @Nullable */ List<Integer>> devices;
 
+    /**
+     * @return IDs of devices for which the rule must be applied.
+     * 
+     */
     public Output<Optional<List<Integer>>> devices() {
         return Codegen.optional(this.devices);
     }
+    /**
+     * Enforce a set validity time period for the rule.
+     * 
+     */
     @Export(name="enforceTimeValidity", refs={Boolean.class}, tree="[0]")
     private Output</* @Nullable */ Boolean> enforceTimeValidity;
 
+    /**
+     * @return Enforce a set validity time period for the rule.
+     * 
+     */
     public Output<Optional<Boolean>> enforceTimeValidity() {
         return Codegen.optional(this.enforceTimeValidity);
     }
+    /**
+     * If true, End User Notification is enabled for this rule.
+     * 
+     */
     @Export(name="eunEnabled", refs={Boolean.class}, tree="[0]")
     private Output</* @Nullable */ Boolean> eunEnabled;
 
+    /**
+     * @return If true, End User Notification is enabled for this rule.
+     * 
+     */
     public Output<Optional<Boolean>> eunEnabled() {
         return Codegen.optional(this.eunEnabled);
     }
+    /**
+     * The ID of the End User Notification template.
+     * 
+     */
     @Export(name="eunTemplateId", refs={Integer.class}, tree="[0]")
     private Output</* @Nullable */ Integer> eunTemplateId;
 
+    /**
+     * @return The ID of the End User Notification template.
+     * 
+     */
     public Output<Optional<Integer>> eunTemplateId() {
         return Codegen.optional(this.eunTemplateId);
     }
+    /**
+     * IDs of groups for which the rule must be applied.
+     * 
+     */
     @Export(name="groups", refs={List.class,Integer.class}, tree="[0,1]")
     private Output</* @Nullable */ List<Integer>> groups;
 
+    /**
+     * @return IDs of groups for which the rule must be applied.
+     * 
+     */
     public Output<Optional<List<Integer>>> groups() {
         return Codegen.optional(this.groups);
     }
+    /**
+     * IDs of labels associated with the cloud app control rule.
+     * 
+     */
     @Export(name="labels", refs={List.class,Integer.class}, tree="[0,1]")
     private Output</* @Nullable */ List<Integer>> labels;
 
+    /**
+     * @return IDs of labels associated with the cloud app control rule.
+     * 
+     */
     public Output<Optional<List<Integer>>> labels() {
         return Codegen.optional(this.labels);
     }
+    /**
+     * IDs of location groups for which the rule must be applied.
+     * 
+     */
     @Export(name="locationGroups", refs={List.class,Integer.class}, tree="[0,1]")
     private Output</* @Nullable */ List<Integer>> locationGroups;
 
+    /**
+     * @return IDs of location groups for which the rule must be applied.
+     * 
+     */
     public Output<Optional<List<Integer>>> locationGroups() {
         return Codegen.optional(this.locationGroups);
     }
+    /**
+     * IDs of locations for which the rule must be applied.
+     * 
+     */
     @Export(name="locations", refs={List.class,Integer.class}, tree="[0,1]")
     private Output</* @Nullable */ List<Integer>> locations;
 
+    /**
+     * @return IDs of locations for which the rule must be applied.
+     * 
+     */
     public Output<Optional<List<Integer>>> locations() {
         return Codegen.optional(this.locations);
     }
+    /**
+     * The name of the cloud app control rule. Must be unique.
+     * 
+     */
     @Export(name="name", refs={String.class}, tree="[0]")
     private Output<String> name;
 
+    /**
+     * @return The name of the cloud app control rule. Must be unique.
+     * 
+     */
     public Output<String> name() {
         return this.name;
     }
+    /**
+     * The order of execution of the rule with respect to other cloud app control rules.
+     * 
+     */
     @Export(name="order", refs={Integer.class}, tree="[0]")
     private Output<Integer> order;
 
+    /**
+     * @return The order of execution of the rule with respect to other cloud app control rules.
+     * 
+     */
     public Output<Integer> order() {
         return this.order;
     }
+    /**
+     * Admin rank of the cloud app control rule. Valid values: 0-7. Default: 7.
+     * 
+     */
     @Export(name="rank", refs={Integer.class}, tree="[0]")
     private Output</* @Nullable */ Integer> rank;
 
+    /**
+     * @return Admin rank of the cloud app control rule. Valid values: 0-7. Default: 7.
+     * 
+     */
     public Output<Optional<Integer>> rank() {
         return Codegen.optional(this.rank);
     }
+    /**
+     * The system-generated ID of the cloud app control rule.
+     * 
+     */
     @Export(name="ruleId", refs={Integer.class}, tree="[0]")
     private Output<Integer> ruleId;
 
+    /**
+     * @return The system-generated ID of the cloud app control rule.
+     * 
+     */
     public Output<Integer> ruleId() {
         return this.ruleId;
     }
+    /**
+     * Size quota in MB beyond which the rule is applied. Not applicable when action is &#39;BLOCK&#39;.
+     * 
+     */
     @Export(name="sizeQuota", refs={Integer.class}, tree="[0]")
     private Output</* @Nullable */ Integer> sizeQuota;
 
+    /**
+     * @return Size quota in MB beyond which the rule is applied. Not applicable when action is &#39;BLOCK&#39;.
+     * 
+     */
     public Output<Optional<Integer>> sizeQuota() {
         return Codegen.optional(this.sizeQuota);
     }
+    /**
+     * Rule state. Valid values: `ENABLED`, `DISABLED`.
+     * 
+     */
     @Export(name="state", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> state;
 
+    /**
+     * @return Rule state. Valid values: `ENABLED`, `DISABLED`.
+     * 
+     */
     public Output<Optional<String>> state() {
         return Codegen.optional(this.state);
     }
+    /**
+     * IDs of tenancy profiles for which the rule must be applied.
+     * 
+     */
     @Export(name="tenancyProfileIds", refs={List.class,Integer.class}, tree="[0,1]")
     private Output</* @Nullable */ List<Integer>> tenancyProfileIds;
 
+    /**
+     * @return IDs of tenancy profiles for which the rule must be applied.
+     * 
+     */
     public Output<Optional<List<Integer>>> tenancyProfileIds() {
         return Codegen.optional(this.tenancyProfileIds);
     }
+    /**
+     * Time quota in minutes, after which the rule is applied. Not applicable when action is &#39;BLOCK&#39;.
+     * 
+     */
     @Export(name="timeQuota", refs={Integer.class}, tree="[0]")
     private Output</* @Nullable */ Integer> timeQuota;
 
+    /**
+     * @return Time quota in minutes, after which the rule is applied. Not applicable when action is &#39;BLOCK&#39;.
+     * 
+     */
     public Output<Optional<Integer>> timeQuota() {
         return Codegen.optional(this.timeQuota);
     }
+    /**
+     * IDs of time intervals during which the rule must be enforced.
+     * 
+     */
     @Export(name="timeWindows", refs={List.class,Integer.class}, tree="[0,1]")
     private Output</* @Nullable */ List<Integer>> timeWindows;
 
+    /**
+     * @return IDs of time intervals during which the rule must be enforced.
+     * 
+     */
     public Output<Optional<List<Integer>>> timeWindows() {
         return Codegen.optional(this.timeWindows);
     }
+    /**
+     * The rule type, corresponding to the cloud application category. Valid values: `STREAMING_MEDIA`, `SOCIAL_NETWORKING`, `WEBMAIL`, `INSTANT_MESSAGING`, `FILE_SHARE`, `BUSINESS_PRODUCTIVITY`, `SYSTEM_AND_DEVELOPMENT`, `CONSUMER`, `HOSTING_PROVIDER`, `DNS_OVER_HTTPS`, `ENTERPRISE_COLLABORATION`, `GENERATIVE_AI`, `SALES_AND_MARKETING`, `HEALTH_CARE`, `LEGAL`, `HUMAN_RESOURCES`, `FINANCE`.
+     * 
+     */
     @Export(name="type", refs={String.class}, tree="[0]")
     private Output<String> type;
 
+    /**
+     * @return The rule type, corresponding to the cloud application category. Valid values: `STREAMING_MEDIA`, `SOCIAL_NETWORKING`, `WEBMAIL`, `INSTANT_MESSAGING`, `FILE_SHARE`, `BUSINESS_PRODUCTIVITY`, `SYSTEM_AND_DEVELOPMENT`, `CONSUMER`, `HOSTING_PROVIDER`, `DNS_OVER_HTTPS`, `ENTERPRISE_COLLABORATION`, `GENERATIVE_AI`, `SALES_AND_MARKETING`, `HEALTH_CARE`, `LEGAL`, `HUMAN_RESOURCES`, `FINANCE`.
+     * 
+     */
     public Output<String> type() {
         return this.type;
     }
+    /**
+     * IDs of users for which the rule must be applied.
+     * 
+     */
     @Export(name="users", refs={List.class,Integer.class}, tree="[0,1]")
     private Output</* @Nullable */ List<Integer>> users;
 
+    /**
+     * @return IDs of users for which the rule must be applied.
+     * 
+     */
     public Output<Optional<List<Integer>>> users() {
         return Codegen.optional(this.users);
     }
@@ -227,6 +467,7 @@ public class CloudAppControlRule extends com.pulumi.resources.CustomResource {
     private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<java.lang.String> id) {
         var defaultOptions = com.pulumi.resources.CustomResourceOptions.builder()
             .version(Utilities.getVersion())
+            .pluginDownloadURL("github://api.github.com/zscaler")
             .build();
         return com.pulumi.resources.CustomResourceOptions.merge(defaultOptions, options, id);
     }

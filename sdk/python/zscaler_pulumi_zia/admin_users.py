@@ -40,6 +40,23 @@ class AdminUsersArgs:
                  role: Optional[pulumi.Input['AdminUserRoleInputArgs']] = None):
         """
         The set of arguments for constructing a AdminUsers resource.
+        :param pulumi.Input[_builtins.str] email: The admin user's email address.
+        :param pulumi.Input[_builtins.str] login_name: The admin user's login name (email format). Must be unique.
+        :param pulumi.Input[_builtins.str] username: The admin user's display name.
+        :param pulumi.Input[Sequence[pulumi.Input[_builtins.int]]] admin_scope_entities: IDs of the admin scope entities (departments, locations, or location groups) when adminScopeType is not `ORGANIZATION`.
+        :param pulumi.Input[_builtins.str] admin_scope_type: The admin scope type. Valid values: `ORGANIZATION`, `DEPARTMENT`, `LOCATION`, `LOCATION_GROUP`.
+        :param pulumi.Input[_builtins.str] comments: Additional information about the admin user.
+        :param pulumi.Input[_builtins.bool] disabled: Whether the admin account is disabled.
+        :param pulumi.Input[_builtins.bool] is_auditor: Indicates whether the admin is an auditor.
+        :param pulumi.Input[_builtins.bool] is_exec_mobile_app_enabled: Whether Executive Insights App access is enabled. Can only be set when adminScopeType is `ORGANIZATION`.
+        :param pulumi.Input[_builtins.bool] is_non_editable: Indicates whether the admin user is non-editable (read-only in the ZIA Admin Portal).
+        :param pulumi.Input[_builtins.bool] is_password_expired: Indicates whether the admin user's password has expired.
+        :param pulumi.Input[_builtins.bool] is_password_login_allowed: Whether password-based login is allowed for the admin user.
+        :param pulumi.Input[_builtins.bool] is_product_update_comm_enabled: Whether the admin can receive product update communications.
+        :param pulumi.Input[_builtins.bool] is_security_report_comm_enabled: Whether the admin can receive security report communications.
+        :param pulumi.Input[_builtins.bool] is_service_update_comm_enabled: Whether the admin can receive service update communications.
+        :param pulumi.Input[_builtins.str] password: The admin user's password. Required when isPasswordLoginAllowed is true. Must be 8 to 100 characters.
+        :param pulumi.Input['AdminUserRoleInputArgs'] role: The role assigned to the admin user. Provide the role ID.
         """
         pulumi.set(__self__, "email", email)
         pulumi.set(__self__, "login_name", login_name)
@@ -76,6 +93,9 @@ class AdminUsersArgs:
     @_builtins.property
     @pulumi.getter
     def email(self) -> pulumi.Input[_builtins.str]:
+        """
+        The admin user's email address.
+        """
         return pulumi.get(self, "email")
 
     @email.setter
@@ -85,6 +105,9 @@ class AdminUsersArgs:
     @_builtins.property
     @pulumi.getter(name="loginName")
     def login_name(self) -> pulumi.Input[_builtins.str]:
+        """
+        The admin user's login name (email format). Must be unique.
+        """
         return pulumi.get(self, "login_name")
 
     @login_name.setter
@@ -94,6 +117,9 @@ class AdminUsersArgs:
     @_builtins.property
     @pulumi.getter
     def username(self) -> pulumi.Input[_builtins.str]:
+        """
+        The admin user's display name.
+        """
         return pulumi.get(self, "username")
 
     @username.setter
@@ -103,6 +129,9 @@ class AdminUsersArgs:
     @_builtins.property
     @pulumi.getter(name="adminScopeEntities")
     def admin_scope_entities(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.int]]]]:
+        """
+        IDs of the admin scope entities (departments, locations, or location groups) when adminScopeType is not `ORGANIZATION`.
+        """
         return pulumi.get(self, "admin_scope_entities")
 
     @admin_scope_entities.setter
@@ -112,6 +141,9 @@ class AdminUsersArgs:
     @_builtins.property
     @pulumi.getter(name="adminScopeType")
     def admin_scope_type(self) -> Optional[pulumi.Input[_builtins.str]]:
+        """
+        The admin scope type. Valid values: `ORGANIZATION`, `DEPARTMENT`, `LOCATION`, `LOCATION_GROUP`.
+        """
         return pulumi.get(self, "admin_scope_type")
 
     @admin_scope_type.setter
@@ -121,6 +153,9 @@ class AdminUsersArgs:
     @_builtins.property
     @pulumi.getter
     def comments(self) -> Optional[pulumi.Input[_builtins.str]]:
+        """
+        Additional information about the admin user.
+        """
         return pulumi.get(self, "comments")
 
     @comments.setter
@@ -130,6 +165,9 @@ class AdminUsersArgs:
     @_builtins.property
     @pulumi.getter
     def disabled(self) -> Optional[pulumi.Input[_builtins.bool]]:
+        """
+        Whether the admin account is disabled.
+        """
         return pulumi.get(self, "disabled")
 
     @disabled.setter
@@ -139,6 +177,9 @@ class AdminUsersArgs:
     @_builtins.property
     @pulumi.getter(name="isAuditor")
     def is_auditor(self) -> Optional[pulumi.Input[_builtins.bool]]:
+        """
+        Indicates whether the admin is an auditor.
+        """
         return pulumi.get(self, "is_auditor")
 
     @is_auditor.setter
@@ -148,6 +189,9 @@ class AdminUsersArgs:
     @_builtins.property
     @pulumi.getter(name="isExecMobileAppEnabled")
     def is_exec_mobile_app_enabled(self) -> Optional[pulumi.Input[_builtins.bool]]:
+        """
+        Whether Executive Insights App access is enabled. Can only be set when adminScopeType is `ORGANIZATION`.
+        """
         return pulumi.get(self, "is_exec_mobile_app_enabled")
 
     @is_exec_mobile_app_enabled.setter
@@ -157,6 +201,9 @@ class AdminUsersArgs:
     @_builtins.property
     @pulumi.getter(name="isNonEditable")
     def is_non_editable(self) -> Optional[pulumi.Input[_builtins.bool]]:
+        """
+        Indicates whether the admin user is non-editable (read-only in the ZIA Admin Portal).
+        """
         return pulumi.get(self, "is_non_editable")
 
     @is_non_editable.setter
@@ -166,6 +213,9 @@ class AdminUsersArgs:
     @_builtins.property
     @pulumi.getter(name="isPasswordExpired")
     def is_password_expired(self) -> Optional[pulumi.Input[_builtins.bool]]:
+        """
+        Indicates whether the admin user's password has expired.
+        """
         return pulumi.get(self, "is_password_expired")
 
     @is_password_expired.setter
@@ -175,6 +225,9 @@ class AdminUsersArgs:
     @_builtins.property
     @pulumi.getter(name="isPasswordLoginAllowed")
     def is_password_login_allowed(self) -> Optional[pulumi.Input[_builtins.bool]]:
+        """
+        Whether password-based login is allowed for the admin user.
+        """
         return pulumi.get(self, "is_password_login_allowed")
 
     @is_password_login_allowed.setter
@@ -184,6 +237,9 @@ class AdminUsersArgs:
     @_builtins.property
     @pulumi.getter(name="isProductUpdateCommEnabled")
     def is_product_update_comm_enabled(self) -> Optional[pulumi.Input[_builtins.bool]]:
+        """
+        Whether the admin can receive product update communications.
+        """
         return pulumi.get(self, "is_product_update_comm_enabled")
 
     @is_product_update_comm_enabled.setter
@@ -193,6 +249,9 @@ class AdminUsersArgs:
     @_builtins.property
     @pulumi.getter(name="isSecurityReportCommEnabled")
     def is_security_report_comm_enabled(self) -> Optional[pulumi.Input[_builtins.bool]]:
+        """
+        Whether the admin can receive security report communications.
+        """
         return pulumi.get(self, "is_security_report_comm_enabled")
 
     @is_security_report_comm_enabled.setter
@@ -202,6 +261,9 @@ class AdminUsersArgs:
     @_builtins.property
     @pulumi.getter(name="isServiceUpdateCommEnabled")
     def is_service_update_comm_enabled(self) -> Optional[pulumi.Input[_builtins.bool]]:
+        """
+        Whether the admin can receive service update communications.
+        """
         return pulumi.get(self, "is_service_update_comm_enabled")
 
     @is_service_update_comm_enabled.setter
@@ -211,6 +273,9 @@ class AdminUsersArgs:
     @_builtins.property
     @pulumi.getter
     def password(self) -> Optional[pulumi.Input[_builtins.str]]:
+        """
+        The admin user's password. Required when isPasswordLoginAllowed is true. Must be 8 to 100 characters.
+        """
         return pulumi.get(self, "password")
 
     @password.setter
@@ -220,6 +285,9 @@ class AdminUsersArgs:
     @_builtins.property
     @pulumi.getter
     def role(self) -> Optional[pulumi.Input['AdminUserRoleInputArgs']]:
+        """
+        The role assigned to the admin user. Provide the role ID.
+        """
         return pulumi.get(self, "role")
 
     @role.setter
@@ -252,9 +320,57 @@ class AdminUsers(pulumi.CustomResource):
                  username: Optional[pulumi.Input[_builtins.str]] = None,
                  __props__=None):
         """
-        Create a AdminUsers resource with the given unique name, props, and options.
+        The zia_admin_users resource manages administrator users in the Zscaler Internet Access (ZIA) cloud service. Administrator users have access to the ZIA Admin Portal and can manage policies, configurations, and other administrative tasks based on their assigned role.
+
+        For more information, see the [ZIA Admin User Management documentation](https://help.zscaler.com/zia/admin-user-management).
+
+        ## Example Usage
+        ### Basic Admin User
+
+        ```python
+        import zscaler_pulumi_zia as zia
+
+        cfg = pulumi.Config()
+        admin_password = cfg.require_secret("adminPassword")
+
+        example = zia.AdminUsers("example",
+            login_name="admin@example.com",
+            username="Example Admin",
+            email="admin@example.com",
+            password=admin_password,
+            is_password_login_allowed=True,
+            role={"id": 12345},
+            admin_scope_type="ORGANIZATION",
+        )
+        ```
+
+        ## Import
+
+        An existing admin user can be imported using its resource ID, e.g.
+
+        ```sh
+        $ pulumi import zia:index:AdminUsers example 12345
+        ```
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
+        :param pulumi.Input[Sequence[pulumi.Input[_builtins.int]]] admin_scope_entities: IDs of the admin scope entities (departments, locations, or location groups) when adminScopeType is not `ORGANIZATION`.
+        :param pulumi.Input[_builtins.str] admin_scope_type: The admin scope type. Valid values: `ORGANIZATION`, `DEPARTMENT`, `LOCATION`, `LOCATION_GROUP`.
+        :param pulumi.Input[_builtins.str] comments: Additional information about the admin user.
+        :param pulumi.Input[_builtins.bool] disabled: Whether the admin account is disabled.
+        :param pulumi.Input[_builtins.str] email: The admin user's email address.
+        :param pulumi.Input[_builtins.bool] is_auditor: Indicates whether the admin is an auditor.
+        :param pulumi.Input[_builtins.bool] is_exec_mobile_app_enabled: Whether Executive Insights App access is enabled. Can only be set when adminScopeType is `ORGANIZATION`.
+        :param pulumi.Input[_builtins.bool] is_non_editable: Indicates whether the admin user is non-editable (read-only in the ZIA Admin Portal).
+        :param pulumi.Input[_builtins.bool] is_password_expired: Indicates whether the admin user's password has expired.
+        :param pulumi.Input[_builtins.bool] is_password_login_allowed: Whether password-based login is allowed for the admin user.
+        :param pulumi.Input[_builtins.bool] is_product_update_comm_enabled: Whether the admin can receive product update communications.
+        :param pulumi.Input[_builtins.bool] is_security_report_comm_enabled: Whether the admin can receive security report communications.
+        :param pulumi.Input[_builtins.bool] is_service_update_comm_enabled: Whether the admin can receive service update communications.
+        :param pulumi.Input[_builtins.str] login_name: The admin user's login name (email format). Must be unique.
+        :param pulumi.Input[_builtins.str] password: The admin user's password. Required when isPasswordLoginAllowed is true. Must be 8 to 100 characters.
+        :param pulumi.Input[Union['AdminUserRoleInputArgs', 'AdminUserRoleInputArgsDict']] role: The role assigned to the admin user. Provide the role ID.
+        :param pulumi.Input[_builtins.str] username: The admin user's display name.
         """
         ...
     @overload
@@ -263,7 +379,38 @@ class AdminUsers(pulumi.CustomResource):
                  args: AdminUsersArgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
-        Create a AdminUsers resource with the given unique name, props, and options.
+        The zia_admin_users resource manages administrator users in the Zscaler Internet Access (ZIA) cloud service. Administrator users have access to the ZIA Admin Portal and can manage policies, configurations, and other administrative tasks based on their assigned role.
+
+        For more information, see the [ZIA Admin User Management documentation](https://help.zscaler.com/zia/admin-user-management).
+
+        ## Example Usage
+        ### Basic Admin User
+
+        ```python
+        import zscaler_pulumi_zia as zia
+
+        cfg = pulumi.Config()
+        admin_password = cfg.require_secret("adminPassword")
+
+        example = zia.AdminUsers("example",
+            login_name="admin@example.com",
+            username="Example Admin",
+            email="admin@example.com",
+            password=admin_password,
+            is_password_login_allowed=True,
+            role={"id": 12345},
+            admin_scope_type="ORGANIZATION",
+        )
+        ```
+
+        ## Import
+
+        An existing admin user can be imported using its resource ID, e.g.
+
+        ```sh
+        $ pulumi import zia:index:AdminUsers example 12345
+        ```
+
         :param str resource_name: The name of the resource.
         :param AdminUsersArgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -376,90 +523,144 @@ class AdminUsers(pulumi.CustomResource):
     @_builtins.property
     @pulumi.getter(name="adminId")
     def admin_id(self) -> pulumi.Output[_builtins.int]:
+        """
+        The system-generated ID of the admin user.
+        """
         return pulumi.get(self, "admin_id")
 
     @_builtins.property
     @pulumi.getter(name="adminScopeEntities")
     def admin_scope_entities(self) -> pulumi.Output[Optional[Sequence[_builtins.int]]]:
+        """
+        IDs of the admin scope entities (departments, locations, or location groups) when adminScopeType is not `ORGANIZATION`.
+        """
         return pulumi.get(self, "admin_scope_entities")
 
     @_builtins.property
     @pulumi.getter(name="adminScopeType")
     def admin_scope_type(self) -> pulumi.Output[Optional[_builtins.str]]:
+        """
+        The admin scope type. Valid values: `ORGANIZATION`, `DEPARTMENT`, `LOCATION`, `LOCATION_GROUP`.
+        """
         return pulumi.get(self, "admin_scope_type")
 
     @_builtins.property
     @pulumi.getter
     def comments(self) -> pulumi.Output[Optional[_builtins.str]]:
+        """
+        Additional information about the admin user.
+        """
         return pulumi.get(self, "comments")
 
     @_builtins.property
     @pulumi.getter
     def disabled(self) -> pulumi.Output[Optional[_builtins.bool]]:
+        """
+        Whether the admin account is disabled.
+        """
         return pulumi.get(self, "disabled")
 
     @_builtins.property
     @pulumi.getter
     def email(self) -> pulumi.Output[_builtins.str]:
+        """
+        The admin user's email address.
+        """
         return pulumi.get(self, "email")
 
     @_builtins.property
     @pulumi.getter(name="isAuditor")
     def is_auditor(self) -> pulumi.Output[Optional[_builtins.bool]]:
+        """
+        Indicates whether the admin is an auditor.
+        """
         return pulumi.get(self, "is_auditor")
 
     @_builtins.property
     @pulumi.getter(name="isExecMobileAppEnabled")
     def is_exec_mobile_app_enabled(self) -> pulumi.Output[Optional[_builtins.bool]]:
+        """
+        Whether Executive Insights App access is enabled. Can only be set when adminScopeType is `ORGANIZATION`.
+        """
         return pulumi.get(self, "is_exec_mobile_app_enabled")
 
     @_builtins.property
     @pulumi.getter(name="isNonEditable")
     def is_non_editable(self) -> pulumi.Output[Optional[_builtins.bool]]:
+        """
+        Indicates whether the admin user is non-editable (read-only in the ZIA Admin Portal).
+        """
         return pulumi.get(self, "is_non_editable")
 
     @_builtins.property
     @pulumi.getter(name="isPasswordExpired")
     def is_password_expired(self) -> pulumi.Output[Optional[_builtins.bool]]:
+        """
+        Indicates whether the admin user's password has expired.
+        """
         return pulumi.get(self, "is_password_expired")
 
     @_builtins.property
     @pulumi.getter(name="isPasswordLoginAllowed")
     def is_password_login_allowed(self) -> pulumi.Output[Optional[_builtins.bool]]:
+        """
+        Whether password-based login is allowed for the admin user.
+        """
         return pulumi.get(self, "is_password_login_allowed")
 
     @_builtins.property
     @pulumi.getter(name="isProductUpdateCommEnabled")
     def is_product_update_comm_enabled(self) -> pulumi.Output[Optional[_builtins.bool]]:
+        """
+        Whether the admin can receive product update communications.
+        """
         return pulumi.get(self, "is_product_update_comm_enabled")
 
     @_builtins.property
     @pulumi.getter(name="isSecurityReportCommEnabled")
     def is_security_report_comm_enabled(self) -> pulumi.Output[Optional[_builtins.bool]]:
+        """
+        Whether the admin can receive security report communications.
+        """
         return pulumi.get(self, "is_security_report_comm_enabled")
 
     @_builtins.property
     @pulumi.getter(name="isServiceUpdateCommEnabled")
     def is_service_update_comm_enabled(self) -> pulumi.Output[Optional[_builtins.bool]]:
+        """
+        Whether the admin can receive service update communications.
+        """
         return pulumi.get(self, "is_service_update_comm_enabled")
 
     @_builtins.property
     @pulumi.getter(name="loginName")
     def login_name(self) -> pulumi.Output[_builtins.str]:
+        """
+        The admin user's login name (email format). Must be unique.
+        """
         return pulumi.get(self, "login_name")
 
     @_builtins.property
     @pulumi.getter
     def password(self) -> pulumi.Output[Optional[_builtins.str]]:
+        """
+        The admin user's password. Required when isPasswordLoginAllowed is true. Must be 8 to 100 characters.
+        """
         return pulumi.get(self, "password")
 
     @_builtins.property
     @pulumi.getter
     def role(self) -> pulumi.Output[Optional['outputs.AdminUserRoleInput']]:
+        """
+        The role assigned to the admin user. Provide the role ID.
+        """
         return pulumi.get(self, "role")
 
     @_builtins.property
     @pulumi.getter
     def username(self) -> pulumi.Output[_builtins.str]:
+        """
+        The admin user's display name.
+        """
         return pulumi.get(self, "username")
 

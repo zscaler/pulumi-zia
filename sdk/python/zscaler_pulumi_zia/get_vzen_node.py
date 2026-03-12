@@ -76,81 +76,129 @@ class GetVzenNodeResult:
     @_builtins.property
     @pulumi.getter(name="clusterName")
     def cluster_name(self) -> _builtins.str:
+        """
+        The cluster name if deployment mode is CLUSTER.
+        """
         return pulumi.get(self, "cluster_name")
 
     @_builtins.property
     @pulumi.getter(name="defaultGateway")
     def default_gateway(self) -> _builtins.str:
+        """
+        The default gateway of the VZEN node.
+        """
         return pulumi.get(self, "default_gateway")
 
     @_builtins.property
     @pulumi.getter(name="deploymentMode")
     def deployment_mode(self) -> _builtins.str:
+        """
+        The deployment mode (STANDALONE or CLUSTER).
+        """
         return pulumi.get(self, "deployment_mode")
 
     @_builtins.property
     @pulumi.getter(name="establishSupportTunnelEnabled")
     def establish_support_tunnel_enabled(self) -> _builtins.bool:
+        """
+        Whether establish support tunnel is enabled.
+        """
         return pulumi.get(self, "establish_support_tunnel_enabled")
 
     @_builtins.property
     @pulumi.getter(name="inProduction")
     def in_production(self) -> _builtins.bool:
+        """
+        Whether the node is in production.
+        """
         return pulumi.get(self, "in_production")
 
     @_builtins.property
     @pulumi.getter(name="ipAddress")
     def ip_address(self) -> _builtins.str:
+        """
+        The IP address of the VZEN node.
+        """
         return pulumi.get(self, "ip_address")
 
     @_builtins.property
     @pulumi.getter(name="ipSecEnabled")
     def ip_sec_enabled(self) -> _builtins.bool:
+        """
+        Whether IPSec is enabled on the node.
+        """
         return pulumi.get(self, "ip_sec_enabled")
 
     @_builtins.property
     @pulumi.getter(name="loadBalancerIpAddress")
     def load_balancer_ip_address(self) -> _builtins.str:
+        """
+        The load balancer IP address.
+        """
         return pulumi.get(self, "load_balancer_ip_address")
 
     @_builtins.property
     @pulumi.getter
     def name(self) -> _builtins.str:
+        """
+        The name of the VZEN node.
+        """
         return pulumi.get(self, "name")
 
     @_builtins.property
     @pulumi.getter(name="nodeId")
     def node_id(self) -> _builtins.int:
+        """
+        The ID of the VZEN node.
+        """
         return pulumi.get(self, "node_id")
 
     @_builtins.property
     @pulumi.getter(name="onDemandSupportTunnelEnabled")
     def on_demand_support_tunnel_enabled(self) -> _builtins.bool:
+        """
+        Whether on-demand support tunnel is enabled.
+        """
         return pulumi.get(self, "on_demand_support_tunnel_enabled")
 
     @_builtins.property
     @pulumi.getter
     def status(self) -> _builtins.str:
+        """
+        The status of the VZEN node.
+        """
         return pulumi.get(self, "status")
 
     @_builtins.property
     @pulumi.getter(name="subnetMask")
     def subnet_mask(self) -> _builtins.str:
+        """
+        The subnet mask of the VZEN node.
+        """
         return pulumi.get(self, "subnet_mask")
 
     @_builtins.property
     @pulumi.getter
     def type(self) -> _builtins.str:
+        """
+        The type of the VZEN node.
+        """
         return pulumi.get(self, "type")
 
     @_builtins.property
     @pulumi.getter(name="vzenSkuType")
     def vzen_sku_type(self) -> _builtins.str:
+        """
+        The VZEN SKU type (SMALL, MEDIUM, or LARGE).
+        """
         return pulumi.get(self, "vzen_sku_type")
 
     @_builtins.property
     @pulumi.getter(name="zGatewayId")
     def z_gateway_id(self) -> _builtins.int:
+        """
+        The ZGateway ID associated with the VZEN node.
+        """
         return pulumi.get(self, "z_gateway_id")
 
 
@@ -182,7 +230,11 @@ def get_vzen_node(name: Optional[_builtins.str] = None,
                   node_id: Optional[_builtins.int] = None,
                   opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetVzenNodeResult:
     """
-    Use this data source to access information about an existing resource.
+    Use this data source to look up a VZEN node by ID or name.
+
+
+    :param _builtins.str name: The name of the VZEN node to look up.
+    :param _builtins.int node_id: The ID of the VZEN node to look up.
     """
     __args__ = dict()
     __args__['name'] = name
@@ -211,7 +263,11 @@ def get_vzen_node_output(name: Optional[pulumi.Input[Optional[_builtins.str]]] =
                          node_id: Optional[pulumi.Input[Optional[_builtins.int]]] = None,
                          opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetVzenNodeResult]:
     """
-    Use this data source to access information about an existing resource.
+    Use this data source to look up a VZEN node by ID or name.
+
+
+    :param _builtins.str name: The name of the VZEN node to look up.
+    :param _builtins.int node_id: The ID of the VZEN node to look up.
     """
     __args__ = dict()
     __args__['name'] = name

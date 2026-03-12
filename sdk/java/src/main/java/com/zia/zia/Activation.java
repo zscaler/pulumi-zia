@@ -12,17 +12,45 @@ import com.zia.zia.Utilities;
 import java.lang.String;
 import javax.annotation.Nullable;
 
+/**
+ * The zia_activation resource triggers the activation of ZIA configuration changes in the Zscaler Internet Access (ZIA) cloud service. After making configuration changes to ZIA resources, this resource can be used to activate and push those changes to the ZIA cloud. Delete is a no-op.
+ * 
+ * For more information, see the [ZIA Configuration Activation documentation](https://help.zscaler.com/zia/activating-configuration-changes).
+ * 
+ * ## Example Usage
+ * 
+ * ## Import
+ * 
+ * This is a singleton resource and does not support traditional import. It is automatically managed by the provider.
+ * 
+ */
 @ResourceType(type="zia:index:Activation")
 public class Activation extends com.pulumi.resources.CustomResource {
+    /**
+     * The internal resource identifier for the activation.
+     * 
+     */
     @Export(name="resourceId", refs={String.class}, tree="[0]")
     private Output<String> resourceId;
 
+    /**
+     * @return The internal resource identifier for the activation.
+     * 
+     */
     public Output<String> resourceId() {
         return this.resourceId;
     }
+    /**
+     * The activation status. Must be `ACTIVE` to trigger configuration activation.
+     * 
+     */
     @Export(name="status", refs={String.class}, tree="[0]")
     private Output<String> status;
 
+    /**
+     * @return The activation status. Must be `ACTIVE` to trigger configuration activation.
+     * 
+     */
     public Output<String> status() {
         return this.status;
     }
@@ -66,6 +94,7 @@ public class Activation extends com.pulumi.resources.CustomResource {
     private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<java.lang.String> id) {
         var defaultOptions = com.pulumi.resources.CustomResourceOptions.builder()
             .version(Utilities.getVersion())
+            .pluginDownloadURL("github://api.github.com/zscaler")
             .build();
         return com.pulumi.resources.CustomResourceOptions.merge(defaultOptions, options, id);
     }

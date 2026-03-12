@@ -18,58 +18,122 @@ public final class TrafficForwardingGreTunnelArgs extends com.pulumi.resources.R
 
     public static final TrafficForwardingGreTunnelArgs Empty = new TrafficForwardingGreTunnelArgs();
 
+    /**
+     * Additional information about the GRE tunnel.
+     * 
+     */
     @Import(name="comment")
     private @Nullable Output<String> comment;
 
+    /**
+     * @return Additional information about the GRE tunnel.
+     * 
+     */
     public Optional<Output<String>> comment() {
         return Optional.ofNullable(this.comment);
     }
 
+    /**
+     * Country code (ISO 3166-1 alpha-2) used when withinCountry is true to restrict VIP selection.
+     * 
+     */
     @Import(name="countryCode")
     private @Nullable Output<String> countryCode;
 
+    /**
+     * @return Country code (ISO 3166-1 alpha-2) used when withinCountry is true to restrict VIP selection.
+     * 
+     */
     public Optional<Output<String>> countryCode() {
         return Optional.ofNullable(this.countryCode);
     }
 
+    /**
+     * The start of the internal IP address in /29 CIDR range. Automatically assigned if not provided.
+     * 
+     */
     @Import(name="internalIpRange")
     private @Nullable Output<String> internalIpRange;
 
+    /**
+     * @return The start of the internal IP address in /29 CIDR range. Automatically assigned if not provided.
+     * 
+     */
     public Optional<Output<String>> internalIpRange() {
         return Optional.ofNullable(this.internalIpRange);
     }
 
+    /**
+     * When set to true, indicates that the GRE tunnel interface is unnumbered (no internal IP range is assigned).
+     * 
+     */
     @Import(name="ipUnnumbered")
     private @Nullable Output<Boolean> ipUnnumbered;
 
+    /**
+     * @return When set to true, indicates that the GRE tunnel interface is unnumbered (no internal IP range is assigned).
+     * 
+     */
     public Optional<Output<Boolean>> ipUnnumbered() {
         return Optional.ofNullable(this.ipUnnumbered);
     }
 
+    /**
+     * The primary destination data center and virtual IP address (VIP) of the GRE tunnel.
+     * 
+     */
     @Import(name="primaryDestVip")
     private @Nullable Output<GreTunnelDestVipInputArgs> primaryDestVip;
 
+    /**
+     * @return The primary destination data center and virtual IP address (VIP) of the GRE tunnel.
+     * 
+     */
     public Optional<Output<GreTunnelDestVipInputArgs>> primaryDestVip() {
         return Optional.ofNullable(this.primaryDestVip);
     }
 
+    /**
+     * The secondary destination data center and virtual IP address (VIP) of the GRE tunnel.
+     * 
+     */
     @Import(name="secondaryDestVip")
     private @Nullable Output<GreTunnelDestVipInputArgs> secondaryDestVip;
 
+    /**
+     * @return The secondary destination data center and virtual IP address (VIP) of the GRE tunnel.
+     * 
+     */
     public Optional<Output<GreTunnelDestVipInputArgs>> secondaryDestVip() {
         return Optional.ofNullable(this.secondaryDestVip);
     }
 
+    /**
+     * The source IP address of the GRE tunnel. This is typically a static IP associated with the location.
+     * 
+     */
     @Import(name="sourceIp", required=true)
     private Output<String> sourceIp;
 
+    /**
+     * @return The source IP address of the GRE tunnel. This is typically a static IP associated with the location.
+     * 
+     */
     public Output<String> sourceIp() {
         return this.sourceIp;
     }
 
+    /**
+     * Restrict the data center virtual IP addresses (VIPs) only to those within the same country as the source IP.
+     * 
+     */
     @Import(name="withinCountry")
     private @Nullable Output<Boolean> withinCountry;
 
+    /**
+     * @return Restrict the data center virtual IP addresses (VIPs) only to those within the same country as the source IP.
+     * 
+     */
     public Optional<Output<Boolean>> withinCountry() {
         return Optional.ofNullable(this.withinCountry);
     }
@@ -105,74 +169,170 @@ public final class TrafficForwardingGreTunnelArgs extends com.pulumi.resources.R
             $ = new TrafficForwardingGreTunnelArgs(Objects.requireNonNull(defaults));
         }
 
+        /**
+         * @param comment Additional information about the GRE tunnel.
+         * 
+         * @return builder
+         * 
+         */
         public Builder comment(@Nullable Output<String> comment) {
             $.comment = comment;
             return this;
         }
 
+        /**
+         * @param comment Additional information about the GRE tunnel.
+         * 
+         * @return builder
+         * 
+         */
         public Builder comment(String comment) {
             return comment(Output.of(comment));
         }
 
+        /**
+         * @param countryCode Country code (ISO 3166-1 alpha-2) used when withinCountry is true to restrict VIP selection.
+         * 
+         * @return builder
+         * 
+         */
         public Builder countryCode(@Nullable Output<String> countryCode) {
             $.countryCode = countryCode;
             return this;
         }
 
+        /**
+         * @param countryCode Country code (ISO 3166-1 alpha-2) used when withinCountry is true to restrict VIP selection.
+         * 
+         * @return builder
+         * 
+         */
         public Builder countryCode(String countryCode) {
             return countryCode(Output.of(countryCode));
         }
 
+        /**
+         * @param internalIpRange The start of the internal IP address in /29 CIDR range. Automatically assigned if not provided.
+         * 
+         * @return builder
+         * 
+         */
         public Builder internalIpRange(@Nullable Output<String> internalIpRange) {
             $.internalIpRange = internalIpRange;
             return this;
         }
 
+        /**
+         * @param internalIpRange The start of the internal IP address in /29 CIDR range. Automatically assigned if not provided.
+         * 
+         * @return builder
+         * 
+         */
         public Builder internalIpRange(String internalIpRange) {
             return internalIpRange(Output.of(internalIpRange));
         }
 
+        /**
+         * @param ipUnnumbered When set to true, indicates that the GRE tunnel interface is unnumbered (no internal IP range is assigned).
+         * 
+         * @return builder
+         * 
+         */
         public Builder ipUnnumbered(@Nullable Output<Boolean> ipUnnumbered) {
             $.ipUnnumbered = ipUnnumbered;
             return this;
         }
 
+        /**
+         * @param ipUnnumbered When set to true, indicates that the GRE tunnel interface is unnumbered (no internal IP range is assigned).
+         * 
+         * @return builder
+         * 
+         */
         public Builder ipUnnumbered(Boolean ipUnnumbered) {
             return ipUnnumbered(Output.of(ipUnnumbered));
         }
 
+        /**
+         * @param primaryDestVip The primary destination data center and virtual IP address (VIP) of the GRE tunnel.
+         * 
+         * @return builder
+         * 
+         */
         public Builder primaryDestVip(@Nullable Output<GreTunnelDestVipInputArgs> primaryDestVip) {
             $.primaryDestVip = primaryDestVip;
             return this;
         }
 
+        /**
+         * @param primaryDestVip The primary destination data center and virtual IP address (VIP) of the GRE tunnel.
+         * 
+         * @return builder
+         * 
+         */
         public Builder primaryDestVip(GreTunnelDestVipInputArgs primaryDestVip) {
             return primaryDestVip(Output.of(primaryDestVip));
         }
 
+        /**
+         * @param secondaryDestVip The secondary destination data center and virtual IP address (VIP) of the GRE tunnel.
+         * 
+         * @return builder
+         * 
+         */
         public Builder secondaryDestVip(@Nullable Output<GreTunnelDestVipInputArgs> secondaryDestVip) {
             $.secondaryDestVip = secondaryDestVip;
             return this;
         }
 
+        /**
+         * @param secondaryDestVip The secondary destination data center and virtual IP address (VIP) of the GRE tunnel.
+         * 
+         * @return builder
+         * 
+         */
         public Builder secondaryDestVip(GreTunnelDestVipInputArgs secondaryDestVip) {
             return secondaryDestVip(Output.of(secondaryDestVip));
         }
 
+        /**
+         * @param sourceIp The source IP address of the GRE tunnel. This is typically a static IP associated with the location.
+         * 
+         * @return builder
+         * 
+         */
         public Builder sourceIp(Output<String> sourceIp) {
             $.sourceIp = sourceIp;
             return this;
         }
 
+        /**
+         * @param sourceIp The source IP address of the GRE tunnel. This is typically a static IP associated with the location.
+         * 
+         * @return builder
+         * 
+         */
         public Builder sourceIp(String sourceIp) {
             return sourceIp(Output.of(sourceIp));
         }
 
+        /**
+         * @param withinCountry Restrict the data center virtual IP addresses (VIPs) only to those within the same country as the source IP.
+         * 
+         * @return builder
+         * 
+         */
         public Builder withinCountry(@Nullable Output<Boolean> withinCountry) {
             $.withinCountry = withinCountry;
             return this;
         }
 
+        /**
+         * @param withinCountry Restrict the data center virtual IP addresses (VIPs) only to those within the same country as the source IP.
+         * 
+         * @return builder
+         * 
+         */
         public Builder withinCountry(Boolean withinCountry) {
             return withinCountry(Output.of(withinCountry));
         }

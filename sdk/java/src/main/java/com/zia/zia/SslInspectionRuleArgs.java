@@ -21,177 +21,377 @@ public final class SslInspectionRuleArgs extends com.pulumi.resources.ResourceAr
 
     public static final SslInspectionRuleArgs Empty = new SslInspectionRuleArgs();
 
+    /**
+     * The action configuration for the SSL inspection rule, including decrypt/do-not-decrypt sub-actions.
+     * 
+     */
     @Import(name="action", required=true)
     private Output<SslInspectionActionInputArgs> action;
 
+    /**
+     * @return The action configuration for the SSL inspection rule, including decrypt/do-not-decrypt sub-actions.
+     * 
+     */
     public Output<SslInspectionActionInputArgs> action() {
         return this.action;
     }
 
+    /**
+     * List of cloud application names to which the rule applies.
+     * 
+     */
     @Import(name="cloudApplications")
     private @Nullable Output<List<String>> cloudApplications;
 
+    /**
+     * @return List of cloud application names to which the rule applies.
+     * 
+     */
     public Optional<Output<List<String>>> cloudApplications() {
         return Optional.ofNullable(this.cloudApplications);
     }
 
+    /**
+     * IDs of departments to which the rule applies.
+     * 
+     */
     @Import(name="departments")
     private @Nullable Output<List<Integer>> departments;
 
+    /**
+     * @return IDs of departments to which the rule applies.
+     * 
+     */
     public Optional<Output<List<Integer>>> departments() {
         return Optional.ofNullable(this.departments);
     }
 
+    /**
+     * Additional information about the SSL inspection rule.
+     * 
+     */
     @Import(name="description")
     private @Nullable Output<String> description;
 
+    /**
+     * @return Additional information about the SSL inspection rule.
+     * 
+     */
     public Optional<Output<String>> description() {
         return Optional.ofNullable(this.description);
     }
 
+    /**
+     * IDs of destination IP address groups for the rule.
+     * 
+     */
     @Import(name="destIpGroups")
     private @Nullable Output<List<Integer>> destIpGroups;
 
+    /**
+     * @return IDs of destination IP address groups for the rule.
+     * 
+     */
     public Optional<Output<List<Integer>>> destIpGroups() {
         return Optional.ofNullable(this.destIpGroups);
     }
 
+    /**
+     * IDs of device groups to which the rule applies.
+     * 
+     */
     @Import(name="deviceGroups")
     private @Nullable Output<List<Integer>> deviceGroups;
 
+    /**
+     * @return IDs of device groups to which the rule applies.
+     * 
+     */
     public Optional<Output<List<Integer>>> deviceGroups() {
         return Optional.ofNullable(this.deviceGroups);
     }
 
+    /**
+     * Device trust levels for the rule. Valid values: `ANY`, `UNKNOWN_DEVICETRUSTLEVEL`, `LOW_TRUST`, `MEDIUM_TRUST`, `HIGH_TRUST`.
+     * 
+     */
     @Import(name="deviceTrustLevels")
     private @Nullable Output<List<String>> deviceTrustLevels;
 
+    /**
+     * @return Device trust levels for the rule. Valid values: `ANY`, `UNKNOWN_DEVICETRUSTLEVEL`, `LOW_TRUST`, `MEDIUM_TRUST`, `HIGH_TRUST`.
+     * 
+     */
     public Optional<Output<List<String>>> deviceTrustLevels() {
         return Optional.ofNullable(this.deviceTrustLevels);
     }
 
+    /**
+     * IDs of devices to which the rule applies.
+     * 
+     */
     @Import(name="devices")
     private @Nullable Output<List<Integer>> devices;
 
+    /**
+     * @return IDs of devices to which the rule applies.
+     * 
+     */
     public Optional<Output<List<Integer>>> devices() {
         return Optional.ofNullable(this.devices);
     }
 
+    /**
+     * IDs of groups to which the rule applies.
+     * 
+     */
     @Import(name="groups")
     private @Nullable Output<List<Integer>> groups;
 
+    /**
+     * @return IDs of groups to which the rule applies.
+     * 
+     */
     public Optional<Output<List<Integer>>> groups() {
         return Optional.ofNullable(this.groups);
     }
 
+    /**
+     * IDs of labels associated with the rule.
+     * 
+     */
     @Import(name="labels")
     private @Nullable Output<List<Integer>> labels;
 
+    /**
+     * @return IDs of labels associated with the rule.
+     * 
+     */
     public Optional<Output<List<Integer>>> labels() {
         return Optional.ofNullable(this.labels);
     }
 
+    /**
+     * IDs of location groups to which the rule applies.
+     * 
+     */
     @Import(name="locationGroups")
     private @Nullable Output<List<Integer>> locationGroups;
 
+    /**
+     * @return IDs of location groups to which the rule applies.
+     * 
+     */
     public Optional<Output<List<Integer>>> locationGroups() {
         return Optional.ofNullable(this.locationGroups);
     }
 
+    /**
+     * IDs of locations to which the rule applies.
+     * 
+     */
     @Import(name="locations")
     private @Nullable Output<List<Integer>> locations;
 
+    /**
+     * @return IDs of locations to which the rule applies.
+     * 
+     */
     public Optional<Output<List<Integer>>> locations() {
         return Optional.ofNullable(this.locations);
     }
 
+    /**
+     * The name of the SSL inspection rule. Must be unique.
+     * 
+     */
     @Import(name="name", required=true)
     private Output<String> name;
 
+    /**
+     * @return The name of the SSL inspection rule. Must be unique.
+     * 
+     */
     public Output<String> name() {
         return this.name;
     }
 
+    /**
+     * The order of execution of the rule with respect to other SSL inspection rules.
+     * 
+     */
     @Import(name="order", required=true)
     private Output<Integer> order;
 
+    /**
+     * @return The order of execution of the rule with respect to other SSL inspection rules.
+     * 
+     */
     public Output<Integer> order() {
         return this.order;
     }
 
+    /**
+     * Platforms to which the rule applies (e.g., `SCAN_IOS`, `SCAN_ANDROID`, `SCAN_MACOS`, `SCAN_WINDOWS`, `SCAN_LINUX`).
+     * 
+     */
     @Import(name="platforms")
     private @Nullable Output<List<String>> platforms;
 
+    /**
+     * @return Platforms to which the rule applies (e.g., `SCAN_IOS`, `SCAN_ANDROID`, `SCAN_MACOS`, `SCAN_WINDOWS`, `SCAN_LINUX`).
+     * 
+     */
     public Optional<Output<List<String>>> platforms() {
         return Optional.ofNullable(this.platforms);
     }
 
+    /**
+     * IDs of proxy gateway configurations for the rule.
+     * 
+     */
     @Import(name="proxyGateways")
     private @Nullable Output<List<Integer>> proxyGateways;
 
+    /**
+     * @return IDs of proxy gateway configurations for the rule.
+     * 
+     */
     public Optional<Output<List<Integer>>> proxyGateways() {
         return Optional.ofNullable(this.proxyGateways);
     }
 
+    /**
+     * Admin rank of the SSL inspection policy rule. Valid values: 0-7. Default: 7.
+     * 
+     */
     @Import(name="rank")
     private @Nullable Output<Integer> rank;
 
+    /**
+     * @return Admin rank of the SSL inspection policy rule. Valid values: 0-7. Default: 7.
+     * 
+     */
     public Optional<Output<Integer>> rank() {
         return Optional.ofNullable(this.rank);
     }
 
+    /**
+     * Indicates whether the rule applies to road warrior (remote) users using Kerberos authentication.
+     * 
+     */
     @Import(name="roadWarriorForKerberos")
     private @Nullable Output<Boolean> roadWarriorForKerberos;
 
+    /**
+     * @return Indicates whether the rule applies to road warrior (remote) users using Kerberos authentication.
+     * 
+     */
     public Optional<Output<Boolean>> roadWarriorForKerberos() {
         return Optional.ofNullable(this.roadWarriorForKerberos);
     }
 
+    /**
+     * IDs of source IP address groups for the rule.
+     * 
+     */
     @Import(name="sourceIpGroups")
     private @Nullable Output<List<Integer>> sourceIpGroups;
 
+    /**
+     * @return IDs of source IP address groups for the rule.
+     * 
+     */
     public Optional<Output<List<Integer>>> sourceIpGroups() {
         return Optional.ofNullable(this.sourceIpGroups);
     }
 
+    /**
+     * Rule state. Valid values: `ENABLED`, `DISABLED`.
+     * 
+     */
     @Import(name="state")
     private @Nullable Output<String> state;
 
+    /**
+     * @return Rule state. Valid values: `ENABLED`, `DISABLED`.
+     * 
+     */
     public Optional<Output<String>> state() {
         return Optional.ofNullable(this.state);
     }
 
+    /**
+     * IDs of time intervals during which the rule must be enforced.
+     * 
+     */
     @Import(name="timeWindows")
     private @Nullable Output<List<Integer>> timeWindows;
 
+    /**
+     * @return IDs of time intervals during which the rule must be enforced.
+     * 
+     */
     public Optional<Output<List<Integer>>> timeWindows() {
         return Optional.ofNullable(this.timeWindows);
     }
 
+    /**
+     * List of URL categories to which the rule applies.
+     * 
+     */
     @Import(name="urlCategories")
     private @Nullable Output<List<String>> urlCategories;
 
+    /**
+     * @return List of URL categories to which the rule applies.
+     * 
+     */
     public Optional<Output<List<String>>> urlCategories() {
         return Optional.ofNullable(this.urlCategories);
     }
 
+    /**
+     * User agent types the rule applies to.
+     * 
+     */
     @Import(name="userAgentTypes")
     private @Nullable Output<List<String>> userAgentTypes;
 
+    /**
+     * @return User agent types the rule applies to.
+     * 
+     */
     public Optional<Output<List<String>>> userAgentTypes() {
         return Optional.ofNullable(this.userAgentTypes);
     }
 
+    /**
+     * IDs of users to which the rule applies.
+     * 
+     */
     @Import(name="users")
     private @Nullable Output<List<Integer>> users;
 
+    /**
+     * @return IDs of users to which the rule applies.
+     * 
+     */
     public Optional<Output<List<Integer>>> users() {
         return Optional.ofNullable(this.users);
     }
 
+    /**
+     * List of preconfigured workload groups to which the policy must be applied.
+     * 
+     */
     @Import(name="workloadGroups")
     private @Nullable Output<List<WorkloadGroupInputArgs>> workloadGroups;
 
+    /**
+     * @return List of preconfigured workload groups to which the policy must be applied.
+     * 
+     */
     public Optional<Output<List<WorkloadGroupInputArgs>>> workloadGroups() {
         return Optional.ofNullable(this.workloadGroups);
     }
@@ -244,299 +444,707 @@ public final class SslInspectionRuleArgs extends com.pulumi.resources.ResourceAr
             $ = new SslInspectionRuleArgs(Objects.requireNonNull(defaults));
         }
 
+        /**
+         * @param action The action configuration for the SSL inspection rule, including decrypt/do-not-decrypt sub-actions.
+         * 
+         * @return builder
+         * 
+         */
         public Builder action(Output<SslInspectionActionInputArgs> action) {
             $.action = action;
             return this;
         }
 
+        /**
+         * @param action The action configuration for the SSL inspection rule, including decrypt/do-not-decrypt sub-actions.
+         * 
+         * @return builder
+         * 
+         */
         public Builder action(SslInspectionActionInputArgs action) {
             return action(Output.of(action));
         }
 
+        /**
+         * @param cloudApplications List of cloud application names to which the rule applies.
+         * 
+         * @return builder
+         * 
+         */
         public Builder cloudApplications(@Nullable Output<List<String>> cloudApplications) {
             $.cloudApplications = cloudApplications;
             return this;
         }
 
+        /**
+         * @param cloudApplications List of cloud application names to which the rule applies.
+         * 
+         * @return builder
+         * 
+         */
         public Builder cloudApplications(List<String> cloudApplications) {
             return cloudApplications(Output.of(cloudApplications));
         }
 
+        /**
+         * @param cloudApplications List of cloud application names to which the rule applies.
+         * 
+         * @return builder
+         * 
+         */
         public Builder cloudApplications(String... cloudApplications) {
             return cloudApplications(List.of(cloudApplications));
         }
 
+        /**
+         * @param departments IDs of departments to which the rule applies.
+         * 
+         * @return builder
+         * 
+         */
         public Builder departments(@Nullable Output<List<Integer>> departments) {
             $.departments = departments;
             return this;
         }
 
+        /**
+         * @param departments IDs of departments to which the rule applies.
+         * 
+         * @return builder
+         * 
+         */
         public Builder departments(List<Integer> departments) {
             return departments(Output.of(departments));
         }
 
+        /**
+         * @param departments IDs of departments to which the rule applies.
+         * 
+         * @return builder
+         * 
+         */
         public Builder departments(Integer... departments) {
             return departments(List.of(departments));
         }
 
+        /**
+         * @param description Additional information about the SSL inspection rule.
+         * 
+         * @return builder
+         * 
+         */
         public Builder description(@Nullable Output<String> description) {
             $.description = description;
             return this;
         }
 
+        /**
+         * @param description Additional information about the SSL inspection rule.
+         * 
+         * @return builder
+         * 
+         */
         public Builder description(String description) {
             return description(Output.of(description));
         }
 
+        /**
+         * @param destIpGroups IDs of destination IP address groups for the rule.
+         * 
+         * @return builder
+         * 
+         */
         public Builder destIpGroups(@Nullable Output<List<Integer>> destIpGroups) {
             $.destIpGroups = destIpGroups;
             return this;
         }
 
+        /**
+         * @param destIpGroups IDs of destination IP address groups for the rule.
+         * 
+         * @return builder
+         * 
+         */
         public Builder destIpGroups(List<Integer> destIpGroups) {
             return destIpGroups(Output.of(destIpGroups));
         }
 
+        /**
+         * @param destIpGroups IDs of destination IP address groups for the rule.
+         * 
+         * @return builder
+         * 
+         */
         public Builder destIpGroups(Integer... destIpGroups) {
             return destIpGroups(List.of(destIpGroups));
         }
 
+        /**
+         * @param deviceGroups IDs of device groups to which the rule applies.
+         * 
+         * @return builder
+         * 
+         */
         public Builder deviceGroups(@Nullable Output<List<Integer>> deviceGroups) {
             $.deviceGroups = deviceGroups;
             return this;
         }
 
+        /**
+         * @param deviceGroups IDs of device groups to which the rule applies.
+         * 
+         * @return builder
+         * 
+         */
         public Builder deviceGroups(List<Integer> deviceGroups) {
             return deviceGroups(Output.of(deviceGroups));
         }
 
+        /**
+         * @param deviceGroups IDs of device groups to which the rule applies.
+         * 
+         * @return builder
+         * 
+         */
         public Builder deviceGroups(Integer... deviceGroups) {
             return deviceGroups(List.of(deviceGroups));
         }
 
+        /**
+         * @param deviceTrustLevels Device trust levels for the rule. Valid values: `ANY`, `UNKNOWN_DEVICETRUSTLEVEL`, `LOW_TRUST`, `MEDIUM_TRUST`, `HIGH_TRUST`.
+         * 
+         * @return builder
+         * 
+         */
         public Builder deviceTrustLevels(@Nullable Output<List<String>> deviceTrustLevels) {
             $.deviceTrustLevels = deviceTrustLevels;
             return this;
         }
 
+        /**
+         * @param deviceTrustLevels Device trust levels for the rule. Valid values: `ANY`, `UNKNOWN_DEVICETRUSTLEVEL`, `LOW_TRUST`, `MEDIUM_TRUST`, `HIGH_TRUST`.
+         * 
+         * @return builder
+         * 
+         */
         public Builder deviceTrustLevels(List<String> deviceTrustLevels) {
             return deviceTrustLevels(Output.of(deviceTrustLevels));
         }
 
+        /**
+         * @param deviceTrustLevels Device trust levels for the rule. Valid values: `ANY`, `UNKNOWN_DEVICETRUSTLEVEL`, `LOW_TRUST`, `MEDIUM_TRUST`, `HIGH_TRUST`.
+         * 
+         * @return builder
+         * 
+         */
         public Builder deviceTrustLevels(String... deviceTrustLevels) {
             return deviceTrustLevels(List.of(deviceTrustLevels));
         }
 
+        /**
+         * @param devices IDs of devices to which the rule applies.
+         * 
+         * @return builder
+         * 
+         */
         public Builder devices(@Nullable Output<List<Integer>> devices) {
             $.devices = devices;
             return this;
         }
 
+        /**
+         * @param devices IDs of devices to which the rule applies.
+         * 
+         * @return builder
+         * 
+         */
         public Builder devices(List<Integer> devices) {
             return devices(Output.of(devices));
         }
 
+        /**
+         * @param devices IDs of devices to which the rule applies.
+         * 
+         * @return builder
+         * 
+         */
         public Builder devices(Integer... devices) {
             return devices(List.of(devices));
         }
 
+        /**
+         * @param groups IDs of groups to which the rule applies.
+         * 
+         * @return builder
+         * 
+         */
         public Builder groups(@Nullable Output<List<Integer>> groups) {
             $.groups = groups;
             return this;
         }
 
+        /**
+         * @param groups IDs of groups to which the rule applies.
+         * 
+         * @return builder
+         * 
+         */
         public Builder groups(List<Integer> groups) {
             return groups(Output.of(groups));
         }
 
+        /**
+         * @param groups IDs of groups to which the rule applies.
+         * 
+         * @return builder
+         * 
+         */
         public Builder groups(Integer... groups) {
             return groups(List.of(groups));
         }
 
+        /**
+         * @param labels IDs of labels associated with the rule.
+         * 
+         * @return builder
+         * 
+         */
         public Builder labels(@Nullable Output<List<Integer>> labels) {
             $.labels = labels;
             return this;
         }
 
+        /**
+         * @param labels IDs of labels associated with the rule.
+         * 
+         * @return builder
+         * 
+         */
         public Builder labels(List<Integer> labels) {
             return labels(Output.of(labels));
         }
 
+        /**
+         * @param labels IDs of labels associated with the rule.
+         * 
+         * @return builder
+         * 
+         */
         public Builder labels(Integer... labels) {
             return labels(List.of(labels));
         }
 
+        /**
+         * @param locationGroups IDs of location groups to which the rule applies.
+         * 
+         * @return builder
+         * 
+         */
         public Builder locationGroups(@Nullable Output<List<Integer>> locationGroups) {
             $.locationGroups = locationGroups;
             return this;
         }
 
+        /**
+         * @param locationGroups IDs of location groups to which the rule applies.
+         * 
+         * @return builder
+         * 
+         */
         public Builder locationGroups(List<Integer> locationGroups) {
             return locationGroups(Output.of(locationGroups));
         }
 
+        /**
+         * @param locationGroups IDs of location groups to which the rule applies.
+         * 
+         * @return builder
+         * 
+         */
         public Builder locationGroups(Integer... locationGroups) {
             return locationGroups(List.of(locationGroups));
         }
 
+        /**
+         * @param locations IDs of locations to which the rule applies.
+         * 
+         * @return builder
+         * 
+         */
         public Builder locations(@Nullable Output<List<Integer>> locations) {
             $.locations = locations;
             return this;
         }
 
+        /**
+         * @param locations IDs of locations to which the rule applies.
+         * 
+         * @return builder
+         * 
+         */
         public Builder locations(List<Integer> locations) {
             return locations(Output.of(locations));
         }
 
+        /**
+         * @param locations IDs of locations to which the rule applies.
+         * 
+         * @return builder
+         * 
+         */
         public Builder locations(Integer... locations) {
             return locations(List.of(locations));
         }
 
+        /**
+         * @param name The name of the SSL inspection rule. Must be unique.
+         * 
+         * @return builder
+         * 
+         */
         public Builder name(Output<String> name) {
             $.name = name;
             return this;
         }
 
+        /**
+         * @param name The name of the SSL inspection rule. Must be unique.
+         * 
+         * @return builder
+         * 
+         */
         public Builder name(String name) {
             return name(Output.of(name));
         }
 
+        /**
+         * @param order The order of execution of the rule with respect to other SSL inspection rules.
+         * 
+         * @return builder
+         * 
+         */
         public Builder order(Output<Integer> order) {
             $.order = order;
             return this;
         }
 
+        /**
+         * @param order The order of execution of the rule with respect to other SSL inspection rules.
+         * 
+         * @return builder
+         * 
+         */
         public Builder order(Integer order) {
             return order(Output.of(order));
         }
 
+        /**
+         * @param platforms Platforms to which the rule applies (e.g., `SCAN_IOS`, `SCAN_ANDROID`, `SCAN_MACOS`, `SCAN_WINDOWS`, `SCAN_LINUX`).
+         * 
+         * @return builder
+         * 
+         */
         public Builder platforms(@Nullable Output<List<String>> platforms) {
             $.platforms = platforms;
             return this;
         }
 
+        /**
+         * @param platforms Platforms to which the rule applies (e.g., `SCAN_IOS`, `SCAN_ANDROID`, `SCAN_MACOS`, `SCAN_WINDOWS`, `SCAN_LINUX`).
+         * 
+         * @return builder
+         * 
+         */
         public Builder platforms(List<String> platforms) {
             return platforms(Output.of(platforms));
         }
 
+        /**
+         * @param platforms Platforms to which the rule applies (e.g., `SCAN_IOS`, `SCAN_ANDROID`, `SCAN_MACOS`, `SCAN_WINDOWS`, `SCAN_LINUX`).
+         * 
+         * @return builder
+         * 
+         */
         public Builder platforms(String... platforms) {
             return platforms(List.of(platforms));
         }
 
+        /**
+         * @param proxyGateways IDs of proxy gateway configurations for the rule.
+         * 
+         * @return builder
+         * 
+         */
         public Builder proxyGateways(@Nullable Output<List<Integer>> proxyGateways) {
             $.proxyGateways = proxyGateways;
             return this;
         }
 
+        /**
+         * @param proxyGateways IDs of proxy gateway configurations for the rule.
+         * 
+         * @return builder
+         * 
+         */
         public Builder proxyGateways(List<Integer> proxyGateways) {
             return proxyGateways(Output.of(proxyGateways));
         }
 
+        /**
+         * @param proxyGateways IDs of proxy gateway configurations for the rule.
+         * 
+         * @return builder
+         * 
+         */
         public Builder proxyGateways(Integer... proxyGateways) {
             return proxyGateways(List.of(proxyGateways));
         }
 
+        /**
+         * @param rank Admin rank of the SSL inspection policy rule. Valid values: 0-7. Default: 7.
+         * 
+         * @return builder
+         * 
+         */
         public Builder rank(@Nullable Output<Integer> rank) {
             $.rank = rank;
             return this;
         }
 
+        /**
+         * @param rank Admin rank of the SSL inspection policy rule. Valid values: 0-7. Default: 7.
+         * 
+         * @return builder
+         * 
+         */
         public Builder rank(Integer rank) {
             return rank(Output.of(rank));
         }
 
+        /**
+         * @param roadWarriorForKerberos Indicates whether the rule applies to road warrior (remote) users using Kerberos authentication.
+         * 
+         * @return builder
+         * 
+         */
         public Builder roadWarriorForKerberos(@Nullable Output<Boolean> roadWarriorForKerberos) {
             $.roadWarriorForKerberos = roadWarriorForKerberos;
             return this;
         }
 
+        /**
+         * @param roadWarriorForKerberos Indicates whether the rule applies to road warrior (remote) users using Kerberos authentication.
+         * 
+         * @return builder
+         * 
+         */
         public Builder roadWarriorForKerberos(Boolean roadWarriorForKerberos) {
             return roadWarriorForKerberos(Output.of(roadWarriorForKerberos));
         }
 
+        /**
+         * @param sourceIpGroups IDs of source IP address groups for the rule.
+         * 
+         * @return builder
+         * 
+         */
         public Builder sourceIpGroups(@Nullable Output<List<Integer>> sourceIpGroups) {
             $.sourceIpGroups = sourceIpGroups;
             return this;
         }
 
+        /**
+         * @param sourceIpGroups IDs of source IP address groups for the rule.
+         * 
+         * @return builder
+         * 
+         */
         public Builder sourceIpGroups(List<Integer> sourceIpGroups) {
             return sourceIpGroups(Output.of(sourceIpGroups));
         }
 
+        /**
+         * @param sourceIpGroups IDs of source IP address groups for the rule.
+         * 
+         * @return builder
+         * 
+         */
         public Builder sourceIpGroups(Integer... sourceIpGroups) {
             return sourceIpGroups(List.of(sourceIpGroups));
         }
 
+        /**
+         * @param state Rule state. Valid values: `ENABLED`, `DISABLED`.
+         * 
+         * @return builder
+         * 
+         */
         public Builder state(@Nullable Output<String> state) {
             $.state = state;
             return this;
         }
 
+        /**
+         * @param state Rule state. Valid values: `ENABLED`, `DISABLED`.
+         * 
+         * @return builder
+         * 
+         */
         public Builder state(String state) {
             return state(Output.of(state));
         }
 
+        /**
+         * @param timeWindows IDs of time intervals during which the rule must be enforced.
+         * 
+         * @return builder
+         * 
+         */
         public Builder timeWindows(@Nullable Output<List<Integer>> timeWindows) {
             $.timeWindows = timeWindows;
             return this;
         }
 
+        /**
+         * @param timeWindows IDs of time intervals during which the rule must be enforced.
+         * 
+         * @return builder
+         * 
+         */
         public Builder timeWindows(List<Integer> timeWindows) {
             return timeWindows(Output.of(timeWindows));
         }
 
+        /**
+         * @param timeWindows IDs of time intervals during which the rule must be enforced.
+         * 
+         * @return builder
+         * 
+         */
         public Builder timeWindows(Integer... timeWindows) {
             return timeWindows(List.of(timeWindows));
         }
 
+        /**
+         * @param urlCategories List of URL categories to which the rule applies.
+         * 
+         * @return builder
+         * 
+         */
         public Builder urlCategories(@Nullable Output<List<String>> urlCategories) {
             $.urlCategories = urlCategories;
             return this;
         }
 
+        /**
+         * @param urlCategories List of URL categories to which the rule applies.
+         * 
+         * @return builder
+         * 
+         */
         public Builder urlCategories(List<String> urlCategories) {
             return urlCategories(Output.of(urlCategories));
         }
 
+        /**
+         * @param urlCategories List of URL categories to which the rule applies.
+         * 
+         * @return builder
+         * 
+         */
         public Builder urlCategories(String... urlCategories) {
             return urlCategories(List.of(urlCategories));
         }
 
+        /**
+         * @param userAgentTypes User agent types the rule applies to.
+         * 
+         * @return builder
+         * 
+         */
         public Builder userAgentTypes(@Nullable Output<List<String>> userAgentTypes) {
             $.userAgentTypes = userAgentTypes;
             return this;
         }
 
+        /**
+         * @param userAgentTypes User agent types the rule applies to.
+         * 
+         * @return builder
+         * 
+         */
         public Builder userAgentTypes(List<String> userAgentTypes) {
             return userAgentTypes(Output.of(userAgentTypes));
         }
 
+        /**
+         * @param userAgentTypes User agent types the rule applies to.
+         * 
+         * @return builder
+         * 
+         */
         public Builder userAgentTypes(String... userAgentTypes) {
             return userAgentTypes(List.of(userAgentTypes));
         }
 
+        /**
+         * @param users IDs of users to which the rule applies.
+         * 
+         * @return builder
+         * 
+         */
         public Builder users(@Nullable Output<List<Integer>> users) {
             $.users = users;
             return this;
         }
 
+        /**
+         * @param users IDs of users to which the rule applies.
+         * 
+         * @return builder
+         * 
+         */
         public Builder users(List<Integer> users) {
             return users(Output.of(users));
         }
 
+        /**
+         * @param users IDs of users to which the rule applies.
+         * 
+         * @return builder
+         * 
+         */
         public Builder users(Integer... users) {
             return users(List.of(users));
         }
 
+        /**
+         * @param workloadGroups List of preconfigured workload groups to which the policy must be applied.
+         * 
+         * @return builder
+         * 
+         */
         public Builder workloadGroups(@Nullable Output<List<WorkloadGroupInputArgs>> workloadGroups) {
             $.workloadGroups = workloadGroups;
             return this;
         }
 
+        /**
+         * @param workloadGroups List of preconfigured workload groups to which the policy must be applied.
+         * 
+         * @return builder
+         * 
+         */
         public Builder workloadGroups(List<WorkloadGroupInputArgs> workloadGroups) {
             return workloadGroups(Output.of(workloadGroups));
         }
 
+        /**
+         * @param workloadGroups List of preconfigured workload groups to which the policy must be applied.
+         * 
+         * @return builder
+         * 
+         */
         public Builder workloadGroups(WorkloadGroupInputArgs... workloadGroups) {
             return workloadGroups(List.of(workloadGroups));
         }

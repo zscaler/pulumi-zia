@@ -288,6 +288,21 @@ func (URLFilteringRule) Check(ctx context.Context, req infer.CheckRequest) (infe
 			Reason:   "order must be a positive whole number (>= 1)",
 		}}}, nil
 	}
+	// Normalize validity times: parse and re-format so the day-of-week is
+	// always correct (prevents drift when the user supplies a wrong weekday).
+	if inputs.ValidityStartTime != nil && *inputs.ValidityStartTime != "" {
+		if epoch, parseErr := ConvertRFC1123ToEpoch(*inputs.ValidityStartTime); parseErr == nil {
+			normalized := time.Unix(int64(epoch), 0).UTC().Format(time.RFC1123)
+			inputs.ValidityStartTime = &normalized
+		}
+	}
+	if inputs.ValidityEndTime != nil && *inputs.ValidityEndTime != "" {
+		if epoch, parseErr := ConvertRFC1123ToEpoch(*inputs.ValidityEndTime); parseErr == nil {
+			normalized := time.Unix(int64(epoch), 0).UTC().Format(time.RFC1123)
+			inputs.ValidityEndTime = &normalized
+		}
+	}
+
 	// Custom validation (CustomizeDiff equivalent)
 	err = validateURLFilteringCheck(
 		inputs.Action, inputs.BlockOverride, inputs.OverrideUsers, inputs.OverrideGroups,
@@ -398,7 +413,7 @@ func (URLFilteringRule) Create(ctx context.Context, req infer.CreateRequest[URLF
 				rule.LastModifiedBy = nil
 				rule.Order = order.Order
 				rule.Rank = order.Rank
-				_, _, err = urlfilteringpolicies.Update(ctx, svc, id, rule)
+				_, err = urlfilteringpolicies.Update(ctx, svc, id, rule)
 				return err
 			},
 			nil,
@@ -505,7 +520,7 @@ func (URLFilteringRule) Update(ctx context.Context, req infer.UpdateRequest[URLF
 	apiReq.Rank = 7
 	apiReq.Order = nextAvailableOrder
 
-	_, _, err = urlfilteringpolicies.Update(ctx, svc, id, &apiReq)
+	_, err = urlfilteringpolicies.Update(ctx, svc, id, &apiReq)
 	if customErr := failFastOnErrorCodes(err); customErr != nil {
 		return infer.UpdateResponse[URLFilteringRuleState]{}, customErr
 	}
@@ -535,7 +550,7 @@ func (URLFilteringRule) Update(ctx context.Context, req infer.UpdateRequest[URLF
 			rule.LastModifiedBy = nil
 			rule.Order = order.Order
 			rule.Rank = order.Rank
-			_, _, err = urlfilteringpolicies.Update(ctx, svc, ruleID, rule)
+			_, err = urlfilteringpolicies.Update(ctx, svc, ruleID, rule)
 			return err
 		},
 		nil,
@@ -739,10 +754,9 @@ func urlFilteringRuleAPIToState(rule *urlfilteringpolicies.URLFilteringRule) URL
 		log.Printf("[DEBUG] API did not return cbi_profile for ISOLATE rule %d", rule.ID)
 	} else if fp := flattenCBIProfileSimple(rule.CBIProfile); fp != nil {
 		state.CBIProfile = &CBIProfileInput{
-			ProfileSeq: &fp.ProfileSeq,
-			ID:         stringPtr(fp.ID),
-			Name:       stringPtr(fp.Name),
-			URL:        stringPtr(fp.URL),
+			ID:   stringPtr(fp.ID),
+			Name: stringPtr(fp.Name),
+			URL:  stringPtr(fp.URL),
 		}
 	}
 

@@ -59,6 +59,24 @@ namespace zscaler.PulumiPackage.Zia
         public Output<bool?> EnableCipaCompliance { get; private set; } = null!;
 
         /// <summary>
+        /// If true, Claude AI prompt visibility and logging is enabled.
+        /// </summary>
+        [Output("enableClaudePrompt")]
+        public Output<bool?> EnableClaudePrompt { get; private set; } = null!;
+
+        /// <summary>
+        /// If true, Creative Commons search results are enabled.
+        /// </summary>
+        [Output("enableCreativeCommonsSearchResults")]
+        public Output<bool?> EnableCreativeCommonsSearchResults { get; private set; } = null!;
+
+        /// <summary>
+        /// If true, DeepSeek AI prompt visibility and logging is enabled.
+        /// </summary>
+        [Output("enableDeepSeekPrompt")]
+        public Output<bool?> EnableDeepSeekPrompt { get; private set; } = null!;
+
+        /// <summary>
         /// If true, dynamic content categorization is enabled.
         /// </summary>
         [Output("enableDynamicContentCat")]
@@ -71,6 +89,18 @@ namespace zscaler.PulumiPackage.Zia
         public Output<bool?> EnableGeminiPrompt { get; private set; } = null!;
 
         /// <summary>
+        /// If true, Grammarly AI prompt visibility and logging is enabled.
+        /// </summary>
+        [Output("enableGrammarlyPrompt")]
+        public Output<bool?> EnableGrammarlyPrompt { get; private set; } = null!;
+
+        /// <summary>
+        /// If true, Grok AI prompt visibility and logging is enabled.
+        /// </summary>
+        [Output("enableGrokPrompt")]
+        public Output<bool?> EnableGrokPrompt { get; private set; } = null!;
+
+        /// <summary>
         /// If true, Meta AI prompt visibility and logging is enabled.
         /// </summary>
         [Output("enableMetaPrompt")]
@@ -81,6 +111,12 @@ namespace zscaler.PulumiPackage.Zia
         /// </summary>
         [Output("enableMicrosoftCopilotPrompt")]
         public Output<bool?> EnableMicrosoftCopilotPrompt { get; private set; } = null!;
+
+        /// <summary>
+        /// If true, Mistral AI prompt visibility and logging is enabled.
+        /// </summary>
+        [Output("enableMistralAiPrompt")]
+        public Output<bool?> EnableMistralAiPrompt { get; private set; } = null!;
 
         /// <summary>
         /// If true, Microsoft Office 365 optimization is enabled.
@@ -143,6 +179,12 @@ namespace zscaler.PulumiPackage.Zia
         public Output<bool?> EnableUcaasZoom { get; private set; } = null!;
 
         /// <summary>
+        /// If true, Writer AI prompt visibility and logging is enabled.
+        /// </summary>
+        [Output("enableWriterPrompt")]
+        public Output<bool?> EnableWriterPrompt { get; private set; } = null!;
+
+        /// <summary>
         /// If true, safe search is enforced for supported search engines.
         /// </summary>
         [Output("enforceSafeSearch")]
@@ -159,6 +201,12 @@ namespace zscaler.PulumiPackage.Zia
         /// </summary>
         [Output("safeSearchApps")]
         public Output<ImmutableArray<string>> SafeSearchApps { get; private set; } = null!;
+
+        /// <summary>
+        /// If true, Zvelo database lookup is disabled.
+        /// </summary>
+        [Output("zveloDbLookupDisabled")]
+        public Output<bool?> ZveloDbLookupDisabled { get; private set; } = null!;
 
 
         /// <summary>
@@ -183,6 +231,7 @@ namespace zscaler.PulumiPackage.Zia
             var defaultOptions = new CustomResourceOptions
             {
                 Version = Utilities.Version,
+                PluginDownloadURL = "github://api.github.com/zscaler",
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);
             // Override the ID if one was specified for consistency with other language SDKs.
@@ -236,6 +285,24 @@ namespace zscaler.PulumiPackage.Zia
         public Input<bool>? EnableCipaCompliance { get; set; }
 
         /// <summary>
+        /// If true, Claude AI prompt visibility and logging is enabled.
+        /// </summary>
+        [Input("enableClaudePrompt")]
+        public Input<bool>? EnableClaudePrompt { get; set; }
+
+        /// <summary>
+        /// If true, Creative Commons search results are enabled.
+        /// </summary>
+        [Input("enableCreativeCommonsSearchResults")]
+        public Input<bool>? EnableCreativeCommonsSearchResults { get; set; }
+
+        /// <summary>
+        /// If true, DeepSeek AI prompt visibility and logging is enabled.
+        /// </summary>
+        [Input("enableDeepSeekPrompt")]
+        public Input<bool>? EnableDeepSeekPrompt { get; set; }
+
+        /// <summary>
         /// If true, dynamic content categorization is enabled.
         /// </summary>
         [Input("enableDynamicContentCat")]
@@ -248,6 +315,18 @@ namespace zscaler.PulumiPackage.Zia
         public Input<bool>? EnableGeminiPrompt { get; set; }
 
         /// <summary>
+        /// If true, Grammarly AI prompt visibility and logging is enabled.
+        /// </summary>
+        [Input("enableGrammarlyPrompt")]
+        public Input<bool>? EnableGrammarlyPrompt { get; set; }
+
+        /// <summary>
+        /// If true, Grok AI prompt visibility and logging is enabled.
+        /// </summary>
+        [Input("enableGrokPrompt")]
+        public Input<bool>? EnableGrokPrompt { get; set; }
+
+        /// <summary>
         /// If true, Meta AI prompt visibility and logging is enabled.
         /// </summary>
         [Input("enableMetaPrompt")]
@@ -258,6 +337,12 @@ namespace zscaler.PulumiPackage.Zia
         /// </summary>
         [Input("enableMicrosoftCopilotPrompt")]
         public Input<bool>? EnableMicrosoftCopilotPrompt { get; set; }
+
+        /// <summary>
+        /// If true, Mistral AI prompt visibility and logging is enabled.
+        /// </summary>
+        [Input("enableMistralAiPrompt")]
+        public Input<bool>? EnableMistralAiPrompt { get; set; }
 
         /// <summary>
         /// If true, Microsoft Office 365 optimization is enabled.
@@ -320,6 +405,12 @@ namespace zscaler.PulumiPackage.Zia
         public Input<bool>? EnableUcaasZoom { get; set; }
 
         /// <summary>
+        /// If true, Writer AI prompt visibility and logging is enabled.
+        /// </summary>
+        [Input("enableWriterPrompt")]
+        public Input<bool>? EnableWriterPrompt { get; set; }
+
+        /// <summary>
         /// If true, safe search is enforced for supported search engines.
         /// </summary>
         [Input("enforceSafeSearch")]
@@ -336,6 +427,12 @@ namespace zscaler.PulumiPackage.Zia
             get => _safeSearchApps ?? (_safeSearchApps = new InputList<string>());
             set => _safeSearchApps = value;
         }
+
+        /// <summary>
+        /// If true, Zvelo database lookup is disabled.
+        /// </summary>
+        [Input("zveloDbLookupDisabled")]
+        public Input<bool>? ZveloDbLookupDisabled { get; set; }
 
         public UrlFilteringCloudAppSettingsArgs()
         {

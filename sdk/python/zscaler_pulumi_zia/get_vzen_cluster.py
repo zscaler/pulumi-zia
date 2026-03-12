@@ -56,46 +56,73 @@ class GetVzenClusterResult:
     @_builtins.property
     @pulumi.getter(name="clusterId")
     def cluster_id(self) -> _builtins.int:
+        """
+        The ID of the VZEN cluster.
+        """
         return pulumi.get(self, "cluster_id")
 
     @_builtins.property
     @pulumi.getter(name="defaultGateway")
     def default_gateway(self) -> _builtins.str:
+        """
+        The default gateway of the VZEN cluster.
+        """
         return pulumi.get(self, "default_gateway")
 
     @_builtins.property
     @pulumi.getter(name="ipAddress")
     def ip_address(self) -> _builtins.str:
+        """
+        The IP address of the VZEN cluster.
+        """
         return pulumi.get(self, "ip_address")
 
     @_builtins.property
     @pulumi.getter(name="ipSecEnabled")
     def ip_sec_enabled(self) -> _builtins.bool:
+        """
+        Whether IPSec is enabled on the cluster.
+        """
         return pulumi.get(self, "ip_sec_enabled")
 
     @_builtins.property
     @pulumi.getter
     def name(self) -> _builtins.str:
+        """
+        The name of the VZEN cluster.
+        """
         return pulumi.get(self, "name")
 
     @_builtins.property
     @pulumi.getter
     def status(self) -> _builtins.str:
+        """
+        The status of the VZEN cluster.
+        """
         return pulumi.get(self, "status")
 
     @_builtins.property
     @pulumi.getter(name="subnetMask")
     def subnet_mask(self) -> _builtins.str:
+        """
+        The subnet mask of the VZEN cluster.
+        """
         return pulumi.get(self, "subnet_mask")
 
     @_builtins.property
     @pulumi.getter
     def type(self) -> _builtins.str:
+        """
+        The type of the VZEN cluster.
+        """
         return pulumi.get(self, "type")
 
     @_builtins.property
     @pulumi.getter(name="virtualZenNodes")
     def virtual_zen_nodes(self) -> Sequence['outputs.VirtualZenNodeOutput']:
+        """
+        The list of virtual ZEN nodes in this cluster.
+        """
         return pulumi.get(self, "virtual_zen_nodes")
 
 
@@ -120,7 +147,11 @@ def get_vzen_cluster(cluster_id: Optional[_builtins.int] = None,
                      name: Optional[_builtins.str] = None,
                      opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetVzenClusterResult:
     """
-    Use this data source to access information about an existing resource.
+    Use this data source to look up a VZEN cluster by ID or name.
+
+
+    :param _builtins.int cluster_id: The ID of the VZEN cluster to look up.
+    :param _builtins.str name: The name of the VZEN cluster to look up.
     """
     __args__ = dict()
     __args__['clusterId'] = cluster_id
@@ -142,7 +173,11 @@ def get_vzen_cluster_output(cluster_id: Optional[pulumi.Input[Optional[_builtins
                             name: Optional[pulumi.Input[Optional[_builtins.str]]] = None,
                             opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetVzenClusterResult]:
     """
-    Use this data source to access information about an existing resource.
+    Use this data source to look up a VZEN cluster by ID or name.
+
+
+    :param _builtins.int cluster_id: The ID of the VZEN cluster to look up.
+    :param _builtins.str name: The name of the VZEN cluster to look up.
     """
     __args__ = dict()
     __args__['clusterId'] = cluster_id

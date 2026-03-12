@@ -4,6 +4,35 @@
 import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "./utilities";
 
+/**
+ * The zia_url_categories_predefined resource manages predefined URL category overrides in the Zscaler Internet Access (ZIA) cloud service. This resource allows administrators to add custom URLs, keywords, and IP ranges to existing predefined (built-in) URL categories. Predefined categories cannot be deleted; the delete operation is a no-op.
+ *
+ * For more information, see the [ZIA URL Categories documentation](https://help.zscaler.com/zia/url-categories).
+ *
+ * ## Example Usage
+ * ### Override a Predefined URL Category
+ *
+ * ```typescript
+ * import * as zia from "@bdzscaler/pulumi-zia";
+ *
+ * const example = new zia.UrlCategoryPredefined("example", {
+ *     name: "FINANCE",
+ *     urls: [
+ *         "finance.example.com",
+ *         "banking.example.com",
+ *     ],
+ *     keywords: ["financial-portal"],
+ * });
+ * ```
+ *
+ * ## Import
+ *
+ * An existing Predefined URL Category override can be imported using its category ID, e.g.
+ *
+ * ```sh
+ * $ pulumi import zia:index:UrlCategoryPredefined example FINANCE
+ * ```
+ */
 export class UrlCategoryPredefined extends pulumi.CustomResource {
     /**
      * Get an existing UrlCategoryPredefined resource's state with the given name, ID, and optional extra
@@ -31,23 +60,77 @@ export class UrlCategoryPredefined extends pulumi.CustomResource {
         return obj['__pulumiType'] === UrlCategoryPredefined.__pulumiType;
     }
 
+    /**
+     * The system-generated ID of the predefined URL category.
+     */
     declare public /*out*/ readonly categoryId: pulumi.Output<string>;
+    /**
+     * The configured display name of the predefined URL category.
+     */
     declare public /*out*/ readonly configuredName: pulumi.Output<string | undefined>;
+    /**
+     * The number of custom IP ranges in the category.
+     */
     declare public /*out*/ readonly customIpRangesCount: pulumi.Output<number | undefined>;
+    /**
+     * The number of custom URLs in the category.
+     */
     declare public /*out*/ readonly customUrlsCount: pulumi.Output<number | undefined>;
+    /**
+     * URLs in this category that have been categorized by the Zscaler database.
+     */
     declare public /*out*/ readonly dbCategorizedUrls: pulumi.Output<string[] | undefined>;
+    /**
+     * Whether the predefined URL category is editable.
+     */
     declare public /*out*/ readonly editable: pulumi.Output<boolean | undefined>;
+    /**
+     * List of custom IP address ranges to add to the predefined category.
+     */
     declare public readonly ipRanges: pulumi.Output<string[] | undefined>;
+    /**
+     * List of IP ranges that retain their parent category classification.
+     */
     declare public readonly ipRangesRetainingParentCategory: pulumi.Output<string[] | undefined>;
+    /**
+     * The number of IP ranges retaining parent category.
+     */
     declare public /*out*/ readonly ipRangesRetainingParentCategoryCount: pulumi.Output<number | undefined>;
+    /**
+     * List of custom keywords to add to the predefined category.
+     */
     declare public readonly keywords: pulumi.Output<string[] | undefined>;
+    /**
+     * List of keywords that retain their parent category classification.
+     */
     declare public readonly keywordsRetainingParentCategory: pulumi.Output<string[] | undefined>;
+    /**
+     * The name or ID of the predefined URL category to override (e.g., `FINANCE`, `SOCIAL_NETWORKING`).
+     */
     declare public readonly name: pulumi.Output<string>;
+    /**
+     * The super category of the predefined URL category.
+     */
     declare public /*out*/ readonly superCategory: pulumi.Output<string | undefined>;
+    /**
+     * The type of the URL category.
+     */
     declare public /*out*/ readonly type: pulumi.Output<string | undefined>;
+    /**
+     * The URL type of the predefined category.
+     */
     declare public /*out*/ readonly urlType: pulumi.Output<string | undefined>;
+    /**
+     * List of custom URLs to add to the predefined category.
+     */
     declare public readonly urls: pulumi.Output<string[] | undefined>;
+    /**
+     * The number of URLs retaining parent category.
+     */
     declare public /*out*/ readonly urlsRetainingParentCategoryCount: pulumi.Output<number | undefined>;
+    /**
+     * The internal numeric value of the URL category.
+     */
     declare public /*out*/ readonly val: pulumi.Output<number | undefined>;
 
     /**
@@ -111,10 +194,28 @@ export class UrlCategoryPredefined extends pulumi.CustomResource {
  * The set of arguments for constructing a UrlCategoryPredefined resource.
  */
 export interface UrlCategoryPredefinedArgs {
+    /**
+     * List of custom IP address ranges to add to the predefined category.
+     */
     ipRanges?: pulumi.Input<pulumi.Input<string>[]>;
+    /**
+     * List of IP ranges that retain their parent category classification.
+     */
     ipRangesRetainingParentCategory?: pulumi.Input<pulumi.Input<string>[]>;
+    /**
+     * List of custom keywords to add to the predefined category.
+     */
     keywords?: pulumi.Input<pulumi.Input<string>[]>;
+    /**
+     * List of keywords that retain their parent category classification.
+     */
     keywordsRetainingParentCategory?: pulumi.Input<pulumi.Input<string>[]>;
+    /**
+     * The name or ID of the predefined URL category to override (e.g., `FINANCE`, `SOCIAL_NETWORKING`).
+     */
     name: pulumi.Input<string>;
+    /**
+     * List of custom URLs to add to the predefined category.
+     */
     urls?: pulumi.Input<pulumi.Input<string>[]>;
 }

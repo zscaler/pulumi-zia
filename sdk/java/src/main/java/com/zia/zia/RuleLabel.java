@@ -14,23 +14,63 @@ import java.lang.String;
 import java.util.Optional;
 import javax.annotation.Nullable;
 
+/**
+ * The zia_rule_label resource manages rule labels in the Zscaler Internet Access (ZIA) cloud service. Rule labels are used to tag and organize firewall filtering rules, URL filtering rules, and other policy rules.
+ * 
+ * For more information, see the [ZIA Rule Labels documentation](https://help.zscaler.com/zia/rule-labels).
+ * 
+ * ## Example Usage
+ * 
+ * ## Import
+ * 
+ * An existing rule label can be imported using its resource ID, e.g.
+ * 
+ * ```sh
+ * $ pulumi import zia:index:RuleLabel example 12345
+ * ```
+ * 
+ */
 @ResourceType(type="zia:index:RuleLabel")
 public class RuleLabel extends com.pulumi.resources.CustomResource {
+    /**
+     * Additional information about the rule label. Maximum 10240 characters.
+     * 
+     */
     @Export(name="description", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> description;
 
+    /**
+     * @return Additional information about the rule label. Maximum 10240 characters.
+     * 
+     */
     public Output<Optional<String>> description() {
         return Codegen.optional(this.description);
     }
+    /**
+     * The name of the rule label. Maximum 255 characters.
+     * 
+     */
     @Export(name="name", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> name;
 
+    /**
+     * @return The name of the rule label. Maximum 255 characters.
+     * 
+     */
     public Output<Optional<String>> name() {
         return Codegen.optional(this.name);
     }
+    /**
+     * The system-generated ID of the rule label.
+     * 
+     */
     @Export(name="ruleLabelId", refs={Integer.class}, tree="[0]")
     private Output<Integer> ruleLabelId;
 
+    /**
+     * @return The system-generated ID of the rule label.
+     * 
+     */
     public Output<Integer> ruleLabelId() {
         return this.ruleLabelId;
     }
@@ -74,6 +114,7 @@ public class RuleLabel extends com.pulumi.resources.CustomResource {
     private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<java.lang.String> id) {
         var defaultOptions = com.pulumi.resources.CustomResourceOptions.builder()
             .version(Utilities.getVersion())
+            .pluginDownloadURL("github://api.github.com/zscaler")
             .build();
         return com.pulumi.resources.CustomResourceOptions.merge(defaultOptions, options, id);
     }

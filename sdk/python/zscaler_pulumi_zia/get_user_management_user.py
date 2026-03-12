@@ -59,51 +59,81 @@ class GetUserManagementUserResult:
     @_builtins.property
     @pulumi.getter(name="adminUser")
     def admin_user(self) -> _builtins.bool:
+        """
+        Whether the user is an admin user.
+        """
         return pulumi.get(self, "admin_user")
 
     @_builtins.property
     @pulumi.getter(name="authMethods")
     def auth_methods(self) -> Sequence[_builtins.str]:
+        """
+        The authentication methods configured for the user.
+        """
         return pulumi.get(self, "auth_methods")
 
     @_builtins.property
     @pulumi.getter
     def comments(self) -> _builtins.str:
+        """
+        Comments or notes about the user.
+        """
         return pulumi.get(self, "comments")
 
     @_builtins.property
     @pulumi.getter
     def department(self) -> Optional['outputs.UserDepartmentOutput']:
+        """
+        The department the user belongs to.
+        """
         return pulumi.get(self, "department")
 
     @_builtins.property
     @pulumi.getter
     def email(self) -> _builtins.str:
+        """
+        The email address of the user.
+        """
         return pulumi.get(self, "email")
 
     @_builtins.property
     @pulumi.getter
     def groups(self) -> Sequence['outputs.UserGroupOutput']:
+        """
+        The list of groups the user belongs to.
+        """
         return pulumi.get(self, "groups")
 
     @_builtins.property
     @pulumi.getter
     def name(self) -> _builtins.str:
+        """
+        The full name of the user.
+        """
         return pulumi.get(self, "name")
 
     @_builtins.property
     @pulumi.getter(name="tempAuthEmail")
     def temp_auth_email(self) -> _builtins.str:
+        """
+        The temporary authentication email for the user.
+        """
         return pulumi.get(self, "temp_auth_email")
 
     @_builtins.property
     @pulumi.getter
     def type(self) -> _builtins.str:
+        """
+        The type of the user.
+        """
         return pulumi.get(self, "type")
 
     @_builtins.property
     @pulumi.getter(name="userId")
     def user_id(self) -> _builtins.int:
+        """
+        The ID of the user.
+        """
         return pulumi.get(self, "user_id")
 
 
@@ -129,7 +159,11 @@ def get_user_management_user(name: Optional[_builtins.str] = None,
                              user_id: Optional[_builtins.int] = None,
                              opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetUserManagementUserResult:
     """
-    Use this data source to access information about an existing resource.
+    Use this data source to look up a user management user by ID or name.
+
+
+    :param _builtins.str name: The name of the user to look up.
+    :param _builtins.int user_id: The ID of the user to look up.
     """
     __args__ = dict()
     __args__['name'] = name
@@ -152,7 +186,11 @@ def get_user_management_user_output(name: Optional[pulumi.Input[Optional[_builti
                                     user_id: Optional[pulumi.Input[Optional[_builtins.int]]] = None,
                                     opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetUserManagementUserResult]:
     """
-    Use this data source to access information about an existing resource.
+    Use this data source to look up a user management user by ID or name.
+
+
+    :param _builtins.str name: The name of the user to look up.
+    :param _builtins.int user_id: The ID of the user to look up.
     """
     __args__ = dict()
     __args__['name'] = name

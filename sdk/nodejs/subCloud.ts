@@ -6,6 +6,35 @@ import * as inputs from "./types/input";
 import * as outputs from "./types/output";
 import * as utilities from "./utilities";
 
+/**
+ * The zia.SubCloud resource manages sub-cloud configurations in the Zscaler Internet Access (ZIA) cloud.
+ * Sub-clouds represent regional cloud instances with associated datacenters and exclusion rules.
+ * Create and update both use the same API operation. Deleting the Pulumi resource does not remove
+ * the underlying sub-cloud configuration.
+ *
+ * ## Example Usage
+ * ### Basic Sub-Cloud
+ *
+ * ```typescript
+ * import * as zia from "@bdzscaler/pulumi-zia";
+ *
+ * const example = new zia.SubCloud("example", {
+ *     cloudId: 1,
+ *     exclusions: [{
+ *         datacenter: {
+ *             resourceId: 100,
+ *             name: "US-East",
+ *             country: "US",
+ *         },
+ *         country: "US",
+ *     }],
+ * });
+ * ```
+ *
+ * ## Import
+ *
+ * This resource uses a no-op delete. Import is not typically applicable for sub-cloud resources.
+ */
 export class SubCloud extends pulumi.CustomResource {
     /**
      * Get an existing SubCloud resource's state with the given name, ID, and optional extra
@@ -33,10 +62,25 @@ export class SubCloud extends pulumi.CustomResource {
         return obj['__pulumiType'] === SubCloud.__pulumiType;
     }
 
+    /**
+     * The ID of the cloud to which this sub-cloud belongs.
+     */
     declare public readonly cloudId: pulumi.Output<number>;
+    /**
+     * List of datacenters associated with the sub-cloud.
+     */
     declare public /*out*/ readonly dcs: pulumi.Output<outputs.SubCloudDcOutput[] | undefined>;
+    /**
+     * List of datacenter exclusions for the sub-cloud.
+     */
     declare public readonly exclusions: pulumi.Output<outputs.SubCloudExclusionInput[] | undefined>;
+    /**
+     * The name of the sub-cloud.
+     */
     declare public /*out*/ readonly name: pulumi.Output<string | undefined>;
+    /**
+     * The resource ID of the sub-cloud.
+     */
     declare public /*out*/ readonly resourceId: pulumi.Output<string>;
 
     /**
@@ -74,6 +118,12 @@ export class SubCloud extends pulumi.CustomResource {
  * The set of arguments for constructing a SubCloud resource.
  */
 export interface SubCloudArgs {
+    /**
+     * The ID of the cloud to which this sub-cloud belongs.
+     */
     cloudId: pulumi.Input<number>;
+    /**
+     * List of datacenter exclusions for the sub-cloud.
+     */
     exclusions?: pulumi.Input<pulumi.Input<inputs.SubCloudExclusionInputArgs>[]>;
 }

@@ -159,6 +159,7 @@ namespace zscaler.PulumiPackage.Zia
             var defaultOptions = new CustomResourceOptions
             {
                 Version = Utilities.Version,
+                PluginDownloadURL = "github://api.github.com/zscaler",
                 AdditionalSecretOutputs =
                 {
                     "password",

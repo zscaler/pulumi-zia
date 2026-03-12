@@ -4,6 +4,36 @@
 import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "./utilities";
 
+/**
+ * The zia.TenantRestrictionProfile resource manages tenant restriction profiles in the
+ * Zscaler Internet Access (ZIA) cloud. Tenant restriction profiles control access to cloud
+ * application tenants (e.g., Microsoft 365, Google Workspace) by restricting users to
+ * authorized tenant domains.
+ *
+ * ## Example Usage
+ * ### Basic Tenant Restriction Profile
+ *
+ * ```typescript
+ * import * as zia from "@bdzscaler/pulumi-zia";
+ *
+ * const example = new zia.TenantRestrictionProfile("example", {
+ *     name: "Example Tenant Profile",
+ *     description: "Managed by Pulumi",
+ *     appType: "MICROSOFT",
+ *     itemTypePrimary: "TENANT_ID",
+ *     itemDataPrimary: ["tenant-id-12345"],
+ *     restrictPersonalO365Domains: true,
+ * });
+ * ```
+ *
+ * ## Import
+ *
+ * An existing tenant restriction profile can be imported using its ID, e.g.
+ *
+ * ```sh
+ * $ pulumi import zia:index:TenantRestrictionProfile example 12345
+ * ```
+ */
 export class TenantRestrictionProfile extends pulumi.CustomResource {
     /**
      * Get an existing TenantRestrictionProfile resource's state with the given name, ID, and optional extra
@@ -31,19 +61,61 @@ export class TenantRestrictionProfile extends pulumi.CustomResource {
         return obj['__pulumiType'] === TenantRestrictionProfile.__pulumiType;
     }
 
+    /**
+     * Whether to allow GCP Cloud Storage read access.
+     */
     declare public readonly allowGcpCloudStorageRead: pulumi.Output<boolean | undefined>;
+    /**
+     * Whether to allow Google consumer accounts.
+     */
     declare public readonly allowGoogleConsumers: pulumi.Output<boolean | undefined>;
+    /**
+     * Whether to allow Google visitor accounts.
+     */
     declare public readonly allowGoogleVisitors: pulumi.Output<boolean | undefined>;
+    /**
+     * The cloud application type (e.g., 'MICROSOFT', 'GOOGLE').
+     */
     declare public readonly appType: pulumi.Output<string | undefined>;
+    /**
+     * Description of the tenant restriction profile.
+     */
     declare public readonly description: pulumi.Output<string | undefined>;
+    /**
+     * List of primary item data values (e.g., tenant IDs).
+     */
     declare public readonly itemDataPrimary: pulumi.Output<string[] | undefined>;
+    /**
+     * List of secondary item data values.
+     */
     declare public readonly itemDataSecondary: pulumi.Output<string[] | undefined>;
+    /**
+     * The primary item type (e.g., 'TENANT_ID').
+     */
     declare public readonly itemTypePrimary: pulumi.Output<string | undefined>;
+    /**
+     * The secondary item type.
+     */
     declare public readonly itemTypeSecondary: pulumi.Output<string | undefined>;
+    /**
+     * List of item values.
+     */
     declare public readonly itemValue: pulumi.Output<string[] | undefined>;
+    /**
+     * Whether to enable Microsoft login services tenant restriction v2.
+     */
     declare public readonly msLoginServicesTrV2: pulumi.Output<boolean | undefined>;
+    /**
+     * Name of the tenant restriction profile.
+     */
     declare public readonly name: pulumi.Output<string>;
+    /**
+     * The unique identifier for the tenant restriction profile assigned by the ZIA cloud.
+     */
     declare public /*out*/ readonly profileId: pulumi.Output<number>;
+    /**
+     * Whether to restrict personal Office 365 domains.
+     */
     declare public readonly restrictPersonalO365Domains: pulumi.Output<boolean | undefined>;
 
     /**
@@ -99,17 +171,56 @@ export class TenantRestrictionProfile extends pulumi.CustomResource {
  * The set of arguments for constructing a TenantRestrictionProfile resource.
  */
 export interface TenantRestrictionProfileArgs {
+    /**
+     * Whether to allow GCP Cloud Storage read access.
+     */
     allowGcpCloudStorageRead?: pulumi.Input<boolean>;
+    /**
+     * Whether to allow Google consumer accounts.
+     */
     allowGoogleConsumers?: pulumi.Input<boolean>;
+    /**
+     * Whether to allow Google visitor accounts.
+     */
     allowGoogleVisitors?: pulumi.Input<boolean>;
+    /**
+     * The cloud application type (e.g., 'MICROSOFT', 'GOOGLE').
+     */
     appType?: pulumi.Input<string>;
+    /**
+     * Description of the tenant restriction profile.
+     */
     description?: pulumi.Input<string>;
+    /**
+     * List of primary item data values (e.g., tenant IDs).
+     */
     itemDataPrimary?: pulumi.Input<pulumi.Input<string>[]>;
+    /**
+     * List of secondary item data values.
+     */
     itemDataSecondary?: pulumi.Input<pulumi.Input<string>[]>;
+    /**
+     * The primary item type (e.g., 'TENANT_ID').
+     */
     itemTypePrimary?: pulumi.Input<string>;
+    /**
+     * The secondary item type.
+     */
     itemTypeSecondary?: pulumi.Input<string>;
+    /**
+     * List of item values.
+     */
     itemValue?: pulumi.Input<pulumi.Input<string>[]>;
+    /**
+     * Whether to enable Microsoft login services tenant restriction v2.
+     */
     msLoginServicesTrV2?: pulumi.Input<boolean>;
+    /**
+     * Name of the tenant restriction profile.
+     */
     name: pulumi.Input<string>;
+    /**
+     * Whether to restrict personal Office 365 domains.
+     */
     restrictPersonalO365Domains?: pulumi.Input<boolean>;
 }

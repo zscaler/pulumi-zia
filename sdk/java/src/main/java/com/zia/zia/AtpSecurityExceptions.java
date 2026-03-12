@@ -14,17 +14,43 @@ import java.util.List;
 import java.util.Optional;
 import javax.annotation.Nullable;
 
+/**
+ * The zia_atp_security_exceptions resource manages the list of bypass URLs for Advanced Threat Protection (ATP) in the Zscaler Internet Access (ZIA) cloud service. URLs added to this list are excluded from ATP scanning. This is a singleton resource.
+ * 
+ * For more information, see the [ZIA Advanced Threat Protection documentation](https://help.zscaler.com/zia/about-advanced-threat-protection-policy).
+ * 
+ * ## Example Usage
+ * 
+ * &gt; This is a singleton resource. Import is not applicable.
+ * 
+ */
 @ResourceType(type="zia:index:AtpSecurityExceptions")
 public class AtpSecurityExceptions extends com.pulumi.resources.CustomResource {
+    /**
+     * List of URLs to be excluded (bypassed) from Advanced Threat Protection scanning.
+     * 
+     */
     @Export(name="bypassUrls", refs={List.class,String.class}, tree="[0,1]")
     private Output</* @Nullable */ List<String>> bypassUrls;
 
+    /**
+     * @return List of URLs to be excluded (bypassed) from Advanced Threat Protection scanning.
+     * 
+     */
     public Output<Optional<List<String>>> bypassUrls() {
         return Codegen.optional(this.bypassUrls);
     }
+    /**
+     * The internal resource identifier for the ATP security exceptions.
+     * 
+     */
     @Export(name="resourceId", refs={String.class}, tree="[0]")
     private Output<String> resourceId;
 
+    /**
+     * @return The internal resource identifier for the ATP security exceptions.
+     * 
+     */
     public Output<String> resourceId() {
         return this.resourceId;
     }
@@ -68,6 +94,7 @@ public class AtpSecurityExceptions extends com.pulumi.resources.CustomResource {
     private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<java.lang.String> id) {
         var defaultOptions = com.pulumi.resources.CustomResourceOptions.builder()
             .version(Utilities.getVersion())
+            .pluginDownloadURL("github://api.github.com/zscaler")
             .build();
         return com.pulumi.resources.CustomResourceOptions.merge(defaultOptions, options, id);
     }

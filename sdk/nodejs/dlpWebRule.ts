@@ -4,6 +4,37 @@
 import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "./utilities";
 
+/**
+ * The zia_dlp_web_rules resource manages DLP (Data Loss Prevention) web rules in the Zscaler Internet Access (ZIA) cloud service. DLP web rules define how sensitive data is handled in web traffic, allowing organizations to control and monitor the transfer of confidential information.
+ *
+ * For more information, see the [ZIA Data Loss Prevention documentation](https://help.zscaler.com/zia/data-loss-prevention).
+ *
+ * ## Example Usage
+ * ### Basic DLP Web Rule
+ *
+ * ```typescript
+ * import * as zia from "@bdzscaler/pulumi-zia";
+ *
+ * const example = new zia.DlpWebRule("example", {
+ *     name: "Example DLP Web Rule",
+ *     description: "Block sensitive data uploads",
+ *     order: 1,
+ *     state: "ENABLED",
+ *     action: "BLOCK",
+ *     protocols: ["FTP_RULE", "HTTPS_RULE", "HTTP_RULE"],
+ *     fileTypes: ["ALL_OUTBOUND"],
+ *     zccNotificationsEnabled: true,
+ * });
+ * ```
+ *
+ * ## Import
+ *
+ * An existing DLP Web Rule can be imported using its resource ID, e.g.
+ *
+ * ```sh
+ * $ pulumi import zia:index:DlpWebRule example 12345
+ * ```
+ */
 export class DlpWebRule extends pulumi.CustomResource {
     /**
      * Get an existing DlpWebRule resource's state with the given name, ID, and optional extra
@@ -31,30 +62,105 @@ export class DlpWebRule extends pulumi.CustomResource {
         return obj['__pulumiType'] === DlpWebRule.__pulumiType;
     }
 
+    /**
+     * Action taken when the rule is matched. Valid values: `ALLOW`, `BLOCK`, `ICAP_RESPONSE`.
+     */
     declare public readonly action: pulumi.Output<string | undefined>;
+    /**
+     * List of cloud application names for which the rule is applied.
+     */
     declare public readonly cloudApplications: pulumi.Output<string[] | undefined>;
+    /**
+     * IDs of departments for which the rule must be applied.
+     */
     declare public readonly departments: pulumi.Output<number[] | undefined>;
+    /**
+     * Additional information about the DLP web rule.
+     */
     declare public readonly description: pulumi.Output<string | undefined>;
+    /**
+     * If true, DLP scanning is enabled for file downloads.
+     */
     declare public readonly dlpDownloadScanEnabled: pulumi.Output<boolean | undefined>;
+    /**
+     * The email address of an external auditor to whom DLP email notifications are sent.
+     */
     declare public readonly externalAuditorEmail: pulumi.Output<string | undefined>;
+    /**
+     * List of file types to which the DLP policy rule must be applied.
+     */
     declare public readonly fileTypes: pulumi.Output<string[] | undefined>;
+    /**
+     * IDs of groups for which the rule must be applied.
+     */
     declare public readonly groups: pulumi.Output<number[] | undefined>;
+    /**
+     * IDs of labels associated with the DLP web rule.
+     */
     declare public readonly labels: pulumi.Output<number[] | undefined>;
+    /**
+     * IDs of location groups for which the rule must be applied.
+     */
     declare public readonly locationGroups: pulumi.Output<number[] | undefined>;
+    /**
+     * IDs of locations for which the rule must be applied.
+     */
     declare public readonly locations: pulumi.Output<number[] | undefined>;
+    /**
+     * If true, the rule matches but does not enforce the action.
+     */
     declare public readonly matchOnly: pulumi.Output<boolean | undefined>;
+    /**
+     * Minimum file size (in KB) used for evaluating the DLP policy rule.
+     */
     declare public readonly minSize: pulumi.Output<number | undefined>;
+    /**
+     * The name of the DLP web rule. Must be unique.
+     */
     declare public readonly name: pulumi.Output<string>;
+    /**
+     * If true, Optical Character Recognition (OCR) is enabled for the DLP rule.
+     */
     declare public readonly ocrEnabled: pulumi.Output<boolean | undefined>;
+    /**
+     * The order of execution of the rule with respect to other DLP web rules.
+     */
     declare public readonly order: pulumi.Output<number>;
+    /**
+     * Protocols to which the rule applies. Valid values: `FTP_RULE`, `HTTPS_RULE`, `HTTP_RULE`.
+     */
     declare public readonly protocols: pulumi.Output<string[] | undefined>;
+    /**
+     * Admin rank of the DLP web rule. Valid values: 0-7. Default: 7.
+     */
     declare public readonly rank: pulumi.Output<number | undefined>;
+    /**
+     * The system-generated ID of the DLP web rule.
+     */
     declare public /*out*/ readonly ruleId: pulumi.Output<number>;
+    /**
+     * IDs of source IP address groups for which the rule must be applied.
+     */
     declare public readonly sourceIpGroups: pulumi.Output<number[] | undefined>;
+    /**
+     * Rule state. Valid values: `ENABLED`, `DISABLED`.
+     */
     declare public readonly state: pulumi.Output<string | undefined>;
+    /**
+     * IDs of time intervals during which the rule must be enforced.
+     */
     declare public readonly timeWindows: pulumi.Output<number[] | undefined>;
+    /**
+     * IDs of users for which the rule must be applied.
+     */
     declare public readonly users: pulumi.Output<number[] | undefined>;
+    /**
+     * If true, the DLP rule is applied without inspecting content.
+     */
     declare public readonly withoutContentInspection: pulumi.Output<boolean | undefined>;
+    /**
+     * If true, Zscaler Client Connector notifications are enabled for this rule.
+     */
     declare public readonly zccNotificationsEnabled: pulumi.Output<boolean | undefined>;
 
     /**
@@ -135,28 +241,100 @@ export class DlpWebRule extends pulumi.CustomResource {
  * The set of arguments for constructing a DlpWebRule resource.
  */
 export interface DlpWebRuleArgs {
+    /**
+     * Action taken when the rule is matched. Valid values: `ALLOW`, `BLOCK`, `ICAP_RESPONSE`.
+     */
     action?: pulumi.Input<string>;
+    /**
+     * List of cloud application names for which the rule is applied.
+     */
     cloudApplications?: pulumi.Input<pulumi.Input<string>[]>;
+    /**
+     * IDs of departments for which the rule must be applied.
+     */
     departments?: pulumi.Input<pulumi.Input<number>[]>;
+    /**
+     * Additional information about the DLP web rule.
+     */
     description?: pulumi.Input<string>;
+    /**
+     * If true, DLP scanning is enabled for file downloads.
+     */
     dlpDownloadScanEnabled?: pulumi.Input<boolean>;
+    /**
+     * The email address of an external auditor to whom DLP email notifications are sent.
+     */
     externalAuditorEmail?: pulumi.Input<string>;
+    /**
+     * List of file types to which the DLP policy rule must be applied.
+     */
     fileTypes?: pulumi.Input<pulumi.Input<string>[]>;
+    /**
+     * IDs of groups for which the rule must be applied.
+     */
     groups?: pulumi.Input<pulumi.Input<number>[]>;
+    /**
+     * IDs of labels associated with the DLP web rule.
+     */
     labels?: pulumi.Input<pulumi.Input<number>[]>;
+    /**
+     * IDs of location groups for which the rule must be applied.
+     */
     locationGroups?: pulumi.Input<pulumi.Input<number>[]>;
+    /**
+     * IDs of locations for which the rule must be applied.
+     */
     locations?: pulumi.Input<pulumi.Input<number>[]>;
+    /**
+     * If true, the rule matches but does not enforce the action.
+     */
     matchOnly?: pulumi.Input<boolean>;
+    /**
+     * Minimum file size (in KB) used for evaluating the DLP policy rule.
+     */
     minSize?: pulumi.Input<number>;
+    /**
+     * The name of the DLP web rule. Must be unique.
+     */
     name: pulumi.Input<string>;
+    /**
+     * If true, Optical Character Recognition (OCR) is enabled for the DLP rule.
+     */
     ocrEnabled?: pulumi.Input<boolean>;
+    /**
+     * The order of execution of the rule with respect to other DLP web rules.
+     */
     order: pulumi.Input<number>;
+    /**
+     * Protocols to which the rule applies. Valid values: `FTP_RULE`, `HTTPS_RULE`, `HTTP_RULE`.
+     */
     protocols?: pulumi.Input<pulumi.Input<string>[]>;
+    /**
+     * Admin rank of the DLP web rule. Valid values: 0-7. Default: 7.
+     */
     rank?: pulumi.Input<number>;
+    /**
+     * IDs of source IP address groups for which the rule must be applied.
+     */
     sourceIpGroups?: pulumi.Input<pulumi.Input<number>[]>;
+    /**
+     * Rule state. Valid values: `ENABLED`, `DISABLED`.
+     */
     state?: pulumi.Input<string>;
+    /**
+     * IDs of time intervals during which the rule must be enforced.
+     */
     timeWindows?: pulumi.Input<pulumi.Input<number>[]>;
+    /**
+     * IDs of users for which the rule must be applied.
+     */
     users?: pulumi.Input<pulumi.Input<number>[]>;
+    /**
+     * If true, the DLP rule is applied without inspecting content.
+     */
     withoutContentInspection?: pulumi.Input<boolean>;
+    /**
+     * If true, Zscaler Client Connector notifications are enabled for this rule.
+     */
     zccNotificationsEnabled?: pulumi.Input<boolean>;
 }

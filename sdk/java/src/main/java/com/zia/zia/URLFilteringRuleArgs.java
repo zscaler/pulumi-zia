@@ -21,261 +21,557 @@ public final class URLFilteringRuleArgs extends com.pulumi.resources.ResourceArg
 
     public static final URLFilteringRuleArgs Empty = new URLFilteringRuleArgs();
 
+    /**
+     * Action taken when traffic matches rule criteria. Valid values: `BLOCK`, `CAUTION`, `ALLOW`, `ISOLATE`.
+     * 
+     */
     @Import(name="action")
     private @Nullable Output<String> action;
 
+    /**
+     * @return Action taken when traffic matches rule criteria. Valid values: `BLOCK`, `CAUTION`, `ALLOW`, `ISOLATE`.
+     * 
+     */
     public Optional<Output<String>> action() {
         return Optional.ofNullable(this.action);
     }
 
+    /**
+     * When set to true, a &#39;BLOCK&#39; action can be overridden. Can only be set when action is &#39;BLOCK&#39;.
+     * 
+     */
     @Import(name="blockOverride")
     private @Nullable Output<Boolean> blockOverride;
 
+    /**
+     * @return When set to true, a &#39;BLOCK&#39; action can be overridden. Can only be set when action is &#39;BLOCK&#39;.
+     * 
+     */
     public Optional<Output<Boolean>> blockOverride() {
         return Optional.ofNullable(this.blockOverride);
     }
 
+    /**
+     * Browser End User Notification template ID. Only applicable when action is &#39;BLOCK&#39; or &#39;CAUTION&#39;.
+     * 
+     */
     @Import(name="browserEunTemplateId")
     private @Nullable Output<Integer> browserEunTemplateId;
 
+    /**
+     * @return Browser End User Notification template ID. Only applicable when action is &#39;BLOCK&#39; or &#39;CAUTION&#39;.
+     * 
+     */
     public Optional<Output<Integer>> browserEunTemplateId() {
         return Optional.ofNullable(this.browserEunTemplateId);
     }
 
+    /**
+     * The Cloud Browser Isolation (CBI) profile. Required when action is &#39;ISOLATE&#39;.
+     * 
+     */
     @Import(name="cbiProfile")
     private @Nullable Output<CBIProfileInputArgs> cbiProfile;
 
+    /**
+     * @return The Cloud Browser Isolation (CBI) profile. Required when action is &#39;ISOLATE&#39;.
+     * 
+     */
     public Optional<Output<CBIProfileInputArgs>> cbiProfile() {
         return Optional.ofNullable(this.cbiProfile);
     }
 
+    /**
+     * If set to true, the CIPA Compliance rule is enabled.
+     * 
+     */
     @Import(name="ciparule")
     private @Nullable Output<Boolean> ciparule;
 
+    /**
+     * @return If set to true, the CIPA Compliance rule is enabled.
+     * 
+     */
     public Optional<Output<Boolean>> ciparule() {
         return Optional.ofNullable(this.ciparule);
     }
 
+    /**
+     * IDs of departments for which the rule must be applied.
+     * 
+     */
     @Import(name="departments")
     private @Nullable Output<List<Integer>> departments;
 
+    /**
+     * @return IDs of departments for which the rule must be applied.
+     * 
+     */
     public Optional<Output<List<Integer>>> departments() {
         return Optional.ofNullable(this.departments);
     }
 
+    /**
+     * Additional information about the URL filtering rule. Maximum 10240 characters.
+     * 
+     */
     @Import(name="description")
     private @Nullable Output<String> description;
 
+    /**
+     * @return Additional information about the URL filtering rule. Maximum 10240 characters.
+     * 
+     */
     public Optional<Output<String>> description() {
         return Optional.ofNullable(this.description);
     }
 
+    /**
+     * IDs of device groups for which the rule must be applied. Applicable for devices managed using Zscaler Client Connector.
+     * 
+     */
     @Import(name="deviceGroups")
     private @Nullable Output<List<Integer>> deviceGroups;
 
+    /**
+     * @return IDs of device groups for which the rule must be applied. Applicable for devices managed using Zscaler Client Connector.
+     * 
+     */
     public Optional<Output<List<Integer>>> deviceGroups() {
         return Optional.ofNullable(this.deviceGroups);
     }
 
+    /**
+     * Device trust levels for the rule. Valid values: `ANY`, `UNKNOWN_DEVICETRUSTLEVEL`, `LOW_TRUST`, `MEDIUM_TRUST`, `HIGH_TRUST`.
+     * 
+     */
     @Import(name="deviceTrustLevels")
     private @Nullable Output<List<String>> deviceTrustLevels;
 
+    /**
+     * @return Device trust levels for the rule. Valid values: `ANY`, `UNKNOWN_DEVICETRUSTLEVEL`, `LOW_TRUST`, `MEDIUM_TRUST`, `HIGH_TRUST`.
+     * 
+     */
     public Optional<Output<List<String>>> deviceTrustLevels() {
         return Optional.ofNullable(this.deviceTrustLevels);
     }
 
+    /**
+     * IDs of devices for which the rule must be applied.
+     * 
+     */
     @Import(name="devices")
     private @Nullable Output<List<Integer>> devices;
 
+    /**
+     * @return IDs of devices for which the rule must be applied.
+     * 
+     */
     public Optional<Output<List<Integer>>> devices() {
         return Optional.ofNullable(this.devices);
     }
 
+    /**
+     * URL of end user notification page to be displayed when the rule is matched. Not applicable if either &#39;overrideUsers&#39; or &#39;overrideGroups&#39; is specified.
+     * 
+     */
     @Import(name="endUserNotificationUrl")
     private @Nullable Output<String> endUserNotificationUrl;
 
+    /**
+     * @return URL of end user notification page to be displayed when the rule is matched. Not applicable if either &#39;overrideUsers&#39; or &#39;overrideGroups&#39; is specified.
+     * 
+     */
     public Optional<Output<String>> endUserNotificationUrl() {
         return Optional.ofNullable(this.endUserNotificationUrl);
     }
 
+    /**
+     * Enforce a set validity time period for the URL filtering rule.
+     * 
+     */
     @Import(name="enforceTimeValidity")
     private @Nullable Output<Boolean> enforceTimeValidity;
 
+    /**
+     * @return Enforce a set validity time period for the URL filtering rule.
+     * 
+     */
     public Optional<Output<Boolean>> enforceTimeValidity() {
         return Optional.ofNullable(this.enforceTimeValidity);
     }
 
+    /**
+     * IDs of groups for which the rule must be applied.
+     * 
+     */
     @Import(name="groups")
     private @Nullable Output<List<Integer>> groups;
 
+    /**
+     * @return IDs of groups for which the rule must be applied.
+     * 
+     */
     public Optional<Output<List<Integer>>> groups() {
         return Optional.ofNullable(this.groups);
     }
 
+    /**
+     * IDs of labels associated with the URL filtering rule.
+     * 
+     */
     @Import(name="labels")
     private @Nullable Output<List<Integer>> labels;
 
+    /**
+     * @return IDs of labels associated with the URL filtering rule.
+     * 
+     */
     public Optional<Output<List<Integer>>> labels() {
         return Optional.ofNullable(this.labels);
     }
 
+    /**
+     * IDs of location groups to which the rule must be applied.
+     * 
+     */
     @Import(name="locationGroups")
     private @Nullable Output<List<Integer>> locationGroups;
 
+    /**
+     * @return IDs of location groups to which the rule must be applied.
+     * 
+     */
     public Optional<Output<List<Integer>>> locationGroups() {
         return Optional.ofNullable(this.locationGroups);
     }
 
+    /**
+     * IDs of locations for which the rule must be applied.
+     * 
+     */
     @Import(name="locations")
     private @Nullable Output<List<Integer>> locations;
 
+    /**
+     * @return IDs of locations for which the rule must be applied.
+     * 
+     */
     public Optional<Output<List<Integer>>> locations() {
         return Optional.ofNullable(this.locations);
     }
 
+    /**
+     * The name of the URL filtering rule. Must be unique.
+     * 
+     */
     @Import(name="name", required=true)
     private Output<String> name;
 
+    /**
+     * @return The name of the URL filtering rule. Must be unique.
+     * 
+     */
     public Output<String> name() {
         return this.name;
     }
 
+    /**
+     * The order of execution of the rule with respect to other URL filtering rules.
+     * 
+     */
     @Import(name="order", required=true)
     private Output<Integer> order;
 
+    /**
+     * @return The order of execution of the rule with respect to other URL filtering rules.
+     * 
+     */
     public Output<Integer> order() {
         return this.order;
     }
 
+    /**
+     * IDs of groups for which this rule can be overridden. Only applicable when action is &#39;BLOCK&#39; and blockOverride is true.
+     * 
+     */
     @Import(name="overrideGroups")
     private @Nullable Output<List<Integer>> overrideGroups;
 
+    /**
+     * @return IDs of groups for which this rule can be overridden. Only applicable when action is &#39;BLOCK&#39; and blockOverride is true.
+     * 
+     */
     public Optional<Output<List<Integer>>> overrideGroups() {
         return Optional.ofNullable(this.overrideGroups);
     }
 
+    /**
+     * IDs of users for which this rule can be overridden. Only applicable when action is &#39;BLOCK&#39; and blockOverride is true.
+     * 
+     */
     @Import(name="overrideUsers")
     private @Nullable Output<List<Integer>> overrideUsers;
 
+    /**
+     * @return IDs of users for which this rule can be overridden. Only applicable when action is &#39;BLOCK&#39; and blockOverride is true.
+     * 
+     */
     public Optional<Output<List<Integer>>> overrideUsers() {
         return Optional.ofNullable(this.overrideUsers);
     }
 
+    /**
+     * Protocols to which the rule applies. Valid values: `SMRULEF_ZPA_BROKERS_RULE`, `ANY_RULE`, `TCP_RULE`, `UDP_RULE`, `DOHTTPS_RULE`, `TUNNELSSL_RULE`, `HTTP_PROXY`, `FOHTTP_RULE`, `FTP_RULE`, `SSL_RULE`.
+     * 
+     */
     @Import(name="protocols")
     private @Nullable Output<List<String>> protocols;
 
+    /**
+     * @return Protocols to which the rule applies. Valid values: `SMRULEF_ZPA_BROKERS_RULE`, `ANY_RULE`, `TCP_RULE`, `UDP_RULE`, `DOHTTPS_RULE`, `TUNNELSSL_RULE`, `HTTP_PROXY`, `FOHTTP_RULE`, `FTP_RULE`, `SSL_RULE`.
+     * 
+     */
     public Optional<Output<List<String>>> protocols() {
         return Optional.ofNullable(this.protocols);
     }
 
+    /**
+     * Admin rank of the URL filtering policy rule. Valid values: 0-7. Default: 7.
+     * 
+     */
     @Import(name="rank")
     private @Nullable Output<Integer> rank;
 
+    /**
+     * @return Admin rank of the URL filtering policy rule. Valid values: 0-7. Default: 7.
+     * 
+     */
     public Optional<Output<Integer>> rank() {
         return Optional.ofNullable(this.rank);
     }
 
+    /**
+     * Request methods to which the rule applies. Valid values: `CONNECT`, `DELETE`, `GET`, `HEAD`, `OPTIONS`, `OTHER`, `POST`, `PUT`, `TRACE`.
+     * 
+     */
     @Import(name="requestMethods")
     private @Nullable Output<List<String>> requestMethods;
 
+    /**
+     * @return Request methods to which the rule applies. Valid values: `CONNECT`, `DELETE`, `GET`, `HEAD`, `OPTIONS`, `OTHER`, `POST`, `PUT`, `TRACE`.
+     * 
+     */
     public Optional<Output<List<String>>> requestMethods() {
         return Optional.ofNullable(this.requestMethods);
     }
 
+    /**
+     * Size quota in MB beyond which the URL filtering rule is applied. If not set, no quota is enforced. Valid range: 10-100000. Not applicable when action is &#39;BLOCK&#39;.
+     * 
+     */
     @Import(name="sizeQuota")
     private @Nullable Output<Integer> sizeQuota;
 
+    /**
+     * @return Size quota in MB beyond which the URL filtering rule is applied. If not set, no quota is enforced. Valid range: 10-100000. Not applicable when action is &#39;BLOCK&#39;.
+     * 
+     */
     public Optional<Output<Integer>> sizeQuota() {
         return Optional.ofNullable(this.sizeQuota);
     }
 
+    /**
+     * Source countries (ISO 3166-1 alpha-2 codes) for the rule.
+     * 
+     */
     @Import(name="sourceCountries")
     private @Nullable Output<List<String>> sourceCountries;
 
+    /**
+     * @return Source countries (ISO 3166-1 alpha-2 codes) for the rule.
+     * 
+     */
     public Optional<Output<List<String>>> sourceCountries() {
         return Optional.ofNullable(this.sourceCountries);
     }
 
+    /**
+     * IDs of source IP address groups.
+     * 
+     */
     @Import(name="sourceIpGroups")
     private @Nullable Output<List<Integer>> sourceIpGroups;
 
+    /**
+     * @return IDs of source IP address groups.
+     * 
+     */
     public Optional<Output<List<Integer>>> sourceIpGroups() {
         return Optional.ofNullable(this.sourceIpGroups);
     }
 
+    /**
+     * Rule state. Valid values: `ENABLED`, `DISABLED`.
+     * 
+     */
     @Import(name="state")
     private @Nullable Output<String> state;
 
+    /**
+     * @return Rule state. Valid values: `ENABLED`, `DISABLED`.
+     * 
+     */
     public Optional<Output<String>> state() {
         return Optional.ofNullable(this.state);
     }
 
+    /**
+     * Time quota in minutes, after which the URL filtering rule is applied. If not set, no quota is enforced. Valid range: 15-600. Not applicable when action is &#39;BLOCK&#39;.
+     * 
+     */
     @Import(name="timeQuota")
     private @Nullable Output<Integer> timeQuota;
 
+    /**
+     * @return Time quota in minutes, after which the URL filtering rule is applied. If not set, no quota is enforced. Valid range: 15-600. Not applicable when action is &#39;BLOCK&#39;.
+     * 
+     */
     public Optional<Output<Integer>> timeQuota() {
         return Optional.ofNullable(this.timeQuota);
     }
 
+    /**
+     * IDs of time intervals during which the rule must be enforced.
+     * 
+     */
     @Import(name="timeWindows")
     private @Nullable Output<List<Integer>> timeWindows;
 
+    /**
+     * @return IDs of time intervals during which the rule must be enforced.
+     * 
+     */
     public Optional<Output<List<Integer>>> timeWindows() {
         return Optional.ofNullable(this.timeWindows);
     }
 
+    /**
+     * List of URL categories to which the rule applies. See the [URL Categories API](https://help.zscaler.com/zia/url-categories#/urlCategories-get) for available categories.
+     * 
+     */
     @Import(name="urlCategories")
     private @Nullable Output<List<String>> urlCategories;
 
+    /**
+     * @return List of URL categories to which the rule applies. See the [URL Categories API](https://help.zscaler.com/zia/url-categories#/urlCategories-get) for available categories.
+     * 
+     */
     public Optional<Output<List<String>>> urlCategories() {
         return Optional.ofNullable(this.urlCategories);
     }
 
+    /**
+     * User agent types the rule applies to. Valid values: `CHROME`, `FIREFOX`, `MSIE`, `MSEDGE`, `MSCHREDGE`, `OPERA`, `SAFARI`, `OTHER`.
+     * 
+     */
     @Import(name="userAgentTypes")
     private @Nullable Output<List<String>> userAgentTypes;
 
+    /**
+     * @return User agent types the rule applies to. Valid values: `CHROME`, `FIREFOX`, `MSIE`, `MSEDGE`, `MSCHREDGE`, `OPERA`, `SAFARI`, `OTHER`.
+     * 
+     */
     public Optional<Output<List<String>>> userAgentTypes() {
         return Optional.ofNullable(this.userAgentTypes);
     }
 
+    /**
+     * User risk score levels for the rule. Valid values: `LOW`, `MEDIUM`, `HIGH`, `CRITICAL`.
+     * 
+     */
     @Import(name="userRiskScoreLevels")
     private @Nullable Output<List<String>> userRiskScoreLevels;
 
+    /**
+     * @return User risk score levels for the rule. Valid values: `LOW`, `MEDIUM`, `HIGH`, `CRITICAL`.
+     * 
+     */
     public Optional<Output<List<String>>> userRiskScoreLevels() {
         return Optional.ofNullable(this.userRiskScoreLevels);
     }
 
+    /**
+     * IDs of users for which the rule must be applied.
+     * 
+     */
     @Import(name="users")
     private @Nullable Output<List<Integer>> users;
 
+    /**
+     * @return IDs of users for which the rule must be applied.
+     * 
+     */
     public Optional<Output<List<Integer>>> users() {
         return Optional.ofNullable(this.users);
     }
 
+    /**
+     * If enforceTimeValidity is set to true, the URL filtering rule ceases to be valid on this end date and time (RFC 1123 format).
+     * 
+     */
     @Import(name="validityEndTime")
     private @Nullable Output<String> validityEndTime;
 
+    /**
+     * @return If enforceTimeValidity is set to true, the URL filtering rule ceases to be valid on this end date and time (RFC 1123 format).
+     * 
+     */
     public Optional<Output<String>> validityEndTime() {
         return Optional.ofNullable(this.validityEndTime);
     }
 
+    /**
+     * If enforceTimeValidity is set to true, the URL filtering rule is valid starting on this date and time (RFC 1123 format).
+     * 
+     */
     @Import(name="validityStartTime")
     private @Nullable Output<String> validityStartTime;
 
+    /**
+     * @return If enforceTimeValidity is set to true, the URL filtering rule is valid starting on this date and time (RFC 1123 format).
+     * 
+     */
     public Optional<Output<String>> validityStartTime() {
         return Optional.ofNullable(this.validityStartTime);
     }
 
+    /**
+     * If enforceTimeValidity is set to true, the URL filtering rule date and time is valid based on this time zone ID. Use IANA format (e.g. &#39;America/Los_Angeles&#39;). See https://nodatime.org/TimeZones for the complete list.
+     * 
+     */
     @Import(name="validityTimeZoneId")
     private @Nullable Output<String> validityTimeZoneId;
 
+    /**
+     * @return If enforceTimeValidity is set to true, the URL filtering rule date and time is valid based on this time zone ID. Use IANA format (e.g. &#39;America/Los_Angeles&#39;). See https://nodatime.org/TimeZones for the complete list.
+     * 
+     */
     public Optional<Output<String>> validityTimeZoneId() {
         return Optional.ofNullable(this.validityTimeZoneId);
     }
 
+    /**
+     * List of preconfigured workload groups to which the policy must be applied.
+     * 
+     */
     @Import(name="workloadGroups")
     private @Nullable Output<List<WorkloadGroupInputArgs>> workloadGroups;
 
+    /**
+     * @return List of preconfigured workload groups to which the policy must be applied.
+     * 
+     */
     public Optional<Output<List<WorkloadGroupInputArgs>>> workloadGroups() {
         return Optional.ofNullable(this.workloadGroups);
     }
@@ -340,415 +636,979 @@ public final class URLFilteringRuleArgs extends com.pulumi.resources.ResourceArg
             $ = new URLFilteringRuleArgs(Objects.requireNonNull(defaults));
         }
 
+        /**
+         * @param action Action taken when traffic matches rule criteria. Valid values: `BLOCK`, `CAUTION`, `ALLOW`, `ISOLATE`.
+         * 
+         * @return builder
+         * 
+         */
         public Builder action(@Nullable Output<String> action) {
             $.action = action;
             return this;
         }
 
+        /**
+         * @param action Action taken when traffic matches rule criteria. Valid values: `BLOCK`, `CAUTION`, `ALLOW`, `ISOLATE`.
+         * 
+         * @return builder
+         * 
+         */
         public Builder action(String action) {
             return action(Output.of(action));
         }
 
+        /**
+         * @param blockOverride When set to true, a &#39;BLOCK&#39; action can be overridden. Can only be set when action is &#39;BLOCK&#39;.
+         * 
+         * @return builder
+         * 
+         */
         public Builder blockOverride(@Nullable Output<Boolean> blockOverride) {
             $.blockOverride = blockOverride;
             return this;
         }
 
+        /**
+         * @param blockOverride When set to true, a &#39;BLOCK&#39; action can be overridden. Can only be set when action is &#39;BLOCK&#39;.
+         * 
+         * @return builder
+         * 
+         */
         public Builder blockOverride(Boolean blockOverride) {
             return blockOverride(Output.of(blockOverride));
         }
 
+        /**
+         * @param browserEunTemplateId Browser End User Notification template ID. Only applicable when action is &#39;BLOCK&#39; or &#39;CAUTION&#39;.
+         * 
+         * @return builder
+         * 
+         */
         public Builder browserEunTemplateId(@Nullable Output<Integer> browserEunTemplateId) {
             $.browserEunTemplateId = browserEunTemplateId;
             return this;
         }
 
+        /**
+         * @param browserEunTemplateId Browser End User Notification template ID. Only applicable when action is &#39;BLOCK&#39; or &#39;CAUTION&#39;.
+         * 
+         * @return builder
+         * 
+         */
         public Builder browserEunTemplateId(Integer browserEunTemplateId) {
             return browserEunTemplateId(Output.of(browserEunTemplateId));
         }
 
+        /**
+         * @param cbiProfile The Cloud Browser Isolation (CBI) profile. Required when action is &#39;ISOLATE&#39;.
+         * 
+         * @return builder
+         * 
+         */
         public Builder cbiProfile(@Nullable Output<CBIProfileInputArgs> cbiProfile) {
             $.cbiProfile = cbiProfile;
             return this;
         }
 
+        /**
+         * @param cbiProfile The Cloud Browser Isolation (CBI) profile. Required when action is &#39;ISOLATE&#39;.
+         * 
+         * @return builder
+         * 
+         */
         public Builder cbiProfile(CBIProfileInputArgs cbiProfile) {
             return cbiProfile(Output.of(cbiProfile));
         }
 
+        /**
+         * @param ciparule If set to true, the CIPA Compliance rule is enabled.
+         * 
+         * @return builder
+         * 
+         */
         public Builder ciparule(@Nullable Output<Boolean> ciparule) {
             $.ciparule = ciparule;
             return this;
         }
 
+        /**
+         * @param ciparule If set to true, the CIPA Compliance rule is enabled.
+         * 
+         * @return builder
+         * 
+         */
         public Builder ciparule(Boolean ciparule) {
             return ciparule(Output.of(ciparule));
         }
 
+        /**
+         * @param departments IDs of departments for which the rule must be applied.
+         * 
+         * @return builder
+         * 
+         */
         public Builder departments(@Nullable Output<List<Integer>> departments) {
             $.departments = departments;
             return this;
         }
 
+        /**
+         * @param departments IDs of departments for which the rule must be applied.
+         * 
+         * @return builder
+         * 
+         */
         public Builder departments(List<Integer> departments) {
             return departments(Output.of(departments));
         }
 
+        /**
+         * @param departments IDs of departments for which the rule must be applied.
+         * 
+         * @return builder
+         * 
+         */
         public Builder departments(Integer... departments) {
             return departments(List.of(departments));
         }
 
+        /**
+         * @param description Additional information about the URL filtering rule. Maximum 10240 characters.
+         * 
+         * @return builder
+         * 
+         */
         public Builder description(@Nullable Output<String> description) {
             $.description = description;
             return this;
         }
 
+        /**
+         * @param description Additional information about the URL filtering rule. Maximum 10240 characters.
+         * 
+         * @return builder
+         * 
+         */
         public Builder description(String description) {
             return description(Output.of(description));
         }
 
+        /**
+         * @param deviceGroups IDs of device groups for which the rule must be applied. Applicable for devices managed using Zscaler Client Connector.
+         * 
+         * @return builder
+         * 
+         */
         public Builder deviceGroups(@Nullable Output<List<Integer>> deviceGroups) {
             $.deviceGroups = deviceGroups;
             return this;
         }
 
+        /**
+         * @param deviceGroups IDs of device groups for which the rule must be applied. Applicable for devices managed using Zscaler Client Connector.
+         * 
+         * @return builder
+         * 
+         */
         public Builder deviceGroups(List<Integer> deviceGroups) {
             return deviceGroups(Output.of(deviceGroups));
         }
 
+        /**
+         * @param deviceGroups IDs of device groups for which the rule must be applied. Applicable for devices managed using Zscaler Client Connector.
+         * 
+         * @return builder
+         * 
+         */
         public Builder deviceGroups(Integer... deviceGroups) {
             return deviceGroups(List.of(deviceGroups));
         }
 
+        /**
+         * @param deviceTrustLevels Device trust levels for the rule. Valid values: `ANY`, `UNKNOWN_DEVICETRUSTLEVEL`, `LOW_TRUST`, `MEDIUM_TRUST`, `HIGH_TRUST`.
+         * 
+         * @return builder
+         * 
+         */
         public Builder deviceTrustLevels(@Nullable Output<List<String>> deviceTrustLevels) {
             $.deviceTrustLevels = deviceTrustLevels;
             return this;
         }
 
+        /**
+         * @param deviceTrustLevels Device trust levels for the rule. Valid values: `ANY`, `UNKNOWN_DEVICETRUSTLEVEL`, `LOW_TRUST`, `MEDIUM_TRUST`, `HIGH_TRUST`.
+         * 
+         * @return builder
+         * 
+         */
         public Builder deviceTrustLevels(List<String> deviceTrustLevels) {
             return deviceTrustLevels(Output.of(deviceTrustLevels));
         }
 
+        /**
+         * @param deviceTrustLevels Device trust levels for the rule. Valid values: `ANY`, `UNKNOWN_DEVICETRUSTLEVEL`, `LOW_TRUST`, `MEDIUM_TRUST`, `HIGH_TRUST`.
+         * 
+         * @return builder
+         * 
+         */
         public Builder deviceTrustLevels(String... deviceTrustLevels) {
             return deviceTrustLevels(List.of(deviceTrustLevels));
         }
 
+        /**
+         * @param devices IDs of devices for which the rule must be applied.
+         * 
+         * @return builder
+         * 
+         */
         public Builder devices(@Nullable Output<List<Integer>> devices) {
             $.devices = devices;
             return this;
         }
 
+        /**
+         * @param devices IDs of devices for which the rule must be applied.
+         * 
+         * @return builder
+         * 
+         */
         public Builder devices(List<Integer> devices) {
             return devices(Output.of(devices));
         }
 
+        /**
+         * @param devices IDs of devices for which the rule must be applied.
+         * 
+         * @return builder
+         * 
+         */
         public Builder devices(Integer... devices) {
             return devices(List.of(devices));
         }
 
+        /**
+         * @param endUserNotificationUrl URL of end user notification page to be displayed when the rule is matched. Not applicable if either &#39;overrideUsers&#39; or &#39;overrideGroups&#39; is specified.
+         * 
+         * @return builder
+         * 
+         */
         public Builder endUserNotificationUrl(@Nullable Output<String> endUserNotificationUrl) {
             $.endUserNotificationUrl = endUserNotificationUrl;
             return this;
         }
 
+        /**
+         * @param endUserNotificationUrl URL of end user notification page to be displayed when the rule is matched. Not applicable if either &#39;overrideUsers&#39; or &#39;overrideGroups&#39; is specified.
+         * 
+         * @return builder
+         * 
+         */
         public Builder endUserNotificationUrl(String endUserNotificationUrl) {
             return endUserNotificationUrl(Output.of(endUserNotificationUrl));
         }
 
+        /**
+         * @param enforceTimeValidity Enforce a set validity time period for the URL filtering rule.
+         * 
+         * @return builder
+         * 
+         */
         public Builder enforceTimeValidity(@Nullable Output<Boolean> enforceTimeValidity) {
             $.enforceTimeValidity = enforceTimeValidity;
             return this;
         }
 
+        /**
+         * @param enforceTimeValidity Enforce a set validity time period for the URL filtering rule.
+         * 
+         * @return builder
+         * 
+         */
         public Builder enforceTimeValidity(Boolean enforceTimeValidity) {
             return enforceTimeValidity(Output.of(enforceTimeValidity));
         }
 
+        /**
+         * @param groups IDs of groups for which the rule must be applied.
+         * 
+         * @return builder
+         * 
+         */
         public Builder groups(@Nullable Output<List<Integer>> groups) {
             $.groups = groups;
             return this;
         }
 
+        /**
+         * @param groups IDs of groups for which the rule must be applied.
+         * 
+         * @return builder
+         * 
+         */
         public Builder groups(List<Integer> groups) {
             return groups(Output.of(groups));
         }
 
+        /**
+         * @param groups IDs of groups for which the rule must be applied.
+         * 
+         * @return builder
+         * 
+         */
         public Builder groups(Integer... groups) {
             return groups(List.of(groups));
         }
 
+        /**
+         * @param labels IDs of labels associated with the URL filtering rule.
+         * 
+         * @return builder
+         * 
+         */
         public Builder labels(@Nullable Output<List<Integer>> labels) {
             $.labels = labels;
             return this;
         }
 
+        /**
+         * @param labels IDs of labels associated with the URL filtering rule.
+         * 
+         * @return builder
+         * 
+         */
         public Builder labels(List<Integer> labels) {
             return labels(Output.of(labels));
         }
 
+        /**
+         * @param labels IDs of labels associated with the URL filtering rule.
+         * 
+         * @return builder
+         * 
+         */
         public Builder labels(Integer... labels) {
             return labels(List.of(labels));
         }
 
+        /**
+         * @param locationGroups IDs of location groups to which the rule must be applied.
+         * 
+         * @return builder
+         * 
+         */
         public Builder locationGroups(@Nullable Output<List<Integer>> locationGroups) {
             $.locationGroups = locationGroups;
             return this;
         }
 
+        /**
+         * @param locationGroups IDs of location groups to which the rule must be applied.
+         * 
+         * @return builder
+         * 
+         */
         public Builder locationGroups(List<Integer> locationGroups) {
             return locationGroups(Output.of(locationGroups));
         }
 
+        /**
+         * @param locationGroups IDs of location groups to which the rule must be applied.
+         * 
+         * @return builder
+         * 
+         */
         public Builder locationGroups(Integer... locationGroups) {
             return locationGroups(List.of(locationGroups));
         }
 
+        /**
+         * @param locations IDs of locations for which the rule must be applied.
+         * 
+         * @return builder
+         * 
+         */
         public Builder locations(@Nullable Output<List<Integer>> locations) {
             $.locations = locations;
             return this;
         }
 
+        /**
+         * @param locations IDs of locations for which the rule must be applied.
+         * 
+         * @return builder
+         * 
+         */
         public Builder locations(List<Integer> locations) {
             return locations(Output.of(locations));
         }
 
+        /**
+         * @param locations IDs of locations for which the rule must be applied.
+         * 
+         * @return builder
+         * 
+         */
         public Builder locations(Integer... locations) {
             return locations(List.of(locations));
         }
 
+        /**
+         * @param name The name of the URL filtering rule. Must be unique.
+         * 
+         * @return builder
+         * 
+         */
         public Builder name(Output<String> name) {
             $.name = name;
             return this;
         }
 
+        /**
+         * @param name The name of the URL filtering rule. Must be unique.
+         * 
+         * @return builder
+         * 
+         */
         public Builder name(String name) {
             return name(Output.of(name));
         }
 
+        /**
+         * @param order The order of execution of the rule with respect to other URL filtering rules.
+         * 
+         * @return builder
+         * 
+         */
         public Builder order(Output<Integer> order) {
             $.order = order;
             return this;
         }
 
+        /**
+         * @param order The order of execution of the rule with respect to other URL filtering rules.
+         * 
+         * @return builder
+         * 
+         */
         public Builder order(Integer order) {
             return order(Output.of(order));
         }
 
+        /**
+         * @param overrideGroups IDs of groups for which this rule can be overridden. Only applicable when action is &#39;BLOCK&#39; and blockOverride is true.
+         * 
+         * @return builder
+         * 
+         */
         public Builder overrideGroups(@Nullable Output<List<Integer>> overrideGroups) {
             $.overrideGroups = overrideGroups;
             return this;
         }
 
+        /**
+         * @param overrideGroups IDs of groups for which this rule can be overridden. Only applicable when action is &#39;BLOCK&#39; and blockOverride is true.
+         * 
+         * @return builder
+         * 
+         */
         public Builder overrideGroups(List<Integer> overrideGroups) {
             return overrideGroups(Output.of(overrideGroups));
         }
 
+        /**
+         * @param overrideGroups IDs of groups for which this rule can be overridden. Only applicable when action is &#39;BLOCK&#39; and blockOverride is true.
+         * 
+         * @return builder
+         * 
+         */
         public Builder overrideGroups(Integer... overrideGroups) {
             return overrideGroups(List.of(overrideGroups));
         }
 
+        /**
+         * @param overrideUsers IDs of users for which this rule can be overridden. Only applicable when action is &#39;BLOCK&#39; and blockOverride is true.
+         * 
+         * @return builder
+         * 
+         */
         public Builder overrideUsers(@Nullable Output<List<Integer>> overrideUsers) {
             $.overrideUsers = overrideUsers;
             return this;
         }
 
+        /**
+         * @param overrideUsers IDs of users for which this rule can be overridden. Only applicable when action is &#39;BLOCK&#39; and blockOverride is true.
+         * 
+         * @return builder
+         * 
+         */
         public Builder overrideUsers(List<Integer> overrideUsers) {
             return overrideUsers(Output.of(overrideUsers));
         }
 
+        /**
+         * @param overrideUsers IDs of users for which this rule can be overridden. Only applicable when action is &#39;BLOCK&#39; and blockOverride is true.
+         * 
+         * @return builder
+         * 
+         */
         public Builder overrideUsers(Integer... overrideUsers) {
             return overrideUsers(List.of(overrideUsers));
         }
 
+        /**
+         * @param protocols Protocols to which the rule applies. Valid values: `SMRULEF_ZPA_BROKERS_RULE`, `ANY_RULE`, `TCP_RULE`, `UDP_RULE`, `DOHTTPS_RULE`, `TUNNELSSL_RULE`, `HTTP_PROXY`, `FOHTTP_RULE`, `FTP_RULE`, `SSL_RULE`.
+         * 
+         * @return builder
+         * 
+         */
         public Builder protocols(@Nullable Output<List<String>> protocols) {
             $.protocols = protocols;
             return this;
         }
 
+        /**
+         * @param protocols Protocols to which the rule applies. Valid values: `SMRULEF_ZPA_BROKERS_RULE`, `ANY_RULE`, `TCP_RULE`, `UDP_RULE`, `DOHTTPS_RULE`, `TUNNELSSL_RULE`, `HTTP_PROXY`, `FOHTTP_RULE`, `FTP_RULE`, `SSL_RULE`.
+         * 
+         * @return builder
+         * 
+         */
         public Builder protocols(List<String> protocols) {
             return protocols(Output.of(protocols));
         }
 
+        /**
+         * @param protocols Protocols to which the rule applies. Valid values: `SMRULEF_ZPA_BROKERS_RULE`, `ANY_RULE`, `TCP_RULE`, `UDP_RULE`, `DOHTTPS_RULE`, `TUNNELSSL_RULE`, `HTTP_PROXY`, `FOHTTP_RULE`, `FTP_RULE`, `SSL_RULE`.
+         * 
+         * @return builder
+         * 
+         */
         public Builder protocols(String... protocols) {
             return protocols(List.of(protocols));
         }
 
+        /**
+         * @param rank Admin rank of the URL filtering policy rule. Valid values: 0-7. Default: 7.
+         * 
+         * @return builder
+         * 
+         */
         public Builder rank(@Nullable Output<Integer> rank) {
             $.rank = rank;
             return this;
         }
 
+        /**
+         * @param rank Admin rank of the URL filtering policy rule. Valid values: 0-7. Default: 7.
+         * 
+         * @return builder
+         * 
+         */
         public Builder rank(Integer rank) {
             return rank(Output.of(rank));
         }
 
+        /**
+         * @param requestMethods Request methods to which the rule applies. Valid values: `CONNECT`, `DELETE`, `GET`, `HEAD`, `OPTIONS`, `OTHER`, `POST`, `PUT`, `TRACE`.
+         * 
+         * @return builder
+         * 
+         */
         public Builder requestMethods(@Nullable Output<List<String>> requestMethods) {
             $.requestMethods = requestMethods;
             return this;
         }
 
+        /**
+         * @param requestMethods Request methods to which the rule applies. Valid values: `CONNECT`, `DELETE`, `GET`, `HEAD`, `OPTIONS`, `OTHER`, `POST`, `PUT`, `TRACE`.
+         * 
+         * @return builder
+         * 
+         */
         public Builder requestMethods(List<String> requestMethods) {
             return requestMethods(Output.of(requestMethods));
         }
 
+        /**
+         * @param requestMethods Request methods to which the rule applies. Valid values: `CONNECT`, `DELETE`, `GET`, `HEAD`, `OPTIONS`, `OTHER`, `POST`, `PUT`, `TRACE`.
+         * 
+         * @return builder
+         * 
+         */
         public Builder requestMethods(String... requestMethods) {
             return requestMethods(List.of(requestMethods));
         }
 
+        /**
+         * @param sizeQuota Size quota in MB beyond which the URL filtering rule is applied. If not set, no quota is enforced. Valid range: 10-100000. Not applicable when action is &#39;BLOCK&#39;.
+         * 
+         * @return builder
+         * 
+         */
         public Builder sizeQuota(@Nullable Output<Integer> sizeQuota) {
             $.sizeQuota = sizeQuota;
             return this;
         }
 
+        /**
+         * @param sizeQuota Size quota in MB beyond which the URL filtering rule is applied. If not set, no quota is enforced. Valid range: 10-100000. Not applicable when action is &#39;BLOCK&#39;.
+         * 
+         * @return builder
+         * 
+         */
         public Builder sizeQuota(Integer sizeQuota) {
             return sizeQuota(Output.of(sizeQuota));
         }
 
+        /**
+         * @param sourceCountries Source countries (ISO 3166-1 alpha-2 codes) for the rule.
+         * 
+         * @return builder
+         * 
+         */
         public Builder sourceCountries(@Nullable Output<List<String>> sourceCountries) {
             $.sourceCountries = sourceCountries;
             return this;
         }
 
+        /**
+         * @param sourceCountries Source countries (ISO 3166-1 alpha-2 codes) for the rule.
+         * 
+         * @return builder
+         * 
+         */
         public Builder sourceCountries(List<String> sourceCountries) {
             return sourceCountries(Output.of(sourceCountries));
         }
 
+        /**
+         * @param sourceCountries Source countries (ISO 3166-1 alpha-2 codes) for the rule.
+         * 
+         * @return builder
+         * 
+         */
         public Builder sourceCountries(String... sourceCountries) {
             return sourceCountries(List.of(sourceCountries));
         }
 
+        /**
+         * @param sourceIpGroups IDs of source IP address groups.
+         * 
+         * @return builder
+         * 
+         */
         public Builder sourceIpGroups(@Nullable Output<List<Integer>> sourceIpGroups) {
             $.sourceIpGroups = sourceIpGroups;
             return this;
         }
 
+        /**
+         * @param sourceIpGroups IDs of source IP address groups.
+         * 
+         * @return builder
+         * 
+         */
         public Builder sourceIpGroups(List<Integer> sourceIpGroups) {
             return sourceIpGroups(Output.of(sourceIpGroups));
         }
 
+        /**
+         * @param sourceIpGroups IDs of source IP address groups.
+         * 
+         * @return builder
+         * 
+         */
         public Builder sourceIpGroups(Integer... sourceIpGroups) {
             return sourceIpGroups(List.of(sourceIpGroups));
         }
 
+        /**
+         * @param state Rule state. Valid values: `ENABLED`, `DISABLED`.
+         * 
+         * @return builder
+         * 
+         */
         public Builder state(@Nullable Output<String> state) {
             $.state = state;
             return this;
         }
 
+        /**
+         * @param state Rule state. Valid values: `ENABLED`, `DISABLED`.
+         * 
+         * @return builder
+         * 
+         */
         public Builder state(String state) {
             return state(Output.of(state));
         }
 
+        /**
+         * @param timeQuota Time quota in minutes, after which the URL filtering rule is applied. If not set, no quota is enforced. Valid range: 15-600. Not applicable when action is &#39;BLOCK&#39;.
+         * 
+         * @return builder
+         * 
+         */
         public Builder timeQuota(@Nullable Output<Integer> timeQuota) {
             $.timeQuota = timeQuota;
             return this;
         }
 
+        /**
+         * @param timeQuota Time quota in minutes, after which the URL filtering rule is applied. If not set, no quota is enforced. Valid range: 15-600. Not applicable when action is &#39;BLOCK&#39;.
+         * 
+         * @return builder
+         * 
+         */
         public Builder timeQuota(Integer timeQuota) {
             return timeQuota(Output.of(timeQuota));
         }
 
+        /**
+         * @param timeWindows IDs of time intervals during which the rule must be enforced.
+         * 
+         * @return builder
+         * 
+         */
         public Builder timeWindows(@Nullable Output<List<Integer>> timeWindows) {
             $.timeWindows = timeWindows;
             return this;
         }
 
+        /**
+         * @param timeWindows IDs of time intervals during which the rule must be enforced.
+         * 
+         * @return builder
+         * 
+         */
         public Builder timeWindows(List<Integer> timeWindows) {
             return timeWindows(Output.of(timeWindows));
         }
 
+        /**
+         * @param timeWindows IDs of time intervals during which the rule must be enforced.
+         * 
+         * @return builder
+         * 
+         */
         public Builder timeWindows(Integer... timeWindows) {
             return timeWindows(List.of(timeWindows));
         }
 
+        /**
+         * @param urlCategories List of URL categories to which the rule applies. See the [URL Categories API](https://help.zscaler.com/zia/url-categories#/urlCategories-get) for available categories.
+         * 
+         * @return builder
+         * 
+         */
         public Builder urlCategories(@Nullable Output<List<String>> urlCategories) {
             $.urlCategories = urlCategories;
             return this;
         }
 
+        /**
+         * @param urlCategories List of URL categories to which the rule applies. See the [URL Categories API](https://help.zscaler.com/zia/url-categories#/urlCategories-get) for available categories.
+         * 
+         * @return builder
+         * 
+         */
         public Builder urlCategories(List<String> urlCategories) {
             return urlCategories(Output.of(urlCategories));
         }
 
+        /**
+         * @param urlCategories List of URL categories to which the rule applies. See the [URL Categories API](https://help.zscaler.com/zia/url-categories#/urlCategories-get) for available categories.
+         * 
+         * @return builder
+         * 
+         */
         public Builder urlCategories(String... urlCategories) {
             return urlCategories(List.of(urlCategories));
         }
 
+        /**
+         * @param userAgentTypes User agent types the rule applies to. Valid values: `CHROME`, `FIREFOX`, `MSIE`, `MSEDGE`, `MSCHREDGE`, `OPERA`, `SAFARI`, `OTHER`.
+         * 
+         * @return builder
+         * 
+         */
         public Builder userAgentTypes(@Nullable Output<List<String>> userAgentTypes) {
             $.userAgentTypes = userAgentTypes;
             return this;
         }
 
+        /**
+         * @param userAgentTypes User agent types the rule applies to. Valid values: `CHROME`, `FIREFOX`, `MSIE`, `MSEDGE`, `MSCHREDGE`, `OPERA`, `SAFARI`, `OTHER`.
+         * 
+         * @return builder
+         * 
+         */
         public Builder userAgentTypes(List<String> userAgentTypes) {
             return userAgentTypes(Output.of(userAgentTypes));
         }
 
+        /**
+         * @param userAgentTypes User agent types the rule applies to. Valid values: `CHROME`, `FIREFOX`, `MSIE`, `MSEDGE`, `MSCHREDGE`, `OPERA`, `SAFARI`, `OTHER`.
+         * 
+         * @return builder
+         * 
+         */
         public Builder userAgentTypes(String... userAgentTypes) {
             return userAgentTypes(List.of(userAgentTypes));
         }
 
+        /**
+         * @param userRiskScoreLevels User risk score levels for the rule. Valid values: `LOW`, `MEDIUM`, `HIGH`, `CRITICAL`.
+         * 
+         * @return builder
+         * 
+         */
         public Builder userRiskScoreLevels(@Nullable Output<List<String>> userRiskScoreLevels) {
             $.userRiskScoreLevels = userRiskScoreLevels;
             return this;
         }
 
+        /**
+         * @param userRiskScoreLevels User risk score levels for the rule. Valid values: `LOW`, `MEDIUM`, `HIGH`, `CRITICAL`.
+         * 
+         * @return builder
+         * 
+         */
         public Builder userRiskScoreLevels(List<String> userRiskScoreLevels) {
             return userRiskScoreLevels(Output.of(userRiskScoreLevels));
         }
 
+        /**
+         * @param userRiskScoreLevels User risk score levels for the rule. Valid values: `LOW`, `MEDIUM`, `HIGH`, `CRITICAL`.
+         * 
+         * @return builder
+         * 
+         */
         public Builder userRiskScoreLevels(String... userRiskScoreLevels) {
             return userRiskScoreLevels(List.of(userRiskScoreLevels));
         }
 
+        /**
+         * @param users IDs of users for which the rule must be applied.
+         * 
+         * @return builder
+         * 
+         */
         public Builder users(@Nullable Output<List<Integer>> users) {
             $.users = users;
             return this;
         }
 
+        /**
+         * @param users IDs of users for which the rule must be applied.
+         * 
+         * @return builder
+         * 
+         */
         public Builder users(List<Integer> users) {
             return users(Output.of(users));
         }
 
+        /**
+         * @param users IDs of users for which the rule must be applied.
+         * 
+         * @return builder
+         * 
+         */
         public Builder users(Integer... users) {
             return users(List.of(users));
         }
 
+        /**
+         * @param validityEndTime If enforceTimeValidity is set to true, the URL filtering rule ceases to be valid on this end date and time (RFC 1123 format).
+         * 
+         * @return builder
+         * 
+         */
         public Builder validityEndTime(@Nullable Output<String> validityEndTime) {
             $.validityEndTime = validityEndTime;
             return this;
         }
 
+        /**
+         * @param validityEndTime If enforceTimeValidity is set to true, the URL filtering rule ceases to be valid on this end date and time (RFC 1123 format).
+         * 
+         * @return builder
+         * 
+         */
         public Builder validityEndTime(String validityEndTime) {
             return validityEndTime(Output.of(validityEndTime));
         }
 
+        /**
+         * @param validityStartTime If enforceTimeValidity is set to true, the URL filtering rule is valid starting on this date and time (RFC 1123 format).
+         * 
+         * @return builder
+         * 
+         */
         public Builder validityStartTime(@Nullable Output<String> validityStartTime) {
             $.validityStartTime = validityStartTime;
             return this;
         }
 
+        /**
+         * @param validityStartTime If enforceTimeValidity is set to true, the URL filtering rule is valid starting on this date and time (RFC 1123 format).
+         * 
+         * @return builder
+         * 
+         */
         public Builder validityStartTime(String validityStartTime) {
             return validityStartTime(Output.of(validityStartTime));
         }
 
+        /**
+         * @param validityTimeZoneId If enforceTimeValidity is set to true, the URL filtering rule date and time is valid based on this time zone ID. Use IANA format (e.g. &#39;America/Los_Angeles&#39;). See https://nodatime.org/TimeZones for the complete list.
+         * 
+         * @return builder
+         * 
+         */
         public Builder validityTimeZoneId(@Nullable Output<String> validityTimeZoneId) {
             $.validityTimeZoneId = validityTimeZoneId;
             return this;
         }
 
+        /**
+         * @param validityTimeZoneId If enforceTimeValidity is set to true, the URL filtering rule date and time is valid based on this time zone ID. Use IANA format (e.g. &#39;America/Los_Angeles&#39;). See https://nodatime.org/TimeZones for the complete list.
+         * 
+         * @return builder
+         * 
+         */
         public Builder validityTimeZoneId(String validityTimeZoneId) {
             return validityTimeZoneId(Output.of(validityTimeZoneId));
         }
 
+        /**
+         * @param workloadGroups List of preconfigured workload groups to which the policy must be applied.
+         * 
+         * @return builder
+         * 
+         */
         public Builder workloadGroups(@Nullable Output<List<WorkloadGroupInputArgs>> workloadGroups) {
             $.workloadGroups = workloadGroups;
             return this;
         }
 
+        /**
+         * @param workloadGroups List of preconfigured workload groups to which the policy must be applied.
+         * 
+         * @return builder
+         * 
+         */
         public Builder workloadGroups(List<WorkloadGroupInputArgs> workloadGroups) {
             return workloadGroups(Output.of(workloadGroups));
         }
 
+        /**
+         * @param workloadGroups List of preconfigured workload groups to which the policy must be applied.
+         * 
+         * @return builder
+         * 
+         */
         public Builder workloadGroups(WorkloadGroupInputArgs... workloadGroups) {
             return workloadGroups(List.of(workloadGroups));
         }

@@ -12,18 +12,18 @@ import java.util.Objects;
 @CustomType
 public final class SubCloudDcOutput {
     private String country;
-    private Integer id;
     private String name;
+    private Integer resourceId;
 
     private SubCloudDcOutput() {}
     public String country() {
         return this.country;
     }
-    public Integer id() {
-        return this.id;
-    }
     public String name() {
         return this.name;
+    }
+    public Integer resourceId() {
+        return this.resourceId;
     }
 
     public static Builder builder() {
@@ -36,14 +36,14 @@ public final class SubCloudDcOutput {
     @CustomType.Builder
     public static final class Builder {
         private String country;
-        private Integer id;
         private String name;
+        private Integer resourceId;
         public Builder() {}
         public Builder(SubCloudDcOutput defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.country = defaults.country;
-    	      this.id = defaults.id;
     	      this.name = defaults.name;
+    	      this.resourceId = defaults.resourceId;
         }
 
         @CustomType.Setter
@@ -55,14 +55,6 @@ public final class SubCloudDcOutput {
             return this;
         }
         @CustomType.Setter
-        public Builder id(Integer id) {
-            if (id == null) {
-              throw new MissingRequiredPropertyException("SubCloudDcOutput", "id");
-            }
-            this.id = id;
-            return this;
-        }
-        @CustomType.Setter
         public Builder name(String name) {
             if (name == null) {
               throw new MissingRequiredPropertyException("SubCloudDcOutput", "name");
@@ -70,11 +62,19 @@ public final class SubCloudDcOutput {
             this.name = name;
             return this;
         }
+        @CustomType.Setter
+        public Builder resourceId(Integer resourceId) {
+            if (resourceId == null) {
+              throw new MissingRequiredPropertyException("SubCloudDcOutput", "resourceId");
+            }
+            this.resourceId = resourceId;
+            return this;
+        }
         public SubCloudDcOutput build() {
             final var _resultValue = new SubCloudDcOutput();
             _resultValue.country = country;
-            _resultValue.id = id;
             _resultValue.name = name;
+            _resultValue.resourceId = resourceId;
             return _resultValue;
         }
     }

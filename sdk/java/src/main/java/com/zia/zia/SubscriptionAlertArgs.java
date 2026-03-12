@@ -16,51 +16,107 @@ public final class SubscriptionAlertArgs extends com.pulumi.resources.ResourceAr
 
     public static final SubscriptionAlertArgs Empty = new SubscriptionAlertArgs();
 
+    /**
+     * Severity levels for compliance alerts.
+     * 
+     */
     @Import(name="complySeverities")
     private @Nullable Output<List<String>> complySeverities;
 
+    /**
+     * @return Severity levels for compliance alerts.
+     * 
+     */
     public Optional<Output<List<String>>> complySeverities() {
         return Optional.ofNullable(this.complySeverities);
     }
 
+    /**
+     * Additional information about the subscription alert.
+     * 
+     */
     @Import(name="description")
     private @Nullable Output<String> description;
 
+    /**
+     * @return Additional information about the subscription alert.
+     * 
+     */
     public Optional<Output<String>> description() {
         return Optional.ofNullable(this.description);
     }
 
+    /**
+     * The email address to which alerts are sent.
+     * 
+     */
     @Import(name="email")
     private @Nullable Output<String> email;
 
+    /**
+     * @return The email address to which alerts are sent.
+     * 
+     */
     public Optional<Output<String>> email() {
         return Optional.ofNullable(this.email);
     }
 
+    /**
+     * Severity levels for management alerts.
+     * 
+     */
     @Import(name="manageSeverities")
     private @Nullable Output<List<String>> manageSeverities;
 
+    /**
+     * @return Severity levels for management alerts.
+     * 
+     */
     public Optional<Output<List<String>>> manageSeverities() {
         return Optional.ofNullable(this.manageSeverities);
     }
 
+    /**
+     * Severity levels for Pt0 alerts.
+     * 
+     */
     @Import(name="pt0Severities")
     private @Nullable Output<List<String>> pt0Severities;
 
+    /**
+     * @return Severity levels for Pt0 alerts.
+     * 
+     */
     public Optional<Output<List<String>>> pt0Severities() {
         return Optional.ofNullable(this.pt0Severities);
     }
 
+    /**
+     * Severity levels for security alerts.
+     * 
+     */
     @Import(name="secureSeverities")
     private @Nullable Output<List<String>> secureSeverities;
 
+    /**
+     * @return Severity levels for security alerts.
+     * 
+     */
     public Optional<Output<List<String>>> secureSeverities() {
         return Optional.ofNullable(this.secureSeverities);
     }
 
+    /**
+     * Severity levels for system alerts.
+     * 
+     */
     @Import(name="systemSeverities")
     private @Nullable Output<List<String>> systemSeverities;
 
+    /**
+     * @return Severity levels for system alerts.
+     * 
+     */
     public Optional<Output<List<String>>> systemSeverities() {
         return Optional.ofNullable(this.systemSeverities);
     }
@@ -95,85 +151,199 @@ public final class SubscriptionAlertArgs extends com.pulumi.resources.ResourceAr
             $ = new SubscriptionAlertArgs(Objects.requireNonNull(defaults));
         }
 
+        /**
+         * @param complySeverities Severity levels for compliance alerts.
+         * 
+         * @return builder
+         * 
+         */
         public Builder complySeverities(@Nullable Output<List<String>> complySeverities) {
             $.complySeverities = complySeverities;
             return this;
         }
 
+        /**
+         * @param complySeverities Severity levels for compliance alerts.
+         * 
+         * @return builder
+         * 
+         */
         public Builder complySeverities(List<String> complySeverities) {
             return complySeverities(Output.of(complySeverities));
         }
 
+        /**
+         * @param complySeverities Severity levels for compliance alerts.
+         * 
+         * @return builder
+         * 
+         */
         public Builder complySeverities(String... complySeverities) {
             return complySeverities(List.of(complySeverities));
         }
 
+        /**
+         * @param description Additional information about the subscription alert.
+         * 
+         * @return builder
+         * 
+         */
         public Builder description(@Nullable Output<String> description) {
             $.description = description;
             return this;
         }
 
+        /**
+         * @param description Additional information about the subscription alert.
+         * 
+         * @return builder
+         * 
+         */
         public Builder description(String description) {
             return description(Output.of(description));
         }
 
+        /**
+         * @param email The email address to which alerts are sent.
+         * 
+         * @return builder
+         * 
+         */
         public Builder email(@Nullable Output<String> email) {
             $.email = email;
             return this;
         }
 
+        /**
+         * @param email The email address to which alerts are sent.
+         * 
+         * @return builder
+         * 
+         */
         public Builder email(String email) {
             return email(Output.of(email));
         }
 
+        /**
+         * @param manageSeverities Severity levels for management alerts.
+         * 
+         * @return builder
+         * 
+         */
         public Builder manageSeverities(@Nullable Output<List<String>> manageSeverities) {
             $.manageSeverities = manageSeverities;
             return this;
         }
 
+        /**
+         * @param manageSeverities Severity levels for management alerts.
+         * 
+         * @return builder
+         * 
+         */
         public Builder manageSeverities(List<String> manageSeverities) {
             return manageSeverities(Output.of(manageSeverities));
         }
 
+        /**
+         * @param manageSeverities Severity levels for management alerts.
+         * 
+         * @return builder
+         * 
+         */
         public Builder manageSeverities(String... manageSeverities) {
             return manageSeverities(List.of(manageSeverities));
         }
 
+        /**
+         * @param pt0Severities Severity levels for Pt0 alerts.
+         * 
+         * @return builder
+         * 
+         */
         public Builder pt0Severities(@Nullable Output<List<String>> pt0Severities) {
             $.pt0Severities = pt0Severities;
             return this;
         }
 
+        /**
+         * @param pt0Severities Severity levels for Pt0 alerts.
+         * 
+         * @return builder
+         * 
+         */
         public Builder pt0Severities(List<String> pt0Severities) {
             return pt0Severities(Output.of(pt0Severities));
         }
 
+        /**
+         * @param pt0Severities Severity levels for Pt0 alerts.
+         * 
+         * @return builder
+         * 
+         */
         public Builder pt0Severities(String... pt0Severities) {
             return pt0Severities(List.of(pt0Severities));
         }
 
+        /**
+         * @param secureSeverities Severity levels for security alerts.
+         * 
+         * @return builder
+         * 
+         */
         public Builder secureSeverities(@Nullable Output<List<String>> secureSeverities) {
             $.secureSeverities = secureSeverities;
             return this;
         }
 
+        /**
+         * @param secureSeverities Severity levels for security alerts.
+         * 
+         * @return builder
+         * 
+         */
         public Builder secureSeverities(List<String> secureSeverities) {
             return secureSeverities(Output.of(secureSeverities));
         }
 
+        /**
+         * @param secureSeverities Severity levels for security alerts.
+         * 
+         * @return builder
+         * 
+         */
         public Builder secureSeverities(String... secureSeverities) {
             return secureSeverities(List.of(secureSeverities));
         }
 
+        /**
+         * @param systemSeverities Severity levels for system alerts.
+         * 
+         * @return builder
+         * 
+         */
         public Builder systemSeverities(@Nullable Output<List<String>> systemSeverities) {
             $.systemSeverities = systemSeverities;
             return this;
         }
 
+        /**
+         * @param systemSeverities Severity levels for system alerts.
+         * 
+         * @return builder
+         * 
+         */
         public Builder systemSeverities(List<String> systemSeverities) {
             return systemSeverities(Output.of(systemSeverities));
         }
 
+        /**
+         * @param systemSeverities Severity levels for system alerts.
+         * 
+         * @return builder
+         * 
+         */
         public Builder systemSeverities(String... systemSeverities) {
             return systemSeverities(List.of(systemSeverities));
         }

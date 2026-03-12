@@ -6,6 +6,45 @@ import * as inputs from "./types/input";
 import * as outputs from "./types/output";
 import * as utilities from "./utilities";
 
+/**
+ * The zia.WorkloadGroup resource manages workload groups in the Zscaler Internet Access (ZIA) cloud.
+ * Workload groups define sets of cloud workloads based on tag expressions that can be used in
+ * firewall rules, URL filtering rules, and other policy rules to apply policies to specific
+ * cloud workloads (e.g., VMs, subnets, ENIs).
+ *
+ * ## Example Usage
+ * ### Basic Workload Group
+ *
+ * ```typescript
+ * import * as zia from "@bdzscaler/pulumi-zia";
+ *
+ * const example = new zia.WorkloadGroup("example", {
+ *     name: "Example Workload Group",
+ *     description: "Managed by Pulumi",
+ *     expressionJson: {
+ *         expressionContainers: [{
+ *             tagType: "VM",
+ *             operator: "AND",
+ *             tagContainer: {
+ *                 tags: [{
+ *                     key: "environment",
+ *                     value: "production",
+ *                 }],
+ *                 operator: "OR",
+ *             },
+ *         }],
+ *     },
+ * });
+ * ```
+ *
+ * ## Import
+ *
+ * An existing workload group can be imported using its ID, e.g.
+ *
+ * ```sh
+ * $ pulumi import zia:index:WorkloadGroup example 12345
+ * ```
+ */
 export class WorkloadGroup extends pulumi.CustomResource {
     /**
      * Get an existing WorkloadGroup resource's state with the given name, ID, and optional extra
@@ -33,9 +72,21 @@ export class WorkloadGroup extends pulumi.CustomResource {
         return obj['__pulumiType'] === WorkloadGroup.__pulumiType;
     }
 
+    /**
+     * Description of the workload group.
+     */
     declare public readonly description: pulumi.Output<string | undefined>;
+    /**
+     * The expression JSON that defines the workload group matching criteria using tag expressions.
+     */
     declare public readonly expressionJson: pulumi.Output<outputs.WorkloadGroupExpressionJsonInput | undefined>;
+    /**
+     * The unique identifier for the workload group assigned by the ZIA cloud.
+     */
     declare public /*out*/ readonly groupId: pulumi.Output<number>;
+    /**
+     * Name of the workload group.
+     */
     declare public readonly name: pulumi.Output<string | undefined>;
 
     /**
@@ -68,7 +119,16 @@ export class WorkloadGroup extends pulumi.CustomResource {
  * The set of arguments for constructing a WorkloadGroup resource.
  */
 export interface WorkloadGroupArgs {
+    /**
+     * Description of the workload group.
+     */
     description?: pulumi.Input<string>;
+    /**
+     * The expression JSON that defines the workload group matching criteria using tag expressions.
+     */
     expressionJson?: pulumi.Input<inputs.WorkloadGroupExpressionJsonInputArgs>;
+    /**
+     * Name of the workload group.
+     */
     name?: pulumi.Input<string>;
 }

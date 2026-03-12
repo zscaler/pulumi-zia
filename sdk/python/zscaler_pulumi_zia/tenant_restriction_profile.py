@@ -34,6 +34,19 @@ class TenantRestrictionProfileArgs:
                  restrict_personal_o365_domains: Optional[pulumi.Input[_builtins.bool]] = None):
         """
         The set of arguments for constructing a TenantRestrictionProfile resource.
+        :param pulumi.Input[_builtins.str] name: Name of the tenant restriction profile.
+        :param pulumi.Input[_builtins.bool] allow_gcp_cloud_storage_read: Whether to allow GCP Cloud Storage read access.
+        :param pulumi.Input[_builtins.bool] allow_google_consumers: Whether to allow Google consumer accounts.
+        :param pulumi.Input[_builtins.bool] allow_google_visitors: Whether to allow Google visitor accounts.
+        :param pulumi.Input[_builtins.str] app_type: The cloud application type (e.g., 'MICROSOFT', 'GOOGLE').
+        :param pulumi.Input[_builtins.str] description: Description of the tenant restriction profile.
+        :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] item_data_primary: List of primary item data values (e.g., tenant IDs).
+        :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] item_data_secondary: List of secondary item data values.
+        :param pulumi.Input[_builtins.str] item_type_primary: The primary item type (e.g., 'TENANT_ID').
+        :param pulumi.Input[_builtins.str] item_type_secondary: The secondary item type.
+        :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] item_value: List of item values.
+        :param pulumi.Input[_builtins.bool] ms_login_services_tr_v2: Whether to enable Microsoft login services tenant restriction v2.
+        :param pulumi.Input[_builtins.bool] restrict_personal_o365_domains: Whether to restrict personal Office 365 domains.
         """
         pulumi.set(__self__, "name", name)
         if allow_gcp_cloud_storage_read is not None:
@@ -64,6 +77,9 @@ class TenantRestrictionProfileArgs:
     @_builtins.property
     @pulumi.getter
     def name(self) -> pulumi.Input[_builtins.str]:
+        """
+        Name of the tenant restriction profile.
+        """
         return pulumi.get(self, "name")
 
     @name.setter
@@ -73,6 +89,9 @@ class TenantRestrictionProfileArgs:
     @_builtins.property
     @pulumi.getter(name="allowGcpCloudStorageRead")
     def allow_gcp_cloud_storage_read(self) -> Optional[pulumi.Input[_builtins.bool]]:
+        """
+        Whether to allow GCP Cloud Storage read access.
+        """
         return pulumi.get(self, "allow_gcp_cloud_storage_read")
 
     @allow_gcp_cloud_storage_read.setter
@@ -82,6 +101,9 @@ class TenantRestrictionProfileArgs:
     @_builtins.property
     @pulumi.getter(name="allowGoogleConsumers")
     def allow_google_consumers(self) -> Optional[pulumi.Input[_builtins.bool]]:
+        """
+        Whether to allow Google consumer accounts.
+        """
         return pulumi.get(self, "allow_google_consumers")
 
     @allow_google_consumers.setter
@@ -91,6 +113,9 @@ class TenantRestrictionProfileArgs:
     @_builtins.property
     @pulumi.getter(name="allowGoogleVisitors")
     def allow_google_visitors(self) -> Optional[pulumi.Input[_builtins.bool]]:
+        """
+        Whether to allow Google visitor accounts.
+        """
         return pulumi.get(self, "allow_google_visitors")
 
     @allow_google_visitors.setter
@@ -100,6 +125,9 @@ class TenantRestrictionProfileArgs:
     @_builtins.property
     @pulumi.getter(name="appType")
     def app_type(self) -> Optional[pulumi.Input[_builtins.str]]:
+        """
+        The cloud application type (e.g., 'MICROSOFT', 'GOOGLE').
+        """
         return pulumi.get(self, "app_type")
 
     @app_type.setter
@@ -109,6 +137,9 @@ class TenantRestrictionProfileArgs:
     @_builtins.property
     @pulumi.getter
     def description(self) -> Optional[pulumi.Input[_builtins.str]]:
+        """
+        Description of the tenant restriction profile.
+        """
         return pulumi.get(self, "description")
 
     @description.setter
@@ -118,6 +149,9 @@ class TenantRestrictionProfileArgs:
     @_builtins.property
     @pulumi.getter(name="itemDataPrimary")
     def item_data_primary(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
+        """
+        List of primary item data values (e.g., tenant IDs).
+        """
         return pulumi.get(self, "item_data_primary")
 
     @item_data_primary.setter
@@ -127,6 +161,9 @@ class TenantRestrictionProfileArgs:
     @_builtins.property
     @pulumi.getter(name="itemDataSecondary")
     def item_data_secondary(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
+        """
+        List of secondary item data values.
+        """
         return pulumi.get(self, "item_data_secondary")
 
     @item_data_secondary.setter
@@ -136,6 +173,9 @@ class TenantRestrictionProfileArgs:
     @_builtins.property
     @pulumi.getter(name="itemTypePrimary")
     def item_type_primary(self) -> Optional[pulumi.Input[_builtins.str]]:
+        """
+        The primary item type (e.g., 'TENANT_ID').
+        """
         return pulumi.get(self, "item_type_primary")
 
     @item_type_primary.setter
@@ -145,6 +185,9 @@ class TenantRestrictionProfileArgs:
     @_builtins.property
     @pulumi.getter(name="itemTypeSecondary")
     def item_type_secondary(self) -> Optional[pulumi.Input[_builtins.str]]:
+        """
+        The secondary item type.
+        """
         return pulumi.get(self, "item_type_secondary")
 
     @item_type_secondary.setter
@@ -154,6 +197,9 @@ class TenantRestrictionProfileArgs:
     @_builtins.property
     @pulumi.getter(name="itemValue")
     def item_value(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
+        """
+        List of item values.
+        """
         return pulumi.get(self, "item_value")
 
     @item_value.setter
@@ -163,6 +209,9 @@ class TenantRestrictionProfileArgs:
     @_builtins.property
     @pulumi.getter(name="msLoginServicesTrV2")
     def ms_login_services_tr_v2(self) -> Optional[pulumi.Input[_builtins.bool]]:
+        """
+        Whether to enable Microsoft login services tenant restriction v2.
+        """
         return pulumi.get(self, "ms_login_services_tr_v2")
 
     @ms_login_services_tr_v2.setter
@@ -172,6 +221,9 @@ class TenantRestrictionProfileArgs:
     @_builtins.property
     @pulumi.getter(name="restrictPersonalO365Domains")
     def restrict_personal_o365_domains(self) -> Optional[pulumi.Input[_builtins.bool]]:
+        """
+        Whether to restrict personal Office 365 domains.
+        """
         return pulumi.get(self, "restrict_personal_o365_domains")
 
     @restrict_personal_o365_domains.setter
@@ -200,9 +252,50 @@ class TenantRestrictionProfile(pulumi.CustomResource):
                  restrict_personal_o365_domains: Optional[pulumi.Input[_builtins.bool]] = None,
                  __props__=None):
         """
-        Create a TenantRestrictionProfile resource with the given unique name, props, and options.
+        The zia.TenantRestrictionProfile resource manages tenant restriction profiles in the
+        Zscaler Internet Access (ZIA) cloud. Tenant restriction profiles control access to cloud
+        application tenants (e.g., Microsoft 365, Google Workspace) by restricting users to
+        authorized tenant domains.
+
+        ## Example Usage
+        ### Basic Tenant Restriction Profile
+
+        ```python
+        import zscaler_pulumi_zia as zia
+
+        example = zia.TenantRestrictionProfile("example",
+            name="Example Tenant Profile",
+            description="Managed by Pulumi",
+            app_type="MICROSOFT",
+            item_type_primary="TENANT_ID",
+            item_data_primary=["tenant-id-12345"],
+            restrict_personal_o365_domains=True,
+        )
+        ```
+
+        ## Import
+
+        An existing tenant restriction profile can be imported using its ID, e.g.
+
+        ```sh
+        $ pulumi import zia:index:TenantRestrictionProfile example 12345
+        ```
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
+        :param pulumi.Input[_builtins.bool] allow_gcp_cloud_storage_read: Whether to allow GCP Cloud Storage read access.
+        :param pulumi.Input[_builtins.bool] allow_google_consumers: Whether to allow Google consumer accounts.
+        :param pulumi.Input[_builtins.bool] allow_google_visitors: Whether to allow Google visitor accounts.
+        :param pulumi.Input[_builtins.str] app_type: The cloud application type (e.g., 'MICROSOFT', 'GOOGLE').
+        :param pulumi.Input[_builtins.str] description: Description of the tenant restriction profile.
+        :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] item_data_primary: List of primary item data values (e.g., tenant IDs).
+        :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] item_data_secondary: List of secondary item data values.
+        :param pulumi.Input[_builtins.str] item_type_primary: The primary item type (e.g., 'TENANT_ID').
+        :param pulumi.Input[_builtins.str] item_type_secondary: The secondary item type.
+        :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] item_value: List of item values.
+        :param pulumi.Input[_builtins.bool] ms_login_services_tr_v2: Whether to enable Microsoft login services tenant restriction v2.
+        :param pulumi.Input[_builtins.str] name: Name of the tenant restriction profile.
+        :param pulumi.Input[_builtins.bool] restrict_personal_o365_domains: Whether to restrict personal Office 365 domains.
         """
         ...
     @overload
@@ -211,7 +304,35 @@ class TenantRestrictionProfile(pulumi.CustomResource):
                  args: TenantRestrictionProfileArgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
-        Create a TenantRestrictionProfile resource with the given unique name, props, and options.
+        The zia.TenantRestrictionProfile resource manages tenant restriction profiles in the
+        Zscaler Internet Access (ZIA) cloud. Tenant restriction profiles control access to cloud
+        application tenants (e.g., Microsoft 365, Google Workspace) by restricting users to
+        authorized tenant domains.
+
+        ## Example Usage
+        ### Basic Tenant Restriction Profile
+
+        ```python
+        import zscaler_pulumi_zia as zia
+
+        example = zia.TenantRestrictionProfile("example",
+            name="Example Tenant Profile",
+            description="Managed by Pulumi",
+            app_type="MICROSOFT",
+            item_type_primary="TENANT_ID",
+            item_data_primary=["tenant-id-12345"],
+            restrict_personal_o365_domains=True,
+        )
+        ```
+
+        ## Import
+
+        An existing tenant restriction profile can be imported using its ID, e.g.
+
+        ```sh
+        $ pulumi import zia:index:TenantRestrictionProfile example 12345
+        ```
+
         :param str resource_name: The name of the resource.
         :param TenantRestrictionProfileArgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -306,70 +427,112 @@ class TenantRestrictionProfile(pulumi.CustomResource):
     @_builtins.property
     @pulumi.getter(name="allowGcpCloudStorageRead")
     def allow_gcp_cloud_storage_read(self) -> pulumi.Output[Optional[_builtins.bool]]:
+        """
+        Whether to allow GCP Cloud Storage read access.
+        """
         return pulumi.get(self, "allow_gcp_cloud_storage_read")
 
     @_builtins.property
     @pulumi.getter(name="allowGoogleConsumers")
     def allow_google_consumers(self) -> pulumi.Output[Optional[_builtins.bool]]:
+        """
+        Whether to allow Google consumer accounts.
+        """
         return pulumi.get(self, "allow_google_consumers")
 
     @_builtins.property
     @pulumi.getter(name="allowGoogleVisitors")
     def allow_google_visitors(self) -> pulumi.Output[Optional[_builtins.bool]]:
+        """
+        Whether to allow Google visitor accounts.
+        """
         return pulumi.get(self, "allow_google_visitors")
 
     @_builtins.property
     @pulumi.getter(name="appType")
     def app_type(self) -> pulumi.Output[Optional[_builtins.str]]:
+        """
+        The cloud application type (e.g., 'MICROSOFT', 'GOOGLE').
+        """
         return pulumi.get(self, "app_type")
 
     @_builtins.property
     @pulumi.getter
     def description(self) -> pulumi.Output[Optional[_builtins.str]]:
+        """
+        Description of the tenant restriction profile.
+        """
         return pulumi.get(self, "description")
 
     @_builtins.property
     @pulumi.getter(name="itemDataPrimary")
     def item_data_primary(self) -> pulumi.Output[Optional[Sequence[_builtins.str]]]:
+        """
+        List of primary item data values (e.g., tenant IDs).
+        """
         return pulumi.get(self, "item_data_primary")
 
     @_builtins.property
     @pulumi.getter(name="itemDataSecondary")
     def item_data_secondary(self) -> pulumi.Output[Optional[Sequence[_builtins.str]]]:
+        """
+        List of secondary item data values.
+        """
         return pulumi.get(self, "item_data_secondary")
 
     @_builtins.property
     @pulumi.getter(name="itemTypePrimary")
     def item_type_primary(self) -> pulumi.Output[Optional[_builtins.str]]:
+        """
+        The primary item type (e.g., 'TENANT_ID').
+        """
         return pulumi.get(self, "item_type_primary")
 
     @_builtins.property
     @pulumi.getter(name="itemTypeSecondary")
     def item_type_secondary(self) -> pulumi.Output[Optional[_builtins.str]]:
+        """
+        The secondary item type.
+        """
         return pulumi.get(self, "item_type_secondary")
 
     @_builtins.property
     @pulumi.getter(name="itemValue")
     def item_value(self) -> pulumi.Output[Optional[Sequence[_builtins.str]]]:
+        """
+        List of item values.
+        """
         return pulumi.get(self, "item_value")
 
     @_builtins.property
     @pulumi.getter(name="msLoginServicesTrV2")
     def ms_login_services_tr_v2(self) -> pulumi.Output[Optional[_builtins.bool]]:
+        """
+        Whether to enable Microsoft login services tenant restriction v2.
+        """
         return pulumi.get(self, "ms_login_services_tr_v2")
 
     @_builtins.property
     @pulumi.getter
     def name(self) -> pulumi.Output[_builtins.str]:
+        """
+        Name of the tenant restriction profile.
+        """
         return pulumi.get(self, "name")
 
     @_builtins.property
     @pulumi.getter(name="profileId")
     def profile_id(self) -> pulumi.Output[_builtins.int]:
+        """
+        The unique identifier for the tenant restriction profile assigned by the ZIA cloud.
+        """
         return pulumi.get(self, "profile_id")
 
     @_builtins.property
     @pulumi.getter(name="restrictPersonalO365Domains")
     def restrict_personal_o365_domains(self) -> pulumi.Output[Optional[_builtins.bool]]:
+        """
+        Whether to restrict personal Office 365 domains.
+        """
         return pulumi.get(self, "restrict_personal_o365_domains")
 

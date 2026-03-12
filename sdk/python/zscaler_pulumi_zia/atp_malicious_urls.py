@@ -22,6 +22,7 @@ class AtpMaliciousUrlsArgs:
                  malicious_urls: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None):
         """
         The set of arguments for constructing a AtpMaliciousUrls resource.
+        :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] malicious_urls: List of URLs to be treated as malicious by Advanced Threat Protection.
         """
         if malicious_urls is not None:
             pulumi.set(__self__, "malicious_urls", malicious_urls)
@@ -29,6 +30,9 @@ class AtpMaliciousUrlsArgs:
     @_builtins.property
     @pulumi.getter(name="maliciousUrls")
     def malicious_urls(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
+        """
+        List of URLs to be treated as malicious by Advanced Threat Protection.
+        """
         return pulumi.get(self, "malicious_urls")
 
     @malicious_urls.setter
@@ -45,9 +49,30 @@ class AtpMaliciousUrls(pulumi.CustomResource):
                  malicious_urls: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
                  __props__=None):
         """
-        Create a AtpMaliciousUrls resource with the given unique name, props, and options.
+        The zia_atp_malicious_urls resource manages the list of malicious URL exceptions for Advanced Threat Protection (ATP) in the Zscaler Internet Access (ZIA) cloud service. URLs added to this list are treated as known malicious and will be blocked. This is a singleton resource.
+
+        For more information, see the [ZIA Advanced Threat Protection documentation](https://help.zscaler.com/zia/about-advanced-threat-protection-policy).
+
+        ## Example Usage
+        ### Configure ATP Malicious URL Exceptions
+
+        ```python
+        import zscaler_pulumi_zia as zia
+
+        example = zia.AtpMaliciousUrls("example",
+            malicious_urls=[
+                "malicious-site.com",
+                "phishing-example.net",
+                "bad-domain.org",
+            ],
+        )
+        ```
+
+        > This is a singleton resource. Import is not applicable.
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
+        :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] malicious_urls: List of URLs to be treated as malicious by Advanced Threat Protection.
         """
         ...
     @overload
@@ -56,7 +81,27 @@ class AtpMaliciousUrls(pulumi.CustomResource):
                  args: Optional[AtpMaliciousUrlsArgs] = None,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
-        Create a AtpMaliciousUrls resource with the given unique name, props, and options.
+        The zia_atp_malicious_urls resource manages the list of malicious URL exceptions for Advanced Threat Protection (ATP) in the Zscaler Internet Access (ZIA) cloud service. URLs added to this list are treated as known malicious and will be blocked. This is a singleton resource.
+
+        For more information, see the [ZIA Advanced Threat Protection documentation](https://help.zscaler.com/zia/about-advanced-threat-protection-policy).
+
+        ## Example Usage
+        ### Configure ATP Malicious URL Exceptions
+
+        ```python
+        import zscaler_pulumi_zia as zia
+
+        example = zia.AtpMaliciousUrls("example",
+            malicious_urls=[
+                "malicious-site.com",
+                "phishing-example.net",
+                "bad-domain.org",
+            ],
+        )
+        ```
+
+        > This is a singleton resource. Import is not applicable.
+
         :param str resource_name: The name of the resource.
         :param AtpMaliciousUrlsArgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -113,10 +158,16 @@ class AtpMaliciousUrls(pulumi.CustomResource):
     @_builtins.property
     @pulumi.getter(name="maliciousUrls")
     def malicious_urls(self) -> pulumi.Output[Optional[Sequence[_builtins.str]]]:
+        """
+        List of URLs to be treated as malicious by Advanced Threat Protection.
+        """
         return pulumi.get(self, "malicious_urls")
 
     @_builtins.property
     @pulumi.getter(name="resourceId")
     def resource_id(self) -> pulumi.Output[_builtins.str]:
+        """
+        The internal resource identifier for the ATP malicious URLs.
+        """
         return pulumi.get(self, "resource_id")
 

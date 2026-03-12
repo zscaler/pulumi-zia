@@ -17,209 +17,497 @@ import java.util.List;
 import java.util.Optional;
 import javax.annotation.Nullable;
 
+/**
+ * The zia.TrafficCaptureRule resource manages traffic capture rules in the Zscaler Internet Access (ZIA) cloud.
+ * Traffic capture rules define criteria for capturing network traffic for analysis, specifying which traffic
+ * to capture based on source/destination IPs, locations, departments, users, applications, and other criteria.
+ * 
+ * ## Example Usage
+ * 
+ * ## Import
+ * 
+ * An existing traffic capture rule can be imported using its ID, e.g.
+ * 
+ * ```sh
+ * $ pulumi import zia:index:TrafficCaptureRule example 12345
+ * ```
+ * 
+ */
 @ResourceType(type="zia:index:TrafficCaptureRule")
 public class TrafficCaptureRule extends com.pulumi.resources.CustomResource {
+    /**
+     * The action taken when traffic matches the rule (e.g., &#39;CAPTURE&#39;). Default: &#39;CAPTURE&#39;.
+     * 
+     */
     @Export(name="action", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> action;
 
+    /**
+     * @return The action taken when traffic matches the rule (e.g., &#39;CAPTURE&#39;). Default: &#39;CAPTURE&#39;.
+     * 
+     */
     public Output<Optional<String>> action() {
         return Codegen.optional(this.action);
     }
+    /**
+     * List of application service group IDs.
+     * 
+     */
     @Export(name="appServiceGroups", refs={List.class,Integer.class}, tree="[0,1]")
     private Output</* @Nullable */ List<Integer>> appServiceGroups;
 
+    /**
+     * @return List of application service group IDs.
+     * 
+     */
     public Output<Optional<List<Integer>>> appServiceGroups() {
         return Codegen.optional(this.appServiceGroups);
     }
+    /**
+     * Whether this is a default rule.
+     * 
+     */
     @Export(name="defaultRule", refs={Boolean.class}, tree="[0]")
     private Output</* @Nullable */ Boolean> defaultRule;
 
+    /**
+     * @return Whether this is a default rule.
+     * 
+     */
     public Output<Optional<Boolean>> defaultRule() {
         return Codegen.optional(this.defaultRule);
     }
+    /**
+     * List of department IDs.
+     * 
+     */
     @Export(name="departments", refs={List.class,Integer.class}, tree="[0,1]")
     private Output</* @Nullable */ List<Integer>> departments;
 
+    /**
+     * @return List of department IDs.
+     * 
+     */
     public Output<Optional<List<Integer>>> departments() {
         return Codegen.optional(this.departments);
     }
+    /**
+     * Description of the traffic capture rule.
+     * 
+     */
     @Export(name="description", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> description;
 
+    /**
+     * @return Description of the traffic capture rule.
+     * 
+     */
     public Output<Optional<String>> description() {
         return Codegen.optional(this.description);
     }
+    /**
+     * List of destination addresses.
+     * 
+     */
     @Export(name="destAddresses", refs={List.class,String.class}, tree="[0,1]")
     private Output</* @Nullable */ List<String>> destAddresses;
 
+    /**
+     * @return List of destination addresses.
+     * 
+     */
     public Output<Optional<List<String>>> destAddresses() {
         return Codegen.optional(this.destAddresses);
     }
+    /**
+     * List of destination country codes.
+     * 
+     */
     @Export(name="destCountries", refs={List.class,String.class}, tree="[0,1]")
     private Output</* @Nullable */ List<String>> destCountries;
 
+    /**
+     * @return List of destination country codes.
+     * 
+     */
     public Output<Optional<List<String>>> destCountries() {
         return Codegen.optional(this.destCountries);
     }
+    /**
+     * List of destination IP categories.
+     * 
+     */
     @Export(name="destIpCategories", refs={List.class,String.class}, tree="[0,1]")
     private Output</* @Nullable */ List<String>> destIpCategories;
 
+    /**
+     * @return List of destination IP categories.
+     * 
+     */
     public Output<Optional<List<String>>> destIpCategories() {
         return Codegen.optional(this.destIpCategories);
     }
+    /**
+     * List of destination IP group IDs.
+     * 
+     */
     @Export(name="destIpGroups", refs={List.class,Integer.class}, tree="[0,1]")
     private Output</* @Nullable */ List<Integer>> destIpGroups;
 
+    /**
+     * @return List of destination IP group IDs.
+     * 
+     */
     public Output<Optional<List<Integer>>> destIpGroups() {
         return Codegen.optional(this.destIpGroups);
     }
+    /**
+     * List of device group IDs.
+     * 
+     */
     @Export(name="deviceGroups", refs={List.class,Integer.class}, tree="[0,1]")
     private Output</* @Nullable */ List<Integer>> deviceGroups;
 
+    /**
+     * @return List of device group IDs.
+     * 
+     */
     public Output<Optional<List<Integer>>> deviceGroups() {
         return Codegen.optional(this.deviceGroups);
     }
+    /**
+     * List of device trust levels.
+     * 
+     */
     @Export(name="deviceTrustLevels", refs={List.class,String.class}, tree="[0,1]")
     private Output</* @Nullable */ List<String>> deviceTrustLevels;
 
+    /**
+     * @return List of device trust levels.
+     * 
+     */
     public Output<Optional<List<String>>> deviceTrustLevels() {
         return Codegen.optional(this.deviceTrustLevels);
     }
+    /**
+     * List of device IDs.
+     * 
+     */
     @Export(name="devices", refs={List.class,Integer.class}, tree="[0,1]")
     private Output</* @Nullable */ List<Integer>> devices;
 
+    /**
+     * @return List of device IDs.
+     * 
+     */
     public Output<Optional<List<Integer>>> devices() {
         return Codegen.optional(this.devices);
     }
+    /**
+     * List of group IDs.
+     * 
+     */
     @Export(name="groups", refs={List.class,Integer.class}, tree="[0,1]")
     private Output</* @Nullable */ List<Integer>> groups;
 
+    /**
+     * @return List of group IDs.
+     * 
+     */
     public Output<Optional<List<Integer>>> groups() {
         return Codegen.optional(this.groups);
     }
+    /**
+     * List of label IDs.
+     * 
+     */
     @Export(name="labels", refs={List.class,Integer.class}, tree="[0,1]")
     private Output</* @Nullable */ List<Integer>> labels;
 
+    /**
+     * @return List of label IDs.
+     * 
+     */
     public Output<Optional<List<Integer>>> labels() {
         return Codegen.optional(this.labels);
     }
+    /**
+     * List of location group IDs.
+     * 
+     */
     @Export(name="locationGroups", refs={List.class,Integer.class}, tree="[0,1]")
     private Output</* @Nullable */ List<Integer>> locationGroups;
 
+    /**
+     * @return List of location group IDs.
+     * 
+     */
     public Output<Optional<List<Integer>>> locationGroups() {
         return Codegen.optional(this.locationGroups);
     }
+    /**
+     * List of location IDs.
+     * 
+     */
     @Export(name="locations", refs={List.class,Integer.class}, tree="[0,1]")
     private Output</* @Nullable */ List<Integer>> locations;
 
+    /**
+     * @return List of location IDs.
+     * 
+     */
     public Output<Optional<List<Integer>>> locations() {
         return Codegen.optional(this.locations);
     }
+    /**
+     * Name of the traffic capture rule.
+     * 
+     */
     @Export(name="name", refs={String.class}, tree="[0]")
     private Output<String> name;
 
+    /**
+     * @return Name of the traffic capture rule.
+     * 
+     */
     public Output<String> name() {
         return this.name;
     }
+    /**
+     * List of network application group IDs.
+     * 
+     */
     @Export(name="nwApplicationGroups", refs={List.class,Integer.class}, tree="[0,1]")
     private Output</* @Nullable */ List<Integer>> nwApplicationGroups;
 
+    /**
+     * @return List of network application group IDs.
+     * 
+     */
     public Output<Optional<List<Integer>>> nwApplicationGroups() {
         return Codegen.optional(this.nwApplicationGroups);
     }
+    /**
+     * List of network applications.
+     * 
+     */
     @Export(name="nwApplications", refs={List.class,String.class}, tree="[0,1]")
     private Output</* @Nullable */ List<String>> nwApplications;
 
+    /**
+     * @return List of network applications.
+     * 
+     */
     public Output<Optional<List<String>>> nwApplications() {
         return Codegen.optional(this.nwApplications);
     }
+    /**
+     * List of network service group IDs.
+     * 
+     */
     @Export(name="nwServiceGroups", refs={List.class,Integer.class}, tree="[0,1]")
     private Output</* @Nullable */ List<Integer>> nwServiceGroups;
 
+    /**
+     * @return List of network service group IDs.
+     * 
+     */
     public Output<Optional<List<Integer>>> nwServiceGroups() {
         return Codegen.optional(this.nwServiceGroups);
     }
+    /**
+     * List of network service IDs.
+     * 
+     */
     @Export(name="nwServices", refs={List.class,Integer.class}, tree="[0,1]")
     private Output</* @Nullable */ List<Integer>> nwServices;
 
+    /**
+     * @return List of network service IDs.
+     * 
+     */
     public Output<Optional<List<Integer>>> nwServices() {
         return Codegen.optional(this.nwServices);
     }
+    /**
+     * The rule order of execution for the traffic capture rule.
+     * 
+     */
     @Export(name="order", refs={Integer.class}, tree="[0]")
     private Output<Integer> order;
 
+    /**
+     * @return The rule order of execution for the traffic capture rule.
+     * 
+     */
     public Output<Integer> order() {
         return this.order;
     }
+    /**
+     * Whether this is a predefined rule.
+     * 
+     */
     @Export(name="predefined", refs={Boolean.class}, tree="[0]")
     private Output</* @Nullable */ Boolean> predefined;
 
+    /**
+     * @return Whether this is a predefined rule.
+     * 
+     */
     public Output<Optional<Boolean>> predefined() {
         return Codegen.optional(this.predefined);
     }
+    /**
+     * The admin rank of the rule. Default is 7.
+     * 
+     */
     @Export(name="rank", refs={Integer.class}, tree="[0]")
     private Output</* @Nullable */ Integer> rank;
 
+    /**
+     * @return The admin rank of the rule. Default is 7.
+     * 
+     */
     public Output<Optional<Integer>> rank() {
         return Codegen.optional(this.rank);
     }
+    /**
+     * The unique identifier for the traffic capture rule assigned by the ZIA cloud.
+     * 
+     */
     @Export(name="ruleId", refs={Integer.class}, tree="[0]")
     private Output<Integer> ruleId;
 
+    /**
+     * @return The unique identifier for the traffic capture rule assigned by the ZIA cloud.
+     * 
+     */
     public Output<Integer> ruleId() {
         return this.ruleId;
     }
+    /**
+     * List of source country codes.
+     * 
+     */
     @Export(name="sourceCountries", refs={List.class,String.class}, tree="[0,1]")
     private Output</* @Nullable */ List<String>> sourceCountries;
 
+    /**
+     * @return List of source country codes.
+     * 
+     */
     public Output<Optional<List<String>>> sourceCountries() {
         return Codegen.optional(this.sourceCountries);
     }
+    /**
+     * List of source IP group IDs.
+     * 
+     */
     @Export(name="srcIpGroups", refs={List.class,Integer.class}, tree="[0,1]")
     private Output</* @Nullable */ List<Integer>> srcIpGroups;
 
+    /**
+     * @return List of source IP group IDs.
+     * 
+     */
     public Output<Optional<List<Integer>>> srcIpGroups() {
         return Codegen.optional(this.srcIpGroups);
     }
+    /**
+     * List of source IP addresses or CIDR ranges.
+     * 
+     */
     @Export(name="srcIps", refs={List.class,String.class}, tree="[0,1]")
     private Output</* @Nullable */ List<String>> srcIps;
 
+    /**
+     * @return List of source IP addresses or CIDR ranges.
+     * 
+     */
     public Output<Optional<List<String>>> srcIps() {
         return Codegen.optional(this.srcIps);
     }
+    /**
+     * The rule state. Accepted values: &#39;ENABLED&#39; or &#39;DISABLED&#39;. Default: &#39;ENABLED&#39;.
+     * 
+     */
     @Export(name="state", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> state;
 
+    /**
+     * @return The rule state. Accepted values: &#39;ENABLED&#39; or &#39;DISABLED&#39;. Default: &#39;ENABLED&#39;.
+     * 
+     */
     public Output<Optional<String>> state() {
         return Codegen.optional(this.state);
     }
+    /**
+     * List of time window IDs.
+     * 
+     */
     @Export(name="timeWindows", refs={List.class,Integer.class}, tree="[0,1]")
     private Output</* @Nullable */ List<Integer>> timeWindows;
 
+    /**
+     * @return List of time window IDs.
+     * 
+     */
     public Output<Optional<List<Integer>>> timeWindows() {
         return Codegen.optional(this.timeWindows);
     }
+    /**
+     * Transaction sampling mode. Default: &#39;NONE&#39;.
+     * 
+     */
     @Export(name="txnSampling", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> txnSampling;
 
+    /**
+     * @return Transaction sampling mode. Default: &#39;NONE&#39;.
+     * 
+     */
     public Output<Optional<String>> txnSampling() {
         return Codegen.optional(this.txnSampling);
     }
+    /**
+     * Transaction size limit. Default: &#39;NONE&#39;.
+     * 
+     */
     @Export(name="txnSizeLimit", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> txnSizeLimit;
 
+    /**
+     * @return Transaction size limit. Default: &#39;NONE&#39;.
+     * 
+     */
     public Output<Optional<String>> txnSizeLimit() {
         return Codegen.optional(this.txnSizeLimit);
     }
+    /**
+     * List of user IDs.
+     * 
+     */
     @Export(name="users", refs={List.class,Integer.class}, tree="[0,1]")
     private Output</* @Nullable */ List<Integer>> users;
 
+    /**
+     * @return List of user IDs.
+     * 
+     */
     public Output<Optional<List<Integer>>> users() {
         return Codegen.optional(this.users);
     }
+    /**
+     * List of workload groups.
+     * 
+     */
     @Export(name="workloadGroups", refs={List.class,WorkloadGroupInput.class}, tree="[0,1]")
     private Output</* @Nullable */ List<WorkloadGroupInput>> workloadGroups;
 
+    /**
+     * @return List of workload groups.
+     * 
+     */
     public Output<Optional<List<WorkloadGroupInput>>> workloadGroups() {
         return Codegen.optional(this.workloadGroups);
     }
@@ -263,6 +551,7 @@ public class TrafficCaptureRule extends com.pulumi.resources.CustomResource {
     private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<java.lang.String> id) {
         var defaultOptions = com.pulumi.resources.CustomResourceOptions.builder()
             .version(Utilities.getVersion())
+            .pluginDownloadURL("github://api.github.com/zscaler")
             .build();
         return com.pulumi.resources.CustomResourceOptions.merge(defaultOptions, options, id);
     }

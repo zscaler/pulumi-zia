@@ -6,6 +6,9 @@ import * as inputs from "./types/input";
 import * as outputs from "./types/output";
 import * as utilities from "./utilities";
 
+/**
+ * Use this data source to look up a workload group by ID or name.
+ */
 export function getWorkloadGroup(args?: GetWorkloadGroupArgs, opts?: pulumi.InvokeOptions): Promise<GetWorkloadGroupResult> {
     args = args || {};
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
@@ -16,18 +19,45 @@ export function getWorkloadGroup(args?: GetWorkloadGroupArgs, opts?: pulumi.Invo
 }
 
 export interface GetWorkloadGroupArgs {
+    /**
+     * The ID of the workload group to look up.
+     */
     groupId?: number;
+    /**
+     * The name of the workload group to look up.
+     */
     name?: string;
 }
 
 export interface GetWorkloadGroupResult {
+    /**
+     * The description of the workload group.
+     */
     readonly description: string;
+    /**
+     * The expression string for the workload group.
+     */
     readonly expression: string;
+    /**
+     * The expression JSON that defines the workload group matching criteria.
+     */
     readonly expressionJson?: outputs.WorkloadGroupExpressionJsonInput;
+    /**
+     * The ID of the workload group.
+     */
     readonly groupId: number;
+    /**
+     * The last modification time of the workload group (epoch).
+     */
     readonly lastModifiedTime: number;
+    /**
+     * The name of the workload group.
+     */
     readonly name: string;
 }
+/**
+ * Use this data source to look up a workload group by ID or name.
+ */
 export function getWorkloadGroupOutput(args?: GetWorkloadGroupOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetWorkloadGroupResult> {
     args = args || {};
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
@@ -38,6 +68,12 @@ export function getWorkloadGroupOutput(args?: GetWorkloadGroupOutputArgs, opts?:
 }
 
 export interface GetWorkloadGroupOutputArgs {
+    /**
+     * The ID of the workload group to look up.
+     */
     groupId?: pulumi.Input<number>;
+    /**
+     * The name of the workload group to look up.
+     */
     name?: pulumi.Input<string>;
 }

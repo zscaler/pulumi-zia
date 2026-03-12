@@ -16,299 +16,701 @@ import java.util.List;
 import java.util.Optional;
 import javax.annotation.Nullable;
 
+/**
+ * The zia_atp_settings resource manages Advanced Threat Protection (ATP) settings in the Zscaler Internet Access (ZIA) cloud service. ATP settings control which threat categories are blocked or captured (logged) for packet capture analysis. This is a singleton resource.
+ * 
+ * For more information, see the [ZIA Advanced Threat Protection documentation](https://help.zscaler.com/zia/about-advanced-threat-protection-policy).
+ * 
+ * ## Example Usage
+ * 
+ * &gt; This is a singleton resource. Import is not applicable.
+ * 
+ */
 @ResourceType(type="zia:index:AtpSettings")
 public class AtpSettings extends com.pulumi.resources.CustomResource {
+    /**
+     * Block ActiveX controls.
+     * 
+     */
     @Export(name="activexBlocked", refs={Boolean.class}, tree="[0]")
     private Output</* @Nullable */ Boolean> activexBlocked;
 
+    /**
+     * @return Block ActiveX controls.
+     * 
+     */
     public Output<Optional<Boolean>> activexBlocked() {
         return Codegen.optional(this.activexBlocked);
     }
+    /**
+     * Enable packet capture for ActiveX events.
+     * 
+     */
     @Export(name="activexCapture", refs={Boolean.class}, tree="[0]")
     private Output</* @Nullable */ Boolean> activexCapture;
 
+    /**
+     * @return Enable packet capture for ActiveX events.
+     * 
+     */
     public Output<Optional<Boolean>> activexCapture() {
         return Codegen.optional(this.activexCapture);
     }
+    /**
+     * Block adware/spyware sites.
+     * 
+     */
     @Export(name="adSpywareSitesBlocked", refs={Boolean.class}, tree="[0]")
     private Output</* @Nullable */ Boolean> adSpywareSitesBlocked;
 
+    /**
+     * @return Block adware/spyware sites.
+     * 
+     */
     public Output<Optional<Boolean>> adSpywareSitesBlocked() {
         return Codegen.optional(this.adSpywareSitesBlocked);
     }
+    /**
+     * Enable packet capture for adware/spyware site events.
+     * 
+     */
     @Export(name="adSpywareSitesCapture", refs={Boolean.class}, tree="[0]")
     private Output</* @Nullable */ Boolean> adSpywareSitesCapture;
 
+    /**
+     * @return Enable packet capture for adware/spyware site events.
+     * 
+     */
     public Output<Optional<Boolean>> adSpywareSitesCapture() {
         return Codegen.optional(this.adSpywareSitesCapture);
     }
+    /**
+     * Enable alerts for unknown or suspicious C2 traffic.
+     * 
+     */
     @Export(name="alertForUnknownSuspiciousC2Traffic", refs={Boolean.class}, tree="[0]")
     private Output</* @Nullable */ Boolean> alertForUnknownSuspiciousC2Traffic;
 
+    /**
+     * @return Enable alerts for unknown or suspicious C2 traffic.
+     * 
+     */
     public Output<Optional<Boolean>> alertForUnknownSuspiciousC2Traffic() {
         return Codegen.optional(this.alertForUnknownSuspiciousC2Traffic);
     }
+    /**
+     * Block anonymizers.
+     * 
+     */
     @Export(name="anonymizerBlocked", refs={Boolean.class}, tree="[0]")
     private Output</* @Nullable */ Boolean> anonymizerBlocked;
 
+    /**
+     * @return Block anonymizers.
+     * 
+     */
     public Output<Optional<Boolean>> anonymizerBlocked() {
         return Codegen.optional(this.anonymizerBlocked);
     }
+    /**
+     * Enable packet capture for anonymizer events.
+     * 
+     */
     @Export(name="anonymizerCapture", refs={Boolean.class}, tree="[0]")
     private Output</* @Nullable */ Boolean> anonymizerCapture;
 
+    /**
+     * @return Enable packet capture for anonymizer events.
+     * 
+     */
     public Output<Optional<Boolean>> anonymizerCapture() {
         return Codegen.optional(this.anonymizerCapture);
     }
+    /**
+     * Block BitTorrent traffic.
+     * 
+     */
     @Export(name="bitTorrentBlocked", refs={Boolean.class}, tree="[0]")
     private Output</* @Nullable */ Boolean> bitTorrentBlocked;
 
+    /**
+     * @return Block BitTorrent traffic.
+     * 
+     */
     public Output<Optional<Boolean>> bitTorrentBlocked() {
         return Codegen.optional(this.bitTorrentBlocked);
     }
+    /**
+     * Enable packet capture for BitTorrent events.
+     * 
+     */
     @Export(name="bitTorrentCapture", refs={Boolean.class}, tree="[0]")
     private Output</* @Nullable */ Boolean> bitTorrentCapture;
 
+    /**
+     * @return Enable packet capture for BitTorrent events.
+     * 
+     */
     public Output<Optional<Boolean>> bitTorrentCapture() {
         return Codegen.optional(this.bitTorrentCapture);
     }
+    /**
+     * Enable packet capture for blocked countries events.
+     * 
+     */
     @Export(name="blockCountriesCapture", refs={Boolean.class}, tree="[0]")
     private Output</* @Nullable */ Boolean> blockCountriesCapture;
 
+    /**
+     * @return Enable packet capture for blocked countries events.
+     * 
+     */
     public Output<Optional<Boolean>> blockCountriesCapture() {
         return Codegen.optional(this.blockCountriesCapture);
     }
+    /**
+     * List of countries (ISO 3166-1 alpha-2 codes) to block.
+     * 
+     */
     @Export(name="blockedCountries", refs={List.class,String.class}, tree="[0,1]")
     private Output</* @Nullable */ List<String>> blockedCountries;
 
+    /**
+     * @return List of countries (ISO 3166-1 alpha-2 codes) to block.
+     * 
+     */
     public Output<Optional<List<String>>> blockedCountries() {
         return Codegen.optional(this.blockedCountries);
     }
+    /**
+     * Block browser exploits.
+     * 
+     */
     @Export(name="browserExploitsBlocked", refs={Boolean.class}, tree="[0]")
     private Output</* @Nullable */ Boolean> browserExploitsBlocked;
 
+    /**
+     * @return Block browser exploits.
+     * 
+     */
     public Output<Optional<Boolean>> browserExploitsBlocked() {
         return Codegen.optional(this.browserExploitsBlocked);
     }
+    /**
+     * Enable packet capture for browser exploit events.
+     * 
+     */
     @Export(name="browserExploitsCapture", refs={Boolean.class}, tree="[0]")
     private Output</* @Nullable */ Boolean> browserExploitsCapture;
 
+    /**
+     * @return Enable packet capture for browser exploit events.
+     * 
+     */
     public Output<Optional<Boolean>> browserExploitsCapture() {
         return Codegen.optional(this.browserExploitsCapture);
     }
+    /**
+     * Block known command-and-control servers.
+     * 
+     */
     @Export(name="cmdCtlServerBlocked", refs={Boolean.class}, tree="[0]")
     private Output</* @Nullable */ Boolean> cmdCtlServerBlocked;
 
+    /**
+     * @return Block known command-and-control servers.
+     * 
+     */
     public Output<Optional<Boolean>> cmdCtlServerBlocked() {
         return Codegen.optional(this.cmdCtlServerBlocked);
     }
+    /**
+     * Enable packet capture for command-and-control server events.
+     * 
+     */
     @Export(name="cmdCtlServerCapture", refs={Boolean.class}, tree="[0]")
     private Output</* @Nullable */ Boolean> cmdCtlServerCapture;
 
+    /**
+     * @return Enable packet capture for command-and-control server events.
+     * 
+     */
     public Output<Optional<Boolean>> cmdCtlServerCapture() {
         return Codegen.optional(this.cmdCtlServerCapture);
     }
+    /**
+     * Block command-and-control traffic.
+     * 
+     */
     @Export(name="cmdCtlTrafficBlocked", refs={Boolean.class}, tree="[0]")
     private Output</* @Nullable */ Boolean> cmdCtlTrafficBlocked;
 
+    /**
+     * @return Block command-and-control traffic.
+     * 
+     */
     public Output<Optional<Boolean>> cmdCtlTrafficBlocked() {
         return Codegen.optional(this.cmdCtlTrafficBlocked);
     }
+    /**
+     * Enable packet capture for command-and-control traffic events.
+     * 
+     */
     @Export(name="cmdCtlTrafficCapture", refs={Boolean.class}, tree="[0]")
     private Output</* @Nullable */ Boolean> cmdCtlTrafficCapture;
 
+    /**
+     * @return Enable packet capture for command-and-control traffic events.
+     * 
+     */
     public Output<Optional<Boolean>> cmdCtlTrafficCapture() {
         return Codegen.optional(this.cmdCtlTrafficCapture);
     }
+    /**
+     * Block cookie stealing attempts.
+     * 
+     */
     @Export(name="cookieStealingBlocked", refs={Boolean.class}, tree="[0]")
     private Output</* @Nullable */ Boolean> cookieStealingBlocked;
 
+    /**
+     * @return Block cookie stealing attempts.
+     * 
+     */
     public Output<Optional<Boolean>> cookieStealingBlocked() {
         return Codegen.optional(this.cookieStealingBlocked);
     }
+    /**
+     * Enable packet capture for cookie stealing events.
+     * 
+     */
     @Export(name="cookieStealingPcapEnabled", refs={Boolean.class}, tree="[0]")
     private Output</* @Nullable */ Boolean> cookieStealingPcapEnabled;
 
+    /**
+     * @return Enable packet capture for cookie stealing events.
+     * 
+     */
     public Output<Optional<Boolean>> cookieStealingPcapEnabled() {
         return Codegen.optional(this.cookieStealingPcapEnabled);
     }
+    /**
+     * Block crypto mining traffic.
+     * 
+     */
     @Export(name="cryptoMiningBlocked", refs={Boolean.class}, tree="[0]")
     private Output</* @Nullable */ Boolean> cryptoMiningBlocked;
 
+    /**
+     * @return Block crypto mining traffic.
+     * 
+     */
     public Output<Optional<Boolean>> cryptoMiningBlocked() {
         return Codegen.optional(this.cryptoMiningBlocked);
     }
+    /**
+     * Enable packet capture for crypto mining events.
+     * 
+     */
     @Export(name="cryptoMiningCapture", refs={Boolean.class}, tree="[0]")
     private Output</* @Nullable */ Boolean> cryptoMiningCapture;
 
+    /**
+     * @return Enable packet capture for crypto mining events.
+     * 
+     */
     public Output<Optional<Boolean>> cryptoMiningCapture() {
         return Codegen.optional(this.cryptoMiningCapture);
     }
+    /**
+     * Block domain generation algorithm (DGA) domains.
+     * 
+     */
     @Export(name="dgaDomainsBlocked", refs={Boolean.class}, tree="[0]")
     private Output</* @Nullable */ Boolean> dgaDomainsBlocked;
 
+    /**
+     * @return Block domain generation algorithm (DGA) domains.
+     * 
+     */
     public Output<Optional<Boolean>> dgaDomainsBlocked() {
         return Codegen.optional(this.dgaDomainsBlocked);
     }
+    /**
+     * Enable packet capture for DGA domain events.
+     * 
+     */
     @Export(name="dgaDomainsCapture", refs={Boolean.class}, tree="[0]")
     private Output</* @Nullable */ Boolean> dgaDomainsCapture;
 
+    /**
+     * @return Enable packet capture for DGA domain events.
+     * 
+     */
     public Output<Optional<Boolean>> dgaDomainsCapture() {
         return Codegen.optional(this.dgaDomainsCapture);
     }
+    /**
+     * Block file format vulnerabilities.
+     * 
+     */
     @Export(name="fileFormatVunerabilitesBlocked", refs={Boolean.class}, tree="[0]")
     private Output</* @Nullable */ Boolean> fileFormatVunerabilitesBlocked;
 
+    /**
+     * @return Block file format vulnerabilities.
+     * 
+     */
     public Output<Optional<Boolean>> fileFormatVunerabilitesBlocked() {
         return Codegen.optional(this.fileFormatVunerabilitesBlocked);
     }
+    /**
+     * Enable packet capture for file format vulnerability events.
+     * 
+     */
     @Export(name="fileFormatVunerabilitesCapture", refs={Boolean.class}, tree="[0]")
     private Output</* @Nullable */ Boolean> fileFormatVunerabilitesCapture;
 
+    /**
+     * @return Enable packet capture for file format vulnerability events.
+     * 
+     */
     public Output<Optional<Boolean>> fileFormatVunerabilitesCapture() {
         return Codegen.optional(this.fileFormatVunerabilitesCapture);
     }
+    /**
+     * Block Google Talk traffic.
+     * 
+     */
     @Export(name="googleTalkBlocked", refs={Boolean.class}, tree="[0]")
     private Output</* @Nullable */ Boolean> googleTalkBlocked;
 
+    /**
+     * @return Block Google Talk traffic.
+     * 
+     */
     public Output<Optional<Boolean>> googleTalkBlocked() {
         return Codegen.optional(this.googleTalkBlocked);
     }
+    /**
+     * Enable packet capture for Google Talk events.
+     * 
+     */
     @Export(name="googleTalkCapture", refs={Boolean.class}, tree="[0]")
     private Output</* @Nullable */ Boolean> googleTalkCapture;
 
+    /**
+     * @return Enable packet capture for Google Talk events.
+     * 
+     */
     public Output<Optional<Boolean>> googleTalkCapture() {
         return Codegen.optional(this.googleTalkCapture);
     }
+    /**
+     * Block IRC tunnelling.
+     * 
+     */
     @Export(name="ircTunnellingBlocked", refs={Boolean.class}, tree="[0]")
     private Output</* @Nullable */ Boolean> ircTunnellingBlocked;
 
+    /**
+     * @return Block IRC tunnelling.
+     * 
+     */
     public Output<Optional<Boolean>> ircTunnellingBlocked() {
         return Codegen.optional(this.ircTunnellingBlocked);
     }
+    /**
+     * Enable packet capture for IRC tunnelling events.
+     * 
+     */
     @Export(name="ircTunnellingCapture", refs={Boolean.class}, tree="[0]")
     private Output</* @Nullable */ Boolean> ircTunnellingCapture;
 
+    /**
+     * @return Enable packet capture for IRC tunnelling events.
+     * 
+     */
     public Output<Optional<Boolean>> ircTunnellingCapture() {
         return Codegen.optional(this.ircTunnellingCapture);
     }
+    /**
+     * Block known phishing sites.
+     * 
+     */
     @Export(name="knownPhishingSitesBlocked", refs={Boolean.class}, tree="[0]")
     private Output</* @Nullable */ Boolean> knownPhishingSitesBlocked;
 
+    /**
+     * @return Block known phishing sites.
+     * 
+     */
     public Output<Optional<Boolean>> knownPhishingSitesBlocked() {
         return Codegen.optional(this.knownPhishingSitesBlocked);
     }
+    /**
+     * Enable packet capture for known phishing site events.
+     * 
+     */
     @Export(name="knownPhishingSitesCapture", refs={Boolean.class}, tree="[0]")
     private Output</* @Nullable */ Boolean> knownPhishingSitesCapture;
 
+    /**
+     * @return Enable packet capture for known phishing site events.
+     * 
+     */
     public Output<Optional<Boolean>> knownPhishingSitesCapture() {
         return Codegen.optional(this.knownPhishingSitesCapture);
     }
+    /**
+     * Enable packet capture for malicious URL events.
+     * 
+     */
     @Export(name="maliciousUrlsCapture", refs={Boolean.class}, tree="[0]")
     private Output</* @Nullable */ Boolean> maliciousUrlsCapture;
 
+    /**
+     * @return Enable packet capture for malicious URL events.
+     * 
+     */
     public Output<Optional<Boolean>> maliciousUrlsCapture() {
         return Codegen.optional(this.maliciousUrlsCapture);
     }
+    /**
+     * Block known malware sites.
+     * 
+     */
     @Export(name="malwareSitesBlocked", refs={Boolean.class}, tree="[0]")
     private Output</* @Nullable */ Boolean> malwareSitesBlocked;
 
+    /**
+     * @return Block known malware sites.
+     * 
+     */
     public Output<Optional<Boolean>> malwareSitesBlocked() {
         return Codegen.optional(this.malwareSitesBlocked);
     }
+    /**
+     * Enable packet capture for malware site events.
+     * 
+     */
     @Export(name="malwareSitesCapture", refs={Boolean.class}, tree="[0]")
     private Output</* @Nullable */ Boolean> malwareSitesCapture;
 
+    /**
+     * @return Enable packet capture for malware site events.
+     * 
+     */
     public Output<Optional<Boolean>> malwareSitesCapture() {
         return Codegen.optional(this.malwareSitesCapture);
     }
+    /**
+     * Block potentially malicious requests.
+     * 
+     */
     @Export(name="potentialMaliciousRequestsBlocked", refs={Boolean.class}, tree="[0]")
     private Output</* @Nullable */ Boolean> potentialMaliciousRequestsBlocked;
 
+    /**
+     * @return Block potentially malicious requests.
+     * 
+     */
     public Output<Optional<Boolean>> potentialMaliciousRequestsBlocked() {
         return Codegen.optional(this.potentialMaliciousRequestsBlocked);
     }
+    /**
+     * Enable packet capture for potentially malicious request events.
+     * 
+     */
     @Export(name="potentialMaliciousRequestsCapture", refs={Boolean.class}, tree="[0]")
     private Output</* @Nullable */ Boolean> potentialMaliciousRequestsCapture;
 
+    /**
+     * @return Enable packet capture for potentially malicious request events.
+     * 
+     */
     public Output<Optional<Boolean>> potentialMaliciousRequestsCapture() {
         return Codegen.optional(this.potentialMaliciousRequestsCapture);
     }
+    /**
+     * The internal resource identifier for the ATP settings.
+     * 
+     */
     @Export(name="resourceId", refs={String.class}, tree="[0]")
     private Output<String> resourceId;
 
+    /**
+     * @return The internal resource identifier for the ATP settings.
+     * 
+     */
     public Output<String> resourceId() {
         return this.resourceId;
     }
+    /**
+     * Risk tolerance level. Controls the sensitivity for detecting threats.
+     * 
+     */
     @Export(name="riskTolerance", refs={Integer.class}, tree="[0]")
     private Output</* @Nullable */ Integer> riskTolerance;
 
+    /**
+     * @return Risk tolerance level. Controls the sensitivity for detecting threats.
+     * 
+     */
     public Output<Optional<Integer>> riskTolerance() {
         return Codegen.optional(this.riskTolerance);
     }
+    /**
+     * Enable packet capture for risk tolerance events.
+     * 
+     */
     @Export(name="riskToleranceCapture", refs={Boolean.class}, tree="[0]")
     private Output</* @Nullable */ Boolean> riskToleranceCapture;
 
+    /**
+     * @return Enable packet capture for risk tolerance events.
+     * 
+     */
     public Output<Optional<Boolean>> riskToleranceCapture() {
         return Codegen.optional(this.riskToleranceCapture);
     }
+    /**
+     * Block SSH tunnelling.
+     * 
+     */
     @Export(name="sshTunnellingBlocked", refs={Boolean.class}, tree="[0]")
     private Output</* @Nullable */ Boolean> sshTunnellingBlocked;
 
+    /**
+     * @return Block SSH tunnelling.
+     * 
+     */
     public Output<Optional<Boolean>> sshTunnellingBlocked() {
         return Codegen.optional(this.sshTunnellingBlocked);
     }
+    /**
+     * Enable packet capture for SSH tunnelling events.
+     * 
+     */
     @Export(name="sshTunnellingCapture", refs={Boolean.class}, tree="[0]")
     private Output</* @Nullable */ Boolean> sshTunnellingCapture;
 
+    /**
+     * @return Enable packet capture for SSH tunnelling events.
+     * 
+     */
     public Output<Optional<Boolean>> sshTunnellingCapture() {
         return Codegen.optional(this.sshTunnellingCapture);
     }
+    /**
+     * Block suspect adware/spyware sites.
+     * 
+     */
     @Export(name="suspectAdwareSpywareSitesBlocked", refs={Boolean.class}, tree="[0]")
     private Output</* @Nullable */ Boolean> suspectAdwareSpywareSitesBlocked;
 
+    /**
+     * @return Block suspect adware/spyware sites.
+     * 
+     */
     public Output<Optional<Boolean>> suspectAdwareSpywareSitesBlocked() {
         return Codegen.optional(this.suspectAdwareSpywareSitesBlocked);
     }
+    /**
+     * Enable packet capture for suspect adware/spyware site events.
+     * 
+     */
     @Export(name="suspectAdwareSpywareSitesCapture", refs={Boolean.class}, tree="[0]")
     private Output</* @Nullable */ Boolean> suspectAdwareSpywareSitesCapture;
 
+    /**
+     * @return Enable packet capture for suspect adware/spyware site events.
+     * 
+     */
     public Output<Optional<Boolean>> suspectAdwareSpywareSitesCapture() {
         return Codegen.optional(this.suspectAdwareSpywareSitesCapture);
     }
+    /**
+     * Block suspected phishing sites.
+     * 
+     */
     @Export(name="suspectedPhishingSitesBlocked", refs={Boolean.class}, tree="[0]")
     private Output</* @Nullable */ Boolean> suspectedPhishingSitesBlocked;
 
+    /**
+     * @return Block suspected phishing sites.
+     * 
+     */
     public Output<Optional<Boolean>> suspectedPhishingSitesBlocked() {
         return Codegen.optional(this.suspectedPhishingSitesBlocked);
     }
+    /**
+     * Enable packet capture for suspected phishing site events.
+     * 
+     */
     @Export(name="suspectedPhishingSitesCapture", refs={Boolean.class}, tree="[0]")
     private Output</* @Nullable */ Boolean> suspectedPhishingSitesCapture;
 
+    /**
+     * @return Enable packet capture for suspected phishing site events.
+     * 
+     */
     public Output<Optional<Boolean>> suspectedPhishingSitesCapture() {
         return Codegen.optional(this.suspectedPhishingSitesCapture);
     }
+    /**
+     * Block Tor traffic.
+     * 
+     */
     @Export(name="torBlocked", refs={Boolean.class}, tree="[0]")
     private Output</* @Nullable */ Boolean> torBlocked;
 
+    /**
+     * @return Block Tor traffic.
+     * 
+     */
     public Output<Optional<Boolean>> torBlocked() {
         return Codegen.optional(this.torBlocked);
     }
+    /**
+     * Enable packet capture for Tor events.
+     * 
+     */
     @Export(name="torCapture", refs={Boolean.class}, tree="[0]")
     private Output</* @Nullable */ Boolean> torCapture;
 
+    /**
+     * @return Enable packet capture for Tor events.
+     * 
+     */
     public Output<Optional<Boolean>> torCapture() {
         return Codegen.optional(this.torCapture);
     }
+    /**
+     * Block web spam.
+     * 
+     */
     @Export(name="webSpamBlocked", refs={Boolean.class}, tree="[0]")
     private Output</* @Nullable */ Boolean> webSpamBlocked;
 
+    /**
+     * @return Block web spam.
+     * 
+     */
     public Output<Optional<Boolean>> webSpamBlocked() {
         return Codegen.optional(this.webSpamBlocked);
     }
+    /**
+     * Enable packet capture for web spam events.
+     * 
+     */
     @Export(name="webSpamCapture", refs={Boolean.class}, tree="[0]")
     private Output</* @Nullable */ Boolean> webSpamCapture;
 
+    /**
+     * @return Enable packet capture for web spam events.
+     * 
+     */
     public Output<Optional<Boolean>> webSpamCapture() {
         return Codegen.optional(this.webSpamCapture);
     }
@@ -352,6 +754,7 @@ public class AtpSettings extends com.pulumi.resources.CustomResource {
     private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<java.lang.String> id) {
         var defaultOptions = com.pulumi.resources.CustomResourceOptions.builder()
             .version(Utilities.getVersion())
+            .pluginDownloadURL("github://api.github.com/zscaler")
             .build();
         return com.pulumi.resources.CustomResourceOptions.merge(defaultOptions, options, id);
     }

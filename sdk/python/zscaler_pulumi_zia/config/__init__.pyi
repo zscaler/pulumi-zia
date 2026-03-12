@@ -15,32 +15,82 @@ else:
 from .. import _utilities
 
 apiKey: Optional[str]
+"""
+(Legacy) The API key for ZIA. Can also be set via the `ZIA_API_KEY` environment variable. Prefer OAuth2 credentials instead.
+"""
 
 clientId: Optional[str]
+"""
+The OAuth2 client ID for authenticating with the Zscaler API. Can also be set via the `ZSCALER_CLIENT_ID` environment variable.
+"""
 
 clientSecret: Optional[str]
+"""
+The OAuth2 client secret for authenticating with the Zscaler API. Can also be set via the `ZSCALER_CLIENT_SECRET` environment variable.
+"""
 
 cloud: Optional[str]
+"""
+The Zscaler cloud name (e.g. 'zscaler', 'zscalerone', 'zscalertwo', 'zscalerthree', 'zscloud', 'zscalerbeta', 'zscalergov'). Can also be set via the `ZSCALER_CLOUD` environment variable.
+"""
+
+debug: Optional[bool]
+"""
+If true, enables verbose Zscaler SDK logging (API requests/responses). Logs are written to stderr and optionally to the file specified by the `ZSCALER_SDK_LOG_FILE` environment variable.
+"""
 
 httpProxy: Optional[str]
+"""
+HTTP proxy URL for API requests (e.g. 'http://proxy.example.com:8080'). Can also be set via the `ZSCALER_HTTP_PROXY` environment variable.
+"""
 
 maxRetries: Optional[int]
+"""
+Maximum number of retries for API requests. Default is determined by the SDK.
+"""
 
 password: Optional[str]
+"""
+(Legacy) The admin password for ZIA. Can also be set via the `ZIA_PASSWORD` environment variable. Prefer OAuth2 credentials instead.
+"""
 
 privateKey: Optional[str]
+"""
+The private key for service principal authentication. Can also be set via the `ZSCALER_PRIVATE_KEY` environment variable.
+"""
 
 requestTimeout: Optional[int]
+"""
+Timeout in seconds for API requests.
+"""
 
 sandboxCloud: Optional[str]
+"""
+The Zscaler Sandbox cloud name. Can also be set via the `ZIA_SANDBOX_CLOUD` environment variable.
+"""
 
 sandboxToken: Optional[str]
+"""
+The API token for Zscaler Sandbox. Can also be set via the `ZIA_SANDBOX_TOKEN` environment variable.
+"""
 
 useLegacyClient: Optional[bool]
+"""
+If true, use the legacy ZIA client authentication instead of OAuth2.
+"""
 
 username: Optional[str]
+"""
+(Legacy) The admin username for ZIA. Can also be set via the `ZIA_USERNAME` environment variable. Prefer OAuth2 credentials instead.
+"""
 
 vanityDomain: Optional[str]
+"""
+The vanity domain for your Zscaler organization. Can also be set via the `ZSCALER_VANITY_DOMAIN` environment variable.
+"""
 
 ziaCloud: Optional[str]
+"""
+(Legacy) The ZIA cloud name. Can also be set via the `ZIA_CLOUD` environment variable. Prefer the 'cloud' parameter instead.
+"""
 

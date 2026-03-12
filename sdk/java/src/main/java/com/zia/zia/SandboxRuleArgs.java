@@ -20,149 +20,317 @@ public final class SandboxRuleArgs extends com.pulumi.resources.ResourceArgs {
 
     public static final SandboxRuleArgs Empty = new SandboxRuleArgs();
 
+    /**
+     * List of behavioral analysis policy categories.
+     * 
+     */
     @Import(name="baPolicyCategories")
     private @Nullable Output<List<String>> baPolicyCategories;
 
+    /**
+     * @return List of behavioral analysis policy categories.
+     * 
+     */
     public Optional<Output<List<String>>> baPolicyCategories() {
         return Optional.ofNullable(this.baPolicyCategories);
     }
 
+    /**
+     * The action applied when the rule is matched. Valid values: `ALLOW`, `BLOCK`, `QUARANTINE`.
+     * 
+     */
     @Import(name="baRuleAction")
     private @Nullable Output<String> baRuleAction;
 
+    /**
+     * @return The action applied when the rule is matched. Valid values: `ALLOW`, `BLOCK`, `QUARANTINE`.
+     * 
+     */
     public Optional<Output<String>> baRuleAction() {
         return Optional.ofNullable(this.baRuleAction);
     }
 
+    /**
+     * Threat score threshold for the rule. Files with a score above this value trigger the action.
+     * 
+     */
     @Import(name="byThreatScore")
     private @Nullable Output<Integer> byThreatScore;
 
+    /**
+     * @return Threat score threshold for the rule. Files with a score above this value trigger the action.
+     * 
+     */
     public Optional<Output<Integer>> byThreatScore() {
         return Optional.ofNullable(this.byThreatScore);
     }
 
+    /**
+     * IDs of departments to which the rule applies.
+     * 
+     */
     @Import(name="departments")
     private @Nullable Output<List<Integer>> departments;
 
+    /**
+     * @return IDs of departments to which the rule applies.
+     * 
+     */
     public Optional<Output<List<Integer>>> departments() {
         return Optional.ofNullable(this.departments);
     }
 
+    /**
+     * Additional information about the sandbox rule.
+     * 
+     */
     @Import(name="description")
     private @Nullable Output<String> description;
 
+    /**
+     * @return Additional information about the sandbox rule.
+     * 
+     */
     public Optional<Output<String>> description() {
         return Optional.ofNullable(this.description);
     }
 
+    /**
+     * List of file types for which the rule applies (e.g., `ALL_OUTBOUND`, `EXE`, `DLL`).
+     * 
+     */
     @Import(name="fileTypes")
     private @Nullable Output<List<String>> fileTypes;
 
+    /**
+     * @return List of file types for which the rule applies (e.g., `ALL_OUTBOUND`, `EXE`, `DLL`).
+     * 
+     */
     public Optional<Output<List<String>>> fileTypes() {
         return Optional.ofNullable(this.fileTypes);
     }
 
+    /**
+     * If set to true, a first-time action is enabled.
+     * 
+     */
     @Import(name="firstTimeEnable")
     private @Nullable Output<Boolean> firstTimeEnable;
 
+    /**
+     * @return If set to true, a first-time action is enabled.
+     * 
+     */
     public Optional<Output<Boolean>> firstTimeEnable() {
         return Optional.ofNullable(this.firstTimeEnable);
     }
 
+    /**
+     * The action for first-time file downloads. Valid values: `ALLOW_SCAN`, `QUARANTINE`.
+     * 
+     */
     @Import(name="firstTimeOperation")
     private @Nullable Output<String> firstTimeOperation;
 
+    /**
+     * @return The action for first-time file downloads. Valid values: `ALLOW_SCAN`, `QUARANTINE`.
+     * 
+     */
     public Optional<Output<String>> firstTimeOperation() {
         return Optional.ofNullable(this.firstTimeOperation);
     }
 
+    /**
+     * IDs of groups to which the rule applies.
+     * 
+     */
     @Import(name="groups")
     private @Nullable Output<List<Integer>> groups;
 
+    /**
+     * @return IDs of groups to which the rule applies.
+     * 
+     */
     public Optional<Output<List<Integer>>> groups() {
         return Optional.ofNullable(this.groups);
     }
 
+    /**
+     * IDs of labels associated with the rule.
+     * 
+     */
     @Import(name="labels")
     private @Nullable Output<List<Integer>> labels;
 
+    /**
+     * @return IDs of labels associated with the rule.
+     * 
+     */
     public Optional<Output<List<Integer>>> labels() {
         return Optional.ofNullable(this.labels);
     }
 
+    /**
+     * IDs of location groups to which the rule applies.
+     * 
+     */
     @Import(name="locationGroups")
     private @Nullable Output<List<Integer>> locationGroups;
 
+    /**
+     * @return IDs of location groups to which the rule applies.
+     * 
+     */
     public Optional<Output<List<Integer>>> locationGroups() {
         return Optional.ofNullable(this.locationGroups);
     }
 
+    /**
+     * IDs of locations to which the rule applies.
+     * 
+     */
     @Import(name="locations")
     private @Nullable Output<List<Integer>> locations;
 
+    /**
+     * @return IDs of locations to which the rule applies.
+     * 
+     */
     public Optional<Output<List<Integer>>> locations() {
         return Optional.ofNullable(this.locations);
     }
 
+    /**
+     * If set to true, machine learning-based analysis action is enabled.
+     * 
+     */
     @Import(name="mlActionEnabled")
     private @Nullable Output<Boolean> mlActionEnabled;
 
+    /**
+     * @return If set to true, machine learning-based analysis action is enabled.
+     * 
+     */
     public Optional<Output<Boolean>> mlActionEnabled() {
         return Optional.ofNullable(this.mlActionEnabled);
     }
 
+    /**
+     * The name of the sandbox rule. Must be unique.
+     * 
+     */
     @Import(name="name", required=true)
     private Output<String> name;
 
+    /**
+     * @return The name of the sandbox rule. Must be unique.
+     * 
+     */
     public Output<String> name() {
         return this.name;
     }
 
+    /**
+     * The order of execution of the rule with respect to other sandbox rules.
+     * 
+     */
     @Import(name="order", required=true)
     private Output<Integer> order;
 
+    /**
+     * @return The order of execution of the rule with respect to other sandbox rules.
+     * 
+     */
     public Output<Integer> order() {
         return this.order;
     }
 
+    /**
+     * Protocols to which the rule applies. Valid values: `FTP_RULE`, `SSL_RULE`, `FOHTTP_RULE`, `HTTP_PROXY`.
+     * 
+     */
     @Import(name="protocols")
     private @Nullable Output<List<String>> protocols;
 
+    /**
+     * @return Protocols to which the rule applies. Valid values: `FTP_RULE`, `SSL_RULE`, `FOHTTP_RULE`, `HTTP_PROXY`.
+     * 
+     */
     public Optional<Output<List<String>>> protocols() {
         return Optional.ofNullable(this.protocols);
     }
 
+    /**
+     * Admin rank of the sandbox policy rule. Valid values: 0-7. Default: 7.
+     * 
+     */
     @Import(name="rank")
     private @Nullable Output<Integer> rank;
 
+    /**
+     * @return Admin rank of the sandbox policy rule. Valid values: 0-7. Default: 7.
+     * 
+     */
     public Optional<Output<Integer>> rank() {
         return Optional.ofNullable(this.rank);
     }
 
+    /**
+     * Rule state. Valid values: `ENABLED`, `DISABLED`.
+     * 
+     */
     @Import(name="state")
     private @Nullable Output<String> state;
 
+    /**
+     * @return Rule state. Valid values: `ENABLED`, `DISABLED`.
+     * 
+     */
     public Optional<Output<String>> state() {
         return Optional.ofNullable(this.state);
     }
 
+    /**
+     * List of URL categories to which the rule applies.
+     * 
+     */
     @Import(name="urlCategories")
     private @Nullable Output<List<String>> urlCategories;
 
+    /**
+     * @return List of URL categories to which the rule applies.
+     * 
+     */
     public Optional<Output<List<String>>> urlCategories() {
         return Optional.ofNullable(this.urlCategories);
     }
 
+    /**
+     * IDs of users to which the rule applies.
+     * 
+     */
     @Import(name="users")
     private @Nullable Output<List<Integer>> users;
 
+    /**
+     * @return IDs of users to which the rule applies.
+     * 
+     */
     public Optional<Output<List<Integer>>> users() {
         return Optional.ofNullable(this.users);
     }
 
+    /**
+     * List of ZPA application segments to which the rule applies.
+     * 
+     */
     @Import(name="zpaAppSegments")
     private @Nullable Output<List<ZPAAppSegmentInputArgs>> zpaAppSegments;
 
+    /**
+     * @return List of ZPA application segments to which the rule applies.
+     * 
+     */
     public Optional<Output<List<ZPAAppSegmentInputArgs>>> zpaAppSegments() {
         return Optional.ofNullable(this.zpaAppSegments);
     }
@@ -211,235 +379,553 @@ public final class SandboxRuleArgs extends com.pulumi.resources.ResourceArgs {
             $ = new SandboxRuleArgs(Objects.requireNonNull(defaults));
         }
 
+        /**
+         * @param baPolicyCategories List of behavioral analysis policy categories.
+         * 
+         * @return builder
+         * 
+         */
         public Builder baPolicyCategories(@Nullable Output<List<String>> baPolicyCategories) {
             $.baPolicyCategories = baPolicyCategories;
             return this;
         }
 
+        /**
+         * @param baPolicyCategories List of behavioral analysis policy categories.
+         * 
+         * @return builder
+         * 
+         */
         public Builder baPolicyCategories(List<String> baPolicyCategories) {
             return baPolicyCategories(Output.of(baPolicyCategories));
         }
 
+        /**
+         * @param baPolicyCategories List of behavioral analysis policy categories.
+         * 
+         * @return builder
+         * 
+         */
         public Builder baPolicyCategories(String... baPolicyCategories) {
             return baPolicyCategories(List.of(baPolicyCategories));
         }
 
+        /**
+         * @param baRuleAction The action applied when the rule is matched. Valid values: `ALLOW`, `BLOCK`, `QUARANTINE`.
+         * 
+         * @return builder
+         * 
+         */
         public Builder baRuleAction(@Nullable Output<String> baRuleAction) {
             $.baRuleAction = baRuleAction;
             return this;
         }
 
+        /**
+         * @param baRuleAction The action applied when the rule is matched. Valid values: `ALLOW`, `BLOCK`, `QUARANTINE`.
+         * 
+         * @return builder
+         * 
+         */
         public Builder baRuleAction(String baRuleAction) {
             return baRuleAction(Output.of(baRuleAction));
         }
 
+        /**
+         * @param byThreatScore Threat score threshold for the rule. Files with a score above this value trigger the action.
+         * 
+         * @return builder
+         * 
+         */
         public Builder byThreatScore(@Nullable Output<Integer> byThreatScore) {
             $.byThreatScore = byThreatScore;
             return this;
         }
 
+        /**
+         * @param byThreatScore Threat score threshold for the rule. Files with a score above this value trigger the action.
+         * 
+         * @return builder
+         * 
+         */
         public Builder byThreatScore(Integer byThreatScore) {
             return byThreatScore(Output.of(byThreatScore));
         }
 
+        /**
+         * @param departments IDs of departments to which the rule applies.
+         * 
+         * @return builder
+         * 
+         */
         public Builder departments(@Nullable Output<List<Integer>> departments) {
             $.departments = departments;
             return this;
         }
 
+        /**
+         * @param departments IDs of departments to which the rule applies.
+         * 
+         * @return builder
+         * 
+         */
         public Builder departments(List<Integer> departments) {
             return departments(Output.of(departments));
         }
 
+        /**
+         * @param departments IDs of departments to which the rule applies.
+         * 
+         * @return builder
+         * 
+         */
         public Builder departments(Integer... departments) {
             return departments(List.of(departments));
         }
 
+        /**
+         * @param description Additional information about the sandbox rule.
+         * 
+         * @return builder
+         * 
+         */
         public Builder description(@Nullable Output<String> description) {
             $.description = description;
             return this;
         }
 
+        /**
+         * @param description Additional information about the sandbox rule.
+         * 
+         * @return builder
+         * 
+         */
         public Builder description(String description) {
             return description(Output.of(description));
         }
 
+        /**
+         * @param fileTypes List of file types for which the rule applies (e.g., `ALL_OUTBOUND`, `EXE`, `DLL`).
+         * 
+         * @return builder
+         * 
+         */
         public Builder fileTypes(@Nullable Output<List<String>> fileTypes) {
             $.fileTypes = fileTypes;
             return this;
         }
 
+        /**
+         * @param fileTypes List of file types for which the rule applies (e.g., `ALL_OUTBOUND`, `EXE`, `DLL`).
+         * 
+         * @return builder
+         * 
+         */
         public Builder fileTypes(List<String> fileTypes) {
             return fileTypes(Output.of(fileTypes));
         }
 
+        /**
+         * @param fileTypes List of file types for which the rule applies (e.g., `ALL_OUTBOUND`, `EXE`, `DLL`).
+         * 
+         * @return builder
+         * 
+         */
         public Builder fileTypes(String... fileTypes) {
             return fileTypes(List.of(fileTypes));
         }
 
+        /**
+         * @param firstTimeEnable If set to true, a first-time action is enabled.
+         * 
+         * @return builder
+         * 
+         */
         public Builder firstTimeEnable(@Nullable Output<Boolean> firstTimeEnable) {
             $.firstTimeEnable = firstTimeEnable;
             return this;
         }
 
+        /**
+         * @param firstTimeEnable If set to true, a first-time action is enabled.
+         * 
+         * @return builder
+         * 
+         */
         public Builder firstTimeEnable(Boolean firstTimeEnable) {
             return firstTimeEnable(Output.of(firstTimeEnable));
         }
 
+        /**
+         * @param firstTimeOperation The action for first-time file downloads. Valid values: `ALLOW_SCAN`, `QUARANTINE`.
+         * 
+         * @return builder
+         * 
+         */
         public Builder firstTimeOperation(@Nullable Output<String> firstTimeOperation) {
             $.firstTimeOperation = firstTimeOperation;
             return this;
         }
 
+        /**
+         * @param firstTimeOperation The action for first-time file downloads. Valid values: `ALLOW_SCAN`, `QUARANTINE`.
+         * 
+         * @return builder
+         * 
+         */
         public Builder firstTimeOperation(String firstTimeOperation) {
             return firstTimeOperation(Output.of(firstTimeOperation));
         }
 
+        /**
+         * @param groups IDs of groups to which the rule applies.
+         * 
+         * @return builder
+         * 
+         */
         public Builder groups(@Nullable Output<List<Integer>> groups) {
             $.groups = groups;
             return this;
         }
 
+        /**
+         * @param groups IDs of groups to which the rule applies.
+         * 
+         * @return builder
+         * 
+         */
         public Builder groups(List<Integer> groups) {
             return groups(Output.of(groups));
         }
 
+        /**
+         * @param groups IDs of groups to which the rule applies.
+         * 
+         * @return builder
+         * 
+         */
         public Builder groups(Integer... groups) {
             return groups(List.of(groups));
         }
 
+        /**
+         * @param labels IDs of labels associated with the rule.
+         * 
+         * @return builder
+         * 
+         */
         public Builder labels(@Nullable Output<List<Integer>> labels) {
             $.labels = labels;
             return this;
         }
 
+        /**
+         * @param labels IDs of labels associated with the rule.
+         * 
+         * @return builder
+         * 
+         */
         public Builder labels(List<Integer> labels) {
             return labels(Output.of(labels));
         }
 
+        /**
+         * @param labels IDs of labels associated with the rule.
+         * 
+         * @return builder
+         * 
+         */
         public Builder labels(Integer... labels) {
             return labels(List.of(labels));
         }
 
+        /**
+         * @param locationGroups IDs of location groups to which the rule applies.
+         * 
+         * @return builder
+         * 
+         */
         public Builder locationGroups(@Nullable Output<List<Integer>> locationGroups) {
             $.locationGroups = locationGroups;
             return this;
         }
 
+        /**
+         * @param locationGroups IDs of location groups to which the rule applies.
+         * 
+         * @return builder
+         * 
+         */
         public Builder locationGroups(List<Integer> locationGroups) {
             return locationGroups(Output.of(locationGroups));
         }
 
+        /**
+         * @param locationGroups IDs of location groups to which the rule applies.
+         * 
+         * @return builder
+         * 
+         */
         public Builder locationGroups(Integer... locationGroups) {
             return locationGroups(List.of(locationGroups));
         }
 
+        /**
+         * @param locations IDs of locations to which the rule applies.
+         * 
+         * @return builder
+         * 
+         */
         public Builder locations(@Nullable Output<List<Integer>> locations) {
             $.locations = locations;
             return this;
         }
 
+        /**
+         * @param locations IDs of locations to which the rule applies.
+         * 
+         * @return builder
+         * 
+         */
         public Builder locations(List<Integer> locations) {
             return locations(Output.of(locations));
         }
 
+        /**
+         * @param locations IDs of locations to which the rule applies.
+         * 
+         * @return builder
+         * 
+         */
         public Builder locations(Integer... locations) {
             return locations(List.of(locations));
         }
 
+        /**
+         * @param mlActionEnabled If set to true, machine learning-based analysis action is enabled.
+         * 
+         * @return builder
+         * 
+         */
         public Builder mlActionEnabled(@Nullable Output<Boolean> mlActionEnabled) {
             $.mlActionEnabled = mlActionEnabled;
             return this;
         }
 
+        /**
+         * @param mlActionEnabled If set to true, machine learning-based analysis action is enabled.
+         * 
+         * @return builder
+         * 
+         */
         public Builder mlActionEnabled(Boolean mlActionEnabled) {
             return mlActionEnabled(Output.of(mlActionEnabled));
         }
 
+        /**
+         * @param name The name of the sandbox rule. Must be unique.
+         * 
+         * @return builder
+         * 
+         */
         public Builder name(Output<String> name) {
             $.name = name;
             return this;
         }
 
+        /**
+         * @param name The name of the sandbox rule. Must be unique.
+         * 
+         * @return builder
+         * 
+         */
         public Builder name(String name) {
             return name(Output.of(name));
         }
 
+        /**
+         * @param order The order of execution of the rule with respect to other sandbox rules.
+         * 
+         * @return builder
+         * 
+         */
         public Builder order(Output<Integer> order) {
             $.order = order;
             return this;
         }
 
+        /**
+         * @param order The order of execution of the rule with respect to other sandbox rules.
+         * 
+         * @return builder
+         * 
+         */
         public Builder order(Integer order) {
             return order(Output.of(order));
         }
 
+        /**
+         * @param protocols Protocols to which the rule applies. Valid values: `FTP_RULE`, `SSL_RULE`, `FOHTTP_RULE`, `HTTP_PROXY`.
+         * 
+         * @return builder
+         * 
+         */
         public Builder protocols(@Nullable Output<List<String>> protocols) {
             $.protocols = protocols;
             return this;
         }
 
+        /**
+         * @param protocols Protocols to which the rule applies. Valid values: `FTP_RULE`, `SSL_RULE`, `FOHTTP_RULE`, `HTTP_PROXY`.
+         * 
+         * @return builder
+         * 
+         */
         public Builder protocols(List<String> protocols) {
             return protocols(Output.of(protocols));
         }
 
+        /**
+         * @param protocols Protocols to which the rule applies. Valid values: `FTP_RULE`, `SSL_RULE`, `FOHTTP_RULE`, `HTTP_PROXY`.
+         * 
+         * @return builder
+         * 
+         */
         public Builder protocols(String... protocols) {
             return protocols(List.of(protocols));
         }
 
+        /**
+         * @param rank Admin rank of the sandbox policy rule. Valid values: 0-7. Default: 7.
+         * 
+         * @return builder
+         * 
+         */
         public Builder rank(@Nullable Output<Integer> rank) {
             $.rank = rank;
             return this;
         }
 
+        /**
+         * @param rank Admin rank of the sandbox policy rule. Valid values: 0-7. Default: 7.
+         * 
+         * @return builder
+         * 
+         */
         public Builder rank(Integer rank) {
             return rank(Output.of(rank));
         }
 
+        /**
+         * @param state Rule state. Valid values: `ENABLED`, `DISABLED`.
+         * 
+         * @return builder
+         * 
+         */
         public Builder state(@Nullable Output<String> state) {
             $.state = state;
             return this;
         }
 
+        /**
+         * @param state Rule state. Valid values: `ENABLED`, `DISABLED`.
+         * 
+         * @return builder
+         * 
+         */
         public Builder state(String state) {
             return state(Output.of(state));
         }
 
+        /**
+         * @param urlCategories List of URL categories to which the rule applies.
+         * 
+         * @return builder
+         * 
+         */
         public Builder urlCategories(@Nullable Output<List<String>> urlCategories) {
             $.urlCategories = urlCategories;
             return this;
         }
 
+        /**
+         * @param urlCategories List of URL categories to which the rule applies.
+         * 
+         * @return builder
+         * 
+         */
         public Builder urlCategories(List<String> urlCategories) {
             return urlCategories(Output.of(urlCategories));
         }
 
+        /**
+         * @param urlCategories List of URL categories to which the rule applies.
+         * 
+         * @return builder
+         * 
+         */
         public Builder urlCategories(String... urlCategories) {
             return urlCategories(List.of(urlCategories));
         }
 
+        /**
+         * @param users IDs of users to which the rule applies.
+         * 
+         * @return builder
+         * 
+         */
         public Builder users(@Nullable Output<List<Integer>> users) {
             $.users = users;
             return this;
         }
 
+        /**
+         * @param users IDs of users to which the rule applies.
+         * 
+         * @return builder
+         * 
+         */
         public Builder users(List<Integer> users) {
             return users(Output.of(users));
         }
 
+        /**
+         * @param users IDs of users to which the rule applies.
+         * 
+         * @return builder
+         * 
+         */
         public Builder users(Integer... users) {
             return users(List.of(users));
         }
 
+        /**
+         * @param zpaAppSegments List of ZPA application segments to which the rule applies.
+         * 
+         * @return builder
+         * 
+         */
         public Builder zpaAppSegments(@Nullable Output<List<ZPAAppSegmentInputArgs>> zpaAppSegments) {
             $.zpaAppSegments = zpaAppSegments;
             return this;
         }
 
+        /**
+         * @param zpaAppSegments List of ZPA application segments to which the rule applies.
+         * 
+         * @return builder
+         * 
+         */
         public Builder zpaAppSegments(List<ZPAAppSegmentInputArgs> zpaAppSegments) {
             return zpaAppSegments(Output.of(zpaAppSegments));
         }
 
+        /**
+         * @param zpaAppSegments List of ZPA application segments to which the rule applies.
+         * 
+         * @return builder
+         * 
+         */
         public Builder zpaAppSegments(ZPAAppSegmentInputArgs... zpaAppSegments) {
             return zpaAppSegments(List.of(zpaAppSegments));
         }

@@ -24,6 +24,9 @@ class SandboxSubmissionArgs:
                  force: Optional[pulumi.Input[_builtins.bool]] = None):
         """
         The set of arguments for constructing a SandboxSubmission resource.
+        :param pulumi.Input[_builtins.str] file_path: The local file path of the file to submit for sandbox analysis.
+        :param pulumi.Input[_builtins.str] submission_method: The submission method. Valid values: `submit` (full analysis) or `discan` (distributed scan).
+        :param pulumi.Input[_builtins.bool] force: Force re-analysis of a previously submitted file. Only applicable for 'submit' method. Not applicable for 'discan'.
         """
         pulumi.set(__self__, "file_path", file_path)
         pulumi.set(__self__, "submission_method", submission_method)
@@ -33,6 +36,9 @@ class SandboxSubmissionArgs:
     @_builtins.property
     @pulumi.getter(name="filePath")
     def file_path(self) -> pulumi.Input[_builtins.str]:
+        """
+        The local file path of the file to submit for sandbox analysis.
+        """
         return pulumi.get(self, "file_path")
 
     @file_path.setter
@@ -42,6 +48,9 @@ class SandboxSubmissionArgs:
     @_builtins.property
     @pulumi.getter(name="submissionMethod")
     def submission_method(self) -> pulumi.Input[_builtins.str]:
+        """
+        The submission method. Valid values: `submit` (full analysis) or `discan` (distributed scan).
+        """
         return pulumi.get(self, "submission_method")
 
     @submission_method.setter
@@ -51,6 +60,9 @@ class SandboxSubmissionArgs:
     @_builtins.property
     @pulumi.getter
     def force(self) -> Optional[pulumi.Input[_builtins.bool]]:
+        """
+        Force re-analysis of a previously submitted file. Only applicable for 'submit' method. Not applicable for 'discan'.
+        """
         return pulumi.get(self, "force")
 
     @force.setter
@@ -69,9 +81,30 @@ class SandboxSubmission(pulumi.CustomResource):
                  submission_method: Optional[pulumi.Input[_builtins.str]] = None,
                  __props__=None):
         """
-        Create a SandboxSubmission resource with the given unique name, props, and options.
+        The zia_sandbox_submission resource submits files to the Zscaler cloud sandbox for analysis. Files can be submitted for full analysis or a quick discan (distributed scan). This resource is create-only; there is no remote GET API, and delete is a no-op.
+
+        For more information, see the [ZIA Cloud Sandbox Submission documentation](https://help.zscaler.com/zia/about-sandbox-analysis).
+
+        ## Example Usage
+        ### Submit a File for Sandbox Analysis
+
+        ```python
+        import zscaler_pulumi_zia as zia
+
+        example = zia.SandboxSubmission("example",
+            file_path="/tmp/suspicious-file.exe",
+            submission_method="submit",
+            force=True,
+        )
+        ```
+
+        > Import is not supported for this resource.
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
+        :param pulumi.Input[_builtins.str] file_path: The local file path of the file to submit for sandbox analysis.
+        :param pulumi.Input[_builtins.bool] force: Force re-analysis of a previously submitted file. Only applicable for 'submit' method. Not applicable for 'discan'.
+        :param pulumi.Input[_builtins.str] submission_method: The submission method. Valid values: `submit` (full analysis) or `discan` (distributed scan).
         """
         ...
     @overload
@@ -80,7 +113,25 @@ class SandboxSubmission(pulumi.CustomResource):
                  args: SandboxSubmissionArgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
-        Create a SandboxSubmission resource with the given unique name, props, and options.
+        The zia_sandbox_submission resource submits files to the Zscaler cloud sandbox for analysis. Files can be submitted for full analysis or a quick discan (distributed scan). This resource is create-only; there is no remote GET API, and delete is a no-op.
+
+        For more information, see the [ZIA Cloud Sandbox Submission documentation](https://help.zscaler.com/zia/about-sandbox-analysis).
+
+        ## Example Usage
+        ### Submit a File for Sandbox Analysis
+
+        ```python
+        import zscaler_pulumi_zia as zia
+
+        example = zia.SandboxSubmission("example",
+            file_path="/tmp/suspicious-file.exe",
+            submission_method="submit",
+            force=True,
+        )
+        ```
+
+        > Import is not supported for this resource.
+
         :param str resource_name: The name of the resource.
         :param SandboxSubmissionArgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -159,50 +210,80 @@ class SandboxSubmission(pulumi.CustomResource):
     @_builtins.property
     @pulumi.getter
     def code(self) -> pulumi.Output[Optional[_builtins.int]]:
+        """
+        The response status code from the sandbox submission.
+        """
         return pulumi.get(self, "code")
 
     @_builtins.property
     @pulumi.getter(name="filePath")
     def file_path(self) -> pulumi.Output[_builtins.str]:
+        """
+        The local file path of the file to submit for sandbox analysis.
+        """
         return pulumi.get(self, "file_path")
 
     @_builtins.property
     @pulumi.getter(name="fileType")
     def file_type(self) -> pulumi.Output[Optional[_builtins.str]]:
+        """
+        The detected file type of the submitted file.
+        """
         return pulumi.get(self, "file_type")
 
     @_builtins.property
     @pulumi.getter
     def force(self) -> pulumi.Output[Optional[_builtins.bool]]:
+        """
+        Force re-analysis of a previously submitted file. Only applicable for 'submit' method. Not applicable for 'discan'.
+        """
         return pulumi.get(self, "force")
 
     @_builtins.property
     @pulumi.getter
     def md5(self) -> pulumi.Output[Optional[_builtins.str]]:
+        """
+        The MD5 hash of the submitted file.
+        """
         return pulumi.get(self, "md5")
 
     @_builtins.property
     @pulumi.getter
     def message(self) -> pulumi.Output[Optional[_builtins.str]]:
+        """
+        The response message from the sandbox submission.
+        """
         return pulumi.get(self, "message")
 
     @_builtins.property
     @pulumi.getter(name="submissionMethod")
     def submission_method(self) -> pulumi.Output[_builtins.str]:
+        """
+        The submission method. Valid values: `submit` (full analysis) or `discan` (distributed scan).
+        """
         return pulumi.get(self, "submission_method")
 
     @_builtins.property
     @pulumi.getter(name="submissionResult")
     def submission_result(self) -> pulumi.Output[Optional[_builtins.str]]:
+        """
+        The sandbox submission result string.
+        """
         return pulumi.get(self, "submission_result")
 
     @_builtins.property
     @pulumi.getter(name="virusName")
     def virus_name(self) -> pulumi.Output[Optional[_builtins.str]]:
+        """
+        The virus name if the file is detected as malicious.
+        """
         return pulumi.get(self, "virus_name")
 
     @_builtins.property
     @pulumi.getter(name="virusType")
     def virus_type(self) -> pulumi.Output[Optional[_builtins.str]]:
+        """
+        The virus type if the file is detected as malicious.
+        """
         return pulumi.get(self, "virus_type")
 

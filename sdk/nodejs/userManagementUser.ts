@@ -6,6 +6,42 @@ import * as inputs from "./types/input";
 import * as outputs from "./types/output";
 import * as utilities from "./utilities";
 
+/**
+ * The zia.UserManagementUser resource manages user accounts in the Zscaler Internet Access (ZIA) cloud.
+ * Users can be assigned to departments and groups, and enrolled with authentication methods such as
+ * BASIC or DIGEST.
+ *
+ * ## Example Usage
+ * ### Basic User Management
+ *
+ * ```typescript
+ * import * as zia from "@bdzscaler/pulumi-zia";
+ *
+ * import * as pulumi from "@pulumi/pulumi";
+ *
+ * const cfg = new pulumi.Config();
+ * const userPassword = cfg.requireSecret("userPassword");
+ *
+ * const example = new zia.UserManagementUser("example", {
+ *     name: "John Doe",
+ *     email: "john.doe@example.com",
+ *     password: userPassword,
+ *     authMethods: ["BASIC"],
+ *     groups: [12345],
+ *     department: {
+ *         id: 67890,
+ *     },
+ * });
+ * ```
+ *
+ * ## Import
+ *
+ * An existing user can be imported using its ID, e.g.
+ *
+ * ```sh
+ * $ pulumi import zia:index:UserManagementUser example 12345
+ * ```
+ */
 export class UserManagementUser extends pulumi.CustomResource {
     /**
      * Get an existing UserManagementUser resource's state with the given name, ID, and optional extra
@@ -33,14 +69,41 @@ export class UserManagementUser extends pulumi.CustomResource {
         return obj['__pulumiType'] === UserManagementUser.__pulumiType;
     }
 
+    /**
+     * Authentication methods for the user. Accepted values: 'BASIC', 'DIGEST'.
+     */
     declare public readonly authMethods: pulumi.Output<string[] | undefined>;
+    /**
+     * Comments or notes about the user. Maximum 10240 characters.
+     */
     declare public readonly comments: pulumi.Output<string | undefined>;
+    /**
+     * The department the user belongs to.
+     */
     declare public readonly department: pulumi.Output<outputs.UserDepartmentInput | undefined>;
+    /**
+     * The user's email address. Maximum 127 characters.
+     */
     declare public readonly email: pulumi.Output<string>;
+    /**
+     * List of group IDs the user belongs to.
+     */
     declare public readonly groups: pulumi.Output<number[] | undefined>;
+    /**
+     * The user's full name. Maximum 127 characters.
+     */
     declare public readonly name: pulumi.Output<string>;
+    /**
+     * The user's password. This is a secret and will not be stored in plaintext in the state.
+     */
     declare public readonly password: pulumi.Output<string>;
+    /**
+     * Temporary authentication email for the user.
+     */
     declare public readonly tempAuthEmail: pulumi.Output<string | undefined>;
+    /**
+     * The unique identifier for the user assigned by the ZIA cloud.
+     */
     declare public /*out*/ readonly userId: pulumi.Output<number>;
 
     /**
@@ -94,12 +157,36 @@ export class UserManagementUser extends pulumi.CustomResource {
  * The set of arguments for constructing a UserManagementUser resource.
  */
 export interface UserManagementUserArgs {
+    /**
+     * Authentication methods for the user. Accepted values: 'BASIC', 'DIGEST'.
+     */
     authMethods?: pulumi.Input<pulumi.Input<string>[]>;
+    /**
+     * Comments or notes about the user. Maximum 10240 characters.
+     */
     comments?: pulumi.Input<string>;
+    /**
+     * The department the user belongs to.
+     */
     department?: pulumi.Input<inputs.UserDepartmentInputArgs>;
+    /**
+     * The user's email address. Maximum 127 characters.
+     */
     email: pulumi.Input<string>;
+    /**
+     * List of group IDs the user belongs to.
+     */
     groups?: pulumi.Input<pulumi.Input<number>[]>;
+    /**
+     * The user's full name. Maximum 127 characters.
+     */
     name: pulumi.Input<string>;
+    /**
+     * The user's password. This is a secret and will not be stored in plaintext in the state.
+     */
     password: pulumi.Input<string>;
+    /**
+     * Temporary authentication email for the user.
+     */
     tempAuthEmail?: pulumi.Input<string>;
 }
