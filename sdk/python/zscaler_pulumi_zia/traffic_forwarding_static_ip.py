@@ -27,6 +27,12 @@ class TrafficForwardingStaticIpArgs:
                  routable_ip: Optional[pulumi.Input[_builtins.bool]] = None):
         """
         The set of arguments for constructing a TrafficForwardingStaticIp resource.
+        :param pulumi.Input[_builtins.str] ip_address: The static IP address.
+        :param pulumi.Input[_builtins.str] comment: Additional information about the static IP.
+        :param pulumi.Input[_builtins.bool] geo_override: If not set, geographic coordinates and city are automatically determined from the IP address. When set to true, manually-specified latitude and longitude are used instead.
+        :param pulumi.Input[_builtins.float] latitude: Required only if geoOverride is true. Latitude of the static IP. Valid range: -90 to 90.
+        :param pulumi.Input[_builtins.float] longitude: Required only if geoOverride is true. Longitude of the static IP. Valid range: -180 to 180.
+        :param pulumi.Input[_builtins.bool] routable_ip: Indicates whether a non-RFC 1918 IP address is publicly routable.
         """
         pulumi.set(__self__, "ip_address", ip_address)
         if comment is not None:
@@ -43,6 +49,9 @@ class TrafficForwardingStaticIpArgs:
     @_builtins.property
     @pulumi.getter(name="ipAddress")
     def ip_address(self) -> pulumi.Input[_builtins.str]:
+        """
+        The static IP address.
+        """
         return pulumi.get(self, "ip_address")
 
     @ip_address.setter
@@ -52,6 +61,9 @@ class TrafficForwardingStaticIpArgs:
     @_builtins.property
     @pulumi.getter
     def comment(self) -> Optional[pulumi.Input[_builtins.str]]:
+        """
+        Additional information about the static IP.
+        """
         return pulumi.get(self, "comment")
 
     @comment.setter
@@ -61,6 +73,9 @@ class TrafficForwardingStaticIpArgs:
     @_builtins.property
     @pulumi.getter(name="geoOverride")
     def geo_override(self) -> Optional[pulumi.Input[_builtins.bool]]:
+        """
+        If not set, geographic coordinates and city are automatically determined from the IP address. When set to true, manually-specified latitude and longitude are used instead.
+        """
         return pulumi.get(self, "geo_override")
 
     @geo_override.setter
@@ -70,6 +85,9 @@ class TrafficForwardingStaticIpArgs:
     @_builtins.property
     @pulumi.getter
     def latitude(self) -> Optional[pulumi.Input[_builtins.float]]:
+        """
+        Required only if geoOverride is true. Latitude of the static IP. Valid range: -90 to 90.
+        """
         return pulumi.get(self, "latitude")
 
     @latitude.setter
@@ -79,6 +97,9 @@ class TrafficForwardingStaticIpArgs:
     @_builtins.property
     @pulumi.getter
     def longitude(self) -> Optional[pulumi.Input[_builtins.float]]:
+        """
+        Required only if geoOverride is true. Longitude of the static IP. Valid range: -180 to 180.
+        """
         return pulumi.get(self, "longitude")
 
     @longitude.setter
@@ -88,6 +109,9 @@ class TrafficForwardingStaticIpArgs:
     @_builtins.property
     @pulumi.getter(name="routableIp")
     def routable_ip(self) -> Optional[pulumi.Input[_builtins.bool]]:
+        """
+        Indicates whether a non-RFC 1918 IP address is publicly routable.
+        """
         return pulumi.get(self, "routable_ip")
 
     @routable_ip.setter
@@ -109,9 +133,40 @@ class TrafficForwardingStaticIp(pulumi.CustomResource):
                  routable_ip: Optional[pulumi.Input[_builtins.bool]] = None,
                  __props__=None):
         """
-        Create a TrafficForwardingStaticIp resource with the given unique name, props, and options.
+        The zia_traffic_forwarding_static_ip resource manages static IP addresses for traffic forwarding in the Zscaler Internet Access (ZIA) cloud service. Static IPs are used to associate traffic with a specific location or GRE tunnel.
+
+        For more information, see the [ZIA Traffic Forwarding documentation](https://help.zscaler.com/zia/traffic-forwarding).
+
+        ## Example Usage
+        ### Basic Static IP
+
+        ```python
+        import zscaler_pulumi_zia as zia
+
+        example = zia.TrafficForwardingStaticIp("example",
+            ip_address="203.0.113.10",
+            comment="Branch office static IP",
+            routable_ip=True,
+            geo_override=False,
+        )
+        ```
+
+        ## Import
+
+        An existing static IP can be imported using its resource ID, e.g.
+
+        ```sh
+        $ pulumi import zia:index:TrafficForwardingStaticIp example 12345
+        ```
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
+        :param pulumi.Input[_builtins.str] comment: Additional information about the static IP.
+        :param pulumi.Input[_builtins.bool] geo_override: If not set, geographic coordinates and city are automatically determined from the IP address. When set to true, manually-specified latitude and longitude are used instead.
+        :param pulumi.Input[_builtins.str] ip_address: The static IP address.
+        :param pulumi.Input[_builtins.float] latitude: Required only if geoOverride is true. Latitude of the static IP. Valid range: -90 to 90.
+        :param pulumi.Input[_builtins.float] longitude: Required only if geoOverride is true. Longitude of the static IP. Valid range: -180 to 180.
+        :param pulumi.Input[_builtins.bool] routable_ip: Indicates whether a non-RFC 1918 IP address is publicly routable.
         """
         ...
     @overload
@@ -120,7 +175,32 @@ class TrafficForwardingStaticIp(pulumi.CustomResource):
                  args: TrafficForwardingStaticIpArgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
-        Create a TrafficForwardingStaticIp resource with the given unique name, props, and options.
+        The zia_traffic_forwarding_static_ip resource manages static IP addresses for traffic forwarding in the Zscaler Internet Access (ZIA) cloud service. Static IPs are used to associate traffic with a specific location or GRE tunnel.
+
+        For more information, see the [ZIA Traffic Forwarding documentation](https://help.zscaler.com/zia/traffic-forwarding).
+
+        ## Example Usage
+        ### Basic Static IP
+
+        ```python
+        import zscaler_pulumi_zia as zia
+
+        example = zia.TrafficForwardingStaticIp("example",
+            ip_address="203.0.113.10",
+            comment="Branch office static IP",
+            routable_ip=True,
+            geo_override=False,
+        )
+        ```
+
+        ## Import
+
+        An existing static IP can be imported using its resource ID, e.g.
+
+        ```sh
+        $ pulumi import zia:index:TrafficForwardingStaticIp example 12345
+        ```
+
         :param str resource_name: The name of the resource.
         :param TrafficForwardingStaticIpArgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -194,35 +274,56 @@ class TrafficForwardingStaticIp(pulumi.CustomResource):
     @_builtins.property
     @pulumi.getter
     def comment(self) -> pulumi.Output[Optional[_builtins.str]]:
+        """
+        Additional information about the static IP.
+        """
         return pulumi.get(self, "comment")
 
     @_builtins.property
     @pulumi.getter(name="geoOverride")
     def geo_override(self) -> pulumi.Output[Optional[_builtins.bool]]:
+        """
+        If not set, geographic coordinates and city are automatically determined from the IP address. When set to true, manually-specified latitude and longitude are used instead.
+        """
         return pulumi.get(self, "geo_override")
 
     @_builtins.property
     @pulumi.getter(name="ipAddress")
     def ip_address(self) -> pulumi.Output[_builtins.str]:
+        """
+        The static IP address.
+        """
         return pulumi.get(self, "ip_address")
 
     @_builtins.property
     @pulumi.getter
     def latitude(self) -> pulumi.Output[Optional[_builtins.float]]:
+        """
+        Required only if geoOverride is true. Latitude of the static IP. Valid range: -90 to 90.
+        """
         return pulumi.get(self, "latitude")
 
     @_builtins.property
     @pulumi.getter
     def longitude(self) -> pulumi.Output[Optional[_builtins.float]]:
+        """
+        Required only if geoOverride is true. Longitude of the static IP. Valid range: -180 to 180.
+        """
         return pulumi.get(self, "longitude")
 
     @_builtins.property
     @pulumi.getter(name="routableIp")
     def routable_ip(self) -> pulumi.Output[Optional[_builtins.bool]]:
+        """
+        Indicates whether a non-RFC 1918 IP address is publicly routable.
+        """
         return pulumi.get(self, "routable_ip")
 
     @_builtins.property
     @pulumi.getter(name="staticIpId")
     def static_ip_id(self) -> pulumi.Output[_builtins.int]:
+        """
+        The system-generated ID of the static IP.
+        """
         return pulumi.get(self, "static_ip_id")
 

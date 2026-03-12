@@ -16,47 +16,119 @@ import java.lang.String;
 import java.util.Optional;
 import javax.annotation.Nullable;
 
+/**
+ * The zia_traffic_forwarding_static_ip resource manages static IP addresses for traffic forwarding in the Zscaler Internet Access (ZIA) cloud service. Static IPs are used to associate traffic with a specific location or GRE tunnel.
+ * 
+ * For more information, see the [ZIA Traffic Forwarding documentation](https://help.zscaler.com/zia/traffic-forwarding).
+ * 
+ * ## Example Usage
+ * 
+ * ## Import
+ * 
+ * An existing static IP can be imported using its resource ID, e.g.
+ * 
+ * ```sh
+ * $ pulumi import zia:index:TrafficForwardingStaticIp example 12345
+ * ```
+ * 
+ */
 @ResourceType(type="zia:index:TrafficForwardingStaticIp")
 public class TrafficForwardingStaticIp extends com.pulumi.resources.CustomResource {
+    /**
+     * Additional information about the static IP.
+     * 
+     */
     @Export(name="comment", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> comment;
 
+    /**
+     * @return Additional information about the static IP.
+     * 
+     */
     public Output<Optional<String>> comment() {
         return Codegen.optional(this.comment);
     }
+    /**
+     * If not set, geographic coordinates and city are automatically determined from the IP address. When set to true, manually-specified latitude and longitude are used instead.
+     * 
+     */
     @Export(name="geoOverride", refs={Boolean.class}, tree="[0]")
     private Output</* @Nullable */ Boolean> geoOverride;
 
+    /**
+     * @return If not set, geographic coordinates and city are automatically determined from the IP address. When set to true, manually-specified latitude and longitude are used instead.
+     * 
+     */
     public Output<Optional<Boolean>> geoOverride() {
         return Codegen.optional(this.geoOverride);
     }
+    /**
+     * The static IP address.
+     * 
+     */
     @Export(name="ipAddress", refs={String.class}, tree="[0]")
     private Output<String> ipAddress;
 
+    /**
+     * @return The static IP address.
+     * 
+     */
     public Output<String> ipAddress() {
         return this.ipAddress;
     }
+    /**
+     * Required only if geoOverride is true. Latitude of the static IP. Valid range: -90 to 90.
+     * 
+     */
     @Export(name="latitude", refs={Double.class}, tree="[0]")
     private Output</* @Nullable */ Double> latitude;
 
+    /**
+     * @return Required only if geoOverride is true. Latitude of the static IP. Valid range: -90 to 90.
+     * 
+     */
     public Output<Optional<Double>> latitude() {
         return Codegen.optional(this.latitude);
     }
+    /**
+     * Required only if geoOverride is true. Longitude of the static IP. Valid range: -180 to 180.
+     * 
+     */
     @Export(name="longitude", refs={Double.class}, tree="[0]")
     private Output</* @Nullable */ Double> longitude;
 
+    /**
+     * @return Required only if geoOverride is true. Longitude of the static IP. Valid range: -180 to 180.
+     * 
+     */
     public Output<Optional<Double>> longitude() {
         return Codegen.optional(this.longitude);
     }
+    /**
+     * Indicates whether a non-RFC 1918 IP address is publicly routable.
+     * 
+     */
     @Export(name="routableIp", refs={Boolean.class}, tree="[0]")
     private Output</* @Nullable */ Boolean> routableIp;
 
+    /**
+     * @return Indicates whether a non-RFC 1918 IP address is publicly routable.
+     * 
+     */
     public Output<Optional<Boolean>> routableIp() {
         return Codegen.optional(this.routableIp);
     }
+    /**
+     * The system-generated ID of the static IP.
+     * 
+     */
     @Export(name="staticIpId", refs={Integer.class}, tree="[0]")
     private Output<Integer> staticIpId;
 
+    /**
+     * @return The system-generated ID of the static IP.
+     * 
+     */
     public Output<Integer> staticIpId() {
         return this.staticIpId;
     }
@@ -100,6 +172,7 @@ public class TrafficForwardingStaticIp extends com.pulumi.resources.CustomResour
     private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<java.lang.String> id) {
         var defaultOptions = com.pulumi.resources.CustomResourceOptions.builder()
             .version(Utilities.getVersion())
+            .pluginDownloadURL("github://api.github.com/zscaler")
             .build();
         return com.pulumi.resources.CustomResourceOptions.merge(defaultOptions, options, id);
     }

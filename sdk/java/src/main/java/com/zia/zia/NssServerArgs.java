@@ -17,30 +17,62 @@ public final class NssServerArgs extends com.pulumi.resources.ResourceArgs {
 
     public static final NssServerArgs Empty = new NssServerArgs();
 
+    /**
+     * The ICAP server ID associated with the NSS server.
+     * 
+     */
     @Import(name="icapSvrId")
     private @Nullable Output<Integer> icapSvrId;
 
+    /**
+     * @return The ICAP server ID associated with the NSS server.
+     * 
+     */
     public Optional<Output<Integer>> icapSvrId() {
         return Optional.ofNullable(this.icapSvrId);
     }
 
+    /**
+     * Name of the NSS server.
+     * 
+     */
     @Import(name="name", required=true)
     private Output<String> name;
 
+    /**
+     * @return Name of the NSS server.
+     * 
+     */
     public Output<String> name() {
         return this.name;
     }
 
+    /**
+     * The status of the NSS server. Accepted values: &#39;ENABLED&#39; or &#39;DISABLED&#39;. Default: &#39;ENABLED&#39;.
+     * 
+     */
     @Import(name="status")
     private @Nullable Output<String> status;
 
+    /**
+     * @return The status of the NSS server. Accepted values: &#39;ENABLED&#39; or &#39;DISABLED&#39;. Default: &#39;ENABLED&#39;.
+     * 
+     */
     public Optional<Output<String>> status() {
         return Optional.ofNullable(this.status);
     }
 
+    /**
+     * The NSS server type. Accepted values: &#39;NSS_FOR_FIREWALL&#39;, &#39;NSS_FOR_WEB&#39;. Default: &#39;NSS_FOR_FIREWALL&#39;.
+     * 
+     */
     @Import(name="type")
     private @Nullable Output<String> type;
 
+    /**
+     * @return The NSS server type. Accepted values: &#39;NSS_FOR_FIREWALL&#39;, &#39;NSS_FOR_WEB&#39;. Default: &#39;NSS_FOR_FIREWALL&#39;.
+     * 
+     */
     public Optional<Output<String>> type() {
         return Optional.ofNullable(this.type);
     }
@@ -72,38 +104,86 @@ public final class NssServerArgs extends com.pulumi.resources.ResourceArgs {
             $ = new NssServerArgs(Objects.requireNonNull(defaults));
         }
 
+        /**
+         * @param icapSvrId The ICAP server ID associated with the NSS server.
+         * 
+         * @return builder
+         * 
+         */
         public Builder icapSvrId(@Nullable Output<Integer> icapSvrId) {
             $.icapSvrId = icapSvrId;
             return this;
         }
 
+        /**
+         * @param icapSvrId The ICAP server ID associated with the NSS server.
+         * 
+         * @return builder
+         * 
+         */
         public Builder icapSvrId(Integer icapSvrId) {
             return icapSvrId(Output.of(icapSvrId));
         }
 
+        /**
+         * @param name Name of the NSS server.
+         * 
+         * @return builder
+         * 
+         */
         public Builder name(Output<String> name) {
             $.name = name;
             return this;
         }
 
+        /**
+         * @param name Name of the NSS server.
+         * 
+         * @return builder
+         * 
+         */
         public Builder name(String name) {
             return name(Output.of(name));
         }
 
+        /**
+         * @param status The status of the NSS server. Accepted values: &#39;ENABLED&#39; or &#39;DISABLED&#39;. Default: &#39;ENABLED&#39;.
+         * 
+         * @return builder
+         * 
+         */
         public Builder status(@Nullable Output<String> status) {
             $.status = status;
             return this;
         }
 
+        /**
+         * @param status The status of the NSS server. Accepted values: &#39;ENABLED&#39; or &#39;DISABLED&#39;. Default: &#39;ENABLED&#39;.
+         * 
+         * @return builder
+         * 
+         */
         public Builder status(String status) {
             return status(Output.of(status));
         }
 
+        /**
+         * @param type The NSS server type. Accepted values: &#39;NSS_FOR_FIREWALL&#39;, &#39;NSS_FOR_WEB&#39;. Default: &#39;NSS_FOR_FIREWALL&#39;.
+         * 
+         * @return builder
+         * 
+         */
         public Builder type(@Nullable Output<String> type) {
             $.type = type;
             return this;
         }
 
+        /**
+         * @param type The NSS server type. Accepted values: &#39;NSS_FOR_FIREWALL&#39;, &#39;NSS_FOR_WEB&#39;. Default: &#39;NSS_FOR_FIREWALL&#39;.
+         * 
+         * @return builder
+         * 
+         */
         public Builder type(String type) {
             return type(Output.of(type));
         }

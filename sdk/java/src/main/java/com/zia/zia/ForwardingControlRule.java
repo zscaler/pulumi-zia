@@ -16,197 +16,483 @@ import java.util.List;
 import java.util.Optional;
 import javax.annotation.Nullable;
 
+/**
+ * The zia_forwarding_control_rule resource manages forwarding control rules in the Zscaler Internet Access (ZIA) cloud service. Forwarding control rules determine how traffic is forwarded — directly to the internet, via an explicit proxy, or through Zscaler Private Access (ZPA).
+ * 
+ * For more information, see the [ZIA Forwarding Control documentation](https://help.zscaler.com/zia/forwarding-control-policies).
+ * 
+ * ## Example Usage
+ * 
+ * ## Import
+ * 
+ * An existing Forwarding Control Rule can be imported using its resource ID, e.g.
+ * 
+ * ```sh
+ * $ pulumi import zia:index:ForwardingControlRule example 12345
+ * ```
+ * 
+ */
 @ResourceType(type="zia:index:ForwardingControlRule")
 public class ForwardingControlRule extends com.pulumi.resources.CustomResource {
+    /**
+     * IDs of application service groups to which the rule applies.
+     * 
+     */
     @Export(name="appServiceGroups", refs={List.class,Integer.class}, tree="[0,1]")
     private Output</* @Nullable */ List<Integer>> appServiceGroups;
 
+    /**
+     * @return IDs of application service groups to which the rule applies.
+     * 
+     */
     public Output<Optional<List<Integer>>> appServiceGroups() {
         return Codegen.optional(this.appServiceGroups);
     }
+    /**
+     * The ID of the dedicated IP gateway. Applicable only for the Proxy Chaining forwarding method.
+     * 
+     */
+    @Export(name="dedicatedIpGatewayId", refs={Integer.class}, tree="[0]")
+    private Output</* @Nullable */ Integer> dedicatedIpGatewayId;
+
+    /**
+     * @return The ID of the dedicated IP gateway. Applicable only for the Proxy Chaining forwarding method.
+     * 
+     */
+    public Output<Optional<Integer>> dedicatedIpGatewayId() {
+        return Codegen.optional(this.dedicatedIpGatewayId);
+    }
+    /**
+     * IDs of departments to which the rule must be applied.
+     * 
+     */
     @Export(name="departments", refs={List.class,Integer.class}, tree="[0,1]")
     private Output</* @Nullable */ List<Integer>> departments;
 
+    /**
+     * @return IDs of departments to which the rule must be applied.
+     * 
+     */
     public Output<Optional<List<Integer>>> departments() {
         return Codegen.optional(this.departments);
     }
+    /**
+     * Additional information about the forwarding control rule.
+     * 
+     */
     @Export(name="description", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> description;
 
+    /**
+     * @return Additional information about the forwarding control rule.
+     * 
+     */
     public Output<Optional<String>> description() {
         return Codegen.optional(this.description);
     }
+    /**
+     * Destination IP addresses, FQDNs, or wildcard FQDNs for the rule.
+     * 
+     */
     @Export(name="destAddresses", refs={List.class,String.class}, tree="[0,1]")
     private Output</* @Nullable */ List<String>> destAddresses;
 
+    /**
+     * @return Destination IP addresses, FQDNs, or wildcard FQDNs for the rule.
+     * 
+     */
     public Output<Optional<List<String>>> destAddresses() {
         return Codegen.optional(this.destAddresses);
     }
+    /**
+     * Destination countries (ISO 3166-1 alpha-2 codes) for the rule.
+     * 
+     */
     @Export(name="destCountries", refs={List.class,String.class}, tree="[0,1]")
     private Output</* @Nullable */ List<String>> destCountries;
 
+    /**
+     * @return Destination countries (ISO 3166-1 alpha-2 codes) for the rule.
+     * 
+     */
     public Output<Optional<List<String>>> destCountries() {
         return Codegen.optional(this.destCountries);
     }
+    /**
+     * Destination IP address URL categories for the rule.
+     * 
+     */
     @Export(name="destIpCategories", refs={List.class,String.class}, tree="[0,1]")
     private Output</* @Nullable */ List<String>> destIpCategories;
 
+    /**
+     * @return Destination IP address URL categories for the rule.
+     * 
+     */
     public Output<Optional<List<String>>> destIpCategories() {
         return Codegen.optional(this.destIpCategories);
     }
+    /**
+     * IDs of destination IP address groups for the rule.
+     * 
+     */
     @Export(name="destIpGroups", refs={List.class,Integer.class}, tree="[0,1]")
     private Output</* @Nullable */ List<Integer>> destIpGroups;
 
+    /**
+     * @return IDs of destination IP address groups for the rule.
+     * 
+     */
     public Output<Optional<List<Integer>>> destIpGroups() {
         return Codegen.optional(this.destIpGroups);
     }
+    /**
+     * IDs of destination IPv6 address groups for the rule.
+     * 
+     */
     @Export(name="destIpv6Groups", refs={List.class,Integer.class}, tree="[0,1]")
     private Output</* @Nullable */ List<Integer>> destIpv6Groups;
 
+    /**
+     * @return IDs of destination IPv6 address groups for the rule.
+     * 
+     */
     public Output<Optional<List<Integer>>> destIpv6Groups() {
         return Codegen.optional(this.destIpv6Groups);
     }
+    /**
+     * IDs of device groups for which the rule must be applied. Applicable for devices managed using Zscaler Client Connector.
+     * 
+     */
     @Export(name="deviceGroups", refs={List.class,Integer.class}, tree="[0,1]")
     private Output</* @Nullable */ List<Integer>> deviceGroups;
 
+    /**
+     * @return IDs of device groups for which the rule must be applied. Applicable for devices managed using Zscaler Client Connector.
+     * 
+     */
     public Output<Optional<List<Integer>>> deviceGroups() {
         return Codegen.optional(this.deviceGroups);
     }
+    /**
+     * IDs of Zscaler Edge Connector groups to which the rule applies.
+     * 
+     */
     @Export(name="ecGroups", refs={List.class,Integer.class}, tree="[0,1]")
     private Output</* @Nullable */ List<Integer>> ecGroups;
 
+    /**
+     * @return IDs of Zscaler Edge Connector groups to which the rule applies.
+     * 
+     */
     public Output<Optional<List<Integer>>> ecGroups() {
         return Codegen.optional(this.ecGroups);
     }
+    /**
+     * The type of traffic forwarding method. Valid values: `INVALID`, `DIRECT`, `PROXYCHAIN`, `ZPA`, `ECZPA`, `ZIA`, `ECSELF`, `DROP`, `ENATDEDIP`.
+     * 
+     */
     @Export(name="forwardMethod", refs={String.class}, tree="[0]")
     private Output<String> forwardMethod;
 
+    /**
+     * @return The type of traffic forwarding method. Valid values: `INVALID`, `DIRECT`, `PROXYCHAIN`, `ZPA`, `ECZPA`, `ZIA`, `ECSELF`, `DROP`, `ENATDEDIP`.
+     * 
+     */
     public Output<String> forwardMethod() {
         return this.forwardMethod;
     }
+    /**
+     * IDs of groups to which the rule must be applied.
+     * 
+     */
     @Export(name="groups", refs={List.class,Integer.class}, tree="[0,1]")
     private Output</* @Nullable */ List<Integer>> groups;
 
+    /**
+     * @return IDs of groups to which the rule must be applied.
+     * 
+     */
     public Output<Optional<List<Integer>>> groups() {
         return Codegen.optional(this.groups);
     }
+    /**
+     * IDs of labels associated with the rule.
+     * 
+     */
     @Export(name="labels", refs={List.class,Integer.class}, tree="[0,1]")
     private Output</* @Nullable */ List<Integer>> labels;
 
+    /**
+     * @return IDs of labels associated with the rule.
+     * 
+     */
     public Output<Optional<List<Integer>>> labels() {
         return Codegen.optional(this.labels);
     }
+    /**
+     * IDs of location groups to which the rule must be applied.
+     * 
+     */
     @Export(name="locationGroups", refs={List.class,Integer.class}, tree="[0,1]")
     private Output</* @Nullable */ List<Integer>> locationGroups;
 
+    /**
+     * @return IDs of location groups to which the rule must be applied.
+     * 
+     */
     public Output<Optional<List<Integer>>> locationGroups() {
         return Codegen.optional(this.locationGroups);
     }
+    /**
+     * IDs of locations to which the rule must be applied.
+     * 
+     */
     @Export(name="locations", refs={List.class,Integer.class}, tree="[0,1]")
     private Output</* @Nullable */ List<Integer>> locations;
 
+    /**
+     * @return IDs of locations to which the rule must be applied.
+     * 
+     */
     public Output<Optional<List<Integer>>> locations() {
         return Codegen.optional(this.locations);
     }
+    /**
+     * The name of the forwarding control rule. Must be unique.
+     * 
+     */
     @Export(name="name", refs={String.class}, tree="[0]")
     private Output<String> name;
 
+    /**
+     * @return The name of the forwarding control rule. Must be unique.
+     * 
+     */
     public Output<String> name() {
         return this.name;
     }
+    /**
+     * IDs of network application groups to which the rule applies.
+     * 
+     */
     @Export(name="nwApplicationGroups", refs={List.class,Integer.class}, tree="[0,1]")
     private Output</* @Nullable */ List<Integer>> nwApplicationGroups;
 
+    /**
+     * @return IDs of network application groups to which the rule applies.
+     * 
+     */
     public Output<Optional<List<Integer>>> nwApplicationGroups() {
         return Codegen.optional(this.nwApplicationGroups);
     }
+    /**
+     * IDs of network service groups to which the rule applies.
+     * 
+     */
     @Export(name="nwServiceGroups", refs={List.class,Integer.class}, tree="[0,1]")
     private Output</* @Nullable */ List<Integer>> nwServiceGroups;
 
+    /**
+     * @return IDs of network service groups to which the rule applies.
+     * 
+     */
     public Output<Optional<List<Integer>>> nwServiceGroups() {
         return Codegen.optional(this.nwServiceGroups);
     }
+    /**
+     * IDs of network services to which the rule applies.
+     * 
+     */
     @Export(name="nwServices", refs={List.class,Integer.class}, tree="[0,1]")
     private Output</* @Nullable */ List<Integer>> nwServices;
 
+    /**
+     * @return IDs of network services to which the rule applies.
+     * 
+     */
     public Output<Optional<List<Integer>>> nwServices() {
         return Codegen.optional(this.nwServices);
     }
+    /**
+     * The order of execution of the rule with respect to other forwarding control rules.
+     * 
+     */
     @Export(name="order", refs={Integer.class}, tree="[0]")
     private Output<Integer> order;
 
+    /**
+     * @return The order of execution of the rule with respect to other forwarding control rules.
+     * 
+     */
     public Output<Integer> order() {
         return this.order;
     }
+    /**
+     * The ID of the proxy gateway. Required when forwardMethod is `PROXYCHAIN`.
+     * 
+     */
     @Export(name="proxyGatewayId", refs={Integer.class}, tree="[0]")
     private Output</* @Nullable */ Integer> proxyGatewayId;
 
+    /**
+     * @return The ID of the proxy gateway. Required when forwardMethod is `PROXYCHAIN`.
+     * 
+     */
     public Output<Optional<Integer>> proxyGatewayId() {
         return Codegen.optional(this.proxyGatewayId);
     }
+    /**
+     * Admin rank of the forwarding control policy rule. Valid values: 0-7. Default: 7.
+     * 
+     */
     @Export(name="rank", refs={Integer.class}, tree="[0]")
     private Output</* @Nullable */ Integer> rank;
 
+    /**
+     * @return Admin rank of the forwarding control policy rule. Valid values: 0-7. Default: 7.
+     * 
+     */
     public Output<Optional<Integer>> rank() {
         return Codegen.optional(this.rank);
     }
+    /**
+     * URL categories that apply to the response for the rule.
+     * 
+     */
     @Export(name="resCategories", refs={List.class,String.class}, tree="[0,1]")
     private Output</* @Nullable */ List<String>> resCategories;
 
+    /**
+     * @return URL categories that apply to the response for the rule.
+     * 
+     */
     public Output<Optional<List<String>>> resCategories() {
         return Codegen.optional(this.resCategories);
     }
+    /**
+     * The system-generated ID of the forwarding control rule.
+     * 
+     */
     @Export(name="ruleId", refs={Integer.class}, tree="[0]")
     private Output<Integer> ruleId;
 
+    /**
+     * @return The system-generated ID of the forwarding control rule.
+     * 
+     */
     public Output<Integer> ruleId() {
         return this.ruleId;
     }
+    /**
+     * IDs of source IP address groups for the rule.
+     * 
+     */
     @Export(name="srcIpGroups", refs={List.class,Integer.class}, tree="[0,1]")
     private Output</* @Nullable */ List<Integer>> srcIpGroups;
 
+    /**
+     * @return IDs of source IP address groups for the rule.
+     * 
+     */
     public Output<Optional<List<Integer>>> srcIpGroups() {
         return Codegen.optional(this.srcIpGroups);
     }
+    /**
+     * Source IP addresses or CIDR ranges for the rule.
+     * 
+     */
     @Export(name="srcIps", refs={List.class,String.class}, tree="[0,1]")
     private Output</* @Nullable */ List<String>> srcIps;
 
+    /**
+     * @return Source IP addresses or CIDR ranges for the rule.
+     * 
+     */
     public Output<Optional<List<String>>> srcIps() {
         return Codegen.optional(this.srcIps);
     }
+    /**
+     * IDs of source IPv6 address groups for the rule.
+     * 
+     */
     @Export(name="srcIpv6Groups", refs={List.class,Integer.class}, tree="[0,1]")
     private Output</* @Nullable */ List<Integer>> srcIpv6Groups;
 
+    /**
+     * @return IDs of source IPv6 address groups for the rule.
+     * 
+     */
     public Output<Optional<List<Integer>>> srcIpv6Groups() {
         return Codegen.optional(this.srcIpv6Groups);
     }
+    /**
+     * Rule state. Valid values: `ENABLED`, `DISABLED`.
+     * 
+     */
     @Export(name="state", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> state;
 
+    /**
+     * @return Rule state. Valid values: `ENABLED`, `DISABLED`.
+     * 
+     */
     public Output<Optional<String>> state() {
         return Codegen.optional(this.state);
     }
+    /**
+     * The rule type. Valid values: `FORWARDING`.
+     * 
+     */
     @Export(name="type", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> type;
 
+    /**
+     * @return The rule type. Valid values: `FORWARDING`.
+     * 
+     */
     public Output<Optional<String>> type() {
         return Codegen.optional(this.type);
     }
+    /**
+     * IDs of users to which the rule must be applied.
+     * 
+     */
     @Export(name="users", refs={List.class,Integer.class}, tree="[0,1]")
     private Output</* @Nullable */ List<Integer>> users;
 
+    /**
+     * @return IDs of users to which the rule must be applied.
+     * 
+     */
     public Output<Optional<List<Integer>>> users() {
         return Codegen.optional(this.users);
     }
+    /**
+     * List of ZPA application segments for which this rule is applicable. This field is applicable only when forwardMethod is `ZPA`.
+     * 
+     */
     @Export(name="zpaAppSegments", refs={List.class,ZPAAppSegmentInput.class}, tree="[0,1]")
     private Output</* @Nullable */ List<ZPAAppSegmentInput>> zpaAppSegments;
 
+    /**
+     * @return List of ZPA application segments for which this rule is applicable. This field is applicable only when forwardMethod is `ZPA`.
+     * 
+     */
     public Output<Optional<List<ZPAAppSegmentInput>>> zpaAppSegments() {
         return Codegen.optional(this.zpaAppSegments);
     }
+    /**
+     * The ID of the ZPA gateway. Required when forwardMethod is `ZPA`.
+     * 
+     */
     @Export(name="zpaGatewayId", refs={Integer.class}, tree="[0]")
     private Output</* @Nullable */ Integer> zpaGatewayId;
 
+    /**
+     * @return The ID of the ZPA gateway. Required when forwardMethod is `ZPA`.
+     * 
+     */
     public Output<Optional<Integer>> zpaGatewayId() {
         return Codegen.optional(this.zpaGatewayId);
     }
@@ -250,6 +536,7 @@ public class ForwardingControlRule extends com.pulumi.resources.CustomResource {
     private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<java.lang.String> id) {
         var defaultOptions = com.pulumi.resources.CustomResourceOptions.builder()
             .version(Utilities.getVersion())
+            .pluginDownloadURL("github://api.github.com/zscaler")
             .build();
         return com.pulumi.resources.CustomResourceOptions.merge(defaultOptions, options, id);
     }

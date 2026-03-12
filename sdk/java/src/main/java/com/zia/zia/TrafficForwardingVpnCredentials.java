@@ -15,41 +15,105 @@ import java.util.List;
 import java.util.Optional;
 import javax.annotation.Nullable;
 
+/**
+ * The zia_traffic_forwarding_vpn_credentials resource manages VPN credentials for traffic forwarding in the Zscaler Internet Access (ZIA) cloud service. VPN credentials are used to authenticate IPSec VPN tunnels between on-premises equipment and the Zscaler cloud.
+ * 
+ * For more information, see the [ZIA Traffic Forwarding documentation](https://help.zscaler.com/zia/traffic-forwarding).
+ * 
+ * ## Example Usage
+ * 
+ * ## Import
+ * 
+ * An existing VPN credential can be imported using its resource ID, e.g.
+ * 
+ * ```sh
+ * $ pulumi import zia:index:TrafficForwardingVpnCredentials example 12345
+ * ```
+ * 
+ */
 @ResourceType(type="zia:index:TrafficForwardingVpnCredentials")
 public class TrafficForwardingVpnCredentials extends com.pulumi.resources.CustomResource {
+    /**
+     * Additional information about the VPN credential. Maximum 10240 characters.
+     * 
+     */
     @Export(name="comments", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> comments;
 
+    /**
+     * @return Additional information about the VPN credential. Maximum 10240 characters.
+     * 
+     */
     public Output<Optional<String>> comments() {
         return Codegen.optional(this.comments);
     }
+    /**
+     * Fully Qualified Domain Name (FQDN). Required when type is `UFQDN`.
+     * 
+     */
     @Export(name="fqdn", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> fqdn;
 
+    /**
+     * @return Fully Qualified Domain Name (FQDN). Required when type is `UFQDN`.
+     * 
+     */
     public Output<Optional<String>> fqdn() {
         return Codegen.optional(this.fqdn);
     }
+    /**
+     * The static IP address associated with the VPN credential. Required when type is `IP`.
+     * 
+     */
     @Export(name="ipAddress", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> ipAddress;
 
+    /**
+     * @return The static IP address associated with the VPN credential. Required when type is `IP`.
+     * 
+     */
     public Output<Optional<String>> ipAddress() {
         return Codegen.optional(this.ipAddress);
     }
+    /**
+     * Pre-shared key (PSK) for the VPN credential. This is a secret value.
+     * 
+     */
     @Export(name="preSharedKey", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> preSharedKey;
 
+    /**
+     * @return Pre-shared key (PSK) for the VPN credential. This is a secret value.
+     * 
+     */
     public Output<Optional<String>> preSharedKey() {
         return Codegen.optional(this.preSharedKey);
     }
+    /**
+     * VPN credential type. Valid values: `IP`, `UFQDN`.
+     * 
+     */
     @Export(name="type", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> type;
 
+    /**
+     * @return VPN credential type. Valid values: `IP`, `UFQDN`.
+     * 
+     */
     public Output<Optional<String>> type() {
         return Codegen.optional(this.type);
     }
+    /**
+     * The system-generated ID of the VPN credential.
+     * 
+     */
     @Export(name="vpnId", refs={Integer.class}, tree="[0]")
     private Output<Integer> vpnId;
 
+    /**
+     * @return The system-generated ID of the VPN credential.
+     * 
+     */
     public Output<Integer> vpnId() {
         return this.vpnId;
     }
@@ -93,6 +157,7 @@ public class TrafficForwardingVpnCredentials extends com.pulumi.resources.Custom
     private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<java.lang.String> id) {
         var defaultOptions = com.pulumi.resources.CustomResourceOptions.builder()
             .version(Utilities.getVersion())
+            .pluginDownloadURL("github://api.github.com/zscaler")
             .additionalSecretOutputs(List.of(
                 "preSharedKey"
             ))

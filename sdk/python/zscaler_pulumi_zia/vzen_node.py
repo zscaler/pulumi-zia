@@ -35,6 +35,20 @@ class VzenNodeArgs:
                  vzen_sku_type: Optional[pulumi.Input[_builtins.str]] = None):
         """
         The set of arguments for constructing a VzenNode resource.
+        :param pulumi.Input[_builtins.str] cluster_name: The cluster name if deployment mode is CLUSTER.
+        :param pulumi.Input[_builtins.str] default_gateway: The default gateway of the VZEN node.
+        :param pulumi.Input[_builtins.str] deployment_mode: The deployment mode. Accepted values: 'STANDALONE' or 'CLUSTER'.
+        :param pulumi.Input[_builtins.bool] establish_support_tunnel_enabled: Whether establish support tunnel is enabled.
+        :param pulumi.Input[_builtins.bool] in_production: Whether the node is in production.
+        :param pulumi.Input[_builtins.str] ip_address: The IP address of the VZEN node.
+        :param pulumi.Input[_builtins.bool] ip_sec_enabled: Whether IPSec is enabled on the node.
+        :param pulumi.Input[_builtins.str] load_balancer_ip_address: The load balancer IP address.
+        :param pulumi.Input[_builtins.str] name: Name of the VZEN node.
+        :param pulumi.Input[_builtins.bool] on_demand_support_tunnel_enabled: Whether on-demand support tunnel is enabled.
+        :param pulumi.Input[_builtins.str] status: The status of the node. Accepted values: 'ENABLED', 'DISABLED', 'DISABLED_BY_SERVICE_PROVIDER', 'NOT_PROVISIONED_IN_SERVICE_PROVIDER', 'IN_TRIAL'.
+        :param pulumi.Input[_builtins.str] subnet_mask: The subnet mask of the VZEN node.
+        :param pulumi.Input[_builtins.str] type: The type of the VZEN node.
+        :param pulumi.Input[_builtins.str] vzen_sku_type: The VZEN SKU type. Accepted values: 'SMALL', 'MEDIUM', 'LARGE'.
         """
         if cluster_name is not None:
             pulumi.set(__self__, "cluster_name", cluster_name)
@@ -68,6 +82,9 @@ class VzenNodeArgs:
     @_builtins.property
     @pulumi.getter(name="clusterName")
     def cluster_name(self) -> Optional[pulumi.Input[_builtins.str]]:
+        """
+        The cluster name if deployment mode is CLUSTER.
+        """
         return pulumi.get(self, "cluster_name")
 
     @cluster_name.setter
@@ -77,6 +94,9 @@ class VzenNodeArgs:
     @_builtins.property
     @pulumi.getter(name="defaultGateway")
     def default_gateway(self) -> Optional[pulumi.Input[_builtins.str]]:
+        """
+        The default gateway of the VZEN node.
+        """
         return pulumi.get(self, "default_gateway")
 
     @default_gateway.setter
@@ -86,6 +106,9 @@ class VzenNodeArgs:
     @_builtins.property
     @pulumi.getter(name="deploymentMode")
     def deployment_mode(self) -> Optional[pulumi.Input[_builtins.str]]:
+        """
+        The deployment mode. Accepted values: 'STANDALONE' or 'CLUSTER'.
+        """
         return pulumi.get(self, "deployment_mode")
 
     @deployment_mode.setter
@@ -95,6 +118,9 @@ class VzenNodeArgs:
     @_builtins.property
     @pulumi.getter(name="establishSupportTunnelEnabled")
     def establish_support_tunnel_enabled(self) -> Optional[pulumi.Input[_builtins.bool]]:
+        """
+        Whether establish support tunnel is enabled.
+        """
         return pulumi.get(self, "establish_support_tunnel_enabled")
 
     @establish_support_tunnel_enabled.setter
@@ -104,6 +130,9 @@ class VzenNodeArgs:
     @_builtins.property
     @pulumi.getter(name="inProduction")
     def in_production(self) -> Optional[pulumi.Input[_builtins.bool]]:
+        """
+        Whether the node is in production.
+        """
         return pulumi.get(self, "in_production")
 
     @in_production.setter
@@ -113,6 +142,9 @@ class VzenNodeArgs:
     @_builtins.property
     @pulumi.getter(name="ipAddress")
     def ip_address(self) -> Optional[pulumi.Input[_builtins.str]]:
+        """
+        The IP address of the VZEN node.
+        """
         return pulumi.get(self, "ip_address")
 
     @ip_address.setter
@@ -122,6 +154,9 @@ class VzenNodeArgs:
     @_builtins.property
     @pulumi.getter(name="ipSecEnabled")
     def ip_sec_enabled(self) -> Optional[pulumi.Input[_builtins.bool]]:
+        """
+        Whether IPSec is enabled on the node.
+        """
         return pulumi.get(self, "ip_sec_enabled")
 
     @ip_sec_enabled.setter
@@ -131,6 +166,9 @@ class VzenNodeArgs:
     @_builtins.property
     @pulumi.getter(name="loadBalancerIpAddress")
     def load_balancer_ip_address(self) -> Optional[pulumi.Input[_builtins.str]]:
+        """
+        The load balancer IP address.
+        """
         return pulumi.get(self, "load_balancer_ip_address")
 
     @load_balancer_ip_address.setter
@@ -140,6 +178,9 @@ class VzenNodeArgs:
     @_builtins.property
     @pulumi.getter
     def name(self) -> Optional[pulumi.Input[_builtins.str]]:
+        """
+        Name of the VZEN node.
+        """
         return pulumi.get(self, "name")
 
     @name.setter
@@ -149,6 +190,9 @@ class VzenNodeArgs:
     @_builtins.property
     @pulumi.getter(name="onDemandSupportTunnelEnabled")
     def on_demand_support_tunnel_enabled(self) -> Optional[pulumi.Input[_builtins.bool]]:
+        """
+        Whether on-demand support tunnel is enabled.
+        """
         return pulumi.get(self, "on_demand_support_tunnel_enabled")
 
     @on_demand_support_tunnel_enabled.setter
@@ -158,6 +202,9 @@ class VzenNodeArgs:
     @_builtins.property
     @pulumi.getter
     def status(self) -> Optional[pulumi.Input[_builtins.str]]:
+        """
+        The status of the node. Accepted values: 'ENABLED', 'DISABLED', 'DISABLED_BY_SERVICE_PROVIDER', 'NOT_PROVISIONED_IN_SERVICE_PROVIDER', 'IN_TRIAL'.
+        """
         return pulumi.get(self, "status")
 
     @status.setter
@@ -167,6 +214,9 @@ class VzenNodeArgs:
     @_builtins.property
     @pulumi.getter(name="subnetMask")
     def subnet_mask(self) -> Optional[pulumi.Input[_builtins.str]]:
+        """
+        The subnet mask of the VZEN node.
+        """
         return pulumi.get(self, "subnet_mask")
 
     @subnet_mask.setter
@@ -176,6 +226,9 @@ class VzenNodeArgs:
     @_builtins.property
     @pulumi.getter
     def type(self) -> Optional[pulumi.Input[_builtins.str]]:
+        """
+        The type of the VZEN node.
+        """
         return pulumi.get(self, "type")
 
     @type.setter
@@ -185,6 +238,9 @@ class VzenNodeArgs:
     @_builtins.property
     @pulumi.getter(name="vzenSkuType")
     def vzen_sku_type(self) -> Optional[pulumi.Input[_builtins.str]]:
+        """
+        The VZEN SKU type. Accepted values: 'SMALL', 'MEDIUM', 'LARGE'.
+        """
         return pulumi.get(self, "vzen_sku_type")
 
     @vzen_sku_type.setter
@@ -214,9 +270,51 @@ class VzenNode(pulumi.CustomResource):
                  vzen_sku_type: Optional[pulumi.Input[_builtins.str]] = None,
                  __props__=None):
         """
-        Create a VzenNode resource with the given unique name, props, and options.
+        The zia.VzenNode resource manages Virtual ZEN (VZEN) node configurations in the Zscaler Internet Access (ZIA) cloud.
+        VZEN nodes are virtual appliances deployed on-premises to process traffic locally before forwarding to the ZIA cloud.
+
+        ## Example Usage
+        ### Basic VZEN Node
+
+        ```python
+        import zscaler_pulumi_zia as zia
+
+        example = zia.VzenNode("example",
+            name="Example VZEN Node",
+            status="ENABLED",
+            type="VZEN",
+            ip_address="10.0.0.10",
+            subnet_mask="255.255.255.0",
+            default_gateway="10.0.0.1",
+            deployment_mode="STANDALONE",
+            vzen_sku_type="MEDIUM",
+        )
+        ```
+
+        ## Import
+
+        An existing VZEN node can be imported using its ID, e.g.
+
+        ```sh
+        $ pulumi import zia:index:VzenNode example 12345
+        ```
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
+        :param pulumi.Input[_builtins.str] cluster_name: The cluster name if deployment mode is CLUSTER.
+        :param pulumi.Input[_builtins.str] default_gateway: The default gateway of the VZEN node.
+        :param pulumi.Input[_builtins.str] deployment_mode: The deployment mode. Accepted values: 'STANDALONE' or 'CLUSTER'.
+        :param pulumi.Input[_builtins.bool] establish_support_tunnel_enabled: Whether establish support tunnel is enabled.
+        :param pulumi.Input[_builtins.bool] in_production: Whether the node is in production.
+        :param pulumi.Input[_builtins.str] ip_address: The IP address of the VZEN node.
+        :param pulumi.Input[_builtins.bool] ip_sec_enabled: Whether IPSec is enabled on the node.
+        :param pulumi.Input[_builtins.str] load_balancer_ip_address: The load balancer IP address.
+        :param pulumi.Input[_builtins.str] name: Name of the VZEN node.
+        :param pulumi.Input[_builtins.bool] on_demand_support_tunnel_enabled: Whether on-demand support tunnel is enabled.
+        :param pulumi.Input[_builtins.str] status: The status of the node. Accepted values: 'ENABLED', 'DISABLED', 'DISABLED_BY_SERVICE_PROVIDER', 'NOT_PROVISIONED_IN_SERVICE_PROVIDER', 'IN_TRIAL'.
+        :param pulumi.Input[_builtins.str] subnet_mask: The subnet mask of the VZEN node.
+        :param pulumi.Input[_builtins.str] type: The type of the VZEN node.
+        :param pulumi.Input[_builtins.str] vzen_sku_type: The VZEN SKU type. Accepted values: 'SMALL', 'MEDIUM', 'LARGE'.
         """
         ...
     @overload
@@ -225,7 +323,35 @@ class VzenNode(pulumi.CustomResource):
                  args: Optional[VzenNodeArgs] = None,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
-        Create a VzenNode resource with the given unique name, props, and options.
+        The zia.VzenNode resource manages Virtual ZEN (VZEN) node configurations in the Zscaler Internet Access (ZIA) cloud.
+        VZEN nodes are virtual appliances deployed on-premises to process traffic locally before forwarding to the ZIA cloud.
+
+        ## Example Usage
+        ### Basic VZEN Node
+
+        ```python
+        import zscaler_pulumi_zia as zia
+
+        example = zia.VzenNode("example",
+            name="Example VZEN Node",
+            status="ENABLED",
+            type="VZEN",
+            ip_address="10.0.0.10",
+            subnet_mask="255.255.255.0",
+            default_gateway="10.0.0.1",
+            deployment_mode="STANDALONE",
+            vzen_sku_type="MEDIUM",
+        )
+        ```
+
+        ## Import
+
+        An existing VZEN node can be imported using its ID, e.g.
+
+        ```sh
+        $ pulumi import zia:index:VzenNode example 12345
+        ```
+
         :param str resource_name: The name of the resource.
         :param VzenNodeArgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -321,75 +447,120 @@ class VzenNode(pulumi.CustomResource):
     @_builtins.property
     @pulumi.getter(name="clusterName")
     def cluster_name(self) -> pulumi.Output[Optional[_builtins.str]]:
+        """
+        The cluster name if deployment mode is CLUSTER.
+        """
         return pulumi.get(self, "cluster_name")
 
     @_builtins.property
     @pulumi.getter(name="defaultGateway")
     def default_gateway(self) -> pulumi.Output[Optional[_builtins.str]]:
+        """
+        The default gateway of the VZEN node.
+        """
         return pulumi.get(self, "default_gateway")
 
     @_builtins.property
     @pulumi.getter(name="deploymentMode")
     def deployment_mode(self) -> pulumi.Output[Optional[_builtins.str]]:
+        """
+        The deployment mode. Accepted values: 'STANDALONE' or 'CLUSTER'.
+        """
         return pulumi.get(self, "deployment_mode")
 
     @_builtins.property
     @pulumi.getter(name="establishSupportTunnelEnabled")
     def establish_support_tunnel_enabled(self) -> pulumi.Output[Optional[_builtins.bool]]:
+        """
+        Whether establish support tunnel is enabled.
+        """
         return pulumi.get(self, "establish_support_tunnel_enabled")
 
     @_builtins.property
     @pulumi.getter(name="inProduction")
     def in_production(self) -> pulumi.Output[Optional[_builtins.bool]]:
+        """
+        Whether the node is in production.
+        """
         return pulumi.get(self, "in_production")
 
     @_builtins.property
     @pulumi.getter(name="ipAddress")
     def ip_address(self) -> pulumi.Output[Optional[_builtins.str]]:
+        """
+        The IP address of the VZEN node.
+        """
         return pulumi.get(self, "ip_address")
 
     @_builtins.property
     @pulumi.getter(name="ipSecEnabled")
     def ip_sec_enabled(self) -> pulumi.Output[Optional[_builtins.bool]]:
+        """
+        Whether IPSec is enabled on the node.
+        """
         return pulumi.get(self, "ip_sec_enabled")
 
     @_builtins.property
     @pulumi.getter(name="loadBalancerIpAddress")
     def load_balancer_ip_address(self) -> pulumi.Output[Optional[_builtins.str]]:
+        """
+        The load balancer IP address.
+        """
         return pulumi.get(self, "load_balancer_ip_address")
 
     @_builtins.property
     @pulumi.getter
     def name(self) -> pulumi.Output[Optional[_builtins.str]]:
+        """
+        Name of the VZEN node.
+        """
         return pulumi.get(self, "name")
 
     @_builtins.property
     @pulumi.getter(name="nodeId")
     def node_id(self) -> pulumi.Output[_builtins.int]:
+        """
+        The unique identifier for the VZEN node assigned by the ZIA cloud.
+        """
         return pulumi.get(self, "node_id")
 
     @_builtins.property
     @pulumi.getter(name="onDemandSupportTunnelEnabled")
     def on_demand_support_tunnel_enabled(self) -> pulumi.Output[Optional[_builtins.bool]]:
+        """
+        Whether on-demand support tunnel is enabled.
+        """
         return pulumi.get(self, "on_demand_support_tunnel_enabled")
 
     @_builtins.property
     @pulumi.getter
     def status(self) -> pulumi.Output[Optional[_builtins.str]]:
+        """
+        The status of the node. Accepted values: 'ENABLED', 'DISABLED', 'DISABLED_BY_SERVICE_PROVIDER', 'NOT_PROVISIONED_IN_SERVICE_PROVIDER', 'IN_TRIAL'.
+        """
         return pulumi.get(self, "status")
 
     @_builtins.property
     @pulumi.getter(name="subnetMask")
     def subnet_mask(self) -> pulumi.Output[Optional[_builtins.str]]:
+        """
+        The subnet mask of the VZEN node.
+        """
         return pulumi.get(self, "subnet_mask")
 
     @_builtins.property
     @pulumi.getter
     def type(self) -> pulumi.Output[Optional[_builtins.str]]:
+        """
+        The type of the VZEN node.
+        """
         return pulumi.get(self, "type")
 
     @_builtins.property
     @pulumi.getter(name="vzenSkuType")
     def vzen_sku_type(self) -> pulumi.Output[Optional[_builtins.str]]:
+        """
+        The VZEN SKU type. Accepted values: 'SMALL', 'MEDIUM', 'LARGE'.
+        """
         return pulumi.get(self, "vzen_sku_type")
 

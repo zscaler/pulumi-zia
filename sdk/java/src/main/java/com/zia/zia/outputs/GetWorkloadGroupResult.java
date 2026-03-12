@@ -14,29 +14,77 @@ import javax.annotation.Nullable;
 
 @CustomType
 public final class GetWorkloadGroupResult {
+    /**
+     * @return The description of the workload group.
+     * 
+     */
     private String description;
+    /**
+     * @return The expression string for the workload group.
+     * 
+     */
     private String expression;
+    /**
+     * @return The expression JSON that defines the workload group matching criteria.
+     * 
+     */
     private @Nullable WorkloadGroupExpressionJsonInput expressionJson;
+    /**
+     * @return The ID of the workload group.
+     * 
+     */
     private Integer groupId;
+    /**
+     * @return The last modification time of the workload group (epoch).
+     * 
+     */
     private Integer lastModifiedTime;
+    /**
+     * @return The name of the workload group.
+     * 
+     */
     private String name;
 
     private GetWorkloadGroupResult() {}
+    /**
+     * @return The description of the workload group.
+     * 
+     */
     public String description() {
         return this.description;
     }
+    /**
+     * @return The expression string for the workload group.
+     * 
+     */
     public String expression() {
         return this.expression;
     }
+    /**
+     * @return The expression JSON that defines the workload group matching criteria.
+     * 
+     */
     public Optional<WorkloadGroupExpressionJsonInput> expressionJson() {
         return Optional.ofNullable(this.expressionJson);
     }
+    /**
+     * @return The ID of the workload group.
+     * 
+     */
     public Integer groupId() {
         return this.groupId;
     }
+    /**
+     * @return The last modification time of the workload group (epoch).
+     * 
+     */
     public Integer lastModifiedTime() {
         return this.lastModifiedTime;
     }
+    /**
+     * @return The name of the workload group.
+     * 
+     */
     public String name() {
         return this.name;
     }

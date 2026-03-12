@@ -17,119 +17,287 @@ import java.util.Map;
 import java.util.Optional;
 import javax.annotation.Nullable;
 
+/**
+ * The zia_admin_roles resource manages administrator roles in the Zscaler Internet Access (ZIA) cloud service. Admin roles define the permissions and access levels for administrator users.
+ * 
+ * For more information, see the [ZIA Admin Role Management documentation](https://help.zscaler.com/zia/admin-role-management).
+ * 
+ * ## Example Usage
+ * 
+ * ## Import
+ * 
+ * An existing admin role can be imported using its resource ID, e.g.
+ * 
+ * ```sh
+ * $ pulumi import zia:index:AdminRoles example 12345
+ * ```
+ * 
+ */
 @ResourceType(type="zia:index:AdminRoles")
 public class AdminRoles extends com.pulumi.resources.CustomResource {
+    /**
+     * Admin and role management access permission. Valid values: `NONE`, `READ_ONLY`, `READ_WRITE`.
+     * 
+     */
     @Export(name="adminAcctAccess", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> adminAcctAccess;
 
+    /**
+     * @return Admin and role management access permission. Valid values: `NONE`, `READ_ONLY`, `READ_WRITE`.
+     * 
+     */
     public Output<Optional<String>> adminAcctAccess() {
         return Codegen.optional(this.adminAcctAccess);
     }
+    /**
+     * Alerting access permission. Valid values: `NONE`, `READ_ONLY`, `READ_WRITE`.
+     * 
+     */
     @Export(name="alertingAccess", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> alertingAccess;
 
+    /**
+     * @return Alerting access permission. Valid values: `NONE`, `READ_ONLY`, `READ_WRITE`.
+     * 
+     */
     public Output<Optional<String>> alertingAccess() {
         return Codegen.optional(this.alertingAccess);
     }
+    /**
+     * Insights logs access permission. Valid values: `NONE`, `READ_ONLY`, `READ_WRITE`.
+     * 
+     */
     @Export(name="analysisAccess", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> analysisAccess;
 
+    /**
+     * @return Insights logs access permission. Valid values: `NONE`, `READ_ONLY`, `READ_WRITE`.
+     * 
+     */
     public Output<Optional<String>> analysisAccess() {
         return Codegen.optional(this.analysisAccess);
     }
+    /**
+     * Dashboard access permission. Valid values: `NONE`, `READ_ONLY`.
+     * 
+     */
     @Export(name="dashboardAccess", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> dashboardAccess;
 
+    /**
+     * @return Dashboard access permission. Valid values: `NONE`, `READ_ONLY`.
+     * 
+     */
     public Output<Optional<String>> dashboardAccess() {
         return Codegen.optional(this.dashboardAccess);
     }
+    /**
+     * Device info access permission. Valid values: `NONE`, `READ_ONLY`.
+     * 
+     */
     @Export(name="deviceInfoAccess", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> deviceInfoAccess;
 
+    /**
+     * @return Device info access permission. Valid values: `NONE`, `READ_ONLY`.
+     * 
+     */
     public Output<Optional<String>> deviceInfoAccess() {
         return Codegen.optional(this.deviceInfoAccess);
     }
+    /**
+     * Map of extended feature permissions to their access levels.
+     * 
+     */
     @Export(name="extFeaturePermissions", refs={Map.class,String.class}, tree="[0,1,1]")
     private Output</* @Nullable */ Map<String,String>> extFeaturePermissions;
 
+    /**
+     * @return Map of extended feature permissions to their access levels.
+     * 
+     */
     public Output<Optional<Map<String,String>>> extFeaturePermissions() {
         return Codegen.optional(this.extFeaturePermissions);
     }
+    /**
+     * Map of feature permissions to their access levels.
+     * 
+     */
     @Export(name="featurePermissions", refs={Map.class,String.class}, tree="[0,1,1]")
     private Output</* @Nullable */ Map<String,String>> featurePermissions;
 
+    /**
+     * @return Map of feature permissions to their access levels.
+     * 
+     */
     public Output<Optional<Map<String,String>>> featurePermissions() {
         return Codegen.optional(this.featurePermissions);
     }
+    /**
+     * Indicates whether this is an auditor role.
+     * 
+     */
     @Export(name="isAuditor", refs={Boolean.class}, tree="[0]")
     private Output</* @Nullable */ Boolean> isAuditor;
 
+    /**
+     * @return Indicates whether this is an auditor role.
+     * 
+     */
     public Output<Optional<Boolean>> isAuditor() {
         return Codegen.optional(this.isAuditor);
     }
+    /**
+     * Indicates whether the role is non-editable (built-in system role).
+     * 
+     */
     @Export(name="isNonEditable", refs={Boolean.class}, tree="[0]")
     private Output</* @Nullable */ Boolean> isNonEditable;
 
+    /**
+     * @return Indicates whether the role is non-editable (built-in system role).
+     * 
+     */
     public Output<Optional<Boolean>> isNonEditable() {
         return Codegen.optional(this.isNonEditable);
     }
+    /**
+     * Log range limit. Valid values: `UNRESTRICTED`, `LAST_1_HR`, `LAST_2_HRS`, `LAST_6_HRS`, `LAST_24_HRS`, `LAST_1_MONTH`.
+     * 
+     */
     @Export(name="logsLimit", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> logsLimit;
 
+    /**
+     * @return Log range limit. Valid values: `UNRESTRICTED`, `LAST_1_HR`, `LAST_2_HRS`, `LAST_6_HRS`, `LAST_24_HRS`, `LAST_1_MONTH`.
+     * 
+     */
     public Output<Optional<String>> logsLimit() {
         return Codegen.optional(this.logsLimit);
     }
+    /**
+     * The name of the admin role.
+     * 
+     */
     @Export(name="name", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> name;
 
+    /**
+     * @return The name of the admin role.
+     * 
+     */
     public Output<Optional<String>> name() {
         return Codegen.optional(this.name);
     }
+    /**
+     * List of functional areas to which this role has access (e.g., `POLICY`, `DASHBOARD`).
+     * 
+     */
     @Export(name="permissions", refs={List.class,String.class}, tree="[0,1]")
     private Output</* @Nullable */ List<String>> permissions;
 
+    /**
+     * @return List of functional areas to which this role has access (e.g., `POLICY`, `DASHBOARD`).
+     * 
+     */
     public Output<Optional<List<String>>> permissions() {
         return Codegen.optional(this.permissions);
     }
+    /**
+     * Policy access permission. Valid values: `NONE`, `READ_ONLY`, `READ_WRITE`.
+     * 
+     */
     @Export(name="policyAccess", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> policyAccess;
 
+    /**
+     * @return Policy access permission. Valid values: `NONE`, `READ_ONLY`, `READ_WRITE`.
+     * 
+     */
     public Output<Optional<String>> policyAccess() {
         return Codegen.optional(this.policyAccess);
     }
+    /**
+     * Admin rank of the role. Default: 7. Valid values: 0-7.
+     * 
+     */
     @Export(name="rank", refs={Integer.class}, tree="[0]")
     private Output</* @Nullable */ Integer> rank;
 
+    /**
+     * @return Admin rank of the role. Default: 7. Valid values: 0-7.
+     * 
+     */
     public Output<Optional<Integer>> rank() {
         return Codegen.optional(this.rank);
     }
+    /**
+     * Report access permission. Valid values: `NONE`, `READ_ONLY`.
+     * 
+     */
     @Export(name="reportAccess", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> reportAccess;
 
+    /**
+     * @return Report access permission. Valid values: `NONE`, `READ_ONLY`.
+     * 
+     */
     public Output<Optional<String>> reportAccess() {
         return Codegen.optional(this.reportAccess);
     }
+    /**
+     * Report time duration in days.
+     * 
+     */
     @Export(name="reportTimeDuration", refs={Integer.class}, tree="[0]")
     private Output</* @Nullable */ Integer> reportTimeDuration;
 
+    /**
+     * @return Report time duration in days.
+     * 
+     */
     public Output<Optional<Integer>> reportTimeDuration() {
         return Codegen.optional(this.reportTimeDuration);
     }
+    /**
+     * The system-generated ID of the admin role.
+     * 
+     */
     @Export(name="roleId", refs={Integer.class}, tree="[0]")
     private Output<Integer> roleId;
 
+    /**
+     * @return The system-generated ID of the admin role.
+     * 
+     */
     public Output<Integer> roleId() {
         return this.roleId;
     }
+    /**
+     * The admin role type. Valid values: `EXEC_INSIGHT_AND_ORG_ADMIN`, `ORG_ADMIN`.
+     * 
+     */
     @Export(name="roleType", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> roleType;
 
+    /**
+     * @return The admin role type. Valid values: `EXEC_INSIGHT_AND_ORG_ADMIN`, `ORG_ADMIN`.
+     * 
+     */
     public Output<Optional<String>> roleType() {
         return Codegen.optional(this.roleType);
     }
+    /**
+     * Username access permission. Valid values: `NONE`, `READ_ONLY`.
+     * 
+     */
     @Export(name="usernameAccess", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> usernameAccess;
 
+    /**
+     * @return Username access permission. Valid values: `NONE`, `READ_ONLY`.
+     * 
+     */
     public Output<Optional<String>> usernameAccess() {
         return Codegen.optional(this.usernameAccess);
     }
@@ -173,6 +341,7 @@ public class AdminRoles extends com.pulumi.resources.CustomResource {
     private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<java.lang.String> id) {
         var defaultOptions = com.pulumi.resources.CustomResourceOptions.builder()
             .version(Utilities.getVersion())
+            .pluginDownloadURL("github://api.github.com/zscaler")
             .build();
         return com.pulumi.resources.CustomResourceOptions.merge(defaultOptions, options, id);
     }

@@ -6,6 +6,36 @@ import * as inputs from "./types/input";
 import * as outputs from "./types/output";
 import * as utilities from "./utilities";
 
+/**
+ * The zia.FileTypeControlRule resource manages file type control rules in the Zscaler Internet Access (ZIA) cloud.
+ * File type control rules allow you to block, caution, or allow file downloads and uploads based on file types,
+ * protocols, URL categories, and other criteria. Predefined rules cannot be deleted.
+ *
+ * ## Example Usage
+ * ### Basic File Type Control Rule
+ *
+ * ```typescript
+ * import * as zia from "@bdzscaler/pulumi-zia";
+ *
+ * const example = new zia.FileTypeControlRule("example", {
+ *     name: "Example File Type Rule",
+ *     order: 1,
+ *     description: "Managed by Pulumi",
+ *     state: "ENABLED",
+ *     filteringAction: "BLOCK",
+ *     fileTypes: ["EXE", "DLL"],
+ *     protocols: ["FTP_RULE", "HTTPS_RULE", "HTTP_PROXY"],
+ * });
+ * ```
+ *
+ * ## Import
+ *
+ * An existing file type control rule can be imported using its ID, e.g.
+ *
+ * ```sh
+ * $ pulumi import zia:index:FileTypeControlRule example 12345
+ * ```
+ */
 export class FileTypeControlRule extends pulumi.CustomResource {
     /**
      * Get an existing FileTypeControlRule resource's state with the given name, ID, and optional extra
@@ -33,37 +63,133 @@ export class FileTypeControlRule extends pulumi.CustomResource {
         return obj['__pulumiType'] === FileTypeControlRule.__pulumiType;
     }
 
+    /**
+     * Whether the rule applies to files with active content.
+     */
     declare public readonly activeContent: pulumi.Output<boolean | undefined>;
+    /**
+     * The browser end-user notification template ID.
+     */
     declare public readonly browserEunTemplateId: pulumi.Output<number | undefined>;
+    /**
+     * Whether to capture PCAP data for the rule.
+     */
     declare public readonly capturePcap: pulumi.Output<boolean | undefined>;
+    /**
+     * List of cloud applications to which the rule applies.
+     */
     declare public readonly cloudApplications: pulumi.Output<string[] | undefined>;
+    /**
+     * List of department IDs to which the rule applies.
+     */
     declare public readonly departments: pulumi.Output<number[] | undefined>;
+    /**
+     * Description of the file type control rule.
+     */
     declare public readonly description: pulumi.Output<string | undefined>;
+    /**
+     * List of device group IDs to which the rule applies.
+     */
     declare public readonly deviceGroups: pulumi.Output<number[] | undefined>;
+    /**
+     * List of device trust levels for the rule.
+     */
     declare public readonly deviceTrustLevels: pulumi.Output<string[] | undefined>;
+    /**
+     * List of device IDs to which the rule applies.
+     */
     declare public readonly devices: pulumi.Output<number[] | undefined>;
+    /**
+     * List of file types to which the rule applies (e.g., 'EXE', 'DLL').
+     */
     declare public readonly fileTypes: pulumi.Output<string[] | undefined>;
+    /**
+     * The action taken when traffic matches the rule (e.g., 'BLOCK', 'CAUTION', 'ALLOW').
+     */
     declare public readonly filteringAction: pulumi.Output<string | undefined>;
+    /**
+     * List of group IDs to which the rule applies.
+     */
     declare public readonly groups: pulumi.Output<number[] | undefined>;
+    /**
+     * List of label IDs associated with the rule.
+     */
     declare public readonly labels: pulumi.Output<number[] | undefined>;
+    /**
+     * List of location group IDs to which the rule applies.
+     */
     declare public readonly locationGroups: pulumi.Output<number[] | undefined>;
+    /**
+     * List of location IDs to which the rule applies.
+     */
     declare public readonly locations: pulumi.Output<number[] | undefined>;
+    /**
+     * Maximum file size in bytes for the rule to apply.
+     */
     declare public readonly maxSize: pulumi.Output<number | undefined>;
+    /**
+     * Minimum file size in bytes for the rule to apply.
+     */
     declare public readonly minSize: pulumi.Output<number | undefined>;
+    /**
+     * Name of the file type control rule.
+     */
     declare public readonly name: pulumi.Output<string>;
+    /**
+     * The type of file operation (e.g., 'DOWNLOAD', 'UPLOAD').
+     */
     declare public readonly operation: pulumi.Output<string | undefined>;
+    /**
+     * The rule order of execution for the file type control rule.
+     */
     declare public readonly order: pulumi.Output<number>;
+    /**
+     * Whether the rule applies to password-protected files.
+     */
     declare public readonly passwordProtected: pulumi.Output<boolean | undefined>;
+    /**
+     * List of protocols to which the rule applies (e.g., 'FTP_RULE', 'HTTPS_RULE').
+     */
     declare public readonly protocols: pulumi.Output<string[] | undefined>;
+    /**
+     * The admin rank of the rule. Default is 7.
+     */
     declare public readonly rank: pulumi.Output<number | undefined>;
+    /**
+     * The unique identifier for the file type control rule assigned by the ZIA cloud.
+     */
     declare public /*out*/ readonly ruleId: pulumi.Output<number>;
+    /**
+     * Size quota in KB beyond which the URL filtering rule is applied.
+     */
     declare public readonly sizeQuota: pulumi.Output<number | undefined>;
+    /**
+     * The rule state. Accepted values: 'ENABLED' or 'DISABLED'.
+     */
     declare public readonly state: pulumi.Output<string | undefined>;
+    /**
+     * Time quota in minutes after which the URL filtering rule is applied.
+     */
     declare public readonly timeQuota: pulumi.Output<number | undefined>;
+    /**
+     * List of time window IDs during which the rule is active.
+     */
     declare public readonly timeWindows: pulumi.Output<number[] | undefined>;
+    /**
+     * Whether the rule applies to unscannable files.
+     */
     declare public readonly unscannable: pulumi.Output<boolean | undefined>;
+    /**
+     * List of URL categories to which the rule applies.
+     */
     declare public readonly urlCategories: pulumi.Output<string[] | undefined>;
+    /**
+     * List of user IDs to which the rule applies.
+     */
     declare public readonly users: pulumi.Output<number[] | undefined>;
+    /**
+     * List of ZPA application segments for the rule.
+     */
     declare public readonly zpaAppSegments: pulumi.Output<outputs.ZPAAppSegmentInput[] | undefined>;
 
     /**
@@ -158,35 +284,128 @@ export class FileTypeControlRule extends pulumi.CustomResource {
  * The set of arguments for constructing a FileTypeControlRule resource.
  */
 export interface FileTypeControlRuleArgs {
+    /**
+     * Whether the rule applies to files with active content.
+     */
     activeContent?: pulumi.Input<boolean>;
+    /**
+     * The browser end-user notification template ID.
+     */
     browserEunTemplateId?: pulumi.Input<number>;
+    /**
+     * Whether to capture PCAP data for the rule.
+     */
     capturePcap?: pulumi.Input<boolean>;
+    /**
+     * List of cloud applications to which the rule applies.
+     */
     cloudApplications?: pulumi.Input<pulumi.Input<string>[]>;
+    /**
+     * List of department IDs to which the rule applies.
+     */
     departments?: pulumi.Input<pulumi.Input<number>[]>;
+    /**
+     * Description of the file type control rule.
+     */
     description?: pulumi.Input<string>;
+    /**
+     * List of device group IDs to which the rule applies.
+     */
     deviceGroups?: pulumi.Input<pulumi.Input<number>[]>;
+    /**
+     * List of device trust levels for the rule.
+     */
     deviceTrustLevels?: pulumi.Input<pulumi.Input<string>[]>;
+    /**
+     * List of device IDs to which the rule applies.
+     */
     devices?: pulumi.Input<pulumi.Input<number>[]>;
+    /**
+     * List of file types to which the rule applies (e.g., 'EXE', 'DLL').
+     */
     fileTypes?: pulumi.Input<pulumi.Input<string>[]>;
+    /**
+     * The action taken when traffic matches the rule (e.g., 'BLOCK', 'CAUTION', 'ALLOW').
+     */
     filteringAction?: pulumi.Input<string>;
+    /**
+     * List of group IDs to which the rule applies.
+     */
     groups?: pulumi.Input<pulumi.Input<number>[]>;
+    /**
+     * List of label IDs associated with the rule.
+     */
     labels?: pulumi.Input<pulumi.Input<number>[]>;
+    /**
+     * List of location group IDs to which the rule applies.
+     */
     locationGroups?: pulumi.Input<pulumi.Input<number>[]>;
+    /**
+     * List of location IDs to which the rule applies.
+     */
     locations?: pulumi.Input<pulumi.Input<number>[]>;
+    /**
+     * Maximum file size in bytes for the rule to apply.
+     */
     maxSize?: pulumi.Input<number>;
+    /**
+     * Minimum file size in bytes for the rule to apply.
+     */
     minSize?: pulumi.Input<number>;
+    /**
+     * Name of the file type control rule.
+     */
     name: pulumi.Input<string>;
+    /**
+     * The type of file operation (e.g., 'DOWNLOAD', 'UPLOAD').
+     */
     operation?: pulumi.Input<string>;
+    /**
+     * The rule order of execution for the file type control rule.
+     */
     order: pulumi.Input<number>;
+    /**
+     * Whether the rule applies to password-protected files.
+     */
     passwordProtected?: pulumi.Input<boolean>;
+    /**
+     * List of protocols to which the rule applies (e.g., 'FTP_RULE', 'HTTPS_RULE').
+     */
     protocols?: pulumi.Input<pulumi.Input<string>[]>;
+    /**
+     * The admin rank of the rule. Default is 7.
+     */
     rank?: pulumi.Input<number>;
+    /**
+     * Size quota in KB beyond which the URL filtering rule is applied.
+     */
     sizeQuota?: pulumi.Input<number>;
+    /**
+     * The rule state. Accepted values: 'ENABLED' or 'DISABLED'.
+     */
     state?: pulumi.Input<string>;
+    /**
+     * Time quota in minutes after which the URL filtering rule is applied.
+     */
     timeQuota?: pulumi.Input<number>;
+    /**
+     * List of time window IDs during which the rule is active.
+     */
     timeWindows?: pulumi.Input<pulumi.Input<number>[]>;
+    /**
+     * Whether the rule applies to unscannable files.
+     */
     unscannable?: pulumi.Input<boolean>;
+    /**
+     * List of URL categories to which the rule applies.
+     */
     urlCategories?: pulumi.Input<pulumi.Input<string>[]>;
+    /**
+     * List of user IDs to which the rule applies.
+     */
     users?: pulumi.Input<pulumi.Input<number>[]>;
+    /**
+     * List of ZPA application segments for the rule.
+     */
     zpaAppSegments?: pulumi.Input<pulumi.Input<inputs.ZPAAppSegmentInputArgs>[]>;
 }

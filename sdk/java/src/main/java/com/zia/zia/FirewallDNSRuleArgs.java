@@ -19,261 +19,557 @@ public final class FirewallDNSRuleArgs extends com.pulumi.resources.ResourceArgs
 
     public static final FirewallDNSRuleArgs Empty = new FirewallDNSRuleArgs();
 
+    /**
+     * The action the rule takes when traffic matches. Valid values: `ALLOW`, `BLOCK_DROP`, `BLOCK_RESET`, `BLOCK_ICMP`, `REDIR_REQ`.
+     * 
+     */
     @Import(name="action")
     private @Nullable Output<String> action;
 
+    /**
+     * @return The action the rule takes when traffic matches. Valid values: `ALLOW`, `BLOCK_DROP`, `BLOCK_RESET`, `BLOCK_ICMP`, `REDIR_REQ`.
+     * 
+     */
     public Optional<Output<String>> action() {
         return Optional.ofNullable(this.action);
     }
 
+    /**
+     * DNS application values to which the rule applies.
+     * 
+     */
     @Import(name="applications")
     private @Nullable Output<List<String>> applications;
 
+    /**
+     * @return DNS application values to which the rule applies.
+     * 
+     */
     public Optional<Output<List<String>>> applications() {
         return Optional.ofNullable(this.applications);
     }
 
+    /**
+     * The DNS response code to return when blocking. Valid values: `ANY`, `NONE`, `FORMERR`, `SERVFAIL`, `NXDOMAIN`, `NOTIMP`, `REFUSED`, `NOTAUTH`, `NXRRSET`.
+     * 
+     */
     @Import(name="blockResponseCode")
     private @Nullable Output<String> blockResponseCode;
 
+    /**
+     * @return The DNS response code to return when blocking. Valid values: `ANY`, `NONE`, `FORMERR`, `SERVFAIL`, `NXDOMAIN`, `NOTIMP`, `REFUSED`, `NOTAUTH`, `NXRRSET`.
+     * 
+     */
     public Optional<Output<String>> blockResponseCode() {
         return Optional.ofNullable(this.blockResponseCode);
     }
 
+    /**
+     * If set to true, enables packet capture (PCAP) for the rule.
+     * 
+     */
     @Import(name="capturePcap")
     private @Nullable Output<Boolean> capturePcap;
 
+    /**
+     * @return If set to true, enables packet capture (PCAP) for the rule.
+     * 
+     */
     public Optional<Output<Boolean>> capturePcap() {
         return Optional.ofNullable(this.capturePcap);
     }
 
+    /**
+     * Indicates whether this is the default firewall DNS rule.
+     * 
+     */
     @Import(name="defaultRule")
     private @Nullable Output<Boolean> defaultRule;
 
+    /**
+     * @return Indicates whether this is the default firewall DNS rule.
+     * 
+     */
     public Optional<Output<Boolean>> defaultRule() {
         return Optional.ofNullable(this.defaultRule);
     }
 
+    /**
+     * IDs of departments to which the rule must be applied.
+     * 
+     */
     @Import(name="departments")
     private @Nullable Output<List<Integer>> departments;
 
+    /**
+     * @return IDs of departments to which the rule must be applied.
+     * 
+     */
     public Optional<Output<List<Integer>>> departments() {
         return Optional.ofNullable(this.departments);
     }
 
+    /**
+     * Additional information about the firewall DNS rule.
+     * 
+     */
     @Import(name="description")
     private @Nullable Output<String> description;
 
+    /**
+     * @return Additional information about the firewall DNS rule.
+     * 
+     */
     public Optional<Output<String>> description() {
         return Optional.ofNullable(this.description);
     }
 
+    /**
+     * Destination IP addresses, FQDNs, or wildcard FQDNs for the rule.
+     * 
+     */
     @Import(name="destAddresses")
     private @Nullable Output<List<String>> destAddresses;
 
+    /**
+     * @return Destination IP addresses, FQDNs, or wildcard FQDNs for the rule.
+     * 
+     */
     public Optional<Output<List<String>>> destAddresses() {
         return Optional.ofNullable(this.destAddresses);
     }
 
+    /**
+     * Destination countries (ISO 3166-1 alpha-2 codes) for the rule.
+     * 
+     */
     @Import(name="destCountries")
     private @Nullable Output<List<String>> destCountries;
 
+    /**
+     * @return Destination countries (ISO 3166-1 alpha-2 codes) for the rule.
+     * 
+     */
     public Optional<Output<List<String>>> destCountries() {
         return Optional.ofNullable(this.destCountries);
     }
 
+    /**
+     * Destination IP address URL categories for the rule.
+     * 
+     */
     @Import(name="destIpCategories")
     private @Nullable Output<List<String>> destIpCategories;
 
+    /**
+     * @return Destination IP address URL categories for the rule.
+     * 
+     */
     public Optional<Output<List<String>>> destIpCategories() {
         return Optional.ofNullable(this.destIpCategories);
     }
 
+    /**
+     * IDs of destination IP address groups for the rule.
+     * 
+     */
     @Import(name="destIpGroups")
     private @Nullable Output<List<Integer>> destIpGroups;
 
+    /**
+     * @return IDs of destination IP address groups for the rule.
+     * 
+     */
     public Optional<Output<List<Integer>>> destIpGroups() {
         return Optional.ofNullable(this.destIpGroups);
     }
 
+    /**
+     * IDs of destination IPv6 address groups for the rule.
+     * 
+     */
     @Import(name="destIpv6Groups")
     private @Nullable Output<List<Integer>> destIpv6Groups;
 
+    /**
+     * @return IDs of destination IPv6 address groups for the rule.
+     * 
+     */
     public Optional<Output<List<Integer>>> destIpv6Groups() {
         return Optional.ofNullable(this.destIpv6Groups);
     }
 
+    /**
+     * IDs of device groups for which the rule must be applied. Applicable for devices managed using Zscaler Client Connector.
+     * 
+     */
     @Import(name="deviceGroups")
     private @Nullable Output<List<Integer>> deviceGroups;
 
+    /**
+     * @return IDs of device groups for which the rule must be applied. Applicable for devices managed using Zscaler Client Connector.
+     * 
+     */
     public Optional<Output<List<Integer>>> deviceGroups() {
         return Optional.ofNullable(this.deviceGroups);
     }
 
+    /**
+     * IDs of devices for which the rule must be applied.
+     * 
+     */
     @Import(name="devices")
     private @Nullable Output<List<Integer>> devices;
 
+    /**
+     * @return IDs of devices for which the rule must be applied.
+     * 
+     */
     public Optional<Output<List<Integer>>> devices() {
         return Optional.ofNullable(this.devices);
     }
 
+    /**
+     * The ID of the DNS gateway associated with the rule.
+     * 
+     */
     @Import(name="dnsGateway")
     private @Nullable Output<Integer> dnsGateway;
 
+    /**
+     * @return The ID of the DNS gateway associated with the rule.
+     * 
+     */
     public Optional<Output<Integer>> dnsGateway() {
         return Optional.ofNullable(this.dnsGateway);
     }
 
+    /**
+     * DNS request types to which the rule applies. Valid values: `A`, `AAAA`, `CNAME`, `MX`, `NS`, `SOA`, `TXT`, `SRV`, `PTR`, `ANY`.
+     * 
+     */
     @Import(name="dnsRuleRequestTypes")
     private @Nullable Output<List<String>> dnsRuleRequestTypes;
 
+    /**
+     * @return DNS request types to which the rule applies. Valid values: `A`, `AAAA`, `CNAME`, `MX`, `NS`, `SOA`, `TXT`, `SRV`, `PTR`, `ANY`.
+     * 
+     */
     public Optional<Output<List<String>>> dnsRuleRequestTypes() {
         return Optional.ofNullable(this.dnsRuleRequestTypes);
     }
 
+    /**
+     * The ID of the EDNS ECS object associated with the rule.
+     * 
+     */
     @Import(name="ednsEcsObject")
     private @Nullable Output<Integer> ednsEcsObject;
 
+    /**
+     * @return The ID of the EDNS ECS object associated with the rule.
+     * 
+     */
     public Optional<Output<Integer>> ednsEcsObject() {
         return Optional.ofNullable(this.ednsEcsObject);
     }
 
+    /**
+     * IDs of groups to which the rule must be applied.
+     * 
+     */
     @Import(name="groups")
     private @Nullable Output<List<Integer>> groups;
 
+    /**
+     * @return IDs of groups to which the rule must be applied.
+     * 
+     */
     public Optional<Output<List<Integer>>> groups() {
         return Optional.ofNullable(this.groups);
     }
 
+    /**
+     * If set to true, enables web end user notification for the rule.
+     * 
+     */
     @Import(name="isWebEunEnabled")
     private @Nullable Output<Boolean> isWebEunEnabled;
 
+    /**
+     * @return If set to true, enables web end user notification for the rule.
+     * 
+     */
     public Optional<Output<Boolean>> isWebEunEnabled() {
         return Optional.ofNullable(this.isWebEunEnabled);
     }
 
+    /**
+     * IDs of labels associated with the rule.
+     * 
+     */
     @Import(name="labels")
     private @Nullable Output<List<Integer>> labels;
 
+    /**
+     * @return IDs of labels associated with the rule.
+     * 
+     */
     public Optional<Output<List<Integer>>> labels() {
         return Optional.ofNullable(this.labels);
     }
 
+    /**
+     * IDs of location groups to which the rule must be applied.
+     * 
+     */
     @Import(name="locationGroups")
     private @Nullable Output<List<Integer>> locationGroups;
 
+    /**
+     * @return IDs of location groups to which the rule must be applied.
+     * 
+     */
     public Optional<Output<List<Integer>>> locationGroups() {
         return Optional.ofNullable(this.locationGroups);
     }
 
+    /**
+     * IDs of locations to which the rule must be applied.
+     * 
+     */
     @Import(name="locations")
     private @Nullable Output<List<Integer>> locations;
 
+    /**
+     * @return IDs of locations to which the rule must be applied.
+     * 
+     */
     public Optional<Output<List<Integer>>> locations() {
         return Optional.ofNullable(this.locations);
     }
 
+    /**
+     * The name of the firewall DNS rule. Must be unique.
+     * 
+     */
     @Import(name="name", required=true)
     private Output<String> name;
 
+    /**
+     * @return The name of the firewall DNS rule. Must be unique.
+     * 
+     */
     public Output<String> name() {
         return this.name;
     }
 
+    /**
+     * The order of execution of the rule with respect to other firewall DNS rules.
+     * 
+     */
     @Import(name="order", required=true)
     private Output<Integer> order;
 
+    /**
+     * @return The order of execution of the rule with respect to other firewall DNS rules.
+     * 
+     */
     public Output<Integer> order() {
         return this.order;
     }
 
+    /**
+     * Indicates whether this is a predefined rule.
+     * 
+     */
     @Import(name="predefined")
     private @Nullable Output<Boolean> predefined;
 
+    /**
+     * @return Indicates whether this is a predefined rule.
+     * 
+     */
     public Optional<Output<Boolean>> predefined() {
         return Optional.ofNullable(this.predefined);
     }
 
+    /**
+     * Protocols to which the rule applies. Valid values: `ANY_RULE`, `TCP_RULE`, `UDP_RULE`.
+     * 
+     */
     @Import(name="protocols")
     private @Nullable Output<List<String>> protocols;
 
+    /**
+     * @return Protocols to which the rule applies. Valid values: `ANY_RULE`, `TCP_RULE`, `UDP_RULE`.
+     * 
+     */
     public Optional<Output<List<String>>> protocols() {
         return Optional.ofNullable(this.protocols);
     }
 
+    /**
+     * Admin rank of the firewall DNS policy rule. Valid values: 0-7. Default: 7.
+     * 
+     */
     @Import(name="rank")
     private @Nullable Output<Integer> rank;
 
+    /**
+     * @return Admin rank of the firewall DNS policy rule. Valid values: 0-7. Default: 7.
+     * 
+     */
     public Optional<Output<Integer>> rank() {
         return Optional.ofNullable(this.rank);
     }
 
+    /**
+     * The IP address to redirect DNS requests to. Required when action is `REDIR_REQ`.
+     * 
+     */
     @Import(name="redirectIp")
     private @Nullable Output<String> redirectIp;
 
+    /**
+     * @return The IP address to redirect DNS requests to. Required when action is `REDIR_REQ`.
+     * 
+     */
     public Optional<Output<String>> redirectIp() {
         return Optional.ofNullable(this.redirectIp);
     }
 
+    /**
+     * URL categories that apply to the response for the rule.
+     * 
+     */
     @Import(name="resCategories")
     private @Nullable Output<List<String>> resCategories;
 
+    /**
+     * @return URL categories that apply to the response for the rule.
+     * 
+     */
     public Optional<Output<List<String>>> resCategories() {
         return Optional.ofNullable(this.resCategories);
     }
 
+    /**
+     * Source countries (ISO 3166-1 alpha-2 codes) for the rule.
+     * 
+     */
     @Import(name="sourceCountries")
     private @Nullable Output<List<String>> sourceCountries;
 
+    /**
+     * @return Source countries (ISO 3166-1 alpha-2 codes) for the rule.
+     * 
+     */
     public Optional<Output<List<String>>> sourceCountries() {
         return Optional.ofNullable(this.sourceCountries);
     }
 
+    /**
+     * IDs of source IP address groups for the rule.
+     * 
+     */
     @Import(name="srcIpGroups")
     private @Nullable Output<List<Integer>> srcIpGroups;
 
+    /**
+     * @return IDs of source IP address groups for the rule.
+     * 
+     */
     public Optional<Output<List<Integer>>> srcIpGroups() {
         return Optional.ofNullable(this.srcIpGroups);
     }
 
+    /**
+     * Source IP addresses or CIDR ranges for the rule.
+     * 
+     */
     @Import(name="srcIps")
     private @Nullable Output<List<String>> srcIps;
 
+    /**
+     * @return Source IP addresses or CIDR ranges for the rule.
+     * 
+     */
     public Optional<Output<List<String>>> srcIps() {
         return Optional.ofNullable(this.srcIps);
     }
 
+    /**
+     * IDs of source IPv6 address groups for the rule.
+     * 
+     */
     @Import(name="srcIpv6Groups")
     private @Nullable Output<List<Integer>> srcIpv6Groups;
 
+    /**
+     * @return IDs of source IPv6 address groups for the rule.
+     * 
+     */
     public Optional<Output<List<Integer>>> srcIpv6Groups() {
         return Optional.ofNullable(this.srcIpv6Groups);
     }
 
+    /**
+     * Rule state. Valid values: `ENABLED`, `DISABLED`.
+     * 
+     */
     @Import(name="state")
     private @Nullable Output<String> state;
 
+    /**
+     * @return Rule state. Valid values: `ENABLED`, `DISABLED`.
+     * 
+     */
     public Optional<Output<String>> state() {
         return Optional.ofNullable(this.state);
     }
 
+    /**
+     * IDs of time intervals during which the rule must be enforced.
+     * 
+     */
     @Import(name="timeWindows")
     private @Nullable Output<List<Integer>> timeWindows;
 
+    /**
+     * @return IDs of time intervals during which the rule must be enforced.
+     * 
+     */
     public Optional<Output<List<Integer>>> timeWindows() {
         return Optional.ofNullable(this.timeWindows);
     }
 
+    /**
+     * IDs of users to which the rule must be applied.
+     * 
+     */
     @Import(name="users")
     private @Nullable Output<List<Integer>> users;
 
+    /**
+     * @return IDs of users to which the rule must be applied.
+     * 
+     */
     public Optional<Output<List<Integer>>> users() {
         return Optional.ofNullable(this.users);
     }
 
+    /**
+     * The ID of the ZPA IP group associated with the rule.
+     * 
+     */
     @Import(name="zpaIpGroup")
     private @Nullable Output<Integer> zpaIpGroup;
 
+    /**
+     * @return The ID of the ZPA IP group associated with the rule.
+     * 
+     */
     public Optional<Output<Integer>> zpaIpGroup() {
         return Optional.ofNullable(this.zpaIpGroup);
     }
@@ -338,423 +634,999 @@ public final class FirewallDNSRuleArgs extends com.pulumi.resources.ResourceArgs
             $ = new FirewallDNSRuleArgs(Objects.requireNonNull(defaults));
         }
 
+        /**
+         * @param action The action the rule takes when traffic matches. Valid values: `ALLOW`, `BLOCK_DROP`, `BLOCK_RESET`, `BLOCK_ICMP`, `REDIR_REQ`.
+         * 
+         * @return builder
+         * 
+         */
         public Builder action(@Nullable Output<String> action) {
             $.action = action;
             return this;
         }
 
+        /**
+         * @param action The action the rule takes when traffic matches. Valid values: `ALLOW`, `BLOCK_DROP`, `BLOCK_RESET`, `BLOCK_ICMP`, `REDIR_REQ`.
+         * 
+         * @return builder
+         * 
+         */
         public Builder action(String action) {
             return action(Output.of(action));
         }
 
+        /**
+         * @param applications DNS application values to which the rule applies.
+         * 
+         * @return builder
+         * 
+         */
         public Builder applications(@Nullable Output<List<String>> applications) {
             $.applications = applications;
             return this;
         }
 
+        /**
+         * @param applications DNS application values to which the rule applies.
+         * 
+         * @return builder
+         * 
+         */
         public Builder applications(List<String> applications) {
             return applications(Output.of(applications));
         }
 
+        /**
+         * @param applications DNS application values to which the rule applies.
+         * 
+         * @return builder
+         * 
+         */
         public Builder applications(String... applications) {
             return applications(List.of(applications));
         }
 
+        /**
+         * @param blockResponseCode The DNS response code to return when blocking. Valid values: `ANY`, `NONE`, `FORMERR`, `SERVFAIL`, `NXDOMAIN`, `NOTIMP`, `REFUSED`, `NOTAUTH`, `NXRRSET`.
+         * 
+         * @return builder
+         * 
+         */
         public Builder blockResponseCode(@Nullable Output<String> blockResponseCode) {
             $.blockResponseCode = blockResponseCode;
             return this;
         }
 
+        /**
+         * @param blockResponseCode The DNS response code to return when blocking. Valid values: `ANY`, `NONE`, `FORMERR`, `SERVFAIL`, `NXDOMAIN`, `NOTIMP`, `REFUSED`, `NOTAUTH`, `NXRRSET`.
+         * 
+         * @return builder
+         * 
+         */
         public Builder blockResponseCode(String blockResponseCode) {
             return blockResponseCode(Output.of(blockResponseCode));
         }
 
+        /**
+         * @param capturePcap If set to true, enables packet capture (PCAP) for the rule.
+         * 
+         * @return builder
+         * 
+         */
         public Builder capturePcap(@Nullable Output<Boolean> capturePcap) {
             $.capturePcap = capturePcap;
             return this;
         }
 
+        /**
+         * @param capturePcap If set to true, enables packet capture (PCAP) for the rule.
+         * 
+         * @return builder
+         * 
+         */
         public Builder capturePcap(Boolean capturePcap) {
             return capturePcap(Output.of(capturePcap));
         }
 
+        /**
+         * @param defaultRule Indicates whether this is the default firewall DNS rule.
+         * 
+         * @return builder
+         * 
+         */
         public Builder defaultRule(@Nullable Output<Boolean> defaultRule) {
             $.defaultRule = defaultRule;
             return this;
         }
 
+        /**
+         * @param defaultRule Indicates whether this is the default firewall DNS rule.
+         * 
+         * @return builder
+         * 
+         */
         public Builder defaultRule(Boolean defaultRule) {
             return defaultRule(Output.of(defaultRule));
         }
 
+        /**
+         * @param departments IDs of departments to which the rule must be applied.
+         * 
+         * @return builder
+         * 
+         */
         public Builder departments(@Nullable Output<List<Integer>> departments) {
             $.departments = departments;
             return this;
         }
 
+        /**
+         * @param departments IDs of departments to which the rule must be applied.
+         * 
+         * @return builder
+         * 
+         */
         public Builder departments(List<Integer> departments) {
             return departments(Output.of(departments));
         }
 
+        /**
+         * @param departments IDs of departments to which the rule must be applied.
+         * 
+         * @return builder
+         * 
+         */
         public Builder departments(Integer... departments) {
             return departments(List.of(departments));
         }
 
+        /**
+         * @param description Additional information about the firewall DNS rule.
+         * 
+         * @return builder
+         * 
+         */
         public Builder description(@Nullable Output<String> description) {
             $.description = description;
             return this;
         }
 
+        /**
+         * @param description Additional information about the firewall DNS rule.
+         * 
+         * @return builder
+         * 
+         */
         public Builder description(String description) {
             return description(Output.of(description));
         }
 
+        /**
+         * @param destAddresses Destination IP addresses, FQDNs, or wildcard FQDNs for the rule.
+         * 
+         * @return builder
+         * 
+         */
         public Builder destAddresses(@Nullable Output<List<String>> destAddresses) {
             $.destAddresses = destAddresses;
             return this;
         }
 
+        /**
+         * @param destAddresses Destination IP addresses, FQDNs, or wildcard FQDNs for the rule.
+         * 
+         * @return builder
+         * 
+         */
         public Builder destAddresses(List<String> destAddresses) {
             return destAddresses(Output.of(destAddresses));
         }
 
+        /**
+         * @param destAddresses Destination IP addresses, FQDNs, or wildcard FQDNs for the rule.
+         * 
+         * @return builder
+         * 
+         */
         public Builder destAddresses(String... destAddresses) {
             return destAddresses(List.of(destAddresses));
         }
 
+        /**
+         * @param destCountries Destination countries (ISO 3166-1 alpha-2 codes) for the rule.
+         * 
+         * @return builder
+         * 
+         */
         public Builder destCountries(@Nullable Output<List<String>> destCountries) {
             $.destCountries = destCountries;
             return this;
         }
 
+        /**
+         * @param destCountries Destination countries (ISO 3166-1 alpha-2 codes) for the rule.
+         * 
+         * @return builder
+         * 
+         */
         public Builder destCountries(List<String> destCountries) {
             return destCountries(Output.of(destCountries));
         }
 
+        /**
+         * @param destCountries Destination countries (ISO 3166-1 alpha-2 codes) for the rule.
+         * 
+         * @return builder
+         * 
+         */
         public Builder destCountries(String... destCountries) {
             return destCountries(List.of(destCountries));
         }
 
+        /**
+         * @param destIpCategories Destination IP address URL categories for the rule.
+         * 
+         * @return builder
+         * 
+         */
         public Builder destIpCategories(@Nullable Output<List<String>> destIpCategories) {
             $.destIpCategories = destIpCategories;
             return this;
         }
 
+        /**
+         * @param destIpCategories Destination IP address URL categories for the rule.
+         * 
+         * @return builder
+         * 
+         */
         public Builder destIpCategories(List<String> destIpCategories) {
             return destIpCategories(Output.of(destIpCategories));
         }
 
+        /**
+         * @param destIpCategories Destination IP address URL categories for the rule.
+         * 
+         * @return builder
+         * 
+         */
         public Builder destIpCategories(String... destIpCategories) {
             return destIpCategories(List.of(destIpCategories));
         }
 
+        /**
+         * @param destIpGroups IDs of destination IP address groups for the rule.
+         * 
+         * @return builder
+         * 
+         */
         public Builder destIpGroups(@Nullable Output<List<Integer>> destIpGroups) {
             $.destIpGroups = destIpGroups;
             return this;
         }
 
+        /**
+         * @param destIpGroups IDs of destination IP address groups for the rule.
+         * 
+         * @return builder
+         * 
+         */
         public Builder destIpGroups(List<Integer> destIpGroups) {
             return destIpGroups(Output.of(destIpGroups));
         }
 
+        /**
+         * @param destIpGroups IDs of destination IP address groups for the rule.
+         * 
+         * @return builder
+         * 
+         */
         public Builder destIpGroups(Integer... destIpGroups) {
             return destIpGroups(List.of(destIpGroups));
         }
 
+        /**
+         * @param destIpv6Groups IDs of destination IPv6 address groups for the rule.
+         * 
+         * @return builder
+         * 
+         */
         public Builder destIpv6Groups(@Nullable Output<List<Integer>> destIpv6Groups) {
             $.destIpv6Groups = destIpv6Groups;
             return this;
         }
 
+        /**
+         * @param destIpv6Groups IDs of destination IPv6 address groups for the rule.
+         * 
+         * @return builder
+         * 
+         */
         public Builder destIpv6Groups(List<Integer> destIpv6Groups) {
             return destIpv6Groups(Output.of(destIpv6Groups));
         }
 
+        /**
+         * @param destIpv6Groups IDs of destination IPv6 address groups for the rule.
+         * 
+         * @return builder
+         * 
+         */
         public Builder destIpv6Groups(Integer... destIpv6Groups) {
             return destIpv6Groups(List.of(destIpv6Groups));
         }
 
+        /**
+         * @param deviceGroups IDs of device groups for which the rule must be applied. Applicable for devices managed using Zscaler Client Connector.
+         * 
+         * @return builder
+         * 
+         */
         public Builder deviceGroups(@Nullable Output<List<Integer>> deviceGroups) {
             $.deviceGroups = deviceGroups;
             return this;
         }
 
+        /**
+         * @param deviceGroups IDs of device groups for which the rule must be applied. Applicable for devices managed using Zscaler Client Connector.
+         * 
+         * @return builder
+         * 
+         */
         public Builder deviceGroups(List<Integer> deviceGroups) {
             return deviceGroups(Output.of(deviceGroups));
         }
 
+        /**
+         * @param deviceGroups IDs of device groups for which the rule must be applied. Applicable for devices managed using Zscaler Client Connector.
+         * 
+         * @return builder
+         * 
+         */
         public Builder deviceGroups(Integer... deviceGroups) {
             return deviceGroups(List.of(deviceGroups));
         }
 
+        /**
+         * @param devices IDs of devices for which the rule must be applied.
+         * 
+         * @return builder
+         * 
+         */
         public Builder devices(@Nullable Output<List<Integer>> devices) {
             $.devices = devices;
             return this;
         }
 
+        /**
+         * @param devices IDs of devices for which the rule must be applied.
+         * 
+         * @return builder
+         * 
+         */
         public Builder devices(List<Integer> devices) {
             return devices(Output.of(devices));
         }
 
+        /**
+         * @param devices IDs of devices for which the rule must be applied.
+         * 
+         * @return builder
+         * 
+         */
         public Builder devices(Integer... devices) {
             return devices(List.of(devices));
         }
 
+        /**
+         * @param dnsGateway The ID of the DNS gateway associated with the rule.
+         * 
+         * @return builder
+         * 
+         */
         public Builder dnsGateway(@Nullable Output<Integer> dnsGateway) {
             $.dnsGateway = dnsGateway;
             return this;
         }
 
+        /**
+         * @param dnsGateway The ID of the DNS gateway associated with the rule.
+         * 
+         * @return builder
+         * 
+         */
         public Builder dnsGateway(Integer dnsGateway) {
             return dnsGateway(Output.of(dnsGateway));
         }
 
+        /**
+         * @param dnsRuleRequestTypes DNS request types to which the rule applies. Valid values: `A`, `AAAA`, `CNAME`, `MX`, `NS`, `SOA`, `TXT`, `SRV`, `PTR`, `ANY`.
+         * 
+         * @return builder
+         * 
+         */
         public Builder dnsRuleRequestTypes(@Nullable Output<List<String>> dnsRuleRequestTypes) {
             $.dnsRuleRequestTypes = dnsRuleRequestTypes;
             return this;
         }
 
+        /**
+         * @param dnsRuleRequestTypes DNS request types to which the rule applies. Valid values: `A`, `AAAA`, `CNAME`, `MX`, `NS`, `SOA`, `TXT`, `SRV`, `PTR`, `ANY`.
+         * 
+         * @return builder
+         * 
+         */
         public Builder dnsRuleRequestTypes(List<String> dnsRuleRequestTypes) {
             return dnsRuleRequestTypes(Output.of(dnsRuleRequestTypes));
         }
 
+        /**
+         * @param dnsRuleRequestTypes DNS request types to which the rule applies. Valid values: `A`, `AAAA`, `CNAME`, `MX`, `NS`, `SOA`, `TXT`, `SRV`, `PTR`, `ANY`.
+         * 
+         * @return builder
+         * 
+         */
         public Builder dnsRuleRequestTypes(String... dnsRuleRequestTypes) {
             return dnsRuleRequestTypes(List.of(dnsRuleRequestTypes));
         }
 
+        /**
+         * @param ednsEcsObject The ID of the EDNS ECS object associated with the rule.
+         * 
+         * @return builder
+         * 
+         */
         public Builder ednsEcsObject(@Nullable Output<Integer> ednsEcsObject) {
             $.ednsEcsObject = ednsEcsObject;
             return this;
         }
 
+        /**
+         * @param ednsEcsObject The ID of the EDNS ECS object associated with the rule.
+         * 
+         * @return builder
+         * 
+         */
         public Builder ednsEcsObject(Integer ednsEcsObject) {
             return ednsEcsObject(Output.of(ednsEcsObject));
         }
 
+        /**
+         * @param groups IDs of groups to which the rule must be applied.
+         * 
+         * @return builder
+         * 
+         */
         public Builder groups(@Nullable Output<List<Integer>> groups) {
             $.groups = groups;
             return this;
         }
 
+        /**
+         * @param groups IDs of groups to which the rule must be applied.
+         * 
+         * @return builder
+         * 
+         */
         public Builder groups(List<Integer> groups) {
             return groups(Output.of(groups));
         }
 
+        /**
+         * @param groups IDs of groups to which the rule must be applied.
+         * 
+         * @return builder
+         * 
+         */
         public Builder groups(Integer... groups) {
             return groups(List.of(groups));
         }
 
+        /**
+         * @param isWebEunEnabled If set to true, enables web end user notification for the rule.
+         * 
+         * @return builder
+         * 
+         */
         public Builder isWebEunEnabled(@Nullable Output<Boolean> isWebEunEnabled) {
             $.isWebEunEnabled = isWebEunEnabled;
             return this;
         }
 
+        /**
+         * @param isWebEunEnabled If set to true, enables web end user notification for the rule.
+         * 
+         * @return builder
+         * 
+         */
         public Builder isWebEunEnabled(Boolean isWebEunEnabled) {
             return isWebEunEnabled(Output.of(isWebEunEnabled));
         }
 
+        /**
+         * @param labels IDs of labels associated with the rule.
+         * 
+         * @return builder
+         * 
+         */
         public Builder labels(@Nullable Output<List<Integer>> labels) {
             $.labels = labels;
             return this;
         }
 
+        /**
+         * @param labels IDs of labels associated with the rule.
+         * 
+         * @return builder
+         * 
+         */
         public Builder labels(List<Integer> labels) {
             return labels(Output.of(labels));
         }
 
+        /**
+         * @param labels IDs of labels associated with the rule.
+         * 
+         * @return builder
+         * 
+         */
         public Builder labels(Integer... labels) {
             return labels(List.of(labels));
         }
 
+        /**
+         * @param locationGroups IDs of location groups to which the rule must be applied.
+         * 
+         * @return builder
+         * 
+         */
         public Builder locationGroups(@Nullable Output<List<Integer>> locationGroups) {
             $.locationGroups = locationGroups;
             return this;
         }
 
+        /**
+         * @param locationGroups IDs of location groups to which the rule must be applied.
+         * 
+         * @return builder
+         * 
+         */
         public Builder locationGroups(List<Integer> locationGroups) {
             return locationGroups(Output.of(locationGroups));
         }
 
+        /**
+         * @param locationGroups IDs of location groups to which the rule must be applied.
+         * 
+         * @return builder
+         * 
+         */
         public Builder locationGroups(Integer... locationGroups) {
             return locationGroups(List.of(locationGroups));
         }
 
+        /**
+         * @param locations IDs of locations to which the rule must be applied.
+         * 
+         * @return builder
+         * 
+         */
         public Builder locations(@Nullable Output<List<Integer>> locations) {
             $.locations = locations;
             return this;
         }
 
+        /**
+         * @param locations IDs of locations to which the rule must be applied.
+         * 
+         * @return builder
+         * 
+         */
         public Builder locations(List<Integer> locations) {
             return locations(Output.of(locations));
         }
 
+        /**
+         * @param locations IDs of locations to which the rule must be applied.
+         * 
+         * @return builder
+         * 
+         */
         public Builder locations(Integer... locations) {
             return locations(List.of(locations));
         }
 
+        /**
+         * @param name The name of the firewall DNS rule. Must be unique.
+         * 
+         * @return builder
+         * 
+         */
         public Builder name(Output<String> name) {
             $.name = name;
             return this;
         }
 
+        /**
+         * @param name The name of the firewall DNS rule. Must be unique.
+         * 
+         * @return builder
+         * 
+         */
         public Builder name(String name) {
             return name(Output.of(name));
         }
 
+        /**
+         * @param order The order of execution of the rule with respect to other firewall DNS rules.
+         * 
+         * @return builder
+         * 
+         */
         public Builder order(Output<Integer> order) {
             $.order = order;
             return this;
         }
 
+        /**
+         * @param order The order of execution of the rule with respect to other firewall DNS rules.
+         * 
+         * @return builder
+         * 
+         */
         public Builder order(Integer order) {
             return order(Output.of(order));
         }
 
+        /**
+         * @param predefined Indicates whether this is a predefined rule.
+         * 
+         * @return builder
+         * 
+         */
         public Builder predefined(@Nullable Output<Boolean> predefined) {
             $.predefined = predefined;
             return this;
         }
 
+        /**
+         * @param predefined Indicates whether this is a predefined rule.
+         * 
+         * @return builder
+         * 
+         */
         public Builder predefined(Boolean predefined) {
             return predefined(Output.of(predefined));
         }
 
+        /**
+         * @param protocols Protocols to which the rule applies. Valid values: `ANY_RULE`, `TCP_RULE`, `UDP_RULE`.
+         * 
+         * @return builder
+         * 
+         */
         public Builder protocols(@Nullable Output<List<String>> protocols) {
             $.protocols = protocols;
             return this;
         }
 
+        /**
+         * @param protocols Protocols to which the rule applies. Valid values: `ANY_RULE`, `TCP_RULE`, `UDP_RULE`.
+         * 
+         * @return builder
+         * 
+         */
         public Builder protocols(List<String> protocols) {
             return protocols(Output.of(protocols));
         }
 
+        /**
+         * @param protocols Protocols to which the rule applies. Valid values: `ANY_RULE`, `TCP_RULE`, `UDP_RULE`.
+         * 
+         * @return builder
+         * 
+         */
         public Builder protocols(String... protocols) {
             return protocols(List.of(protocols));
         }
 
+        /**
+         * @param rank Admin rank of the firewall DNS policy rule. Valid values: 0-7. Default: 7.
+         * 
+         * @return builder
+         * 
+         */
         public Builder rank(@Nullable Output<Integer> rank) {
             $.rank = rank;
             return this;
         }
 
+        /**
+         * @param rank Admin rank of the firewall DNS policy rule. Valid values: 0-7. Default: 7.
+         * 
+         * @return builder
+         * 
+         */
         public Builder rank(Integer rank) {
             return rank(Output.of(rank));
         }
 
+        /**
+         * @param redirectIp The IP address to redirect DNS requests to. Required when action is `REDIR_REQ`.
+         * 
+         * @return builder
+         * 
+         */
         public Builder redirectIp(@Nullable Output<String> redirectIp) {
             $.redirectIp = redirectIp;
             return this;
         }
 
+        /**
+         * @param redirectIp The IP address to redirect DNS requests to. Required when action is `REDIR_REQ`.
+         * 
+         * @return builder
+         * 
+         */
         public Builder redirectIp(String redirectIp) {
             return redirectIp(Output.of(redirectIp));
         }
 
+        /**
+         * @param resCategories URL categories that apply to the response for the rule.
+         * 
+         * @return builder
+         * 
+         */
         public Builder resCategories(@Nullable Output<List<String>> resCategories) {
             $.resCategories = resCategories;
             return this;
         }
 
+        /**
+         * @param resCategories URL categories that apply to the response for the rule.
+         * 
+         * @return builder
+         * 
+         */
         public Builder resCategories(List<String> resCategories) {
             return resCategories(Output.of(resCategories));
         }
 
+        /**
+         * @param resCategories URL categories that apply to the response for the rule.
+         * 
+         * @return builder
+         * 
+         */
         public Builder resCategories(String... resCategories) {
             return resCategories(List.of(resCategories));
         }
 
+        /**
+         * @param sourceCountries Source countries (ISO 3166-1 alpha-2 codes) for the rule.
+         * 
+         * @return builder
+         * 
+         */
         public Builder sourceCountries(@Nullable Output<List<String>> sourceCountries) {
             $.sourceCountries = sourceCountries;
             return this;
         }
 
+        /**
+         * @param sourceCountries Source countries (ISO 3166-1 alpha-2 codes) for the rule.
+         * 
+         * @return builder
+         * 
+         */
         public Builder sourceCountries(List<String> sourceCountries) {
             return sourceCountries(Output.of(sourceCountries));
         }
 
+        /**
+         * @param sourceCountries Source countries (ISO 3166-1 alpha-2 codes) for the rule.
+         * 
+         * @return builder
+         * 
+         */
         public Builder sourceCountries(String... sourceCountries) {
             return sourceCountries(List.of(sourceCountries));
         }
 
+        /**
+         * @param srcIpGroups IDs of source IP address groups for the rule.
+         * 
+         * @return builder
+         * 
+         */
         public Builder srcIpGroups(@Nullable Output<List<Integer>> srcIpGroups) {
             $.srcIpGroups = srcIpGroups;
             return this;
         }
 
+        /**
+         * @param srcIpGroups IDs of source IP address groups for the rule.
+         * 
+         * @return builder
+         * 
+         */
         public Builder srcIpGroups(List<Integer> srcIpGroups) {
             return srcIpGroups(Output.of(srcIpGroups));
         }
 
+        /**
+         * @param srcIpGroups IDs of source IP address groups for the rule.
+         * 
+         * @return builder
+         * 
+         */
         public Builder srcIpGroups(Integer... srcIpGroups) {
             return srcIpGroups(List.of(srcIpGroups));
         }
 
+        /**
+         * @param srcIps Source IP addresses or CIDR ranges for the rule.
+         * 
+         * @return builder
+         * 
+         */
         public Builder srcIps(@Nullable Output<List<String>> srcIps) {
             $.srcIps = srcIps;
             return this;
         }
 
+        /**
+         * @param srcIps Source IP addresses or CIDR ranges for the rule.
+         * 
+         * @return builder
+         * 
+         */
         public Builder srcIps(List<String> srcIps) {
             return srcIps(Output.of(srcIps));
         }
 
+        /**
+         * @param srcIps Source IP addresses or CIDR ranges for the rule.
+         * 
+         * @return builder
+         * 
+         */
         public Builder srcIps(String... srcIps) {
             return srcIps(List.of(srcIps));
         }
 
+        /**
+         * @param srcIpv6Groups IDs of source IPv6 address groups for the rule.
+         * 
+         * @return builder
+         * 
+         */
         public Builder srcIpv6Groups(@Nullable Output<List<Integer>> srcIpv6Groups) {
             $.srcIpv6Groups = srcIpv6Groups;
             return this;
         }
 
+        /**
+         * @param srcIpv6Groups IDs of source IPv6 address groups for the rule.
+         * 
+         * @return builder
+         * 
+         */
         public Builder srcIpv6Groups(List<Integer> srcIpv6Groups) {
             return srcIpv6Groups(Output.of(srcIpv6Groups));
         }
 
+        /**
+         * @param srcIpv6Groups IDs of source IPv6 address groups for the rule.
+         * 
+         * @return builder
+         * 
+         */
         public Builder srcIpv6Groups(Integer... srcIpv6Groups) {
             return srcIpv6Groups(List.of(srcIpv6Groups));
         }
 
+        /**
+         * @param state Rule state. Valid values: `ENABLED`, `DISABLED`.
+         * 
+         * @return builder
+         * 
+         */
         public Builder state(@Nullable Output<String> state) {
             $.state = state;
             return this;
         }
 
+        /**
+         * @param state Rule state. Valid values: `ENABLED`, `DISABLED`.
+         * 
+         * @return builder
+         * 
+         */
         public Builder state(String state) {
             return state(Output.of(state));
         }
 
+        /**
+         * @param timeWindows IDs of time intervals during which the rule must be enforced.
+         * 
+         * @return builder
+         * 
+         */
         public Builder timeWindows(@Nullable Output<List<Integer>> timeWindows) {
             $.timeWindows = timeWindows;
             return this;
         }
 
+        /**
+         * @param timeWindows IDs of time intervals during which the rule must be enforced.
+         * 
+         * @return builder
+         * 
+         */
         public Builder timeWindows(List<Integer> timeWindows) {
             return timeWindows(Output.of(timeWindows));
         }
 
+        /**
+         * @param timeWindows IDs of time intervals during which the rule must be enforced.
+         * 
+         * @return builder
+         * 
+         */
         public Builder timeWindows(Integer... timeWindows) {
             return timeWindows(List.of(timeWindows));
         }
 
+        /**
+         * @param users IDs of users to which the rule must be applied.
+         * 
+         * @return builder
+         * 
+         */
         public Builder users(@Nullable Output<List<Integer>> users) {
             $.users = users;
             return this;
         }
 
+        /**
+         * @param users IDs of users to which the rule must be applied.
+         * 
+         * @return builder
+         * 
+         */
         public Builder users(List<Integer> users) {
             return users(Output.of(users));
         }
 
+        /**
+         * @param users IDs of users to which the rule must be applied.
+         * 
+         * @return builder
+         * 
+         */
         public Builder users(Integer... users) {
             return users(List.of(users));
         }
 
+        /**
+         * @param zpaIpGroup The ID of the ZPA IP group associated with the rule.
+         * 
+         * @return builder
+         * 
+         */
         public Builder zpaIpGroup(@Nullable Output<Integer> zpaIpGroup) {
             $.zpaIpGroup = zpaIpGroup;
             return this;
         }
 
+        /**
+         * @param zpaIpGroup The ID of the ZPA IP group associated with the rule.
+         * 
+         * @return builder
+         * 
+         */
         public Builder zpaIpGroup(Integer zpaIpGroup) {
             return zpaIpGroup(Output.of(zpaIpGroup));
         }

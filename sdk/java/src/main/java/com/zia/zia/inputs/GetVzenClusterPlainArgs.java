@@ -15,16 +15,32 @@ public final class GetVzenClusterPlainArgs extends com.pulumi.resources.InvokeAr
 
     public static final GetVzenClusterPlainArgs Empty = new GetVzenClusterPlainArgs();
 
+    /**
+     * The ID of the VZEN cluster to look up.
+     * 
+     */
     @Import(name="clusterId")
     private @Nullable Integer clusterId;
 
+    /**
+     * @return The ID of the VZEN cluster to look up.
+     * 
+     */
     public Optional<Integer> clusterId() {
         return Optional.ofNullable(this.clusterId);
     }
 
+    /**
+     * The name of the VZEN cluster to look up.
+     * 
+     */
     @Import(name="name")
     private @Nullable String name;
 
+    /**
+     * @return The name of the VZEN cluster to look up.
+     * 
+     */
     public Optional<String> name() {
         return Optional.ofNullable(this.name);
     }
@@ -54,11 +70,23 @@ public final class GetVzenClusterPlainArgs extends com.pulumi.resources.InvokeAr
             $ = new GetVzenClusterPlainArgs(Objects.requireNonNull(defaults));
         }
 
+        /**
+         * @param clusterId The ID of the VZEN cluster to look up.
+         * 
+         * @return builder
+         * 
+         */
         public Builder clusterId(@Nullable Integer clusterId) {
             $.clusterId = clusterId;
             return this;
         }
 
+        /**
+         * @param name The name of the VZEN cluster to look up.
+         * 
+         * @return builder
+         * 
+         */
         public Builder name(@Nullable String name) {
             $.name = name;
             return this;

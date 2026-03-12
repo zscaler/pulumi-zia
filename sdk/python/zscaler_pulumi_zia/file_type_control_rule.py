@@ -54,6 +54,37 @@ class FileTypeControlRuleArgs:
                  zpa_app_segments: Optional[pulumi.Input[Sequence[pulumi.Input['ZPAAppSegmentInputArgs']]]] = None):
         """
         The set of arguments for constructing a FileTypeControlRule resource.
+        :param pulumi.Input[_builtins.str] name: Name of the file type control rule.
+        :param pulumi.Input[_builtins.int] order: The rule order of execution for the file type control rule.
+        :param pulumi.Input[_builtins.bool] active_content: Whether the rule applies to files with active content.
+        :param pulumi.Input[_builtins.int] browser_eun_template_id: The browser end-user notification template ID.
+        :param pulumi.Input[_builtins.bool] capture_pcap: Whether to capture PCAP data for the rule.
+        :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] cloud_applications: List of cloud applications to which the rule applies.
+        :param pulumi.Input[Sequence[pulumi.Input[_builtins.int]]] departments: List of department IDs to which the rule applies.
+        :param pulumi.Input[_builtins.str] description: Description of the file type control rule.
+        :param pulumi.Input[Sequence[pulumi.Input[_builtins.int]]] device_groups: List of device group IDs to which the rule applies.
+        :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] device_trust_levels: List of device trust levels for the rule.
+        :param pulumi.Input[Sequence[pulumi.Input[_builtins.int]]] devices: List of device IDs to which the rule applies.
+        :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] file_types: List of file types to which the rule applies (e.g., 'EXE', 'DLL').
+        :param pulumi.Input[_builtins.str] filtering_action: The action taken when traffic matches the rule (e.g., 'BLOCK', 'CAUTION', 'ALLOW').
+        :param pulumi.Input[Sequence[pulumi.Input[_builtins.int]]] groups: List of group IDs to which the rule applies.
+        :param pulumi.Input[Sequence[pulumi.Input[_builtins.int]]] labels: List of label IDs associated with the rule.
+        :param pulumi.Input[Sequence[pulumi.Input[_builtins.int]]] location_groups: List of location group IDs to which the rule applies.
+        :param pulumi.Input[Sequence[pulumi.Input[_builtins.int]]] locations: List of location IDs to which the rule applies.
+        :param pulumi.Input[_builtins.int] max_size: Maximum file size in bytes for the rule to apply.
+        :param pulumi.Input[_builtins.int] min_size: Minimum file size in bytes for the rule to apply.
+        :param pulumi.Input[_builtins.str] operation: The type of file operation (e.g., 'DOWNLOAD', 'UPLOAD').
+        :param pulumi.Input[_builtins.bool] password_protected: Whether the rule applies to password-protected files.
+        :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] protocols: List of protocols to which the rule applies (e.g., 'FTP_RULE', 'HTTPS_RULE').
+        :param pulumi.Input[_builtins.int] rank: The admin rank of the rule. Default is 7.
+        :param pulumi.Input[_builtins.int] size_quota: Size quota in KB beyond which the URL filtering rule is applied.
+        :param pulumi.Input[_builtins.str] state: The rule state. Accepted values: 'ENABLED' or 'DISABLED'.
+        :param pulumi.Input[_builtins.int] time_quota: Time quota in minutes after which the URL filtering rule is applied.
+        :param pulumi.Input[Sequence[pulumi.Input[_builtins.int]]] time_windows: List of time window IDs during which the rule is active.
+        :param pulumi.Input[_builtins.bool] unscannable: Whether the rule applies to unscannable files.
+        :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] url_categories: List of URL categories to which the rule applies.
+        :param pulumi.Input[Sequence[pulumi.Input[_builtins.int]]] users: List of user IDs to which the rule applies.
+        :param pulumi.Input[Sequence[pulumi.Input['ZPAAppSegmentInputArgs']]] zpa_app_segments: List of ZPA application segments for the rule.
         """
         pulumi.set(__self__, "name", name)
         pulumi.set(__self__, "order", order)
@@ -119,6 +150,9 @@ class FileTypeControlRuleArgs:
     @_builtins.property
     @pulumi.getter
     def name(self) -> pulumi.Input[_builtins.str]:
+        """
+        Name of the file type control rule.
+        """
         return pulumi.get(self, "name")
 
     @name.setter
@@ -128,6 +162,9 @@ class FileTypeControlRuleArgs:
     @_builtins.property
     @pulumi.getter
     def order(self) -> pulumi.Input[_builtins.int]:
+        """
+        The rule order of execution for the file type control rule.
+        """
         return pulumi.get(self, "order")
 
     @order.setter
@@ -137,6 +174,9 @@ class FileTypeControlRuleArgs:
     @_builtins.property
     @pulumi.getter(name="activeContent")
     def active_content(self) -> Optional[pulumi.Input[_builtins.bool]]:
+        """
+        Whether the rule applies to files with active content.
+        """
         return pulumi.get(self, "active_content")
 
     @active_content.setter
@@ -146,6 +186,9 @@ class FileTypeControlRuleArgs:
     @_builtins.property
     @pulumi.getter(name="browserEunTemplateId")
     def browser_eun_template_id(self) -> Optional[pulumi.Input[_builtins.int]]:
+        """
+        The browser end-user notification template ID.
+        """
         return pulumi.get(self, "browser_eun_template_id")
 
     @browser_eun_template_id.setter
@@ -155,6 +198,9 @@ class FileTypeControlRuleArgs:
     @_builtins.property
     @pulumi.getter(name="capturePcap")
     def capture_pcap(self) -> Optional[pulumi.Input[_builtins.bool]]:
+        """
+        Whether to capture PCAP data for the rule.
+        """
         return pulumi.get(self, "capture_pcap")
 
     @capture_pcap.setter
@@ -164,6 +210,9 @@ class FileTypeControlRuleArgs:
     @_builtins.property
     @pulumi.getter(name="cloudApplications")
     def cloud_applications(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
+        """
+        List of cloud applications to which the rule applies.
+        """
         return pulumi.get(self, "cloud_applications")
 
     @cloud_applications.setter
@@ -173,6 +222,9 @@ class FileTypeControlRuleArgs:
     @_builtins.property
     @pulumi.getter
     def departments(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.int]]]]:
+        """
+        List of department IDs to which the rule applies.
+        """
         return pulumi.get(self, "departments")
 
     @departments.setter
@@ -182,6 +234,9 @@ class FileTypeControlRuleArgs:
     @_builtins.property
     @pulumi.getter
     def description(self) -> Optional[pulumi.Input[_builtins.str]]:
+        """
+        Description of the file type control rule.
+        """
         return pulumi.get(self, "description")
 
     @description.setter
@@ -191,6 +246,9 @@ class FileTypeControlRuleArgs:
     @_builtins.property
     @pulumi.getter(name="deviceGroups")
     def device_groups(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.int]]]]:
+        """
+        List of device group IDs to which the rule applies.
+        """
         return pulumi.get(self, "device_groups")
 
     @device_groups.setter
@@ -200,6 +258,9 @@ class FileTypeControlRuleArgs:
     @_builtins.property
     @pulumi.getter(name="deviceTrustLevels")
     def device_trust_levels(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
+        """
+        List of device trust levels for the rule.
+        """
         return pulumi.get(self, "device_trust_levels")
 
     @device_trust_levels.setter
@@ -209,6 +270,9 @@ class FileTypeControlRuleArgs:
     @_builtins.property
     @pulumi.getter
     def devices(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.int]]]]:
+        """
+        List of device IDs to which the rule applies.
+        """
         return pulumi.get(self, "devices")
 
     @devices.setter
@@ -218,6 +282,9 @@ class FileTypeControlRuleArgs:
     @_builtins.property
     @pulumi.getter(name="fileTypes")
     def file_types(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
+        """
+        List of file types to which the rule applies (e.g., 'EXE', 'DLL').
+        """
         return pulumi.get(self, "file_types")
 
     @file_types.setter
@@ -227,6 +294,9 @@ class FileTypeControlRuleArgs:
     @_builtins.property
     @pulumi.getter(name="filteringAction")
     def filtering_action(self) -> Optional[pulumi.Input[_builtins.str]]:
+        """
+        The action taken when traffic matches the rule (e.g., 'BLOCK', 'CAUTION', 'ALLOW').
+        """
         return pulumi.get(self, "filtering_action")
 
     @filtering_action.setter
@@ -236,6 +306,9 @@ class FileTypeControlRuleArgs:
     @_builtins.property
     @pulumi.getter
     def groups(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.int]]]]:
+        """
+        List of group IDs to which the rule applies.
+        """
         return pulumi.get(self, "groups")
 
     @groups.setter
@@ -245,6 +318,9 @@ class FileTypeControlRuleArgs:
     @_builtins.property
     @pulumi.getter
     def labels(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.int]]]]:
+        """
+        List of label IDs associated with the rule.
+        """
         return pulumi.get(self, "labels")
 
     @labels.setter
@@ -254,6 +330,9 @@ class FileTypeControlRuleArgs:
     @_builtins.property
     @pulumi.getter(name="locationGroups")
     def location_groups(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.int]]]]:
+        """
+        List of location group IDs to which the rule applies.
+        """
         return pulumi.get(self, "location_groups")
 
     @location_groups.setter
@@ -263,6 +342,9 @@ class FileTypeControlRuleArgs:
     @_builtins.property
     @pulumi.getter
     def locations(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.int]]]]:
+        """
+        List of location IDs to which the rule applies.
+        """
         return pulumi.get(self, "locations")
 
     @locations.setter
@@ -272,6 +354,9 @@ class FileTypeControlRuleArgs:
     @_builtins.property
     @pulumi.getter(name="maxSize")
     def max_size(self) -> Optional[pulumi.Input[_builtins.int]]:
+        """
+        Maximum file size in bytes for the rule to apply.
+        """
         return pulumi.get(self, "max_size")
 
     @max_size.setter
@@ -281,6 +366,9 @@ class FileTypeControlRuleArgs:
     @_builtins.property
     @pulumi.getter(name="minSize")
     def min_size(self) -> Optional[pulumi.Input[_builtins.int]]:
+        """
+        Minimum file size in bytes for the rule to apply.
+        """
         return pulumi.get(self, "min_size")
 
     @min_size.setter
@@ -290,6 +378,9 @@ class FileTypeControlRuleArgs:
     @_builtins.property
     @pulumi.getter
     def operation(self) -> Optional[pulumi.Input[_builtins.str]]:
+        """
+        The type of file operation (e.g., 'DOWNLOAD', 'UPLOAD').
+        """
         return pulumi.get(self, "operation")
 
     @operation.setter
@@ -299,6 +390,9 @@ class FileTypeControlRuleArgs:
     @_builtins.property
     @pulumi.getter(name="passwordProtected")
     def password_protected(self) -> Optional[pulumi.Input[_builtins.bool]]:
+        """
+        Whether the rule applies to password-protected files.
+        """
         return pulumi.get(self, "password_protected")
 
     @password_protected.setter
@@ -308,6 +402,9 @@ class FileTypeControlRuleArgs:
     @_builtins.property
     @pulumi.getter
     def protocols(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
+        """
+        List of protocols to which the rule applies (e.g., 'FTP_RULE', 'HTTPS_RULE').
+        """
         return pulumi.get(self, "protocols")
 
     @protocols.setter
@@ -317,6 +414,9 @@ class FileTypeControlRuleArgs:
     @_builtins.property
     @pulumi.getter
     def rank(self) -> Optional[pulumi.Input[_builtins.int]]:
+        """
+        The admin rank of the rule. Default is 7.
+        """
         return pulumi.get(self, "rank")
 
     @rank.setter
@@ -326,6 +426,9 @@ class FileTypeControlRuleArgs:
     @_builtins.property
     @pulumi.getter(name="sizeQuota")
     def size_quota(self) -> Optional[pulumi.Input[_builtins.int]]:
+        """
+        Size quota in KB beyond which the URL filtering rule is applied.
+        """
         return pulumi.get(self, "size_quota")
 
     @size_quota.setter
@@ -335,6 +438,9 @@ class FileTypeControlRuleArgs:
     @_builtins.property
     @pulumi.getter
     def state(self) -> Optional[pulumi.Input[_builtins.str]]:
+        """
+        The rule state. Accepted values: 'ENABLED' or 'DISABLED'.
+        """
         return pulumi.get(self, "state")
 
     @state.setter
@@ -344,6 +450,9 @@ class FileTypeControlRuleArgs:
     @_builtins.property
     @pulumi.getter(name="timeQuota")
     def time_quota(self) -> Optional[pulumi.Input[_builtins.int]]:
+        """
+        Time quota in minutes after which the URL filtering rule is applied.
+        """
         return pulumi.get(self, "time_quota")
 
     @time_quota.setter
@@ -353,6 +462,9 @@ class FileTypeControlRuleArgs:
     @_builtins.property
     @pulumi.getter(name="timeWindows")
     def time_windows(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.int]]]]:
+        """
+        List of time window IDs during which the rule is active.
+        """
         return pulumi.get(self, "time_windows")
 
     @time_windows.setter
@@ -362,6 +474,9 @@ class FileTypeControlRuleArgs:
     @_builtins.property
     @pulumi.getter
     def unscannable(self) -> Optional[pulumi.Input[_builtins.bool]]:
+        """
+        Whether the rule applies to unscannable files.
+        """
         return pulumi.get(self, "unscannable")
 
     @unscannable.setter
@@ -371,6 +486,9 @@ class FileTypeControlRuleArgs:
     @_builtins.property
     @pulumi.getter(name="urlCategories")
     def url_categories(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
+        """
+        List of URL categories to which the rule applies.
+        """
         return pulumi.get(self, "url_categories")
 
     @url_categories.setter
@@ -380,6 +498,9 @@ class FileTypeControlRuleArgs:
     @_builtins.property
     @pulumi.getter
     def users(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.int]]]]:
+        """
+        List of user IDs to which the rule applies.
+        """
         return pulumi.get(self, "users")
 
     @users.setter
@@ -389,6 +510,9 @@ class FileTypeControlRuleArgs:
     @_builtins.property
     @pulumi.getter(name="zpaAppSegments")
     def zpa_app_segments(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['ZPAAppSegmentInputArgs']]]]:
+        """
+        List of ZPA application segments for the rule.
+        """
         return pulumi.get(self, "zpa_app_segments")
 
     @zpa_app_segments.setter
@@ -435,9 +559,68 @@ class FileTypeControlRule(pulumi.CustomResource):
                  zpa_app_segments: Optional[pulumi.Input[Sequence[pulumi.Input[Union['ZPAAppSegmentInputArgs', 'ZPAAppSegmentInputArgsDict']]]]] = None,
                  __props__=None):
         """
-        Create a FileTypeControlRule resource with the given unique name, props, and options.
+        The zia.FileTypeControlRule resource manages file type control rules in the Zscaler Internet Access (ZIA) cloud.
+        File type control rules allow you to block, caution, or allow file downloads and uploads based on file types,
+        protocols, URL categories, and other criteria. Predefined rules cannot be deleted.
+
+        ## Example Usage
+        ### Basic File Type Control Rule
+
+        ```python
+        import zscaler_pulumi_zia as zia
+
+        example = zia.FileTypeControlRule("example",
+            name="Example File Type Rule",
+            order=1,
+            description="Managed by Pulumi",
+            state="ENABLED",
+            filtering_action="BLOCK",
+            file_types=["EXE", "DLL"],
+            protocols=["FTP_RULE", "HTTPS_RULE", "HTTP_PROXY"],
+        )
+        ```
+
+        ## Import
+
+        An existing file type control rule can be imported using its ID, e.g.
+
+        ```sh
+        $ pulumi import zia:index:FileTypeControlRule example 12345
+        ```
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
+        :param pulumi.Input[_builtins.bool] active_content: Whether the rule applies to files with active content.
+        :param pulumi.Input[_builtins.int] browser_eun_template_id: The browser end-user notification template ID.
+        :param pulumi.Input[_builtins.bool] capture_pcap: Whether to capture PCAP data for the rule.
+        :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] cloud_applications: List of cloud applications to which the rule applies.
+        :param pulumi.Input[Sequence[pulumi.Input[_builtins.int]]] departments: List of department IDs to which the rule applies.
+        :param pulumi.Input[_builtins.str] description: Description of the file type control rule.
+        :param pulumi.Input[Sequence[pulumi.Input[_builtins.int]]] device_groups: List of device group IDs to which the rule applies.
+        :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] device_trust_levels: List of device trust levels for the rule.
+        :param pulumi.Input[Sequence[pulumi.Input[_builtins.int]]] devices: List of device IDs to which the rule applies.
+        :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] file_types: List of file types to which the rule applies (e.g., 'EXE', 'DLL').
+        :param pulumi.Input[_builtins.str] filtering_action: The action taken when traffic matches the rule (e.g., 'BLOCK', 'CAUTION', 'ALLOW').
+        :param pulumi.Input[Sequence[pulumi.Input[_builtins.int]]] groups: List of group IDs to which the rule applies.
+        :param pulumi.Input[Sequence[pulumi.Input[_builtins.int]]] labels: List of label IDs associated with the rule.
+        :param pulumi.Input[Sequence[pulumi.Input[_builtins.int]]] location_groups: List of location group IDs to which the rule applies.
+        :param pulumi.Input[Sequence[pulumi.Input[_builtins.int]]] locations: List of location IDs to which the rule applies.
+        :param pulumi.Input[_builtins.int] max_size: Maximum file size in bytes for the rule to apply.
+        :param pulumi.Input[_builtins.int] min_size: Minimum file size in bytes for the rule to apply.
+        :param pulumi.Input[_builtins.str] name: Name of the file type control rule.
+        :param pulumi.Input[_builtins.str] operation: The type of file operation (e.g., 'DOWNLOAD', 'UPLOAD').
+        :param pulumi.Input[_builtins.int] order: The rule order of execution for the file type control rule.
+        :param pulumi.Input[_builtins.bool] password_protected: Whether the rule applies to password-protected files.
+        :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] protocols: List of protocols to which the rule applies (e.g., 'FTP_RULE', 'HTTPS_RULE').
+        :param pulumi.Input[_builtins.int] rank: The admin rank of the rule. Default is 7.
+        :param pulumi.Input[_builtins.int] size_quota: Size quota in KB beyond which the URL filtering rule is applied.
+        :param pulumi.Input[_builtins.str] state: The rule state. Accepted values: 'ENABLED' or 'DISABLED'.
+        :param pulumi.Input[_builtins.int] time_quota: Time quota in minutes after which the URL filtering rule is applied.
+        :param pulumi.Input[Sequence[pulumi.Input[_builtins.int]]] time_windows: List of time window IDs during which the rule is active.
+        :param pulumi.Input[_builtins.bool] unscannable: Whether the rule applies to unscannable files.
+        :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] url_categories: List of URL categories to which the rule applies.
+        :param pulumi.Input[Sequence[pulumi.Input[_builtins.int]]] users: List of user IDs to which the rule applies.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['ZPAAppSegmentInputArgs', 'ZPAAppSegmentInputArgsDict']]]] zpa_app_segments: List of ZPA application segments for the rule.
         """
         ...
     @overload
@@ -446,7 +629,35 @@ class FileTypeControlRule(pulumi.CustomResource):
                  args: FileTypeControlRuleArgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
-        Create a FileTypeControlRule resource with the given unique name, props, and options.
+        The zia.FileTypeControlRule resource manages file type control rules in the Zscaler Internet Access (ZIA) cloud.
+        File type control rules allow you to block, caution, or allow file downloads and uploads based on file types,
+        protocols, URL categories, and other criteria. Predefined rules cannot be deleted.
+
+        ## Example Usage
+        ### Basic File Type Control Rule
+
+        ```python
+        import zscaler_pulumi_zia as zia
+
+        example = zia.FileTypeControlRule("example",
+            name="Example File Type Rule",
+            order=1,
+            description="Managed by Pulumi",
+            state="ENABLED",
+            filtering_action="BLOCK",
+            file_types=["EXE", "DLL"],
+            protocols=["FTP_RULE", "HTTPS_RULE", "HTTP_PROXY"],
+        )
+        ```
+
+        ## Import
+
+        An existing file type control rule can be imported using its ID, e.g.
+
+        ```sh
+        $ pulumi import zia:index:FileTypeControlRule example 12345
+        ```
+
         :param str resource_name: The name of the resource.
         :param FileTypeControlRuleArgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -597,160 +808,256 @@ class FileTypeControlRule(pulumi.CustomResource):
     @_builtins.property
     @pulumi.getter(name="activeContent")
     def active_content(self) -> pulumi.Output[Optional[_builtins.bool]]:
+        """
+        Whether the rule applies to files with active content.
+        """
         return pulumi.get(self, "active_content")
 
     @_builtins.property
     @pulumi.getter(name="browserEunTemplateId")
     def browser_eun_template_id(self) -> pulumi.Output[Optional[_builtins.int]]:
+        """
+        The browser end-user notification template ID.
+        """
         return pulumi.get(self, "browser_eun_template_id")
 
     @_builtins.property
     @pulumi.getter(name="capturePcap")
     def capture_pcap(self) -> pulumi.Output[Optional[_builtins.bool]]:
+        """
+        Whether to capture PCAP data for the rule.
+        """
         return pulumi.get(self, "capture_pcap")
 
     @_builtins.property
     @pulumi.getter(name="cloudApplications")
     def cloud_applications(self) -> pulumi.Output[Optional[Sequence[_builtins.str]]]:
+        """
+        List of cloud applications to which the rule applies.
+        """
         return pulumi.get(self, "cloud_applications")
 
     @_builtins.property
     @pulumi.getter
     def departments(self) -> pulumi.Output[Optional[Sequence[_builtins.int]]]:
+        """
+        List of department IDs to which the rule applies.
+        """
         return pulumi.get(self, "departments")
 
     @_builtins.property
     @pulumi.getter
     def description(self) -> pulumi.Output[Optional[_builtins.str]]:
+        """
+        Description of the file type control rule.
+        """
         return pulumi.get(self, "description")
 
     @_builtins.property
     @pulumi.getter(name="deviceGroups")
     def device_groups(self) -> pulumi.Output[Optional[Sequence[_builtins.int]]]:
+        """
+        List of device group IDs to which the rule applies.
+        """
         return pulumi.get(self, "device_groups")
 
     @_builtins.property
     @pulumi.getter(name="deviceTrustLevels")
     def device_trust_levels(self) -> pulumi.Output[Optional[Sequence[_builtins.str]]]:
+        """
+        List of device trust levels for the rule.
+        """
         return pulumi.get(self, "device_trust_levels")
 
     @_builtins.property
     @pulumi.getter
     def devices(self) -> pulumi.Output[Optional[Sequence[_builtins.int]]]:
+        """
+        List of device IDs to which the rule applies.
+        """
         return pulumi.get(self, "devices")
 
     @_builtins.property
     @pulumi.getter(name="fileTypes")
     def file_types(self) -> pulumi.Output[Optional[Sequence[_builtins.str]]]:
+        """
+        List of file types to which the rule applies (e.g., 'EXE', 'DLL').
+        """
         return pulumi.get(self, "file_types")
 
     @_builtins.property
     @pulumi.getter(name="filteringAction")
     def filtering_action(self) -> pulumi.Output[Optional[_builtins.str]]:
+        """
+        The action taken when traffic matches the rule (e.g., 'BLOCK', 'CAUTION', 'ALLOW').
+        """
         return pulumi.get(self, "filtering_action")
 
     @_builtins.property
     @pulumi.getter
     def groups(self) -> pulumi.Output[Optional[Sequence[_builtins.int]]]:
+        """
+        List of group IDs to which the rule applies.
+        """
         return pulumi.get(self, "groups")
 
     @_builtins.property
     @pulumi.getter
     def labels(self) -> pulumi.Output[Optional[Sequence[_builtins.int]]]:
+        """
+        List of label IDs associated with the rule.
+        """
         return pulumi.get(self, "labels")
 
     @_builtins.property
     @pulumi.getter(name="locationGroups")
     def location_groups(self) -> pulumi.Output[Optional[Sequence[_builtins.int]]]:
+        """
+        List of location group IDs to which the rule applies.
+        """
         return pulumi.get(self, "location_groups")
 
     @_builtins.property
     @pulumi.getter
     def locations(self) -> pulumi.Output[Optional[Sequence[_builtins.int]]]:
+        """
+        List of location IDs to which the rule applies.
+        """
         return pulumi.get(self, "locations")
 
     @_builtins.property
     @pulumi.getter(name="maxSize")
     def max_size(self) -> pulumi.Output[Optional[_builtins.int]]:
+        """
+        Maximum file size in bytes for the rule to apply.
+        """
         return pulumi.get(self, "max_size")
 
     @_builtins.property
     @pulumi.getter(name="minSize")
     def min_size(self) -> pulumi.Output[Optional[_builtins.int]]:
+        """
+        Minimum file size in bytes for the rule to apply.
+        """
         return pulumi.get(self, "min_size")
 
     @_builtins.property
     @pulumi.getter
     def name(self) -> pulumi.Output[_builtins.str]:
+        """
+        Name of the file type control rule.
+        """
         return pulumi.get(self, "name")
 
     @_builtins.property
     @pulumi.getter
     def operation(self) -> pulumi.Output[Optional[_builtins.str]]:
+        """
+        The type of file operation (e.g., 'DOWNLOAD', 'UPLOAD').
+        """
         return pulumi.get(self, "operation")
 
     @_builtins.property
     @pulumi.getter
     def order(self) -> pulumi.Output[_builtins.int]:
+        """
+        The rule order of execution for the file type control rule.
+        """
         return pulumi.get(self, "order")
 
     @_builtins.property
     @pulumi.getter(name="passwordProtected")
     def password_protected(self) -> pulumi.Output[Optional[_builtins.bool]]:
+        """
+        Whether the rule applies to password-protected files.
+        """
         return pulumi.get(self, "password_protected")
 
     @_builtins.property
     @pulumi.getter
     def protocols(self) -> pulumi.Output[Optional[Sequence[_builtins.str]]]:
+        """
+        List of protocols to which the rule applies (e.g., 'FTP_RULE', 'HTTPS_RULE').
+        """
         return pulumi.get(self, "protocols")
 
     @_builtins.property
     @pulumi.getter
     def rank(self) -> pulumi.Output[Optional[_builtins.int]]:
+        """
+        The admin rank of the rule. Default is 7.
+        """
         return pulumi.get(self, "rank")
 
     @_builtins.property
     @pulumi.getter(name="ruleId")
     def rule_id(self) -> pulumi.Output[_builtins.int]:
+        """
+        The unique identifier for the file type control rule assigned by the ZIA cloud.
+        """
         return pulumi.get(self, "rule_id")
 
     @_builtins.property
     @pulumi.getter(name="sizeQuota")
     def size_quota(self) -> pulumi.Output[Optional[_builtins.int]]:
+        """
+        Size quota in KB beyond which the URL filtering rule is applied.
+        """
         return pulumi.get(self, "size_quota")
 
     @_builtins.property
     @pulumi.getter
     def state(self) -> pulumi.Output[Optional[_builtins.str]]:
+        """
+        The rule state. Accepted values: 'ENABLED' or 'DISABLED'.
+        """
         return pulumi.get(self, "state")
 
     @_builtins.property
     @pulumi.getter(name="timeQuota")
     def time_quota(self) -> pulumi.Output[Optional[_builtins.int]]:
+        """
+        Time quota in minutes after which the URL filtering rule is applied.
+        """
         return pulumi.get(self, "time_quota")
 
     @_builtins.property
     @pulumi.getter(name="timeWindows")
     def time_windows(self) -> pulumi.Output[Optional[Sequence[_builtins.int]]]:
+        """
+        List of time window IDs during which the rule is active.
+        """
         return pulumi.get(self, "time_windows")
 
     @_builtins.property
     @pulumi.getter
     def unscannable(self) -> pulumi.Output[Optional[_builtins.bool]]:
+        """
+        Whether the rule applies to unscannable files.
+        """
         return pulumi.get(self, "unscannable")
 
     @_builtins.property
     @pulumi.getter(name="urlCategories")
     def url_categories(self) -> pulumi.Output[Optional[Sequence[_builtins.str]]]:
+        """
+        List of URL categories to which the rule applies.
+        """
         return pulumi.get(self, "url_categories")
 
     @_builtins.property
     @pulumi.getter
     def users(self) -> pulumi.Output[Optional[Sequence[_builtins.int]]]:
+        """
+        List of user IDs to which the rule applies.
+        """
         return pulumi.get(self, "users")
 
     @_builtins.property
     @pulumi.getter(name="zpaAppSegments")
     def zpa_app_segments(self) -> pulumi.Output[Optional[Sequence['outputs.ZPAAppSegmentInput']]]:
+        """
+        List of ZPA application segments for the rule.
+        """
         return pulumi.get(self, "zpa_app_segments")
 

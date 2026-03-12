@@ -17,45 +17,125 @@ import javax.annotation.Nullable;
 
 @CustomType
 public final class GetUserManagementUserResult {
+    /**
+     * @return Whether the user is an admin user.
+     * 
+     */
     private Boolean adminUser;
+    /**
+     * @return The authentication methods configured for the user.
+     * 
+     */
     private List<String> authMethods;
+    /**
+     * @return Comments or notes about the user.
+     * 
+     */
     private String comments;
+    /**
+     * @return The department the user belongs to.
+     * 
+     */
     private @Nullable UserDepartmentOutput department;
+    /**
+     * @return The email address of the user.
+     * 
+     */
     private String email;
+    /**
+     * @return The list of groups the user belongs to.
+     * 
+     */
     private List<UserGroupOutput> groups;
+    /**
+     * @return The full name of the user.
+     * 
+     */
     private String name;
+    /**
+     * @return The temporary authentication email for the user.
+     * 
+     */
     private String tempAuthEmail;
+    /**
+     * @return The type of the user.
+     * 
+     */
     private String type;
+    /**
+     * @return The ID of the user.
+     * 
+     */
     private Integer userId;
 
     private GetUserManagementUserResult() {}
+    /**
+     * @return Whether the user is an admin user.
+     * 
+     */
     public Boolean adminUser() {
         return this.adminUser;
     }
+    /**
+     * @return The authentication methods configured for the user.
+     * 
+     */
     public List<String> authMethods() {
         return this.authMethods;
     }
+    /**
+     * @return Comments or notes about the user.
+     * 
+     */
     public String comments() {
         return this.comments;
     }
+    /**
+     * @return The department the user belongs to.
+     * 
+     */
     public Optional<UserDepartmentOutput> department() {
         return Optional.ofNullable(this.department);
     }
+    /**
+     * @return The email address of the user.
+     * 
+     */
     public String email() {
         return this.email;
     }
+    /**
+     * @return The list of groups the user belongs to.
+     * 
+     */
     public List<UserGroupOutput> groups() {
         return this.groups;
     }
+    /**
+     * @return The full name of the user.
+     * 
+     */
     public String name() {
         return this.name;
     }
+    /**
+     * @return The temporary authentication email for the user.
+     * 
+     */
     public String tempAuthEmail() {
         return this.tempAuthEmail;
     }
+    /**
+     * @return The type of the user.
+     * 
+     */
     public String type() {
         return this.type;
     }
+    /**
+     * @return The ID of the user.
+     * 
+     */
     public Integer userId() {
         return this.userId;
     }

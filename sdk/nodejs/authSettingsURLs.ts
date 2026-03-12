@@ -4,6 +4,29 @@
 import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "./utilities";
 
+/**
+ * The zia_auth_settings_urls resource manages the URLs that are exempted from user authentication in the Zscaler Internet Access (ZIA) cloud service. This singleton resource allows you to define a list of URLs that bypass the ZIA authentication process.
+ *
+ * For more information, see the [ZIA User Authentication documentation](https://help.zscaler.com/zia/authentication-exemptions).
+ *
+ * ## Example Usage
+ * ### Basic Authentication Settings URLs
+ *
+ * ```typescript
+ * import * as zia from "@bdzscaler/pulumi-zia";
+ *
+ * const example = new zia.AuthSettingsUrls("example", {
+ *     urls: [
+ *         ".example.com",
+ *         ".internal.corp.com",
+ *     ],
+ * });
+ * ```
+ *
+ * ## Import
+ *
+ * This is a singleton resource and does not support traditional import. It is automatically managed by the provider.
+ */
 export class AuthSettingsUrls extends pulumi.CustomResource {
     /**
      * Get an existing AuthSettingsUrls resource's state with the given name, ID, and optional extra
@@ -31,7 +54,13 @@ export class AuthSettingsUrls extends pulumi.CustomResource {
         return obj['__pulumiType'] === AuthSettingsUrls.__pulumiType;
     }
 
+    /**
+     * The internal resource identifier for the authentication settings URLs.
+     */
     declare public /*out*/ readonly resourceId: pulumi.Output<string>;
+    /**
+     * List of URLs that are exempted from user authentication.
+     */
     declare public readonly urls: pulumi.Output<string[] | undefined>;
 
     /**
@@ -60,5 +89,8 @@ export class AuthSettingsUrls extends pulumi.CustomResource {
  * The set of arguments for constructing a AuthSettingsUrls resource.
  */
 export interface AuthSettingsUrlsArgs {
+    /**
+     * List of URLs that are exempted from user authentication.
+     */
     urls?: pulumi.Input<pulumi.Input<string>[]>;
 }

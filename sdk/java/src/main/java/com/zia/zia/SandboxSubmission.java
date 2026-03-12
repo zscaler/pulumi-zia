@@ -15,65 +15,155 @@ import java.lang.String;
 import java.util.Optional;
 import javax.annotation.Nullable;
 
+/**
+ * The zia_sandbox_submission resource submits files to the Zscaler cloud sandbox for analysis. Files can be submitted for full analysis or a quick discan (distributed scan). This resource is create-only; there is no remote GET API, and delete is a no-op.
+ * 
+ * For more information, see the [ZIA Cloud Sandbox Submission documentation](https://help.zscaler.com/zia/about-sandbox-analysis).
+ * 
+ * ## Example Usage
+ * 
+ * &gt; Import is not supported for this resource.
+ * 
+ */
 @ResourceType(type="zia:index:SandboxSubmission")
 public class SandboxSubmission extends com.pulumi.resources.CustomResource {
+    /**
+     * The response status code from the sandbox submission.
+     * 
+     */
     @Export(name="code", refs={Integer.class}, tree="[0]")
     private Output</* @Nullable */ Integer> code;
 
+    /**
+     * @return The response status code from the sandbox submission.
+     * 
+     */
     public Output<Optional<Integer>> code() {
         return Codegen.optional(this.code);
     }
+    /**
+     * The local file path of the file to submit for sandbox analysis.
+     * 
+     */
     @Export(name="filePath", refs={String.class}, tree="[0]")
     private Output<String> filePath;
 
+    /**
+     * @return The local file path of the file to submit for sandbox analysis.
+     * 
+     */
     public Output<String> filePath() {
         return this.filePath;
     }
+    /**
+     * The detected file type of the submitted file.
+     * 
+     */
     @Export(name="fileType", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> fileType;
 
+    /**
+     * @return The detected file type of the submitted file.
+     * 
+     */
     public Output<Optional<String>> fileType() {
         return Codegen.optional(this.fileType);
     }
+    /**
+     * Force re-analysis of a previously submitted file. Only applicable for &#39;submit&#39; method. Not applicable for &#39;discan&#39;.
+     * 
+     */
     @Export(name="force", refs={Boolean.class}, tree="[0]")
     private Output</* @Nullable */ Boolean> force;
 
+    /**
+     * @return Force re-analysis of a previously submitted file. Only applicable for &#39;submit&#39; method. Not applicable for &#39;discan&#39;.
+     * 
+     */
     public Output<Optional<Boolean>> force() {
         return Codegen.optional(this.force);
     }
+    /**
+     * The MD5 hash of the submitted file.
+     * 
+     */
     @Export(name="md5", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> md5;
 
+    /**
+     * @return The MD5 hash of the submitted file.
+     * 
+     */
     public Output<Optional<String>> md5() {
         return Codegen.optional(this.md5);
     }
+    /**
+     * The response message from the sandbox submission.
+     * 
+     */
     @Export(name="message", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> message;
 
+    /**
+     * @return The response message from the sandbox submission.
+     * 
+     */
     public Output<Optional<String>> message() {
         return Codegen.optional(this.message);
     }
+    /**
+     * The submission method. Valid values: `submit` (full analysis) or `discan` (distributed scan).
+     * 
+     */
     @Export(name="submissionMethod", refs={String.class}, tree="[0]")
     private Output<String> submissionMethod;
 
+    /**
+     * @return The submission method. Valid values: `submit` (full analysis) or `discan` (distributed scan).
+     * 
+     */
     public Output<String> submissionMethod() {
         return this.submissionMethod;
     }
+    /**
+     * The sandbox submission result string.
+     * 
+     */
     @Export(name="submissionResult", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> submissionResult;
 
+    /**
+     * @return The sandbox submission result string.
+     * 
+     */
     public Output<Optional<String>> submissionResult() {
         return Codegen.optional(this.submissionResult);
     }
+    /**
+     * The virus name if the file is detected as malicious.
+     * 
+     */
     @Export(name="virusName", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> virusName;
 
+    /**
+     * @return The virus name if the file is detected as malicious.
+     * 
+     */
     public Output<Optional<String>> virusName() {
         return Codegen.optional(this.virusName);
     }
+    /**
+     * The virus type if the file is detected as malicious.
+     * 
+     */
     @Export(name="virusType", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> virusType;
 
+    /**
+     * @return The virus type if the file is detected as malicious.
+     * 
+     */
     public Output<Optional<String>> virusType() {
         return Codegen.optional(this.virusType);
     }
@@ -117,6 +207,7 @@ public class SandboxSubmission extends com.pulumi.resources.CustomResource {
     private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<java.lang.String> id) {
         var defaultOptions = com.pulumi.resources.CustomResourceOptions.builder()
             .version(Utilities.getVersion())
+            .pluginDownloadURL("github://api.github.com/zscaler")
             .build();
         return com.pulumi.resources.CustomResourceOptions.merge(defaultOptions, options, id);
     }

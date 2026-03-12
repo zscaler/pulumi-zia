@@ -16,75 +16,171 @@ import javax.annotation.Nullable;
 
 @ResourceType(type="pulumi:providers:zia")
 public class Provider extends com.pulumi.resources.ProviderResource {
+    /**
+     * (Legacy) The API key for ZIA. Can also be set via the `ZIA_API_KEY` environment variable. Prefer OAuth2 credentials instead.
+     * 
+     */
     @Export(name="apiKey", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> apiKey;
 
+    /**
+     * @return (Legacy) The API key for ZIA. Can also be set via the `ZIA_API_KEY` environment variable. Prefer OAuth2 credentials instead.
+     * 
+     */
     public Output<Optional<String>> apiKey() {
         return Codegen.optional(this.apiKey);
     }
+    /**
+     * The OAuth2 client ID for authenticating with the Zscaler API. Can also be set via the `ZSCALER_CLIENT_ID` environment variable.
+     * 
+     */
     @Export(name="clientId", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> clientId;
 
+    /**
+     * @return The OAuth2 client ID for authenticating with the Zscaler API. Can also be set via the `ZSCALER_CLIENT_ID` environment variable.
+     * 
+     */
     public Output<Optional<String>> clientId() {
         return Codegen.optional(this.clientId);
     }
+    /**
+     * The OAuth2 client secret for authenticating with the Zscaler API. Can also be set via the `ZSCALER_CLIENT_SECRET` environment variable.
+     * 
+     */
     @Export(name="clientSecret", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> clientSecret;
 
+    /**
+     * @return The OAuth2 client secret for authenticating with the Zscaler API. Can also be set via the `ZSCALER_CLIENT_SECRET` environment variable.
+     * 
+     */
     public Output<Optional<String>> clientSecret() {
         return Codegen.optional(this.clientSecret);
     }
+    /**
+     * The Zscaler cloud name (e.g. &#39;zscaler&#39;, &#39;zscalerone&#39;, &#39;zscalertwo&#39;, &#39;zscalerthree&#39;, &#39;zscloud&#39;, &#39;zscalerbeta&#39;, &#39;zscalergov&#39;). Can also be set via the `ZSCALER_CLOUD` environment variable.
+     * 
+     */
     @Export(name="cloud", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> cloud;
 
+    /**
+     * @return The Zscaler cloud name (e.g. &#39;zscaler&#39;, &#39;zscalerone&#39;, &#39;zscalertwo&#39;, &#39;zscalerthree&#39;, &#39;zscloud&#39;, &#39;zscalerbeta&#39;, &#39;zscalergov&#39;). Can also be set via the `ZSCALER_CLOUD` environment variable.
+     * 
+     */
     public Output<Optional<String>> cloud() {
         return Codegen.optional(this.cloud);
     }
+    /**
+     * HTTP proxy URL for API requests (e.g. &#39;http://proxy.example.com:8080&#39;). Can also be set via the `ZSCALER_HTTP_PROXY` environment variable.
+     * 
+     */
     @Export(name="httpProxy", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> httpProxy;
 
+    /**
+     * @return HTTP proxy URL for API requests (e.g. &#39;http://proxy.example.com:8080&#39;). Can also be set via the `ZSCALER_HTTP_PROXY` environment variable.
+     * 
+     */
     public Output<Optional<String>> httpProxy() {
         return Codegen.optional(this.httpProxy);
     }
+    /**
+     * (Legacy) The admin password for ZIA. Can also be set via the `ZIA_PASSWORD` environment variable. Prefer OAuth2 credentials instead.
+     * 
+     */
     @Export(name="password", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> password;
 
+    /**
+     * @return (Legacy) The admin password for ZIA. Can also be set via the `ZIA_PASSWORD` environment variable. Prefer OAuth2 credentials instead.
+     * 
+     */
     public Output<Optional<String>> password() {
         return Codegen.optional(this.password);
     }
+    /**
+     * The private key for service principal authentication. Can also be set via the `ZSCALER_PRIVATE_KEY` environment variable.
+     * 
+     */
     @Export(name="privateKey", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> privateKey;
 
+    /**
+     * @return The private key for service principal authentication. Can also be set via the `ZSCALER_PRIVATE_KEY` environment variable.
+     * 
+     */
     public Output<Optional<String>> privateKey() {
         return Codegen.optional(this.privateKey);
     }
+    /**
+     * The Zscaler Sandbox cloud name. Can also be set via the `ZIA_SANDBOX_CLOUD` environment variable.
+     * 
+     */
     @Export(name="sandboxCloud", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> sandboxCloud;
 
+    /**
+     * @return The Zscaler Sandbox cloud name. Can also be set via the `ZIA_SANDBOX_CLOUD` environment variable.
+     * 
+     */
     public Output<Optional<String>> sandboxCloud() {
         return Codegen.optional(this.sandboxCloud);
     }
+    /**
+     * The API token for Zscaler Sandbox. Can also be set via the `ZIA_SANDBOX_TOKEN` environment variable.
+     * 
+     */
     @Export(name="sandboxToken", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> sandboxToken;
 
+    /**
+     * @return The API token for Zscaler Sandbox. Can also be set via the `ZIA_SANDBOX_TOKEN` environment variable.
+     * 
+     */
     public Output<Optional<String>> sandboxToken() {
         return Codegen.optional(this.sandboxToken);
     }
+    /**
+     * (Legacy) The admin username for ZIA. Can also be set via the `ZIA_USERNAME` environment variable. Prefer OAuth2 credentials instead.
+     * 
+     */
     @Export(name="username", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> username;
 
+    /**
+     * @return (Legacy) The admin username for ZIA. Can also be set via the `ZIA_USERNAME` environment variable. Prefer OAuth2 credentials instead.
+     * 
+     */
     public Output<Optional<String>> username() {
         return Codegen.optional(this.username);
     }
+    /**
+     * The vanity domain for your Zscaler organization. Can also be set via the `ZSCALER_VANITY_DOMAIN` environment variable.
+     * 
+     */
     @Export(name="vanityDomain", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> vanityDomain;
 
+    /**
+     * @return The vanity domain for your Zscaler organization. Can also be set via the `ZSCALER_VANITY_DOMAIN` environment variable.
+     * 
+     */
     public Output<Optional<String>> vanityDomain() {
         return Codegen.optional(this.vanityDomain);
     }
+    /**
+     * (Legacy) The ZIA cloud name. Can also be set via the `ZIA_CLOUD` environment variable. Prefer the &#39;cloud&#39; parameter instead.
+     * 
+     */
     @Export(name="ziaCloud", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> ziaCloud;
 
+    /**
+     * @return (Legacy) The ZIA cloud name. Can also be set via the `ZIA_CLOUD` environment variable. Prefer the &#39;cloud&#39; parameter instead.
+     * 
+     */
     public Output<Optional<String>> ziaCloud() {
         return Codegen.optional(this.ziaCloud);
     }
@@ -124,6 +220,7 @@ public class Provider extends com.pulumi.resources.ProviderResource {
     private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<java.lang.String> id) {
         var defaultOptions = com.pulumi.resources.CustomResourceOptions.builder()
             .version(Utilities.getVersion())
+            .pluginDownloadURL("github://api.github.com/zscaler")
             .additionalSecretOutputs(List.of(
                 "apiKey",
                 "clientSecret",

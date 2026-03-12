@@ -17,23 +17,47 @@ public final class SandboxSubmissionArgs extends com.pulumi.resources.ResourceAr
 
     public static final SandboxSubmissionArgs Empty = new SandboxSubmissionArgs();
 
+    /**
+     * The local file path of the file to submit for sandbox analysis.
+     * 
+     */
     @Import(name="filePath", required=true)
     private Output<String> filePath;
 
+    /**
+     * @return The local file path of the file to submit for sandbox analysis.
+     * 
+     */
     public Output<String> filePath() {
         return this.filePath;
     }
 
+    /**
+     * Force re-analysis of a previously submitted file. Only applicable for &#39;submit&#39; method. Not applicable for &#39;discan&#39;.
+     * 
+     */
     @Import(name="force")
     private @Nullable Output<Boolean> force;
 
+    /**
+     * @return Force re-analysis of a previously submitted file. Only applicable for &#39;submit&#39; method. Not applicable for &#39;discan&#39;.
+     * 
+     */
     public Optional<Output<Boolean>> force() {
         return Optional.ofNullable(this.force);
     }
 
+    /**
+     * The submission method. Valid values: `submit` (full analysis) or `discan` (distributed scan).
+     * 
+     */
     @Import(name="submissionMethod", required=true)
     private Output<String> submissionMethod;
 
+    /**
+     * @return The submission method. Valid values: `submit` (full analysis) or `discan` (distributed scan).
+     * 
+     */
     public Output<String> submissionMethod() {
         return this.submissionMethod;
     }
@@ -64,29 +88,65 @@ public final class SandboxSubmissionArgs extends com.pulumi.resources.ResourceAr
             $ = new SandboxSubmissionArgs(Objects.requireNonNull(defaults));
         }
 
+        /**
+         * @param filePath The local file path of the file to submit for sandbox analysis.
+         * 
+         * @return builder
+         * 
+         */
         public Builder filePath(Output<String> filePath) {
             $.filePath = filePath;
             return this;
         }
 
+        /**
+         * @param filePath The local file path of the file to submit for sandbox analysis.
+         * 
+         * @return builder
+         * 
+         */
         public Builder filePath(String filePath) {
             return filePath(Output.of(filePath));
         }
 
+        /**
+         * @param force Force re-analysis of a previously submitted file. Only applicable for &#39;submit&#39; method. Not applicable for &#39;discan&#39;.
+         * 
+         * @return builder
+         * 
+         */
         public Builder force(@Nullable Output<Boolean> force) {
             $.force = force;
             return this;
         }
 
+        /**
+         * @param force Force re-analysis of a previously submitted file. Only applicable for &#39;submit&#39; method. Not applicable for &#39;discan&#39;.
+         * 
+         * @return builder
+         * 
+         */
         public Builder force(Boolean force) {
             return force(Output.of(force));
         }
 
+        /**
+         * @param submissionMethod The submission method. Valid values: `submit` (full analysis) or `discan` (distributed scan).
+         * 
+         * @return builder
+         * 
+         */
         public Builder submissionMethod(Output<String> submissionMethod) {
             $.submissionMethod = submissionMethod;
             return this;
         }
 
+        /**
+         * @param submissionMethod The submission method. Valid values: `submit` (full analysis) or `discan` (distributed scan).
+         * 
+         * @return builder
+         * 
+         */
         public Builder submissionMethod(String submissionMethod) {
             return submissionMethod(Output.of(submissionMethod));
         }

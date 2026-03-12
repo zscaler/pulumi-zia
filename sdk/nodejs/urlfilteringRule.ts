@@ -6,6 +6,36 @@ import * as inputs from "./types/input";
 import * as outputs from "./types/output";
 import * as utilities from "./utilities";
 
+/**
+ * The zia_url_filtering_rules resource manages URL filtering rules in the Zscaler Internet Access (ZIA) cloud service. URL filtering rules define the actions to take when users access URLs that match specific categories, protocols, locations, departments, groups, or users.
+ *
+ * For more information, see the [ZIA URL Filtering documentation](https://help.zscaler.com/zia/url-filtering).
+ *
+ * ## Example Usage
+ * ### Basic URL Filtering Rule
+ *
+ * ```typescript
+ * import * as zia from "@bdzscaler/pulumi-zia";
+ *
+ * const example = new zia.URLFilteringRule("example", {
+ *     name: "Example URL Filtering Rule",
+ *     description: "Allow access to business URLs",
+ *     order: 1,
+ *     state: "ENABLED",
+ *     action: "ALLOW",
+ *     protocols: ["ANY_RULE"],
+ *     urlCategories: ["ANY"],
+ * });
+ * ```
+ *
+ * ## Import
+ *
+ * An existing URL Filtering Rule can be imported using its resource ID, e.g.
+ *
+ * ```sh
+ * $ pulumi import zia:index:URLFilteringRule example 12345
+ * ```
+ */
 export class URLFilteringRule extends pulumi.CustomResource {
     /**
      * Get an existing URLFilteringRule resource's state with the given name, ID, and optional extra
@@ -33,43 +63,157 @@ export class URLFilteringRule extends pulumi.CustomResource {
         return obj['__pulumiType'] === URLFilteringRule.__pulumiType;
     }
 
+    /**
+     * Action taken when traffic matches rule criteria. Valid values: `BLOCK`, `CAUTION`, `ALLOW`, `ISOLATE`.
+     */
     declare public readonly action: pulumi.Output<string | undefined>;
+    /**
+     * When set to true, a 'BLOCK' action can be overridden. Can only be set when action is 'BLOCK'.
+     */
     declare public readonly blockOverride: pulumi.Output<boolean | undefined>;
+    /**
+     * Browser End User Notification template ID. Only applicable when action is 'BLOCK' or 'CAUTION'.
+     */
     declare public readonly browserEunTemplateId: pulumi.Output<number | undefined>;
+    /**
+     * The Cloud Browser Isolation (CBI) profile. Required when action is 'ISOLATE'.
+     */
     declare public readonly cbiProfile: pulumi.Output<outputs.CBIProfileInput | undefined>;
+    /**
+     * If set to true, the CIPA Compliance rule is enabled.
+     */
     declare public readonly ciparule: pulumi.Output<boolean | undefined>;
+    /**
+     * IDs of departments for which the rule must be applied.
+     */
     declare public readonly departments: pulumi.Output<number[] | undefined>;
+    /**
+     * Additional information about the URL filtering rule. Maximum 10240 characters.
+     */
     declare public readonly description: pulumi.Output<string | undefined>;
+    /**
+     * IDs of device groups for which the rule must be applied. Applicable for devices managed using Zscaler Client Connector.
+     */
     declare public readonly deviceGroups: pulumi.Output<number[] | undefined>;
+    /**
+     * Device trust levels for the rule. Valid values: `ANY`, `UNKNOWN_DEVICETRUSTLEVEL`, `LOW_TRUST`, `MEDIUM_TRUST`, `HIGH_TRUST`.
+     */
     declare public readonly deviceTrustLevels: pulumi.Output<string[] | undefined>;
+    /**
+     * IDs of devices for which the rule must be applied.
+     */
     declare public readonly devices: pulumi.Output<number[] | undefined>;
+    /**
+     * URL of end user notification page to be displayed when the rule is matched. Not applicable if either 'overrideUsers' or 'overrideGroups' is specified.
+     */
     declare public readonly endUserNotificationUrl: pulumi.Output<string | undefined>;
+    /**
+     * Enforce a set validity time period for the URL filtering rule.
+     */
     declare public readonly enforceTimeValidity: pulumi.Output<boolean | undefined>;
+    /**
+     * IDs of groups for which the rule must be applied.
+     */
     declare public readonly groups: pulumi.Output<number[] | undefined>;
+    /**
+     * IDs of labels associated with the URL filtering rule.
+     */
     declare public readonly labels: pulumi.Output<number[] | undefined>;
+    /**
+     * IDs of location groups to which the rule must be applied.
+     */
     declare public readonly locationGroups: pulumi.Output<number[] | undefined>;
+    /**
+     * IDs of locations for which the rule must be applied.
+     */
     declare public readonly locations: pulumi.Output<number[] | undefined>;
+    /**
+     * The name of the URL filtering rule. Must be unique.
+     */
     declare public readonly name: pulumi.Output<string>;
+    /**
+     * The order of execution of the rule with respect to other URL filtering rules.
+     */
     declare public readonly order: pulumi.Output<number>;
+    /**
+     * IDs of groups for which this rule can be overridden. Only applicable when action is 'BLOCK' and blockOverride is true.
+     */
     declare public readonly overrideGroups: pulumi.Output<number[] | undefined>;
+    /**
+     * IDs of users for which this rule can be overridden. Only applicable when action is 'BLOCK' and blockOverride is true.
+     */
     declare public readonly overrideUsers: pulumi.Output<number[] | undefined>;
+    /**
+     * Protocols to which the rule applies. Valid values: `SMRULEF_ZPA_BROKERS_RULE`, `ANY_RULE`, `TCP_RULE`, `UDP_RULE`, `DOHTTPS_RULE`, `TUNNELSSL_RULE`, `HTTP_PROXY`, `FOHTTP_RULE`, `FTP_RULE`, `SSL_RULE`.
+     */
     declare public readonly protocols: pulumi.Output<string[] | undefined>;
+    /**
+     * Admin rank of the URL filtering policy rule. Valid values: 0-7. Default: 7.
+     */
     declare public readonly rank: pulumi.Output<number | undefined>;
+    /**
+     * Request methods to which the rule applies. Valid values: `CONNECT`, `DELETE`, `GET`, `HEAD`, `OPTIONS`, `OTHER`, `POST`, `PUT`, `TRACE`.
+     */
     declare public readonly requestMethods: pulumi.Output<string[] | undefined>;
+    /**
+     * The system-generated ID of the URL filtering rule.
+     */
     declare public /*out*/ readonly ruleId: pulumi.Output<number>;
+    /**
+     * Size quota in MB beyond which the URL filtering rule is applied. If not set, no quota is enforced. Valid range: 10-100000. Not applicable when action is 'BLOCK'.
+     */
     declare public readonly sizeQuota: pulumi.Output<number | undefined>;
+    /**
+     * Source countries (ISO 3166-1 alpha-2 codes) for the rule.
+     */
     declare public readonly sourceCountries: pulumi.Output<string[] | undefined>;
+    /**
+     * IDs of source IP address groups.
+     */
     declare public readonly sourceIpGroups: pulumi.Output<number[] | undefined>;
+    /**
+     * Rule state. Valid values: `ENABLED`, `DISABLED`.
+     */
     declare public readonly state: pulumi.Output<string | undefined>;
+    /**
+     * Time quota in minutes, after which the URL filtering rule is applied. If not set, no quota is enforced. Valid range: 15-600. Not applicable when action is 'BLOCK'.
+     */
     declare public readonly timeQuota: pulumi.Output<number | undefined>;
+    /**
+     * IDs of time intervals during which the rule must be enforced.
+     */
     declare public readonly timeWindows: pulumi.Output<number[] | undefined>;
+    /**
+     * List of URL categories to which the rule applies. See the [URL Categories API](https://help.zscaler.com/zia/url-categories#/urlCategories-get) for available categories.
+     */
     declare public readonly urlCategories: pulumi.Output<string[] | undefined>;
+    /**
+     * User agent types the rule applies to. Valid values: `CHROME`, `FIREFOX`, `MSIE`, `MSEDGE`, `MSCHREDGE`, `OPERA`, `SAFARI`, `OTHER`.
+     */
     declare public readonly userAgentTypes: pulumi.Output<string[] | undefined>;
+    /**
+     * User risk score levels for the rule. Valid values: `LOW`, `MEDIUM`, `HIGH`, `CRITICAL`.
+     */
     declare public readonly userRiskScoreLevels: pulumi.Output<string[] | undefined>;
+    /**
+     * IDs of users for which the rule must be applied.
+     */
     declare public readonly users: pulumi.Output<number[] | undefined>;
+    /**
+     * If enforceTimeValidity is set to true, the URL filtering rule ceases to be valid on this end date and time (RFC 1123 format).
+     */
     declare public readonly validityEndTime: pulumi.Output<string | undefined>;
+    /**
+     * If enforceTimeValidity is set to true, the URL filtering rule is valid starting on this date and time (RFC 1123 format).
+     */
     declare public readonly validityStartTime: pulumi.Output<string | undefined>;
+    /**
+     * If enforceTimeValidity is set to true, the URL filtering rule date and time is valid based on this time zone ID. Use IANA format (e.g. 'America/Los_Angeles'). See https://nodatime.org/TimeZones for the complete list.
+     */
     declare public readonly validityTimeZoneId: pulumi.Output<string | undefined>;
+    /**
+     * List of preconfigured workload groups to which the policy must be applied.
+     */
     declare public readonly workloadGroups: pulumi.Output<outputs.WorkloadGroupInput[] | undefined>;
 
     /**
@@ -176,41 +320,152 @@ export class URLFilteringRule extends pulumi.CustomResource {
  * The set of arguments for constructing a URLFilteringRule resource.
  */
 export interface URLFilteringRuleArgs {
+    /**
+     * Action taken when traffic matches rule criteria. Valid values: `BLOCK`, `CAUTION`, `ALLOW`, `ISOLATE`.
+     */
     action?: pulumi.Input<string>;
+    /**
+     * When set to true, a 'BLOCK' action can be overridden. Can only be set when action is 'BLOCK'.
+     */
     blockOverride?: pulumi.Input<boolean>;
+    /**
+     * Browser End User Notification template ID. Only applicable when action is 'BLOCK' or 'CAUTION'.
+     */
     browserEunTemplateId?: pulumi.Input<number>;
+    /**
+     * The Cloud Browser Isolation (CBI) profile. Required when action is 'ISOLATE'.
+     */
     cbiProfile?: pulumi.Input<inputs.CBIProfileInputArgs>;
+    /**
+     * If set to true, the CIPA Compliance rule is enabled.
+     */
     ciparule?: pulumi.Input<boolean>;
+    /**
+     * IDs of departments for which the rule must be applied.
+     */
     departments?: pulumi.Input<pulumi.Input<number>[]>;
+    /**
+     * Additional information about the URL filtering rule. Maximum 10240 characters.
+     */
     description?: pulumi.Input<string>;
+    /**
+     * IDs of device groups for which the rule must be applied. Applicable for devices managed using Zscaler Client Connector.
+     */
     deviceGroups?: pulumi.Input<pulumi.Input<number>[]>;
+    /**
+     * Device trust levels for the rule. Valid values: `ANY`, `UNKNOWN_DEVICETRUSTLEVEL`, `LOW_TRUST`, `MEDIUM_TRUST`, `HIGH_TRUST`.
+     */
     deviceTrustLevels?: pulumi.Input<pulumi.Input<string>[]>;
+    /**
+     * IDs of devices for which the rule must be applied.
+     */
     devices?: pulumi.Input<pulumi.Input<number>[]>;
+    /**
+     * URL of end user notification page to be displayed when the rule is matched. Not applicable if either 'overrideUsers' or 'overrideGroups' is specified.
+     */
     endUserNotificationUrl?: pulumi.Input<string>;
+    /**
+     * Enforce a set validity time period for the URL filtering rule.
+     */
     enforceTimeValidity?: pulumi.Input<boolean>;
+    /**
+     * IDs of groups for which the rule must be applied.
+     */
     groups?: pulumi.Input<pulumi.Input<number>[]>;
+    /**
+     * IDs of labels associated with the URL filtering rule.
+     */
     labels?: pulumi.Input<pulumi.Input<number>[]>;
+    /**
+     * IDs of location groups to which the rule must be applied.
+     */
     locationGroups?: pulumi.Input<pulumi.Input<number>[]>;
+    /**
+     * IDs of locations for which the rule must be applied.
+     */
     locations?: pulumi.Input<pulumi.Input<number>[]>;
+    /**
+     * The name of the URL filtering rule. Must be unique.
+     */
     name: pulumi.Input<string>;
+    /**
+     * The order of execution of the rule with respect to other URL filtering rules.
+     */
     order: pulumi.Input<number>;
+    /**
+     * IDs of groups for which this rule can be overridden. Only applicable when action is 'BLOCK' and blockOverride is true.
+     */
     overrideGroups?: pulumi.Input<pulumi.Input<number>[]>;
+    /**
+     * IDs of users for which this rule can be overridden. Only applicable when action is 'BLOCK' and blockOverride is true.
+     */
     overrideUsers?: pulumi.Input<pulumi.Input<number>[]>;
+    /**
+     * Protocols to which the rule applies. Valid values: `SMRULEF_ZPA_BROKERS_RULE`, `ANY_RULE`, `TCP_RULE`, `UDP_RULE`, `DOHTTPS_RULE`, `TUNNELSSL_RULE`, `HTTP_PROXY`, `FOHTTP_RULE`, `FTP_RULE`, `SSL_RULE`.
+     */
     protocols?: pulumi.Input<pulumi.Input<string>[]>;
+    /**
+     * Admin rank of the URL filtering policy rule. Valid values: 0-7. Default: 7.
+     */
     rank?: pulumi.Input<number>;
+    /**
+     * Request methods to which the rule applies. Valid values: `CONNECT`, `DELETE`, `GET`, `HEAD`, `OPTIONS`, `OTHER`, `POST`, `PUT`, `TRACE`.
+     */
     requestMethods?: pulumi.Input<pulumi.Input<string>[]>;
+    /**
+     * Size quota in MB beyond which the URL filtering rule is applied. If not set, no quota is enforced. Valid range: 10-100000. Not applicable when action is 'BLOCK'.
+     */
     sizeQuota?: pulumi.Input<number>;
+    /**
+     * Source countries (ISO 3166-1 alpha-2 codes) for the rule.
+     */
     sourceCountries?: pulumi.Input<pulumi.Input<string>[]>;
+    /**
+     * IDs of source IP address groups.
+     */
     sourceIpGroups?: pulumi.Input<pulumi.Input<number>[]>;
+    /**
+     * Rule state. Valid values: `ENABLED`, `DISABLED`.
+     */
     state?: pulumi.Input<string>;
+    /**
+     * Time quota in minutes, after which the URL filtering rule is applied. If not set, no quota is enforced. Valid range: 15-600. Not applicable when action is 'BLOCK'.
+     */
     timeQuota?: pulumi.Input<number>;
+    /**
+     * IDs of time intervals during which the rule must be enforced.
+     */
     timeWindows?: pulumi.Input<pulumi.Input<number>[]>;
+    /**
+     * List of URL categories to which the rule applies. See the [URL Categories API](https://help.zscaler.com/zia/url-categories#/urlCategories-get) for available categories.
+     */
     urlCategories?: pulumi.Input<pulumi.Input<string>[]>;
+    /**
+     * User agent types the rule applies to. Valid values: `CHROME`, `FIREFOX`, `MSIE`, `MSEDGE`, `MSCHREDGE`, `OPERA`, `SAFARI`, `OTHER`.
+     */
     userAgentTypes?: pulumi.Input<pulumi.Input<string>[]>;
+    /**
+     * User risk score levels for the rule. Valid values: `LOW`, `MEDIUM`, `HIGH`, `CRITICAL`.
+     */
     userRiskScoreLevels?: pulumi.Input<pulumi.Input<string>[]>;
+    /**
+     * IDs of users for which the rule must be applied.
+     */
     users?: pulumi.Input<pulumi.Input<number>[]>;
+    /**
+     * If enforceTimeValidity is set to true, the URL filtering rule ceases to be valid on this end date and time (RFC 1123 format).
+     */
     validityEndTime?: pulumi.Input<string>;
+    /**
+     * If enforceTimeValidity is set to true, the URL filtering rule is valid starting on this date and time (RFC 1123 format).
+     */
     validityStartTime?: pulumi.Input<string>;
+    /**
+     * If enforceTimeValidity is set to true, the URL filtering rule date and time is valid based on this time zone ID. Use IANA format (e.g. 'America/Los_Angeles'). See https://nodatime.org/TimeZones for the complete list.
+     */
     validityTimeZoneId?: pulumi.Input<string>;
+    /**
+     * List of preconfigured workload groups to which the policy must be applied.
+     */
     workloadGroups?: pulumi.Input<pulumi.Input<inputs.WorkloadGroupInputArgs>[]>;
 }

@@ -16,9 +16,17 @@ public final class AtpSecurityExceptionsArgs extends com.pulumi.resources.Resour
 
     public static final AtpSecurityExceptionsArgs Empty = new AtpSecurityExceptionsArgs();
 
+    /**
+     * List of URLs to be excluded (bypassed) from Advanced Threat Protection scanning.
+     * 
+     */
     @Import(name="bypassUrls")
     private @Nullable Output<List<String>> bypassUrls;
 
+    /**
+     * @return List of URLs to be excluded (bypassed) from Advanced Threat Protection scanning.
+     * 
+     */
     public Optional<Output<List<String>>> bypassUrls() {
         return Optional.ofNullable(this.bypassUrls);
     }
@@ -47,15 +55,33 @@ public final class AtpSecurityExceptionsArgs extends com.pulumi.resources.Resour
             $ = new AtpSecurityExceptionsArgs(Objects.requireNonNull(defaults));
         }
 
+        /**
+         * @param bypassUrls List of URLs to be excluded (bypassed) from Advanced Threat Protection scanning.
+         * 
+         * @return builder
+         * 
+         */
         public Builder bypassUrls(@Nullable Output<List<String>> bypassUrls) {
             $.bypassUrls = bypassUrls;
             return this;
         }
 
+        /**
+         * @param bypassUrls List of URLs to be excluded (bypassed) from Advanced Threat Protection scanning.
+         * 
+         * @return builder
+         * 
+         */
         public Builder bypassUrls(List<String> bypassUrls) {
             return bypassUrls(Output.of(bypassUrls));
         }
 
+        /**
+         * @param bypassUrls List of URLs to be excluded (bypassed) from Advanced Threat Protection scanning.
+         * 
+         * @return builder
+         * 
+         */
         public Builder bypassUrls(String... bypassUrls) {
             return bypassUrls(List.of(bypassUrls));
         }

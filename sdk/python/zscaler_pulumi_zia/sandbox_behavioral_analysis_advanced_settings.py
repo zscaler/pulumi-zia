@@ -22,6 +22,7 @@ class SandboxBehavioralAnalysisAdvancedSettingsArgs:
                  file_hashes_to_be_blocked: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None):
         """
         The set of arguments for constructing a SandboxBehavioralAnalysisAdvancedSettings resource.
+        :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] file_hashes_to_be_blocked: List of MD5 file hashes to be blocked. Each hash must be exactly 32 characters (MD5 format). SHA1 and SHA256 are not supported.
         """
         if file_hashes_to_be_blocked is not None:
             pulumi.set(__self__, "file_hashes_to_be_blocked", file_hashes_to_be_blocked)
@@ -29,6 +30,9 @@ class SandboxBehavioralAnalysisAdvancedSettingsArgs:
     @_builtins.property
     @pulumi.getter(name="fileHashesToBeBlocked")
     def file_hashes_to_be_blocked(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
+        """
+        List of MD5 file hashes to be blocked. Each hash must be exactly 32 characters (MD5 format). SHA1 and SHA256 are not supported.
+        """
         return pulumi.get(self, "file_hashes_to_be_blocked")
 
     @file_hashes_to_be_blocked.setter
@@ -45,9 +49,29 @@ class SandboxBehavioralAnalysisAdvancedSettings(pulumi.CustomResource):
                  file_hashes_to_be_blocked: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
                  __props__=None):
         """
-        Create a SandboxBehavioralAnalysisAdvancedSettings resource with the given unique name, props, and options.
+        The zia_sandbox_behavioral_analysis_advanced_settings resource manages the list of MD5 file hashes that are blocked by the ZIA sandbox behavioral analysis engine. This is a singleton resource. Only MD5 hashes (32 characters) are supported.
+
+        For more information, see the [ZIA Cloud Sandbox documentation](https://help.zscaler.com/zia/about-cloud-sandbox-policies).
+
+        ## Example Usage
+        ### Block File Hashes via Sandbox Settings
+
+        ```python
+        import zscaler_pulumi_zia as zia
+
+        example = zia.SandboxBehavioralAnalysisAdvancedSettings("example",
+            file_hashes_to_be_blocked=[
+                "42914d6d213a20a2684064be5c80ffa9",
+                "c0202cf6aeab8437c638533d14563d35",
+            ],
+        )
+        ```
+
+        > This is a singleton resource. Import is not applicable.
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
+        :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] file_hashes_to_be_blocked: List of MD5 file hashes to be blocked. Each hash must be exactly 32 characters (MD5 format). SHA1 and SHA256 are not supported.
         """
         ...
     @overload
@@ -56,7 +80,26 @@ class SandboxBehavioralAnalysisAdvancedSettings(pulumi.CustomResource):
                  args: Optional[SandboxBehavioralAnalysisAdvancedSettingsArgs] = None,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
-        Create a SandboxBehavioralAnalysisAdvancedSettings resource with the given unique name, props, and options.
+        The zia_sandbox_behavioral_analysis_advanced_settings resource manages the list of MD5 file hashes that are blocked by the ZIA sandbox behavioral analysis engine. This is a singleton resource. Only MD5 hashes (32 characters) are supported.
+
+        For more information, see the [ZIA Cloud Sandbox documentation](https://help.zscaler.com/zia/about-cloud-sandbox-policies).
+
+        ## Example Usage
+        ### Block File Hashes via Sandbox Settings
+
+        ```python
+        import zscaler_pulumi_zia as zia
+
+        example = zia.SandboxBehavioralAnalysisAdvancedSettings("example",
+            file_hashes_to_be_blocked=[
+                "42914d6d213a20a2684064be5c80ffa9",
+                "c0202cf6aeab8437c638533d14563d35",
+            ],
+        )
+        ```
+
+        > This is a singleton resource. Import is not applicable.
+
         :param str resource_name: The name of the resource.
         :param SandboxBehavioralAnalysisAdvancedSettingsArgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -113,10 +156,16 @@ class SandboxBehavioralAnalysisAdvancedSettings(pulumi.CustomResource):
     @_builtins.property
     @pulumi.getter(name="fileHashesToBeBlocked")
     def file_hashes_to_be_blocked(self) -> pulumi.Output[Optional[Sequence[_builtins.str]]]:
+        """
+        List of MD5 file hashes to be blocked. Each hash must be exactly 32 characters (MD5 format). SHA1 and SHA256 are not supported.
+        """
         return pulumi.get(self, "file_hashes_to_be_blocked")
 
     @_builtins.property
     @pulumi.getter(name="resourceId")
     def resource_id(self) -> pulumi.Output[_builtins.str]:
+        """
+        The internal resource identifier for the sandbox settings.
+        """
         return pulumi.get(self, "resource_id")
 

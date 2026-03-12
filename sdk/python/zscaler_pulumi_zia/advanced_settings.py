@@ -70,6 +70,55 @@ class AdvancedSettingsArgs:
                  zscaler_client_connector1_and_pac_road_warrior_in_firewall: Optional[pulumi.Input[_builtins.bool]] = None):
         """
         The set of arguments for constructing a AdvancedSettings resource.
+        :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] auth_bypass_apps: Cloud applications that bypass authentication.
+        :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] auth_bypass_url_categories: URL categories that bypass authentication.
+        :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] auth_bypass_urls: URLs that bypass authentication.
+        :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] basic_bypass_apps: Cloud applications that bypass basic authentication.
+        :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] basic_bypass_url_categories: URL categories that bypass basic authentication.
+        :param pulumi.Input[_builtins.bool] block_connect_host_sni_mismatch: Block connections where CONNECT host and SNI mismatch.
+        :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] block_domain_fronting_apps: Cloud applications for which domain fronting is blocked.
+        :param pulumi.Input[_builtins.bool] block_domain_fronting_on_host_header: Block domain fronting when the host header mismatches the SNI.
+        :param pulumi.Input[_builtins.bool] block_http_tunnel_on_non_http_ports: Block HTTP tunnels on non-HTTP ports.
+        :param pulumi.Input[_builtins.bool] block_non_compliant_http_request_on_http_ports: Block non-compliant HTTP requests on HTTP ports.
+        :param pulumi.Input[_builtins.bool] block_non_http_on_http_port_enabled: Block non-HTTP traffic on HTTP ports.
+        :param pulumi.Input[_builtins.bool] cascade_url_filtering: Enable cascading URL filtering.
+        :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] digest_auth_bypass_apps: Cloud applications that bypass digest authentication.
+        :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] digest_auth_bypass_url_categories: URL categories that bypass digest authentication.
+        :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] digest_auth_bypass_urls: URLs that bypass digest authentication.
+        :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] dns_resolution_on_transparent_proxy_apps: Cloud applications with DNS resolution on transparent proxy enabled.
+        :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] dns_resolution_on_transparent_proxy_exempt_apps: Cloud applications exempt from DNS resolution on transparent proxy.
+        :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] dns_resolution_on_transparent_proxy_exempt_url_categories: URL categories exempt from DNS resolution on transparent proxy.
+        :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] dns_resolution_on_transparent_proxy_exempt_urls: URLs exempt from DNS resolution on transparent proxy.
+        :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] dns_resolution_on_transparent_proxy_ipv6_apps: Cloud applications with IPv6 DNS resolution on transparent proxy enabled.
+        :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] dns_resolution_on_transparent_proxy_ipv6_exempt_apps: Cloud applications exempt from IPv6 DNS resolution on transparent proxy.
+        :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] dns_resolution_on_transparent_proxy_ipv6_exempt_url_categories: URL categories exempt from IPv6 DNS resolution on transparent proxy.
+        :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] dns_resolution_on_transparent_proxy_ipv6_url_categories: URL categories with IPv6 DNS resolution on transparent proxy enabled.
+        :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] dns_resolution_on_transparent_proxy_url_categories: URL categories with DNS resolution on transparent proxy enabled.
+        :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] dns_resolution_on_transparent_proxy_urls: URLs with DNS resolution on transparent proxy enabled.
+        :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] domain_fronting_bypass_url_categories: URL categories that bypass domain fronting detection.
+        :param pulumi.Input[_builtins.bool] dynamic_user_risk_enabled: Enable dynamic user risk scoring.
+        :param pulumi.Input[_builtins.bool] ecs_for_all_enabled: Enable EDNS Client Subnet (ECS) for all DNS queries.
+        :param pulumi.Input[_builtins.bool] enable_admin_rank_access: Enable admin rank-based access control.
+        :param pulumi.Input[_builtins.bool] enable_dns_resolution_on_transparent_proxy: Enable DNS resolution on transparent proxy.
+        :param pulumi.Input[_builtins.bool] enable_evaluate_policy_on_global_ssl_bypass: Enable policy evaluation on global SSL bypass.
+        :param pulumi.Input[_builtins.bool] enable_ipv6_dns_optimization_on_all_transparent_proxy: Enable IPv6 DNS optimization on all transparent proxy connections.
+        :param pulumi.Input[_builtins.bool] enable_ipv6_dns_resolution_on_transparent_proxy: Enable IPv6 DNS resolution on transparent proxy.
+        :param pulumi.Input[_builtins.bool] enable_office365: Enable Office 365 one-click configuration.
+        :param pulumi.Input[_builtins.bool] enable_policy_for_unauthenticated_traffic: Enable policy evaluation for unauthenticated traffic.
+        :param pulumi.Input[_builtins.bool] enforce_surrogate_ip_for_windows_app: Enforce surrogate IP for Windows applications.
+        :param pulumi.Input[_builtins.bool] http2_nonbrowser_traffic_enabled: Enable HTTP/2 for non-browser traffic.
+        :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] http_range_header_remove_url_categories: URL categories for which HTTP range headers are removed.
+        :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] kerberos_bypass_apps: Cloud applications that bypass Kerberos authentication.
+        :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] kerberos_bypass_url_categories: URL categories that bypass Kerberos authentication.
+        :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] kerberos_bypass_urls: URLs that bypass Kerberos authentication.
+        :param pulumi.Input[_builtins.bool] log_internal_ip: Enable logging of internal IP addresses.
+        :param pulumi.Input[_builtins.bool] prefer_sni_over_conn_host: Prefer SNI over CONNECT host header for policy evaluation.
+        :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] prefer_sni_over_conn_host_apps: Cloud applications that prefer SNI over CONNECT host header.
+        :param pulumi.Input[_builtins.bool] sipa_xff_header_enabled: Enable X-Forwarded-For header for SIPA traffic.
+        :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] sni_dns_optimization_bypass_url_categories: URL categories that bypass SNI/DNS optimization.
+        :param pulumi.Input[_builtins.bool] track_http_tunnel_on_http_ports: Track HTTP tunnels on HTTP ports.
+        :param pulumi.Input[_builtins.int] ui_session_timeout: UI session timeout in minutes.
+        :param pulumi.Input[_builtins.bool] zscaler_client_connector1_and_pac_road_warrior_in_firewall: Include Zscaler Client Connector and PAC road warrior traffic in firewall policy.
         """
         if auth_bypass_apps is not None:
             pulumi.set(__self__, "auth_bypass_apps", auth_bypass_apps)
@@ -173,6 +222,9 @@ class AdvancedSettingsArgs:
     @_builtins.property
     @pulumi.getter(name="authBypassApps")
     def auth_bypass_apps(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
+        """
+        Cloud applications that bypass authentication.
+        """
         return pulumi.get(self, "auth_bypass_apps")
 
     @auth_bypass_apps.setter
@@ -182,6 +234,9 @@ class AdvancedSettingsArgs:
     @_builtins.property
     @pulumi.getter(name="authBypassUrlCategories")
     def auth_bypass_url_categories(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
+        """
+        URL categories that bypass authentication.
+        """
         return pulumi.get(self, "auth_bypass_url_categories")
 
     @auth_bypass_url_categories.setter
@@ -191,6 +246,9 @@ class AdvancedSettingsArgs:
     @_builtins.property
     @pulumi.getter(name="authBypassUrls")
     def auth_bypass_urls(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
+        """
+        URLs that bypass authentication.
+        """
         return pulumi.get(self, "auth_bypass_urls")
 
     @auth_bypass_urls.setter
@@ -200,6 +258,9 @@ class AdvancedSettingsArgs:
     @_builtins.property
     @pulumi.getter(name="basicBypassApps")
     def basic_bypass_apps(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
+        """
+        Cloud applications that bypass basic authentication.
+        """
         return pulumi.get(self, "basic_bypass_apps")
 
     @basic_bypass_apps.setter
@@ -209,6 +270,9 @@ class AdvancedSettingsArgs:
     @_builtins.property
     @pulumi.getter(name="basicBypassUrlCategories")
     def basic_bypass_url_categories(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
+        """
+        URL categories that bypass basic authentication.
+        """
         return pulumi.get(self, "basic_bypass_url_categories")
 
     @basic_bypass_url_categories.setter
@@ -218,6 +282,9 @@ class AdvancedSettingsArgs:
     @_builtins.property
     @pulumi.getter(name="blockConnectHostSniMismatch")
     def block_connect_host_sni_mismatch(self) -> Optional[pulumi.Input[_builtins.bool]]:
+        """
+        Block connections where CONNECT host and SNI mismatch.
+        """
         return pulumi.get(self, "block_connect_host_sni_mismatch")
 
     @block_connect_host_sni_mismatch.setter
@@ -227,6 +294,9 @@ class AdvancedSettingsArgs:
     @_builtins.property
     @pulumi.getter(name="blockDomainFrontingApps")
     def block_domain_fronting_apps(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
+        """
+        Cloud applications for which domain fronting is blocked.
+        """
         return pulumi.get(self, "block_domain_fronting_apps")
 
     @block_domain_fronting_apps.setter
@@ -236,6 +306,9 @@ class AdvancedSettingsArgs:
     @_builtins.property
     @pulumi.getter(name="blockDomainFrontingOnHostHeader")
     def block_domain_fronting_on_host_header(self) -> Optional[pulumi.Input[_builtins.bool]]:
+        """
+        Block domain fronting when the host header mismatches the SNI.
+        """
         return pulumi.get(self, "block_domain_fronting_on_host_header")
 
     @block_domain_fronting_on_host_header.setter
@@ -245,6 +318,9 @@ class AdvancedSettingsArgs:
     @_builtins.property
     @pulumi.getter(name="blockHttpTunnelOnNonHttpPorts")
     def block_http_tunnel_on_non_http_ports(self) -> Optional[pulumi.Input[_builtins.bool]]:
+        """
+        Block HTTP tunnels on non-HTTP ports.
+        """
         return pulumi.get(self, "block_http_tunnel_on_non_http_ports")
 
     @block_http_tunnel_on_non_http_ports.setter
@@ -254,6 +330,9 @@ class AdvancedSettingsArgs:
     @_builtins.property
     @pulumi.getter(name="blockNonCompliantHttpRequestOnHttpPorts")
     def block_non_compliant_http_request_on_http_ports(self) -> Optional[pulumi.Input[_builtins.bool]]:
+        """
+        Block non-compliant HTTP requests on HTTP ports.
+        """
         return pulumi.get(self, "block_non_compliant_http_request_on_http_ports")
 
     @block_non_compliant_http_request_on_http_ports.setter
@@ -263,6 +342,9 @@ class AdvancedSettingsArgs:
     @_builtins.property
     @pulumi.getter(name="blockNonHttpOnHttpPortEnabled")
     def block_non_http_on_http_port_enabled(self) -> Optional[pulumi.Input[_builtins.bool]]:
+        """
+        Block non-HTTP traffic on HTTP ports.
+        """
         return pulumi.get(self, "block_non_http_on_http_port_enabled")
 
     @block_non_http_on_http_port_enabled.setter
@@ -272,6 +354,9 @@ class AdvancedSettingsArgs:
     @_builtins.property
     @pulumi.getter(name="cascadeUrlFiltering")
     def cascade_url_filtering(self) -> Optional[pulumi.Input[_builtins.bool]]:
+        """
+        Enable cascading URL filtering.
+        """
         return pulumi.get(self, "cascade_url_filtering")
 
     @cascade_url_filtering.setter
@@ -281,6 +366,9 @@ class AdvancedSettingsArgs:
     @_builtins.property
     @pulumi.getter(name="digestAuthBypassApps")
     def digest_auth_bypass_apps(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
+        """
+        Cloud applications that bypass digest authentication.
+        """
         return pulumi.get(self, "digest_auth_bypass_apps")
 
     @digest_auth_bypass_apps.setter
@@ -290,6 +378,9 @@ class AdvancedSettingsArgs:
     @_builtins.property
     @pulumi.getter(name="digestAuthBypassUrlCategories")
     def digest_auth_bypass_url_categories(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
+        """
+        URL categories that bypass digest authentication.
+        """
         return pulumi.get(self, "digest_auth_bypass_url_categories")
 
     @digest_auth_bypass_url_categories.setter
@@ -299,6 +390,9 @@ class AdvancedSettingsArgs:
     @_builtins.property
     @pulumi.getter(name="digestAuthBypassUrls")
     def digest_auth_bypass_urls(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
+        """
+        URLs that bypass digest authentication.
+        """
         return pulumi.get(self, "digest_auth_bypass_urls")
 
     @digest_auth_bypass_urls.setter
@@ -308,6 +402,9 @@ class AdvancedSettingsArgs:
     @_builtins.property
     @pulumi.getter(name="dnsResolutionOnTransparentProxyApps")
     def dns_resolution_on_transparent_proxy_apps(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
+        """
+        Cloud applications with DNS resolution on transparent proxy enabled.
+        """
         return pulumi.get(self, "dns_resolution_on_transparent_proxy_apps")
 
     @dns_resolution_on_transparent_proxy_apps.setter
@@ -317,6 +414,9 @@ class AdvancedSettingsArgs:
     @_builtins.property
     @pulumi.getter(name="dnsResolutionOnTransparentProxyExemptApps")
     def dns_resolution_on_transparent_proxy_exempt_apps(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
+        """
+        Cloud applications exempt from DNS resolution on transparent proxy.
+        """
         return pulumi.get(self, "dns_resolution_on_transparent_proxy_exempt_apps")
 
     @dns_resolution_on_transparent_proxy_exempt_apps.setter
@@ -326,6 +426,9 @@ class AdvancedSettingsArgs:
     @_builtins.property
     @pulumi.getter(name="dnsResolutionOnTransparentProxyExemptUrlCategories")
     def dns_resolution_on_transparent_proxy_exempt_url_categories(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
+        """
+        URL categories exempt from DNS resolution on transparent proxy.
+        """
         return pulumi.get(self, "dns_resolution_on_transparent_proxy_exempt_url_categories")
 
     @dns_resolution_on_transparent_proxy_exempt_url_categories.setter
@@ -335,6 +438,9 @@ class AdvancedSettingsArgs:
     @_builtins.property
     @pulumi.getter(name="dnsResolutionOnTransparentProxyExemptUrls")
     def dns_resolution_on_transparent_proxy_exempt_urls(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
+        """
+        URLs exempt from DNS resolution on transparent proxy.
+        """
         return pulumi.get(self, "dns_resolution_on_transparent_proxy_exempt_urls")
 
     @dns_resolution_on_transparent_proxy_exempt_urls.setter
@@ -344,6 +450,9 @@ class AdvancedSettingsArgs:
     @_builtins.property
     @pulumi.getter(name="dnsResolutionOnTransparentProxyIpv6Apps")
     def dns_resolution_on_transparent_proxy_ipv6_apps(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
+        """
+        Cloud applications with IPv6 DNS resolution on transparent proxy enabled.
+        """
         return pulumi.get(self, "dns_resolution_on_transparent_proxy_ipv6_apps")
 
     @dns_resolution_on_transparent_proxy_ipv6_apps.setter
@@ -353,6 +462,9 @@ class AdvancedSettingsArgs:
     @_builtins.property
     @pulumi.getter(name="dnsResolutionOnTransparentProxyIpv6ExemptApps")
     def dns_resolution_on_transparent_proxy_ipv6_exempt_apps(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
+        """
+        Cloud applications exempt from IPv6 DNS resolution on transparent proxy.
+        """
         return pulumi.get(self, "dns_resolution_on_transparent_proxy_ipv6_exempt_apps")
 
     @dns_resolution_on_transparent_proxy_ipv6_exempt_apps.setter
@@ -362,6 +474,9 @@ class AdvancedSettingsArgs:
     @_builtins.property
     @pulumi.getter(name="dnsResolutionOnTransparentProxyIpv6ExemptUrlCategories")
     def dns_resolution_on_transparent_proxy_ipv6_exempt_url_categories(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
+        """
+        URL categories exempt from IPv6 DNS resolution on transparent proxy.
+        """
         return pulumi.get(self, "dns_resolution_on_transparent_proxy_ipv6_exempt_url_categories")
 
     @dns_resolution_on_transparent_proxy_ipv6_exempt_url_categories.setter
@@ -371,6 +486,9 @@ class AdvancedSettingsArgs:
     @_builtins.property
     @pulumi.getter(name="dnsResolutionOnTransparentProxyIpv6UrlCategories")
     def dns_resolution_on_transparent_proxy_ipv6_url_categories(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
+        """
+        URL categories with IPv6 DNS resolution on transparent proxy enabled.
+        """
         return pulumi.get(self, "dns_resolution_on_transparent_proxy_ipv6_url_categories")
 
     @dns_resolution_on_transparent_proxy_ipv6_url_categories.setter
@@ -380,6 +498,9 @@ class AdvancedSettingsArgs:
     @_builtins.property
     @pulumi.getter(name="dnsResolutionOnTransparentProxyUrlCategories")
     def dns_resolution_on_transparent_proxy_url_categories(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
+        """
+        URL categories with DNS resolution on transparent proxy enabled.
+        """
         return pulumi.get(self, "dns_resolution_on_transparent_proxy_url_categories")
 
     @dns_resolution_on_transparent_proxy_url_categories.setter
@@ -389,6 +510,9 @@ class AdvancedSettingsArgs:
     @_builtins.property
     @pulumi.getter(name="dnsResolutionOnTransparentProxyUrls")
     def dns_resolution_on_transparent_proxy_urls(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
+        """
+        URLs with DNS resolution on transparent proxy enabled.
+        """
         return pulumi.get(self, "dns_resolution_on_transparent_proxy_urls")
 
     @dns_resolution_on_transparent_proxy_urls.setter
@@ -398,6 +522,9 @@ class AdvancedSettingsArgs:
     @_builtins.property
     @pulumi.getter(name="domainFrontingBypassUrlCategories")
     def domain_fronting_bypass_url_categories(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
+        """
+        URL categories that bypass domain fronting detection.
+        """
         return pulumi.get(self, "domain_fronting_bypass_url_categories")
 
     @domain_fronting_bypass_url_categories.setter
@@ -407,6 +534,9 @@ class AdvancedSettingsArgs:
     @_builtins.property
     @pulumi.getter(name="dynamicUserRiskEnabled")
     def dynamic_user_risk_enabled(self) -> Optional[pulumi.Input[_builtins.bool]]:
+        """
+        Enable dynamic user risk scoring.
+        """
         return pulumi.get(self, "dynamic_user_risk_enabled")
 
     @dynamic_user_risk_enabled.setter
@@ -416,6 +546,9 @@ class AdvancedSettingsArgs:
     @_builtins.property
     @pulumi.getter(name="ecsForAllEnabled")
     def ecs_for_all_enabled(self) -> Optional[pulumi.Input[_builtins.bool]]:
+        """
+        Enable EDNS Client Subnet (ECS) for all DNS queries.
+        """
         return pulumi.get(self, "ecs_for_all_enabled")
 
     @ecs_for_all_enabled.setter
@@ -425,6 +558,9 @@ class AdvancedSettingsArgs:
     @_builtins.property
     @pulumi.getter(name="enableAdminRankAccess")
     def enable_admin_rank_access(self) -> Optional[pulumi.Input[_builtins.bool]]:
+        """
+        Enable admin rank-based access control.
+        """
         return pulumi.get(self, "enable_admin_rank_access")
 
     @enable_admin_rank_access.setter
@@ -434,6 +570,9 @@ class AdvancedSettingsArgs:
     @_builtins.property
     @pulumi.getter(name="enableDnsResolutionOnTransparentProxy")
     def enable_dns_resolution_on_transparent_proxy(self) -> Optional[pulumi.Input[_builtins.bool]]:
+        """
+        Enable DNS resolution on transparent proxy.
+        """
         return pulumi.get(self, "enable_dns_resolution_on_transparent_proxy")
 
     @enable_dns_resolution_on_transparent_proxy.setter
@@ -443,6 +582,9 @@ class AdvancedSettingsArgs:
     @_builtins.property
     @pulumi.getter(name="enableEvaluatePolicyOnGlobalSslBypass")
     def enable_evaluate_policy_on_global_ssl_bypass(self) -> Optional[pulumi.Input[_builtins.bool]]:
+        """
+        Enable policy evaluation on global SSL bypass.
+        """
         return pulumi.get(self, "enable_evaluate_policy_on_global_ssl_bypass")
 
     @enable_evaluate_policy_on_global_ssl_bypass.setter
@@ -452,6 +594,9 @@ class AdvancedSettingsArgs:
     @_builtins.property
     @pulumi.getter(name="enableIpv6DnsOptimizationOnAllTransparentProxy")
     def enable_ipv6_dns_optimization_on_all_transparent_proxy(self) -> Optional[pulumi.Input[_builtins.bool]]:
+        """
+        Enable IPv6 DNS optimization on all transparent proxy connections.
+        """
         return pulumi.get(self, "enable_ipv6_dns_optimization_on_all_transparent_proxy")
 
     @enable_ipv6_dns_optimization_on_all_transparent_proxy.setter
@@ -461,6 +606,9 @@ class AdvancedSettingsArgs:
     @_builtins.property
     @pulumi.getter(name="enableIpv6DnsResolutionOnTransparentProxy")
     def enable_ipv6_dns_resolution_on_transparent_proxy(self) -> Optional[pulumi.Input[_builtins.bool]]:
+        """
+        Enable IPv6 DNS resolution on transparent proxy.
+        """
         return pulumi.get(self, "enable_ipv6_dns_resolution_on_transparent_proxy")
 
     @enable_ipv6_dns_resolution_on_transparent_proxy.setter
@@ -470,6 +618,9 @@ class AdvancedSettingsArgs:
     @_builtins.property
     @pulumi.getter(name="enableOffice365")
     def enable_office365(self) -> Optional[pulumi.Input[_builtins.bool]]:
+        """
+        Enable Office 365 one-click configuration.
+        """
         return pulumi.get(self, "enable_office365")
 
     @enable_office365.setter
@@ -479,6 +630,9 @@ class AdvancedSettingsArgs:
     @_builtins.property
     @pulumi.getter(name="enablePolicyForUnauthenticatedTraffic")
     def enable_policy_for_unauthenticated_traffic(self) -> Optional[pulumi.Input[_builtins.bool]]:
+        """
+        Enable policy evaluation for unauthenticated traffic.
+        """
         return pulumi.get(self, "enable_policy_for_unauthenticated_traffic")
 
     @enable_policy_for_unauthenticated_traffic.setter
@@ -488,6 +642,9 @@ class AdvancedSettingsArgs:
     @_builtins.property
     @pulumi.getter(name="enforceSurrogateIpForWindowsApp")
     def enforce_surrogate_ip_for_windows_app(self) -> Optional[pulumi.Input[_builtins.bool]]:
+        """
+        Enforce surrogate IP for Windows applications.
+        """
         return pulumi.get(self, "enforce_surrogate_ip_for_windows_app")
 
     @enforce_surrogate_ip_for_windows_app.setter
@@ -497,6 +654,9 @@ class AdvancedSettingsArgs:
     @_builtins.property
     @pulumi.getter(name="http2NonbrowserTrafficEnabled")
     def http2_nonbrowser_traffic_enabled(self) -> Optional[pulumi.Input[_builtins.bool]]:
+        """
+        Enable HTTP/2 for non-browser traffic.
+        """
         return pulumi.get(self, "http2_nonbrowser_traffic_enabled")
 
     @http2_nonbrowser_traffic_enabled.setter
@@ -506,6 +666,9 @@ class AdvancedSettingsArgs:
     @_builtins.property
     @pulumi.getter(name="httpRangeHeaderRemoveUrlCategories")
     def http_range_header_remove_url_categories(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
+        """
+        URL categories for which HTTP range headers are removed.
+        """
         return pulumi.get(self, "http_range_header_remove_url_categories")
 
     @http_range_header_remove_url_categories.setter
@@ -515,6 +678,9 @@ class AdvancedSettingsArgs:
     @_builtins.property
     @pulumi.getter(name="kerberosBypassApps")
     def kerberos_bypass_apps(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
+        """
+        Cloud applications that bypass Kerberos authentication.
+        """
         return pulumi.get(self, "kerberos_bypass_apps")
 
     @kerberos_bypass_apps.setter
@@ -524,6 +690,9 @@ class AdvancedSettingsArgs:
     @_builtins.property
     @pulumi.getter(name="kerberosBypassUrlCategories")
     def kerberos_bypass_url_categories(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
+        """
+        URL categories that bypass Kerberos authentication.
+        """
         return pulumi.get(self, "kerberos_bypass_url_categories")
 
     @kerberos_bypass_url_categories.setter
@@ -533,6 +702,9 @@ class AdvancedSettingsArgs:
     @_builtins.property
     @pulumi.getter(name="kerberosBypassUrls")
     def kerberos_bypass_urls(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
+        """
+        URLs that bypass Kerberos authentication.
+        """
         return pulumi.get(self, "kerberos_bypass_urls")
 
     @kerberos_bypass_urls.setter
@@ -542,6 +714,9 @@ class AdvancedSettingsArgs:
     @_builtins.property
     @pulumi.getter(name="logInternalIp")
     def log_internal_ip(self) -> Optional[pulumi.Input[_builtins.bool]]:
+        """
+        Enable logging of internal IP addresses.
+        """
         return pulumi.get(self, "log_internal_ip")
 
     @log_internal_ip.setter
@@ -551,6 +726,9 @@ class AdvancedSettingsArgs:
     @_builtins.property
     @pulumi.getter(name="preferSniOverConnHost")
     def prefer_sni_over_conn_host(self) -> Optional[pulumi.Input[_builtins.bool]]:
+        """
+        Prefer SNI over CONNECT host header for policy evaluation.
+        """
         return pulumi.get(self, "prefer_sni_over_conn_host")
 
     @prefer_sni_over_conn_host.setter
@@ -560,6 +738,9 @@ class AdvancedSettingsArgs:
     @_builtins.property
     @pulumi.getter(name="preferSniOverConnHostApps")
     def prefer_sni_over_conn_host_apps(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
+        """
+        Cloud applications that prefer SNI over CONNECT host header.
+        """
         return pulumi.get(self, "prefer_sni_over_conn_host_apps")
 
     @prefer_sni_over_conn_host_apps.setter
@@ -569,6 +750,9 @@ class AdvancedSettingsArgs:
     @_builtins.property
     @pulumi.getter(name="sipaXffHeaderEnabled")
     def sipa_xff_header_enabled(self) -> Optional[pulumi.Input[_builtins.bool]]:
+        """
+        Enable X-Forwarded-For header for SIPA traffic.
+        """
         return pulumi.get(self, "sipa_xff_header_enabled")
 
     @sipa_xff_header_enabled.setter
@@ -578,6 +762,9 @@ class AdvancedSettingsArgs:
     @_builtins.property
     @pulumi.getter(name="sniDnsOptimizationBypassUrlCategories")
     def sni_dns_optimization_bypass_url_categories(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
+        """
+        URL categories that bypass SNI/DNS optimization.
+        """
         return pulumi.get(self, "sni_dns_optimization_bypass_url_categories")
 
     @sni_dns_optimization_bypass_url_categories.setter
@@ -587,6 +774,9 @@ class AdvancedSettingsArgs:
     @_builtins.property
     @pulumi.getter(name="trackHttpTunnelOnHttpPorts")
     def track_http_tunnel_on_http_ports(self) -> Optional[pulumi.Input[_builtins.bool]]:
+        """
+        Track HTTP tunnels on HTTP ports.
+        """
         return pulumi.get(self, "track_http_tunnel_on_http_ports")
 
     @track_http_tunnel_on_http_ports.setter
@@ -596,6 +786,9 @@ class AdvancedSettingsArgs:
     @_builtins.property
     @pulumi.getter(name="uiSessionTimeout")
     def ui_session_timeout(self) -> Optional[pulumi.Input[_builtins.int]]:
+        """
+        UI session timeout in minutes.
+        """
         return pulumi.get(self, "ui_session_timeout")
 
     @ui_session_timeout.setter
@@ -605,6 +798,9 @@ class AdvancedSettingsArgs:
     @_builtins.property
     @pulumi.getter(name="zscalerClientConnector1AndPacRoadWarriorInFirewall")
     def zscaler_client_connector1_and_pac_road_warrior_in_firewall(self) -> Optional[pulumi.Input[_builtins.bool]]:
+        """
+        Include Zscaler Client Connector and PAC road warrior traffic in firewall policy.
+        """
         return pulumi.get(self, "zscaler_client_connector1_and_pac_road_warrior_in_firewall")
 
     @zscaler_client_connector1_and_pac_road_warrior_in_firewall.setter
@@ -669,9 +865,80 @@ class AdvancedSettings(pulumi.CustomResource):
                  zscaler_client_connector1_and_pac_road_warrior_in_firewall: Optional[pulumi.Input[_builtins.bool]] = None,
                  __props__=None):
         """
-        Create a AdvancedSettings resource with the given unique name, props, and options.
+        The zia_advanced_settings resource manages advanced settings in the Zscaler Internet Access (ZIA) cloud service. This singleton resource controls a wide range of advanced proxy, authentication, DNS resolution, and security settings including domain fronting protection, HTTP tunnel tracking, surrogate IP enforcement, and session timeout configuration.
+
+        For more information, see the [ZIA Advanced Settings documentation](https://help.zscaler.com/zia/advanced-settings).
+
+        ## Example Usage
+        ### Basic Advanced Settings
+
+        ```python
+        import zscaler_pulumi_zia as zia
+
+        example = zia.AdvancedSettings("example",
+            enable_office365=True,
+            log_internal_ip=True,
+            block_http_tunnel_on_non_http_ports=True,
+            block_domain_fronting_on_host_header=True,
+            auth_bypass_urls=[".example.com"],
+        )
+        ```
+
+        ## Import
+
+        This is a singleton resource and does not support traditional import. It is automatically managed by the provider.
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
+        :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] auth_bypass_apps: Cloud applications that bypass authentication.
+        :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] auth_bypass_url_categories: URL categories that bypass authentication.
+        :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] auth_bypass_urls: URLs that bypass authentication.
+        :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] basic_bypass_apps: Cloud applications that bypass basic authentication.
+        :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] basic_bypass_url_categories: URL categories that bypass basic authentication.
+        :param pulumi.Input[_builtins.bool] block_connect_host_sni_mismatch: Block connections where CONNECT host and SNI mismatch.
+        :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] block_domain_fronting_apps: Cloud applications for which domain fronting is blocked.
+        :param pulumi.Input[_builtins.bool] block_domain_fronting_on_host_header: Block domain fronting when the host header mismatches the SNI.
+        :param pulumi.Input[_builtins.bool] block_http_tunnel_on_non_http_ports: Block HTTP tunnels on non-HTTP ports.
+        :param pulumi.Input[_builtins.bool] block_non_compliant_http_request_on_http_ports: Block non-compliant HTTP requests on HTTP ports.
+        :param pulumi.Input[_builtins.bool] block_non_http_on_http_port_enabled: Block non-HTTP traffic on HTTP ports.
+        :param pulumi.Input[_builtins.bool] cascade_url_filtering: Enable cascading URL filtering.
+        :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] digest_auth_bypass_apps: Cloud applications that bypass digest authentication.
+        :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] digest_auth_bypass_url_categories: URL categories that bypass digest authentication.
+        :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] digest_auth_bypass_urls: URLs that bypass digest authentication.
+        :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] dns_resolution_on_transparent_proxy_apps: Cloud applications with DNS resolution on transparent proxy enabled.
+        :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] dns_resolution_on_transparent_proxy_exempt_apps: Cloud applications exempt from DNS resolution on transparent proxy.
+        :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] dns_resolution_on_transparent_proxy_exempt_url_categories: URL categories exempt from DNS resolution on transparent proxy.
+        :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] dns_resolution_on_transparent_proxy_exempt_urls: URLs exempt from DNS resolution on transparent proxy.
+        :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] dns_resolution_on_transparent_proxy_ipv6_apps: Cloud applications with IPv6 DNS resolution on transparent proxy enabled.
+        :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] dns_resolution_on_transparent_proxy_ipv6_exempt_apps: Cloud applications exempt from IPv6 DNS resolution on transparent proxy.
+        :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] dns_resolution_on_transparent_proxy_ipv6_exempt_url_categories: URL categories exempt from IPv6 DNS resolution on transparent proxy.
+        :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] dns_resolution_on_transparent_proxy_ipv6_url_categories: URL categories with IPv6 DNS resolution on transparent proxy enabled.
+        :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] dns_resolution_on_transparent_proxy_url_categories: URL categories with DNS resolution on transparent proxy enabled.
+        :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] dns_resolution_on_transparent_proxy_urls: URLs with DNS resolution on transparent proxy enabled.
+        :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] domain_fronting_bypass_url_categories: URL categories that bypass domain fronting detection.
+        :param pulumi.Input[_builtins.bool] dynamic_user_risk_enabled: Enable dynamic user risk scoring.
+        :param pulumi.Input[_builtins.bool] ecs_for_all_enabled: Enable EDNS Client Subnet (ECS) for all DNS queries.
+        :param pulumi.Input[_builtins.bool] enable_admin_rank_access: Enable admin rank-based access control.
+        :param pulumi.Input[_builtins.bool] enable_dns_resolution_on_transparent_proxy: Enable DNS resolution on transparent proxy.
+        :param pulumi.Input[_builtins.bool] enable_evaluate_policy_on_global_ssl_bypass: Enable policy evaluation on global SSL bypass.
+        :param pulumi.Input[_builtins.bool] enable_ipv6_dns_optimization_on_all_transparent_proxy: Enable IPv6 DNS optimization on all transparent proxy connections.
+        :param pulumi.Input[_builtins.bool] enable_ipv6_dns_resolution_on_transparent_proxy: Enable IPv6 DNS resolution on transparent proxy.
+        :param pulumi.Input[_builtins.bool] enable_office365: Enable Office 365 one-click configuration.
+        :param pulumi.Input[_builtins.bool] enable_policy_for_unauthenticated_traffic: Enable policy evaluation for unauthenticated traffic.
+        :param pulumi.Input[_builtins.bool] enforce_surrogate_ip_for_windows_app: Enforce surrogate IP for Windows applications.
+        :param pulumi.Input[_builtins.bool] http2_nonbrowser_traffic_enabled: Enable HTTP/2 for non-browser traffic.
+        :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] http_range_header_remove_url_categories: URL categories for which HTTP range headers are removed.
+        :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] kerberos_bypass_apps: Cloud applications that bypass Kerberos authentication.
+        :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] kerberos_bypass_url_categories: URL categories that bypass Kerberos authentication.
+        :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] kerberos_bypass_urls: URLs that bypass Kerberos authentication.
+        :param pulumi.Input[_builtins.bool] log_internal_ip: Enable logging of internal IP addresses.
+        :param pulumi.Input[_builtins.bool] prefer_sni_over_conn_host: Prefer SNI over CONNECT host header for policy evaluation.
+        :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] prefer_sni_over_conn_host_apps: Cloud applications that prefer SNI over CONNECT host header.
+        :param pulumi.Input[_builtins.bool] sipa_xff_header_enabled: Enable X-Forwarded-For header for SIPA traffic.
+        :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] sni_dns_optimization_bypass_url_categories: URL categories that bypass SNI/DNS optimization.
+        :param pulumi.Input[_builtins.bool] track_http_tunnel_on_http_ports: Track HTTP tunnels on HTTP ports.
+        :param pulumi.Input[_builtins.int] ui_session_timeout: UI session timeout in minutes.
+        :param pulumi.Input[_builtins.bool] zscaler_client_connector1_and_pac_road_warrior_in_firewall: Include Zscaler Client Connector and PAC road warrior traffic in firewall policy.
         """
         ...
     @overload
@@ -680,7 +947,29 @@ class AdvancedSettings(pulumi.CustomResource):
                  args: Optional[AdvancedSettingsArgs] = None,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
-        Create a AdvancedSettings resource with the given unique name, props, and options.
+        The zia_advanced_settings resource manages advanced settings in the Zscaler Internet Access (ZIA) cloud service. This singleton resource controls a wide range of advanced proxy, authentication, DNS resolution, and security settings including domain fronting protection, HTTP tunnel tracking, surrogate IP enforcement, and session timeout configuration.
+
+        For more information, see the [ZIA Advanced Settings documentation](https://help.zscaler.com/zia/advanced-settings).
+
+        ## Example Usage
+        ### Basic Advanced Settings
+
+        ```python
+        import zscaler_pulumi_zia as zia
+
+        example = zia.AdvancedSettings("example",
+            enable_office365=True,
+            log_internal_ip=True,
+            block_http_tunnel_on_non_http_ports=True,
+            block_domain_fronting_on_host_header=True,
+            auth_bypass_urls=[".example.com"],
+        )
+        ```
+
+        ## Import
+
+        This is a singleton resource and does not support traditional import. It is automatically managed by the provider.
+
         :param str resource_name: The name of the resource.
         :param AdvancedSettingsArgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -881,250 +1170,400 @@ class AdvancedSettings(pulumi.CustomResource):
     @_builtins.property
     @pulumi.getter(name="authBypassApps")
     def auth_bypass_apps(self) -> pulumi.Output[Optional[Sequence[_builtins.str]]]:
+        """
+        Cloud applications that bypass authentication.
+        """
         return pulumi.get(self, "auth_bypass_apps")
 
     @_builtins.property
     @pulumi.getter(name="authBypassUrlCategories")
     def auth_bypass_url_categories(self) -> pulumi.Output[Optional[Sequence[_builtins.str]]]:
+        """
+        URL categories that bypass authentication.
+        """
         return pulumi.get(self, "auth_bypass_url_categories")
 
     @_builtins.property
     @pulumi.getter(name="authBypassUrls")
     def auth_bypass_urls(self) -> pulumi.Output[Optional[Sequence[_builtins.str]]]:
+        """
+        URLs that bypass authentication.
+        """
         return pulumi.get(self, "auth_bypass_urls")
 
     @_builtins.property
     @pulumi.getter(name="basicBypassApps")
     def basic_bypass_apps(self) -> pulumi.Output[Optional[Sequence[_builtins.str]]]:
+        """
+        Cloud applications that bypass basic authentication.
+        """
         return pulumi.get(self, "basic_bypass_apps")
 
     @_builtins.property
     @pulumi.getter(name="basicBypassUrlCategories")
     def basic_bypass_url_categories(self) -> pulumi.Output[Optional[Sequence[_builtins.str]]]:
+        """
+        URL categories that bypass basic authentication.
+        """
         return pulumi.get(self, "basic_bypass_url_categories")
 
     @_builtins.property
     @pulumi.getter(name="blockConnectHostSniMismatch")
     def block_connect_host_sni_mismatch(self) -> pulumi.Output[Optional[_builtins.bool]]:
+        """
+        Block connections where CONNECT host and SNI mismatch.
+        """
         return pulumi.get(self, "block_connect_host_sni_mismatch")
 
     @_builtins.property
     @pulumi.getter(name="blockDomainFrontingApps")
     def block_domain_fronting_apps(self) -> pulumi.Output[Optional[Sequence[_builtins.str]]]:
+        """
+        Cloud applications for which domain fronting is blocked.
+        """
         return pulumi.get(self, "block_domain_fronting_apps")
 
     @_builtins.property
     @pulumi.getter(name="blockDomainFrontingOnHostHeader")
     def block_domain_fronting_on_host_header(self) -> pulumi.Output[Optional[_builtins.bool]]:
+        """
+        Block domain fronting when the host header mismatches the SNI.
+        """
         return pulumi.get(self, "block_domain_fronting_on_host_header")
 
     @_builtins.property
     @pulumi.getter(name="blockHttpTunnelOnNonHttpPorts")
     def block_http_tunnel_on_non_http_ports(self) -> pulumi.Output[Optional[_builtins.bool]]:
+        """
+        Block HTTP tunnels on non-HTTP ports.
+        """
         return pulumi.get(self, "block_http_tunnel_on_non_http_ports")
 
     @_builtins.property
     @pulumi.getter(name="blockNonCompliantHttpRequestOnHttpPorts")
     def block_non_compliant_http_request_on_http_ports(self) -> pulumi.Output[Optional[_builtins.bool]]:
+        """
+        Block non-compliant HTTP requests on HTTP ports.
+        """
         return pulumi.get(self, "block_non_compliant_http_request_on_http_ports")
 
     @_builtins.property
     @pulumi.getter(name="blockNonHttpOnHttpPortEnabled")
     def block_non_http_on_http_port_enabled(self) -> pulumi.Output[Optional[_builtins.bool]]:
+        """
+        Block non-HTTP traffic on HTTP ports.
+        """
         return pulumi.get(self, "block_non_http_on_http_port_enabled")
 
     @_builtins.property
     @pulumi.getter(name="cascadeUrlFiltering")
     def cascade_url_filtering(self) -> pulumi.Output[Optional[_builtins.bool]]:
+        """
+        Enable cascading URL filtering.
+        """
         return pulumi.get(self, "cascade_url_filtering")
 
     @_builtins.property
     @pulumi.getter(name="digestAuthBypassApps")
     def digest_auth_bypass_apps(self) -> pulumi.Output[Optional[Sequence[_builtins.str]]]:
+        """
+        Cloud applications that bypass digest authentication.
+        """
         return pulumi.get(self, "digest_auth_bypass_apps")
 
     @_builtins.property
     @pulumi.getter(name="digestAuthBypassUrlCategories")
     def digest_auth_bypass_url_categories(self) -> pulumi.Output[Optional[Sequence[_builtins.str]]]:
+        """
+        URL categories that bypass digest authentication.
+        """
         return pulumi.get(self, "digest_auth_bypass_url_categories")
 
     @_builtins.property
     @pulumi.getter(name="digestAuthBypassUrls")
     def digest_auth_bypass_urls(self) -> pulumi.Output[Optional[Sequence[_builtins.str]]]:
+        """
+        URLs that bypass digest authentication.
+        """
         return pulumi.get(self, "digest_auth_bypass_urls")
 
     @_builtins.property
     @pulumi.getter(name="dnsResolutionOnTransparentProxyApps")
     def dns_resolution_on_transparent_proxy_apps(self) -> pulumi.Output[Optional[Sequence[_builtins.str]]]:
+        """
+        Cloud applications with DNS resolution on transparent proxy enabled.
+        """
         return pulumi.get(self, "dns_resolution_on_transparent_proxy_apps")
 
     @_builtins.property
     @pulumi.getter(name="dnsResolutionOnTransparentProxyExemptApps")
     def dns_resolution_on_transparent_proxy_exempt_apps(self) -> pulumi.Output[Optional[Sequence[_builtins.str]]]:
+        """
+        Cloud applications exempt from DNS resolution on transparent proxy.
+        """
         return pulumi.get(self, "dns_resolution_on_transparent_proxy_exempt_apps")
 
     @_builtins.property
     @pulumi.getter(name="dnsResolutionOnTransparentProxyExemptUrlCategories")
     def dns_resolution_on_transparent_proxy_exempt_url_categories(self) -> pulumi.Output[Optional[Sequence[_builtins.str]]]:
+        """
+        URL categories exempt from DNS resolution on transparent proxy.
+        """
         return pulumi.get(self, "dns_resolution_on_transparent_proxy_exempt_url_categories")
 
     @_builtins.property
     @pulumi.getter(name="dnsResolutionOnTransparentProxyExemptUrls")
     def dns_resolution_on_transparent_proxy_exempt_urls(self) -> pulumi.Output[Optional[Sequence[_builtins.str]]]:
+        """
+        URLs exempt from DNS resolution on transparent proxy.
+        """
         return pulumi.get(self, "dns_resolution_on_transparent_proxy_exempt_urls")
 
     @_builtins.property
     @pulumi.getter(name="dnsResolutionOnTransparentProxyIpv6Apps")
     def dns_resolution_on_transparent_proxy_ipv6_apps(self) -> pulumi.Output[Optional[Sequence[_builtins.str]]]:
+        """
+        Cloud applications with IPv6 DNS resolution on transparent proxy enabled.
+        """
         return pulumi.get(self, "dns_resolution_on_transparent_proxy_ipv6_apps")
 
     @_builtins.property
     @pulumi.getter(name="dnsResolutionOnTransparentProxyIpv6ExemptApps")
     def dns_resolution_on_transparent_proxy_ipv6_exempt_apps(self) -> pulumi.Output[Optional[Sequence[_builtins.str]]]:
+        """
+        Cloud applications exempt from IPv6 DNS resolution on transparent proxy.
+        """
         return pulumi.get(self, "dns_resolution_on_transparent_proxy_ipv6_exempt_apps")
 
     @_builtins.property
     @pulumi.getter(name="dnsResolutionOnTransparentProxyIpv6ExemptUrlCategories")
     def dns_resolution_on_transparent_proxy_ipv6_exempt_url_categories(self) -> pulumi.Output[Optional[Sequence[_builtins.str]]]:
+        """
+        URL categories exempt from IPv6 DNS resolution on transparent proxy.
+        """
         return pulumi.get(self, "dns_resolution_on_transparent_proxy_ipv6_exempt_url_categories")
 
     @_builtins.property
     @pulumi.getter(name="dnsResolutionOnTransparentProxyIpv6UrlCategories")
     def dns_resolution_on_transparent_proxy_ipv6_url_categories(self) -> pulumi.Output[Optional[Sequence[_builtins.str]]]:
+        """
+        URL categories with IPv6 DNS resolution on transparent proxy enabled.
+        """
         return pulumi.get(self, "dns_resolution_on_transparent_proxy_ipv6_url_categories")
 
     @_builtins.property
     @pulumi.getter(name="dnsResolutionOnTransparentProxyUrlCategories")
     def dns_resolution_on_transparent_proxy_url_categories(self) -> pulumi.Output[Optional[Sequence[_builtins.str]]]:
+        """
+        URL categories with DNS resolution on transparent proxy enabled.
+        """
         return pulumi.get(self, "dns_resolution_on_transparent_proxy_url_categories")
 
     @_builtins.property
     @pulumi.getter(name="dnsResolutionOnTransparentProxyUrls")
     def dns_resolution_on_transparent_proxy_urls(self) -> pulumi.Output[Optional[Sequence[_builtins.str]]]:
+        """
+        URLs with DNS resolution on transparent proxy enabled.
+        """
         return pulumi.get(self, "dns_resolution_on_transparent_proxy_urls")
 
     @_builtins.property
     @pulumi.getter(name="domainFrontingBypassUrlCategories")
     def domain_fronting_bypass_url_categories(self) -> pulumi.Output[Optional[Sequence[_builtins.str]]]:
+        """
+        URL categories that bypass domain fronting detection.
+        """
         return pulumi.get(self, "domain_fronting_bypass_url_categories")
 
     @_builtins.property
     @pulumi.getter(name="dynamicUserRiskEnabled")
     def dynamic_user_risk_enabled(self) -> pulumi.Output[Optional[_builtins.bool]]:
+        """
+        Enable dynamic user risk scoring.
+        """
         return pulumi.get(self, "dynamic_user_risk_enabled")
 
     @_builtins.property
     @pulumi.getter(name="ecsForAllEnabled")
     def ecs_for_all_enabled(self) -> pulumi.Output[Optional[_builtins.bool]]:
+        """
+        Enable EDNS Client Subnet (ECS) for all DNS queries.
+        """
         return pulumi.get(self, "ecs_for_all_enabled")
 
     @_builtins.property
     @pulumi.getter(name="enableAdminRankAccess")
     def enable_admin_rank_access(self) -> pulumi.Output[Optional[_builtins.bool]]:
+        """
+        Enable admin rank-based access control.
+        """
         return pulumi.get(self, "enable_admin_rank_access")
 
     @_builtins.property
     @pulumi.getter(name="enableDnsResolutionOnTransparentProxy")
     def enable_dns_resolution_on_transparent_proxy(self) -> pulumi.Output[Optional[_builtins.bool]]:
+        """
+        Enable DNS resolution on transparent proxy.
+        """
         return pulumi.get(self, "enable_dns_resolution_on_transparent_proxy")
 
     @_builtins.property
     @pulumi.getter(name="enableEvaluatePolicyOnGlobalSslBypass")
     def enable_evaluate_policy_on_global_ssl_bypass(self) -> pulumi.Output[Optional[_builtins.bool]]:
+        """
+        Enable policy evaluation on global SSL bypass.
+        """
         return pulumi.get(self, "enable_evaluate_policy_on_global_ssl_bypass")
 
     @_builtins.property
     @pulumi.getter(name="enableIpv6DnsOptimizationOnAllTransparentProxy")
     def enable_ipv6_dns_optimization_on_all_transparent_proxy(self) -> pulumi.Output[Optional[_builtins.bool]]:
+        """
+        Enable IPv6 DNS optimization on all transparent proxy connections.
+        """
         return pulumi.get(self, "enable_ipv6_dns_optimization_on_all_transparent_proxy")
 
     @_builtins.property
     @pulumi.getter(name="enableIpv6DnsResolutionOnTransparentProxy")
     def enable_ipv6_dns_resolution_on_transparent_proxy(self) -> pulumi.Output[Optional[_builtins.bool]]:
+        """
+        Enable IPv6 DNS resolution on transparent proxy.
+        """
         return pulumi.get(self, "enable_ipv6_dns_resolution_on_transparent_proxy")
 
     @_builtins.property
     @pulumi.getter(name="enableOffice365")
     def enable_office365(self) -> pulumi.Output[Optional[_builtins.bool]]:
+        """
+        Enable Office 365 one-click configuration.
+        """
         return pulumi.get(self, "enable_office365")
 
     @_builtins.property
     @pulumi.getter(name="enablePolicyForUnauthenticatedTraffic")
     def enable_policy_for_unauthenticated_traffic(self) -> pulumi.Output[Optional[_builtins.bool]]:
+        """
+        Enable policy evaluation for unauthenticated traffic.
+        """
         return pulumi.get(self, "enable_policy_for_unauthenticated_traffic")
 
     @_builtins.property
     @pulumi.getter(name="enforceSurrogateIpForWindowsApp")
     def enforce_surrogate_ip_for_windows_app(self) -> pulumi.Output[Optional[_builtins.bool]]:
+        """
+        Enforce surrogate IP for Windows applications.
+        """
         return pulumi.get(self, "enforce_surrogate_ip_for_windows_app")
 
     @_builtins.property
     @pulumi.getter(name="http2NonbrowserTrafficEnabled")
     def http2_nonbrowser_traffic_enabled(self) -> pulumi.Output[Optional[_builtins.bool]]:
+        """
+        Enable HTTP/2 for non-browser traffic.
+        """
         return pulumi.get(self, "http2_nonbrowser_traffic_enabled")
 
     @_builtins.property
     @pulumi.getter(name="httpRangeHeaderRemoveUrlCategories")
     def http_range_header_remove_url_categories(self) -> pulumi.Output[Optional[Sequence[_builtins.str]]]:
+        """
+        URL categories for which HTTP range headers are removed.
+        """
         return pulumi.get(self, "http_range_header_remove_url_categories")
 
     @_builtins.property
     @pulumi.getter(name="kerberosBypassApps")
     def kerberos_bypass_apps(self) -> pulumi.Output[Optional[Sequence[_builtins.str]]]:
+        """
+        Cloud applications that bypass Kerberos authentication.
+        """
         return pulumi.get(self, "kerberos_bypass_apps")
 
     @_builtins.property
     @pulumi.getter(name="kerberosBypassUrlCategories")
     def kerberos_bypass_url_categories(self) -> pulumi.Output[Optional[Sequence[_builtins.str]]]:
+        """
+        URL categories that bypass Kerberos authentication.
+        """
         return pulumi.get(self, "kerberos_bypass_url_categories")
 
     @_builtins.property
     @pulumi.getter(name="kerberosBypassUrls")
     def kerberos_bypass_urls(self) -> pulumi.Output[Optional[Sequence[_builtins.str]]]:
+        """
+        URLs that bypass Kerberos authentication.
+        """
         return pulumi.get(self, "kerberos_bypass_urls")
 
     @_builtins.property
     @pulumi.getter(name="logInternalIp")
     def log_internal_ip(self) -> pulumi.Output[Optional[_builtins.bool]]:
+        """
+        Enable logging of internal IP addresses.
+        """
         return pulumi.get(self, "log_internal_ip")
 
     @_builtins.property
     @pulumi.getter(name="preferSniOverConnHost")
     def prefer_sni_over_conn_host(self) -> pulumi.Output[Optional[_builtins.bool]]:
+        """
+        Prefer SNI over CONNECT host header for policy evaluation.
+        """
         return pulumi.get(self, "prefer_sni_over_conn_host")
 
     @_builtins.property
     @pulumi.getter(name="preferSniOverConnHostApps")
     def prefer_sni_over_conn_host_apps(self) -> pulumi.Output[Optional[Sequence[_builtins.str]]]:
+        """
+        Cloud applications that prefer SNI over CONNECT host header.
+        """
         return pulumi.get(self, "prefer_sni_over_conn_host_apps")
 
     @_builtins.property
     @pulumi.getter(name="resourceId")
     def resource_id(self) -> pulumi.Output[_builtins.str]:
+        """
+        The internal resource identifier for the advanced settings.
+        """
         return pulumi.get(self, "resource_id")
 
     @_builtins.property
     @pulumi.getter(name="sipaXffHeaderEnabled")
     def sipa_xff_header_enabled(self) -> pulumi.Output[Optional[_builtins.bool]]:
+        """
+        Enable X-Forwarded-For header for SIPA traffic.
+        """
         return pulumi.get(self, "sipa_xff_header_enabled")
 
     @_builtins.property
     @pulumi.getter(name="sniDnsOptimizationBypassUrlCategories")
     def sni_dns_optimization_bypass_url_categories(self) -> pulumi.Output[Optional[Sequence[_builtins.str]]]:
+        """
+        URL categories that bypass SNI/DNS optimization.
+        """
         return pulumi.get(self, "sni_dns_optimization_bypass_url_categories")
 
     @_builtins.property
     @pulumi.getter(name="trackHttpTunnelOnHttpPorts")
     def track_http_tunnel_on_http_ports(self) -> pulumi.Output[Optional[_builtins.bool]]:
+        """
+        Track HTTP tunnels on HTTP ports.
+        """
         return pulumi.get(self, "track_http_tunnel_on_http_ports")
 
     @_builtins.property
     @pulumi.getter(name="uiSessionTimeout")
     def ui_session_timeout(self) -> pulumi.Output[Optional[_builtins.int]]:
+        """
+        UI session timeout in minutes.
+        """
         return pulumi.get(self, "ui_session_timeout")
 
     @_builtins.property
     @pulumi.getter(name="zscalerClientConnector1AndPacRoadWarriorInFirewall")
     def zscaler_client_connector1_and_pac_road_warrior_in_firewall(self) -> pulumi.Output[Optional[_builtins.bool]]:
+        """
+        Include Zscaler Client Connector and PAC road warrior traffic in firewall policy.
+        """
         return pulumi.get(self, "zscaler_client_connector1_and_pac_road_warrior_in_firewall")
 

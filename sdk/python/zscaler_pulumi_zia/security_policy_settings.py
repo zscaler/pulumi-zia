@@ -23,6 +23,8 @@ class SecurityPolicySettingsArgs:
                  whitelist_urls: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None):
         """
         The set of arguments for constructing a SecurityPolicySettings resource.
+        :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] blacklist_urls: List of URLs that are always blocked (blacklisted) by the security policy.
+        :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] whitelist_urls: List of URLs that are always allowed (whitelisted) by the security policy.
         """
         if blacklist_urls is not None:
             pulumi.set(__self__, "blacklist_urls", blacklist_urls)
@@ -32,6 +34,9 @@ class SecurityPolicySettingsArgs:
     @_builtins.property
     @pulumi.getter(name="blacklistUrls")
     def blacklist_urls(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
+        """
+        List of URLs that are always blocked (blacklisted) by the security policy.
+        """
         return pulumi.get(self, "blacklist_urls")
 
     @blacklist_urls.setter
@@ -41,6 +46,9 @@ class SecurityPolicySettingsArgs:
     @_builtins.property
     @pulumi.getter(name="whitelistUrls")
     def whitelist_urls(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
+        """
+        List of URLs that are always allowed (whitelisted) by the security policy.
+        """
         return pulumi.get(self, "whitelist_urls")
 
     @whitelist_urls.setter
@@ -58,9 +66,34 @@ class SecurityPolicySettings(pulumi.CustomResource):
                  whitelist_urls: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
                  __props__=None):
         """
-        Create a SecurityPolicySettings resource with the given unique name, props, and options.
+        The zia_security_policy_settings resource manages the whitelist and blacklist URL configuration for the ZIA security policy. This is a singleton resource that controls which URLs are always allowed (whitelisted) or always blocked (blacklisted) across the organization.
+
+        For more information, see the [ZIA Security Policy Settings documentation](https://help.zscaler.com/zia/configuring-security-policy).
+
+        ## Example Usage
+        ### Basic Security Policy Settings
+
+        ```python
+        import zscaler_pulumi_zia as zia
+
+        example = zia.SecurityPolicySettings("example",
+            whitelist_urls=[
+                "example.com",
+                "trusted-site.org",
+            ],
+            blacklist_urls=[
+                "malicious-site.com",
+                "phishing-site.net",
+            ],
+        )
+        ```
+
+        > This is a singleton resource. Import is not applicable.
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
+        :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] blacklist_urls: List of URLs that are always blocked (blacklisted) by the security policy.
+        :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] whitelist_urls: List of URLs that are always allowed (whitelisted) by the security policy.
         """
         ...
     @overload
@@ -69,7 +102,30 @@ class SecurityPolicySettings(pulumi.CustomResource):
                  args: Optional[SecurityPolicySettingsArgs] = None,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
-        Create a SecurityPolicySettings resource with the given unique name, props, and options.
+        The zia_security_policy_settings resource manages the whitelist and blacklist URL configuration for the ZIA security policy. This is a singleton resource that controls which URLs are always allowed (whitelisted) or always blocked (blacklisted) across the organization.
+
+        For more information, see the [ZIA Security Policy Settings documentation](https://help.zscaler.com/zia/configuring-security-policy).
+
+        ## Example Usage
+        ### Basic Security Policy Settings
+
+        ```python
+        import zscaler_pulumi_zia as zia
+
+        example = zia.SecurityPolicySettings("example",
+            whitelist_urls=[
+                "example.com",
+                "trusted-site.org",
+            ],
+            blacklist_urls=[
+                "malicious-site.com",
+                "phishing-site.net",
+            ],
+        )
+        ```
+
+        > This is a singleton resource. Import is not applicable.
+
         :param str resource_name: The name of the resource.
         :param SecurityPolicySettingsArgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -129,15 +185,24 @@ class SecurityPolicySettings(pulumi.CustomResource):
     @_builtins.property
     @pulumi.getter(name="blacklistUrls")
     def blacklist_urls(self) -> pulumi.Output[Optional[Sequence[_builtins.str]]]:
+        """
+        List of URLs that are always blocked (blacklisted) by the security policy.
+        """
         return pulumi.get(self, "blacklist_urls")
 
     @_builtins.property
     @pulumi.getter(name="resourceId")
     def resource_id(self) -> pulumi.Output[_builtins.str]:
+        """
+        The internal resource identifier for the security policy settings.
+        """
         return pulumi.get(self, "resource_id")
 
     @_builtins.property
     @pulumi.getter(name="whitelistUrls")
     def whitelist_urls(self) -> pulumi.Output[Optional[Sequence[_builtins.str]]]:
+        """
+        List of URLs that are always allowed (whitelisted) by the security policy.
+        """
         return pulumi.get(self, "whitelist_urls")
 

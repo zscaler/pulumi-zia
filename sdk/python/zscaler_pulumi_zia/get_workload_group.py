@@ -47,31 +47,49 @@ class GetWorkloadGroupResult:
     @_builtins.property
     @pulumi.getter
     def description(self) -> _builtins.str:
+        """
+        The description of the workload group.
+        """
         return pulumi.get(self, "description")
 
     @_builtins.property
     @pulumi.getter
     def expression(self) -> _builtins.str:
+        """
+        The expression string for the workload group.
+        """
         return pulumi.get(self, "expression")
 
     @_builtins.property
     @pulumi.getter(name="expressionJson")
     def expression_json(self) -> Optional['outputs.WorkloadGroupExpressionJsonInput']:
+        """
+        The expression JSON that defines the workload group matching criteria.
+        """
         return pulumi.get(self, "expression_json")
 
     @_builtins.property
     @pulumi.getter(name="groupId")
     def group_id(self) -> _builtins.int:
+        """
+        The ID of the workload group.
+        """
         return pulumi.get(self, "group_id")
 
     @_builtins.property
     @pulumi.getter(name="lastModifiedTime")
     def last_modified_time(self) -> _builtins.int:
+        """
+        The last modification time of the workload group (epoch).
+        """
         return pulumi.get(self, "last_modified_time")
 
     @_builtins.property
     @pulumi.getter
     def name(self) -> _builtins.str:
+        """
+        The name of the workload group.
+        """
         return pulumi.get(self, "name")
 
 
@@ -93,7 +111,11 @@ def get_workload_group(group_id: Optional[_builtins.int] = None,
                        name: Optional[_builtins.str] = None,
                        opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetWorkloadGroupResult:
     """
-    Use this data source to access information about an existing resource.
+    Use this data source to look up a workload group by ID or name.
+
+
+    :param _builtins.int group_id: The ID of the workload group to look up.
+    :param _builtins.str name: The name of the workload group to look up.
     """
     __args__ = dict()
     __args__['groupId'] = group_id
@@ -112,7 +134,11 @@ def get_workload_group_output(group_id: Optional[pulumi.Input[Optional[_builtins
                               name: Optional[pulumi.Input[Optional[_builtins.str]]] = None,
                               opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetWorkloadGroupResult]:
     """
-    Use this data source to access information about an existing resource.
+    Use this data source to look up a workload group by ID or name.
+
+
+    :param _builtins.int group_id: The ID of the workload group to look up.
+    :param _builtins.str name: The name of the workload group to look up.
     """
     __args__ = dict()
     __args__['groupId'] = group_id

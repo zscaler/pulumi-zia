@@ -20,233 +20,497 @@ public final class TrafficCaptureRuleArgs extends com.pulumi.resources.ResourceA
 
     public static final TrafficCaptureRuleArgs Empty = new TrafficCaptureRuleArgs();
 
+    /**
+     * The action taken when traffic matches the rule (e.g., &#39;CAPTURE&#39;). Default: &#39;CAPTURE&#39;.
+     * 
+     */
     @Import(name="action")
     private @Nullable Output<String> action;
 
+    /**
+     * @return The action taken when traffic matches the rule (e.g., &#39;CAPTURE&#39;). Default: &#39;CAPTURE&#39;.
+     * 
+     */
     public Optional<Output<String>> action() {
         return Optional.ofNullable(this.action);
     }
 
+    /**
+     * List of application service group IDs.
+     * 
+     */
     @Import(name="appServiceGroups")
     private @Nullable Output<List<Integer>> appServiceGroups;
 
+    /**
+     * @return List of application service group IDs.
+     * 
+     */
     public Optional<Output<List<Integer>>> appServiceGroups() {
         return Optional.ofNullable(this.appServiceGroups);
     }
 
+    /**
+     * Whether this is a default rule.
+     * 
+     */
     @Import(name="defaultRule")
     private @Nullable Output<Boolean> defaultRule;
 
+    /**
+     * @return Whether this is a default rule.
+     * 
+     */
     public Optional<Output<Boolean>> defaultRule() {
         return Optional.ofNullable(this.defaultRule);
     }
 
+    /**
+     * List of department IDs.
+     * 
+     */
     @Import(name="departments")
     private @Nullable Output<List<Integer>> departments;
 
+    /**
+     * @return List of department IDs.
+     * 
+     */
     public Optional<Output<List<Integer>>> departments() {
         return Optional.ofNullable(this.departments);
     }
 
+    /**
+     * Description of the traffic capture rule.
+     * 
+     */
     @Import(name="description")
     private @Nullable Output<String> description;
 
+    /**
+     * @return Description of the traffic capture rule.
+     * 
+     */
     public Optional<Output<String>> description() {
         return Optional.ofNullable(this.description);
     }
 
+    /**
+     * List of destination addresses.
+     * 
+     */
     @Import(name="destAddresses")
     private @Nullable Output<List<String>> destAddresses;
 
+    /**
+     * @return List of destination addresses.
+     * 
+     */
     public Optional<Output<List<String>>> destAddresses() {
         return Optional.ofNullable(this.destAddresses);
     }
 
+    /**
+     * List of destination country codes.
+     * 
+     */
     @Import(name="destCountries")
     private @Nullable Output<List<String>> destCountries;
 
+    /**
+     * @return List of destination country codes.
+     * 
+     */
     public Optional<Output<List<String>>> destCountries() {
         return Optional.ofNullable(this.destCountries);
     }
 
+    /**
+     * List of destination IP categories.
+     * 
+     */
     @Import(name="destIpCategories")
     private @Nullable Output<List<String>> destIpCategories;
 
+    /**
+     * @return List of destination IP categories.
+     * 
+     */
     public Optional<Output<List<String>>> destIpCategories() {
         return Optional.ofNullable(this.destIpCategories);
     }
 
+    /**
+     * List of destination IP group IDs.
+     * 
+     */
     @Import(name="destIpGroups")
     private @Nullable Output<List<Integer>> destIpGroups;
 
+    /**
+     * @return List of destination IP group IDs.
+     * 
+     */
     public Optional<Output<List<Integer>>> destIpGroups() {
         return Optional.ofNullable(this.destIpGroups);
     }
 
+    /**
+     * List of device group IDs.
+     * 
+     */
     @Import(name="deviceGroups")
     private @Nullable Output<List<Integer>> deviceGroups;
 
+    /**
+     * @return List of device group IDs.
+     * 
+     */
     public Optional<Output<List<Integer>>> deviceGroups() {
         return Optional.ofNullable(this.deviceGroups);
     }
 
+    /**
+     * List of device trust levels.
+     * 
+     */
     @Import(name="deviceTrustLevels")
     private @Nullable Output<List<String>> deviceTrustLevels;
 
+    /**
+     * @return List of device trust levels.
+     * 
+     */
     public Optional<Output<List<String>>> deviceTrustLevels() {
         return Optional.ofNullable(this.deviceTrustLevels);
     }
 
+    /**
+     * List of device IDs.
+     * 
+     */
     @Import(name="devices")
     private @Nullable Output<List<Integer>> devices;
 
+    /**
+     * @return List of device IDs.
+     * 
+     */
     public Optional<Output<List<Integer>>> devices() {
         return Optional.ofNullable(this.devices);
     }
 
+    /**
+     * List of group IDs.
+     * 
+     */
     @Import(name="groups")
     private @Nullable Output<List<Integer>> groups;
 
+    /**
+     * @return List of group IDs.
+     * 
+     */
     public Optional<Output<List<Integer>>> groups() {
         return Optional.ofNullable(this.groups);
     }
 
+    /**
+     * List of label IDs.
+     * 
+     */
     @Import(name="labels")
     private @Nullable Output<List<Integer>> labels;
 
+    /**
+     * @return List of label IDs.
+     * 
+     */
     public Optional<Output<List<Integer>>> labels() {
         return Optional.ofNullable(this.labels);
     }
 
+    /**
+     * List of location group IDs.
+     * 
+     */
     @Import(name="locationGroups")
     private @Nullable Output<List<Integer>> locationGroups;
 
+    /**
+     * @return List of location group IDs.
+     * 
+     */
     public Optional<Output<List<Integer>>> locationGroups() {
         return Optional.ofNullable(this.locationGroups);
     }
 
+    /**
+     * List of location IDs.
+     * 
+     */
     @Import(name="locations")
     private @Nullable Output<List<Integer>> locations;
 
+    /**
+     * @return List of location IDs.
+     * 
+     */
     public Optional<Output<List<Integer>>> locations() {
         return Optional.ofNullable(this.locations);
     }
 
+    /**
+     * Name of the traffic capture rule.
+     * 
+     */
     @Import(name="name", required=true)
     private Output<String> name;
 
+    /**
+     * @return Name of the traffic capture rule.
+     * 
+     */
     public Output<String> name() {
         return this.name;
     }
 
+    /**
+     * List of network application group IDs.
+     * 
+     */
     @Import(name="nwApplicationGroups")
     private @Nullable Output<List<Integer>> nwApplicationGroups;
 
+    /**
+     * @return List of network application group IDs.
+     * 
+     */
     public Optional<Output<List<Integer>>> nwApplicationGroups() {
         return Optional.ofNullable(this.nwApplicationGroups);
     }
 
+    /**
+     * List of network applications.
+     * 
+     */
     @Import(name="nwApplications")
     private @Nullable Output<List<String>> nwApplications;
 
+    /**
+     * @return List of network applications.
+     * 
+     */
     public Optional<Output<List<String>>> nwApplications() {
         return Optional.ofNullable(this.nwApplications);
     }
 
+    /**
+     * List of network service group IDs.
+     * 
+     */
     @Import(name="nwServiceGroups")
     private @Nullable Output<List<Integer>> nwServiceGroups;
 
+    /**
+     * @return List of network service group IDs.
+     * 
+     */
     public Optional<Output<List<Integer>>> nwServiceGroups() {
         return Optional.ofNullable(this.nwServiceGroups);
     }
 
+    /**
+     * List of network service IDs.
+     * 
+     */
     @Import(name="nwServices")
     private @Nullable Output<List<Integer>> nwServices;
 
+    /**
+     * @return List of network service IDs.
+     * 
+     */
     public Optional<Output<List<Integer>>> nwServices() {
         return Optional.ofNullable(this.nwServices);
     }
 
+    /**
+     * The rule order of execution for the traffic capture rule.
+     * 
+     */
     @Import(name="order", required=true)
     private Output<Integer> order;
 
+    /**
+     * @return The rule order of execution for the traffic capture rule.
+     * 
+     */
     public Output<Integer> order() {
         return this.order;
     }
 
+    /**
+     * Whether this is a predefined rule.
+     * 
+     */
     @Import(name="predefined")
     private @Nullable Output<Boolean> predefined;
 
+    /**
+     * @return Whether this is a predefined rule.
+     * 
+     */
     public Optional<Output<Boolean>> predefined() {
         return Optional.ofNullable(this.predefined);
     }
 
+    /**
+     * The admin rank of the rule. Default is 7.
+     * 
+     */
     @Import(name="rank")
     private @Nullable Output<Integer> rank;
 
+    /**
+     * @return The admin rank of the rule. Default is 7.
+     * 
+     */
     public Optional<Output<Integer>> rank() {
         return Optional.ofNullable(this.rank);
     }
 
+    /**
+     * List of source country codes.
+     * 
+     */
     @Import(name="sourceCountries")
     private @Nullable Output<List<String>> sourceCountries;
 
+    /**
+     * @return List of source country codes.
+     * 
+     */
     public Optional<Output<List<String>>> sourceCountries() {
         return Optional.ofNullable(this.sourceCountries);
     }
 
+    /**
+     * List of source IP group IDs.
+     * 
+     */
     @Import(name="srcIpGroups")
     private @Nullable Output<List<Integer>> srcIpGroups;
 
+    /**
+     * @return List of source IP group IDs.
+     * 
+     */
     public Optional<Output<List<Integer>>> srcIpGroups() {
         return Optional.ofNullable(this.srcIpGroups);
     }
 
+    /**
+     * List of source IP addresses or CIDR ranges.
+     * 
+     */
     @Import(name="srcIps")
     private @Nullable Output<List<String>> srcIps;
 
+    /**
+     * @return List of source IP addresses or CIDR ranges.
+     * 
+     */
     public Optional<Output<List<String>>> srcIps() {
         return Optional.ofNullable(this.srcIps);
     }
 
+    /**
+     * The rule state. Accepted values: &#39;ENABLED&#39; or &#39;DISABLED&#39;. Default: &#39;ENABLED&#39;.
+     * 
+     */
     @Import(name="state")
     private @Nullable Output<String> state;
 
+    /**
+     * @return The rule state. Accepted values: &#39;ENABLED&#39; or &#39;DISABLED&#39;. Default: &#39;ENABLED&#39;.
+     * 
+     */
     public Optional<Output<String>> state() {
         return Optional.ofNullable(this.state);
     }
 
+    /**
+     * List of time window IDs.
+     * 
+     */
     @Import(name="timeWindows")
     private @Nullable Output<List<Integer>> timeWindows;
 
+    /**
+     * @return List of time window IDs.
+     * 
+     */
     public Optional<Output<List<Integer>>> timeWindows() {
         return Optional.ofNullable(this.timeWindows);
     }
 
+    /**
+     * Transaction sampling mode. Default: &#39;NONE&#39;.
+     * 
+     */
     @Import(name="txnSampling")
     private @Nullable Output<String> txnSampling;
 
+    /**
+     * @return Transaction sampling mode. Default: &#39;NONE&#39;.
+     * 
+     */
     public Optional<Output<String>> txnSampling() {
         return Optional.ofNullable(this.txnSampling);
     }
 
+    /**
+     * Transaction size limit. Default: &#39;NONE&#39;.
+     * 
+     */
     @Import(name="txnSizeLimit")
     private @Nullable Output<String> txnSizeLimit;
 
+    /**
+     * @return Transaction size limit. Default: &#39;NONE&#39;.
+     * 
+     */
     public Optional<Output<String>> txnSizeLimit() {
         return Optional.ofNullable(this.txnSizeLimit);
     }
 
+    /**
+     * List of user IDs.
+     * 
+     */
     @Import(name="users")
     private @Nullable Output<List<Integer>> users;
 
+    /**
+     * @return List of user IDs.
+     * 
+     */
     public Optional<Output<List<Integer>>> users() {
         return Optional.ofNullable(this.users);
     }
 
+    /**
+     * List of workload groups.
+     * 
+     */
     @Import(name="workloadGroups")
     private @Nullable Output<List<WorkloadGroupInputArgs>> workloadGroups;
 
+    /**
+     * @return List of workload groups.
+     * 
+     */
     public Optional<Output<List<WorkloadGroupInputArgs>>> workloadGroups() {
         return Optional.ofNullable(this.workloadGroups);
     }
@@ -307,391 +571,925 @@ public final class TrafficCaptureRuleArgs extends com.pulumi.resources.ResourceA
             $ = new TrafficCaptureRuleArgs(Objects.requireNonNull(defaults));
         }
 
+        /**
+         * @param action The action taken when traffic matches the rule (e.g., &#39;CAPTURE&#39;). Default: &#39;CAPTURE&#39;.
+         * 
+         * @return builder
+         * 
+         */
         public Builder action(@Nullable Output<String> action) {
             $.action = action;
             return this;
         }
 
+        /**
+         * @param action The action taken when traffic matches the rule (e.g., &#39;CAPTURE&#39;). Default: &#39;CAPTURE&#39;.
+         * 
+         * @return builder
+         * 
+         */
         public Builder action(String action) {
             return action(Output.of(action));
         }
 
+        /**
+         * @param appServiceGroups List of application service group IDs.
+         * 
+         * @return builder
+         * 
+         */
         public Builder appServiceGroups(@Nullable Output<List<Integer>> appServiceGroups) {
             $.appServiceGroups = appServiceGroups;
             return this;
         }
 
+        /**
+         * @param appServiceGroups List of application service group IDs.
+         * 
+         * @return builder
+         * 
+         */
         public Builder appServiceGroups(List<Integer> appServiceGroups) {
             return appServiceGroups(Output.of(appServiceGroups));
         }
 
+        /**
+         * @param appServiceGroups List of application service group IDs.
+         * 
+         * @return builder
+         * 
+         */
         public Builder appServiceGroups(Integer... appServiceGroups) {
             return appServiceGroups(List.of(appServiceGroups));
         }
 
+        /**
+         * @param defaultRule Whether this is a default rule.
+         * 
+         * @return builder
+         * 
+         */
         public Builder defaultRule(@Nullable Output<Boolean> defaultRule) {
             $.defaultRule = defaultRule;
             return this;
         }
 
+        /**
+         * @param defaultRule Whether this is a default rule.
+         * 
+         * @return builder
+         * 
+         */
         public Builder defaultRule(Boolean defaultRule) {
             return defaultRule(Output.of(defaultRule));
         }
 
+        /**
+         * @param departments List of department IDs.
+         * 
+         * @return builder
+         * 
+         */
         public Builder departments(@Nullable Output<List<Integer>> departments) {
             $.departments = departments;
             return this;
         }
 
+        /**
+         * @param departments List of department IDs.
+         * 
+         * @return builder
+         * 
+         */
         public Builder departments(List<Integer> departments) {
             return departments(Output.of(departments));
         }
 
+        /**
+         * @param departments List of department IDs.
+         * 
+         * @return builder
+         * 
+         */
         public Builder departments(Integer... departments) {
             return departments(List.of(departments));
         }
 
+        /**
+         * @param description Description of the traffic capture rule.
+         * 
+         * @return builder
+         * 
+         */
         public Builder description(@Nullable Output<String> description) {
             $.description = description;
             return this;
         }
 
+        /**
+         * @param description Description of the traffic capture rule.
+         * 
+         * @return builder
+         * 
+         */
         public Builder description(String description) {
             return description(Output.of(description));
         }
 
+        /**
+         * @param destAddresses List of destination addresses.
+         * 
+         * @return builder
+         * 
+         */
         public Builder destAddresses(@Nullable Output<List<String>> destAddresses) {
             $.destAddresses = destAddresses;
             return this;
         }
 
+        /**
+         * @param destAddresses List of destination addresses.
+         * 
+         * @return builder
+         * 
+         */
         public Builder destAddresses(List<String> destAddresses) {
             return destAddresses(Output.of(destAddresses));
         }
 
+        /**
+         * @param destAddresses List of destination addresses.
+         * 
+         * @return builder
+         * 
+         */
         public Builder destAddresses(String... destAddresses) {
             return destAddresses(List.of(destAddresses));
         }
 
+        /**
+         * @param destCountries List of destination country codes.
+         * 
+         * @return builder
+         * 
+         */
         public Builder destCountries(@Nullable Output<List<String>> destCountries) {
             $.destCountries = destCountries;
             return this;
         }
 
+        /**
+         * @param destCountries List of destination country codes.
+         * 
+         * @return builder
+         * 
+         */
         public Builder destCountries(List<String> destCountries) {
             return destCountries(Output.of(destCountries));
         }
 
+        /**
+         * @param destCountries List of destination country codes.
+         * 
+         * @return builder
+         * 
+         */
         public Builder destCountries(String... destCountries) {
             return destCountries(List.of(destCountries));
         }
 
+        /**
+         * @param destIpCategories List of destination IP categories.
+         * 
+         * @return builder
+         * 
+         */
         public Builder destIpCategories(@Nullable Output<List<String>> destIpCategories) {
             $.destIpCategories = destIpCategories;
             return this;
         }
 
+        /**
+         * @param destIpCategories List of destination IP categories.
+         * 
+         * @return builder
+         * 
+         */
         public Builder destIpCategories(List<String> destIpCategories) {
             return destIpCategories(Output.of(destIpCategories));
         }
 
+        /**
+         * @param destIpCategories List of destination IP categories.
+         * 
+         * @return builder
+         * 
+         */
         public Builder destIpCategories(String... destIpCategories) {
             return destIpCategories(List.of(destIpCategories));
         }
 
+        /**
+         * @param destIpGroups List of destination IP group IDs.
+         * 
+         * @return builder
+         * 
+         */
         public Builder destIpGroups(@Nullable Output<List<Integer>> destIpGroups) {
             $.destIpGroups = destIpGroups;
             return this;
         }
 
+        /**
+         * @param destIpGroups List of destination IP group IDs.
+         * 
+         * @return builder
+         * 
+         */
         public Builder destIpGroups(List<Integer> destIpGroups) {
             return destIpGroups(Output.of(destIpGroups));
         }
 
+        /**
+         * @param destIpGroups List of destination IP group IDs.
+         * 
+         * @return builder
+         * 
+         */
         public Builder destIpGroups(Integer... destIpGroups) {
             return destIpGroups(List.of(destIpGroups));
         }
 
+        /**
+         * @param deviceGroups List of device group IDs.
+         * 
+         * @return builder
+         * 
+         */
         public Builder deviceGroups(@Nullable Output<List<Integer>> deviceGroups) {
             $.deviceGroups = deviceGroups;
             return this;
         }
 
+        /**
+         * @param deviceGroups List of device group IDs.
+         * 
+         * @return builder
+         * 
+         */
         public Builder deviceGroups(List<Integer> deviceGroups) {
             return deviceGroups(Output.of(deviceGroups));
         }
 
+        /**
+         * @param deviceGroups List of device group IDs.
+         * 
+         * @return builder
+         * 
+         */
         public Builder deviceGroups(Integer... deviceGroups) {
             return deviceGroups(List.of(deviceGroups));
         }
 
+        /**
+         * @param deviceTrustLevels List of device trust levels.
+         * 
+         * @return builder
+         * 
+         */
         public Builder deviceTrustLevels(@Nullable Output<List<String>> deviceTrustLevels) {
             $.deviceTrustLevels = deviceTrustLevels;
             return this;
         }
 
+        /**
+         * @param deviceTrustLevels List of device trust levels.
+         * 
+         * @return builder
+         * 
+         */
         public Builder deviceTrustLevels(List<String> deviceTrustLevels) {
             return deviceTrustLevels(Output.of(deviceTrustLevels));
         }
 
+        /**
+         * @param deviceTrustLevels List of device trust levels.
+         * 
+         * @return builder
+         * 
+         */
         public Builder deviceTrustLevels(String... deviceTrustLevels) {
             return deviceTrustLevels(List.of(deviceTrustLevels));
         }
 
+        /**
+         * @param devices List of device IDs.
+         * 
+         * @return builder
+         * 
+         */
         public Builder devices(@Nullable Output<List<Integer>> devices) {
             $.devices = devices;
             return this;
         }
 
+        /**
+         * @param devices List of device IDs.
+         * 
+         * @return builder
+         * 
+         */
         public Builder devices(List<Integer> devices) {
             return devices(Output.of(devices));
         }
 
+        /**
+         * @param devices List of device IDs.
+         * 
+         * @return builder
+         * 
+         */
         public Builder devices(Integer... devices) {
             return devices(List.of(devices));
         }
 
+        /**
+         * @param groups List of group IDs.
+         * 
+         * @return builder
+         * 
+         */
         public Builder groups(@Nullable Output<List<Integer>> groups) {
             $.groups = groups;
             return this;
         }
 
+        /**
+         * @param groups List of group IDs.
+         * 
+         * @return builder
+         * 
+         */
         public Builder groups(List<Integer> groups) {
             return groups(Output.of(groups));
         }
 
+        /**
+         * @param groups List of group IDs.
+         * 
+         * @return builder
+         * 
+         */
         public Builder groups(Integer... groups) {
             return groups(List.of(groups));
         }
 
+        /**
+         * @param labels List of label IDs.
+         * 
+         * @return builder
+         * 
+         */
         public Builder labels(@Nullable Output<List<Integer>> labels) {
             $.labels = labels;
             return this;
         }
 
+        /**
+         * @param labels List of label IDs.
+         * 
+         * @return builder
+         * 
+         */
         public Builder labels(List<Integer> labels) {
             return labels(Output.of(labels));
         }
 
+        /**
+         * @param labels List of label IDs.
+         * 
+         * @return builder
+         * 
+         */
         public Builder labels(Integer... labels) {
             return labels(List.of(labels));
         }
 
+        /**
+         * @param locationGroups List of location group IDs.
+         * 
+         * @return builder
+         * 
+         */
         public Builder locationGroups(@Nullable Output<List<Integer>> locationGroups) {
             $.locationGroups = locationGroups;
             return this;
         }
 
+        /**
+         * @param locationGroups List of location group IDs.
+         * 
+         * @return builder
+         * 
+         */
         public Builder locationGroups(List<Integer> locationGroups) {
             return locationGroups(Output.of(locationGroups));
         }
 
+        /**
+         * @param locationGroups List of location group IDs.
+         * 
+         * @return builder
+         * 
+         */
         public Builder locationGroups(Integer... locationGroups) {
             return locationGroups(List.of(locationGroups));
         }
 
+        /**
+         * @param locations List of location IDs.
+         * 
+         * @return builder
+         * 
+         */
         public Builder locations(@Nullable Output<List<Integer>> locations) {
             $.locations = locations;
             return this;
         }
 
+        /**
+         * @param locations List of location IDs.
+         * 
+         * @return builder
+         * 
+         */
         public Builder locations(List<Integer> locations) {
             return locations(Output.of(locations));
         }
 
+        /**
+         * @param locations List of location IDs.
+         * 
+         * @return builder
+         * 
+         */
         public Builder locations(Integer... locations) {
             return locations(List.of(locations));
         }
 
+        /**
+         * @param name Name of the traffic capture rule.
+         * 
+         * @return builder
+         * 
+         */
         public Builder name(Output<String> name) {
             $.name = name;
             return this;
         }
 
+        /**
+         * @param name Name of the traffic capture rule.
+         * 
+         * @return builder
+         * 
+         */
         public Builder name(String name) {
             return name(Output.of(name));
         }
 
+        /**
+         * @param nwApplicationGroups List of network application group IDs.
+         * 
+         * @return builder
+         * 
+         */
         public Builder nwApplicationGroups(@Nullable Output<List<Integer>> nwApplicationGroups) {
             $.nwApplicationGroups = nwApplicationGroups;
             return this;
         }
 
+        /**
+         * @param nwApplicationGroups List of network application group IDs.
+         * 
+         * @return builder
+         * 
+         */
         public Builder nwApplicationGroups(List<Integer> nwApplicationGroups) {
             return nwApplicationGroups(Output.of(nwApplicationGroups));
         }
 
+        /**
+         * @param nwApplicationGroups List of network application group IDs.
+         * 
+         * @return builder
+         * 
+         */
         public Builder nwApplicationGroups(Integer... nwApplicationGroups) {
             return nwApplicationGroups(List.of(nwApplicationGroups));
         }
 
+        /**
+         * @param nwApplications List of network applications.
+         * 
+         * @return builder
+         * 
+         */
         public Builder nwApplications(@Nullable Output<List<String>> nwApplications) {
             $.nwApplications = nwApplications;
             return this;
         }
 
+        /**
+         * @param nwApplications List of network applications.
+         * 
+         * @return builder
+         * 
+         */
         public Builder nwApplications(List<String> nwApplications) {
             return nwApplications(Output.of(nwApplications));
         }
 
+        /**
+         * @param nwApplications List of network applications.
+         * 
+         * @return builder
+         * 
+         */
         public Builder nwApplications(String... nwApplications) {
             return nwApplications(List.of(nwApplications));
         }
 
+        /**
+         * @param nwServiceGroups List of network service group IDs.
+         * 
+         * @return builder
+         * 
+         */
         public Builder nwServiceGroups(@Nullable Output<List<Integer>> nwServiceGroups) {
             $.nwServiceGroups = nwServiceGroups;
             return this;
         }
 
+        /**
+         * @param nwServiceGroups List of network service group IDs.
+         * 
+         * @return builder
+         * 
+         */
         public Builder nwServiceGroups(List<Integer> nwServiceGroups) {
             return nwServiceGroups(Output.of(nwServiceGroups));
         }
 
+        /**
+         * @param nwServiceGroups List of network service group IDs.
+         * 
+         * @return builder
+         * 
+         */
         public Builder nwServiceGroups(Integer... nwServiceGroups) {
             return nwServiceGroups(List.of(nwServiceGroups));
         }
 
+        /**
+         * @param nwServices List of network service IDs.
+         * 
+         * @return builder
+         * 
+         */
         public Builder nwServices(@Nullable Output<List<Integer>> nwServices) {
             $.nwServices = nwServices;
             return this;
         }
 
+        /**
+         * @param nwServices List of network service IDs.
+         * 
+         * @return builder
+         * 
+         */
         public Builder nwServices(List<Integer> nwServices) {
             return nwServices(Output.of(nwServices));
         }
 
+        /**
+         * @param nwServices List of network service IDs.
+         * 
+         * @return builder
+         * 
+         */
         public Builder nwServices(Integer... nwServices) {
             return nwServices(List.of(nwServices));
         }
 
+        /**
+         * @param order The rule order of execution for the traffic capture rule.
+         * 
+         * @return builder
+         * 
+         */
         public Builder order(Output<Integer> order) {
             $.order = order;
             return this;
         }
 
+        /**
+         * @param order The rule order of execution for the traffic capture rule.
+         * 
+         * @return builder
+         * 
+         */
         public Builder order(Integer order) {
             return order(Output.of(order));
         }
 
+        /**
+         * @param predefined Whether this is a predefined rule.
+         * 
+         * @return builder
+         * 
+         */
         public Builder predefined(@Nullable Output<Boolean> predefined) {
             $.predefined = predefined;
             return this;
         }
 
+        /**
+         * @param predefined Whether this is a predefined rule.
+         * 
+         * @return builder
+         * 
+         */
         public Builder predefined(Boolean predefined) {
             return predefined(Output.of(predefined));
         }
 
+        /**
+         * @param rank The admin rank of the rule. Default is 7.
+         * 
+         * @return builder
+         * 
+         */
         public Builder rank(@Nullable Output<Integer> rank) {
             $.rank = rank;
             return this;
         }
 
+        /**
+         * @param rank The admin rank of the rule. Default is 7.
+         * 
+         * @return builder
+         * 
+         */
         public Builder rank(Integer rank) {
             return rank(Output.of(rank));
         }
 
+        /**
+         * @param sourceCountries List of source country codes.
+         * 
+         * @return builder
+         * 
+         */
         public Builder sourceCountries(@Nullable Output<List<String>> sourceCountries) {
             $.sourceCountries = sourceCountries;
             return this;
         }
 
+        /**
+         * @param sourceCountries List of source country codes.
+         * 
+         * @return builder
+         * 
+         */
         public Builder sourceCountries(List<String> sourceCountries) {
             return sourceCountries(Output.of(sourceCountries));
         }
 
+        /**
+         * @param sourceCountries List of source country codes.
+         * 
+         * @return builder
+         * 
+         */
         public Builder sourceCountries(String... sourceCountries) {
             return sourceCountries(List.of(sourceCountries));
         }
 
+        /**
+         * @param srcIpGroups List of source IP group IDs.
+         * 
+         * @return builder
+         * 
+         */
         public Builder srcIpGroups(@Nullable Output<List<Integer>> srcIpGroups) {
             $.srcIpGroups = srcIpGroups;
             return this;
         }
 
+        /**
+         * @param srcIpGroups List of source IP group IDs.
+         * 
+         * @return builder
+         * 
+         */
         public Builder srcIpGroups(List<Integer> srcIpGroups) {
             return srcIpGroups(Output.of(srcIpGroups));
         }
 
+        /**
+         * @param srcIpGroups List of source IP group IDs.
+         * 
+         * @return builder
+         * 
+         */
         public Builder srcIpGroups(Integer... srcIpGroups) {
             return srcIpGroups(List.of(srcIpGroups));
         }
 
+        /**
+         * @param srcIps List of source IP addresses or CIDR ranges.
+         * 
+         * @return builder
+         * 
+         */
         public Builder srcIps(@Nullable Output<List<String>> srcIps) {
             $.srcIps = srcIps;
             return this;
         }
 
+        /**
+         * @param srcIps List of source IP addresses or CIDR ranges.
+         * 
+         * @return builder
+         * 
+         */
         public Builder srcIps(List<String> srcIps) {
             return srcIps(Output.of(srcIps));
         }
 
+        /**
+         * @param srcIps List of source IP addresses or CIDR ranges.
+         * 
+         * @return builder
+         * 
+         */
         public Builder srcIps(String... srcIps) {
             return srcIps(List.of(srcIps));
         }
 
+        /**
+         * @param state The rule state. Accepted values: &#39;ENABLED&#39; or &#39;DISABLED&#39;. Default: &#39;ENABLED&#39;.
+         * 
+         * @return builder
+         * 
+         */
         public Builder state(@Nullable Output<String> state) {
             $.state = state;
             return this;
         }
 
+        /**
+         * @param state The rule state. Accepted values: &#39;ENABLED&#39; or &#39;DISABLED&#39;. Default: &#39;ENABLED&#39;.
+         * 
+         * @return builder
+         * 
+         */
         public Builder state(String state) {
             return state(Output.of(state));
         }
 
+        /**
+         * @param timeWindows List of time window IDs.
+         * 
+         * @return builder
+         * 
+         */
         public Builder timeWindows(@Nullable Output<List<Integer>> timeWindows) {
             $.timeWindows = timeWindows;
             return this;
         }
 
+        /**
+         * @param timeWindows List of time window IDs.
+         * 
+         * @return builder
+         * 
+         */
         public Builder timeWindows(List<Integer> timeWindows) {
             return timeWindows(Output.of(timeWindows));
         }
 
+        /**
+         * @param timeWindows List of time window IDs.
+         * 
+         * @return builder
+         * 
+         */
         public Builder timeWindows(Integer... timeWindows) {
             return timeWindows(List.of(timeWindows));
         }
 
+        /**
+         * @param txnSampling Transaction sampling mode. Default: &#39;NONE&#39;.
+         * 
+         * @return builder
+         * 
+         */
         public Builder txnSampling(@Nullable Output<String> txnSampling) {
             $.txnSampling = txnSampling;
             return this;
         }
 
+        /**
+         * @param txnSampling Transaction sampling mode. Default: &#39;NONE&#39;.
+         * 
+         * @return builder
+         * 
+         */
         public Builder txnSampling(String txnSampling) {
             return txnSampling(Output.of(txnSampling));
         }
 
+        /**
+         * @param txnSizeLimit Transaction size limit. Default: &#39;NONE&#39;.
+         * 
+         * @return builder
+         * 
+         */
         public Builder txnSizeLimit(@Nullable Output<String> txnSizeLimit) {
             $.txnSizeLimit = txnSizeLimit;
             return this;
         }
 
+        /**
+         * @param txnSizeLimit Transaction size limit. Default: &#39;NONE&#39;.
+         * 
+         * @return builder
+         * 
+         */
         public Builder txnSizeLimit(String txnSizeLimit) {
             return txnSizeLimit(Output.of(txnSizeLimit));
         }
 
+        /**
+         * @param users List of user IDs.
+         * 
+         * @return builder
+         * 
+         */
         public Builder users(@Nullable Output<List<Integer>> users) {
             $.users = users;
             return this;
         }
 
+        /**
+         * @param users List of user IDs.
+         * 
+         * @return builder
+         * 
+         */
         public Builder users(List<Integer> users) {
             return users(Output.of(users));
         }
 
+        /**
+         * @param users List of user IDs.
+         * 
+         * @return builder
+         * 
+         */
         public Builder users(Integer... users) {
             return users(List.of(users));
         }
 
+        /**
+         * @param workloadGroups List of workload groups.
+         * 
+         * @return builder
+         * 
+         */
         public Builder workloadGroups(@Nullable Output<List<WorkloadGroupInputArgs>> workloadGroups) {
             $.workloadGroups = workloadGroups;
             return this;
         }
 
+        /**
+         * @param workloadGroups List of workload groups.
+         * 
+         * @return builder
+         * 
+         */
         public Builder workloadGroups(List<WorkloadGroupInputArgs> workloadGroups) {
             return workloadGroups(Output.of(workloadGroups));
         }
 
+        /**
+         * @param workloadGroups List of workload groups.
+         * 
+         * @return builder
+         * 
+         */
         public Builder workloadGroups(WorkloadGroupInputArgs... workloadGroups) {
             return workloadGroups(List.of(workloadGroups));
         }

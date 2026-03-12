@@ -19,247 +19,527 @@ public final class CasbDlpRuleArgs extends com.pulumi.resources.ResourceArgs {
 
     public static final CasbDlpRuleArgs Empty = new CasbDlpRuleArgs();
 
+    /**
+     * Action taken when the rule is matched (e.g. `BLOCK`, `ALLOW`, `QUARANTINE`).
+     * 
+     */
     @Import(name="action")
     private @Nullable Output<String> action;
 
+    /**
+     * @return Action taken when the rule is matched (e.g. `BLOCK`, `ALLOW`, `QUARANTINE`).
+     * 
+     */
     public Optional<Output<String>> action() {
         return Optional.ofNullable(this.action);
     }
 
+    /**
+     * The bucket owner identifier.
+     * 
+     */
     @Import(name="bucketOwner")
     private @Nullable Output<String> bucketOwner;
 
+    /**
+     * @return The bucket owner identifier.
+     * 
+     */
     public Optional<Output<String>> bucketOwner() {
         return Optional.ofNullable(this.bucketOwner);
     }
 
+    /**
+     * IDs of buckets.
+     * 
+     */
     @Import(name="buckets")
     private @Nullable Output<List<Integer>> buckets;
 
+    /**
+     * @return IDs of buckets.
+     * 
+     */
     public Optional<Output<List<Integer>>> buckets() {
         return Optional.ofNullable(this.buckets);
     }
 
+    /**
+     * IDs of cloud application tenants.
+     * 
+     */
     @Import(name="cloudAppTenants")
     private @Nullable Output<List<Integer>> cloudAppTenants;
 
+    /**
+     * @return IDs of cloud application tenants.
+     * 
+     */
     public Optional<Output<List<Integer>>> cloudAppTenants() {
         return Optional.ofNullable(this.cloudAppTenants);
     }
 
+    /**
+     * Collaboration scope for the rule.
+     * 
+     */
     @Import(name="collaborationScope")
     private @Nullable Output<List<String>> collaborationScope;
 
+    /**
+     * @return Collaboration scope for the rule.
+     * 
+     */
     public Optional<Output<List<String>>> collaborationScope() {
         return Optional.ofNullable(this.collaborationScope);
     }
 
+    /**
+     * List of components for the rule.
+     * 
+     */
     @Import(name="components")
     private @Nullable Output<List<String>> components;
 
+    /**
+     * @return List of components for the rule.
+     * 
+     */
     public Optional<Output<List<String>>> components() {
         return Optional.ofNullable(this.components);
     }
 
+    /**
+     * Content location scope for the rule.
+     * 
+     */
     @Import(name="contentLocation")
     private @Nullable Output<String> contentLocation;
 
+    /**
+     * @return Content location scope for the rule.
+     * 
+     */
     public Optional<Output<String>> contentLocation() {
         return Optional.ofNullable(this.contentLocation);
     }
 
+    /**
+     * IDs of criteria-based domain profiles.
+     * 
+     */
     @Import(name="criteriaDomainProfiles")
     private @Nullable Output<List<Integer>> criteriaDomainProfiles;
 
+    /**
+     * @return IDs of criteria-based domain profiles.
+     * 
+     */
     public Optional<Output<List<Integer>>> criteriaDomainProfiles() {
         return Optional.ofNullable(this.criteriaDomainProfiles);
     }
 
+    /**
+     * IDs of departments for which the rule applies.
+     * 
+     */
     @Import(name="departments")
     private @Nullable Output<List<Integer>> departments;
 
+    /**
+     * @return IDs of departments for which the rule applies.
+     * 
+     */
     public Optional<Output<List<Integer>>> departments() {
         return Optional.ofNullable(this.departments);
     }
 
+    /**
+     * Additional information about the CASB DLP rule.
+     * 
+     */
     @Import(name="description")
     private @Nullable Output<String> description;
 
+    /**
+     * @return Additional information about the CASB DLP rule.
+     * 
+     */
     public Optional<Output<String>> description() {
         return Optional.ofNullable(this.description);
     }
 
+    /**
+     * IDs of DLP engines.
+     * 
+     */
     @Import(name="dlpEngines")
     private @Nullable Output<List<Integer>> dlpEngines;
 
+    /**
+     * @return IDs of DLP engines.
+     * 
+     */
     public Optional<Output<List<Integer>>> dlpEngines() {
         return Optional.ofNullable(this.dlpEngines);
     }
 
+    /**
+     * List of domains for the rule.
+     * 
+     */
     @Import(name="domains")
     private @Nullable Output<List<String>> domains;
 
+    /**
+     * @return List of domains for the rule.
+     * 
+     */
     public Optional<Output<List<String>>> domains() {
         return Optional.ofNullable(this.domains);
     }
 
+    /**
+     * IDs of email recipient profiles.
+     * 
+     */
     @Import(name="emailRecipientProfiles")
     private @Nullable Output<List<Integer>> emailRecipientProfiles;
 
+    /**
+     * @return IDs of email recipient profiles.
+     * 
+     */
     public Optional<Output<List<Integer>>> emailRecipientProfiles() {
         return Optional.ofNullable(this.emailRecipientProfiles);
     }
 
+    /**
+     * IDs of entity groups.
+     * 
+     */
     @Import(name="entityGroups")
     private @Nullable Output<List<Integer>> entityGroups;
 
+    /**
+     * @return IDs of entity groups.
+     * 
+     */
     public Optional<Output<List<Integer>>> entityGroups() {
         return Optional.ofNullable(this.entityGroups);
     }
 
+    /**
+     * IDs of excluded domain profiles.
+     * 
+     */
     @Import(name="excludedDomainProfiles")
     private @Nullable Output<List<Integer>> excludedDomainProfiles;
 
+    /**
+     * @return IDs of excluded domain profiles.
+     * 
+     */
     public Optional<Output<List<Integer>>> excludedDomainProfiles() {
         return Optional.ofNullable(this.excludedDomainProfiles);
     }
 
+    /**
+     * Email address of the external auditor.
+     * 
+     */
     @Import(name="externalAuditorEmail")
     private @Nullable Output<String> externalAuditorEmail;
 
+    /**
+     * @return Email address of the external auditor.
+     * 
+     */
     public Optional<Output<String>> externalAuditorEmail() {
         return Optional.ofNullable(this.externalAuditorEmail);
     }
 
+    /**
+     * List of file types the rule applies to.
+     * 
+     */
     @Import(name="fileTypes")
     private @Nullable Output<List<String>> fileTypes;
 
+    /**
+     * @return List of file types the rule applies to.
+     * 
+     */
     public Optional<Output<List<String>>> fileTypes() {
         return Optional.ofNullable(this.fileTypes);
     }
 
+    /**
+     * IDs of groups for which the rule applies.
+     * 
+     */
     @Import(name="groups")
     private @Nullable Output<List<Integer>> groups;
 
+    /**
+     * @return IDs of groups for which the rule applies.
+     * 
+     */
     public Optional<Output<List<Integer>>> groups() {
         return Optional.ofNullable(this.groups);
     }
 
+    /**
+     * Whether to include criteria based on domain profiles.
+     * 
+     */
     @Import(name="includeCriteriaDomainProfile")
     private @Nullable Output<Boolean> includeCriteriaDomainProfile;
 
+    /**
+     * @return Whether to include criteria based on domain profiles.
+     * 
+     */
     public Optional<Output<Boolean>> includeCriteriaDomainProfile() {
         return Optional.ofNullable(this.includeCriteriaDomainProfile);
     }
 
+    /**
+     * Whether to include email recipient profile criteria.
+     * 
+     */
     @Import(name="includeEmailRecipientProfile")
     private @Nullable Output<Boolean> includeEmailRecipientProfile;
 
+    /**
+     * @return Whether to include email recipient profile criteria.
+     * 
+     */
     public Optional<Output<Boolean>> includeEmailRecipientProfile() {
         return Optional.ofNullable(this.includeEmailRecipientProfile);
     }
 
+    /**
+     * Whether to include entity groups in the rule criteria.
+     * 
+     */
     @Import(name="includeEntityGroups")
     private @Nullable Output<Boolean> includeEntityGroups;
 
+    /**
+     * @return Whether to include entity groups in the rule criteria.
+     * 
+     */
     public Optional<Output<Boolean>> includeEntityGroups() {
         return Optional.ofNullable(this.includeEntityGroups);
     }
 
+    /**
+     * IDs of included domain profiles.
+     * 
+     */
     @Import(name="includedDomainProfiles")
     private @Nullable Output<List<Integer>> includedDomainProfiles;
 
+    /**
+     * @return IDs of included domain profiles.
+     * 
+     */
     public Optional<Output<List<Integer>>> includedDomainProfiles() {
         return Optional.ofNullable(this.includedDomainProfiles);
     }
 
+    /**
+     * IDs of labels associated with the rule.
+     * 
+     */
     @Import(name="labels")
     private @Nullable Output<List<Integer>> labels;
 
+    /**
+     * @return IDs of labels associated with the rule.
+     * 
+     */
     public Optional<Output<List<Integer>>> labels() {
         return Optional.ofNullable(this.labels);
     }
 
+    /**
+     * The name of the CASB DLP rule. Must be unique.
+     * 
+     */
     @Import(name="name", required=true)
     private Output<String> name;
 
+    /**
+     * @return The name of the CASB DLP rule. Must be unique.
+     * 
+     */
     public Output<String> name() {
         return this.name;
     }
 
+    /**
+     * IDs of object types.
+     * 
+     */
     @Import(name="objectTypes")
     private @Nullable Output<List<Integer>> objectTypes;
 
+    /**
+     * @return IDs of object types.
+     * 
+     */
     public Optional<Output<List<Integer>>> objectTypes() {
         return Optional.ofNullable(this.objectTypes);
     }
 
+    /**
+     * The order of execution of the rule with respect to other CASB DLP rules.
+     * 
+     */
     @Import(name="order", required=true)
     private Output<Integer> order;
 
+    /**
+     * @return The order of execution of the rule with respect to other CASB DLP rules.
+     * 
+     */
     public Output<Integer> order() {
         return this.order;
     }
 
+    /**
+     * Quarantine location for matched content.
+     * 
+     */
     @Import(name="quarantineLocation")
     private @Nullable Output<String> quarantineLocation;
 
+    /**
+     * @return Quarantine location for matched content.
+     * 
+     */
     public Optional<Output<String>> quarantineLocation() {
         return Optional.ofNullable(this.quarantineLocation);
     }
 
+    /**
+     * Admin rank of the CASB DLP rule. Valid values: 0-7. Default: 7.
+     * 
+     */
     @Import(name="rank")
     private @Nullable Output<Integer> rank;
 
+    /**
+     * @return Admin rank of the CASB DLP rule. Valid values: 0-7. Default: 7.
+     * 
+     */
     public Optional<Output<Integer>> rank() {
         return Optional.ofNullable(this.rank);
     }
 
+    /**
+     * Notification recipient.
+     * 
+     */
     @Import(name="recipient")
     private @Nullable Output<String> recipient;
 
+    /**
+     * @return Notification recipient.
+     * 
+     */
     public Optional<Output<String>> recipient() {
         return Optional.ofNullable(this.recipient);
     }
 
+    /**
+     * Severity level of the rule (e.g. `HIGH`, `MEDIUM`, `LOW`).
+     * 
+     */
     @Import(name="severity")
     private @Nullable Output<String> severity;
 
+    /**
+     * @return Severity level of the rule (e.g. `HIGH`, `MEDIUM`, `LOW`).
+     * 
+     */
     public Optional<Output<String>> severity() {
         return Optional.ofNullable(this.severity);
     }
 
+    /**
+     * Rule state. Valid values: `ENABLED`, `DISABLED`.
+     * 
+     */
     @Import(name="state")
     private @Nullable Output<String> state;
 
+    /**
+     * @return Rule state. Valid values: `ENABLED`, `DISABLED`.
+     * 
+     */
     public Optional<Output<String>> state() {
         return Optional.ofNullable(this.state);
     }
 
+    /**
+     * The rule type (e.g. `CASB_DLP`).
+     * 
+     */
     @Import(name="type", required=true)
     private Output<String> type;
 
+    /**
+     * @return The rule type (e.g. `CASB_DLP`).
+     * 
+     */
     public Output<String> type() {
         return this.type;
     }
 
+    /**
+     * IDs of users for which the rule applies.
+     * 
+     */
     @Import(name="users")
     private @Nullable Output<List<Integer>> users;
 
+    /**
+     * @return IDs of users for which the rule applies.
+     * 
+     */
     public Optional<Output<List<Integer>>> users() {
         return Optional.ofNullable(this.users);
     }
 
+    /**
+     * Whether to delete old versions when watermarking.
+     * 
+     */
     @Import(name="watermarkDeleteOldVersion")
     private @Nullable Output<Boolean> watermarkDeleteOldVersion;
 
+    /**
+     * @return Whether to delete old versions when watermarking.
+     * 
+     */
     public Optional<Output<Boolean>> watermarkDeleteOldVersion() {
         return Optional.ofNullable(this.watermarkDeleteOldVersion);
     }
 
+    /**
+     * Whether the rule applies without content inspection.
+     * 
+     */
     @Import(name="withoutContentInspection")
     private @Nullable Output<Boolean> withoutContentInspection;
 
+    /**
+     * @return Whether the rule applies without content inspection.
+     * 
+     */
     public Optional<Output<Boolean>> withoutContentInspection() {
         return Optional.ofNullable(this.withoutContentInspection);
     }
@@ -322,385 +602,907 @@ public final class CasbDlpRuleArgs extends com.pulumi.resources.ResourceArgs {
             $ = new CasbDlpRuleArgs(Objects.requireNonNull(defaults));
         }
 
+        /**
+         * @param action Action taken when the rule is matched (e.g. `BLOCK`, `ALLOW`, `QUARANTINE`).
+         * 
+         * @return builder
+         * 
+         */
         public Builder action(@Nullable Output<String> action) {
             $.action = action;
             return this;
         }
 
+        /**
+         * @param action Action taken when the rule is matched (e.g. `BLOCK`, `ALLOW`, `QUARANTINE`).
+         * 
+         * @return builder
+         * 
+         */
         public Builder action(String action) {
             return action(Output.of(action));
         }
 
+        /**
+         * @param bucketOwner The bucket owner identifier.
+         * 
+         * @return builder
+         * 
+         */
         public Builder bucketOwner(@Nullable Output<String> bucketOwner) {
             $.bucketOwner = bucketOwner;
             return this;
         }
 
+        /**
+         * @param bucketOwner The bucket owner identifier.
+         * 
+         * @return builder
+         * 
+         */
         public Builder bucketOwner(String bucketOwner) {
             return bucketOwner(Output.of(bucketOwner));
         }
 
+        /**
+         * @param buckets IDs of buckets.
+         * 
+         * @return builder
+         * 
+         */
         public Builder buckets(@Nullable Output<List<Integer>> buckets) {
             $.buckets = buckets;
             return this;
         }
 
+        /**
+         * @param buckets IDs of buckets.
+         * 
+         * @return builder
+         * 
+         */
         public Builder buckets(List<Integer> buckets) {
             return buckets(Output.of(buckets));
         }
 
+        /**
+         * @param buckets IDs of buckets.
+         * 
+         * @return builder
+         * 
+         */
         public Builder buckets(Integer... buckets) {
             return buckets(List.of(buckets));
         }
 
+        /**
+         * @param cloudAppTenants IDs of cloud application tenants.
+         * 
+         * @return builder
+         * 
+         */
         public Builder cloudAppTenants(@Nullable Output<List<Integer>> cloudAppTenants) {
             $.cloudAppTenants = cloudAppTenants;
             return this;
         }
 
+        /**
+         * @param cloudAppTenants IDs of cloud application tenants.
+         * 
+         * @return builder
+         * 
+         */
         public Builder cloudAppTenants(List<Integer> cloudAppTenants) {
             return cloudAppTenants(Output.of(cloudAppTenants));
         }
 
+        /**
+         * @param cloudAppTenants IDs of cloud application tenants.
+         * 
+         * @return builder
+         * 
+         */
         public Builder cloudAppTenants(Integer... cloudAppTenants) {
             return cloudAppTenants(List.of(cloudAppTenants));
         }
 
+        /**
+         * @param collaborationScope Collaboration scope for the rule.
+         * 
+         * @return builder
+         * 
+         */
         public Builder collaborationScope(@Nullable Output<List<String>> collaborationScope) {
             $.collaborationScope = collaborationScope;
             return this;
         }
 
+        /**
+         * @param collaborationScope Collaboration scope for the rule.
+         * 
+         * @return builder
+         * 
+         */
         public Builder collaborationScope(List<String> collaborationScope) {
             return collaborationScope(Output.of(collaborationScope));
         }
 
+        /**
+         * @param collaborationScope Collaboration scope for the rule.
+         * 
+         * @return builder
+         * 
+         */
         public Builder collaborationScope(String... collaborationScope) {
             return collaborationScope(List.of(collaborationScope));
         }
 
+        /**
+         * @param components List of components for the rule.
+         * 
+         * @return builder
+         * 
+         */
         public Builder components(@Nullable Output<List<String>> components) {
             $.components = components;
             return this;
         }
 
+        /**
+         * @param components List of components for the rule.
+         * 
+         * @return builder
+         * 
+         */
         public Builder components(List<String> components) {
             return components(Output.of(components));
         }
 
+        /**
+         * @param components List of components for the rule.
+         * 
+         * @return builder
+         * 
+         */
         public Builder components(String... components) {
             return components(List.of(components));
         }
 
+        /**
+         * @param contentLocation Content location scope for the rule.
+         * 
+         * @return builder
+         * 
+         */
         public Builder contentLocation(@Nullable Output<String> contentLocation) {
             $.contentLocation = contentLocation;
             return this;
         }
 
+        /**
+         * @param contentLocation Content location scope for the rule.
+         * 
+         * @return builder
+         * 
+         */
         public Builder contentLocation(String contentLocation) {
             return contentLocation(Output.of(contentLocation));
         }
 
+        /**
+         * @param criteriaDomainProfiles IDs of criteria-based domain profiles.
+         * 
+         * @return builder
+         * 
+         */
         public Builder criteriaDomainProfiles(@Nullable Output<List<Integer>> criteriaDomainProfiles) {
             $.criteriaDomainProfiles = criteriaDomainProfiles;
             return this;
         }
 
+        /**
+         * @param criteriaDomainProfiles IDs of criteria-based domain profiles.
+         * 
+         * @return builder
+         * 
+         */
         public Builder criteriaDomainProfiles(List<Integer> criteriaDomainProfiles) {
             return criteriaDomainProfiles(Output.of(criteriaDomainProfiles));
         }
 
+        /**
+         * @param criteriaDomainProfiles IDs of criteria-based domain profiles.
+         * 
+         * @return builder
+         * 
+         */
         public Builder criteriaDomainProfiles(Integer... criteriaDomainProfiles) {
             return criteriaDomainProfiles(List.of(criteriaDomainProfiles));
         }
 
+        /**
+         * @param departments IDs of departments for which the rule applies.
+         * 
+         * @return builder
+         * 
+         */
         public Builder departments(@Nullable Output<List<Integer>> departments) {
             $.departments = departments;
             return this;
         }
 
+        /**
+         * @param departments IDs of departments for which the rule applies.
+         * 
+         * @return builder
+         * 
+         */
         public Builder departments(List<Integer> departments) {
             return departments(Output.of(departments));
         }
 
+        /**
+         * @param departments IDs of departments for which the rule applies.
+         * 
+         * @return builder
+         * 
+         */
         public Builder departments(Integer... departments) {
             return departments(List.of(departments));
         }
 
+        /**
+         * @param description Additional information about the CASB DLP rule.
+         * 
+         * @return builder
+         * 
+         */
         public Builder description(@Nullable Output<String> description) {
             $.description = description;
             return this;
         }
 
+        /**
+         * @param description Additional information about the CASB DLP rule.
+         * 
+         * @return builder
+         * 
+         */
         public Builder description(String description) {
             return description(Output.of(description));
         }
 
+        /**
+         * @param dlpEngines IDs of DLP engines.
+         * 
+         * @return builder
+         * 
+         */
         public Builder dlpEngines(@Nullable Output<List<Integer>> dlpEngines) {
             $.dlpEngines = dlpEngines;
             return this;
         }
 
+        /**
+         * @param dlpEngines IDs of DLP engines.
+         * 
+         * @return builder
+         * 
+         */
         public Builder dlpEngines(List<Integer> dlpEngines) {
             return dlpEngines(Output.of(dlpEngines));
         }
 
+        /**
+         * @param dlpEngines IDs of DLP engines.
+         * 
+         * @return builder
+         * 
+         */
         public Builder dlpEngines(Integer... dlpEngines) {
             return dlpEngines(List.of(dlpEngines));
         }
 
+        /**
+         * @param domains List of domains for the rule.
+         * 
+         * @return builder
+         * 
+         */
         public Builder domains(@Nullable Output<List<String>> domains) {
             $.domains = domains;
             return this;
         }
 
+        /**
+         * @param domains List of domains for the rule.
+         * 
+         * @return builder
+         * 
+         */
         public Builder domains(List<String> domains) {
             return domains(Output.of(domains));
         }
 
+        /**
+         * @param domains List of domains for the rule.
+         * 
+         * @return builder
+         * 
+         */
         public Builder domains(String... domains) {
             return domains(List.of(domains));
         }
 
+        /**
+         * @param emailRecipientProfiles IDs of email recipient profiles.
+         * 
+         * @return builder
+         * 
+         */
         public Builder emailRecipientProfiles(@Nullable Output<List<Integer>> emailRecipientProfiles) {
             $.emailRecipientProfiles = emailRecipientProfiles;
             return this;
         }
 
+        /**
+         * @param emailRecipientProfiles IDs of email recipient profiles.
+         * 
+         * @return builder
+         * 
+         */
         public Builder emailRecipientProfiles(List<Integer> emailRecipientProfiles) {
             return emailRecipientProfiles(Output.of(emailRecipientProfiles));
         }
 
+        /**
+         * @param emailRecipientProfiles IDs of email recipient profiles.
+         * 
+         * @return builder
+         * 
+         */
         public Builder emailRecipientProfiles(Integer... emailRecipientProfiles) {
             return emailRecipientProfiles(List.of(emailRecipientProfiles));
         }
 
+        /**
+         * @param entityGroups IDs of entity groups.
+         * 
+         * @return builder
+         * 
+         */
         public Builder entityGroups(@Nullable Output<List<Integer>> entityGroups) {
             $.entityGroups = entityGroups;
             return this;
         }
 
+        /**
+         * @param entityGroups IDs of entity groups.
+         * 
+         * @return builder
+         * 
+         */
         public Builder entityGroups(List<Integer> entityGroups) {
             return entityGroups(Output.of(entityGroups));
         }
 
+        /**
+         * @param entityGroups IDs of entity groups.
+         * 
+         * @return builder
+         * 
+         */
         public Builder entityGroups(Integer... entityGroups) {
             return entityGroups(List.of(entityGroups));
         }
 
+        /**
+         * @param excludedDomainProfiles IDs of excluded domain profiles.
+         * 
+         * @return builder
+         * 
+         */
         public Builder excludedDomainProfiles(@Nullable Output<List<Integer>> excludedDomainProfiles) {
             $.excludedDomainProfiles = excludedDomainProfiles;
             return this;
         }
 
+        /**
+         * @param excludedDomainProfiles IDs of excluded domain profiles.
+         * 
+         * @return builder
+         * 
+         */
         public Builder excludedDomainProfiles(List<Integer> excludedDomainProfiles) {
             return excludedDomainProfiles(Output.of(excludedDomainProfiles));
         }
 
+        /**
+         * @param excludedDomainProfiles IDs of excluded domain profiles.
+         * 
+         * @return builder
+         * 
+         */
         public Builder excludedDomainProfiles(Integer... excludedDomainProfiles) {
             return excludedDomainProfiles(List.of(excludedDomainProfiles));
         }
 
+        /**
+         * @param externalAuditorEmail Email address of the external auditor.
+         * 
+         * @return builder
+         * 
+         */
         public Builder externalAuditorEmail(@Nullable Output<String> externalAuditorEmail) {
             $.externalAuditorEmail = externalAuditorEmail;
             return this;
         }
 
+        /**
+         * @param externalAuditorEmail Email address of the external auditor.
+         * 
+         * @return builder
+         * 
+         */
         public Builder externalAuditorEmail(String externalAuditorEmail) {
             return externalAuditorEmail(Output.of(externalAuditorEmail));
         }
 
+        /**
+         * @param fileTypes List of file types the rule applies to.
+         * 
+         * @return builder
+         * 
+         */
         public Builder fileTypes(@Nullable Output<List<String>> fileTypes) {
             $.fileTypes = fileTypes;
             return this;
         }
 
+        /**
+         * @param fileTypes List of file types the rule applies to.
+         * 
+         * @return builder
+         * 
+         */
         public Builder fileTypes(List<String> fileTypes) {
             return fileTypes(Output.of(fileTypes));
         }
 
+        /**
+         * @param fileTypes List of file types the rule applies to.
+         * 
+         * @return builder
+         * 
+         */
         public Builder fileTypes(String... fileTypes) {
             return fileTypes(List.of(fileTypes));
         }
 
+        /**
+         * @param groups IDs of groups for which the rule applies.
+         * 
+         * @return builder
+         * 
+         */
         public Builder groups(@Nullable Output<List<Integer>> groups) {
             $.groups = groups;
             return this;
         }
 
+        /**
+         * @param groups IDs of groups for which the rule applies.
+         * 
+         * @return builder
+         * 
+         */
         public Builder groups(List<Integer> groups) {
             return groups(Output.of(groups));
         }
 
+        /**
+         * @param groups IDs of groups for which the rule applies.
+         * 
+         * @return builder
+         * 
+         */
         public Builder groups(Integer... groups) {
             return groups(List.of(groups));
         }
 
+        /**
+         * @param includeCriteriaDomainProfile Whether to include criteria based on domain profiles.
+         * 
+         * @return builder
+         * 
+         */
         public Builder includeCriteriaDomainProfile(@Nullable Output<Boolean> includeCriteriaDomainProfile) {
             $.includeCriteriaDomainProfile = includeCriteriaDomainProfile;
             return this;
         }
 
+        /**
+         * @param includeCriteriaDomainProfile Whether to include criteria based on domain profiles.
+         * 
+         * @return builder
+         * 
+         */
         public Builder includeCriteriaDomainProfile(Boolean includeCriteriaDomainProfile) {
             return includeCriteriaDomainProfile(Output.of(includeCriteriaDomainProfile));
         }
 
+        /**
+         * @param includeEmailRecipientProfile Whether to include email recipient profile criteria.
+         * 
+         * @return builder
+         * 
+         */
         public Builder includeEmailRecipientProfile(@Nullable Output<Boolean> includeEmailRecipientProfile) {
             $.includeEmailRecipientProfile = includeEmailRecipientProfile;
             return this;
         }
 
+        /**
+         * @param includeEmailRecipientProfile Whether to include email recipient profile criteria.
+         * 
+         * @return builder
+         * 
+         */
         public Builder includeEmailRecipientProfile(Boolean includeEmailRecipientProfile) {
             return includeEmailRecipientProfile(Output.of(includeEmailRecipientProfile));
         }
 
+        /**
+         * @param includeEntityGroups Whether to include entity groups in the rule criteria.
+         * 
+         * @return builder
+         * 
+         */
         public Builder includeEntityGroups(@Nullable Output<Boolean> includeEntityGroups) {
             $.includeEntityGroups = includeEntityGroups;
             return this;
         }
 
+        /**
+         * @param includeEntityGroups Whether to include entity groups in the rule criteria.
+         * 
+         * @return builder
+         * 
+         */
         public Builder includeEntityGroups(Boolean includeEntityGroups) {
             return includeEntityGroups(Output.of(includeEntityGroups));
         }
 
+        /**
+         * @param includedDomainProfiles IDs of included domain profiles.
+         * 
+         * @return builder
+         * 
+         */
         public Builder includedDomainProfiles(@Nullable Output<List<Integer>> includedDomainProfiles) {
             $.includedDomainProfiles = includedDomainProfiles;
             return this;
         }
 
+        /**
+         * @param includedDomainProfiles IDs of included domain profiles.
+         * 
+         * @return builder
+         * 
+         */
         public Builder includedDomainProfiles(List<Integer> includedDomainProfiles) {
             return includedDomainProfiles(Output.of(includedDomainProfiles));
         }
 
+        /**
+         * @param includedDomainProfiles IDs of included domain profiles.
+         * 
+         * @return builder
+         * 
+         */
         public Builder includedDomainProfiles(Integer... includedDomainProfiles) {
             return includedDomainProfiles(List.of(includedDomainProfiles));
         }
 
+        /**
+         * @param labels IDs of labels associated with the rule.
+         * 
+         * @return builder
+         * 
+         */
         public Builder labels(@Nullable Output<List<Integer>> labels) {
             $.labels = labels;
             return this;
         }
 
+        /**
+         * @param labels IDs of labels associated with the rule.
+         * 
+         * @return builder
+         * 
+         */
         public Builder labels(List<Integer> labels) {
             return labels(Output.of(labels));
         }
 
+        /**
+         * @param labels IDs of labels associated with the rule.
+         * 
+         * @return builder
+         * 
+         */
         public Builder labels(Integer... labels) {
             return labels(List.of(labels));
         }
 
+        /**
+         * @param name The name of the CASB DLP rule. Must be unique.
+         * 
+         * @return builder
+         * 
+         */
         public Builder name(Output<String> name) {
             $.name = name;
             return this;
         }
 
+        /**
+         * @param name The name of the CASB DLP rule. Must be unique.
+         * 
+         * @return builder
+         * 
+         */
         public Builder name(String name) {
             return name(Output.of(name));
         }
 
+        /**
+         * @param objectTypes IDs of object types.
+         * 
+         * @return builder
+         * 
+         */
         public Builder objectTypes(@Nullable Output<List<Integer>> objectTypes) {
             $.objectTypes = objectTypes;
             return this;
         }
 
+        /**
+         * @param objectTypes IDs of object types.
+         * 
+         * @return builder
+         * 
+         */
         public Builder objectTypes(List<Integer> objectTypes) {
             return objectTypes(Output.of(objectTypes));
         }
 
+        /**
+         * @param objectTypes IDs of object types.
+         * 
+         * @return builder
+         * 
+         */
         public Builder objectTypes(Integer... objectTypes) {
             return objectTypes(List.of(objectTypes));
         }
 
+        /**
+         * @param order The order of execution of the rule with respect to other CASB DLP rules.
+         * 
+         * @return builder
+         * 
+         */
         public Builder order(Output<Integer> order) {
             $.order = order;
             return this;
         }
 
+        /**
+         * @param order The order of execution of the rule with respect to other CASB DLP rules.
+         * 
+         * @return builder
+         * 
+         */
         public Builder order(Integer order) {
             return order(Output.of(order));
         }
 
+        /**
+         * @param quarantineLocation Quarantine location for matched content.
+         * 
+         * @return builder
+         * 
+         */
         public Builder quarantineLocation(@Nullable Output<String> quarantineLocation) {
             $.quarantineLocation = quarantineLocation;
             return this;
         }
 
+        /**
+         * @param quarantineLocation Quarantine location for matched content.
+         * 
+         * @return builder
+         * 
+         */
         public Builder quarantineLocation(String quarantineLocation) {
             return quarantineLocation(Output.of(quarantineLocation));
         }
 
+        /**
+         * @param rank Admin rank of the CASB DLP rule. Valid values: 0-7. Default: 7.
+         * 
+         * @return builder
+         * 
+         */
         public Builder rank(@Nullable Output<Integer> rank) {
             $.rank = rank;
             return this;
         }
 
+        /**
+         * @param rank Admin rank of the CASB DLP rule. Valid values: 0-7. Default: 7.
+         * 
+         * @return builder
+         * 
+         */
         public Builder rank(Integer rank) {
             return rank(Output.of(rank));
         }
 
+        /**
+         * @param recipient Notification recipient.
+         * 
+         * @return builder
+         * 
+         */
         public Builder recipient(@Nullable Output<String> recipient) {
             $.recipient = recipient;
             return this;
         }
 
+        /**
+         * @param recipient Notification recipient.
+         * 
+         * @return builder
+         * 
+         */
         public Builder recipient(String recipient) {
             return recipient(Output.of(recipient));
         }
 
+        /**
+         * @param severity Severity level of the rule (e.g. `HIGH`, `MEDIUM`, `LOW`).
+         * 
+         * @return builder
+         * 
+         */
         public Builder severity(@Nullable Output<String> severity) {
             $.severity = severity;
             return this;
         }
 
+        /**
+         * @param severity Severity level of the rule (e.g. `HIGH`, `MEDIUM`, `LOW`).
+         * 
+         * @return builder
+         * 
+         */
         public Builder severity(String severity) {
             return severity(Output.of(severity));
         }
 
+        /**
+         * @param state Rule state. Valid values: `ENABLED`, `DISABLED`.
+         * 
+         * @return builder
+         * 
+         */
         public Builder state(@Nullable Output<String> state) {
             $.state = state;
             return this;
         }
 
+        /**
+         * @param state Rule state. Valid values: `ENABLED`, `DISABLED`.
+         * 
+         * @return builder
+         * 
+         */
         public Builder state(String state) {
             return state(Output.of(state));
         }
 
+        /**
+         * @param type The rule type (e.g. `CASB_DLP`).
+         * 
+         * @return builder
+         * 
+         */
         public Builder type(Output<String> type) {
             $.type = type;
             return this;
         }
 
+        /**
+         * @param type The rule type (e.g. `CASB_DLP`).
+         * 
+         * @return builder
+         * 
+         */
         public Builder type(String type) {
             return type(Output.of(type));
         }
 
+        /**
+         * @param users IDs of users for which the rule applies.
+         * 
+         * @return builder
+         * 
+         */
         public Builder users(@Nullable Output<List<Integer>> users) {
             $.users = users;
             return this;
         }
 
+        /**
+         * @param users IDs of users for which the rule applies.
+         * 
+         * @return builder
+         * 
+         */
         public Builder users(List<Integer> users) {
             return users(Output.of(users));
         }
 
+        /**
+         * @param users IDs of users for which the rule applies.
+         * 
+         * @return builder
+         * 
+         */
         public Builder users(Integer... users) {
             return users(List.of(users));
         }
 
+        /**
+         * @param watermarkDeleteOldVersion Whether to delete old versions when watermarking.
+         * 
+         * @return builder
+         * 
+         */
         public Builder watermarkDeleteOldVersion(@Nullable Output<Boolean> watermarkDeleteOldVersion) {
             $.watermarkDeleteOldVersion = watermarkDeleteOldVersion;
             return this;
         }
 
+        /**
+         * @param watermarkDeleteOldVersion Whether to delete old versions when watermarking.
+         * 
+         * @return builder
+         * 
+         */
         public Builder watermarkDeleteOldVersion(Boolean watermarkDeleteOldVersion) {
             return watermarkDeleteOldVersion(Output.of(watermarkDeleteOldVersion));
         }
 
+        /**
+         * @param withoutContentInspection Whether the rule applies without content inspection.
+         * 
+         * @return builder
+         * 
+         */
         public Builder withoutContentInspection(@Nullable Output<Boolean> withoutContentInspection) {
             $.withoutContentInspection = withoutContentInspection;
             return this;
         }
 
+        /**
+         * @param withoutContentInspection Whether the rule applies without content inspection.
+         * 
+         * @return builder
+         * 
+         */
         public Builder withoutContentInspection(Boolean withoutContentInspection) {
             return withoutContentInspection(Output.of(withoutContentInspection));
         }

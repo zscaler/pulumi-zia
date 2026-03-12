@@ -17,221 +17,525 @@ import java.util.List;
 import java.util.Optional;
 import javax.annotation.Nullable;
 
+/**
+ * The zia_firewall_ips_rule resource manages firewall IPS (Intrusion Prevention System) rules in the Zscaler Internet Access (ZIA) cloud service. IPS rules allow you to detect and prevent network intrusions by inspecting traffic for known threat signatures and anomalous patterns.
+ * 
+ * For more information, see the [ZIA IPS Control Policies documentation](https://help.zscaler.com/zia/ips-control-policies).
+ * 
+ * ## Example Usage
+ * 
+ * ## Import
+ * 
+ * An existing Firewall IPS Rule can be imported using its resource ID, e.g.
+ * 
+ * ```sh
+ * $ pulumi import zia:index:FirewallIPSRule example 12345
+ * ```
+ * 
+ */
 @ResourceType(type="zia:index:FirewallIPSRule")
 public class FirewallIPSRule extends com.pulumi.resources.CustomResource {
+    /**
+     * The action the rule takes when traffic matches. Valid values: `ALLOW`, `BLOCK_DROP`, `BLOCK_RESET`, `BLOCK_ICMP`.
+     * 
+     */
     @Export(name="action", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> action;
 
+    /**
+     * @return The action the rule takes when traffic matches. Valid values: `ALLOW`, `BLOCK_DROP`, `BLOCK_RESET`, `BLOCK_ICMP`.
+     * 
+     */
     public Output<Optional<String>> action() {
         return Codegen.optional(this.action);
     }
+    /**
+     * If set to true, enables packet capture (PCAP) for the rule.
+     * 
+     */
     @Export(name="capturePcap", refs={Boolean.class}, tree="[0]")
     private Output</* @Nullable */ Boolean> capturePcap;
 
+    /**
+     * @return If set to true, enables packet capture (PCAP) for the rule.
+     * 
+     */
     public Output<Optional<Boolean>> capturePcap() {
         return Codegen.optional(this.capturePcap);
     }
+    /**
+     * Indicates whether this is the default firewall IPS rule.
+     * 
+     */
     @Export(name="defaultRule", refs={Boolean.class}, tree="[0]")
     private Output</* @Nullable */ Boolean> defaultRule;
 
+    /**
+     * @return Indicates whether this is the default firewall IPS rule.
+     * 
+     */
     public Output<Optional<Boolean>> defaultRule() {
         return Codegen.optional(this.defaultRule);
     }
+    /**
+     * IDs of departments to which the rule must be applied.
+     * 
+     */
     @Export(name="departments", refs={List.class,Integer.class}, tree="[0,1]")
     private Output</* @Nullable */ List<Integer>> departments;
 
+    /**
+     * @return IDs of departments to which the rule must be applied.
+     * 
+     */
     public Output<Optional<List<Integer>>> departments() {
         return Codegen.optional(this.departments);
     }
+    /**
+     * Additional information about the firewall IPS rule.
+     * 
+     */
     @Export(name="description", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> description;
 
+    /**
+     * @return Additional information about the firewall IPS rule.
+     * 
+     */
     public Output<Optional<String>> description() {
         return Codegen.optional(this.description);
     }
+    /**
+     * Destination IP addresses, FQDNs, or wildcard FQDNs for the rule.
+     * 
+     */
     @Export(name="destAddresses", refs={List.class,String.class}, tree="[0,1]")
     private Output</* @Nullable */ List<String>> destAddresses;
 
+    /**
+     * @return Destination IP addresses, FQDNs, or wildcard FQDNs for the rule.
+     * 
+     */
     public Output<Optional<List<String>>> destAddresses() {
         return Codegen.optional(this.destAddresses);
     }
+    /**
+     * Destination countries (ISO 3166-1 alpha-2 codes) for the rule.
+     * 
+     */
     @Export(name="destCountries", refs={List.class,String.class}, tree="[0,1]")
     private Output</* @Nullable */ List<String>> destCountries;
 
+    /**
+     * @return Destination countries (ISO 3166-1 alpha-2 codes) for the rule.
+     * 
+     */
     public Output<Optional<List<String>>> destCountries() {
         return Codegen.optional(this.destCountries);
     }
+    /**
+     * Destination IP address URL categories for the rule.
+     * 
+     */
     @Export(name="destIpCategories", refs={List.class,String.class}, tree="[0,1]")
     private Output</* @Nullable */ List<String>> destIpCategories;
 
+    /**
+     * @return Destination IP address URL categories for the rule.
+     * 
+     */
     public Output<Optional<List<String>>> destIpCategories() {
         return Codegen.optional(this.destIpCategories);
     }
+    /**
+     * IDs of destination IP address groups for the rule.
+     * 
+     */
     @Export(name="destIpGroups", refs={List.class,Integer.class}, tree="[0,1]")
     private Output</* @Nullable */ List<Integer>> destIpGroups;
 
+    /**
+     * @return IDs of destination IP address groups for the rule.
+     * 
+     */
     public Output<Optional<List<Integer>>> destIpGroups() {
         return Codegen.optional(this.destIpGroups);
     }
+    /**
+     * IDs of destination IPv6 address groups for the rule.
+     * 
+     */
     @Export(name="destIpv6Groups", refs={List.class,Integer.class}, tree="[0,1]")
     private Output</* @Nullable */ List<Integer>> destIpv6Groups;
 
+    /**
+     * @return IDs of destination IPv6 address groups for the rule.
+     * 
+     */
     public Output<Optional<List<Integer>>> destIpv6Groups() {
         return Codegen.optional(this.destIpv6Groups);
     }
+    /**
+     * IDs of device groups for which the rule must be applied. Applicable for devices managed using Zscaler Client Connector.
+     * 
+     */
     @Export(name="deviceGroups", refs={List.class,Integer.class}, tree="[0,1]")
     private Output</* @Nullable */ List<Integer>> deviceGroups;
 
+    /**
+     * @return IDs of device groups for which the rule must be applied. Applicable for devices managed using Zscaler Client Connector.
+     * 
+     */
     public Output<Optional<List<Integer>>> deviceGroups() {
         return Codegen.optional(this.deviceGroups);
     }
+    /**
+     * IDs of devices for which the rule must be applied.
+     * 
+     */
     @Export(name="devices", refs={List.class,Integer.class}, tree="[0,1]")
     private Output</* @Nullable */ List<Integer>> devices;
 
+    /**
+     * @return IDs of devices for which the rule must be applied.
+     * 
+     */
     public Output<Optional<List<Integer>>> devices() {
         return Codegen.optional(this.devices);
     }
+    /**
+     * If set to true, enables full logging for the rule.
+     * 
+     */
     @Export(name="enableFullLogging", refs={Boolean.class}, tree="[0]")
     private Output</* @Nullable */ Boolean> enableFullLogging;
 
+    /**
+     * @return If set to true, enables full logging for the rule.
+     * 
+     */
     public Output<Optional<Boolean>> enableFullLogging() {
         return Codegen.optional(this.enableFullLogging);
     }
+    /**
+     * The ID of the end user notification template associated with the rule.
+     * 
+     */
     @Export(name="eunTemplateId", refs={Integer.class}, tree="[0]")
     private Output</* @Nullable */ Integer> eunTemplateId;
 
+    /**
+     * @return The ID of the end user notification template associated with the rule.
+     * 
+     */
     public Output<Optional<Integer>> eunTemplateId() {
         return Codegen.optional(this.eunTemplateId);
     }
+    /**
+     * IDs of groups to which the rule must be applied.
+     * 
+     */
     @Export(name="groups", refs={List.class,Integer.class}, tree="[0,1]")
     private Output</* @Nullable */ List<Integer>> groups;
 
+    /**
+     * @return IDs of groups to which the rule must be applied.
+     * 
+     */
     public Output<Optional<List<Integer>>> groups() {
         return Codegen.optional(this.groups);
     }
+    /**
+     * If set to true, enables end user notification for the rule.
+     * 
+     */
     @Export(name="isEunEnabled", refs={Boolean.class}, tree="[0]")
     private Output</* @Nullable */ Boolean> isEunEnabled;
 
+    /**
+     * @return If set to true, enables end user notification for the rule.
+     * 
+     */
     public Output<Optional<Boolean>> isEunEnabled() {
         return Codegen.optional(this.isEunEnabled);
     }
+    /**
+     * IDs of labels associated with the rule.
+     * 
+     */
     @Export(name="labels", refs={List.class,Integer.class}, tree="[0,1]")
     private Output</* @Nullable */ List<Integer>> labels;
 
+    /**
+     * @return IDs of labels associated with the rule.
+     * 
+     */
     public Output<Optional<List<Integer>>> labels() {
         return Codegen.optional(this.labels);
     }
+    /**
+     * IDs of location groups to which the rule must be applied.
+     * 
+     */
     @Export(name="locationGroups", refs={List.class,Integer.class}, tree="[0,1]")
     private Output</* @Nullable */ List<Integer>> locationGroups;
 
+    /**
+     * @return IDs of location groups to which the rule must be applied.
+     * 
+     */
     public Output<Optional<List<Integer>>> locationGroups() {
         return Codegen.optional(this.locationGroups);
     }
+    /**
+     * IDs of locations to which the rule must be applied.
+     * 
+     */
     @Export(name="locations", refs={List.class,Integer.class}, tree="[0,1]")
     private Output</* @Nullable */ List<Integer>> locations;
 
+    /**
+     * @return IDs of locations to which the rule must be applied.
+     * 
+     */
     public Output<Optional<List<Integer>>> locations() {
         return Codegen.optional(this.locations);
     }
+    /**
+     * The name of the firewall IPS rule. Must be unique.
+     * 
+     */
     @Export(name="name", refs={String.class}, tree="[0]")
     private Output<String> name;
 
+    /**
+     * @return The name of the firewall IPS rule. Must be unique.
+     * 
+     */
     public Output<String> name() {
         return this.name;
     }
+    /**
+     * IDs of network service groups to which the rule applies.
+     * 
+     */
     @Export(name="nwServiceGroups", refs={List.class,Integer.class}, tree="[0,1]")
     private Output</* @Nullable */ List<Integer>> nwServiceGroups;
 
+    /**
+     * @return IDs of network service groups to which the rule applies.
+     * 
+     */
     public Output<Optional<List<Integer>>> nwServiceGroups() {
         return Codegen.optional(this.nwServiceGroups);
     }
+    /**
+     * IDs of network services to which the rule applies.
+     * 
+     */
     @Export(name="nwServices", refs={List.class,Integer.class}, tree="[0,1]")
     private Output</* @Nullable */ List<Integer>> nwServices;
 
+    /**
+     * @return IDs of network services to which the rule applies.
+     * 
+     */
     public Output<Optional<List<Integer>>> nwServices() {
         return Codegen.optional(this.nwServices);
     }
+    /**
+     * The order of execution of the rule with respect to other firewall IPS rules.
+     * 
+     */
     @Export(name="order", refs={Integer.class}, tree="[0]")
     private Output<Integer> order;
 
+    /**
+     * @return The order of execution of the rule with respect to other firewall IPS rules.
+     * 
+     */
     public Output<Integer> order() {
         return this.order;
     }
+    /**
+     * Indicates whether this is a predefined rule.
+     * 
+     */
     @Export(name="predefined", refs={Boolean.class}, tree="[0]")
     private Output</* @Nullable */ Boolean> predefined;
 
+    /**
+     * @return Indicates whether this is a predefined rule.
+     * 
+     */
     public Output<Optional<Boolean>> predefined() {
         return Codegen.optional(this.predefined);
     }
+    /**
+     * Admin rank of the firewall IPS policy rule. Valid values: 0-7. Default: 7.
+     * 
+     */
     @Export(name="rank", refs={Integer.class}, tree="[0]")
     private Output</* @Nullable */ Integer> rank;
 
+    /**
+     * @return Admin rank of the firewall IPS policy rule. Valid values: 0-7. Default: 7.
+     * 
+     */
     public Output<Optional<Integer>> rank() {
         return Codegen.optional(this.rank);
     }
+    /**
+     * URL categories that apply to the response for the rule.
+     * 
+     */
     @Export(name="resCategories", refs={List.class,String.class}, tree="[0,1]")
     private Output</* @Nullable */ List<String>> resCategories;
 
+    /**
+     * @return URL categories that apply to the response for the rule.
+     * 
+     */
     public Output<Optional<List<String>>> resCategories() {
         return Codegen.optional(this.resCategories);
     }
+    /**
+     * The system-generated ID of the firewall IPS rule.
+     * 
+     */
     @Export(name="ruleId", refs={Integer.class}, tree="[0]")
     private Output<Integer> ruleId;
 
+    /**
+     * @return The system-generated ID of the firewall IPS rule.
+     * 
+     */
     public Output<Integer> ruleId() {
         return this.ruleId;
     }
+    /**
+     * Source countries (ISO 3166-1 alpha-2 codes) for the rule.
+     * 
+     */
     @Export(name="sourceCountries", refs={List.class,String.class}, tree="[0,1]")
     private Output</* @Nullable */ List<String>> sourceCountries;
 
+    /**
+     * @return Source countries (ISO 3166-1 alpha-2 codes) for the rule.
+     * 
+     */
     public Output<Optional<List<String>>> sourceCountries() {
         return Codegen.optional(this.sourceCountries);
     }
+    /**
+     * IDs of source IP address groups for the rule.
+     * 
+     */
     @Export(name="srcIpGroups", refs={List.class,Integer.class}, tree="[0,1]")
     private Output</* @Nullable */ List<Integer>> srcIpGroups;
 
+    /**
+     * @return IDs of source IP address groups for the rule.
+     * 
+     */
     public Output<Optional<List<Integer>>> srcIpGroups() {
         return Codegen.optional(this.srcIpGroups);
     }
+    /**
+     * Source IP addresses or CIDR ranges for the rule.
+     * 
+     */
     @Export(name="srcIps", refs={List.class,String.class}, tree="[0,1]")
     private Output</* @Nullable */ List<String>> srcIps;
 
+    /**
+     * @return Source IP addresses or CIDR ranges for the rule.
+     * 
+     */
     public Output<Optional<List<String>>> srcIps() {
         return Codegen.optional(this.srcIps);
     }
+    /**
+     * IDs of source IPv6 address groups for the rule.
+     * 
+     */
     @Export(name="srcIpv6Groups", refs={List.class,Integer.class}, tree="[0,1]")
     private Output</* @Nullable */ List<Integer>> srcIpv6Groups;
 
+    /**
+     * @return IDs of source IPv6 address groups for the rule.
+     * 
+     */
     public Output<Optional<List<Integer>>> srcIpv6Groups() {
         return Codegen.optional(this.srcIpv6Groups);
     }
+    /**
+     * Rule state. Valid values: `ENABLED`, `DISABLED`.
+     * 
+     */
     @Export(name="state", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> state;
 
+    /**
+     * @return Rule state. Valid values: `ENABLED`, `DISABLED`.
+     * 
+     */
     public Output<Optional<String>> state() {
         return Codegen.optional(this.state);
     }
+    /**
+     * IDs of threat categories to which the rule applies.
+     * 
+     */
     @Export(name="threatCategories", refs={List.class,Integer.class}, tree="[0,1]")
     private Output</* @Nullable */ List<Integer>> threatCategories;
 
+    /**
+     * @return IDs of threat categories to which the rule applies.
+     * 
+     */
     public Output<Optional<List<Integer>>> threatCategories() {
         return Codegen.optional(this.threatCategories);
     }
+    /**
+     * IDs of time intervals during which the rule must be enforced.
+     * 
+     */
     @Export(name="timeWindows", refs={List.class,Integer.class}, tree="[0,1]")
     private Output</* @Nullable */ List<Integer>> timeWindows;
 
+    /**
+     * @return IDs of time intervals during which the rule must be enforced.
+     * 
+     */
     public Output<Optional<List<Integer>>> timeWindows() {
         return Codegen.optional(this.timeWindows);
     }
+    /**
+     * IDs of users to which the rule must be applied.
+     * 
+     */
     @Export(name="users", refs={List.class,Integer.class}, tree="[0,1]")
     private Output</* @Nullable */ List<Integer>> users;
 
+    /**
+     * @return IDs of users to which the rule must be applied.
+     * 
+     */
     public Output<Optional<List<Integer>>> users() {
         return Codegen.optional(this.users);
     }
+    /**
+     * List of ZPA application segments for which this rule is applicable. This field is applicable only for the ZPA gateway forwarding method.
+     * 
+     */
     @Export(name="zpaAppSegments", refs={List.class,ZPAAppSegmentInput.class}, tree="[0,1]")
     private Output</* @Nullable */ List<ZPAAppSegmentInput>> zpaAppSegments;
 
+    /**
+     * @return List of ZPA application segments for which this rule is applicable. This field is applicable only for the ZPA gateway forwarding method.
+     * 
+     */
     public Output<Optional<List<ZPAAppSegmentInput>>> zpaAppSegments() {
         return Codegen.optional(this.zpaAppSegments);
     }
@@ -275,6 +579,7 @@ public class FirewallIPSRule extends com.pulumi.resources.CustomResource {
     private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<java.lang.String> id) {
         var defaultOptions = com.pulumi.resources.CustomResourceOptions.builder()
             .version(Utilities.getVersion())
+            .pluginDownloadURL("github://api.github.com/zscaler")
             .build();
         return com.pulumi.resources.CustomResourceOptions.merge(defaultOptions, options, id);
     }

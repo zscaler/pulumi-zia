@@ -18,161 +18,385 @@ import java.util.List;
 import java.util.Optional;
 import javax.annotation.Nullable;
 
+/**
+ * The zia_ssl_inspection_rules resource manages SSL inspection rules in the Zscaler Internet Access (ZIA) cloud service. SSL inspection rules determine whether to decrypt, not decrypt, or block SSL/TLS traffic based on criteria such as locations, departments, groups, users, URL categories, cloud applications, and platforms.
+ * 
+ * For more information, see the [ZIA SSL Inspection documentation](https://help.zscaler.com/zia/about-ssl-inspection-policies).
+ * 
+ * ## Example Usage
+ * 
+ * ## Import
+ * 
+ * An existing SSL Inspection Rule can be imported using its resource ID, e.g.
+ * 
+ * ```sh
+ * $ pulumi import zia:index:SslInspectionRule example 12345
+ * ```
+ * 
+ */
 @ResourceType(type="zia:index:SslInspectionRule")
 public class SslInspectionRule extends com.pulumi.resources.CustomResource {
+    /**
+     * The action configuration for the SSL inspection rule, including decrypt/do-not-decrypt sub-actions.
+     * 
+     */
     @Export(name="action", refs={SslInspectionActionInput.class}, tree="[0]")
     private Output<SslInspectionActionInput> action;
 
+    /**
+     * @return The action configuration for the SSL inspection rule, including decrypt/do-not-decrypt sub-actions.
+     * 
+     */
     public Output<SslInspectionActionInput> action() {
         return this.action;
     }
+    /**
+     * List of cloud application names to which the rule applies.
+     * 
+     */
     @Export(name="cloudApplications", refs={List.class,String.class}, tree="[0,1]")
     private Output</* @Nullable */ List<String>> cloudApplications;
 
+    /**
+     * @return List of cloud application names to which the rule applies.
+     * 
+     */
     public Output<Optional<List<String>>> cloudApplications() {
         return Codegen.optional(this.cloudApplications);
     }
+    /**
+     * IDs of departments to which the rule applies.
+     * 
+     */
     @Export(name="departments", refs={List.class,Integer.class}, tree="[0,1]")
     private Output</* @Nullable */ List<Integer>> departments;
 
+    /**
+     * @return IDs of departments to which the rule applies.
+     * 
+     */
     public Output<Optional<List<Integer>>> departments() {
         return Codegen.optional(this.departments);
     }
+    /**
+     * Additional information about the SSL inspection rule.
+     * 
+     */
     @Export(name="description", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> description;
 
+    /**
+     * @return Additional information about the SSL inspection rule.
+     * 
+     */
     public Output<Optional<String>> description() {
         return Codegen.optional(this.description);
     }
+    /**
+     * IDs of destination IP address groups for the rule.
+     * 
+     */
     @Export(name="destIpGroups", refs={List.class,Integer.class}, tree="[0,1]")
     private Output</* @Nullable */ List<Integer>> destIpGroups;
 
+    /**
+     * @return IDs of destination IP address groups for the rule.
+     * 
+     */
     public Output<Optional<List<Integer>>> destIpGroups() {
         return Codegen.optional(this.destIpGroups);
     }
+    /**
+     * IDs of device groups to which the rule applies.
+     * 
+     */
     @Export(name="deviceGroups", refs={List.class,Integer.class}, tree="[0,1]")
     private Output</* @Nullable */ List<Integer>> deviceGroups;
 
+    /**
+     * @return IDs of device groups to which the rule applies.
+     * 
+     */
     public Output<Optional<List<Integer>>> deviceGroups() {
         return Codegen.optional(this.deviceGroups);
     }
+    /**
+     * Device trust levels for the rule. Valid values: `ANY`, `UNKNOWN_DEVICETRUSTLEVEL`, `LOW_TRUST`, `MEDIUM_TRUST`, `HIGH_TRUST`.
+     * 
+     */
     @Export(name="deviceTrustLevels", refs={List.class,String.class}, tree="[0,1]")
     private Output</* @Nullable */ List<String>> deviceTrustLevels;
 
+    /**
+     * @return Device trust levels for the rule. Valid values: `ANY`, `UNKNOWN_DEVICETRUSTLEVEL`, `LOW_TRUST`, `MEDIUM_TRUST`, `HIGH_TRUST`.
+     * 
+     */
     public Output<Optional<List<String>>> deviceTrustLevels() {
         return Codegen.optional(this.deviceTrustLevels);
     }
+    /**
+     * IDs of devices to which the rule applies.
+     * 
+     */
     @Export(name="devices", refs={List.class,Integer.class}, tree="[0,1]")
     private Output</* @Nullable */ List<Integer>> devices;
 
+    /**
+     * @return IDs of devices to which the rule applies.
+     * 
+     */
     public Output<Optional<List<Integer>>> devices() {
         return Codegen.optional(this.devices);
     }
+    /**
+     * IDs of groups to which the rule applies.
+     * 
+     */
     @Export(name="groups", refs={List.class,Integer.class}, tree="[0,1]")
     private Output</* @Nullable */ List<Integer>> groups;
 
+    /**
+     * @return IDs of groups to which the rule applies.
+     * 
+     */
     public Output<Optional<List<Integer>>> groups() {
         return Codegen.optional(this.groups);
     }
+    /**
+     * IDs of labels associated with the rule.
+     * 
+     */
     @Export(name="labels", refs={List.class,Integer.class}, tree="[0,1]")
     private Output</* @Nullable */ List<Integer>> labels;
 
+    /**
+     * @return IDs of labels associated with the rule.
+     * 
+     */
     public Output<Optional<List<Integer>>> labels() {
         return Codegen.optional(this.labels);
     }
+    /**
+     * IDs of location groups to which the rule applies.
+     * 
+     */
     @Export(name="locationGroups", refs={List.class,Integer.class}, tree="[0,1]")
     private Output</* @Nullable */ List<Integer>> locationGroups;
 
+    /**
+     * @return IDs of location groups to which the rule applies.
+     * 
+     */
     public Output<Optional<List<Integer>>> locationGroups() {
         return Codegen.optional(this.locationGroups);
     }
+    /**
+     * IDs of locations to which the rule applies.
+     * 
+     */
     @Export(name="locations", refs={List.class,Integer.class}, tree="[0,1]")
     private Output</* @Nullable */ List<Integer>> locations;
 
+    /**
+     * @return IDs of locations to which the rule applies.
+     * 
+     */
     public Output<Optional<List<Integer>>> locations() {
         return Codegen.optional(this.locations);
     }
+    /**
+     * The name of the SSL inspection rule. Must be unique.
+     * 
+     */
     @Export(name="name", refs={String.class}, tree="[0]")
     private Output<String> name;
 
+    /**
+     * @return The name of the SSL inspection rule. Must be unique.
+     * 
+     */
     public Output<String> name() {
         return this.name;
     }
+    /**
+     * The order of execution of the rule with respect to other SSL inspection rules.
+     * 
+     */
     @Export(name="order", refs={Integer.class}, tree="[0]")
     private Output<Integer> order;
 
+    /**
+     * @return The order of execution of the rule with respect to other SSL inspection rules.
+     * 
+     */
     public Output<Integer> order() {
         return this.order;
     }
+    /**
+     * Platforms to which the rule applies (e.g., `SCAN_IOS`, `SCAN_ANDROID`, `SCAN_MACOS`, `SCAN_WINDOWS`, `SCAN_LINUX`).
+     * 
+     */
     @Export(name="platforms", refs={List.class,String.class}, tree="[0,1]")
     private Output</* @Nullable */ List<String>> platforms;
 
+    /**
+     * @return Platforms to which the rule applies (e.g., `SCAN_IOS`, `SCAN_ANDROID`, `SCAN_MACOS`, `SCAN_WINDOWS`, `SCAN_LINUX`).
+     * 
+     */
     public Output<Optional<List<String>>> platforms() {
         return Codegen.optional(this.platforms);
     }
+    /**
+     * IDs of proxy gateway configurations for the rule.
+     * 
+     */
     @Export(name="proxyGateways", refs={List.class,Integer.class}, tree="[0,1]")
     private Output</* @Nullable */ List<Integer>> proxyGateways;
 
+    /**
+     * @return IDs of proxy gateway configurations for the rule.
+     * 
+     */
     public Output<Optional<List<Integer>>> proxyGateways() {
         return Codegen.optional(this.proxyGateways);
     }
+    /**
+     * Admin rank of the SSL inspection policy rule. Valid values: 0-7. Default: 7.
+     * 
+     */
     @Export(name="rank", refs={Integer.class}, tree="[0]")
     private Output</* @Nullable */ Integer> rank;
 
+    /**
+     * @return Admin rank of the SSL inspection policy rule. Valid values: 0-7. Default: 7.
+     * 
+     */
     public Output<Optional<Integer>> rank() {
         return Codegen.optional(this.rank);
     }
+    /**
+     * Indicates whether the rule applies to road warrior (remote) users using Kerberos authentication.
+     * 
+     */
     @Export(name="roadWarriorForKerberos", refs={Boolean.class}, tree="[0]")
     private Output</* @Nullable */ Boolean> roadWarriorForKerberos;
 
+    /**
+     * @return Indicates whether the rule applies to road warrior (remote) users using Kerberos authentication.
+     * 
+     */
     public Output<Optional<Boolean>> roadWarriorForKerberos() {
         return Codegen.optional(this.roadWarriorForKerberos);
     }
+    /**
+     * The system-generated ID of the SSL inspection rule.
+     * 
+     */
     @Export(name="ruleId", refs={Integer.class}, tree="[0]")
     private Output<Integer> ruleId;
 
+    /**
+     * @return The system-generated ID of the SSL inspection rule.
+     * 
+     */
     public Output<Integer> ruleId() {
         return this.ruleId;
     }
+    /**
+     * IDs of source IP address groups for the rule.
+     * 
+     */
     @Export(name="sourceIpGroups", refs={List.class,Integer.class}, tree="[0,1]")
     private Output</* @Nullable */ List<Integer>> sourceIpGroups;
 
+    /**
+     * @return IDs of source IP address groups for the rule.
+     * 
+     */
     public Output<Optional<List<Integer>>> sourceIpGroups() {
         return Codegen.optional(this.sourceIpGroups);
     }
+    /**
+     * Rule state. Valid values: `ENABLED`, `DISABLED`.
+     * 
+     */
     @Export(name="state", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> state;
 
+    /**
+     * @return Rule state. Valid values: `ENABLED`, `DISABLED`.
+     * 
+     */
     public Output<Optional<String>> state() {
         return Codegen.optional(this.state);
     }
+    /**
+     * IDs of time intervals during which the rule must be enforced.
+     * 
+     */
     @Export(name="timeWindows", refs={List.class,Integer.class}, tree="[0,1]")
     private Output</* @Nullable */ List<Integer>> timeWindows;
 
+    /**
+     * @return IDs of time intervals during which the rule must be enforced.
+     * 
+     */
     public Output<Optional<List<Integer>>> timeWindows() {
         return Codegen.optional(this.timeWindows);
     }
+    /**
+     * List of URL categories to which the rule applies.
+     * 
+     */
     @Export(name="urlCategories", refs={List.class,String.class}, tree="[0,1]")
     private Output</* @Nullable */ List<String>> urlCategories;
 
+    /**
+     * @return List of URL categories to which the rule applies.
+     * 
+     */
     public Output<Optional<List<String>>> urlCategories() {
         return Codegen.optional(this.urlCategories);
     }
+    /**
+     * User agent types the rule applies to.
+     * 
+     */
     @Export(name="userAgentTypes", refs={List.class,String.class}, tree="[0,1]")
     private Output</* @Nullable */ List<String>> userAgentTypes;
 
+    /**
+     * @return User agent types the rule applies to.
+     * 
+     */
     public Output<Optional<List<String>>> userAgentTypes() {
         return Codegen.optional(this.userAgentTypes);
     }
+    /**
+     * IDs of users to which the rule applies.
+     * 
+     */
     @Export(name="users", refs={List.class,Integer.class}, tree="[0,1]")
     private Output</* @Nullable */ List<Integer>> users;
 
+    /**
+     * @return IDs of users to which the rule applies.
+     * 
+     */
     public Output<Optional<List<Integer>>> users() {
         return Codegen.optional(this.users);
     }
+    /**
+     * List of preconfigured workload groups to which the policy must be applied.
+     * 
+     */
     @Export(name="workloadGroups", refs={List.class,WorkloadGroupInput.class}, tree="[0,1]")
     private Output</* @Nullable */ List<WorkloadGroupInput>> workloadGroups;
 
+    /**
+     * @return List of preconfigured workload groups to which the policy must be applied.
+     * 
+     */
     public Output<Optional<List<WorkloadGroupInput>>> workloadGroups() {
         return Codegen.optional(this.workloadGroups);
     }
@@ -216,6 +440,7 @@ public class SslInspectionRule extends com.pulumi.resources.CustomResource {
     private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<java.lang.String> id) {
         var defaultOptions = com.pulumi.resources.CustomResourceOptions.builder()
             .version(Utilities.getVersion())
+            .pluginDownloadURL("github://api.github.com/zscaler")
             .build();
         return com.pulumi.resources.CustomResourceOptions.merge(defaultOptions, options, id);
     }

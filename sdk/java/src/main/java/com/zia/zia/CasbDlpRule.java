@@ -16,221 +16,523 @@ import java.util.List;
 import java.util.Optional;
 import javax.annotation.Nullable;
 
+/**
+ * The zia_casb_dlp_rules resource manages CASB (Cloud Access Security Broker) DLP rules in the Zscaler Internet Access (ZIA) cloud service. CASB DLP rules define data loss prevention policies for SaaS applications to protect sensitive data from unauthorized access or sharing.
+ * 
+ * ## Example Usage
+ * 
+ * ## Import
+ * 
+ * An existing CASB DLP Rule can be imported using its resource ID, e.g.
+ * 
+ * ```sh
+ * $ pulumi import zia:index:CasbDlpRule example 12345
+ * ```
+ * 
+ */
 @ResourceType(type="zia:index:CasbDlpRule")
 public class CasbDlpRule extends com.pulumi.resources.CustomResource {
+    /**
+     * Action taken when the rule is matched (e.g. `BLOCK`, `ALLOW`, `QUARANTINE`).
+     * 
+     */
     @Export(name="action", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> action;
 
+    /**
+     * @return Action taken when the rule is matched (e.g. `BLOCK`, `ALLOW`, `QUARANTINE`).
+     * 
+     */
     public Output<Optional<String>> action() {
         return Codegen.optional(this.action);
     }
+    /**
+     * The bucket owner identifier.
+     * 
+     */
     @Export(name="bucketOwner", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> bucketOwner;
 
+    /**
+     * @return The bucket owner identifier.
+     * 
+     */
     public Output<Optional<String>> bucketOwner() {
         return Codegen.optional(this.bucketOwner);
     }
+    /**
+     * IDs of buckets.
+     * 
+     */
     @Export(name="buckets", refs={List.class,Integer.class}, tree="[0,1]")
     private Output</* @Nullable */ List<Integer>> buckets;
 
+    /**
+     * @return IDs of buckets.
+     * 
+     */
     public Output<Optional<List<Integer>>> buckets() {
         return Codegen.optional(this.buckets);
     }
+    /**
+     * IDs of cloud application tenants.
+     * 
+     */
     @Export(name="cloudAppTenants", refs={List.class,Integer.class}, tree="[0,1]")
     private Output</* @Nullable */ List<Integer>> cloudAppTenants;
 
+    /**
+     * @return IDs of cloud application tenants.
+     * 
+     */
     public Output<Optional<List<Integer>>> cloudAppTenants() {
         return Codegen.optional(this.cloudAppTenants);
     }
+    /**
+     * Collaboration scope for the rule.
+     * 
+     */
     @Export(name="collaborationScope", refs={List.class,String.class}, tree="[0,1]")
     private Output</* @Nullable */ List<String>> collaborationScope;
 
+    /**
+     * @return Collaboration scope for the rule.
+     * 
+     */
     public Output<Optional<List<String>>> collaborationScope() {
         return Codegen.optional(this.collaborationScope);
     }
+    /**
+     * List of components for the rule.
+     * 
+     */
     @Export(name="components", refs={List.class,String.class}, tree="[0,1]")
     private Output</* @Nullable */ List<String>> components;
 
+    /**
+     * @return List of components for the rule.
+     * 
+     */
     public Output<Optional<List<String>>> components() {
         return Codegen.optional(this.components);
     }
+    /**
+     * Content location scope for the rule.
+     * 
+     */
     @Export(name="contentLocation", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> contentLocation;
 
+    /**
+     * @return Content location scope for the rule.
+     * 
+     */
     public Output<Optional<String>> contentLocation() {
         return Codegen.optional(this.contentLocation);
     }
+    /**
+     * IDs of criteria-based domain profiles.
+     * 
+     */
     @Export(name="criteriaDomainProfiles", refs={List.class,Integer.class}, tree="[0,1]")
     private Output</* @Nullable */ List<Integer>> criteriaDomainProfiles;
 
+    /**
+     * @return IDs of criteria-based domain profiles.
+     * 
+     */
     public Output<Optional<List<Integer>>> criteriaDomainProfiles() {
         return Codegen.optional(this.criteriaDomainProfiles);
     }
+    /**
+     * IDs of departments for which the rule applies.
+     * 
+     */
     @Export(name="departments", refs={List.class,Integer.class}, tree="[0,1]")
     private Output</* @Nullable */ List<Integer>> departments;
 
+    /**
+     * @return IDs of departments for which the rule applies.
+     * 
+     */
     public Output<Optional<List<Integer>>> departments() {
         return Codegen.optional(this.departments);
     }
+    /**
+     * Additional information about the CASB DLP rule.
+     * 
+     */
     @Export(name="description", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> description;
 
+    /**
+     * @return Additional information about the CASB DLP rule.
+     * 
+     */
     public Output<Optional<String>> description() {
         return Codegen.optional(this.description);
     }
+    /**
+     * IDs of DLP engines.
+     * 
+     */
     @Export(name="dlpEngines", refs={List.class,Integer.class}, tree="[0,1]")
     private Output</* @Nullable */ List<Integer>> dlpEngines;
 
+    /**
+     * @return IDs of DLP engines.
+     * 
+     */
     public Output<Optional<List<Integer>>> dlpEngines() {
         return Codegen.optional(this.dlpEngines);
     }
+    /**
+     * List of domains for the rule.
+     * 
+     */
     @Export(name="domains", refs={List.class,String.class}, tree="[0,1]")
     private Output</* @Nullable */ List<String>> domains;
 
+    /**
+     * @return List of domains for the rule.
+     * 
+     */
     public Output<Optional<List<String>>> domains() {
         return Codegen.optional(this.domains);
     }
+    /**
+     * IDs of email recipient profiles.
+     * 
+     */
     @Export(name="emailRecipientProfiles", refs={List.class,Integer.class}, tree="[0,1]")
     private Output</* @Nullable */ List<Integer>> emailRecipientProfiles;
 
+    /**
+     * @return IDs of email recipient profiles.
+     * 
+     */
     public Output<Optional<List<Integer>>> emailRecipientProfiles() {
         return Codegen.optional(this.emailRecipientProfiles);
     }
+    /**
+     * IDs of entity groups.
+     * 
+     */
     @Export(name="entityGroups", refs={List.class,Integer.class}, tree="[0,1]")
     private Output</* @Nullable */ List<Integer>> entityGroups;
 
+    /**
+     * @return IDs of entity groups.
+     * 
+     */
     public Output<Optional<List<Integer>>> entityGroups() {
         return Codegen.optional(this.entityGroups);
     }
+    /**
+     * IDs of excluded domain profiles.
+     * 
+     */
     @Export(name="excludedDomainProfiles", refs={List.class,Integer.class}, tree="[0,1]")
     private Output</* @Nullable */ List<Integer>> excludedDomainProfiles;
 
+    /**
+     * @return IDs of excluded domain profiles.
+     * 
+     */
     public Output<Optional<List<Integer>>> excludedDomainProfiles() {
         return Codegen.optional(this.excludedDomainProfiles);
     }
+    /**
+     * Email address of the external auditor.
+     * 
+     */
     @Export(name="externalAuditorEmail", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> externalAuditorEmail;
 
+    /**
+     * @return Email address of the external auditor.
+     * 
+     */
     public Output<Optional<String>> externalAuditorEmail() {
         return Codegen.optional(this.externalAuditorEmail);
     }
+    /**
+     * List of file types the rule applies to.
+     * 
+     */
     @Export(name="fileTypes", refs={List.class,String.class}, tree="[0,1]")
     private Output</* @Nullable */ List<String>> fileTypes;
 
+    /**
+     * @return List of file types the rule applies to.
+     * 
+     */
     public Output<Optional<List<String>>> fileTypes() {
         return Codegen.optional(this.fileTypes);
     }
+    /**
+     * IDs of groups for which the rule applies.
+     * 
+     */
     @Export(name="groups", refs={List.class,Integer.class}, tree="[0,1]")
     private Output</* @Nullable */ List<Integer>> groups;
 
+    /**
+     * @return IDs of groups for which the rule applies.
+     * 
+     */
     public Output<Optional<List<Integer>>> groups() {
         return Codegen.optional(this.groups);
     }
+    /**
+     * Whether to include criteria based on domain profiles.
+     * 
+     */
     @Export(name="includeCriteriaDomainProfile", refs={Boolean.class}, tree="[0]")
     private Output</* @Nullable */ Boolean> includeCriteriaDomainProfile;
 
+    /**
+     * @return Whether to include criteria based on domain profiles.
+     * 
+     */
     public Output<Optional<Boolean>> includeCriteriaDomainProfile() {
         return Codegen.optional(this.includeCriteriaDomainProfile);
     }
+    /**
+     * Whether to include email recipient profile criteria.
+     * 
+     */
     @Export(name="includeEmailRecipientProfile", refs={Boolean.class}, tree="[0]")
     private Output</* @Nullable */ Boolean> includeEmailRecipientProfile;
 
+    /**
+     * @return Whether to include email recipient profile criteria.
+     * 
+     */
     public Output<Optional<Boolean>> includeEmailRecipientProfile() {
         return Codegen.optional(this.includeEmailRecipientProfile);
     }
+    /**
+     * Whether to include entity groups in the rule criteria.
+     * 
+     */
     @Export(name="includeEntityGroups", refs={Boolean.class}, tree="[0]")
     private Output</* @Nullable */ Boolean> includeEntityGroups;
 
+    /**
+     * @return Whether to include entity groups in the rule criteria.
+     * 
+     */
     public Output<Optional<Boolean>> includeEntityGroups() {
         return Codegen.optional(this.includeEntityGroups);
     }
+    /**
+     * IDs of included domain profiles.
+     * 
+     */
     @Export(name="includedDomainProfiles", refs={List.class,Integer.class}, tree="[0,1]")
     private Output</* @Nullable */ List<Integer>> includedDomainProfiles;
 
+    /**
+     * @return IDs of included domain profiles.
+     * 
+     */
     public Output<Optional<List<Integer>>> includedDomainProfiles() {
         return Codegen.optional(this.includedDomainProfiles);
     }
+    /**
+     * IDs of labels associated with the rule.
+     * 
+     */
     @Export(name="labels", refs={List.class,Integer.class}, tree="[0,1]")
     private Output</* @Nullable */ List<Integer>> labels;
 
+    /**
+     * @return IDs of labels associated with the rule.
+     * 
+     */
     public Output<Optional<List<Integer>>> labels() {
         return Codegen.optional(this.labels);
     }
+    /**
+     * The name of the CASB DLP rule. Must be unique.
+     * 
+     */
     @Export(name="name", refs={String.class}, tree="[0]")
     private Output<String> name;
 
+    /**
+     * @return The name of the CASB DLP rule. Must be unique.
+     * 
+     */
     public Output<String> name() {
         return this.name;
     }
+    /**
+     * IDs of object types.
+     * 
+     */
     @Export(name="objectTypes", refs={List.class,Integer.class}, tree="[0,1]")
     private Output</* @Nullable */ List<Integer>> objectTypes;
 
+    /**
+     * @return IDs of object types.
+     * 
+     */
     public Output<Optional<List<Integer>>> objectTypes() {
         return Codegen.optional(this.objectTypes);
     }
+    /**
+     * The order of execution of the rule with respect to other CASB DLP rules.
+     * 
+     */
     @Export(name="order", refs={Integer.class}, tree="[0]")
     private Output<Integer> order;
 
+    /**
+     * @return The order of execution of the rule with respect to other CASB DLP rules.
+     * 
+     */
     public Output<Integer> order() {
         return this.order;
     }
+    /**
+     * Quarantine location for matched content.
+     * 
+     */
     @Export(name="quarantineLocation", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> quarantineLocation;
 
+    /**
+     * @return Quarantine location for matched content.
+     * 
+     */
     public Output<Optional<String>> quarantineLocation() {
         return Codegen.optional(this.quarantineLocation);
     }
+    /**
+     * Admin rank of the CASB DLP rule. Valid values: 0-7. Default: 7.
+     * 
+     */
     @Export(name="rank", refs={Integer.class}, tree="[0]")
     private Output</* @Nullable */ Integer> rank;
 
+    /**
+     * @return Admin rank of the CASB DLP rule. Valid values: 0-7. Default: 7.
+     * 
+     */
     public Output<Optional<Integer>> rank() {
         return Codegen.optional(this.rank);
     }
+    /**
+     * Notification recipient.
+     * 
+     */
     @Export(name="recipient", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> recipient;
 
+    /**
+     * @return Notification recipient.
+     * 
+     */
     public Output<Optional<String>> recipient() {
         return Codegen.optional(this.recipient);
     }
+    /**
+     * The system-generated ID of the CASB DLP rule.
+     * 
+     */
     @Export(name="ruleId", refs={Integer.class}, tree="[0]")
     private Output<Integer> ruleId;
 
+    /**
+     * @return The system-generated ID of the CASB DLP rule.
+     * 
+     */
     public Output<Integer> ruleId() {
         return this.ruleId;
     }
+    /**
+     * Severity level of the rule (e.g. `HIGH`, `MEDIUM`, `LOW`).
+     * 
+     */
     @Export(name="severity", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> severity;
 
+    /**
+     * @return Severity level of the rule (e.g. `HIGH`, `MEDIUM`, `LOW`).
+     * 
+     */
     public Output<Optional<String>> severity() {
         return Codegen.optional(this.severity);
     }
+    /**
+     * Rule state. Valid values: `ENABLED`, `DISABLED`.
+     * 
+     */
     @Export(name="state", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> state;
 
+    /**
+     * @return Rule state. Valid values: `ENABLED`, `DISABLED`.
+     * 
+     */
     public Output<Optional<String>> state() {
         return Codegen.optional(this.state);
     }
+    /**
+     * The rule type (e.g. `CASB_DLP`).
+     * 
+     */
     @Export(name="type", refs={String.class}, tree="[0]")
     private Output<String> type;
 
+    /**
+     * @return The rule type (e.g. `CASB_DLP`).
+     * 
+     */
     public Output<String> type() {
         return this.type;
     }
+    /**
+     * IDs of users for which the rule applies.
+     * 
+     */
     @Export(name="users", refs={List.class,Integer.class}, tree="[0,1]")
     private Output</* @Nullable */ List<Integer>> users;
 
+    /**
+     * @return IDs of users for which the rule applies.
+     * 
+     */
     public Output<Optional<List<Integer>>> users() {
         return Codegen.optional(this.users);
     }
+    /**
+     * Whether to delete old versions when watermarking.
+     * 
+     */
     @Export(name="watermarkDeleteOldVersion", refs={Boolean.class}, tree="[0]")
     private Output</* @Nullable */ Boolean> watermarkDeleteOldVersion;
 
+    /**
+     * @return Whether to delete old versions when watermarking.
+     * 
+     */
     public Output<Optional<Boolean>> watermarkDeleteOldVersion() {
         return Codegen.optional(this.watermarkDeleteOldVersion);
     }
+    /**
+     * Whether the rule applies without content inspection.
+     * 
+     */
     @Export(name="withoutContentInspection", refs={Boolean.class}, tree="[0]")
     private Output</* @Nullable */ Boolean> withoutContentInspection;
 
+    /**
+     * @return Whether the rule applies without content inspection.
+     * 
+     */
     public Output<Optional<Boolean>> withoutContentInspection() {
         return Codegen.optional(this.withoutContentInspection);
     }
@@ -274,6 +576,7 @@ public class CasbDlpRule extends com.pulumi.resources.CustomResource {
     private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<java.lang.String> id) {
         var defaultOptions = com.pulumi.resources.CustomResourceOptions.builder()
             .version(Utilities.getVersion())
+            .pluginDownloadURL("github://api.github.com/zscaler")
             .build();
         return com.pulumi.resources.CustomResourceOptions.merge(defaultOptions, options, id);
     }

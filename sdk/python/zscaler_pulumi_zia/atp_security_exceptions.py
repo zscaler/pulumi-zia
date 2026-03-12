@@ -22,6 +22,7 @@ class AtpSecurityExceptionsArgs:
                  bypass_urls: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None):
         """
         The set of arguments for constructing a AtpSecurityExceptions resource.
+        :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] bypass_urls: List of URLs to be excluded (bypassed) from Advanced Threat Protection scanning.
         """
         if bypass_urls is not None:
             pulumi.set(__self__, "bypass_urls", bypass_urls)
@@ -29,6 +30,9 @@ class AtpSecurityExceptionsArgs:
     @_builtins.property
     @pulumi.getter(name="bypassUrls")
     def bypass_urls(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
+        """
+        List of URLs to be excluded (bypassed) from Advanced Threat Protection scanning.
+        """
         return pulumi.get(self, "bypass_urls")
 
     @bypass_urls.setter
@@ -45,9 +49,29 @@ class AtpSecurityExceptions(pulumi.CustomResource):
                  bypass_urls: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
                  __props__=None):
         """
-        Create a AtpSecurityExceptions resource with the given unique name, props, and options.
+        The zia_atp_security_exceptions resource manages the list of bypass URLs for Advanced Threat Protection (ATP) in the Zscaler Internet Access (ZIA) cloud service. URLs added to this list are excluded from ATP scanning. This is a singleton resource.
+
+        For more information, see the [ZIA Advanced Threat Protection documentation](https://help.zscaler.com/zia/about-advanced-threat-protection-policy).
+
+        ## Example Usage
+        ### Configure ATP Security Exceptions
+
+        ```python
+        import zscaler_pulumi_zia as zia
+
+        example = zia.AtpSecurityExceptions("example",
+            bypass_urls=[
+                "trusted-partner.com",
+                "internal-app.example.org",
+            ],
+        )
+        ```
+
+        > This is a singleton resource. Import is not applicable.
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
+        :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] bypass_urls: List of URLs to be excluded (bypassed) from Advanced Threat Protection scanning.
         """
         ...
     @overload
@@ -56,7 +80,26 @@ class AtpSecurityExceptions(pulumi.CustomResource):
                  args: Optional[AtpSecurityExceptionsArgs] = None,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
-        Create a AtpSecurityExceptions resource with the given unique name, props, and options.
+        The zia_atp_security_exceptions resource manages the list of bypass URLs for Advanced Threat Protection (ATP) in the Zscaler Internet Access (ZIA) cloud service. URLs added to this list are excluded from ATP scanning. This is a singleton resource.
+
+        For more information, see the [ZIA Advanced Threat Protection documentation](https://help.zscaler.com/zia/about-advanced-threat-protection-policy).
+
+        ## Example Usage
+        ### Configure ATP Security Exceptions
+
+        ```python
+        import zscaler_pulumi_zia as zia
+
+        example = zia.AtpSecurityExceptions("example",
+            bypass_urls=[
+                "trusted-partner.com",
+                "internal-app.example.org",
+            ],
+        )
+        ```
+
+        > This is a singleton resource. Import is not applicable.
+
         :param str resource_name: The name of the resource.
         :param AtpSecurityExceptionsArgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -113,10 +156,16 @@ class AtpSecurityExceptions(pulumi.CustomResource):
     @_builtins.property
     @pulumi.getter(name="bypassUrls")
     def bypass_urls(self) -> pulumi.Output[Optional[Sequence[_builtins.str]]]:
+        """
+        List of URLs to be excluded (bypassed) from Advanced Threat Protection scanning.
+        """
         return pulumi.get(self, "bypass_urls")
 
     @_builtins.property
     @pulumi.getter(name="resourceId")
     def resource_id(self) -> pulumi.Output[_builtins.str]:
+        """
+        The internal resource identifier for the ATP security exceptions.
+        """
         return pulumi.get(self, "resource_id")
 

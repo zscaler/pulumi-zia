@@ -19,17 +19,53 @@ export class Provider extends pulumi.ProviderResource {
         return obj['__pulumiType'] === "pulumi:providers:" + Provider.__pulumiType;
     }
 
+    /**
+     * (Legacy) The API key for ZIA. Can also be set via the `ZIA_API_KEY` environment variable. Prefer OAuth2 credentials instead.
+     */
     declare public readonly apiKey: pulumi.Output<string | undefined>;
+    /**
+     * The OAuth2 client ID for authenticating with the Zscaler API. Can also be set via the `ZSCALER_CLIENT_ID` environment variable.
+     */
     declare public readonly clientId: pulumi.Output<string | undefined>;
+    /**
+     * The OAuth2 client secret for authenticating with the Zscaler API. Can also be set via the `ZSCALER_CLIENT_SECRET` environment variable.
+     */
     declare public readonly clientSecret: pulumi.Output<string | undefined>;
+    /**
+     * The Zscaler cloud name (e.g. 'zscaler', 'zscalerone', 'zscalertwo', 'zscalerthree', 'zscloud', 'zscalerbeta', 'zscalergov'). Can also be set via the `ZSCALER_CLOUD` environment variable.
+     */
     declare public readonly cloud: pulumi.Output<string | undefined>;
+    /**
+     * HTTP proxy URL for API requests (e.g. 'http://proxy.example.com:8080'). Can also be set via the `ZSCALER_HTTP_PROXY` environment variable.
+     */
     declare public readonly httpProxy: pulumi.Output<string | undefined>;
+    /**
+     * (Legacy) The admin password for ZIA. Can also be set via the `ZIA_PASSWORD` environment variable. Prefer OAuth2 credentials instead.
+     */
     declare public readonly password: pulumi.Output<string | undefined>;
+    /**
+     * The private key for service principal authentication. Can also be set via the `ZSCALER_PRIVATE_KEY` environment variable.
+     */
     declare public readonly privateKey: pulumi.Output<string | undefined>;
+    /**
+     * The Zscaler Sandbox cloud name. Can also be set via the `ZIA_SANDBOX_CLOUD` environment variable.
+     */
     declare public readonly sandboxCloud: pulumi.Output<string | undefined>;
+    /**
+     * The API token for Zscaler Sandbox. Can also be set via the `ZIA_SANDBOX_TOKEN` environment variable.
+     */
     declare public readonly sandboxToken: pulumi.Output<string | undefined>;
+    /**
+     * (Legacy) The admin username for ZIA. Can also be set via the `ZIA_USERNAME` environment variable. Prefer OAuth2 credentials instead.
+     */
     declare public readonly username: pulumi.Output<string | undefined>;
+    /**
+     * The vanity domain for your Zscaler organization. Can also be set via the `ZSCALER_VANITY_DOMAIN` environment variable.
+     */
     declare public readonly vanityDomain: pulumi.Output<string | undefined>;
+    /**
+     * (Legacy) The ZIA cloud name. Can also be set via the `ZIA_CLOUD` environment variable. Prefer the 'cloud' parameter instead.
+     */
     declare public readonly ziaCloud: pulumi.Output<string | undefined>;
 
     /**
@@ -47,6 +83,7 @@ export class Provider extends pulumi.ProviderResource {
             resourceInputs["clientId"] = args?.clientId;
             resourceInputs["clientSecret"] = args?.clientSecret ? pulumi.secret(args.clientSecret) : undefined;
             resourceInputs["cloud"] = args?.cloud ? pulumi.secret(args.cloud) : undefined;
+            resourceInputs["debug"] = pulumi.output(args?.debug).apply(JSON.stringify);
             resourceInputs["httpProxy"] = args?.httpProxy;
             resourceInputs["maxRetries"] = pulumi.output(args?.maxRetries).apply(JSON.stringify);
             resourceInputs["password"] = args?.password ? pulumi.secret(args.password) : undefined;
@@ -70,19 +107,68 @@ export class Provider extends pulumi.ProviderResource {
  * The set of arguments for constructing a Provider resource.
  */
 export interface ProviderArgs {
+    /**
+     * (Legacy) The API key for ZIA. Can also be set via the `ZIA_API_KEY` environment variable. Prefer OAuth2 credentials instead.
+     */
     apiKey?: pulumi.Input<string>;
+    /**
+     * The OAuth2 client ID for authenticating with the Zscaler API. Can also be set via the `ZSCALER_CLIENT_ID` environment variable.
+     */
     clientId?: pulumi.Input<string>;
+    /**
+     * The OAuth2 client secret for authenticating with the Zscaler API. Can also be set via the `ZSCALER_CLIENT_SECRET` environment variable.
+     */
     clientSecret?: pulumi.Input<string>;
+    /**
+     * The Zscaler cloud name (e.g. 'zscaler', 'zscalerone', 'zscalertwo', 'zscalerthree', 'zscloud', 'zscalerbeta', 'zscalergov'). Can also be set via the `ZSCALER_CLOUD` environment variable.
+     */
     cloud?: pulumi.Input<string>;
+    /**
+     * If true, enables verbose Zscaler SDK logging (API requests/responses). Logs are written to stderr and optionally to the file specified by the `ZSCALER_SDK_LOG_FILE` environment variable.
+     */
+    debug?: pulumi.Input<boolean>;
+    /**
+     * HTTP proxy URL for API requests (e.g. 'http://proxy.example.com:8080'). Can also be set via the `ZSCALER_HTTP_PROXY` environment variable.
+     */
     httpProxy?: pulumi.Input<string>;
+    /**
+     * Maximum number of retries for API requests. Default is determined by the SDK.
+     */
     maxRetries?: pulumi.Input<number>;
+    /**
+     * (Legacy) The admin password for ZIA. Can also be set via the `ZIA_PASSWORD` environment variable. Prefer OAuth2 credentials instead.
+     */
     password?: pulumi.Input<string>;
+    /**
+     * The private key for service principal authentication. Can also be set via the `ZSCALER_PRIVATE_KEY` environment variable.
+     */
     privateKey?: pulumi.Input<string>;
+    /**
+     * Timeout in seconds for API requests.
+     */
     requestTimeout?: pulumi.Input<number>;
+    /**
+     * The Zscaler Sandbox cloud name. Can also be set via the `ZIA_SANDBOX_CLOUD` environment variable.
+     */
     sandboxCloud?: pulumi.Input<string>;
+    /**
+     * The API token for Zscaler Sandbox. Can also be set via the `ZIA_SANDBOX_TOKEN` environment variable.
+     */
     sandboxToken?: pulumi.Input<string>;
+    /**
+     * If true, use the legacy ZIA client authentication instead of OAuth2.
+     */
     useLegacyClient?: pulumi.Input<boolean>;
+    /**
+     * (Legacy) The admin username for ZIA. Can also be set via the `ZIA_USERNAME` environment variable. Prefer OAuth2 credentials instead.
+     */
     username?: pulumi.Input<string>;
+    /**
+     * The vanity domain for your Zscaler organization. Can also be set via the `ZSCALER_VANITY_DOMAIN` environment variable.
+     */
     vanityDomain?: pulumi.Input<string>;
+    /**
+     * (Legacy) The ZIA cloud name. Can also be set via the `ZIA_CLOUD` environment variable. Prefer the 'cloud' parameter instead.
+     */
     ziaCloud?: pulumi.Input<string>;
 }

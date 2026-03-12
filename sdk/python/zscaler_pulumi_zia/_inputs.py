@@ -21,10 +21,26 @@ __all__ = [
     'CBIProfileInputArgsDict',
     'DecryptSubActionsInputArgs',
     'DecryptSubActionsInputArgsDict',
+    'DlpDictionaryPatternInputArgs',
+    'DlpDictionaryPatternInputArgsDict',
+    'DlpDictionaryPhraseInputArgs',
+    'DlpDictionaryPhraseInputArgsDict',
     'DoNotDecryptSubActionsInputArgs',
     'DoNotDecryptSubActionsInputArgsDict',
+    'ExtranetDnsListInputArgs',
+    'ExtranetDnsListInputArgsDict',
+    'ExtranetIpPoolListInputArgs',
+    'ExtranetIpPoolListInputArgsDict',
     'GreTunnelDestVipInputArgs',
     'GreTunnelDestVipInputArgsDict',
+    'InstanceIdentifierInputArgs',
+    'InstanceIdentifierInputArgsDict',
+    'Md5HashValueInputArgs',
+    'Md5HashValueInputArgsDict',
+    'NetworkPortInputArgs',
+    'NetworkPortInputArgsDict',
+    'SmartIsolationProfileInputArgs',
+    'SmartIsolationProfileInputArgsDict',
     'SslInspectionActionInputArgs',
     'SslInspectionActionInputArgsDict',
     'SslInterceptionCertInputArgs',
@@ -39,6 +55,8 @@ __all__ = [
     'UrlCategoryUrlKeywordCountsInputArgsDict',
     'UserDepartmentInputArgs',
     'UserDepartmentInputArgsDict',
+    'VpnCredentialInputArgs',
+    'VpnCredentialInputArgsDict',
     'WorkloadGroupExpressionContainerInputArgs',
     'WorkloadGroupExpressionContainerInputArgsDict',
     'WorkloadGroupExpressionJsonInputArgs',
@@ -51,6 +69,10 @@ __all__ = [
     'WorkloadGroupTagInputArgsDict',
     'ZPAAppSegmentInputArgs',
     'ZPAAppSegmentInputArgsDict',
+    'ZpaGatewayAppSegmentInputArgs',
+    'ZpaGatewayAppSegmentInputArgsDict',
+    'ZpaServerGroupInputArgs',
+    'ZpaServerGroupInputArgsDict',
 ]
 
 MYPY = False
@@ -80,9 +102,9 @@ class AdminUserRoleInputArgs:
 
 if not MYPY:
     class CBIProfileInputArgsDict(TypedDict):
-        id: NotRequired[pulumi.Input[_builtins.str]]
         name: NotRequired[pulumi.Input[_builtins.str]]
         profile_seq: NotRequired[pulumi.Input[_builtins.int]]
+        resource_id: NotRequired[pulumi.Input[_builtins.str]]
         url: NotRequired[pulumi.Input[_builtins.str]]
 elif False:
     CBIProfileInputArgsDict: TypeAlias = Mapping[str, Any]
@@ -90,27 +112,18 @@ elif False:
 @pulumi.input_type
 class CBIProfileInputArgs:
     def __init__(__self__, *,
-                 id: Optional[pulumi.Input[_builtins.str]] = None,
                  name: Optional[pulumi.Input[_builtins.str]] = None,
                  profile_seq: Optional[pulumi.Input[_builtins.int]] = None,
+                 resource_id: Optional[pulumi.Input[_builtins.str]] = None,
                  url: Optional[pulumi.Input[_builtins.str]] = None):
-        if id is not None:
-            pulumi.set(__self__, "id", id)
         if name is not None:
             pulumi.set(__self__, "name", name)
         if profile_seq is not None:
             pulumi.set(__self__, "profile_seq", profile_seq)
+        if resource_id is not None:
+            pulumi.set(__self__, "resource_id", resource_id)
         if url is not None:
             pulumi.set(__self__, "url", url)
-
-    @_builtins.property
-    @pulumi.getter
-    def id(self) -> Optional[pulumi.Input[_builtins.str]]:
-        return pulumi.get(self, "id")
-
-    @id.setter
-    def id(self, value: Optional[pulumi.Input[_builtins.str]]):
-        pulumi.set(self, "id", value)
 
     @_builtins.property
     @pulumi.getter
@@ -129,6 +142,15 @@ class CBIProfileInputArgs:
     @profile_seq.setter
     def profile_seq(self, value: Optional[pulumi.Input[_builtins.int]]):
         pulumi.set(self, "profile_seq", value)
+
+    @_builtins.property
+    @pulumi.getter(name="resourceId")
+    def resource_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+        return pulumi.get(self, "resource_id")
+
+    @resource_id.setter
+    def resource_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+        pulumi.set(self, "resource_id", value)
 
     @_builtins.property
     @pulumi.getter
@@ -242,6 +264,78 @@ class DecryptSubActionsInputArgs:
 
 
 if not MYPY:
+    class DlpDictionaryPatternInputArgsDict(TypedDict):
+        action: NotRequired[pulumi.Input[_builtins.str]]
+        pattern: NotRequired[pulumi.Input[_builtins.str]]
+elif False:
+    DlpDictionaryPatternInputArgsDict: TypeAlias = Mapping[str, Any]
+
+@pulumi.input_type
+class DlpDictionaryPatternInputArgs:
+    def __init__(__self__, *,
+                 action: Optional[pulumi.Input[_builtins.str]] = None,
+                 pattern: Optional[pulumi.Input[_builtins.str]] = None):
+        if action is not None:
+            pulumi.set(__self__, "action", action)
+        if pattern is not None:
+            pulumi.set(__self__, "pattern", pattern)
+
+    @_builtins.property
+    @pulumi.getter
+    def action(self) -> Optional[pulumi.Input[_builtins.str]]:
+        return pulumi.get(self, "action")
+
+    @action.setter
+    def action(self, value: Optional[pulumi.Input[_builtins.str]]):
+        pulumi.set(self, "action", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def pattern(self) -> Optional[pulumi.Input[_builtins.str]]:
+        return pulumi.get(self, "pattern")
+
+    @pattern.setter
+    def pattern(self, value: Optional[pulumi.Input[_builtins.str]]):
+        pulumi.set(self, "pattern", value)
+
+
+if not MYPY:
+    class DlpDictionaryPhraseInputArgsDict(TypedDict):
+        action: NotRequired[pulumi.Input[_builtins.str]]
+        phrase: NotRequired[pulumi.Input[_builtins.str]]
+elif False:
+    DlpDictionaryPhraseInputArgsDict: TypeAlias = Mapping[str, Any]
+
+@pulumi.input_type
+class DlpDictionaryPhraseInputArgs:
+    def __init__(__self__, *,
+                 action: Optional[pulumi.Input[_builtins.str]] = None,
+                 phrase: Optional[pulumi.Input[_builtins.str]] = None):
+        if action is not None:
+            pulumi.set(__self__, "action", action)
+        if phrase is not None:
+            pulumi.set(__self__, "phrase", phrase)
+
+    @_builtins.property
+    @pulumi.getter
+    def action(self) -> Optional[pulumi.Input[_builtins.str]]:
+        return pulumi.get(self, "action")
+
+    @action.setter
+    def action(self, value: Optional[pulumi.Input[_builtins.str]]):
+        pulumi.set(self, "action", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def phrase(self) -> Optional[pulumi.Input[_builtins.str]]:
+        return pulumi.get(self, "phrase")
+
+    @phrase.setter
+    def phrase(self, value: Optional[pulumi.Input[_builtins.str]]):
+        pulumi.set(self, "phrase", value)
+
+
+if not MYPY:
     class DoNotDecryptSubActionsInputArgsDict(TypedDict):
         block_ssl_traffic_with_no_sni_enabled: NotRequired[pulumi.Input[_builtins.bool]]
         bypass_other_policies: NotRequired[pulumi.Input[_builtins.bool]]
@@ -317,6 +411,156 @@ class DoNotDecryptSubActionsInputArgs:
 
 
 if not MYPY:
+    class ExtranetDnsListInputArgsDict(TypedDict):
+        id: NotRequired[pulumi.Input[_builtins.int]]
+        name: NotRequired[pulumi.Input[_builtins.str]]
+        primary_dns_server: NotRequired[pulumi.Input[_builtins.str]]
+        secondary_dns_server: NotRequired[pulumi.Input[_builtins.str]]
+        use_as_default: NotRequired[pulumi.Input[_builtins.bool]]
+elif False:
+    ExtranetDnsListInputArgsDict: TypeAlias = Mapping[str, Any]
+
+@pulumi.input_type
+class ExtranetDnsListInputArgs:
+    def __init__(__self__, *,
+                 id: Optional[pulumi.Input[_builtins.int]] = None,
+                 name: Optional[pulumi.Input[_builtins.str]] = None,
+                 primary_dns_server: Optional[pulumi.Input[_builtins.str]] = None,
+                 secondary_dns_server: Optional[pulumi.Input[_builtins.str]] = None,
+                 use_as_default: Optional[pulumi.Input[_builtins.bool]] = None):
+        if id is not None:
+            pulumi.set(__self__, "id", id)
+        if name is not None:
+            pulumi.set(__self__, "name", name)
+        if primary_dns_server is not None:
+            pulumi.set(__self__, "primary_dns_server", primary_dns_server)
+        if secondary_dns_server is not None:
+            pulumi.set(__self__, "secondary_dns_server", secondary_dns_server)
+        if use_as_default is not None:
+            pulumi.set(__self__, "use_as_default", use_as_default)
+
+    @_builtins.property
+    @pulumi.getter
+    def id(self) -> Optional[pulumi.Input[_builtins.int]]:
+        return pulumi.get(self, "id")
+
+    @id.setter
+    def id(self, value: Optional[pulumi.Input[_builtins.int]]):
+        pulumi.set(self, "id", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def name(self) -> Optional[pulumi.Input[_builtins.str]]:
+        return pulumi.get(self, "name")
+
+    @name.setter
+    def name(self, value: Optional[pulumi.Input[_builtins.str]]):
+        pulumi.set(self, "name", value)
+
+    @_builtins.property
+    @pulumi.getter(name="primaryDnsServer")
+    def primary_dns_server(self) -> Optional[pulumi.Input[_builtins.str]]:
+        return pulumi.get(self, "primary_dns_server")
+
+    @primary_dns_server.setter
+    def primary_dns_server(self, value: Optional[pulumi.Input[_builtins.str]]):
+        pulumi.set(self, "primary_dns_server", value)
+
+    @_builtins.property
+    @pulumi.getter(name="secondaryDnsServer")
+    def secondary_dns_server(self) -> Optional[pulumi.Input[_builtins.str]]:
+        return pulumi.get(self, "secondary_dns_server")
+
+    @secondary_dns_server.setter
+    def secondary_dns_server(self, value: Optional[pulumi.Input[_builtins.str]]):
+        pulumi.set(self, "secondary_dns_server", value)
+
+    @_builtins.property
+    @pulumi.getter(name="useAsDefault")
+    def use_as_default(self) -> Optional[pulumi.Input[_builtins.bool]]:
+        return pulumi.get(self, "use_as_default")
+
+    @use_as_default.setter
+    def use_as_default(self, value: Optional[pulumi.Input[_builtins.bool]]):
+        pulumi.set(self, "use_as_default", value)
+
+
+if not MYPY:
+    class ExtranetIpPoolListInputArgsDict(TypedDict):
+        id: NotRequired[pulumi.Input[_builtins.int]]
+        ip_end: NotRequired[pulumi.Input[_builtins.str]]
+        ip_start: NotRequired[pulumi.Input[_builtins.str]]
+        name: NotRequired[pulumi.Input[_builtins.str]]
+        use_as_default: NotRequired[pulumi.Input[_builtins.bool]]
+elif False:
+    ExtranetIpPoolListInputArgsDict: TypeAlias = Mapping[str, Any]
+
+@pulumi.input_type
+class ExtranetIpPoolListInputArgs:
+    def __init__(__self__, *,
+                 id: Optional[pulumi.Input[_builtins.int]] = None,
+                 ip_end: Optional[pulumi.Input[_builtins.str]] = None,
+                 ip_start: Optional[pulumi.Input[_builtins.str]] = None,
+                 name: Optional[pulumi.Input[_builtins.str]] = None,
+                 use_as_default: Optional[pulumi.Input[_builtins.bool]] = None):
+        if id is not None:
+            pulumi.set(__self__, "id", id)
+        if ip_end is not None:
+            pulumi.set(__self__, "ip_end", ip_end)
+        if ip_start is not None:
+            pulumi.set(__self__, "ip_start", ip_start)
+        if name is not None:
+            pulumi.set(__self__, "name", name)
+        if use_as_default is not None:
+            pulumi.set(__self__, "use_as_default", use_as_default)
+
+    @_builtins.property
+    @pulumi.getter
+    def id(self) -> Optional[pulumi.Input[_builtins.int]]:
+        return pulumi.get(self, "id")
+
+    @id.setter
+    def id(self, value: Optional[pulumi.Input[_builtins.int]]):
+        pulumi.set(self, "id", value)
+
+    @_builtins.property
+    @pulumi.getter(name="ipEnd")
+    def ip_end(self) -> Optional[pulumi.Input[_builtins.str]]:
+        return pulumi.get(self, "ip_end")
+
+    @ip_end.setter
+    def ip_end(self, value: Optional[pulumi.Input[_builtins.str]]):
+        pulumi.set(self, "ip_end", value)
+
+    @_builtins.property
+    @pulumi.getter(name="ipStart")
+    def ip_start(self) -> Optional[pulumi.Input[_builtins.str]]:
+        return pulumi.get(self, "ip_start")
+
+    @ip_start.setter
+    def ip_start(self, value: Optional[pulumi.Input[_builtins.str]]):
+        pulumi.set(self, "ip_start", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def name(self) -> Optional[pulumi.Input[_builtins.str]]:
+        return pulumi.get(self, "name")
+
+    @name.setter
+    def name(self, value: Optional[pulumi.Input[_builtins.str]]):
+        pulumi.set(self, "name", value)
+
+    @_builtins.property
+    @pulumi.getter(name="useAsDefault")
+    def use_as_default(self) -> Optional[pulumi.Input[_builtins.bool]]:
+        return pulumi.get(self, "use_as_default")
+
+    @use_as_default.setter
+    def use_as_default(self, value: Optional[pulumi.Input[_builtins.bool]]):
+        pulumi.set(self, "use_as_default", value)
+
+
+if not MYPY:
     class GreTunnelDestVipInputArgsDict(TypedDict):
         datacenter: NotRequired[pulumi.Input[_builtins.str]]
         id: NotRequired[pulumi.Input[_builtins.int]]
@@ -363,6 +607,176 @@ class GreTunnelDestVipInputArgs:
     @virtual_ip.setter
     def virtual_ip(self, value: Optional[pulumi.Input[_builtins.str]]):
         pulumi.set(self, "virtual_ip", value)
+
+
+if not MYPY:
+    class InstanceIdentifierInputArgsDict(TypedDict):
+        identifier_type: NotRequired[pulumi.Input[_builtins.str]]
+        instance_id: NotRequired[pulumi.Input[_builtins.int]]
+        instance_identifier: NotRequired[pulumi.Input[_builtins.str]]
+        instance_identifier_name: NotRequired[pulumi.Input[_builtins.str]]
+elif False:
+    InstanceIdentifierInputArgsDict: TypeAlias = Mapping[str, Any]
+
+@pulumi.input_type
+class InstanceIdentifierInputArgs:
+    def __init__(__self__, *,
+                 identifier_type: Optional[pulumi.Input[_builtins.str]] = None,
+                 instance_id: Optional[pulumi.Input[_builtins.int]] = None,
+                 instance_identifier: Optional[pulumi.Input[_builtins.str]] = None,
+                 instance_identifier_name: Optional[pulumi.Input[_builtins.str]] = None):
+        if identifier_type is not None:
+            pulumi.set(__self__, "identifier_type", identifier_type)
+        if instance_id is not None:
+            pulumi.set(__self__, "instance_id", instance_id)
+        if instance_identifier is not None:
+            pulumi.set(__self__, "instance_identifier", instance_identifier)
+        if instance_identifier_name is not None:
+            pulumi.set(__self__, "instance_identifier_name", instance_identifier_name)
+
+    @_builtins.property
+    @pulumi.getter(name="identifierType")
+    def identifier_type(self) -> Optional[pulumi.Input[_builtins.str]]:
+        return pulumi.get(self, "identifier_type")
+
+    @identifier_type.setter
+    def identifier_type(self, value: Optional[pulumi.Input[_builtins.str]]):
+        pulumi.set(self, "identifier_type", value)
+
+    @_builtins.property
+    @pulumi.getter(name="instanceId")
+    def instance_id(self) -> Optional[pulumi.Input[_builtins.int]]:
+        return pulumi.get(self, "instance_id")
+
+    @instance_id.setter
+    def instance_id(self, value: Optional[pulumi.Input[_builtins.int]]):
+        pulumi.set(self, "instance_id", value)
+
+    @_builtins.property
+    @pulumi.getter(name="instanceIdentifier")
+    def instance_identifier(self) -> Optional[pulumi.Input[_builtins.str]]:
+        return pulumi.get(self, "instance_identifier")
+
+    @instance_identifier.setter
+    def instance_identifier(self, value: Optional[pulumi.Input[_builtins.str]]):
+        pulumi.set(self, "instance_identifier", value)
+
+    @_builtins.property
+    @pulumi.getter(name="instanceIdentifierName")
+    def instance_identifier_name(self) -> Optional[pulumi.Input[_builtins.str]]:
+        return pulumi.get(self, "instance_identifier_name")
+
+    @instance_identifier_name.setter
+    def instance_identifier_name(self, value: Optional[pulumi.Input[_builtins.str]]):
+        pulumi.set(self, "instance_identifier_name", value)
+
+
+if not MYPY:
+    class Md5HashValueInputArgsDict(TypedDict):
+        type: NotRequired[pulumi.Input[_builtins.str]]
+        url: NotRequired[pulumi.Input[_builtins.str]]
+        url_comment: NotRequired[pulumi.Input[_builtins.str]]
+elif False:
+    Md5HashValueInputArgsDict: TypeAlias = Mapping[str, Any]
+
+@pulumi.input_type
+class Md5HashValueInputArgs:
+    def __init__(__self__, *,
+                 type: Optional[pulumi.Input[_builtins.str]] = None,
+                 url: Optional[pulumi.Input[_builtins.str]] = None,
+                 url_comment: Optional[pulumi.Input[_builtins.str]] = None):
+        if type is not None:
+            pulumi.set(__self__, "type", type)
+        if url is not None:
+            pulumi.set(__self__, "url", url)
+        if url_comment is not None:
+            pulumi.set(__self__, "url_comment", url_comment)
+
+    @_builtins.property
+    @pulumi.getter
+    def type(self) -> Optional[pulumi.Input[_builtins.str]]:
+        return pulumi.get(self, "type")
+
+    @type.setter
+    def type(self, value: Optional[pulumi.Input[_builtins.str]]):
+        pulumi.set(self, "type", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def url(self) -> Optional[pulumi.Input[_builtins.str]]:
+        return pulumi.get(self, "url")
+
+    @url.setter
+    def url(self, value: Optional[pulumi.Input[_builtins.str]]):
+        pulumi.set(self, "url", value)
+
+    @_builtins.property
+    @pulumi.getter(name="urlComment")
+    def url_comment(self) -> Optional[pulumi.Input[_builtins.str]]:
+        return pulumi.get(self, "url_comment")
+
+    @url_comment.setter
+    def url_comment(self, value: Optional[pulumi.Input[_builtins.str]]):
+        pulumi.set(self, "url_comment", value)
+
+
+if not MYPY:
+    class NetworkPortInputArgsDict(TypedDict):
+        end: NotRequired[pulumi.Input[_builtins.int]]
+        start: NotRequired[pulumi.Input[_builtins.int]]
+elif False:
+    NetworkPortInputArgsDict: TypeAlias = Mapping[str, Any]
+
+@pulumi.input_type
+class NetworkPortInputArgs:
+    def __init__(__self__, *,
+                 end: Optional[pulumi.Input[_builtins.int]] = None,
+                 start: Optional[pulumi.Input[_builtins.int]] = None):
+        if end is not None:
+            pulumi.set(__self__, "end", end)
+        if start is not None:
+            pulumi.set(__self__, "start", start)
+
+    @_builtins.property
+    @pulumi.getter
+    def end(self) -> Optional[pulumi.Input[_builtins.int]]:
+        return pulumi.get(self, "end")
+
+    @end.setter
+    def end(self, value: Optional[pulumi.Input[_builtins.int]]):
+        pulumi.set(self, "end", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def start(self) -> Optional[pulumi.Input[_builtins.int]]:
+        return pulumi.get(self, "start")
+
+    @start.setter
+    def start(self, value: Optional[pulumi.Input[_builtins.int]]):
+        pulumi.set(self, "start", value)
+
+
+if not MYPY:
+    class SmartIsolationProfileInputArgsDict(TypedDict):
+        id: NotRequired[pulumi.Input[_builtins.str]]
+elif False:
+    SmartIsolationProfileInputArgsDict: TypeAlias = Mapping[str, Any]
+
+@pulumi.input_type
+class SmartIsolationProfileInputArgs:
+    def __init__(__self__, *,
+                 id: Optional[pulumi.Input[_builtins.str]] = None):
+        if id is not None:
+            pulumi.set(__self__, "id", id)
+
+    @_builtins.property
+    @pulumi.getter
+    def id(self) -> Optional[pulumi.Input[_builtins.str]]:
+        return pulumi.get(self, "id")
+
+    @id.setter
+    def id(self, value: Optional[pulumi.Input[_builtins.str]]):
+        pulumi.set(self, "id", value)
 
 
 if not MYPY:
@@ -491,7 +905,7 @@ class SslInterceptionCertInputArgs:
 
 if not MYPY:
     class SubCloudExclusionDatacenterInputArgsDict(TypedDict):
-        id: pulumi.Input[_builtins.int]
+        resource_id: pulumi.Input[_builtins.int]
         country: NotRequired[pulumi.Input[_builtins.str]]
         name: NotRequired[pulumi.Input[_builtins.str]]
 elif False:
@@ -500,23 +914,23 @@ elif False:
 @pulumi.input_type
 class SubCloudExclusionDatacenterInputArgs:
     def __init__(__self__, *,
-                 id: pulumi.Input[_builtins.int],
+                 resource_id: pulumi.Input[_builtins.int],
                  country: Optional[pulumi.Input[_builtins.str]] = None,
                  name: Optional[pulumi.Input[_builtins.str]] = None):
-        pulumi.set(__self__, "id", id)
+        pulumi.set(__self__, "resource_id", resource_id)
         if country is not None:
             pulumi.set(__self__, "country", country)
         if name is not None:
             pulumi.set(__self__, "name", name)
 
     @_builtins.property
-    @pulumi.getter
-    def id(self) -> pulumi.Input[_builtins.int]:
-        return pulumi.get(self, "id")
+    @pulumi.getter(name="resourceId")
+    def resource_id(self) -> pulumi.Input[_builtins.int]:
+        return pulumi.get(self, "resource_id")
 
-    @id.setter
-    def id(self, value: pulumi.Input[_builtins.int]):
-        pulumi.set(self, "id", value)
+    @resource_id.setter
+    def resource_id(self, value: pulumi.Input[_builtins.int]):
+        pulumi.set(self, "resource_id", value)
 
     @_builtins.property
     @pulumi.getter
@@ -784,6 +1198,81 @@ class UserDepartmentInputArgs:
 
 
 if not MYPY:
+    class VpnCredentialInputArgsDict(TypedDict):
+        fqdn: NotRequired[pulumi.Input[_builtins.str]]
+        id: NotRequired[pulumi.Input[_builtins.int]]
+        ip_address: NotRequired[pulumi.Input[_builtins.str]]
+        pre_shared_key: NotRequired[pulumi.Input[_builtins.str]]
+        type: NotRequired[pulumi.Input[_builtins.str]]
+elif False:
+    VpnCredentialInputArgsDict: TypeAlias = Mapping[str, Any]
+
+@pulumi.input_type
+class VpnCredentialInputArgs:
+    def __init__(__self__, *,
+                 fqdn: Optional[pulumi.Input[_builtins.str]] = None,
+                 id: Optional[pulumi.Input[_builtins.int]] = None,
+                 ip_address: Optional[pulumi.Input[_builtins.str]] = None,
+                 pre_shared_key: Optional[pulumi.Input[_builtins.str]] = None,
+                 type: Optional[pulumi.Input[_builtins.str]] = None):
+        if fqdn is not None:
+            pulumi.set(__self__, "fqdn", fqdn)
+        if id is not None:
+            pulumi.set(__self__, "id", id)
+        if ip_address is not None:
+            pulumi.set(__self__, "ip_address", ip_address)
+        if pre_shared_key is not None:
+            pulumi.set(__self__, "pre_shared_key", pre_shared_key)
+        if type is not None:
+            pulumi.set(__self__, "type", type)
+
+    @_builtins.property
+    @pulumi.getter
+    def fqdn(self) -> Optional[pulumi.Input[_builtins.str]]:
+        return pulumi.get(self, "fqdn")
+
+    @fqdn.setter
+    def fqdn(self, value: Optional[pulumi.Input[_builtins.str]]):
+        pulumi.set(self, "fqdn", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def id(self) -> Optional[pulumi.Input[_builtins.int]]:
+        return pulumi.get(self, "id")
+
+    @id.setter
+    def id(self, value: Optional[pulumi.Input[_builtins.int]]):
+        pulumi.set(self, "id", value)
+
+    @_builtins.property
+    @pulumi.getter(name="ipAddress")
+    def ip_address(self) -> Optional[pulumi.Input[_builtins.str]]:
+        return pulumi.get(self, "ip_address")
+
+    @ip_address.setter
+    def ip_address(self, value: Optional[pulumi.Input[_builtins.str]]):
+        pulumi.set(self, "ip_address", value)
+
+    @_builtins.property
+    @pulumi.getter(name="preSharedKey")
+    def pre_shared_key(self) -> Optional[pulumi.Input[_builtins.str]]:
+        return pulumi.get(self, "pre_shared_key")
+
+    @pre_shared_key.setter
+    def pre_shared_key(self, value: Optional[pulumi.Input[_builtins.str]]):
+        pulumi.set(self, "pre_shared_key", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def type(self) -> Optional[pulumi.Input[_builtins.str]]:
+        return pulumi.get(self, "type")
+
+    @type.setter
+    def type(self, value: Optional[pulumi.Input[_builtins.str]]):
+        pulumi.set(self, "type", value)
+
+
+if not MYPY:
     class WorkloadGroupExpressionContainerInputArgsDict(TypedDict):
         operator: NotRequired[pulumi.Input[_builtins.str]]
         tag_container: NotRequired[pulumi.Input['WorkloadGroupTagContainerInputArgsDict']]
@@ -857,7 +1346,7 @@ class WorkloadGroupExpressionJsonInputArgs:
 
 if not MYPY:
     class WorkloadGroupInputArgsDict(TypedDict):
-        id: pulumi.Input[_builtins.int]
+        resource_id: pulumi.Input[_builtins.int]
         name: NotRequired[pulumi.Input[_builtins.str]]
 elif False:
     WorkloadGroupInputArgsDict: TypeAlias = Mapping[str, Any]
@@ -865,20 +1354,20 @@ elif False:
 @pulumi.input_type
 class WorkloadGroupInputArgs:
     def __init__(__self__, *,
-                 id: pulumi.Input[_builtins.int],
+                 resource_id: pulumi.Input[_builtins.int],
                  name: Optional[pulumi.Input[_builtins.str]] = None):
-        pulumi.set(__self__, "id", id)
+        pulumi.set(__self__, "resource_id", resource_id)
         if name is not None:
             pulumi.set(__self__, "name", name)
 
     @_builtins.property
-    @pulumi.getter
-    def id(self) -> pulumi.Input[_builtins.int]:
-        return pulumi.get(self, "id")
+    @pulumi.getter(name="resourceId")
+    def resource_id(self) -> pulumi.Input[_builtins.int]:
+        return pulumi.get(self, "resource_id")
 
-    @id.setter
-    def id(self, value: pulumi.Input[_builtins.int]):
-        pulumi.set(self, "id", value)
+    @resource_id.setter
+    def resource_id(self, value: pulumi.Input[_builtins.int]):
+        pulumi.set(self, "resource_id", value)
 
     @_builtins.property
     @pulumi.getter
@@ -993,6 +1482,78 @@ class ZPAAppSegmentInputArgs:
 
     @name.setter
     def name(self, value: pulumi.Input[_builtins.str]):
+        pulumi.set(self, "name", value)
+
+
+if not MYPY:
+    class ZpaGatewayAppSegmentInputArgsDict(TypedDict):
+        external_id: NotRequired[pulumi.Input[_builtins.str]]
+        name: NotRequired[pulumi.Input[_builtins.str]]
+elif False:
+    ZpaGatewayAppSegmentInputArgsDict: TypeAlias = Mapping[str, Any]
+
+@pulumi.input_type
+class ZpaGatewayAppSegmentInputArgs:
+    def __init__(__self__, *,
+                 external_id: Optional[pulumi.Input[_builtins.str]] = None,
+                 name: Optional[pulumi.Input[_builtins.str]] = None):
+        if external_id is not None:
+            pulumi.set(__self__, "external_id", external_id)
+        if name is not None:
+            pulumi.set(__self__, "name", name)
+
+    @_builtins.property
+    @pulumi.getter(name="externalId")
+    def external_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+        return pulumi.get(self, "external_id")
+
+    @external_id.setter
+    def external_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+        pulumi.set(self, "external_id", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def name(self) -> Optional[pulumi.Input[_builtins.str]]:
+        return pulumi.get(self, "name")
+
+    @name.setter
+    def name(self, value: Optional[pulumi.Input[_builtins.str]]):
+        pulumi.set(self, "name", value)
+
+
+if not MYPY:
+    class ZpaServerGroupInputArgsDict(TypedDict):
+        external_id: NotRequired[pulumi.Input[_builtins.str]]
+        name: NotRequired[pulumi.Input[_builtins.str]]
+elif False:
+    ZpaServerGroupInputArgsDict: TypeAlias = Mapping[str, Any]
+
+@pulumi.input_type
+class ZpaServerGroupInputArgs:
+    def __init__(__self__, *,
+                 external_id: Optional[pulumi.Input[_builtins.str]] = None,
+                 name: Optional[pulumi.Input[_builtins.str]] = None):
+        if external_id is not None:
+            pulumi.set(__self__, "external_id", external_id)
+        if name is not None:
+            pulumi.set(__self__, "name", name)
+
+    @_builtins.property
+    @pulumi.getter(name="externalId")
+    def external_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+        return pulumi.get(self, "external_id")
+
+    @external_id.setter
+    def external_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+        pulumi.set(self, "external_id", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def name(self) -> Optional[pulumi.Input[_builtins.str]]:
+        return pulumi.get(self, "name")
+
+    @name.setter
+    def name(self, value: Optional[pulumi.Input[_builtins.str]]):
         pulumi.set(self, "name", value)
 
 

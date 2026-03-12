@@ -58,6 +58,43 @@ class FirewallDNSRuleArgs:
                  zpa_ip_group: Optional[pulumi.Input[_builtins.int]] = None):
         """
         The set of arguments for constructing a FirewallDNSRule resource.
+        :param pulumi.Input[_builtins.str] name: The name of the firewall DNS rule. Must be unique.
+        :param pulumi.Input[_builtins.int] order: The order of execution of the rule with respect to other firewall DNS rules.
+        :param pulumi.Input[_builtins.str] action: The action the rule takes when traffic matches. Valid values: `ALLOW`, `BLOCK_DROP`, `BLOCK_RESET`, `BLOCK_ICMP`, `REDIR_REQ`.
+        :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] applications: DNS application values to which the rule applies.
+        :param pulumi.Input[_builtins.str] block_response_code: The DNS response code to return when blocking. Valid values: `ANY`, `NONE`, `FORMERR`, `SERVFAIL`, `NXDOMAIN`, `NOTIMP`, `REFUSED`, `NOTAUTH`, `NXRRSET`.
+        :param pulumi.Input[_builtins.bool] capture_pcap: If set to true, enables packet capture (PCAP) for the rule.
+        :param pulumi.Input[_builtins.bool] default_rule: Indicates whether this is the default firewall DNS rule.
+        :param pulumi.Input[Sequence[pulumi.Input[_builtins.int]]] departments: IDs of departments to which the rule must be applied.
+        :param pulumi.Input[_builtins.str] description: Additional information about the firewall DNS rule.
+        :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] dest_addresses: Destination IP addresses, FQDNs, or wildcard FQDNs for the rule.
+        :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] dest_countries: Destination countries (ISO 3166-1 alpha-2 codes) for the rule.
+        :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] dest_ip_categories: Destination IP address URL categories for the rule.
+        :param pulumi.Input[Sequence[pulumi.Input[_builtins.int]]] dest_ip_groups: IDs of destination IP address groups for the rule.
+        :param pulumi.Input[Sequence[pulumi.Input[_builtins.int]]] dest_ipv6_groups: IDs of destination IPv6 address groups for the rule.
+        :param pulumi.Input[Sequence[pulumi.Input[_builtins.int]]] device_groups: IDs of device groups for which the rule must be applied. Applicable for devices managed using Zscaler Client Connector.
+        :param pulumi.Input[Sequence[pulumi.Input[_builtins.int]]] devices: IDs of devices for which the rule must be applied.
+        :param pulumi.Input[_builtins.int] dns_gateway: The ID of the DNS gateway associated with the rule.
+        :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] dns_rule_request_types: DNS request types to which the rule applies. Valid values: `A`, `AAAA`, `CNAME`, `MX`, `NS`, `SOA`, `TXT`, `SRV`, `PTR`, `ANY`.
+        :param pulumi.Input[_builtins.int] edns_ecs_object: The ID of the EDNS ECS object associated with the rule.
+        :param pulumi.Input[Sequence[pulumi.Input[_builtins.int]]] groups: IDs of groups to which the rule must be applied.
+        :param pulumi.Input[_builtins.bool] is_web_eun_enabled: If set to true, enables web end user notification for the rule.
+        :param pulumi.Input[Sequence[pulumi.Input[_builtins.int]]] labels: IDs of labels associated with the rule.
+        :param pulumi.Input[Sequence[pulumi.Input[_builtins.int]]] location_groups: IDs of location groups to which the rule must be applied.
+        :param pulumi.Input[Sequence[pulumi.Input[_builtins.int]]] locations: IDs of locations to which the rule must be applied.
+        :param pulumi.Input[_builtins.bool] predefined: Indicates whether this is a predefined rule.
+        :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] protocols: Protocols to which the rule applies. Valid values: `ANY_RULE`, `TCP_RULE`, `UDP_RULE`.
+        :param pulumi.Input[_builtins.int] rank: Admin rank of the firewall DNS policy rule. Valid values: 0-7. Default: 7.
+        :param pulumi.Input[_builtins.str] redirect_ip: The IP address to redirect DNS requests to. Required when action is `REDIR_REQ`.
+        :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] res_categories: URL categories that apply to the response for the rule.
+        :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] source_countries: Source countries (ISO 3166-1 alpha-2 codes) for the rule.
+        :param pulumi.Input[Sequence[pulumi.Input[_builtins.int]]] src_ip_groups: IDs of source IP address groups for the rule.
+        :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] src_ips: Source IP addresses or CIDR ranges for the rule.
+        :param pulumi.Input[Sequence[pulumi.Input[_builtins.int]]] src_ipv6_groups: IDs of source IPv6 address groups for the rule.
+        :param pulumi.Input[_builtins.str] state: Rule state. Valid values: `ENABLED`, `DISABLED`.
+        :param pulumi.Input[Sequence[pulumi.Input[_builtins.int]]] time_windows: IDs of time intervals during which the rule must be enforced.
+        :param pulumi.Input[Sequence[pulumi.Input[_builtins.int]]] users: IDs of users to which the rule must be applied.
+        :param pulumi.Input[_builtins.int] zpa_ip_group: The ID of the ZPA IP group associated with the rule.
         """
         pulumi.set(__self__, "name", name)
         pulumi.set(__self__, "order", order)
@@ -135,6 +172,9 @@ class FirewallDNSRuleArgs:
     @_builtins.property
     @pulumi.getter
     def name(self) -> pulumi.Input[_builtins.str]:
+        """
+        The name of the firewall DNS rule. Must be unique.
+        """
         return pulumi.get(self, "name")
 
     @name.setter
@@ -144,6 +184,9 @@ class FirewallDNSRuleArgs:
     @_builtins.property
     @pulumi.getter
     def order(self) -> pulumi.Input[_builtins.int]:
+        """
+        The order of execution of the rule with respect to other firewall DNS rules.
+        """
         return pulumi.get(self, "order")
 
     @order.setter
@@ -153,6 +196,9 @@ class FirewallDNSRuleArgs:
     @_builtins.property
     @pulumi.getter
     def action(self) -> Optional[pulumi.Input[_builtins.str]]:
+        """
+        The action the rule takes when traffic matches. Valid values: `ALLOW`, `BLOCK_DROP`, `BLOCK_RESET`, `BLOCK_ICMP`, `REDIR_REQ`.
+        """
         return pulumi.get(self, "action")
 
     @action.setter
@@ -162,6 +208,9 @@ class FirewallDNSRuleArgs:
     @_builtins.property
     @pulumi.getter
     def applications(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
+        """
+        DNS application values to which the rule applies.
+        """
         return pulumi.get(self, "applications")
 
     @applications.setter
@@ -171,6 +220,9 @@ class FirewallDNSRuleArgs:
     @_builtins.property
     @pulumi.getter(name="blockResponseCode")
     def block_response_code(self) -> Optional[pulumi.Input[_builtins.str]]:
+        """
+        The DNS response code to return when blocking. Valid values: `ANY`, `NONE`, `FORMERR`, `SERVFAIL`, `NXDOMAIN`, `NOTIMP`, `REFUSED`, `NOTAUTH`, `NXRRSET`.
+        """
         return pulumi.get(self, "block_response_code")
 
     @block_response_code.setter
@@ -180,6 +232,9 @@ class FirewallDNSRuleArgs:
     @_builtins.property
     @pulumi.getter(name="capturePcap")
     def capture_pcap(self) -> Optional[pulumi.Input[_builtins.bool]]:
+        """
+        If set to true, enables packet capture (PCAP) for the rule.
+        """
         return pulumi.get(self, "capture_pcap")
 
     @capture_pcap.setter
@@ -189,6 +244,9 @@ class FirewallDNSRuleArgs:
     @_builtins.property
     @pulumi.getter(name="defaultRule")
     def default_rule(self) -> Optional[pulumi.Input[_builtins.bool]]:
+        """
+        Indicates whether this is the default firewall DNS rule.
+        """
         return pulumi.get(self, "default_rule")
 
     @default_rule.setter
@@ -198,6 +256,9 @@ class FirewallDNSRuleArgs:
     @_builtins.property
     @pulumi.getter
     def departments(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.int]]]]:
+        """
+        IDs of departments to which the rule must be applied.
+        """
         return pulumi.get(self, "departments")
 
     @departments.setter
@@ -207,6 +268,9 @@ class FirewallDNSRuleArgs:
     @_builtins.property
     @pulumi.getter
     def description(self) -> Optional[pulumi.Input[_builtins.str]]:
+        """
+        Additional information about the firewall DNS rule.
+        """
         return pulumi.get(self, "description")
 
     @description.setter
@@ -216,6 +280,9 @@ class FirewallDNSRuleArgs:
     @_builtins.property
     @pulumi.getter(name="destAddresses")
     def dest_addresses(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
+        """
+        Destination IP addresses, FQDNs, or wildcard FQDNs for the rule.
+        """
         return pulumi.get(self, "dest_addresses")
 
     @dest_addresses.setter
@@ -225,6 +292,9 @@ class FirewallDNSRuleArgs:
     @_builtins.property
     @pulumi.getter(name="destCountries")
     def dest_countries(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
+        """
+        Destination countries (ISO 3166-1 alpha-2 codes) for the rule.
+        """
         return pulumi.get(self, "dest_countries")
 
     @dest_countries.setter
@@ -234,6 +304,9 @@ class FirewallDNSRuleArgs:
     @_builtins.property
     @pulumi.getter(name="destIpCategories")
     def dest_ip_categories(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
+        """
+        Destination IP address URL categories for the rule.
+        """
         return pulumi.get(self, "dest_ip_categories")
 
     @dest_ip_categories.setter
@@ -243,6 +316,9 @@ class FirewallDNSRuleArgs:
     @_builtins.property
     @pulumi.getter(name="destIpGroups")
     def dest_ip_groups(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.int]]]]:
+        """
+        IDs of destination IP address groups for the rule.
+        """
         return pulumi.get(self, "dest_ip_groups")
 
     @dest_ip_groups.setter
@@ -252,6 +328,9 @@ class FirewallDNSRuleArgs:
     @_builtins.property
     @pulumi.getter(name="destIpv6Groups")
     def dest_ipv6_groups(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.int]]]]:
+        """
+        IDs of destination IPv6 address groups for the rule.
+        """
         return pulumi.get(self, "dest_ipv6_groups")
 
     @dest_ipv6_groups.setter
@@ -261,6 +340,9 @@ class FirewallDNSRuleArgs:
     @_builtins.property
     @pulumi.getter(name="deviceGroups")
     def device_groups(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.int]]]]:
+        """
+        IDs of device groups for which the rule must be applied. Applicable for devices managed using Zscaler Client Connector.
+        """
         return pulumi.get(self, "device_groups")
 
     @device_groups.setter
@@ -270,6 +352,9 @@ class FirewallDNSRuleArgs:
     @_builtins.property
     @pulumi.getter
     def devices(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.int]]]]:
+        """
+        IDs of devices for which the rule must be applied.
+        """
         return pulumi.get(self, "devices")
 
     @devices.setter
@@ -279,6 +364,9 @@ class FirewallDNSRuleArgs:
     @_builtins.property
     @pulumi.getter(name="dnsGateway")
     def dns_gateway(self) -> Optional[pulumi.Input[_builtins.int]]:
+        """
+        The ID of the DNS gateway associated with the rule.
+        """
         return pulumi.get(self, "dns_gateway")
 
     @dns_gateway.setter
@@ -288,6 +376,9 @@ class FirewallDNSRuleArgs:
     @_builtins.property
     @pulumi.getter(name="dnsRuleRequestTypes")
     def dns_rule_request_types(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
+        """
+        DNS request types to which the rule applies. Valid values: `A`, `AAAA`, `CNAME`, `MX`, `NS`, `SOA`, `TXT`, `SRV`, `PTR`, `ANY`.
+        """
         return pulumi.get(self, "dns_rule_request_types")
 
     @dns_rule_request_types.setter
@@ -297,6 +388,9 @@ class FirewallDNSRuleArgs:
     @_builtins.property
     @pulumi.getter(name="ednsEcsObject")
     def edns_ecs_object(self) -> Optional[pulumi.Input[_builtins.int]]:
+        """
+        The ID of the EDNS ECS object associated with the rule.
+        """
         return pulumi.get(self, "edns_ecs_object")
 
     @edns_ecs_object.setter
@@ -306,6 +400,9 @@ class FirewallDNSRuleArgs:
     @_builtins.property
     @pulumi.getter
     def groups(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.int]]]]:
+        """
+        IDs of groups to which the rule must be applied.
+        """
         return pulumi.get(self, "groups")
 
     @groups.setter
@@ -315,6 +412,9 @@ class FirewallDNSRuleArgs:
     @_builtins.property
     @pulumi.getter(name="isWebEunEnabled")
     def is_web_eun_enabled(self) -> Optional[pulumi.Input[_builtins.bool]]:
+        """
+        If set to true, enables web end user notification for the rule.
+        """
         return pulumi.get(self, "is_web_eun_enabled")
 
     @is_web_eun_enabled.setter
@@ -324,6 +424,9 @@ class FirewallDNSRuleArgs:
     @_builtins.property
     @pulumi.getter
     def labels(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.int]]]]:
+        """
+        IDs of labels associated with the rule.
+        """
         return pulumi.get(self, "labels")
 
     @labels.setter
@@ -333,6 +436,9 @@ class FirewallDNSRuleArgs:
     @_builtins.property
     @pulumi.getter(name="locationGroups")
     def location_groups(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.int]]]]:
+        """
+        IDs of location groups to which the rule must be applied.
+        """
         return pulumi.get(self, "location_groups")
 
     @location_groups.setter
@@ -342,6 +448,9 @@ class FirewallDNSRuleArgs:
     @_builtins.property
     @pulumi.getter
     def locations(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.int]]]]:
+        """
+        IDs of locations to which the rule must be applied.
+        """
         return pulumi.get(self, "locations")
 
     @locations.setter
@@ -351,6 +460,9 @@ class FirewallDNSRuleArgs:
     @_builtins.property
     @pulumi.getter
     def predefined(self) -> Optional[pulumi.Input[_builtins.bool]]:
+        """
+        Indicates whether this is a predefined rule.
+        """
         return pulumi.get(self, "predefined")
 
     @predefined.setter
@@ -360,6 +472,9 @@ class FirewallDNSRuleArgs:
     @_builtins.property
     @pulumi.getter
     def protocols(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
+        """
+        Protocols to which the rule applies. Valid values: `ANY_RULE`, `TCP_RULE`, `UDP_RULE`.
+        """
         return pulumi.get(self, "protocols")
 
     @protocols.setter
@@ -369,6 +484,9 @@ class FirewallDNSRuleArgs:
     @_builtins.property
     @pulumi.getter
     def rank(self) -> Optional[pulumi.Input[_builtins.int]]:
+        """
+        Admin rank of the firewall DNS policy rule. Valid values: 0-7. Default: 7.
+        """
         return pulumi.get(self, "rank")
 
     @rank.setter
@@ -378,6 +496,9 @@ class FirewallDNSRuleArgs:
     @_builtins.property
     @pulumi.getter(name="redirectIp")
     def redirect_ip(self) -> Optional[pulumi.Input[_builtins.str]]:
+        """
+        The IP address to redirect DNS requests to. Required when action is `REDIR_REQ`.
+        """
         return pulumi.get(self, "redirect_ip")
 
     @redirect_ip.setter
@@ -387,6 +508,9 @@ class FirewallDNSRuleArgs:
     @_builtins.property
     @pulumi.getter(name="resCategories")
     def res_categories(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
+        """
+        URL categories that apply to the response for the rule.
+        """
         return pulumi.get(self, "res_categories")
 
     @res_categories.setter
@@ -396,6 +520,9 @@ class FirewallDNSRuleArgs:
     @_builtins.property
     @pulumi.getter(name="sourceCountries")
     def source_countries(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
+        """
+        Source countries (ISO 3166-1 alpha-2 codes) for the rule.
+        """
         return pulumi.get(self, "source_countries")
 
     @source_countries.setter
@@ -405,6 +532,9 @@ class FirewallDNSRuleArgs:
     @_builtins.property
     @pulumi.getter(name="srcIpGroups")
     def src_ip_groups(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.int]]]]:
+        """
+        IDs of source IP address groups for the rule.
+        """
         return pulumi.get(self, "src_ip_groups")
 
     @src_ip_groups.setter
@@ -414,6 +544,9 @@ class FirewallDNSRuleArgs:
     @_builtins.property
     @pulumi.getter(name="srcIps")
     def src_ips(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
+        """
+        Source IP addresses or CIDR ranges for the rule.
+        """
         return pulumi.get(self, "src_ips")
 
     @src_ips.setter
@@ -423,6 +556,9 @@ class FirewallDNSRuleArgs:
     @_builtins.property
     @pulumi.getter(name="srcIpv6Groups")
     def src_ipv6_groups(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.int]]]]:
+        """
+        IDs of source IPv6 address groups for the rule.
+        """
         return pulumi.get(self, "src_ipv6_groups")
 
     @src_ipv6_groups.setter
@@ -432,6 +568,9 @@ class FirewallDNSRuleArgs:
     @_builtins.property
     @pulumi.getter
     def state(self) -> Optional[pulumi.Input[_builtins.str]]:
+        """
+        Rule state. Valid values: `ENABLED`, `DISABLED`.
+        """
         return pulumi.get(self, "state")
 
     @state.setter
@@ -441,6 +580,9 @@ class FirewallDNSRuleArgs:
     @_builtins.property
     @pulumi.getter(name="timeWindows")
     def time_windows(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.int]]]]:
+        """
+        IDs of time intervals during which the rule must be enforced.
+        """
         return pulumi.get(self, "time_windows")
 
     @time_windows.setter
@@ -450,6 +592,9 @@ class FirewallDNSRuleArgs:
     @_builtins.property
     @pulumi.getter
     def users(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.int]]]]:
+        """
+        IDs of users to which the rule must be applied.
+        """
         return pulumi.get(self, "users")
 
     @users.setter
@@ -459,6 +604,9 @@ class FirewallDNSRuleArgs:
     @_builtins.property
     @pulumi.getter(name="zpaIpGroup")
     def zpa_ip_group(self) -> Optional[pulumi.Input[_builtins.int]]:
+        """
+        The ID of the ZPA IP group associated with the rule.
+        """
         return pulumi.get(self, "zpa_ip_group")
 
     @zpa_ip_group.setter
@@ -511,9 +659,72 @@ class FirewallDNSRule(pulumi.CustomResource):
                  zpa_ip_group: Optional[pulumi.Input[_builtins.int]] = None,
                  __props__=None):
         """
-        Create a FirewallDNSRule resource with the given unique name, props, and options.
+        The zia_firewall_dns_rule resource manages firewall DNS control rules in the Zscaler Internet Access (ZIA) cloud service. DNS control rules allow you to control DNS traffic by allowing, blocking, or redirecting DNS requests based on various criteria such as source, destination, applications, and DNS request types.
+
+        For more information, see the [ZIA DNS Control Policies documentation](https://help.zscaler.com/zia/dns-control-policies).
+
+        ## Example Usage
+        ### Basic Firewall DNS Rule
+
+        ```python
+        import zscaler_pulumi_zia as zia
+
+        example = zia.FirewallDNSRule("example",
+            name="Example DNS Rule",
+            description="Block malicious DNS requests",
+            order=1,
+            state="ENABLED",
+            action="BLOCK_DROP",
+        )
+        ```
+
+        ## Import
+
+        An existing Firewall DNS Rule can be imported using its resource ID, e.g.
+
+        ```sh
+        $ pulumi import zia:index:FirewallDNSRule example 12345
+        ```
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
+        :param pulumi.Input[_builtins.str] action: The action the rule takes when traffic matches. Valid values: `ALLOW`, `BLOCK_DROP`, `BLOCK_RESET`, `BLOCK_ICMP`, `REDIR_REQ`.
+        :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] applications: DNS application values to which the rule applies.
+        :param pulumi.Input[_builtins.str] block_response_code: The DNS response code to return when blocking. Valid values: `ANY`, `NONE`, `FORMERR`, `SERVFAIL`, `NXDOMAIN`, `NOTIMP`, `REFUSED`, `NOTAUTH`, `NXRRSET`.
+        :param pulumi.Input[_builtins.bool] capture_pcap: If set to true, enables packet capture (PCAP) for the rule.
+        :param pulumi.Input[_builtins.bool] default_rule: Indicates whether this is the default firewall DNS rule.
+        :param pulumi.Input[Sequence[pulumi.Input[_builtins.int]]] departments: IDs of departments to which the rule must be applied.
+        :param pulumi.Input[_builtins.str] description: Additional information about the firewall DNS rule.
+        :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] dest_addresses: Destination IP addresses, FQDNs, or wildcard FQDNs for the rule.
+        :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] dest_countries: Destination countries (ISO 3166-1 alpha-2 codes) for the rule.
+        :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] dest_ip_categories: Destination IP address URL categories for the rule.
+        :param pulumi.Input[Sequence[pulumi.Input[_builtins.int]]] dest_ip_groups: IDs of destination IP address groups for the rule.
+        :param pulumi.Input[Sequence[pulumi.Input[_builtins.int]]] dest_ipv6_groups: IDs of destination IPv6 address groups for the rule.
+        :param pulumi.Input[Sequence[pulumi.Input[_builtins.int]]] device_groups: IDs of device groups for which the rule must be applied. Applicable for devices managed using Zscaler Client Connector.
+        :param pulumi.Input[Sequence[pulumi.Input[_builtins.int]]] devices: IDs of devices for which the rule must be applied.
+        :param pulumi.Input[_builtins.int] dns_gateway: The ID of the DNS gateway associated with the rule.
+        :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] dns_rule_request_types: DNS request types to which the rule applies. Valid values: `A`, `AAAA`, `CNAME`, `MX`, `NS`, `SOA`, `TXT`, `SRV`, `PTR`, `ANY`.
+        :param pulumi.Input[_builtins.int] edns_ecs_object: The ID of the EDNS ECS object associated with the rule.
+        :param pulumi.Input[Sequence[pulumi.Input[_builtins.int]]] groups: IDs of groups to which the rule must be applied.
+        :param pulumi.Input[_builtins.bool] is_web_eun_enabled: If set to true, enables web end user notification for the rule.
+        :param pulumi.Input[Sequence[pulumi.Input[_builtins.int]]] labels: IDs of labels associated with the rule.
+        :param pulumi.Input[Sequence[pulumi.Input[_builtins.int]]] location_groups: IDs of location groups to which the rule must be applied.
+        :param pulumi.Input[Sequence[pulumi.Input[_builtins.int]]] locations: IDs of locations to which the rule must be applied.
+        :param pulumi.Input[_builtins.str] name: The name of the firewall DNS rule. Must be unique.
+        :param pulumi.Input[_builtins.int] order: The order of execution of the rule with respect to other firewall DNS rules.
+        :param pulumi.Input[_builtins.bool] predefined: Indicates whether this is a predefined rule.
+        :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] protocols: Protocols to which the rule applies. Valid values: `ANY_RULE`, `TCP_RULE`, `UDP_RULE`.
+        :param pulumi.Input[_builtins.int] rank: Admin rank of the firewall DNS policy rule. Valid values: 0-7. Default: 7.
+        :param pulumi.Input[_builtins.str] redirect_ip: The IP address to redirect DNS requests to. Required when action is `REDIR_REQ`.
+        :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] res_categories: URL categories that apply to the response for the rule.
+        :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] source_countries: Source countries (ISO 3166-1 alpha-2 codes) for the rule.
+        :param pulumi.Input[Sequence[pulumi.Input[_builtins.int]]] src_ip_groups: IDs of source IP address groups for the rule.
+        :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] src_ips: Source IP addresses or CIDR ranges for the rule.
+        :param pulumi.Input[Sequence[pulumi.Input[_builtins.int]]] src_ipv6_groups: IDs of source IPv6 address groups for the rule.
+        :param pulumi.Input[_builtins.str] state: Rule state. Valid values: `ENABLED`, `DISABLED`.
+        :param pulumi.Input[Sequence[pulumi.Input[_builtins.int]]] time_windows: IDs of time intervals during which the rule must be enforced.
+        :param pulumi.Input[Sequence[pulumi.Input[_builtins.int]]] users: IDs of users to which the rule must be applied.
+        :param pulumi.Input[_builtins.int] zpa_ip_group: The ID of the ZPA IP group associated with the rule.
         """
         ...
     @overload
@@ -522,7 +733,33 @@ class FirewallDNSRule(pulumi.CustomResource):
                  args: FirewallDNSRuleArgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
-        Create a FirewallDNSRule resource with the given unique name, props, and options.
+        The zia_firewall_dns_rule resource manages firewall DNS control rules in the Zscaler Internet Access (ZIA) cloud service. DNS control rules allow you to control DNS traffic by allowing, blocking, or redirecting DNS requests based on various criteria such as source, destination, applications, and DNS request types.
+
+        For more information, see the [ZIA DNS Control Policies documentation](https://help.zscaler.com/zia/dns-control-policies).
+
+        ## Example Usage
+        ### Basic Firewall DNS Rule
+
+        ```python
+        import zscaler_pulumi_zia as zia
+
+        example = zia.FirewallDNSRule("example",
+            name="Example DNS Rule",
+            description="Block malicious DNS requests",
+            order=1,
+            state="ENABLED",
+            action="BLOCK_DROP",
+        )
+        ```
+
+        ## Import
+
+        An existing Firewall DNS Rule can be imported using its resource ID, e.g.
+
+        ```sh
+        $ pulumi import zia:index:FirewallDNSRule example 12345
+        ```
+
         :param str resource_name: The name of the resource.
         :param FirewallDNSRuleArgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -691,190 +928,304 @@ class FirewallDNSRule(pulumi.CustomResource):
     @_builtins.property
     @pulumi.getter
     def action(self) -> pulumi.Output[Optional[_builtins.str]]:
+        """
+        The action the rule takes when traffic matches. Valid values: `ALLOW`, `BLOCK_DROP`, `BLOCK_RESET`, `BLOCK_ICMP`, `REDIR_REQ`.
+        """
         return pulumi.get(self, "action")
 
     @_builtins.property
     @pulumi.getter
     def applications(self) -> pulumi.Output[Optional[Sequence[_builtins.str]]]:
+        """
+        DNS application values to which the rule applies.
+        """
         return pulumi.get(self, "applications")
 
     @_builtins.property
     @pulumi.getter(name="blockResponseCode")
     def block_response_code(self) -> pulumi.Output[Optional[_builtins.str]]:
+        """
+        The DNS response code to return when blocking. Valid values: `ANY`, `NONE`, `FORMERR`, `SERVFAIL`, `NXDOMAIN`, `NOTIMP`, `REFUSED`, `NOTAUTH`, `NXRRSET`.
+        """
         return pulumi.get(self, "block_response_code")
 
     @_builtins.property
     @pulumi.getter(name="capturePcap")
     def capture_pcap(self) -> pulumi.Output[Optional[_builtins.bool]]:
+        """
+        If set to true, enables packet capture (PCAP) for the rule.
+        """
         return pulumi.get(self, "capture_pcap")
 
     @_builtins.property
     @pulumi.getter(name="defaultRule")
     def default_rule(self) -> pulumi.Output[Optional[_builtins.bool]]:
+        """
+        Indicates whether this is the default firewall DNS rule.
+        """
         return pulumi.get(self, "default_rule")
 
     @_builtins.property
     @pulumi.getter
     def departments(self) -> pulumi.Output[Optional[Sequence[_builtins.int]]]:
+        """
+        IDs of departments to which the rule must be applied.
+        """
         return pulumi.get(self, "departments")
 
     @_builtins.property
     @pulumi.getter
     def description(self) -> pulumi.Output[Optional[_builtins.str]]:
+        """
+        Additional information about the firewall DNS rule.
+        """
         return pulumi.get(self, "description")
 
     @_builtins.property
     @pulumi.getter(name="destAddresses")
     def dest_addresses(self) -> pulumi.Output[Optional[Sequence[_builtins.str]]]:
+        """
+        Destination IP addresses, FQDNs, or wildcard FQDNs for the rule.
+        """
         return pulumi.get(self, "dest_addresses")
 
     @_builtins.property
     @pulumi.getter(name="destCountries")
     def dest_countries(self) -> pulumi.Output[Optional[Sequence[_builtins.str]]]:
+        """
+        Destination countries (ISO 3166-1 alpha-2 codes) for the rule.
+        """
         return pulumi.get(self, "dest_countries")
 
     @_builtins.property
     @pulumi.getter(name="destIpCategories")
     def dest_ip_categories(self) -> pulumi.Output[Optional[Sequence[_builtins.str]]]:
+        """
+        Destination IP address URL categories for the rule.
+        """
         return pulumi.get(self, "dest_ip_categories")
 
     @_builtins.property
     @pulumi.getter(name="destIpGroups")
     def dest_ip_groups(self) -> pulumi.Output[Optional[Sequence[_builtins.int]]]:
+        """
+        IDs of destination IP address groups for the rule.
+        """
         return pulumi.get(self, "dest_ip_groups")
 
     @_builtins.property
     @pulumi.getter(name="destIpv6Groups")
     def dest_ipv6_groups(self) -> pulumi.Output[Optional[Sequence[_builtins.int]]]:
+        """
+        IDs of destination IPv6 address groups for the rule.
+        """
         return pulumi.get(self, "dest_ipv6_groups")
 
     @_builtins.property
     @pulumi.getter(name="deviceGroups")
     def device_groups(self) -> pulumi.Output[Optional[Sequence[_builtins.int]]]:
+        """
+        IDs of device groups for which the rule must be applied. Applicable for devices managed using Zscaler Client Connector.
+        """
         return pulumi.get(self, "device_groups")
 
     @_builtins.property
     @pulumi.getter
     def devices(self) -> pulumi.Output[Optional[Sequence[_builtins.int]]]:
+        """
+        IDs of devices for which the rule must be applied.
+        """
         return pulumi.get(self, "devices")
 
     @_builtins.property
     @pulumi.getter(name="dnsGateway")
     def dns_gateway(self) -> pulumi.Output[Optional[_builtins.int]]:
+        """
+        The ID of the DNS gateway associated with the rule.
+        """
         return pulumi.get(self, "dns_gateway")
 
     @_builtins.property
     @pulumi.getter(name="dnsRuleRequestTypes")
     def dns_rule_request_types(self) -> pulumi.Output[Optional[Sequence[_builtins.str]]]:
+        """
+        DNS request types to which the rule applies. Valid values: `A`, `AAAA`, `CNAME`, `MX`, `NS`, `SOA`, `TXT`, `SRV`, `PTR`, `ANY`.
+        """
         return pulumi.get(self, "dns_rule_request_types")
 
     @_builtins.property
     @pulumi.getter(name="ednsEcsObject")
     def edns_ecs_object(self) -> pulumi.Output[Optional[_builtins.int]]:
+        """
+        The ID of the EDNS ECS object associated with the rule.
+        """
         return pulumi.get(self, "edns_ecs_object")
 
     @_builtins.property
     @pulumi.getter
     def groups(self) -> pulumi.Output[Optional[Sequence[_builtins.int]]]:
+        """
+        IDs of groups to which the rule must be applied.
+        """
         return pulumi.get(self, "groups")
 
     @_builtins.property
     @pulumi.getter(name="isWebEunEnabled")
     def is_web_eun_enabled(self) -> pulumi.Output[Optional[_builtins.bool]]:
+        """
+        If set to true, enables web end user notification for the rule.
+        """
         return pulumi.get(self, "is_web_eun_enabled")
 
     @_builtins.property
     @pulumi.getter
     def labels(self) -> pulumi.Output[Optional[Sequence[_builtins.int]]]:
+        """
+        IDs of labels associated with the rule.
+        """
         return pulumi.get(self, "labels")
 
     @_builtins.property
     @pulumi.getter(name="locationGroups")
     def location_groups(self) -> pulumi.Output[Optional[Sequence[_builtins.int]]]:
+        """
+        IDs of location groups to which the rule must be applied.
+        """
         return pulumi.get(self, "location_groups")
 
     @_builtins.property
     @pulumi.getter
     def locations(self) -> pulumi.Output[Optional[Sequence[_builtins.int]]]:
+        """
+        IDs of locations to which the rule must be applied.
+        """
         return pulumi.get(self, "locations")
 
     @_builtins.property
     @pulumi.getter
     def name(self) -> pulumi.Output[_builtins.str]:
+        """
+        The name of the firewall DNS rule. Must be unique.
+        """
         return pulumi.get(self, "name")
 
     @_builtins.property
     @pulumi.getter
     def order(self) -> pulumi.Output[_builtins.int]:
+        """
+        The order of execution of the rule with respect to other firewall DNS rules.
+        """
         return pulumi.get(self, "order")
 
     @_builtins.property
     @pulumi.getter
     def predefined(self) -> pulumi.Output[Optional[_builtins.bool]]:
+        """
+        Indicates whether this is a predefined rule.
+        """
         return pulumi.get(self, "predefined")
 
     @_builtins.property
     @pulumi.getter
     def protocols(self) -> pulumi.Output[Optional[Sequence[_builtins.str]]]:
+        """
+        Protocols to which the rule applies. Valid values: `ANY_RULE`, `TCP_RULE`, `UDP_RULE`.
+        """
         return pulumi.get(self, "protocols")
 
     @_builtins.property
     @pulumi.getter
     def rank(self) -> pulumi.Output[Optional[_builtins.int]]:
+        """
+        Admin rank of the firewall DNS policy rule. Valid values: 0-7. Default: 7.
+        """
         return pulumi.get(self, "rank")
 
     @_builtins.property
     @pulumi.getter(name="redirectIp")
     def redirect_ip(self) -> pulumi.Output[Optional[_builtins.str]]:
+        """
+        The IP address to redirect DNS requests to. Required when action is `REDIR_REQ`.
+        """
         return pulumi.get(self, "redirect_ip")
 
     @_builtins.property
     @pulumi.getter(name="resCategories")
     def res_categories(self) -> pulumi.Output[Optional[Sequence[_builtins.str]]]:
+        """
+        URL categories that apply to the response for the rule.
+        """
         return pulumi.get(self, "res_categories")
 
     @_builtins.property
     @pulumi.getter(name="ruleId")
     def rule_id(self) -> pulumi.Output[_builtins.int]:
+        """
+        The system-generated ID of the firewall DNS rule.
+        """
         return pulumi.get(self, "rule_id")
 
     @_builtins.property
     @pulumi.getter(name="sourceCountries")
     def source_countries(self) -> pulumi.Output[Optional[Sequence[_builtins.str]]]:
+        """
+        Source countries (ISO 3166-1 alpha-2 codes) for the rule.
+        """
         return pulumi.get(self, "source_countries")
 
     @_builtins.property
     @pulumi.getter(name="srcIpGroups")
     def src_ip_groups(self) -> pulumi.Output[Optional[Sequence[_builtins.int]]]:
+        """
+        IDs of source IP address groups for the rule.
+        """
         return pulumi.get(self, "src_ip_groups")
 
     @_builtins.property
     @pulumi.getter(name="srcIps")
     def src_ips(self) -> pulumi.Output[Optional[Sequence[_builtins.str]]]:
+        """
+        Source IP addresses or CIDR ranges for the rule.
+        """
         return pulumi.get(self, "src_ips")
 
     @_builtins.property
     @pulumi.getter(name="srcIpv6Groups")
     def src_ipv6_groups(self) -> pulumi.Output[Optional[Sequence[_builtins.int]]]:
+        """
+        IDs of source IPv6 address groups for the rule.
+        """
         return pulumi.get(self, "src_ipv6_groups")
 
     @_builtins.property
     @pulumi.getter
     def state(self) -> pulumi.Output[Optional[_builtins.str]]:
+        """
+        Rule state. Valid values: `ENABLED`, `DISABLED`.
+        """
         return pulumi.get(self, "state")
 
     @_builtins.property
     @pulumi.getter(name="timeWindows")
     def time_windows(self) -> pulumi.Output[Optional[Sequence[_builtins.int]]]:
+        """
+        IDs of time intervals during which the rule must be enforced.
+        """
         return pulumi.get(self, "time_windows")
 
     @_builtins.property
     @pulumi.getter
     def users(self) -> pulumi.Output[Optional[Sequence[_builtins.int]]]:
+        """
+        IDs of users to which the rule must be applied.
+        """
         return pulumi.get(self, "users")
 
     @_builtins.property
     @pulumi.getter(name="zpaIpGroup")
     def zpa_ip_group(self) -> pulumi.Output[Optional[_builtins.int]]:
+        """
+        The ID of the ZPA IP group associated with the rule.
+        """
         return pulumi.get(self, "zpa_ip_group")
 

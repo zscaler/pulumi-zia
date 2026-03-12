@@ -7439,6 +7439,10 @@
           },
           "description": "IDs of application service groups to which the rule applies."
         },
+        "dedicatedIpGatewayId": {
+          "type": "integer",
+          "description": "The ID of the dedicated IP gateway. Applicable only for the Proxy Chaining forwarding method."
+        },
         "departments": {
           "type": "array",
           "items": {
@@ -7501,7 +7505,7 @@
         },
         "forwardMethod": {
           "type": "string",
-          "description": "The type of traffic forwarding method. Valid values: `DIRECT`, `PROXYCHAIN`, `ZPA`, `ECZPA`, `DIRECT_NSS`."
+          "description": "The type of traffic forwarding method. Valid values: `INVALID`, `DIRECT`, `PROXYCHAIN`, `ZPA`, `ECZPA`, `ZIA`, `ECSELF`, `DROP`, `ENATDEDIP`."
         },
         "groups": {
           "type": "array",
@@ -7641,6 +7645,10 @@
           },
           "description": "IDs of application service groups to which the rule applies."
         },
+        "dedicatedIpGatewayId": {
+          "type": "integer",
+          "description": "The ID of the dedicated IP gateway. Applicable only for the Proxy Chaining forwarding method."
+        },
         "departments": {
           "type": "array",
           "items": {
@@ -7703,7 +7711,7 @@
         },
         "forwardMethod": {
           "type": "string",
-          "description": "The type of traffic forwarding method. Valid values: `DIRECT`, `PROXYCHAIN`, `ZPA`, `ECZPA`, `DIRECT_NSS`."
+          "description": "The type of traffic forwarding method. Valid values: `INVALID`, `DIRECT`, `PROXYCHAIN`, `ZPA`, `ECZPA`, `ZIA`, `ECSELF`, `DROP`, `ENATDEDIP`."
         },
         "groups": {
           "type": "array",
@@ -10975,7 +10983,7 @@
       ]
     },
     "zia:index:TrafficForwardingVpnCredentials": {
-      "description": "The zia_traffic_forwarding_vpn_credentials resource manages VPN credentials for traffic forwarding in the Zscaler Internet Access (ZIA) cloud service. VPN credentials are used to authenticate IPSec VPN tunnels between on-premises equipment and the Zscaler cloud.\n\nFor more information, see the [ZIA Traffic Forwarding documentation](https://help.zscaler.com/zia/traffic-forwarding).\n\n{{% examples %}}\n## Example Usage\n\n{{% example %}}\n### Basic VPN Credentials (UFQDN)\n\n```typescript\nimport * as zia from \"@bdzscaler/pulumi-zia\";\n\nconst example = new zia.TrafficForwardingVpnCredentials(\"example\", {\n    type: \"UFQDN\",\n    fqdn: \"user@example.com\",\n    preSharedKey: \"super-secret-key\",\n    comments: \"Branch office VPN credentials\",\n});\n```\n\n```python\nimport zscaler_pulumi_zia as zia\n\nexample = zia.TrafficForwardingVpnCredentials(\"example\",\n    type=\"UFQDN\",\n    fqdn=\"user@example.com\",\n    pre_shared_key=\"super-secret-key\",\n    comments=\"Branch office VPN credentials\",\n)\n```\n\n```yaml\nresources:\n  example:\n    type: zia:TrafficForwardingVpnCredentials\n    properties:\n      type: UFQDN\n      fqdn: user@example.com\n      preSharedKey: super-secret-key\n      comments: Branch office VPN credentials\n```\n\n{{% /example %}}\n{{% /examples %}}\n\n## Import\n\nAn existing VPN credential can be imported using its resource ID, e.g.\n\n```sh\n$ pulumi import zia:index:TrafficForwardingVpnCredentials example 12345\n```\n",
+      "description": "The zia_traffic_forwarding_vpn_credentials resource manages VPN credentials for traffic forwarding in the Zscaler Internet Access (ZIA) cloud service. VPN credentials are used to authenticate IPSec VPN tunnels between on-premises equipment and the Zscaler cloud.\n\nFor more information, see the [ZIA Traffic Forwarding documentation](https://help.zscaler.com/zia/traffic-forwarding).\n\n{{% examples %}}\n## Example Usage\n\n{{% example %}}\n### Basic VPN Credentials (UFQDN)\n\n```typescript\nimport * as zia from \"@bdzscaler/pulumi-zia\";\n\nimport * as pulumi from \"@pulumi/pulumi\";\n\nconst cfg = new pulumi.Config();\nconst vpnPreSharedKey = cfg.requireSecret(\"vpnPreSharedKey\");\n\nconst example = new zia.TrafficForwardingVpnCredentials(\"example\", {\n    type: \"UFQDN\",\n    fqdn: \"user@example.com\",\n    preSharedKey: vpnPreSharedKey,\n    comments: \"Branch office VPN credentials\",\n});\n```\n\n```python\nimport pulumi\nimport zscaler_pulumi_zia as zia\n\ncfg = pulumi.Config()\nvpn_pre_shared_key = cfg.require_secret(\"vpnPreSharedKey\")\n\nexample = zia.TrafficForwardingVpnCredentials(\"example\",\n    type=\"UFQDN\",\n    fqdn=\"user@example.com\",\n    pre_shared_key=vpn_pre_shared_key,\n    comments=\"Branch office VPN credentials\",\n)\n```\n\n```yaml\nresources:\n  example:\n    type: zia:TrafficForwardingVpnCredentials\n    properties:\n      type: UFQDN\n      fqdn: user@example.com\n      preSharedKey:\n        fn::secret: ${vpnPreSharedKey}\n      comments: Branch office VPN credentials\n```\n\n{{% /example %}}\n{{% /examples %}}\n\n## Import\n\nAn existing VPN credential can be imported using its resource ID, e.g.\n\n```sh\n$ pulumi import zia:index:TrafficForwardingVpnCredentials example 12345\n```\n",
       "properties": {
         "comments": {
           "type": "string",
@@ -11852,6 +11860,18 @@
           "type": "boolean",
           "description": "If true, CIPA (Children's Internet Protection Act) compliance mode is enabled."
         },
+        "enableClaudePrompt": {
+          "type": "boolean",
+          "description": "If true, Claude AI prompt visibility and logging is enabled."
+        },
+        "enableCreativeCommonsSearchResults": {
+          "type": "boolean",
+          "description": "If true, Creative Commons search results are enabled."
+        },
+        "enableDeepSeekPrompt": {
+          "type": "boolean",
+          "description": "If true, DeepSeek AI prompt visibility and logging is enabled."
+        },
         "enableDynamicContentCat": {
           "type": "boolean",
           "description": "If true, dynamic content categorization is enabled."
@@ -11860,6 +11880,14 @@
           "type": "boolean",
           "description": "If true, Google Gemini prompt visibility and logging is enabled."
         },
+        "enableGrammarlyPrompt": {
+          "type": "boolean",
+          "description": "If true, Grammarly AI prompt visibility and logging is enabled."
+        },
+        "enableGrokPrompt": {
+          "type": "boolean",
+          "description": "If true, Grok AI prompt visibility and logging is enabled."
+        },
         "enableMetaPrompt": {
           "type": "boolean",
           "description": "If true, Meta AI prompt visibility and logging is enabled."
@@ -11867,6 +11895,10 @@
         "enableMicrosoftCopilotPrompt": {
           "type": "boolean",
           "description": "If true, Microsoft Copilot prompt visibility and logging is enabled."
+        },
+        "enableMistralAiPrompt": {
+          "type": "boolean",
+          "description": "If true, Mistral AI prompt visibility and logging is enabled."
         },
         "enableMsftO365": {
           "type": "boolean",
@@ -11908,6 +11940,10 @@
           "type": "boolean",
           "description": "If true, UCaaS controls for Zoom are enabled."
         },
+        "enableWriterPrompt": {
+          "type": "boolean",
+          "description": "If true, Writer AI prompt visibility and logging is enabled."
+        },
         "enforceSafeSearch": {
           "type": "boolean",
           "description": "If true, safe search is enforced for supported search engines."
@@ -11922,6 +11958,10 @@
             "type": "string"
           },
           "description": "List of application names for which safe search is enforced."
+        },
+        "zveloDbLookupDisabled": {
+          "type": "boolean",
+          "description": "If true, Zvelo database lookup is disabled."
         }
       },
       "required": [
@@ -11948,6 +11988,18 @@
           "type": "boolean",
           "description": "If true, CIPA (Children's Internet Protection Act) compliance mode is enabled."
         },
+        "enableClaudePrompt": {
+          "type": "boolean",
+          "description": "If true, Claude AI prompt visibility and logging is enabled."
+        },
+        "enableCreativeCommonsSearchResults": {
+          "type": "boolean",
+          "description": "If true, Creative Commons search results are enabled."
+        },
+        "enableDeepSeekPrompt": {
+          "type": "boolean",
+          "description": "If true, DeepSeek AI prompt visibility and logging is enabled."
+        },
         "enableDynamicContentCat": {
           "type": "boolean",
           "description": "If true, dynamic content categorization is enabled."
@@ -11956,6 +12008,14 @@
           "type": "boolean",
           "description": "If true, Google Gemini prompt visibility and logging is enabled."
         },
+        "enableGrammarlyPrompt": {
+          "type": "boolean",
+          "description": "If true, Grammarly AI prompt visibility and logging is enabled."
+        },
+        "enableGrokPrompt": {
+          "type": "boolean",
+          "description": "If true, Grok AI prompt visibility and logging is enabled."
+        },
         "enableMetaPrompt": {
           "type": "boolean",
           "description": "If true, Meta AI prompt visibility and logging is enabled."
@@ -11963,6 +12023,10 @@
         "enableMicrosoftCopilotPrompt": {
           "type": "boolean",
           "description": "If true, Microsoft Copilot prompt visibility and logging is enabled."
+        },
+        "enableMistralAiPrompt": {
+          "type": "boolean",
+          "description": "If true, Mistral AI prompt visibility and logging is enabled."
         },
         "enableMsftO365": {
           "type": "boolean",
@@ -12004,6 +12068,10 @@
           "type": "boolean",
           "description": "If true, UCaaS controls for Zoom are enabled."
         },
+        "enableWriterPrompt": {
+          "type": "boolean",
+          "description": "If true, Writer AI prompt visibility and logging is enabled."
+        },
         "enforceSafeSearch": {
           "type": "boolean",
           "description": "If true, safe search is enforced for supported search engines."
@@ -12014,6 +12082,10 @@
             "type": "string"
           },
           "description": "List of application names for which safe search is enforced."
+        },
+        "zveloDbLookupDisabled": {
+          "type": "boolean",
+          "description": "If true, Zvelo database lookup is disabled."
         }
       }
     },

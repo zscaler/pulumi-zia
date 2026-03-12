@@ -1,5 +1,17 @@
 # Changelog
 
+## 1.3.5 (March, 111 2026)
+
+### Notes
+
+- Release date: **(March, 11 2026)**
+- Supported Terraform version: **v1.x**
+
+### Bug Fix
+
+- [PR #65](https://github.com/zscaler/pulumi-zia/pull/65) - Fixed `validityStartTime` / `validityEndTime` drift in `zia_url_filtering_rules` by normalizing RFC1123 day-of-week during input validation, preventing perpetual diffs caused by incorrect weekday names.
+- [PR #65](https://github.com/zscaler/pulumi-zia/pull/65) - Fixed `cbiProfile` drift in `zia_url_filtering_rules` by excluding server-computed `profileSeq` from state and updating struct pointer comparison in diff logic to skip nil sub-fields in user inputs.
+
 ## 1.3.4 (March, 10 2026)
 
 ### Notes

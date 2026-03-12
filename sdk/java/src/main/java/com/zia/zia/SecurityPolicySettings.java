@@ -14,23 +14,57 @@ import java.util.List;
 import java.util.Optional;
 import javax.annotation.Nullable;
 
+/**
+ * The zia_security_policy_settings resource manages the whitelist and blacklist URL configuration for the ZIA security policy. This is a singleton resource that controls which URLs are always allowed (whitelisted) or always blocked (blacklisted) across the organization.
+ * 
+ * For more information, see the [ZIA Security Policy Settings documentation](https://help.zscaler.com/zia/configuring-security-policy).
+ * 
+ * ## Example Usage
+ * 
+ * &gt; This is a singleton resource. Import is not applicable.
+ * 
+ */
 @ResourceType(type="zia:index:SecurityPolicySettings")
 public class SecurityPolicySettings extends com.pulumi.resources.CustomResource {
+    /**
+     * List of URLs that are always blocked (blacklisted) by the security policy.
+     * 
+     */
     @Export(name="blacklistUrls", refs={List.class,String.class}, tree="[0,1]")
     private Output</* @Nullable */ List<String>> blacklistUrls;
 
+    /**
+     * @return List of URLs that are always blocked (blacklisted) by the security policy.
+     * 
+     */
     public Output<Optional<List<String>>> blacklistUrls() {
         return Codegen.optional(this.blacklistUrls);
     }
+    /**
+     * The internal resource identifier for the security policy settings.
+     * 
+     */
     @Export(name="resourceId", refs={String.class}, tree="[0]")
     private Output<String> resourceId;
 
+    /**
+     * @return The internal resource identifier for the security policy settings.
+     * 
+     */
     public Output<String> resourceId() {
         return this.resourceId;
     }
+    /**
+     * List of URLs that are always allowed (whitelisted) by the security policy.
+     * 
+     */
     @Export(name="whitelistUrls", refs={List.class,String.class}, tree="[0,1]")
     private Output</* @Nullable */ List<String>> whitelistUrls;
 
+    /**
+     * @return List of URLs that are always allowed (whitelisted) by the security policy.
+     * 
+     */
     public Output<Optional<List<String>>> whitelistUrls() {
         return Codegen.optional(this.whitelistUrls);
     }
@@ -74,6 +108,7 @@ public class SecurityPolicySettings extends com.pulumi.resources.CustomResource 
     private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<java.lang.String> id) {
         var defaultOptions = com.pulumi.resources.CustomResourceOptions.builder()
             .version(Utilities.getVersion())
+            .pluginDownloadURL("github://api.github.com/zscaler")
             .build();
         return com.pulumi.resources.CustomResourceOptions.merge(defaultOptions, options, id);
     }

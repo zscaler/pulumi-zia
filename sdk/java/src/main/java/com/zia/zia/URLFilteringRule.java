@@ -18,233 +18,553 @@ import java.util.List;
 import java.util.Optional;
 import javax.annotation.Nullable;
 
+/**
+ * The zia_url_filtering_rules resource manages URL filtering rules in the Zscaler Internet Access (ZIA) cloud service. URL filtering rules define the actions to take when users access URLs that match specific categories, protocols, locations, departments, groups, or users.
+ * 
+ * For more information, see the [ZIA URL Filtering documentation](https://help.zscaler.com/zia/url-filtering).
+ * 
+ * ## Example Usage
+ * 
+ * ## Import
+ * 
+ * An existing URL Filtering Rule can be imported using its resource ID, e.g.
+ * 
+ * ```sh
+ * $ pulumi import zia:index:URLFilteringRule example 12345
+ * ```
+ * 
+ */
 @ResourceType(type="zia:index:URLFilteringRule")
 public class URLFilteringRule extends com.pulumi.resources.CustomResource {
+    /**
+     * Action taken when traffic matches rule criteria. Valid values: `BLOCK`, `CAUTION`, `ALLOW`, `ISOLATE`.
+     * 
+     */
     @Export(name="action", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> action;
 
+    /**
+     * @return Action taken when traffic matches rule criteria. Valid values: `BLOCK`, `CAUTION`, `ALLOW`, `ISOLATE`.
+     * 
+     */
     public Output<Optional<String>> action() {
         return Codegen.optional(this.action);
     }
+    /**
+     * When set to true, a &#39;BLOCK&#39; action can be overridden. Can only be set when action is &#39;BLOCK&#39;.
+     * 
+     */
     @Export(name="blockOverride", refs={Boolean.class}, tree="[0]")
     private Output</* @Nullable */ Boolean> blockOverride;
 
+    /**
+     * @return When set to true, a &#39;BLOCK&#39; action can be overridden. Can only be set when action is &#39;BLOCK&#39;.
+     * 
+     */
     public Output<Optional<Boolean>> blockOverride() {
         return Codegen.optional(this.blockOverride);
     }
+    /**
+     * Browser End User Notification template ID. Only applicable when action is &#39;BLOCK&#39; or &#39;CAUTION&#39;.
+     * 
+     */
     @Export(name="browserEunTemplateId", refs={Integer.class}, tree="[0]")
     private Output</* @Nullable */ Integer> browserEunTemplateId;
 
+    /**
+     * @return Browser End User Notification template ID. Only applicable when action is &#39;BLOCK&#39; or &#39;CAUTION&#39;.
+     * 
+     */
     public Output<Optional<Integer>> browserEunTemplateId() {
         return Codegen.optional(this.browserEunTemplateId);
     }
+    /**
+     * The Cloud Browser Isolation (CBI) profile. Required when action is &#39;ISOLATE&#39;.
+     * 
+     */
     @Export(name="cbiProfile", refs={CBIProfileInput.class}, tree="[0]")
     private Output</* @Nullable */ CBIProfileInput> cbiProfile;
 
+    /**
+     * @return The Cloud Browser Isolation (CBI) profile. Required when action is &#39;ISOLATE&#39;.
+     * 
+     */
     public Output<Optional<CBIProfileInput>> cbiProfile() {
         return Codegen.optional(this.cbiProfile);
     }
+    /**
+     * If set to true, the CIPA Compliance rule is enabled.
+     * 
+     */
     @Export(name="ciparule", refs={Boolean.class}, tree="[0]")
     private Output</* @Nullable */ Boolean> ciparule;
 
+    /**
+     * @return If set to true, the CIPA Compliance rule is enabled.
+     * 
+     */
     public Output<Optional<Boolean>> ciparule() {
         return Codegen.optional(this.ciparule);
     }
+    /**
+     * IDs of departments for which the rule must be applied.
+     * 
+     */
     @Export(name="departments", refs={List.class,Integer.class}, tree="[0,1]")
     private Output</* @Nullable */ List<Integer>> departments;
 
+    /**
+     * @return IDs of departments for which the rule must be applied.
+     * 
+     */
     public Output<Optional<List<Integer>>> departments() {
         return Codegen.optional(this.departments);
     }
+    /**
+     * Additional information about the URL filtering rule. Maximum 10240 characters.
+     * 
+     */
     @Export(name="description", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> description;
 
+    /**
+     * @return Additional information about the URL filtering rule. Maximum 10240 characters.
+     * 
+     */
     public Output<Optional<String>> description() {
         return Codegen.optional(this.description);
     }
+    /**
+     * IDs of device groups for which the rule must be applied. Applicable for devices managed using Zscaler Client Connector.
+     * 
+     */
     @Export(name="deviceGroups", refs={List.class,Integer.class}, tree="[0,1]")
     private Output</* @Nullable */ List<Integer>> deviceGroups;
 
+    /**
+     * @return IDs of device groups for which the rule must be applied. Applicable for devices managed using Zscaler Client Connector.
+     * 
+     */
     public Output<Optional<List<Integer>>> deviceGroups() {
         return Codegen.optional(this.deviceGroups);
     }
+    /**
+     * Device trust levels for the rule. Valid values: `ANY`, `UNKNOWN_DEVICETRUSTLEVEL`, `LOW_TRUST`, `MEDIUM_TRUST`, `HIGH_TRUST`.
+     * 
+     */
     @Export(name="deviceTrustLevels", refs={List.class,String.class}, tree="[0,1]")
     private Output</* @Nullable */ List<String>> deviceTrustLevels;
 
+    /**
+     * @return Device trust levels for the rule. Valid values: `ANY`, `UNKNOWN_DEVICETRUSTLEVEL`, `LOW_TRUST`, `MEDIUM_TRUST`, `HIGH_TRUST`.
+     * 
+     */
     public Output<Optional<List<String>>> deviceTrustLevels() {
         return Codegen.optional(this.deviceTrustLevels);
     }
+    /**
+     * IDs of devices for which the rule must be applied.
+     * 
+     */
     @Export(name="devices", refs={List.class,Integer.class}, tree="[0,1]")
     private Output</* @Nullable */ List<Integer>> devices;
 
+    /**
+     * @return IDs of devices for which the rule must be applied.
+     * 
+     */
     public Output<Optional<List<Integer>>> devices() {
         return Codegen.optional(this.devices);
     }
+    /**
+     * URL of end user notification page to be displayed when the rule is matched. Not applicable if either &#39;overrideUsers&#39; or &#39;overrideGroups&#39; is specified.
+     * 
+     */
     @Export(name="endUserNotificationUrl", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> endUserNotificationUrl;
 
+    /**
+     * @return URL of end user notification page to be displayed when the rule is matched. Not applicable if either &#39;overrideUsers&#39; or &#39;overrideGroups&#39; is specified.
+     * 
+     */
     public Output<Optional<String>> endUserNotificationUrl() {
         return Codegen.optional(this.endUserNotificationUrl);
     }
+    /**
+     * Enforce a set validity time period for the URL filtering rule.
+     * 
+     */
     @Export(name="enforceTimeValidity", refs={Boolean.class}, tree="[0]")
     private Output</* @Nullable */ Boolean> enforceTimeValidity;
 
+    /**
+     * @return Enforce a set validity time period for the URL filtering rule.
+     * 
+     */
     public Output<Optional<Boolean>> enforceTimeValidity() {
         return Codegen.optional(this.enforceTimeValidity);
     }
+    /**
+     * IDs of groups for which the rule must be applied.
+     * 
+     */
     @Export(name="groups", refs={List.class,Integer.class}, tree="[0,1]")
     private Output</* @Nullable */ List<Integer>> groups;
 
+    /**
+     * @return IDs of groups for which the rule must be applied.
+     * 
+     */
     public Output<Optional<List<Integer>>> groups() {
         return Codegen.optional(this.groups);
     }
+    /**
+     * IDs of labels associated with the URL filtering rule.
+     * 
+     */
     @Export(name="labels", refs={List.class,Integer.class}, tree="[0,1]")
     private Output</* @Nullable */ List<Integer>> labels;
 
+    /**
+     * @return IDs of labels associated with the URL filtering rule.
+     * 
+     */
     public Output<Optional<List<Integer>>> labels() {
         return Codegen.optional(this.labels);
     }
+    /**
+     * IDs of location groups to which the rule must be applied.
+     * 
+     */
     @Export(name="locationGroups", refs={List.class,Integer.class}, tree="[0,1]")
     private Output</* @Nullable */ List<Integer>> locationGroups;
 
+    /**
+     * @return IDs of location groups to which the rule must be applied.
+     * 
+     */
     public Output<Optional<List<Integer>>> locationGroups() {
         return Codegen.optional(this.locationGroups);
     }
+    /**
+     * IDs of locations for which the rule must be applied.
+     * 
+     */
     @Export(name="locations", refs={List.class,Integer.class}, tree="[0,1]")
     private Output</* @Nullable */ List<Integer>> locations;
 
+    /**
+     * @return IDs of locations for which the rule must be applied.
+     * 
+     */
     public Output<Optional<List<Integer>>> locations() {
         return Codegen.optional(this.locations);
     }
+    /**
+     * The name of the URL filtering rule. Must be unique.
+     * 
+     */
     @Export(name="name", refs={String.class}, tree="[0]")
     private Output<String> name;
 
+    /**
+     * @return The name of the URL filtering rule. Must be unique.
+     * 
+     */
     public Output<String> name() {
         return this.name;
     }
+    /**
+     * The order of execution of the rule with respect to other URL filtering rules.
+     * 
+     */
     @Export(name="order", refs={Integer.class}, tree="[0]")
     private Output<Integer> order;
 
+    /**
+     * @return The order of execution of the rule with respect to other URL filtering rules.
+     * 
+     */
     public Output<Integer> order() {
         return this.order;
     }
+    /**
+     * IDs of groups for which this rule can be overridden. Only applicable when action is &#39;BLOCK&#39; and blockOverride is true.
+     * 
+     */
     @Export(name="overrideGroups", refs={List.class,Integer.class}, tree="[0,1]")
     private Output</* @Nullable */ List<Integer>> overrideGroups;
 
+    /**
+     * @return IDs of groups for which this rule can be overridden. Only applicable when action is &#39;BLOCK&#39; and blockOverride is true.
+     * 
+     */
     public Output<Optional<List<Integer>>> overrideGroups() {
         return Codegen.optional(this.overrideGroups);
     }
+    /**
+     * IDs of users for which this rule can be overridden. Only applicable when action is &#39;BLOCK&#39; and blockOverride is true.
+     * 
+     */
     @Export(name="overrideUsers", refs={List.class,Integer.class}, tree="[0,1]")
     private Output</* @Nullable */ List<Integer>> overrideUsers;
 
+    /**
+     * @return IDs of users for which this rule can be overridden. Only applicable when action is &#39;BLOCK&#39; and blockOverride is true.
+     * 
+     */
     public Output<Optional<List<Integer>>> overrideUsers() {
         return Codegen.optional(this.overrideUsers);
     }
+    /**
+     * Protocols to which the rule applies. Valid values: `SMRULEF_ZPA_BROKERS_RULE`, `ANY_RULE`, `TCP_RULE`, `UDP_RULE`, `DOHTTPS_RULE`, `TUNNELSSL_RULE`, `HTTP_PROXY`, `FOHTTP_RULE`, `FTP_RULE`, `SSL_RULE`.
+     * 
+     */
     @Export(name="protocols", refs={List.class,String.class}, tree="[0,1]")
     private Output</* @Nullable */ List<String>> protocols;
 
+    /**
+     * @return Protocols to which the rule applies. Valid values: `SMRULEF_ZPA_BROKERS_RULE`, `ANY_RULE`, `TCP_RULE`, `UDP_RULE`, `DOHTTPS_RULE`, `TUNNELSSL_RULE`, `HTTP_PROXY`, `FOHTTP_RULE`, `FTP_RULE`, `SSL_RULE`.
+     * 
+     */
     public Output<Optional<List<String>>> protocols() {
         return Codegen.optional(this.protocols);
     }
+    /**
+     * Admin rank of the URL filtering policy rule. Valid values: 0-7. Default: 7.
+     * 
+     */
     @Export(name="rank", refs={Integer.class}, tree="[0]")
     private Output</* @Nullable */ Integer> rank;
 
+    /**
+     * @return Admin rank of the URL filtering policy rule. Valid values: 0-7. Default: 7.
+     * 
+     */
     public Output<Optional<Integer>> rank() {
         return Codegen.optional(this.rank);
     }
+    /**
+     * Request methods to which the rule applies. Valid values: `CONNECT`, `DELETE`, `GET`, `HEAD`, `OPTIONS`, `OTHER`, `POST`, `PUT`, `TRACE`.
+     * 
+     */
     @Export(name="requestMethods", refs={List.class,String.class}, tree="[0,1]")
     private Output</* @Nullable */ List<String>> requestMethods;
 
+    /**
+     * @return Request methods to which the rule applies. Valid values: `CONNECT`, `DELETE`, `GET`, `HEAD`, `OPTIONS`, `OTHER`, `POST`, `PUT`, `TRACE`.
+     * 
+     */
     public Output<Optional<List<String>>> requestMethods() {
         return Codegen.optional(this.requestMethods);
     }
+    /**
+     * The system-generated ID of the URL filtering rule.
+     * 
+     */
     @Export(name="ruleId", refs={Integer.class}, tree="[0]")
     private Output<Integer> ruleId;
 
+    /**
+     * @return The system-generated ID of the URL filtering rule.
+     * 
+     */
     public Output<Integer> ruleId() {
         return this.ruleId;
     }
+    /**
+     * Size quota in MB beyond which the URL filtering rule is applied. If not set, no quota is enforced. Valid range: 10-100000. Not applicable when action is &#39;BLOCK&#39;.
+     * 
+     */
     @Export(name="sizeQuota", refs={Integer.class}, tree="[0]")
     private Output</* @Nullable */ Integer> sizeQuota;
 
+    /**
+     * @return Size quota in MB beyond which the URL filtering rule is applied. If not set, no quota is enforced. Valid range: 10-100000. Not applicable when action is &#39;BLOCK&#39;.
+     * 
+     */
     public Output<Optional<Integer>> sizeQuota() {
         return Codegen.optional(this.sizeQuota);
     }
+    /**
+     * Source countries (ISO 3166-1 alpha-2 codes) for the rule.
+     * 
+     */
     @Export(name="sourceCountries", refs={List.class,String.class}, tree="[0,1]")
     private Output</* @Nullable */ List<String>> sourceCountries;
 
+    /**
+     * @return Source countries (ISO 3166-1 alpha-2 codes) for the rule.
+     * 
+     */
     public Output<Optional<List<String>>> sourceCountries() {
         return Codegen.optional(this.sourceCountries);
     }
+    /**
+     * IDs of source IP address groups.
+     * 
+     */
     @Export(name="sourceIpGroups", refs={List.class,Integer.class}, tree="[0,1]")
     private Output</* @Nullable */ List<Integer>> sourceIpGroups;
 
+    /**
+     * @return IDs of source IP address groups.
+     * 
+     */
     public Output<Optional<List<Integer>>> sourceIpGroups() {
         return Codegen.optional(this.sourceIpGroups);
     }
+    /**
+     * Rule state. Valid values: `ENABLED`, `DISABLED`.
+     * 
+     */
     @Export(name="state", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> state;
 
+    /**
+     * @return Rule state. Valid values: `ENABLED`, `DISABLED`.
+     * 
+     */
     public Output<Optional<String>> state() {
         return Codegen.optional(this.state);
     }
+    /**
+     * Time quota in minutes, after which the URL filtering rule is applied. If not set, no quota is enforced. Valid range: 15-600. Not applicable when action is &#39;BLOCK&#39;.
+     * 
+     */
     @Export(name="timeQuota", refs={Integer.class}, tree="[0]")
     private Output</* @Nullable */ Integer> timeQuota;
 
+    /**
+     * @return Time quota in minutes, after which the URL filtering rule is applied. If not set, no quota is enforced. Valid range: 15-600. Not applicable when action is &#39;BLOCK&#39;.
+     * 
+     */
     public Output<Optional<Integer>> timeQuota() {
         return Codegen.optional(this.timeQuota);
     }
+    /**
+     * IDs of time intervals during which the rule must be enforced.
+     * 
+     */
     @Export(name="timeWindows", refs={List.class,Integer.class}, tree="[0,1]")
     private Output</* @Nullable */ List<Integer>> timeWindows;
 
+    /**
+     * @return IDs of time intervals during which the rule must be enforced.
+     * 
+     */
     public Output<Optional<List<Integer>>> timeWindows() {
         return Codegen.optional(this.timeWindows);
     }
+    /**
+     * List of URL categories to which the rule applies. See the [URL Categories API](https://help.zscaler.com/zia/url-categories#/urlCategories-get) for available categories.
+     * 
+     */
     @Export(name="urlCategories", refs={List.class,String.class}, tree="[0,1]")
     private Output</* @Nullable */ List<String>> urlCategories;
 
+    /**
+     * @return List of URL categories to which the rule applies. See the [URL Categories API](https://help.zscaler.com/zia/url-categories#/urlCategories-get) for available categories.
+     * 
+     */
     public Output<Optional<List<String>>> urlCategories() {
         return Codegen.optional(this.urlCategories);
     }
+    /**
+     * User agent types the rule applies to. Valid values: `CHROME`, `FIREFOX`, `MSIE`, `MSEDGE`, `MSCHREDGE`, `OPERA`, `SAFARI`, `OTHER`.
+     * 
+     */
     @Export(name="userAgentTypes", refs={List.class,String.class}, tree="[0,1]")
     private Output</* @Nullable */ List<String>> userAgentTypes;
 
+    /**
+     * @return User agent types the rule applies to. Valid values: `CHROME`, `FIREFOX`, `MSIE`, `MSEDGE`, `MSCHREDGE`, `OPERA`, `SAFARI`, `OTHER`.
+     * 
+     */
     public Output<Optional<List<String>>> userAgentTypes() {
         return Codegen.optional(this.userAgentTypes);
     }
+    /**
+     * User risk score levels for the rule. Valid values: `LOW`, `MEDIUM`, `HIGH`, `CRITICAL`.
+     * 
+     */
     @Export(name="userRiskScoreLevels", refs={List.class,String.class}, tree="[0,1]")
     private Output</* @Nullable */ List<String>> userRiskScoreLevels;
 
+    /**
+     * @return User risk score levels for the rule. Valid values: `LOW`, `MEDIUM`, `HIGH`, `CRITICAL`.
+     * 
+     */
     public Output<Optional<List<String>>> userRiskScoreLevels() {
         return Codegen.optional(this.userRiskScoreLevels);
     }
+    /**
+     * IDs of users for which the rule must be applied.
+     * 
+     */
     @Export(name="users", refs={List.class,Integer.class}, tree="[0,1]")
     private Output</* @Nullable */ List<Integer>> users;
 
+    /**
+     * @return IDs of users for which the rule must be applied.
+     * 
+     */
     public Output<Optional<List<Integer>>> users() {
         return Codegen.optional(this.users);
     }
+    /**
+     * If enforceTimeValidity is set to true, the URL filtering rule ceases to be valid on this end date and time (RFC 1123 format).
+     * 
+     */
     @Export(name="validityEndTime", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> validityEndTime;
 
+    /**
+     * @return If enforceTimeValidity is set to true, the URL filtering rule ceases to be valid on this end date and time (RFC 1123 format).
+     * 
+     */
     public Output<Optional<String>> validityEndTime() {
         return Codegen.optional(this.validityEndTime);
     }
+    /**
+     * If enforceTimeValidity is set to true, the URL filtering rule is valid starting on this date and time (RFC 1123 format).
+     * 
+     */
     @Export(name="validityStartTime", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> validityStartTime;
 
+    /**
+     * @return If enforceTimeValidity is set to true, the URL filtering rule is valid starting on this date and time (RFC 1123 format).
+     * 
+     */
     public Output<Optional<String>> validityStartTime() {
         return Codegen.optional(this.validityStartTime);
     }
+    /**
+     * If enforceTimeValidity is set to true, the URL filtering rule date and time is valid based on this time zone ID. Use IANA format (e.g. &#39;America/Los_Angeles&#39;). See https://nodatime.org/TimeZones for the complete list.
+     * 
+     */
     @Export(name="validityTimeZoneId", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> validityTimeZoneId;
 
+    /**
+     * @return If enforceTimeValidity is set to true, the URL filtering rule date and time is valid based on this time zone ID. Use IANA format (e.g. &#39;America/Los_Angeles&#39;). See https://nodatime.org/TimeZones for the complete list.
+     * 
+     */
     public Output<Optional<String>> validityTimeZoneId() {
         return Codegen.optional(this.validityTimeZoneId);
     }
+    /**
+     * List of preconfigured workload groups to which the policy must be applied.
+     * 
+     */
     @Export(name="workloadGroups", refs={List.class,WorkloadGroupInput.class}, tree="[0,1]")
     private Output</* @Nullable */ List<WorkloadGroupInput>> workloadGroups;
 
+    /**
+     * @return List of preconfigured workload groups to which the policy must be applied.
+     * 
+     */
     public Output<Optional<List<WorkloadGroupInput>>> workloadGroups() {
         return Codegen.optional(this.workloadGroups);
     }
@@ -288,6 +608,7 @@ public class URLFilteringRule extends com.pulumi.resources.CustomResource {
     private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<java.lang.String> id) {
         var defaultOptions = com.pulumi.resources.CustomResourceOptions.builder()
             .version(Utilities.getVersion())
+            .pluginDownloadURL("github://api.github.com/zscaler")
             .build();
         return com.pulumi.resources.CustomResourceOptions.merge(defaultOptions, options, id);
     }

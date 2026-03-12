@@ -24,10 +24,16 @@ class UrlFilteringCloudAppSettingsArgs:
                  enable_block_override_for_non_auth_user: Optional[pulumi.Input[_builtins.bool]] = None,
                  enable_chatgpt_prompt: Optional[pulumi.Input[_builtins.bool]] = None,
                  enable_cipa_compliance: Optional[pulumi.Input[_builtins.bool]] = None,
+                 enable_claude_prompt: Optional[pulumi.Input[_builtins.bool]] = None,
+                 enable_creative_commons_search_results: Optional[pulumi.Input[_builtins.bool]] = None,
+                 enable_deep_seek_prompt: Optional[pulumi.Input[_builtins.bool]] = None,
                  enable_dynamic_content_cat: Optional[pulumi.Input[_builtins.bool]] = None,
                  enable_gemini_prompt: Optional[pulumi.Input[_builtins.bool]] = None,
+                 enable_grammarly_prompt: Optional[pulumi.Input[_builtins.bool]] = None,
+                 enable_grok_prompt: Optional[pulumi.Input[_builtins.bool]] = None,
                  enable_meta_prompt: Optional[pulumi.Input[_builtins.bool]] = None,
                  enable_microsoft_copilot_prompt: Optional[pulumi.Input[_builtins.bool]] = None,
+                 enable_mistral_ai_prompt: Optional[pulumi.Input[_builtins.bool]] = None,
                  enable_msft_o365: Optional[pulumi.Input[_builtins.bool]] = None,
                  enable_newly_registered_domains: Optional[pulumi.Input[_builtins.bool]] = None,
                  enable_office365: Optional[pulumi.Input[_builtins.bool]] = None,
@@ -38,10 +44,41 @@ class UrlFilteringCloudAppSettingsArgs:
                  enable_ucaas_talkdesk: Optional[pulumi.Input[_builtins.bool]] = None,
                  enable_ucaas_webex: Optional[pulumi.Input[_builtins.bool]] = None,
                  enable_ucaas_zoom: Optional[pulumi.Input[_builtins.bool]] = None,
+                 enable_writer_prompt: Optional[pulumi.Input[_builtins.bool]] = None,
                  enforce_safe_search: Optional[pulumi.Input[_builtins.bool]] = None,
-                 safe_search_apps: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None):
+                 safe_search_apps: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 zvelo_db_lookup_disabled: Optional[pulumi.Input[_builtins.bool]] = None):
         """
         The set of arguments for constructing a UrlFilteringCloudAppSettings resource.
+        :param pulumi.Input[_builtins.bool] block_skype: If true, Skype is blocked.
+        :param pulumi.Input[_builtins.bool] consider_embedded_sites: If true, embedded sites within web pages are considered for URL filtering.
+        :param pulumi.Input[_builtins.bool] enable_block_override_for_non_auth_user: If true, block override is enabled for non-authenticated users.
+        :param pulumi.Input[_builtins.bool] enable_chatgpt_prompt: If true, ChatGPT prompt visibility and logging is enabled.
+        :param pulumi.Input[_builtins.bool] enable_cipa_compliance: If true, CIPA (Children's Internet Protection Act) compliance mode is enabled.
+        :param pulumi.Input[_builtins.bool] enable_claude_prompt: If true, Claude AI prompt visibility and logging is enabled.
+        :param pulumi.Input[_builtins.bool] enable_creative_commons_search_results: If true, Creative Commons search results are enabled.
+        :param pulumi.Input[_builtins.bool] enable_deep_seek_prompt: If true, DeepSeek AI prompt visibility and logging is enabled.
+        :param pulumi.Input[_builtins.bool] enable_dynamic_content_cat: If true, dynamic content categorization is enabled.
+        :param pulumi.Input[_builtins.bool] enable_gemini_prompt: If true, Google Gemini prompt visibility and logging is enabled.
+        :param pulumi.Input[_builtins.bool] enable_grammarly_prompt: If true, Grammarly AI prompt visibility and logging is enabled.
+        :param pulumi.Input[_builtins.bool] enable_grok_prompt: If true, Grok AI prompt visibility and logging is enabled.
+        :param pulumi.Input[_builtins.bool] enable_meta_prompt: If true, Meta AI prompt visibility and logging is enabled.
+        :param pulumi.Input[_builtins.bool] enable_microsoft_copilot_prompt: If true, Microsoft Copilot prompt visibility and logging is enabled.
+        :param pulumi.Input[_builtins.bool] enable_mistral_ai_prompt: If true, Mistral AI prompt visibility and logging is enabled.
+        :param pulumi.Input[_builtins.bool] enable_msft_o365: If true, Microsoft Office 365 optimization is enabled.
+        :param pulumi.Input[_builtins.bool] enable_newly_registered_domains: If true, newly registered domains detection is enabled.
+        :param pulumi.Input[_builtins.bool] enable_office365: If true, Office 365 one-click configuration is enabled.
+        :param pulumi.Input[_builtins.bool] enable_per_plexity_prompt: If true, Perplexity AI prompt visibility and logging is enabled.
+        :param pulumi.Input[_builtins.bool] enable_poep_prompt: If true, POE prompt visibility and logging is enabled.
+        :param pulumi.Input[_builtins.bool] enable_ucaas_logmein: If true, UCaaS controls for LogMeIn are enabled.
+        :param pulumi.Input[_builtins.bool] enable_ucaas_ring_central: If true, UCaaS controls for RingCentral are enabled.
+        :param pulumi.Input[_builtins.bool] enable_ucaas_talkdesk: If true, UCaaS controls for Talkdesk are enabled.
+        :param pulumi.Input[_builtins.bool] enable_ucaas_webex: If true, UCaaS controls for Webex are enabled.
+        :param pulumi.Input[_builtins.bool] enable_ucaas_zoom: If true, UCaaS controls for Zoom are enabled.
+        :param pulumi.Input[_builtins.bool] enable_writer_prompt: If true, Writer AI prompt visibility and logging is enabled.
+        :param pulumi.Input[_builtins.bool] enforce_safe_search: If true, safe search is enforced for supported search engines.
+        :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] safe_search_apps: List of application names for which safe search is enforced.
+        :param pulumi.Input[_builtins.bool] zvelo_db_lookup_disabled: If true, Zvelo database lookup is disabled.
         """
         if block_skype is not None:
             pulumi.set(__self__, "block_skype", block_skype)
@@ -53,14 +90,26 @@ class UrlFilteringCloudAppSettingsArgs:
             pulumi.set(__self__, "enable_chatgpt_prompt", enable_chatgpt_prompt)
         if enable_cipa_compliance is not None:
             pulumi.set(__self__, "enable_cipa_compliance", enable_cipa_compliance)
+        if enable_claude_prompt is not None:
+            pulumi.set(__self__, "enable_claude_prompt", enable_claude_prompt)
+        if enable_creative_commons_search_results is not None:
+            pulumi.set(__self__, "enable_creative_commons_search_results", enable_creative_commons_search_results)
+        if enable_deep_seek_prompt is not None:
+            pulumi.set(__self__, "enable_deep_seek_prompt", enable_deep_seek_prompt)
         if enable_dynamic_content_cat is not None:
             pulumi.set(__self__, "enable_dynamic_content_cat", enable_dynamic_content_cat)
         if enable_gemini_prompt is not None:
             pulumi.set(__self__, "enable_gemini_prompt", enable_gemini_prompt)
+        if enable_grammarly_prompt is not None:
+            pulumi.set(__self__, "enable_grammarly_prompt", enable_grammarly_prompt)
+        if enable_grok_prompt is not None:
+            pulumi.set(__self__, "enable_grok_prompt", enable_grok_prompt)
         if enable_meta_prompt is not None:
             pulumi.set(__self__, "enable_meta_prompt", enable_meta_prompt)
         if enable_microsoft_copilot_prompt is not None:
             pulumi.set(__self__, "enable_microsoft_copilot_prompt", enable_microsoft_copilot_prompt)
+        if enable_mistral_ai_prompt is not None:
+            pulumi.set(__self__, "enable_mistral_ai_prompt", enable_mistral_ai_prompt)
         if enable_msft_o365 is not None:
             pulumi.set(__self__, "enable_msft_o365", enable_msft_o365)
         if enable_newly_registered_domains is not None:
@@ -81,14 +130,21 @@ class UrlFilteringCloudAppSettingsArgs:
             pulumi.set(__self__, "enable_ucaas_webex", enable_ucaas_webex)
         if enable_ucaas_zoom is not None:
             pulumi.set(__self__, "enable_ucaas_zoom", enable_ucaas_zoom)
+        if enable_writer_prompt is not None:
+            pulumi.set(__self__, "enable_writer_prompt", enable_writer_prompt)
         if enforce_safe_search is not None:
             pulumi.set(__self__, "enforce_safe_search", enforce_safe_search)
         if safe_search_apps is not None:
             pulumi.set(__self__, "safe_search_apps", safe_search_apps)
+        if zvelo_db_lookup_disabled is not None:
+            pulumi.set(__self__, "zvelo_db_lookup_disabled", zvelo_db_lookup_disabled)
 
     @_builtins.property
     @pulumi.getter(name="blockSkype")
     def block_skype(self) -> Optional[pulumi.Input[_builtins.bool]]:
+        """
+        If true, Skype is blocked.
+        """
         return pulumi.get(self, "block_skype")
 
     @block_skype.setter
@@ -98,6 +154,9 @@ class UrlFilteringCloudAppSettingsArgs:
     @_builtins.property
     @pulumi.getter(name="considerEmbeddedSites")
     def consider_embedded_sites(self) -> Optional[pulumi.Input[_builtins.bool]]:
+        """
+        If true, embedded sites within web pages are considered for URL filtering.
+        """
         return pulumi.get(self, "consider_embedded_sites")
 
     @consider_embedded_sites.setter
@@ -107,6 +166,9 @@ class UrlFilteringCloudAppSettingsArgs:
     @_builtins.property
     @pulumi.getter(name="enableBlockOverrideForNonAuthUser")
     def enable_block_override_for_non_auth_user(self) -> Optional[pulumi.Input[_builtins.bool]]:
+        """
+        If true, block override is enabled for non-authenticated users.
+        """
         return pulumi.get(self, "enable_block_override_for_non_auth_user")
 
     @enable_block_override_for_non_auth_user.setter
@@ -116,6 +178,9 @@ class UrlFilteringCloudAppSettingsArgs:
     @_builtins.property
     @pulumi.getter(name="enableChatgptPrompt")
     def enable_chatgpt_prompt(self) -> Optional[pulumi.Input[_builtins.bool]]:
+        """
+        If true, ChatGPT prompt visibility and logging is enabled.
+        """
         return pulumi.get(self, "enable_chatgpt_prompt")
 
     @enable_chatgpt_prompt.setter
@@ -125,6 +190,9 @@ class UrlFilteringCloudAppSettingsArgs:
     @_builtins.property
     @pulumi.getter(name="enableCipaCompliance")
     def enable_cipa_compliance(self) -> Optional[pulumi.Input[_builtins.bool]]:
+        """
+        If true, CIPA (Children's Internet Protection Act) compliance mode is enabled.
+        """
         return pulumi.get(self, "enable_cipa_compliance")
 
     @enable_cipa_compliance.setter
@@ -132,8 +200,47 @@ class UrlFilteringCloudAppSettingsArgs:
         pulumi.set(self, "enable_cipa_compliance", value)
 
     @_builtins.property
+    @pulumi.getter(name="enableClaudePrompt")
+    def enable_claude_prompt(self) -> Optional[pulumi.Input[_builtins.bool]]:
+        """
+        If true, Claude AI prompt visibility and logging is enabled.
+        """
+        return pulumi.get(self, "enable_claude_prompt")
+
+    @enable_claude_prompt.setter
+    def enable_claude_prompt(self, value: Optional[pulumi.Input[_builtins.bool]]):
+        pulumi.set(self, "enable_claude_prompt", value)
+
+    @_builtins.property
+    @pulumi.getter(name="enableCreativeCommonsSearchResults")
+    def enable_creative_commons_search_results(self) -> Optional[pulumi.Input[_builtins.bool]]:
+        """
+        If true, Creative Commons search results are enabled.
+        """
+        return pulumi.get(self, "enable_creative_commons_search_results")
+
+    @enable_creative_commons_search_results.setter
+    def enable_creative_commons_search_results(self, value: Optional[pulumi.Input[_builtins.bool]]):
+        pulumi.set(self, "enable_creative_commons_search_results", value)
+
+    @_builtins.property
+    @pulumi.getter(name="enableDeepSeekPrompt")
+    def enable_deep_seek_prompt(self) -> Optional[pulumi.Input[_builtins.bool]]:
+        """
+        If true, DeepSeek AI prompt visibility and logging is enabled.
+        """
+        return pulumi.get(self, "enable_deep_seek_prompt")
+
+    @enable_deep_seek_prompt.setter
+    def enable_deep_seek_prompt(self, value: Optional[pulumi.Input[_builtins.bool]]):
+        pulumi.set(self, "enable_deep_seek_prompt", value)
+
+    @_builtins.property
     @pulumi.getter(name="enableDynamicContentCat")
     def enable_dynamic_content_cat(self) -> Optional[pulumi.Input[_builtins.bool]]:
+        """
+        If true, dynamic content categorization is enabled.
+        """
         return pulumi.get(self, "enable_dynamic_content_cat")
 
     @enable_dynamic_content_cat.setter
@@ -143,6 +250,9 @@ class UrlFilteringCloudAppSettingsArgs:
     @_builtins.property
     @pulumi.getter(name="enableGeminiPrompt")
     def enable_gemini_prompt(self) -> Optional[pulumi.Input[_builtins.bool]]:
+        """
+        If true, Google Gemini prompt visibility and logging is enabled.
+        """
         return pulumi.get(self, "enable_gemini_prompt")
 
     @enable_gemini_prompt.setter
@@ -150,8 +260,35 @@ class UrlFilteringCloudAppSettingsArgs:
         pulumi.set(self, "enable_gemini_prompt", value)
 
     @_builtins.property
+    @pulumi.getter(name="enableGrammarlyPrompt")
+    def enable_grammarly_prompt(self) -> Optional[pulumi.Input[_builtins.bool]]:
+        """
+        If true, Grammarly AI prompt visibility and logging is enabled.
+        """
+        return pulumi.get(self, "enable_grammarly_prompt")
+
+    @enable_grammarly_prompt.setter
+    def enable_grammarly_prompt(self, value: Optional[pulumi.Input[_builtins.bool]]):
+        pulumi.set(self, "enable_grammarly_prompt", value)
+
+    @_builtins.property
+    @pulumi.getter(name="enableGrokPrompt")
+    def enable_grok_prompt(self) -> Optional[pulumi.Input[_builtins.bool]]:
+        """
+        If true, Grok AI prompt visibility and logging is enabled.
+        """
+        return pulumi.get(self, "enable_grok_prompt")
+
+    @enable_grok_prompt.setter
+    def enable_grok_prompt(self, value: Optional[pulumi.Input[_builtins.bool]]):
+        pulumi.set(self, "enable_grok_prompt", value)
+
+    @_builtins.property
     @pulumi.getter(name="enableMetaPrompt")
     def enable_meta_prompt(self) -> Optional[pulumi.Input[_builtins.bool]]:
+        """
+        If true, Meta AI prompt visibility and logging is enabled.
+        """
         return pulumi.get(self, "enable_meta_prompt")
 
     @enable_meta_prompt.setter
@@ -161,6 +298,9 @@ class UrlFilteringCloudAppSettingsArgs:
     @_builtins.property
     @pulumi.getter(name="enableMicrosoftCopilotPrompt")
     def enable_microsoft_copilot_prompt(self) -> Optional[pulumi.Input[_builtins.bool]]:
+        """
+        If true, Microsoft Copilot prompt visibility and logging is enabled.
+        """
         return pulumi.get(self, "enable_microsoft_copilot_prompt")
 
     @enable_microsoft_copilot_prompt.setter
@@ -168,8 +308,23 @@ class UrlFilteringCloudAppSettingsArgs:
         pulumi.set(self, "enable_microsoft_copilot_prompt", value)
 
     @_builtins.property
+    @pulumi.getter(name="enableMistralAiPrompt")
+    def enable_mistral_ai_prompt(self) -> Optional[pulumi.Input[_builtins.bool]]:
+        """
+        If true, Mistral AI prompt visibility and logging is enabled.
+        """
+        return pulumi.get(self, "enable_mistral_ai_prompt")
+
+    @enable_mistral_ai_prompt.setter
+    def enable_mistral_ai_prompt(self, value: Optional[pulumi.Input[_builtins.bool]]):
+        pulumi.set(self, "enable_mistral_ai_prompt", value)
+
+    @_builtins.property
     @pulumi.getter(name="enableMsftO365")
     def enable_msft_o365(self) -> Optional[pulumi.Input[_builtins.bool]]:
+        """
+        If true, Microsoft Office 365 optimization is enabled.
+        """
         return pulumi.get(self, "enable_msft_o365")
 
     @enable_msft_o365.setter
@@ -179,6 +334,9 @@ class UrlFilteringCloudAppSettingsArgs:
     @_builtins.property
     @pulumi.getter(name="enableNewlyRegisteredDomains")
     def enable_newly_registered_domains(self) -> Optional[pulumi.Input[_builtins.bool]]:
+        """
+        If true, newly registered domains detection is enabled.
+        """
         return pulumi.get(self, "enable_newly_registered_domains")
 
     @enable_newly_registered_domains.setter
@@ -188,6 +346,9 @@ class UrlFilteringCloudAppSettingsArgs:
     @_builtins.property
     @pulumi.getter(name="enableOffice365")
     def enable_office365(self) -> Optional[pulumi.Input[_builtins.bool]]:
+        """
+        If true, Office 365 one-click configuration is enabled.
+        """
         return pulumi.get(self, "enable_office365")
 
     @enable_office365.setter
@@ -197,6 +358,9 @@ class UrlFilteringCloudAppSettingsArgs:
     @_builtins.property
     @pulumi.getter(name="enablePerPlexityPrompt")
     def enable_per_plexity_prompt(self) -> Optional[pulumi.Input[_builtins.bool]]:
+        """
+        If true, Perplexity AI prompt visibility and logging is enabled.
+        """
         return pulumi.get(self, "enable_per_plexity_prompt")
 
     @enable_per_plexity_prompt.setter
@@ -206,6 +370,9 @@ class UrlFilteringCloudAppSettingsArgs:
     @_builtins.property
     @pulumi.getter(name="enablePoepPrompt")
     def enable_poep_prompt(self) -> Optional[pulumi.Input[_builtins.bool]]:
+        """
+        If true, POE prompt visibility and logging is enabled.
+        """
         return pulumi.get(self, "enable_poep_prompt")
 
     @enable_poep_prompt.setter
@@ -215,6 +382,9 @@ class UrlFilteringCloudAppSettingsArgs:
     @_builtins.property
     @pulumi.getter(name="enableUcaasLogmein")
     def enable_ucaas_logmein(self) -> Optional[pulumi.Input[_builtins.bool]]:
+        """
+        If true, UCaaS controls for LogMeIn are enabled.
+        """
         return pulumi.get(self, "enable_ucaas_logmein")
 
     @enable_ucaas_logmein.setter
@@ -224,6 +394,9 @@ class UrlFilteringCloudAppSettingsArgs:
     @_builtins.property
     @pulumi.getter(name="enableUcaasRingCentral")
     def enable_ucaas_ring_central(self) -> Optional[pulumi.Input[_builtins.bool]]:
+        """
+        If true, UCaaS controls for RingCentral are enabled.
+        """
         return pulumi.get(self, "enable_ucaas_ring_central")
 
     @enable_ucaas_ring_central.setter
@@ -233,6 +406,9 @@ class UrlFilteringCloudAppSettingsArgs:
     @_builtins.property
     @pulumi.getter(name="enableUcaasTalkdesk")
     def enable_ucaas_talkdesk(self) -> Optional[pulumi.Input[_builtins.bool]]:
+        """
+        If true, UCaaS controls for Talkdesk are enabled.
+        """
         return pulumi.get(self, "enable_ucaas_talkdesk")
 
     @enable_ucaas_talkdesk.setter
@@ -242,6 +418,9 @@ class UrlFilteringCloudAppSettingsArgs:
     @_builtins.property
     @pulumi.getter(name="enableUcaasWebex")
     def enable_ucaas_webex(self) -> Optional[pulumi.Input[_builtins.bool]]:
+        """
+        If true, UCaaS controls for Webex are enabled.
+        """
         return pulumi.get(self, "enable_ucaas_webex")
 
     @enable_ucaas_webex.setter
@@ -251,6 +430,9 @@ class UrlFilteringCloudAppSettingsArgs:
     @_builtins.property
     @pulumi.getter(name="enableUcaasZoom")
     def enable_ucaas_zoom(self) -> Optional[pulumi.Input[_builtins.bool]]:
+        """
+        If true, UCaaS controls for Zoom are enabled.
+        """
         return pulumi.get(self, "enable_ucaas_zoom")
 
     @enable_ucaas_zoom.setter
@@ -258,8 +440,23 @@ class UrlFilteringCloudAppSettingsArgs:
         pulumi.set(self, "enable_ucaas_zoom", value)
 
     @_builtins.property
+    @pulumi.getter(name="enableWriterPrompt")
+    def enable_writer_prompt(self) -> Optional[pulumi.Input[_builtins.bool]]:
+        """
+        If true, Writer AI prompt visibility and logging is enabled.
+        """
+        return pulumi.get(self, "enable_writer_prompt")
+
+    @enable_writer_prompt.setter
+    def enable_writer_prompt(self, value: Optional[pulumi.Input[_builtins.bool]]):
+        pulumi.set(self, "enable_writer_prompt", value)
+
+    @_builtins.property
     @pulumi.getter(name="enforceSafeSearch")
     def enforce_safe_search(self) -> Optional[pulumi.Input[_builtins.bool]]:
+        """
+        If true, safe search is enforced for supported search engines.
+        """
         return pulumi.get(self, "enforce_safe_search")
 
     @enforce_safe_search.setter
@@ -269,11 +466,26 @@ class UrlFilteringCloudAppSettingsArgs:
     @_builtins.property
     @pulumi.getter(name="safeSearchApps")
     def safe_search_apps(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
+        """
+        List of application names for which safe search is enforced.
+        """
         return pulumi.get(self, "safe_search_apps")
 
     @safe_search_apps.setter
     def safe_search_apps(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "safe_search_apps", value)
+
+    @_builtins.property
+    @pulumi.getter(name="zveloDbLookupDisabled")
+    def zvelo_db_lookup_disabled(self) -> Optional[pulumi.Input[_builtins.bool]]:
+        """
+        If true, Zvelo database lookup is disabled.
+        """
+        return pulumi.get(self, "zvelo_db_lookup_disabled")
+
+    @zvelo_db_lookup_disabled.setter
+    def zvelo_db_lookup_disabled(self, value: Optional[pulumi.Input[_builtins.bool]]):
+        pulumi.set(self, "zvelo_db_lookup_disabled", value)
 
 
 @pulumi.type_token("zia:index:UrlFilteringCloudAppSettings")
@@ -287,10 +499,16 @@ class UrlFilteringCloudAppSettings(pulumi.CustomResource):
                  enable_block_override_for_non_auth_user: Optional[pulumi.Input[_builtins.bool]] = None,
                  enable_chatgpt_prompt: Optional[pulumi.Input[_builtins.bool]] = None,
                  enable_cipa_compliance: Optional[pulumi.Input[_builtins.bool]] = None,
+                 enable_claude_prompt: Optional[pulumi.Input[_builtins.bool]] = None,
+                 enable_creative_commons_search_results: Optional[pulumi.Input[_builtins.bool]] = None,
+                 enable_deep_seek_prompt: Optional[pulumi.Input[_builtins.bool]] = None,
                  enable_dynamic_content_cat: Optional[pulumi.Input[_builtins.bool]] = None,
                  enable_gemini_prompt: Optional[pulumi.Input[_builtins.bool]] = None,
+                 enable_grammarly_prompt: Optional[pulumi.Input[_builtins.bool]] = None,
+                 enable_grok_prompt: Optional[pulumi.Input[_builtins.bool]] = None,
                  enable_meta_prompt: Optional[pulumi.Input[_builtins.bool]] = None,
                  enable_microsoft_copilot_prompt: Optional[pulumi.Input[_builtins.bool]] = None,
+                 enable_mistral_ai_prompt: Optional[pulumi.Input[_builtins.bool]] = None,
                  enable_msft_o365: Optional[pulumi.Input[_builtins.bool]] = None,
                  enable_newly_registered_domains: Optional[pulumi.Input[_builtins.bool]] = None,
                  enable_office365: Optional[pulumi.Input[_builtins.bool]] = None,
@@ -301,13 +519,70 @@ class UrlFilteringCloudAppSettings(pulumi.CustomResource):
                  enable_ucaas_talkdesk: Optional[pulumi.Input[_builtins.bool]] = None,
                  enable_ucaas_webex: Optional[pulumi.Input[_builtins.bool]] = None,
                  enable_ucaas_zoom: Optional[pulumi.Input[_builtins.bool]] = None,
+                 enable_writer_prompt: Optional[pulumi.Input[_builtins.bool]] = None,
                  enforce_safe_search: Optional[pulumi.Input[_builtins.bool]] = None,
                  safe_search_apps: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 zvelo_db_lookup_disabled: Optional[pulumi.Input[_builtins.bool]] = None,
                  __props__=None):
         """
-        Create a UrlFilteringCloudAppSettings resource with the given unique name, props, and options.
+        The zia_url_filtering_and_cloud_app_settings resource manages URL filtering and cloud application settings in the Zscaler Internet Access (ZIA) cloud service. This is a singleton resource that controls global settings for URL filtering features such as safe search enforcement, UCaaS application controls, AI/ML prompt visibility, and CIPA compliance.
+
+        For more information, see the [ZIA URL Filtering documentation](https://help.zscaler.com/zia/url-filtering).
+
+        ## Example Usage
+        ### Configure URL Filtering and Cloud App Settings
+
+        ```python
+        import zscaler_pulumi_zia as zia
+
+        example = zia.UrlFilteringCloudAppSettings("example",
+            enable_dynamic_content_cat=True,
+            enforce_safe_search=True,
+            enable_office365=True,
+            enable_chatgpt_prompt=True,
+            enable_cipa_compliance=False,
+        )
+        ```
+
+        ## Import
+
+        The singleton URL Filtering Cloud App Settings resource can be imported using its fixed ID, e.g.
+
+        ```sh
+        $ pulumi import zia:index:UrlFilteringCloudAppSettings example app_setting
+        ```
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
+        :param pulumi.Input[_builtins.bool] block_skype: If true, Skype is blocked.
+        :param pulumi.Input[_builtins.bool] consider_embedded_sites: If true, embedded sites within web pages are considered for URL filtering.
+        :param pulumi.Input[_builtins.bool] enable_block_override_for_non_auth_user: If true, block override is enabled for non-authenticated users.
+        :param pulumi.Input[_builtins.bool] enable_chatgpt_prompt: If true, ChatGPT prompt visibility and logging is enabled.
+        :param pulumi.Input[_builtins.bool] enable_cipa_compliance: If true, CIPA (Children's Internet Protection Act) compliance mode is enabled.
+        :param pulumi.Input[_builtins.bool] enable_claude_prompt: If true, Claude AI prompt visibility and logging is enabled.
+        :param pulumi.Input[_builtins.bool] enable_creative_commons_search_results: If true, Creative Commons search results are enabled.
+        :param pulumi.Input[_builtins.bool] enable_deep_seek_prompt: If true, DeepSeek AI prompt visibility and logging is enabled.
+        :param pulumi.Input[_builtins.bool] enable_dynamic_content_cat: If true, dynamic content categorization is enabled.
+        :param pulumi.Input[_builtins.bool] enable_gemini_prompt: If true, Google Gemini prompt visibility and logging is enabled.
+        :param pulumi.Input[_builtins.bool] enable_grammarly_prompt: If true, Grammarly AI prompt visibility and logging is enabled.
+        :param pulumi.Input[_builtins.bool] enable_grok_prompt: If true, Grok AI prompt visibility and logging is enabled.
+        :param pulumi.Input[_builtins.bool] enable_meta_prompt: If true, Meta AI prompt visibility and logging is enabled.
+        :param pulumi.Input[_builtins.bool] enable_microsoft_copilot_prompt: If true, Microsoft Copilot prompt visibility and logging is enabled.
+        :param pulumi.Input[_builtins.bool] enable_mistral_ai_prompt: If true, Mistral AI prompt visibility and logging is enabled.
+        :param pulumi.Input[_builtins.bool] enable_msft_o365: If true, Microsoft Office 365 optimization is enabled.
+        :param pulumi.Input[_builtins.bool] enable_newly_registered_domains: If true, newly registered domains detection is enabled.
+        :param pulumi.Input[_builtins.bool] enable_office365: If true, Office 365 one-click configuration is enabled.
+        :param pulumi.Input[_builtins.bool] enable_per_plexity_prompt: If true, Perplexity AI prompt visibility and logging is enabled.
+        :param pulumi.Input[_builtins.bool] enable_poep_prompt: If true, POE prompt visibility and logging is enabled.
+        :param pulumi.Input[_builtins.bool] enable_ucaas_logmein: If true, UCaaS controls for LogMeIn are enabled.
+        :param pulumi.Input[_builtins.bool] enable_ucaas_ring_central: If true, UCaaS controls for RingCentral are enabled.
+        :param pulumi.Input[_builtins.bool] enable_ucaas_talkdesk: If true, UCaaS controls for Talkdesk are enabled.
+        :param pulumi.Input[_builtins.bool] enable_ucaas_webex: If true, UCaaS controls for Webex are enabled.
+        :param pulumi.Input[_builtins.bool] enable_ucaas_zoom: If true, UCaaS controls for Zoom are enabled.
+        :param pulumi.Input[_builtins.bool] enable_writer_prompt: If true, Writer AI prompt visibility and logging is enabled.
+        :param pulumi.Input[_builtins.bool] enforce_safe_search: If true, safe search is enforced for supported search engines.
+        :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] safe_search_apps: List of application names for which safe search is enforced.
+        :param pulumi.Input[_builtins.bool] zvelo_db_lookup_disabled: If true, Zvelo database lookup is disabled.
         """
         ...
     @overload
@@ -316,7 +591,33 @@ class UrlFilteringCloudAppSettings(pulumi.CustomResource):
                  args: Optional[UrlFilteringCloudAppSettingsArgs] = None,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
-        Create a UrlFilteringCloudAppSettings resource with the given unique name, props, and options.
+        The zia_url_filtering_and_cloud_app_settings resource manages URL filtering and cloud application settings in the Zscaler Internet Access (ZIA) cloud service. This is a singleton resource that controls global settings for URL filtering features such as safe search enforcement, UCaaS application controls, AI/ML prompt visibility, and CIPA compliance.
+
+        For more information, see the [ZIA URL Filtering documentation](https://help.zscaler.com/zia/url-filtering).
+
+        ## Example Usage
+        ### Configure URL Filtering and Cloud App Settings
+
+        ```python
+        import zscaler_pulumi_zia as zia
+
+        example = zia.UrlFilteringCloudAppSettings("example",
+            enable_dynamic_content_cat=True,
+            enforce_safe_search=True,
+            enable_office365=True,
+            enable_chatgpt_prompt=True,
+            enable_cipa_compliance=False,
+        )
+        ```
+
+        ## Import
+
+        The singleton URL Filtering Cloud App Settings resource can be imported using its fixed ID, e.g.
+
+        ```sh
+        $ pulumi import zia:index:UrlFilteringCloudAppSettings example app_setting
+        ```
+
         :param str resource_name: The name of the resource.
         :param UrlFilteringCloudAppSettingsArgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -337,10 +638,16 @@ class UrlFilteringCloudAppSettings(pulumi.CustomResource):
                  enable_block_override_for_non_auth_user: Optional[pulumi.Input[_builtins.bool]] = None,
                  enable_chatgpt_prompt: Optional[pulumi.Input[_builtins.bool]] = None,
                  enable_cipa_compliance: Optional[pulumi.Input[_builtins.bool]] = None,
+                 enable_claude_prompt: Optional[pulumi.Input[_builtins.bool]] = None,
+                 enable_creative_commons_search_results: Optional[pulumi.Input[_builtins.bool]] = None,
+                 enable_deep_seek_prompt: Optional[pulumi.Input[_builtins.bool]] = None,
                  enable_dynamic_content_cat: Optional[pulumi.Input[_builtins.bool]] = None,
                  enable_gemini_prompt: Optional[pulumi.Input[_builtins.bool]] = None,
+                 enable_grammarly_prompt: Optional[pulumi.Input[_builtins.bool]] = None,
+                 enable_grok_prompt: Optional[pulumi.Input[_builtins.bool]] = None,
                  enable_meta_prompt: Optional[pulumi.Input[_builtins.bool]] = None,
                  enable_microsoft_copilot_prompt: Optional[pulumi.Input[_builtins.bool]] = None,
+                 enable_mistral_ai_prompt: Optional[pulumi.Input[_builtins.bool]] = None,
                  enable_msft_o365: Optional[pulumi.Input[_builtins.bool]] = None,
                  enable_newly_registered_domains: Optional[pulumi.Input[_builtins.bool]] = None,
                  enable_office365: Optional[pulumi.Input[_builtins.bool]] = None,
@@ -351,8 +658,10 @@ class UrlFilteringCloudAppSettings(pulumi.CustomResource):
                  enable_ucaas_talkdesk: Optional[pulumi.Input[_builtins.bool]] = None,
                  enable_ucaas_webex: Optional[pulumi.Input[_builtins.bool]] = None,
                  enable_ucaas_zoom: Optional[pulumi.Input[_builtins.bool]] = None,
+                 enable_writer_prompt: Optional[pulumi.Input[_builtins.bool]] = None,
                  enforce_safe_search: Optional[pulumi.Input[_builtins.bool]] = None,
                  safe_search_apps: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 zvelo_db_lookup_disabled: Optional[pulumi.Input[_builtins.bool]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -367,10 +676,16 @@ class UrlFilteringCloudAppSettings(pulumi.CustomResource):
             __props__.__dict__["enable_block_override_for_non_auth_user"] = enable_block_override_for_non_auth_user
             __props__.__dict__["enable_chatgpt_prompt"] = enable_chatgpt_prompt
             __props__.__dict__["enable_cipa_compliance"] = enable_cipa_compliance
+            __props__.__dict__["enable_claude_prompt"] = enable_claude_prompt
+            __props__.__dict__["enable_creative_commons_search_results"] = enable_creative_commons_search_results
+            __props__.__dict__["enable_deep_seek_prompt"] = enable_deep_seek_prompt
             __props__.__dict__["enable_dynamic_content_cat"] = enable_dynamic_content_cat
             __props__.__dict__["enable_gemini_prompt"] = enable_gemini_prompt
+            __props__.__dict__["enable_grammarly_prompt"] = enable_grammarly_prompt
+            __props__.__dict__["enable_grok_prompt"] = enable_grok_prompt
             __props__.__dict__["enable_meta_prompt"] = enable_meta_prompt
             __props__.__dict__["enable_microsoft_copilot_prompt"] = enable_microsoft_copilot_prompt
+            __props__.__dict__["enable_mistral_ai_prompt"] = enable_mistral_ai_prompt
             __props__.__dict__["enable_msft_o365"] = enable_msft_o365
             __props__.__dict__["enable_newly_registered_domains"] = enable_newly_registered_domains
             __props__.__dict__["enable_office365"] = enable_office365
@@ -381,8 +696,10 @@ class UrlFilteringCloudAppSettings(pulumi.CustomResource):
             __props__.__dict__["enable_ucaas_talkdesk"] = enable_ucaas_talkdesk
             __props__.__dict__["enable_ucaas_webex"] = enable_ucaas_webex
             __props__.__dict__["enable_ucaas_zoom"] = enable_ucaas_zoom
+            __props__.__dict__["enable_writer_prompt"] = enable_writer_prompt
             __props__.__dict__["enforce_safe_search"] = enforce_safe_search
             __props__.__dict__["safe_search_apps"] = safe_search_apps
+            __props__.__dict__["zvelo_db_lookup_disabled"] = zvelo_db_lookup_disabled
             __props__.__dict__["resource_id"] = None
         super(UrlFilteringCloudAppSettings, __self__).__init__(
             'zia:index:UrlFilteringCloudAppSettings',
@@ -411,10 +728,16 @@ class UrlFilteringCloudAppSettings(pulumi.CustomResource):
         __props__.__dict__["enable_block_override_for_non_auth_user"] = None
         __props__.__dict__["enable_chatgpt_prompt"] = None
         __props__.__dict__["enable_cipa_compliance"] = None
+        __props__.__dict__["enable_claude_prompt"] = None
+        __props__.__dict__["enable_creative_commons_search_results"] = None
+        __props__.__dict__["enable_deep_seek_prompt"] = None
         __props__.__dict__["enable_dynamic_content_cat"] = None
         __props__.__dict__["enable_gemini_prompt"] = None
+        __props__.__dict__["enable_grammarly_prompt"] = None
+        __props__.__dict__["enable_grok_prompt"] = None
         __props__.__dict__["enable_meta_prompt"] = None
         __props__.__dict__["enable_microsoft_copilot_prompt"] = None
+        __props__.__dict__["enable_mistral_ai_prompt"] = None
         __props__.__dict__["enable_msft_o365"] = None
         __props__.__dict__["enable_newly_registered_domains"] = None
         __props__.__dict__["enable_office365"] = None
@@ -425,118 +748,250 @@ class UrlFilteringCloudAppSettings(pulumi.CustomResource):
         __props__.__dict__["enable_ucaas_talkdesk"] = None
         __props__.__dict__["enable_ucaas_webex"] = None
         __props__.__dict__["enable_ucaas_zoom"] = None
+        __props__.__dict__["enable_writer_prompt"] = None
         __props__.__dict__["enforce_safe_search"] = None
         __props__.__dict__["resource_id"] = None
         __props__.__dict__["safe_search_apps"] = None
+        __props__.__dict__["zvelo_db_lookup_disabled"] = None
         return UrlFilteringCloudAppSettings(resource_name, opts=opts, __props__=__props__)
 
     @_builtins.property
     @pulumi.getter(name="blockSkype")
     def block_skype(self) -> pulumi.Output[Optional[_builtins.bool]]:
+        """
+        If true, Skype is blocked.
+        """
         return pulumi.get(self, "block_skype")
 
     @_builtins.property
     @pulumi.getter(name="considerEmbeddedSites")
     def consider_embedded_sites(self) -> pulumi.Output[Optional[_builtins.bool]]:
+        """
+        If true, embedded sites within web pages are considered for URL filtering.
+        """
         return pulumi.get(self, "consider_embedded_sites")
 
     @_builtins.property
     @pulumi.getter(name="enableBlockOverrideForNonAuthUser")
     def enable_block_override_for_non_auth_user(self) -> pulumi.Output[Optional[_builtins.bool]]:
+        """
+        If true, block override is enabled for non-authenticated users.
+        """
         return pulumi.get(self, "enable_block_override_for_non_auth_user")
 
     @_builtins.property
     @pulumi.getter(name="enableChatgptPrompt")
     def enable_chatgpt_prompt(self) -> pulumi.Output[Optional[_builtins.bool]]:
+        """
+        If true, ChatGPT prompt visibility and logging is enabled.
+        """
         return pulumi.get(self, "enable_chatgpt_prompt")
 
     @_builtins.property
     @pulumi.getter(name="enableCipaCompliance")
     def enable_cipa_compliance(self) -> pulumi.Output[Optional[_builtins.bool]]:
+        """
+        If true, CIPA (Children's Internet Protection Act) compliance mode is enabled.
+        """
         return pulumi.get(self, "enable_cipa_compliance")
+
+    @_builtins.property
+    @pulumi.getter(name="enableClaudePrompt")
+    def enable_claude_prompt(self) -> pulumi.Output[Optional[_builtins.bool]]:
+        """
+        If true, Claude AI prompt visibility and logging is enabled.
+        """
+        return pulumi.get(self, "enable_claude_prompt")
+
+    @_builtins.property
+    @pulumi.getter(name="enableCreativeCommonsSearchResults")
+    def enable_creative_commons_search_results(self) -> pulumi.Output[Optional[_builtins.bool]]:
+        """
+        If true, Creative Commons search results are enabled.
+        """
+        return pulumi.get(self, "enable_creative_commons_search_results")
+
+    @_builtins.property
+    @pulumi.getter(name="enableDeepSeekPrompt")
+    def enable_deep_seek_prompt(self) -> pulumi.Output[Optional[_builtins.bool]]:
+        """
+        If true, DeepSeek AI prompt visibility and logging is enabled.
+        """
+        return pulumi.get(self, "enable_deep_seek_prompt")
 
     @_builtins.property
     @pulumi.getter(name="enableDynamicContentCat")
     def enable_dynamic_content_cat(self) -> pulumi.Output[Optional[_builtins.bool]]:
+        """
+        If true, dynamic content categorization is enabled.
+        """
         return pulumi.get(self, "enable_dynamic_content_cat")
 
     @_builtins.property
     @pulumi.getter(name="enableGeminiPrompt")
     def enable_gemini_prompt(self) -> pulumi.Output[Optional[_builtins.bool]]:
+        """
+        If true, Google Gemini prompt visibility and logging is enabled.
+        """
         return pulumi.get(self, "enable_gemini_prompt")
+
+    @_builtins.property
+    @pulumi.getter(name="enableGrammarlyPrompt")
+    def enable_grammarly_prompt(self) -> pulumi.Output[Optional[_builtins.bool]]:
+        """
+        If true, Grammarly AI prompt visibility and logging is enabled.
+        """
+        return pulumi.get(self, "enable_grammarly_prompt")
+
+    @_builtins.property
+    @pulumi.getter(name="enableGrokPrompt")
+    def enable_grok_prompt(self) -> pulumi.Output[Optional[_builtins.bool]]:
+        """
+        If true, Grok AI prompt visibility and logging is enabled.
+        """
+        return pulumi.get(self, "enable_grok_prompt")
 
     @_builtins.property
     @pulumi.getter(name="enableMetaPrompt")
     def enable_meta_prompt(self) -> pulumi.Output[Optional[_builtins.bool]]:
+        """
+        If true, Meta AI prompt visibility and logging is enabled.
+        """
         return pulumi.get(self, "enable_meta_prompt")
 
     @_builtins.property
     @pulumi.getter(name="enableMicrosoftCopilotPrompt")
     def enable_microsoft_copilot_prompt(self) -> pulumi.Output[Optional[_builtins.bool]]:
+        """
+        If true, Microsoft Copilot prompt visibility and logging is enabled.
+        """
         return pulumi.get(self, "enable_microsoft_copilot_prompt")
+
+    @_builtins.property
+    @pulumi.getter(name="enableMistralAiPrompt")
+    def enable_mistral_ai_prompt(self) -> pulumi.Output[Optional[_builtins.bool]]:
+        """
+        If true, Mistral AI prompt visibility and logging is enabled.
+        """
+        return pulumi.get(self, "enable_mistral_ai_prompt")
 
     @_builtins.property
     @pulumi.getter(name="enableMsftO365")
     def enable_msft_o365(self) -> pulumi.Output[Optional[_builtins.bool]]:
+        """
+        If true, Microsoft Office 365 optimization is enabled.
+        """
         return pulumi.get(self, "enable_msft_o365")
 
     @_builtins.property
     @pulumi.getter(name="enableNewlyRegisteredDomains")
     def enable_newly_registered_domains(self) -> pulumi.Output[Optional[_builtins.bool]]:
+        """
+        If true, newly registered domains detection is enabled.
+        """
         return pulumi.get(self, "enable_newly_registered_domains")
 
     @_builtins.property
     @pulumi.getter(name="enableOffice365")
     def enable_office365(self) -> pulumi.Output[Optional[_builtins.bool]]:
+        """
+        If true, Office 365 one-click configuration is enabled.
+        """
         return pulumi.get(self, "enable_office365")
 
     @_builtins.property
     @pulumi.getter(name="enablePerPlexityPrompt")
     def enable_per_plexity_prompt(self) -> pulumi.Output[Optional[_builtins.bool]]:
+        """
+        If true, Perplexity AI prompt visibility and logging is enabled.
+        """
         return pulumi.get(self, "enable_per_plexity_prompt")
 
     @_builtins.property
     @pulumi.getter(name="enablePoepPrompt")
     def enable_poep_prompt(self) -> pulumi.Output[Optional[_builtins.bool]]:
+        """
+        If true, POE prompt visibility and logging is enabled.
+        """
         return pulumi.get(self, "enable_poep_prompt")
 
     @_builtins.property
     @pulumi.getter(name="enableUcaasLogmein")
     def enable_ucaas_logmein(self) -> pulumi.Output[Optional[_builtins.bool]]:
+        """
+        If true, UCaaS controls for LogMeIn are enabled.
+        """
         return pulumi.get(self, "enable_ucaas_logmein")
 
     @_builtins.property
     @pulumi.getter(name="enableUcaasRingCentral")
     def enable_ucaas_ring_central(self) -> pulumi.Output[Optional[_builtins.bool]]:
+        """
+        If true, UCaaS controls for RingCentral are enabled.
+        """
         return pulumi.get(self, "enable_ucaas_ring_central")
 
     @_builtins.property
     @pulumi.getter(name="enableUcaasTalkdesk")
     def enable_ucaas_talkdesk(self) -> pulumi.Output[Optional[_builtins.bool]]:
+        """
+        If true, UCaaS controls for Talkdesk are enabled.
+        """
         return pulumi.get(self, "enable_ucaas_talkdesk")
 
     @_builtins.property
     @pulumi.getter(name="enableUcaasWebex")
     def enable_ucaas_webex(self) -> pulumi.Output[Optional[_builtins.bool]]:
+        """
+        If true, UCaaS controls for Webex are enabled.
+        """
         return pulumi.get(self, "enable_ucaas_webex")
 
     @_builtins.property
     @pulumi.getter(name="enableUcaasZoom")
     def enable_ucaas_zoom(self) -> pulumi.Output[Optional[_builtins.bool]]:
+        """
+        If true, UCaaS controls for Zoom are enabled.
+        """
         return pulumi.get(self, "enable_ucaas_zoom")
+
+    @_builtins.property
+    @pulumi.getter(name="enableWriterPrompt")
+    def enable_writer_prompt(self) -> pulumi.Output[Optional[_builtins.bool]]:
+        """
+        If true, Writer AI prompt visibility and logging is enabled.
+        """
+        return pulumi.get(self, "enable_writer_prompt")
 
     @_builtins.property
     @pulumi.getter(name="enforceSafeSearch")
     def enforce_safe_search(self) -> pulumi.Output[Optional[_builtins.bool]]:
+        """
+        If true, safe search is enforced for supported search engines.
+        """
         return pulumi.get(self, "enforce_safe_search")
 
     @_builtins.property
     @pulumi.getter(name="resourceId")
     def resource_id(self) -> pulumi.Output[_builtins.str]:
+        """
+        The fixed resource ID of the singleton URL filtering cloud app settings.
+        """
         return pulumi.get(self, "resource_id")
 
     @_builtins.property
     @pulumi.getter(name="safeSearchApps")
     def safe_search_apps(self) -> pulumi.Output[Optional[Sequence[_builtins.str]]]:
+        """
+        List of application names for which safe search is enforced.
+        """
         return pulumi.get(self, "safe_search_apps")
+
+    @_builtins.property
+    @pulumi.getter(name="zveloDbLookupDisabled")
+    def zvelo_db_lookup_disabled(self) -> pulumi.Output[Optional[_builtins.bool]]:
+        """
+        If true, Zvelo database lookup is disabled.
+        """
+        return pulumi.get(self, "zvelo_db_lookup_disabled")
 

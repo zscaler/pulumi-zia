@@ -17,113 +17,273 @@ import java.util.List;
 import java.util.Optional;
 import javax.annotation.Nullable;
 
+/**
+ * The zia_admin_users resource manages administrator users in the Zscaler Internet Access (ZIA) cloud service. Administrator users have access to the ZIA Admin Portal and can manage policies, configurations, and other administrative tasks based on their assigned role.
+ * 
+ * For more information, see the [ZIA Admin User Management documentation](https://help.zscaler.com/zia/admin-user-management).
+ * 
+ * ## Example Usage
+ * 
+ * ## Import
+ * 
+ * An existing admin user can be imported using its resource ID, e.g.
+ * 
+ * ```sh
+ * $ pulumi import zia:index:AdminUsers example 12345
+ * ```
+ * 
+ */
 @ResourceType(type="zia:index:AdminUsers")
 public class AdminUsers extends com.pulumi.resources.CustomResource {
+    /**
+     * The system-generated ID of the admin user.
+     * 
+     */
     @Export(name="adminId", refs={Integer.class}, tree="[0]")
     private Output<Integer> adminId;
 
+    /**
+     * @return The system-generated ID of the admin user.
+     * 
+     */
     public Output<Integer> adminId() {
         return this.adminId;
     }
+    /**
+     * IDs of the admin scope entities (departments, locations, or location groups) when adminScopeType is not `ORGANIZATION`.
+     * 
+     */
     @Export(name="adminScopeEntities", refs={List.class,Integer.class}, tree="[0,1]")
     private Output</* @Nullable */ List<Integer>> adminScopeEntities;
 
+    /**
+     * @return IDs of the admin scope entities (departments, locations, or location groups) when adminScopeType is not `ORGANIZATION`.
+     * 
+     */
     public Output<Optional<List<Integer>>> adminScopeEntities() {
         return Codegen.optional(this.adminScopeEntities);
     }
+    /**
+     * The admin scope type. Valid values: `ORGANIZATION`, `DEPARTMENT`, `LOCATION`, `LOCATION_GROUP`.
+     * 
+     */
     @Export(name="adminScopeType", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> adminScopeType;
 
+    /**
+     * @return The admin scope type. Valid values: `ORGANIZATION`, `DEPARTMENT`, `LOCATION`, `LOCATION_GROUP`.
+     * 
+     */
     public Output<Optional<String>> adminScopeType() {
         return Codegen.optional(this.adminScopeType);
     }
+    /**
+     * Additional information about the admin user.
+     * 
+     */
     @Export(name="comments", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> comments;
 
+    /**
+     * @return Additional information about the admin user.
+     * 
+     */
     public Output<Optional<String>> comments() {
         return Codegen.optional(this.comments);
     }
+    /**
+     * Whether the admin account is disabled.
+     * 
+     */
     @Export(name="disabled", refs={Boolean.class}, tree="[0]")
     private Output</* @Nullable */ Boolean> disabled;
 
+    /**
+     * @return Whether the admin account is disabled.
+     * 
+     */
     public Output<Optional<Boolean>> disabled() {
         return Codegen.optional(this.disabled);
     }
+    /**
+     * The admin user&#39;s email address.
+     * 
+     */
     @Export(name="email", refs={String.class}, tree="[0]")
     private Output<String> email;
 
+    /**
+     * @return The admin user&#39;s email address.
+     * 
+     */
     public Output<String> email() {
         return this.email;
     }
+    /**
+     * Indicates whether the admin is an auditor.
+     * 
+     */
     @Export(name="isAuditor", refs={Boolean.class}, tree="[0]")
     private Output</* @Nullable */ Boolean> isAuditor;
 
+    /**
+     * @return Indicates whether the admin is an auditor.
+     * 
+     */
     public Output<Optional<Boolean>> isAuditor() {
         return Codegen.optional(this.isAuditor);
     }
+    /**
+     * Whether Executive Insights App access is enabled. Can only be set when adminScopeType is `ORGANIZATION`.
+     * 
+     */
     @Export(name="isExecMobileAppEnabled", refs={Boolean.class}, tree="[0]")
     private Output</* @Nullable */ Boolean> isExecMobileAppEnabled;
 
+    /**
+     * @return Whether Executive Insights App access is enabled. Can only be set when adminScopeType is `ORGANIZATION`.
+     * 
+     */
     public Output<Optional<Boolean>> isExecMobileAppEnabled() {
         return Codegen.optional(this.isExecMobileAppEnabled);
     }
+    /**
+     * Indicates whether the admin user is non-editable (read-only in the ZIA Admin Portal).
+     * 
+     */
     @Export(name="isNonEditable", refs={Boolean.class}, tree="[0]")
     private Output</* @Nullable */ Boolean> isNonEditable;
 
+    /**
+     * @return Indicates whether the admin user is non-editable (read-only in the ZIA Admin Portal).
+     * 
+     */
     public Output<Optional<Boolean>> isNonEditable() {
         return Codegen.optional(this.isNonEditable);
     }
+    /**
+     * Indicates whether the admin user&#39;s password has expired.
+     * 
+     */
     @Export(name="isPasswordExpired", refs={Boolean.class}, tree="[0]")
     private Output</* @Nullable */ Boolean> isPasswordExpired;
 
+    /**
+     * @return Indicates whether the admin user&#39;s password has expired.
+     * 
+     */
     public Output<Optional<Boolean>> isPasswordExpired() {
         return Codegen.optional(this.isPasswordExpired);
     }
+    /**
+     * Whether password-based login is allowed for the admin user.
+     * 
+     */
     @Export(name="isPasswordLoginAllowed", refs={Boolean.class}, tree="[0]")
     private Output</* @Nullable */ Boolean> isPasswordLoginAllowed;
 
+    /**
+     * @return Whether password-based login is allowed for the admin user.
+     * 
+     */
     public Output<Optional<Boolean>> isPasswordLoginAllowed() {
         return Codegen.optional(this.isPasswordLoginAllowed);
     }
+    /**
+     * Whether the admin can receive product update communications.
+     * 
+     */
     @Export(name="isProductUpdateCommEnabled", refs={Boolean.class}, tree="[0]")
     private Output</* @Nullable */ Boolean> isProductUpdateCommEnabled;
 
+    /**
+     * @return Whether the admin can receive product update communications.
+     * 
+     */
     public Output<Optional<Boolean>> isProductUpdateCommEnabled() {
         return Codegen.optional(this.isProductUpdateCommEnabled);
     }
+    /**
+     * Whether the admin can receive security report communications.
+     * 
+     */
     @Export(name="isSecurityReportCommEnabled", refs={Boolean.class}, tree="[0]")
     private Output</* @Nullable */ Boolean> isSecurityReportCommEnabled;
 
+    /**
+     * @return Whether the admin can receive security report communications.
+     * 
+     */
     public Output<Optional<Boolean>> isSecurityReportCommEnabled() {
         return Codegen.optional(this.isSecurityReportCommEnabled);
     }
+    /**
+     * Whether the admin can receive service update communications.
+     * 
+     */
     @Export(name="isServiceUpdateCommEnabled", refs={Boolean.class}, tree="[0]")
     private Output</* @Nullable */ Boolean> isServiceUpdateCommEnabled;
 
+    /**
+     * @return Whether the admin can receive service update communications.
+     * 
+     */
     public Output<Optional<Boolean>> isServiceUpdateCommEnabled() {
         return Codegen.optional(this.isServiceUpdateCommEnabled);
     }
+    /**
+     * The admin user&#39;s login name (email format). Must be unique.
+     * 
+     */
     @Export(name="loginName", refs={String.class}, tree="[0]")
     private Output<String> loginName;
 
+    /**
+     * @return The admin user&#39;s login name (email format). Must be unique.
+     * 
+     */
     public Output<String> loginName() {
         return this.loginName;
     }
+    /**
+     * The admin user&#39;s password. Required when isPasswordLoginAllowed is true. Must be 8 to 100 characters.
+     * 
+     */
     @Export(name="password", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> password;
 
+    /**
+     * @return The admin user&#39;s password. Required when isPasswordLoginAllowed is true. Must be 8 to 100 characters.
+     * 
+     */
     public Output<Optional<String>> password() {
         return Codegen.optional(this.password);
     }
+    /**
+     * The role assigned to the admin user. Provide the role ID.
+     * 
+     */
     @Export(name="role", refs={AdminUserRoleInput.class}, tree="[0]")
     private Output</* @Nullable */ AdminUserRoleInput> role;
 
+    /**
+     * @return The role assigned to the admin user. Provide the role ID.
+     * 
+     */
     public Output<Optional<AdminUserRoleInput>> role() {
         return Codegen.optional(this.role);
     }
+    /**
+     * The admin user&#39;s display name.
+     * 
+     */
     @Export(name="username", refs={String.class}, tree="[0]")
     private Output<String> username;
 
+    /**
+     * @return The admin user&#39;s display name.
+     * 
+     */
     public Output<String> username() {
         return this.username;
     }
@@ -167,6 +327,7 @@ public class AdminUsers extends com.pulumi.resources.CustomResource {
     private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<java.lang.String> id) {
         var defaultOptions = com.pulumi.resources.CustomResourceOptions.builder()
             .version(Utilities.getVersion())
+            .pluginDownloadURL("github://api.github.com/zscaler")
             .additionalSecretOutputs(List.of(
                 "password"
             ))

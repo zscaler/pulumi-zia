@@ -22,12 +22,16 @@ class ActivationArgs:
                  status: pulumi.Input[_builtins.str]):
         """
         The set of arguments for constructing a Activation resource.
+        :param pulumi.Input[_builtins.str] status: The activation status. Must be `ACTIVE` to trigger configuration activation.
         """
         pulumi.set(__self__, "status", status)
 
     @_builtins.property
     @pulumi.getter
     def status(self) -> pulumi.Input[_builtins.str]:
+        """
+        The activation status. Must be `ACTIVE` to trigger configuration activation.
+        """
         return pulumi.get(self, "status")
 
     @status.setter
@@ -44,9 +48,28 @@ class Activation(pulumi.CustomResource):
                  status: Optional[pulumi.Input[_builtins.str]] = None,
                  __props__=None):
         """
-        Create a Activation resource with the given unique name, props, and options.
+        The zia_activation resource triggers the activation of ZIA configuration changes in the Zscaler Internet Access (ZIA) cloud service. After making configuration changes to ZIA resources, this resource can be used to activate and push those changes to the ZIA cloud. Delete is a no-op.
+
+        For more information, see the [ZIA Configuration Activation documentation](https://help.zscaler.com/zia/activating-configuration-changes).
+
+        ## Example Usage
+        ### Basic Configuration Activation
+
+        ```python
+        import zscaler_pulumi_zia as zia
+
+        example = zia.Activation("example",
+            status="ACTIVE",
+        )
+        ```
+
+        ## Import
+
+        This is a singleton resource and does not support traditional import. It is automatically managed by the provider.
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
+        :param pulumi.Input[_builtins.str] status: The activation status. Must be `ACTIVE` to trigger configuration activation.
         """
         ...
     @overload
@@ -55,7 +78,25 @@ class Activation(pulumi.CustomResource):
                  args: ActivationArgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
-        Create a Activation resource with the given unique name, props, and options.
+        The zia_activation resource triggers the activation of ZIA configuration changes in the Zscaler Internet Access (ZIA) cloud service. After making configuration changes to ZIA resources, this resource can be used to activate and push those changes to the ZIA cloud. Delete is a no-op.
+
+        For more information, see the [ZIA Configuration Activation documentation](https://help.zscaler.com/zia/activating-configuration-changes).
+
+        ## Example Usage
+        ### Basic Configuration Activation
+
+        ```python
+        import zscaler_pulumi_zia as zia
+
+        example = zia.Activation("example",
+            status="ACTIVE",
+        )
+        ```
+
+        ## Import
+
+        This is a singleton resource and does not support traditional import. It is automatically managed by the provider.
+
         :param str resource_name: The name of the resource.
         :param ActivationArgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -114,10 +155,16 @@ class Activation(pulumi.CustomResource):
     @_builtins.property
     @pulumi.getter(name="resourceId")
     def resource_id(self) -> pulumi.Output[_builtins.str]:
+        """
+        The internal resource identifier for the activation.
+        """
         return pulumi.get(self, "resource_id")
 
     @_builtins.property
     @pulumi.getter
     def status(self) -> pulumi.Output[_builtins.str]:
+        """
+        The activation status. Must be `ACTIVE` to trigger configuration activation.
+        """
         return pulumi.get(self, "status")
 

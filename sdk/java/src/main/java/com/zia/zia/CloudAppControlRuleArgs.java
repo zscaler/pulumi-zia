@@ -20,191 +20,407 @@ public final class CloudAppControlRuleArgs extends com.pulumi.resources.Resource
 
     public static final CloudAppControlRuleArgs Empty = new CloudAppControlRuleArgs();
 
+    /**
+     * Actions taken when traffic matches rule criteria. Valid values: `ALLOW`, `BLOCK`, `CAUTION`, `ISOLATE`.
+     * 
+     */
     @Import(name="actions")
     private @Nullable Output<List<String>> actions;
 
+    /**
+     * @return Actions taken when traffic matches rule criteria. Valid values: `ALLOW`, `BLOCK`, `CAUTION`, `ISOLATE`.
+     * 
+     */
     public Optional<Output<List<String>>> actions() {
         return Optional.ofNullable(this.actions);
     }
 
+    /**
+     * List of cloud application names to which the rule applies.
+     * 
+     */
     @Import(name="applications")
     private @Nullable Output<List<String>> applications;
 
+    /**
+     * @return List of cloud application names to which the rule applies.
+     * 
+     */
     public Optional<Output<List<String>>> applications() {
         return Optional.ofNullable(this.applications);
     }
 
+    /**
+     * The ID of the Browser End User Notification template.
+     * 
+     */
     @Import(name="browserEunTemplateId")
     private @Nullable Output<Integer> browserEunTemplateId;
 
+    /**
+     * @return The ID of the Browser End User Notification template.
+     * 
+     */
     public Optional<Output<Integer>> browserEunTemplateId() {
         return Optional.ofNullable(this.browserEunTemplateId);
     }
 
+    /**
+     * If true, cascading to other rules is enabled when this rule matches.
+     * 
+     */
     @Import(name="cascadingEnabled")
     private @Nullable Output<Boolean> cascadingEnabled;
 
+    /**
+     * @return If true, cascading to other rules is enabled when this rule matches.
+     * 
+     */
     public Optional<Output<Boolean>> cascadingEnabled() {
         return Optional.ofNullable(this.cascadingEnabled);
     }
 
+    /**
+     * The Cloud Browser Isolation (CBI) profile. Required when action is &#39;ISOLATE&#39;.
+     * 
+     */
     @Import(name="cbiProfile")
     private @Nullable Output<CBIProfileInputArgs> cbiProfile;
 
+    /**
+     * @return The Cloud Browser Isolation (CBI) profile. Required when action is &#39;ISOLATE&#39;.
+     * 
+     */
     public Optional<Output<CBIProfileInputArgs>> cbiProfile() {
         return Optional.ofNullable(this.cbiProfile);
     }
 
+    /**
+     * The ID of the cloud application risk profile associated with this rule.
+     * 
+     */
     @Import(name="cloudAppRiskProfileId")
     private @Nullable Output<Integer> cloudAppRiskProfileId;
 
+    /**
+     * @return The ID of the cloud application risk profile associated with this rule.
+     * 
+     */
     public Optional<Output<Integer>> cloudAppRiskProfileId() {
         return Optional.ofNullable(this.cloudAppRiskProfileId);
     }
 
+    /**
+     * IDs of departments for which the rule must be applied.
+     * 
+     */
     @Import(name="departments")
     private @Nullable Output<List<Integer>> departments;
 
+    /**
+     * @return IDs of departments for which the rule must be applied.
+     * 
+     */
     public Optional<Output<List<Integer>>> departments() {
         return Optional.ofNullable(this.departments);
     }
 
+    /**
+     * Additional information about the cloud app control rule.
+     * 
+     */
     @Import(name="description")
     private @Nullable Output<String> description;
 
+    /**
+     * @return Additional information about the cloud app control rule.
+     * 
+     */
     public Optional<Output<String>> description() {
         return Optional.ofNullable(this.description);
     }
 
+    /**
+     * IDs of device groups for which the rule must be applied.
+     * 
+     */
     @Import(name="deviceGroups")
     private @Nullable Output<List<Integer>> deviceGroups;
 
+    /**
+     * @return IDs of device groups for which the rule must be applied.
+     * 
+     */
     public Optional<Output<List<Integer>>> deviceGroups() {
         return Optional.ofNullable(this.deviceGroups);
     }
 
+    /**
+     * IDs of devices for which the rule must be applied.
+     * 
+     */
     @Import(name="devices")
     private @Nullable Output<List<Integer>> devices;
 
+    /**
+     * @return IDs of devices for which the rule must be applied.
+     * 
+     */
     public Optional<Output<List<Integer>>> devices() {
         return Optional.ofNullable(this.devices);
     }
 
+    /**
+     * Enforce a set validity time period for the rule.
+     * 
+     */
     @Import(name="enforceTimeValidity")
     private @Nullable Output<Boolean> enforceTimeValidity;
 
+    /**
+     * @return Enforce a set validity time period for the rule.
+     * 
+     */
     public Optional<Output<Boolean>> enforceTimeValidity() {
         return Optional.ofNullable(this.enforceTimeValidity);
     }
 
+    /**
+     * If true, End User Notification is enabled for this rule.
+     * 
+     */
     @Import(name="eunEnabled")
     private @Nullable Output<Boolean> eunEnabled;
 
+    /**
+     * @return If true, End User Notification is enabled for this rule.
+     * 
+     */
     public Optional<Output<Boolean>> eunEnabled() {
         return Optional.ofNullable(this.eunEnabled);
     }
 
+    /**
+     * The ID of the End User Notification template.
+     * 
+     */
     @Import(name="eunTemplateId")
     private @Nullable Output<Integer> eunTemplateId;
 
+    /**
+     * @return The ID of the End User Notification template.
+     * 
+     */
     public Optional<Output<Integer>> eunTemplateId() {
         return Optional.ofNullable(this.eunTemplateId);
     }
 
+    /**
+     * IDs of groups for which the rule must be applied.
+     * 
+     */
     @Import(name="groups")
     private @Nullable Output<List<Integer>> groups;
 
+    /**
+     * @return IDs of groups for which the rule must be applied.
+     * 
+     */
     public Optional<Output<List<Integer>>> groups() {
         return Optional.ofNullable(this.groups);
     }
 
+    /**
+     * IDs of labels associated with the cloud app control rule.
+     * 
+     */
     @Import(name="labels")
     private @Nullable Output<List<Integer>> labels;
 
+    /**
+     * @return IDs of labels associated with the cloud app control rule.
+     * 
+     */
     public Optional<Output<List<Integer>>> labels() {
         return Optional.ofNullable(this.labels);
     }
 
+    /**
+     * IDs of location groups for which the rule must be applied.
+     * 
+     */
     @Import(name="locationGroups")
     private @Nullable Output<List<Integer>> locationGroups;
 
+    /**
+     * @return IDs of location groups for which the rule must be applied.
+     * 
+     */
     public Optional<Output<List<Integer>>> locationGroups() {
         return Optional.ofNullable(this.locationGroups);
     }
 
+    /**
+     * IDs of locations for which the rule must be applied.
+     * 
+     */
     @Import(name="locations")
     private @Nullable Output<List<Integer>> locations;
 
+    /**
+     * @return IDs of locations for which the rule must be applied.
+     * 
+     */
     public Optional<Output<List<Integer>>> locations() {
         return Optional.ofNullable(this.locations);
     }
 
+    /**
+     * The name of the cloud app control rule. Must be unique.
+     * 
+     */
     @Import(name="name", required=true)
     private Output<String> name;
 
+    /**
+     * @return The name of the cloud app control rule. Must be unique.
+     * 
+     */
     public Output<String> name() {
         return this.name;
     }
 
+    /**
+     * The order of execution of the rule with respect to other cloud app control rules.
+     * 
+     */
     @Import(name="order", required=true)
     private Output<Integer> order;
 
+    /**
+     * @return The order of execution of the rule with respect to other cloud app control rules.
+     * 
+     */
     public Output<Integer> order() {
         return this.order;
     }
 
+    /**
+     * Admin rank of the cloud app control rule. Valid values: 0-7. Default: 7.
+     * 
+     */
     @Import(name="rank")
     private @Nullable Output<Integer> rank;
 
+    /**
+     * @return Admin rank of the cloud app control rule. Valid values: 0-7. Default: 7.
+     * 
+     */
     public Optional<Output<Integer>> rank() {
         return Optional.ofNullable(this.rank);
     }
 
+    /**
+     * Size quota in MB beyond which the rule is applied. Not applicable when action is &#39;BLOCK&#39;.
+     * 
+     */
     @Import(name="sizeQuota")
     private @Nullable Output<Integer> sizeQuota;
 
+    /**
+     * @return Size quota in MB beyond which the rule is applied. Not applicable when action is &#39;BLOCK&#39;.
+     * 
+     */
     public Optional<Output<Integer>> sizeQuota() {
         return Optional.ofNullable(this.sizeQuota);
     }
 
+    /**
+     * Rule state. Valid values: `ENABLED`, `DISABLED`.
+     * 
+     */
     @Import(name="state")
     private @Nullable Output<String> state;
 
+    /**
+     * @return Rule state. Valid values: `ENABLED`, `DISABLED`.
+     * 
+     */
     public Optional<Output<String>> state() {
         return Optional.ofNullable(this.state);
     }
 
+    /**
+     * IDs of tenancy profiles for which the rule must be applied.
+     * 
+     */
     @Import(name="tenancyProfileIds")
     private @Nullable Output<List<Integer>> tenancyProfileIds;
 
+    /**
+     * @return IDs of tenancy profiles for which the rule must be applied.
+     * 
+     */
     public Optional<Output<List<Integer>>> tenancyProfileIds() {
         return Optional.ofNullable(this.tenancyProfileIds);
     }
 
+    /**
+     * Time quota in minutes, after which the rule is applied. Not applicable when action is &#39;BLOCK&#39;.
+     * 
+     */
     @Import(name="timeQuota")
     private @Nullable Output<Integer> timeQuota;
 
+    /**
+     * @return Time quota in minutes, after which the rule is applied. Not applicable when action is &#39;BLOCK&#39;.
+     * 
+     */
     public Optional<Output<Integer>> timeQuota() {
         return Optional.ofNullable(this.timeQuota);
     }
 
+    /**
+     * IDs of time intervals during which the rule must be enforced.
+     * 
+     */
     @Import(name="timeWindows")
     private @Nullable Output<List<Integer>> timeWindows;
 
+    /**
+     * @return IDs of time intervals during which the rule must be enforced.
+     * 
+     */
     public Optional<Output<List<Integer>>> timeWindows() {
         return Optional.ofNullable(this.timeWindows);
     }
 
+    /**
+     * The rule type, corresponding to the cloud application category. Valid values: `STREAMING_MEDIA`, `SOCIAL_NETWORKING`, `WEBMAIL`, `INSTANT_MESSAGING`, `FILE_SHARE`, `BUSINESS_PRODUCTIVITY`, `SYSTEM_AND_DEVELOPMENT`, `CONSUMER`, `HOSTING_PROVIDER`, `DNS_OVER_HTTPS`, `ENTERPRISE_COLLABORATION`, `GENERATIVE_AI`, `SALES_AND_MARKETING`, `HEALTH_CARE`, `LEGAL`, `HUMAN_RESOURCES`, `FINANCE`.
+     * 
+     */
     @Import(name="type", required=true)
     private Output<String> type;
 
+    /**
+     * @return The rule type, corresponding to the cloud application category. Valid values: `STREAMING_MEDIA`, `SOCIAL_NETWORKING`, `WEBMAIL`, `INSTANT_MESSAGING`, `FILE_SHARE`, `BUSINESS_PRODUCTIVITY`, `SYSTEM_AND_DEVELOPMENT`, `CONSUMER`, `HOSTING_PROVIDER`, `DNS_OVER_HTTPS`, `ENTERPRISE_COLLABORATION`, `GENERATIVE_AI`, `SALES_AND_MARKETING`, `HEALTH_CARE`, `LEGAL`, `HUMAN_RESOURCES`, `FINANCE`.
+     * 
+     */
     public Output<String> type() {
         return this.type;
     }
 
+    /**
+     * IDs of users for which the rule must be applied.
+     * 
+     */
     @Import(name="users")
     private @Nullable Output<List<Integer>> users;
 
+    /**
+     * @return IDs of users for which the rule must be applied.
+     * 
+     */
     public Optional<Output<List<Integer>>> users() {
         return Optional.ofNullable(this.users);
     }
@@ -259,293 +475,689 @@ public final class CloudAppControlRuleArgs extends com.pulumi.resources.Resource
             $ = new CloudAppControlRuleArgs(Objects.requireNonNull(defaults));
         }
 
+        /**
+         * @param actions Actions taken when traffic matches rule criteria. Valid values: `ALLOW`, `BLOCK`, `CAUTION`, `ISOLATE`.
+         * 
+         * @return builder
+         * 
+         */
         public Builder actions(@Nullable Output<List<String>> actions) {
             $.actions = actions;
             return this;
         }
 
+        /**
+         * @param actions Actions taken when traffic matches rule criteria. Valid values: `ALLOW`, `BLOCK`, `CAUTION`, `ISOLATE`.
+         * 
+         * @return builder
+         * 
+         */
         public Builder actions(List<String> actions) {
             return actions(Output.of(actions));
         }
 
+        /**
+         * @param actions Actions taken when traffic matches rule criteria. Valid values: `ALLOW`, `BLOCK`, `CAUTION`, `ISOLATE`.
+         * 
+         * @return builder
+         * 
+         */
         public Builder actions(String... actions) {
             return actions(List.of(actions));
         }
 
+        /**
+         * @param applications List of cloud application names to which the rule applies.
+         * 
+         * @return builder
+         * 
+         */
         public Builder applications(@Nullable Output<List<String>> applications) {
             $.applications = applications;
             return this;
         }
 
+        /**
+         * @param applications List of cloud application names to which the rule applies.
+         * 
+         * @return builder
+         * 
+         */
         public Builder applications(List<String> applications) {
             return applications(Output.of(applications));
         }
 
+        /**
+         * @param applications List of cloud application names to which the rule applies.
+         * 
+         * @return builder
+         * 
+         */
         public Builder applications(String... applications) {
             return applications(List.of(applications));
         }
 
+        /**
+         * @param browserEunTemplateId The ID of the Browser End User Notification template.
+         * 
+         * @return builder
+         * 
+         */
         public Builder browserEunTemplateId(@Nullable Output<Integer> browserEunTemplateId) {
             $.browserEunTemplateId = browserEunTemplateId;
             return this;
         }
 
+        /**
+         * @param browserEunTemplateId The ID of the Browser End User Notification template.
+         * 
+         * @return builder
+         * 
+         */
         public Builder browserEunTemplateId(Integer browserEunTemplateId) {
             return browserEunTemplateId(Output.of(browserEunTemplateId));
         }
 
+        /**
+         * @param cascadingEnabled If true, cascading to other rules is enabled when this rule matches.
+         * 
+         * @return builder
+         * 
+         */
         public Builder cascadingEnabled(@Nullable Output<Boolean> cascadingEnabled) {
             $.cascadingEnabled = cascadingEnabled;
             return this;
         }
 
+        /**
+         * @param cascadingEnabled If true, cascading to other rules is enabled when this rule matches.
+         * 
+         * @return builder
+         * 
+         */
         public Builder cascadingEnabled(Boolean cascadingEnabled) {
             return cascadingEnabled(Output.of(cascadingEnabled));
         }
 
+        /**
+         * @param cbiProfile The Cloud Browser Isolation (CBI) profile. Required when action is &#39;ISOLATE&#39;.
+         * 
+         * @return builder
+         * 
+         */
         public Builder cbiProfile(@Nullable Output<CBIProfileInputArgs> cbiProfile) {
             $.cbiProfile = cbiProfile;
             return this;
         }
 
+        /**
+         * @param cbiProfile The Cloud Browser Isolation (CBI) profile. Required when action is &#39;ISOLATE&#39;.
+         * 
+         * @return builder
+         * 
+         */
         public Builder cbiProfile(CBIProfileInputArgs cbiProfile) {
             return cbiProfile(Output.of(cbiProfile));
         }
 
+        /**
+         * @param cloudAppRiskProfileId The ID of the cloud application risk profile associated with this rule.
+         * 
+         * @return builder
+         * 
+         */
         public Builder cloudAppRiskProfileId(@Nullable Output<Integer> cloudAppRiskProfileId) {
             $.cloudAppRiskProfileId = cloudAppRiskProfileId;
             return this;
         }
 
+        /**
+         * @param cloudAppRiskProfileId The ID of the cloud application risk profile associated with this rule.
+         * 
+         * @return builder
+         * 
+         */
         public Builder cloudAppRiskProfileId(Integer cloudAppRiskProfileId) {
             return cloudAppRiskProfileId(Output.of(cloudAppRiskProfileId));
         }
 
+        /**
+         * @param departments IDs of departments for which the rule must be applied.
+         * 
+         * @return builder
+         * 
+         */
         public Builder departments(@Nullable Output<List<Integer>> departments) {
             $.departments = departments;
             return this;
         }
 
+        /**
+         * @param departments IDs of departments for which the rule must be applied.
+         * 
+         * @return builder
+         * 
+         */
         public Builder departments(List<Integer> departments) {
             return departments(Output.of(departments));
         }
 
+        /**
+         * @param departments IDs of departments for which the rule must be applied.
+         * 
+         * @return builder
+         * 
+         */
         public Builder departments(Integer... departments) {
             return departments(List.of(departments));
         }
 
+        /**
+         * @param description Additional information about the cloud app control rule.
+         * 
+         * @return builder
+         * 
+         */
         public Builder description(@Nullable Output<String> description) {
             $.description = description;
             return this;
         }
 
+        /**
+         * @param description Additional information about the cloud app control rule.
+         * 
+         * @return builder
+         * 
+         */
         public Builder description(String description) {
             return description(Output.of(description));
         }
 
+        /**
+         * @param deviceGroups IDs of device groups for which the rule must be applied.
+         * 
+         * @return builder
+         * 
+         */
         public Builder deviceGroups(@Nullable Output<List<Integer>> deviceGroups) {
             $.deviceGroups = deviceGroups;
             return this;
         }
 
+        /**
+         * @param deviceGroups IDs of device groups for which the rule must be applied.
+         * 
+         * @return builder
+         * 
+         */
         public Builder deviceGroups(List<Integer> deviceGroups) {
             return deviceGroups(Output.of(deviceGroups));
         }
 
+        /**
+         * @param deviceGroups IDs of device groups for which the rule must be applied.
+         * 
+         * @return builder
+         * 
+         */
         public Builder deviceGroups(Integer... deviceGroups) {
             return deviceGroups(List.of(deviceGroups));
         }
 
+        /**
+         * @param devices IDs of devices for which the rule must be applied.
+         * 
+         * @return builder
+         * 
+         */
         public Builder devices(@Nullable Output<List<Integer>> devices) {
             $.devices = devices;
             return this;
         }
 
+        /**
+         * @param devices IDs of devices for which the rule must be applied.
+         * 
+         * @return builder
+         * 
+         */
         public Builder devices(List<Integer> devices) {
             return devices(Output.of(devices));
         }
 
+        /**
+         * @param devices IDs of devices for which the rule must be applied.
+         * 
+         * @return builder
+         * 
+         */
         public Builder devices(Integer... devices) {
             return devices(List.of(devices));
         }
 
+        /**
+         * @param enforceTimeValidity Enforce a set validity time period for the rule.
+         * 
+         * @return builder
+         * 
+         */
         public Builder enforceTimeValidity(@Nullable Output<Boolean> enforceTimeValidity) {
             $.enforceTimeValidity = enforceTimeValidity;
             return this;
         }
 
+        /**
+         * @param enforceTimeValidity Enforce a set validity time period for the rule.
+         * 
+         * @return builder
+         * 
+         */
         public Builder enforceTimeValidity(Boolean enforceTimeValidity) {
             return enforceTimeValidity(Output.of(enforceTimeValidity));
         }
 
+        /**
+         * @param eunEnabled If true, End User Notification is enabled for this rule.
+         * 
+         * @return builder
+         * 
+         */
         public Builder eunEnabled(@Nullable Output<Boolean> eunEnabled) {
             $.eunEnabled = eunEnabled;
             return this;
         }
 
+        /**
+         * @param eunEnabled If true, End User Notification is enabled for this rule.
+         * 
+         * @return builder
+         * 
+         */
         public Builder eunEnabled(Boolean eunEnabled) {
             return eunEnabled(Output.of(eunEnabled));
         }
 
+        /**
+         * @param eunTemplateId The ID of the End User Notification template.
+         * 
+         * @return builder
+         * 
+         */
         public Builder eunTemplateId(@Nullable Output<Integer> eunTemplateId) {
             $.eunTemplateId = eunTemplateId;
             return this;
         }
 
+        /**
+         * @param eunTemplateId The ID of the End User Notification template.
+         * 
+         * @return builder
+         * 
+         */
         public Builder eunTemplateId(Integer eunTemplateId) {
             return eunTemplateId(Output.of(eunTemplateId));
         }
 
+        /**
+         * @param groups IDs of groups for which the rule must be applied.
+         * 
+         * @return builder
+         * 
+         */
         public Builder groups(@Nullable Output<List<Integer>> groups) {
             $.groups = groups;
             return this;
         }
 
+        /**
+         * @param groups IDs of groups for which the rule must be applied.
+         * 
+         * @return builder
+         * 
+         */
         public Builder groups(List<Integer> groups) {
             return groups(Output.of(groups));
         }
 
+        /**
+         * @param groups IDs of groups for which the rule must be applied.
+         * 
+         * @return builder
+         * 
+         */
         public Builder groups(Integer... groups) {
             return groups(List.of(groups));
         }
 
+        /**
+         * @param labels IDs of labels associated with the cloud app control rule.
+         * 
+         * @return builder
+         * 
+         */
         public Builder labels(@Nullable Output<List<Integer>> labels) {
             $.labels = labels;
             return this;
         }
 
+        /**
+         * @param labels IDs of labels associated with the cloud app control rule.
+         * 
+         * @return builder
+         * 
+         */
         public Builder labels(List<Integer> labels) {
             return labels(Output.of(labels));
         }
 
+        /**
+         * @param labels IDs of labels associated with the cloud app control rule.
+         * 
+         * @return builder
+         * 
+         */
         public Builder labels(Integer... labels) {
             return labels(List.of(labels));
         }
 
+        /**
+         * @param locationGroups IDs of location groups for which the rule must be applied.
+         * 
+         * @return builder
+         * 
+         */
         public Builder locationGroups(@Nullable Output<List<Integer>> locationGroups) {
             $.locationGroups = locationGroups;
             return this;
         }
 
+        /**
+         * @param locationGroups IDs of location groups for which the rule must be applied.
+         * 
+         * @return builder
+         * 
+         */
         public Builder locationGroups(List<Integer> locationGroups) {
             return locationGroups(Output.of(locationGroups));
         }
 
+        /**
+         * @param locationGroups IDs of location groups for which the rule must be applied.
+         * 
+         * @return builder
+         * 
+         */
         public Builder locationGroups(Integer... locationGroups) {
             return locationGroups(List.of(locationGroups));
         }
 
+        /**
+         * @param locations IDs of locations for which the rule must be applied.
+         * 
+         * @return builder
+         * 
+         */
         public Builder locations(@Nullable Output<List<Integer>> locations) {
             $.locations = locations;
             return this;
         }
 
+        /**
+         * @param locations IDs of locations for which the rule must be applied.
+         * 
+         * @return builder
+         * 
+         */
         public Builder locations(List<Integer> locations) {
             return locations(Output.of(locations));
         }
 
+        /**
+         * @param locations IDs of locations for which the rule must be applied.
+         * 
+         * @return builder
+         * 
+         */
         public Builder locations(Integer... locations) {
             return locations(List.of(locations));
         }
 
+        /**
+         * @param name The name of the cloud app control rule. Must be unique.
+         * 
+         * @return builder
+         * 
+         */
         public Builder name(Output<String> name) {
             $.name = name;
             return this;
         }
 
+        /**
+         * @param name The name of the cloud app control rule. Must be unique.
+         * 
+         * @return builder
+         * 
+         */
         public Builder name(String name) {
             return name(Output.of(name));
         }
 
+        /**
+         * @param order The order of execution of the rule with respect to other cloud app control rules.
+         * 
+         * @return builder
+         * 
+         */
         public Builder order(Output<Integer> order) {
             $.order = order;
             return this;
         }
 
+        /**
+         * @param order The order of execution of the rule with respect to other cloud app control rules.
+         * 
+         * @return builder
+         * 
+         */
         public Builder order(Integer order) {
             return order(Output.of(order));
         }
 
+        /**
+         * @param rank Admin rank of the cloud app control rule. Valid values: 0-7. Default: 7.
+         * 
+         * @return builder
+         * 
+         */
         public Builder rank(@Nullable Output<Integer> rank) {
             $.rank = rank;
             return this;
         }
 
+        /**
+         * @param rank Admin rank of the cloud app control rule. Valid values: 0-7. Default: 7.
+         * 
+         * @return builder
+         * 
+         */
         public Builder rank(Integer rank) {
             return rank(Output.of(rank));
         }
 
+        /**
+         * @param sizeQuota Size quota in MB beyond which the rule is applied. Not applicable when action is &#39;BLOCK&#39;.
+         * 
+         * @return builder
+         * 
+         */
         public Builder sizeQuota(@Nullable Output<Integer> sizeQuota) {
             $.sizeQuota = sizeQuota;
             return this;
         }
 
+        /**
+         * @param sizeQuota Size quota in MB beyond which the rule is applied. Not applicable when action is &#39;BLOCK&#39;.
+         * 
+         * @return builder
+         * 
+         */
         public Builder sizeQuota(Integer sizeQuota) {
             return sizeQuota(Output.of(sizeQuota));
         }
 
+        /**
+         * @param state Rule state. Valid values: `ENABLED`, `DISABLED`.
+         * 
+         * @return builder
+         * 
+         */
         public Builder state(@Nullable Output<String> state) {
             $.state = state;
             return this;
         }
 
+        /**
+         * @param state Rule state. Valid values: `ENABLED`, `DISABLED`.
+         * 
+         * @return builder
+         * 
+         */
         public Builder state(String state) {
             return state(Output.of(state));
         }
 
+        /**
+         * @param tenancyProfileIds IDs of tenancy profiles for which the rule must be applied.
+         * 
+         * @return builder
+         * 
+         */
         public Builder tenancyProfileIds(@Nullable Output<List<Integer>> tenancyProfileIds) {
             $.tenancyProfileIds = tenancyProfileIds;
             return this;
         }
 
+        /**
+         * @param tenancyProfileIds IDs of tenancy profiles for which the rule must be applied.
+         * 
+         * @return builder
+         * 
+         */
         public Builder tenancyProfileIds(List<Integer> tenancyProfileIds) {
             return tenancyProfileIds(Output.of(tenancyProfileIds));
         }
 
+        /**
+         * @param tenancyProfileIds IDs of tenancy profiles for which the rule must be applied.
+         * 
+         * @return builder
+         * 
+         */
         public Builder tenancyProfileIds(Integer... tenancyProfileIds) {
             return tenancyProfileIds(List.of(tenancyProfileIds));
         }
 
+        /**
+         * @param timeQuota Time quota in minutes, after which the rule is applied. Not applicable when action is &#39;BLOCK&#39;.
+         * 
+         * @return builder
+         * 
+         */
         public Builder timeQuota(@Nullable Output<Integer> timeQuota) {
             $.timeQuota = timeQuota;
             return this;
         }
 
+        /**
+         * @param timeQuota Time quota in minutes, after which the rule is applied. Not applicable when action is &#39;BLOCK&#39;.
+         * 
+         * @return builder
+         * 
+         */
         public Builder timeQuota(Integer timeQuota) {
             return timeQuota(Output.of(timeQuota));
         }
 
+        /**
+         * @param timeWindows IDs of time intervals during which the rule must be enforced.
+         * 
+         * @return builder
+         * 
+         */
         public Builder timeWindows(@Nullable Output<List<Integer>> timeWindows) {
             $.timeWindows = timeWindows;
             return this;
         }
 
+        /**
+         * @param timeWindows IDs of time intervals during which the rule must be enforced.
+         * 
+         * @return builder
+         * 
+         */
         public Builder timeWindows(List<Integer> timeWindows) {
             return timeWindows(Output.of(timeWindows));
         }
 
+        /**
+         * @param timeWindows IDs of time intervals during which the rule must be enforced.
+         * 
+         * @return builder
+         * 
+         */
         public Builder timeWindows(Integer... timeWindows) {
             return timeWindows(List.of(timeWindows));
         }
 
+        /**
+         * @param type The rule type, corresponding to the cloud application category. Valid values: `STREAMING_MEDIA`, `SOCIAL_NETWORKING`, `WEBMAIL`, `INSTANT_MESSAGING`, `FILE_SHARE`, `BUSINESS_PRODUCTIVITY`, `SYSTEM_AND_DEVELOPMENT`, `CONSUMER`, `HOSTING_PROVIDER`, `DNS_OVER_HTTPS`, `ENTERPRISE_COLLABORATION`, `GENERATIVE_AI`, `SALES_AND_MARKETING`, `HEALTH_CARE`, `LEGAL`, `HUMAN_RESOURCES`, `FINANCE`.
+         * 
+         * @return builder
+         * 
+         */
         public Builder type(Output<String> type) {
             $.type = type;
             return this;
         }
 
+        /**
+         * @param type The rule type, corresponding to the cloud application category. Valid values: `STREAMING_MEDIA`, `SOCIAL_NETWORKING`, `WEBMAIL`, `INSTANT_MESSAGING`, `FILE_SHARE`, `BUSINESS_PRODUCTIVITY`, `SYSTEM_AND_DEVELOPMENT`, `CONSUMER`, `HOSTING_PROVIDER`, `DNS_OVER_HTTPS`, `ENTERPRISE_COLLABORATION`, `GENERATIVE_AI`, `SALES_AND_MARKETING`, `HEALTH_CARE`, `LEGAL`, `HUMAN_RESOURCES`, `FINANCE`.
+         * 
+         * @return builder
+         * 
+         */
         public Builder type(String type) {
             return type(Output.of(type));
         }
 
+        /**
+         * @param users IDs of users for which the rule must be applied.
+         * 
+         * @return builder
+         * 
+         */
         public Builder users(@Nullable Output<List<Integer>> users) {
             $.users = users;
             return this;
         }
 
+        /**
+         * @param users IDs of users for which the rule must be applied.
+         * 
+         * @return builder
+         * 
+         */
         public Builder users(List<Integer> users) {
             return users(Output.of(users));
         }
 
+        /**
+         * @param users IDs of users for which the rule must be applied.
+         * 
+         * @return builder
+         * 
+         */
         public Builder users(Integer... users) {
             return users(List.of(users));
         }

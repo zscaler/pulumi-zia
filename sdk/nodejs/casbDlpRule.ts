@@ -4,6 +4,33 @@
 import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "./utilities";
 
+/**
+ * The zia_casb_dlp_rules resource manages CASB (Cloud Access Security Broker) DLP rules in the Zscaler Internet Access (ZIA) cloud service. CASB DLP rules define data loss prevention policies for SaaS applications to protect sensitive data from unauthorized access or sharing.
+ *
+ * ## Example Usage
+ * ### CASB DLP Rule
+ *
+ * ```typescript
+ * import * as zia from "@bdzscaler/pulumi-zia";
+ *
+ * const example = new zia.CasbDlpRule("example", {
+ *     name: "Example CASB DLP Rule",
+ *     type: "CASB_DLP",
+ *     order: 1,
+ *     state: "ENABLED",
+ *     action: "BLOCK",
+ *     severity: "HIGH",
+ * });
+ * ```
+ *
+ * ## Import
+ *
+ * An existing CASB DLP Rule can be imported using its resource ID, e.g.
+ *
+ * ```sh
+ * $ pulumi import zia:index:CasbDlpRule example 12345
+ * ```
+ */
 export class CasbDlpRule extends pulumi.CustomResource {
     /**
      * Get an existing CasbDlpRule resource's state with the given name, ID, and optional extra
@@ -31,41 +58,149 @@ export class CasbDlpRule extends pulumi.CustomResource {
         return obj['__pulumiType'] === CasbDlpRule.__pulumiType;
     }
 
+    /**
+     * Action taken when the rule is matched (e.g. `BLOCK`, `ALLOW`, `QUARANTINE`).
+     */
     declare public readonly action: pulumi.Output<string | undefined>;
+    /**
+     * The bucket owner identifier.
+     */
     declare public readonly bucketOwner: pulumi.Output<string | undefined>;
+    /**
+     * IDs of buckets.
+     */
     declare public readonly buckets: pulumi.Output<number[] | undefined>;
+    /**
+     * IDs of cloud application tenants.
+     */
     declare public readonly cloudAppTenants: pulumi.Output<number[] | undefined>;
+    /**
+     * Collaboration scope for the rule.
+     */
     declare public readonly collaborationScope: pulumi.Output<string[] | undefined>;
+    /**
+     * List of components for the rule.
+     */
     declare public readonly components: pulumi.Output<string[] | undefined>;
+    /**
+     * Content location scope for the rule.
+     */
     declare public readonly contentLocation: pulumi.Output<string | undefined>;
+    /**
+     * IDs of criteria-based domain profiles.
+     */
     declare public readonly criteriaDomainProfiles: pulumi.Output<number[] | undefined>;
+    /**
+     * IDs of departments for which the rule applies.
+     */
     declare public readonly departments: pulumi.Output<number[] | undefined>;
+    /**
+     * Additional information about the CASB DLP rule.
+     */
     declare public readonly description: pulumi.Output<string | undefined>;
+    /**
+     * IDs of DLP engines.
+     */
     declare public readonly dlpEngines: pulumi.Output<number[] | undefined>;
+    /**
+     * List of domains for the rule.
+     */
     declare public readonly domains: pulumi.Output<string[] | undefined>;
+    /**
+     * IDs of email recipient profiles.
+     */
     declare public readonly emailRecipientProfiles: pulumi.Output<number[] | undefined>;
+    /**
+     * IDs of entity groups.
+     */
     declare public readonly entityGroups: pulumi.Output<number[] | undefined>;
+    /**
+     * IDs of excluded domain profiles.
+     */
     declare public readonly excludedDomainProfiles: pulumi.Output<number[] | undefined>;
+    /**
+     * Email address of the external auditor.
+     */
     declare public readonly externalAuditorEmail: pulumi.Output<string | undefined>;
+    /**
+     * List of file types the rule applies to.
+     */
     declare public readonly fileTypes: pulumi.Output<string[] | undefined>;
+    /**
+     * IDs of groups for which the rule applies.
+     */
     declare public readonly groups: pulumi.Output<number[] | undefined>;
+    /**
+     * Whether to include criteria based on domain profiles.
+     */
     declare public readonly includeCriteriaDomainProfile: pulumi.Output<boolean | undefined>;
+    /**
+     * Whether to include email recipient profile criteria.
+     */
     declare public readonly includeEmailRecipientProfile: pulumi.Output<boolean | undefined>;
+    /**
+     * Whether to include entity groups in the rule criteria.
+     */
     declare public readonly includeEntityGroups: pulumi.Output<boolean | undefined>;
+    /**
+     * IDs of included domain profiles.
+     */
     declare public readonly includedDomainProfiles: pulumi.Output<number[] | undefined>;
+    /**
+     * IDs of labels associated with the rule.
+     */
     declare public readonly labels: pulumi.Output<number[] | undefined>;
+    /**
+     * The name of the CASB DLP rule. Must be unique.
+     */
     declare public readonly name: pulumi.Output<string>;
+    /**
+     * IDs of object types.
+     */
     declare public readonly objectTypes: pulumi.Output<number[] | undefined>;
+    /**
+     * The order of execution of the rule with respect to other CASB DLP rules.
+     */
     declare public readonly order: pulumi.Output<number>;
+    /**
+     * Quarantine location for matched content.
+     */
     declare public readonly quarantineLocation: pulumi.Output<string | undefined>;
+    /**
+     * Admin rank of the CASB DLP rule. Valid values: 0-7. Default: 7.
+     */
     declare public readonly rank: pulumi.Output<number | undefined>;
+    /**
+     * Notification recipient.
+     */
     declare public readonly recipient: pulumi.Output<string | undefined>;
+    /**
+     * The system-generated ID of the CASB DLP rule.
+     */
     declare public /*out*/ readonly ruleId: pulumi.Output<number>;
+    /**
+     * Severity level of the rule (e.g. `HIGH`, `MEDIUM`, `LOW`).
+     */
     declare public readonly severity: pulumi.Output<string | undefined>;
+    /**
+     * Rule state. Valid values: `ENABLED`, `DISABLED`.
+     */
     declare public readonly state: pulumi.Output<string | undefined>;
+    /**
+     * The rule type (e.g. `CASB_DLP`).
+     */
     declare public readonly type: pulumi.Output<string>;
+    /**
+     * IDs of users for which the rule applies.
+     */
     declare public readonly users: pulumi.Output<number[] | undefined>;
+    /**
+     * Whether to delete old versions when watermarking.
+     */
     declare public readonly watermarkDeleteOldVersion: pulumi.Output<boolean | undefined>;
+    /**
+     * Whether the rule applies without content inspection.
+     */
     declare public readonly withoutContentInspection: pulumi.Output<boolean | undefined>;
 
     /**
@@ -171,39 +306,144 @@ export class CasbDlpRule extends pulumi.CustomResource {
  * The set of arguments for constructing a CasbDlpRule resource.
  */
 export interface CasbDlpRuleArgs {
+    /**
+     * Action taken when the rule is matched (e.g. `BLOCK`, `ALLOW`, `QUARANTINE`).
+     */
     action?: pulumi.Input<string>;
+    /**
+     * The bucket owner identifier.
+     */
     bucketOwner?: pulumi.Input<string>;
+    /**
+     * IDs of buckets.
+     */
     buckets?: pulumi.Input<pulumi.Input<number>[]>;
+    /**
+     * IDs of cloud application tenants.
+     */
     cloudAppTenants?: pulumi.Input<pulumi.Input<number>[]>;
+    /**
+     * Collaboration scope for the rule.
+     */
     collaborationScope?: pulumi.Input<pulumi.Input<string>[]>;
+    /**
+     * List of components for the rule.
+     */
     components?: pulumi.Input<pulumi.Input<string>[]>;
+    /**
+     * Content location scope for the rule.
+     */
     contentLocation?: pulumi.Input<string>;
+    /**
+     * IDs of criteria-based domain profiles.
+     */
     criteriaDomainProfiles?: pulumi.Input<pulumi.Input<number>[]>;
+    /**
+     * IDs of departments for which the rule applies.
+     */
     departments?: pulumi.Input<pulumi.Input<number>[]>;
+    /**
+     * Additional information about the CASB DLP rule.
+     */
     description?: pulumi.Input<string>;
+    /**
+     * IDs of DLP engines.
+     */
     dlpEngines?: pulumi.Input<pulumi.Input<number>[]>;
+    /**
+     * List of domains for the rule.
+     */
     domains?: pulumi.Input<pulumi.Input<string>[]>;
+    /**
+     * IDs of email recipient profiles.
+     */
     emailRecipientProfiles?: pulumi.Input<pulumi.Input<number>[]>;
+    /**
+     * IDs of entity groups.
+     */
     entityGroups?: pulumi.Input<pulumi.Input<number>[]>;
+    /**
+     * IDs of excluded domain profiles.
+     */
     excludedDomainProfiles?: pulumi.Input<pulumi.Input<number>[]>;
+    /**
+     * Email address of the external auditor.
+     */
     externalAuditorEmail?: pulumi.Input<string>;
+    /**
+     * List of file types the rule applies to.
+     */
     fileTypes?: pulumi.Input<pulumi.Input<string>[]>;
+    /**
+     * IDs of groups for which the rule applies.
+     */
     groups?: pulumi.Input<pulumi.Input<number>[]>;
+    /**
+     * Whether to include criteria based on domain profiles.
+     */
     includeCriteriaDomainProfile?: pulumi.Input<boolean>;
+    /**
+     * Whether to include email recipient profile criteria.
+     */
     includeEmailRecipientProfile?: pulumi.Input<boolean>;
+    /**
+     * Whether to include entity groups in the rule criteria.
+     */
     includeEntityGroups?: pulumi.Input<boolean>;
+    /**
+     * IDs of included domain profiles.
+     */
     includedDomainProfiles?: pulumi.Input<pulumi.Input<number>[]>;
+    /**
+     * IDs of labels associated with the rule.
+     */
     labels?: pulumi.Input<pulumi.Input<number>[]>;
+    /**
+     * The name of the CASB DLP rule. Must be unique.
+     */
     name: pulumi.Input<string>;
+    /**
+     * IDs of object types.
+     */
     objectTypes?: pulumi.Input<pulumi.Input<number>[]>;
+    /**
+     * The order of execution of the rule with respect to other CASB DLP rules.
+     */
     order: pulumi.Input<number>;
+    /**
+     * Quarantine location for matched content.
+     */
     quarantineLocation?: pulumi.Input<string>;
+    /**
+     * Admin rank of the CASB DLP rule. Valid values: 0-7. Default: 7.
+     */
     rank?: pulumi.Input<number>;
+    /**
+     * Notification recipient.
+     */
     recipient?: pulumi.Input<string>;
+    /**
+     * Severity level of the rule (e.g. `HIGH`, `MEDIUM`, `LOW`).
+     */
     severity?: pulumi.Input<string>;
+    /**
+     * Rule state. Valid values: `ENABLED`, `DISABLED`.
+     */
     state?: pulumi.Input<string>;
+    /**
+     * The rule type (e.g. `CASB_DLP`).
+     */
     type: pulumi.Input<string>;
+    /**
+     * IDs of users for which the rule applies.
+     */
     users?: pulumi.Input<pulumi.Input<number>[]>;
+    /**
+     * Whether to delete old versions when watermarking.
+     */
     watermarkDeleteOldVersion?: pulumi.Input<boolean>;
+    /**
+     * Whether the rule applies without content inspection.
+     */
     withoutContentInspection?: pulumi.Input<boolean>;
 }

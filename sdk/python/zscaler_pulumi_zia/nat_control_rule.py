@@ -52,6 +52,37 @@ class NatControlRuleArgs:
                  users: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.int]]]] = None):
         """
         The set of arguments for constructing a NatControlRule resource.
+        :param pulumi.Input[_builtins.str] name: The name of the NAT control rule. Must be unique.
+        :param pulumi.Input[_builtins.int] order: The order of execution of the rule with respect to other NAT control rules.
+        :param pulumi.Input[_builtins.bool] default_rule: Indicates whether this is the default NAT control rule.
+        :param pulumi.Input[Sequence[pulumi.Input[_builtins.int]]] departments: IDs of departments to which the rule must be applied.
+        :param pulumi.Input[_builtins.str] description: Additional information about the NAT control rule.
+        :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] dest_addresses: Destination IP addresses, FQDNs, or wildcard FQDNs for the rule.
+        :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] dest_countries: Destination countries (ISO 3166-1 alpha-2 codes) for the rule.
+        :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] dest_ip_categories: Destination IP address URL categories for the rule.
+        :param pulumi.Input[Sequence[pulumi.Input[_builtins.int]]] dest_ip_groups: IDs of destination IP address groups for the rule.
+        :param pulumi.Input[Sequence[pulumi.Input[_builtins.int]]] dest_ipv6_groups: IDs of destination IPv6 address groups for the rule.
+        :param pulumi.Input[Sequence[pulumi.Input[_builtins.int]]] device_groups: IDs of device groups for which the rule must be applied. Applicable for devices managed using Zscaler Client Connector.
+        :param pulumi.Input[Sequence[pulumi.Input[_builtins.int]]] devices: IDs of devices for which the rule must be applied.
+        :param pulumi.Input[_builtins.bool] enable_full_logging: If set to true, enables full logging for the rule.
+        :param pulumi.Input[Sequence[pulumi.Input[_builtins.int]]] groups: IDs of groups to which the rule must be applied.
+        :param pulumi.Input[Sequence[pulumi.Input[_builtins.int]]] labels: IDs of labels associated with the rule.
+        :param pulumi.Input[Sequence[pulumi.Input[_builtins.int]]] location_groups: IDs of location groups to which the rule must be applied.
+        :param pulumi.Input[Sequence[pulumi.Input[_builtins.int]]] locations: IDs of locations to which the rule must be applied.
+        :param pulumi.Input[Sequence[pulumi.Input[_builtins.int]]] nw_service_groups: IDs of network service groups to which the rule applies.
+        :param pulumi.Input[Sequence[pulumi.Input[_builtins.int]]] nw_services: IDs of network services to which the rule applies.
+        :param pulumi.Input[_builtins.bool] predefined: Indicates whether this is a predefined rule.
+        :param pulumi.Input[_builtins.int] rank: Admin rank of the NAT control policy rule. Valid values: 0-7. Default: 7.
+        :param pulumi.Input[_builtins.str] redirect_fqdn: The FQDN to which traffic should be redirected.
+        :param pulumi.Input[_builtins.str] redirect_ip: The IP address to which traffic should be redirected.
+        :param pulumi.Input[_builtins.int] redirect_port: The port to which traffic should be redirected.
+        :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] res_categories: URL categories that apply to the response for the rule.
+        :param pulumi.Input[Sequence[pulumi.Input[_builtins.int]]] src_ip_groups: IDs of source IP address groups for the rule.
+        :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] src_ips: Source IP addresses or CIDR ranges for the rule.
+        :param pulumi.Input[Sequence[pulumi.Input[_builtins.int]]] src_ipv6_groups: IDs of source IPv6 address groups for the rule.
+        :param pulumi.Input[_builtins.str] state: Rule state. Valid values: `ENABLED`, `DISABLED`.
+        :param pulumi.Input[Sequence[pulumi.Input[_builtins.int]]] time_windows: IDs of time intervals during which the rule must be enforced.
+        :param pulumi.Input[Sequence[pulumi.Input[_builtins.int]]] users: IDs of users to which the rule must be applied.
         """
         pulumi.set(__self__, "name", name)
         pulumi.set(__self__, "order", order)
@@ -117,6 +148,9 @@ class NatControlRuleArgs:
     @_builtins.property
     @pulumi.getter
     def name(self) -> pulumi.Input[_builtins.str]:
+        """
+        The name of the NAT control rule. Must be unique.
+        """
         return pulumi.get(self, "name")
 
     @name.setter
@@ -126,6 +160,9 @@ class NatControlRuleArgs:
     @_builtins.property
     @pulumi.getter
     def order(self) -> pulumi.Input[_builtins.int]:
+        """
+        The order of execution of the rule with respect to other NAT control rules.
+        """
         return pulumi.get(self, "order")
 
     @order.setter
@@ -135,6 +172,9 @@ class NatControlRuleArgs:
     @_builtins.property
     @pulumi.getter(name="defaultRule")
     def default_rule(self) -> Optional[pulumi.Input[_builtins.bool]]:
+        """
+        Indicates whether this is the default NAT control rule.
+        """
         return pulumi.get(self, "default_rule")
 
     @default_rule.setter
@@ -144,6 +184,9 @@ class NatControlRuleArgs:
     @_builtins.property
     @pulumi.getter
     def departments(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.int]]]]:
+        """
+        IDs of departments to which the rule must be applied.
+        """
         return pulumi.get(self, "departments")
 
     @departments.setter
@@ -153,6 +196,9 @@ class NatControlRuleArgs:
     @_builtins.property
     @pulumi.getter
     def description(self) -> Optional[pulumi.Input[_builtins.str]]:
+        """
+        Additional information about the NAT control rule.
+        """
         return pulumi.get(self, "description")
 
     @description.setter
@@ -162,6 +208,9 @@ class NatControlRuleArgs:
     @_builtins.property
     @pulumi.getter(name="destAddresses")
     def dest_addresses(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
+        """
+        Destination IP addresses, FQDNs, or wildcard FQDNs for the rule.
+        """
         return pulumi.get(self, "dest_addresses")
 
     @dest_addresses.setter
@@ -171,6 +220,9 @@ class NatControlRuleArgs:
     @_builtins.property
     @pulumi.getter(name="destCountries")
     def dest_countries(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
+        """
+        Destination countries (ISO 3166-1 alpha-2 codes) for the rule.
+        """
         return pulumi.get(self, "dest_countries")
 
     @dest_countries.setter
@@ -180,6 +232,9 @@ class NatControlRuleArgs:
     @_builtins.property
     @pulumi.getter(name="destIpCategories")
     def dest_ip_categories(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
+        """
+        Destination IP address URL categories for the rule.
+        """
         return pulumi.get(self, "dest_ip_categories")
 
     @dest_ip_categories.setter
@@ -189,6 +244,9 @@ class NatControlRuleArgs:
     @_builtins.property
     @pulumi.getter(name="destIpGroups")
     def dest_ip_groups(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.int]]]]:
+        """
+        IDs of destination IP address groups for the rule.
+        """
         return pulumi.get(self, "dest_ip_groups")
 
     @dest_ip_groups.setter
@@ -198,6 +256,9 @@ class NatControlRuleArgs:
     @_builtins.property
     @pulumi.getter(name="destIpv6Groups")
     def dest_ipv6_groups(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.int]]]]:
+        """
+        IDs of destination IPv6 address groups for the rule.
+        """
         return pulumi.get(self, "dest_ipv6_groups")
 
     @dest_ipv6_groups.setter
@@ -207,6 +268,9 @@ class NatControlRuleArgs:
     @_builtins.property
     @pulumi.getter(name="deviceGroups")
     def device_groups(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.int]]]]:
+        """
+        IDs of device groups for which the rule must be applied. Applicable for devices managed using Zscaler Client Connector.
+        """
         return pulumi.get(self, "device_groups")
 
     @device_groups.setter
@@ -216,6 +280,9 @@ class NatControlRuleArgs:
     @_builtins.property
     @pulumi.getter
     def devices(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.int]]]]:
+        """
+        IDs of devices for which the rule must be applied.
+        """
         return pulumi.get(self, "devices")
 
     @devices.setter
@@ -225,6 +292,9 @@ class NatControlRuleArgs:
     @_builtins.property
     @pulumi.getter(name="enableFullLogging")
     def enable_full_logging(self) -> Optional[pulumi.Input[_builtins.bool]]:
+        """
+        If set to true, enables full logging for the rule.
+        """
         return pulumi.get(self, "enable_full_logging")
 
     @enable_full_logging.setter
@@ -234,6 +304,9 @@ class NatControlRuleArgs:
     @_builtins.property
     @pulumi.getter
     def groups(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.int]]]]:
+        """
+        IDs of groups to which the rule must be applied.
+        """
         return pulumi.get(self, "groups")
 
     @groups.setter
@@ -243,6 +316,9 @@ class NatControlRuleArgs:
     @_builtins.property
     @pulumi.getter
     def labels(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.int]]]]:
+        """
+        IDs of labels associated with the rule.
+        """
         return pulumi.get(self, "labels")
 
     @labels.setter
@@ -252,6 +328,9 @@ class NatControlRuleArgs:
     @_builtins.property
     @pulumi.getter(name="locationGroups")
     def location_groups(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.int]]]]:
+        """
+        IDs of location groups to which the rule must be applied.
+        """
         return pulumi.get(self, "location_groups")
 
     @location_groups.setter
@@ -261,6 +340,9 @@ class NatControlRuleArgs:
     @_builtins.property
     @pulumi.getter
     def locations(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.int]]]]:
+        """
+        IDs of locations to which the rule must be applied.
+        """
         return pulumi.get(self, "locations")
 
     @locations.setter
@@ -270,6 +352,9 @@ class NatControlRuleArgs:
     @_builtins.property
     @pulumi.getter(name="nwServiceGroups")
     def nw_service_groups(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.int]]]]:
+        """
+        IDs of network service groups to which the rule applies.
+        """
         return pulumi.get(self, "nw_service_groups")
 
     @nw_service_groups.setter
@@ -279,6 +364,9 @@ class NatControlRuleArgs:
     @_builtins.property
     @pulumi.getter(name="nwServices")
     def nw_services(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.int]]]]:
+        """
+        IDs of network services to which the rule applies.
+        """
         return pulumi.get(self, "nw_services")
 
     @nw_services.setter
@@ -288,6 +376,9 @@ class NatControlRuleArgs:
     @_builtins.property
     @pulumi.getter
     def predefined(self) -> Optional[pulumi.Input[_builtins.bool]]:
+        """
+        Indicates whether this is a predefined rule.
+        """
         return pulumi.get(self, "predefined")
 
     @predefined.setter
@@ -297,6 +388,9 @@ class NatControlRuleArgs:
     @_builtins.property
     @pulumi.getter
     def rank(self) -> Optional[pulumi.Input[_builtins.int]]:
+        """
+        Admin rank of the NAT control policy rule. Valid values: 0-7. Default: 7.
+        """
         return pulumi.get(self, "rank")
 
     @rank.setter
@@ -306,6 +400,9 @@ class NatControlRuleArgs:
     @_builtins.property
     @pulumi.getter(name="redirectFqdn")
     def redirect_fqdn(self) -> Optional[pulumi.Input[_builtins.str]]:
+        """
+        The FQDN to which traffic should be redirected.
+        """
         return pulumi.get(self, "redirect_fqdn")
 
     @redirect_fqdn.setter
@@ -315,6 +412,9 @@ class NatControlRuleArgs:
     @_builtins.property
     @pulumi.getter(name="redirectIp")
     def redirect_ip(self) -> Optional[pulumi.Input[_builtins.str]]:
+        """
+        The IP address to which traffic should be redirected.
+        """
         return pulumi.get(self, "redirect_ip")
 
     @redirect_ip.setter
@@ -324,6 +424,9 @@ class NatControlRuleArgs:
     @_builtins.property
     @pulumi.getter(name="redirectPort")
     def redirect_port(self) -> Optional[pulumi.Input[_builtins.int]]:
+        """
+        The port to which traffic should be redirected.
+        """
         return pulumi.get(self, "redirect_port")
 
     @redirect_port.setter
@@ -333,6 +436,9 @@ class NatControlRuleArgs:
     @_builtins.property
     @pulumi.getter(name="resCategories")
     def res_categories(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
+        """
+        URL categories that apply to the response for the rule.
+        """
         return pulumi.get(self, "res_categories")
 
     @res_categories.setter
@@ -342,6 +448,9 @@ class NatControlRuleArgs:
     @_builtins.property
     @pulumi.getter(name="srcIpGroups")
     def src_ip_groups(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.int]]]]:
+        """
+        IDs of source IP address groups for the rule.
+        """
         return pulumi.get(self, "src_ip_groups")
 
     @src_ip_groups.setter
@@ -351,6 +460,9 @@ class NatControlRuleArgs:
     @_builtins.property
     @pulumi.getter(name="srcIps")
     def src_ips(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
+        """
+        Source IP addresses or CIDR ranges for the rule.
+        """
         return pulumi.get(self, "src_ips")
 
     @src_ips.setter
@@ -360,6 +472,9 @@ class NatControlRuleArgs:
     @_builtins.property
     @pulumi.getter(name="srcIpv6Groups")
     def src_ipv6_groups(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.int]]]]:
+        """
+        IDs of source IPv6 address groups for the rule.
+        """
         return pulumi.get(self, "src_ipv6_groups")
 
     @src_ipv6_groups.setter
@@ -369,6 +484,9 @@ class NatControlRuleArgs:
     @_builtins.property
     @pulumi.getter
     def state(self) -> Optional[pulumi.Input[_builtins.str]]:
+        """
+        Rule state. Valid values: `ENABLED`, `DISABLED`.
+        """
         return pulumi.get(self, "state")
 
     @state.setter
@@ -378,6 +496,9 @@ class NatControlRuleArgs:
     @_builtins.property
     @pulumi.getter(name="timeWindows")
     def time_windows(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.int]]]]:
+        """
+        IDs of time intervals during which the rule must be enforced.
+        """
         return pulumi.get(self, "time_windows")
 
     @time_windows.setter
@@ -387,6 +508,9 @@ class NatControlRuleArgs:
     @_builtins.property
     @pulumi.getter
     def users(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.int]]]]:
+        """
+        IDs of users to which the rule must be applied.
+        """
         return pulumi.get(self, "users")
 
     @users.setter
@@ -433,9 +557,65 @@ class NatControlRule(pulumi.CustomResource):
                  users: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.int]]]] = None,
                  __props__=None):
         """
-        Create a NatControlRule resource with the given unique name, props, and options.
+        The zia_nat_control_rule resource manages NAT control rules in the Zscaler Internet Access (ZIA) cloud service. NAT control rules allow you to redirect traffic to specific IP addresses or FQDNs and ports based on various criteria such as source, destination, users, and locations.
+
+        For more information, see the [ZIA NAT Control documentation](https://help.zscaler.com/zia/nat-control-policies).
+
+        ## Example Usage
+        ### Basic NAT Control Rule
+
+        ```python
+        import zscaler_pulumi_zia as zia
+
+        example = zia.NatControlRule("example",
+            name="Example NAT Control Rule",
+            description="Redirect traffic",
+            order=1,
+            state="ENABLED",
+        )
+        ```
+
+        ## Import
+
+        An existing NAT Control Rule can be imported using its resource ID, e.g.
+
+        ```sh
+        $ pulumi import zia:index:NatControlRule example 12345
+        ```
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
+        :param pulumi.Input[_builtins.bool] default_rule: Indicates whether this is the default NAT control rule.
+        :param pulumi.Input[Sequence[pulumi.Input[_builtins.int]]] departments: IDs of departments to which the rule must be applied.
+        :param pulumi.Input[_builtins.str] description: Additional information about the NAT control rule.
+        :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] dest_addresses: Destination IP addresses, FQDNs, or wildcard FQDNs for the rule.
+        :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] dest_countries: Destination countries (ISO 3166-1 alpha-2 codes) for the rule.
+        :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] dest_ip_categories: Destination IP address URL categories for the rule.
+        :param pulumi.Input[Sequence[pulumi.Input[_builtins.int]]] dest_ip_groups: IDs of destination IP address groups for the rule.
+        :param pulumi.Input[Sequence[pulumi.Input[_builtins.int]]] dest_ipv6_groups: IDs of destination IPv6 address groups for the rule.
+        :param pulumi.Input[Sequence[pulumi.Input[_builtins.int]]] device_groups: IDs of device groups for which the rule must be applied. Applicable for devices managed using Zscaler Client Connector.
+        :param pulumi.Input[Sequence[pulumi.Input[_builtins.int]]] devices: IDs of devices for which the rule must be applied.
+        :param pulumi.Input[_builtins.bool] enable_full_logging: If set to true, enables full logging for the rule.
+        :param pulumi.Input[Sequence[pulumi.Input[_builtins.int]]] groups: IDs of groups to which the rule must be applied.
+        :param pulumi.Input[Sequence[pulumi.Input[_builtins.int]]] labels: IDs of labels associated with the rule.
+        :param pulumi.Input[Sequence[pulumi.Input[_builtins.int]]] location_groups: IDs of location groups to which the rule must be applied.
+        :param pulumi.Input[Sequence[pulumi.Input[_builtins.int]]] locations: IDs of locations to which the rule must be applied.
+        :param pulumi.Input[_builtins.str] name: The name of the NAT control rule. Must be unique.
+        :param pulumi.Input[Sequence[pulumi.Input[_builtins.int]]] nw_service_groups: IDs of network service groups to which the rule applies.
+        :param pulumi.Input[Sequence[pulumi.Input[_builtins.int]]] nw_services: IDs of network services to which the rule applies.
+        :param pulumi.Input[_builtins.int] order: The order of execution of the rule with respect to other NAT control rules.
+        :param pulumi.Input[_builtins.bool] predefined: Indicates whether this is a predefined rule.
+        :param pulumi.Input[_builtins.int] rank: Admin rank of the NAT control policy rule. Valid values: 0-7. Default: 7.
+        :param pulumi.Input[_builtins.str] redirect_fqdn: The FQDN to which traffic should be redirected.
+        :param pulumi.Input[_builtins.str] redirect_ip: The IP address to which traffic should be redirected.
+        :param pulumi.Input[_builtins.int] redirect_port: The port to which traffic should be redirected.
+        :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] res_categories: URL categories that apply to the response for the rule.
+        :param pulumi.Input[Sequence[pulumi.Input[_builtins.int]]] src_ip_groups: IDs of source IP address groups for the rule.
+        :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] src_ips: Source IP addresses or CIDR ranges for the rule.
+        :param pulumi.Input[Sequence[pulumi.Input[_builtins.int]]] src_ipv6_groups: IDs of source IPv6 address groups for the rule.
+        :param pulumi.Input[_builtins.str] state: Rule state. Valid values: `ENABLED`, `DISABLED`.
+        :param pulumi.Input[Sequence[pulumi.Input[_builtins.int]]] time_windows: IDs of time intervals during which the rule must be enforced.
+        :param pulumi.Input[Sequence[pulumi.Input[_builtins.int]]] users: IDs of users to which the rule must be applied.
         """
         ...
     @overload
@@ -444,7 +624,32 @@ class NatControlRule(pulumi.CustomResource):
                  args: NatControlRuleArgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
-        Create a NatControlRule resource with the given unique name, props, and options.
+        The zia_nat_control_rule resource manages NAT control rules in the Zscaler Internet Access (ZIA) cloud service. NAT control rules allow you to redirect traffic to specific IP addresses or FQDNs and ports based on various criteria such as source, destination, users, and locations.
+
+        For more information, see the [ZIA NAT Control documentation](https://help.zscaler.com/zia/nat-control-policies).
+
+        ## Example Usage
+        ### Basic NAT Control Rule
+
+        ```python
+        import zscaler_pulumi_zia as zia
+
+        example = zia.NatControlRule("example",
+            name="Example NAT Control Rule",
+            description="Redirect traffic",
+            order=1,
+            state="ENABLED",
+        )
+        ```
+
+        ## Import
+
+        An existing NAT Control Rule can be imported using its resource ID, e.g.
+
+        ```sh
+        $ pulumi import zia:index:NatControlRule example 12345
+        ```
+
         :param str resource_name: The name of the resource.
         :param NatControlRuleArgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -595,160 +800,256 @@ class NatControlRule(pulumi.CustomResource):
     @_builtins.property
     @pulumi.getter(name="defaultRule")
     def default_rule(self) -> pulumi.Output[Optional[_builtins.bool]]:
+        """
+        Indicates whether this is the default NAT control rule.
+        """
         return pulumi.get(self, "default_rule")
 
     @_builtins.property
     @pulumi.getter
     def departments(self) -> pulumi.Output[Optional[Sequence[_builtins.int]]]:
+        """
+        IDs of departments to which the rule must be applied.
+        """
         return pulumi.get(self, "departments")
 
     @_builtins.property
     @pulumi.getter
     def description(self) -> pulumi.Output[Optional[_builtins.str]]:
+        """
+        Additional information about the NAT control rule.
+        """
         return pulumi.get(self, "description")
 
     @_builtins.property
     @pulumi.getter(name="destAddresses")
     def dest_addresses(self) -> pulumi.Output[Optional[Sequence[_builtins.str]]]:
+        """
+        Destination IP addresses, FQDNs, or wildcard FQDNs for the rule.
+        """
         return pulumi.get(self, "dest_addresses")
 
     @_builtins.property
     @pulumi.getter(name="destCountries")
     def dest_countries(self) -> pulumi.Output[Optional[Sequence[_builtins.str]]]:
+        """
+        Destination countries (ISO 3166-1 alpha-2 codes) for the rule.
+        """
         return pulumi.get(self, "dest_countries")
 
     @_builtins.property
     @pulumi.getter(name="destIpCategories")
     def dest_ip_categories(self) -> pulumi.Output[Optional[Sequence[_builtins.str]]]:
+        """
+        Destination IP address URL categories for the rule.
+        """
         return pulumi.get(self, "dest_ip_categories")
 
     @_builtins.property
     @pulumi.getter(name="destIpGroups")
     def dest_ip_groups(self) -> pulumi.Output[Optional[Sequence[_builtins.int]]]:
+        """
+        IDs of destination IP address groups for the rule.
+        """
         return pulumi.get(self, "dest_ip_groups")
 
     @_builtins.property
     @pulumi.getter(name="destIpv6Groups")
     def dest_ipv6_groups(self) -> pulumi.Output[Optional[Sequence[_builtins.int]]]:
+        """
+        IDs of destination IPv6 address groups for the rule.
+        """
         return pulumi.get(self, "dest_ipv6_groups")
 
     @_builtins.property
     @pulumi.getter(name="deviceGroups")
     def device_groups(self) -> pulumi.Output[Optional[Sequence[_builtins.int]]]:
+        """
+        IDs of device groups for which the rule must be applied. Applicable for devices managed using Zscaler Client Connector.
+        """
         return pulumi.get(self, "device_groups")
 
     @_builtins.property
     @pulumi.getter
     def devices(self) -> pulumi.Output[Optional[Sequence[_builtins.int]]]:
+        """
+        IDs of devices for which the rule must be applied.
+        """
         return pulumi.get(self, "devices")
 
     @_builtins.property
     @pulumi.getter(name="enableFullLogging")
     def enable_full_logging(self) -> pulumi.Output[Optional[_builtins.bool]]:
+        """
+        If set to true, enables full logging for the rule.
+        """
         return pulumi.get(self, "enable_full_logging")
 
     @_builtins.property
     @pulumi.getter
     def groups(self) -> pulumi.Output[Optional[Sequence[_builtins.int]]]:
+        """
+        IDs of groups to which the rule must be applied.
+        """
         return pulumi.get(self, "groups")
 
     @_builtins.property
     @pulumi.getter
     def labels(self) -> pulumi.Output[Optional[Sequence[_builtins.int]]]:
+        """
+        IDs of labels associated with the rule.
+        """
         return pulumi.get(self, "labels")
 
     @_builtins.property
     @pulumi.getter(name="locationGroups")
     def location_groups(self) -> pulumi.Output[Optional[Sequence[_builtins.int]]]:
+        """
+        IDs of location groups to which the rule must be applied.
+        """
         return pulumi.get(self, "location_groups")
 
     @_builtins.property
     @pulumi.getter
     def locations(self) -> pulumi.Output[Optional[Sequence[_builtins.int]]]:
+        """
+        IDs of locations to which the rule must be applied.
+        """
         return pulumi.get(self, "locations")
 
     @_builtins.property
     @pulumi.getter
     def name(self) -> pulumi.Output[_builtins.str]:
+        """
+        The name of the NAT control rule. Must be unique.
+        """
         return pulumi.get(self, "name")
 
     @_builtins.property
     @pulumi.getter(name="nwServiceGroups")
     def nw_service_groups(self) -> pulumi.Output[Optional[Sequence[_builtins.int]]]:
+        """
+        IDs of network service groups to which the rule applies.
+        """
         return pulumi.get(self, "nw_service_groups")
 
     @_builtins.property
     @pulumi.getter(name="nwServices")
     def nw_services(self) -> pulumi.Output[Optional[Sequence[_builtins.int]]]:
+        """
+        IDs of network services to which the rule applies.
+        """
         return pulumi.get(self, "nw_services")
 
     @_builtins.property
     @pulumi.getter
     def order(self) -> pulumi.Output[_builtins.int]:
+        """
+        The order of execution of the rule with respect to other NAT control rules.
+        """
         return pulumi.get(self, "order")
 
     @_builtins.property
     @pulumi.getter
     def predefined(self) -> pulumi.Output[Optional[_builtins.bool]]:
+        """
+        Indicates whether this is a predefined rule.
+        """
         return pulumi.get(self, "predefined")
 
     @_builtins.property
     @pulumi.getter
     def rank(self) -> pulumi.Output[Optional[_builtins.int]]:
+        """
+        Admin rank of the NAT control policy rule. Valid values: 0-7. Default: 7.
+        """
         return pulumi.get(self, "rank")
 
     @_builtins.property
     @pulumi.getter(name="redirectFqdn")
     def redirect_fqdn(self) -> pulumi.Output[Optional[_builtins.str]]:
+        """
+        The FQDN to which traffic should be redirected.
+        """
         return pulumi.get(self, "redirect_fqdn")
 
     @_builtins.property
     @pulumi.getter(name="redirectIp")
     def redirect_ip(self) -> pulumi.Output[Optional[_builtins.str]]:
+        """
+        The IP address to which traffic should be redirected.
+        """
         return pulumi.get(self, "redirect_ip")
 
     @_builtins.property
     @pulumi.getter(name="redirectPort")
     def redirect_port(self) -> pulumi.Output[Optional[_builtins.int]]:
+        """
+        The port to which traffic should be redirected.
+        """
         return pulumi.get(self, "redirect_port")
 
     @_builtins.property
     @pulumi.getter(name="resCategories")
     def res_categories(self) -> pulumi.Output[Optional[Sequence[_builtins.str]]]:
+        """
+        URL categories that apply to the response for the rule.
+        """
         return pulumi.get(self, "res_categories")
 
     @_builtins.property
     @pulumi.getter(name="ruleId")
     def rule_id(self) -> pulumi.Output[_builtins.int]:
+        """
+        The system-generated ID of the NAT control rule.
+        """
         return pulumi.get(self, "rule_id")
 
     @_builtins.property
     @pulumi.getter(name="srcIpGroups")
     def src_ip_groups(self) -> pulumi.Output[Optional[Sequence[_builtins.int]]]:
+        """
+        IDs of source IP address groups for the rule.
+        """
         return pulumi.get(self, "src_ip_groups")
 
     @_builtins.property
     @pulumi.getter(name="srcIps")
     def src_ips(self) -> pulumi.Output[Optional[Sequence[_builtins.str]]]:
+        """
+        Source IP addresses or CIDR ranges for the rule.
+        """
         return pulumi.get(self, "src_ips")
 
     @_builtins.property
     @pulumi.getter(name="srcIpv6Groups")
     def src_ipv6_groups(self) -> pulumi.Output[Optional[Sequence[_builtins.int]]]:
+        """
+        IDs of source IPv6 address groups for the rule.
+        """
         return pulumi.get(self, "src_ipv6_groups")
 
     @_builtins.property
     @pulumi.getter
     def state(self) -> pulumi.Output[Optional[_builtins.str]]:
+        """
+        Rule state. Valid values: `ENABLED`, `DISABLED`.
+        """
         return pulumi.get(self, "state")
 
     @_builtins.property
     @pulumi.getter(name="timeWindows")
     def time_windows(self) -> pulumi.Output[Optional[Sequence[_builtins.int]]]:
+        """
+        IDs of time intervals during which the rule must be enforced.
+        """
         return pulumi.get(self, "time_windows")
 
     @_builtins.property
     @pulumi.getter
     def users(self) -> pulumi.Output[Optional[Sequence[_builtins.int]]]:
+        """
+        IDs of users to which the rule must be applied.
+        """
         return pulumi.get(self, "users")
 

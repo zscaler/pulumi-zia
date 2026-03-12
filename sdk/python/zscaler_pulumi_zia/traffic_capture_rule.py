@@ -56,6 +56,39 @@ class TrafficCaptureRuleArgs:
                  workload_groups: Optional[pulumi.Input[Sequence[pulumi.Input['WorkloadGroupInputArgs']]]] = None):
         """
         The set of arguments for constructing a TrafficCaptureRule resource.
+        :param pulumi.Input[_builtins.str] name: Name of the traffic capture rule.
+        :param pulumi.Input[_builtins.int] order: The rule order of execution for the traffic capture rule.
+        :param pulumi.Input[_builtins.str] action: The action taken when traffic matches the rule (e.g., 'CAPTURE'). Default: 'CAPTURE'.
+        :param pulumi.Input[Sequence[pulumi.Input[_builtins.int]]] app_service_groups: List of application service group IDs.
+        :param pulumi.Input[_builtins.bool] default_rule: Whether this is a default rule.
+        :param pulumi.Input[Sequence[pulumi.Input[_builtins.int]]] departments: List of department IDs.
+        :param pulumi.Input[_builtins.str] description: Description of the traffic capture rule.
+        :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] dest_addresses: List of destination addresses.
+        :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] dest_countries: List of destination country codes.
+        :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] dest_ip_categories: List of destination IP categories.
+        :param pulumi.Input[Sequence[pulumi.Input[_builtins.int]]] dest_ip_groups: List of destination IP group IDs.
+        :param pulumi.Input[Sequence[pulumi.Input[_builtins.int]]] device_groups: List of device group IDs.
+        :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] device_trust_levels: List of device trust levels.
+        :param pulumi.Input[Sequence[pulumi.Input[_builtins.int]]] devices: List of device IDs.
+        :param pulumi.Input[Sequence[pulumi.Input[_builtins.int]]] groups: List of group IDs.
+        :param pulumi.Input[Sequence[pulumi.Input[_builtins.int]]] labels: List of label IDs.
+        :param pulumi.Input[Sequence[pulumi.Input[_builtins.int]]] location_groups: List of location group IDs.
+        :param pulumi.Input[Sequence[pulumi.Input[_builtins.int]]] locations: List of location IDs.
+        :param pulumi.Input[Sequence[pulumi.Input[_builtins.int]]] nw_application_groups: List of network application group IDs.
+        :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] nw_applications: List of network applications.
+        :param pulumi.Input[Sequence[pulumi.Input[_builtins.int]]] nw_service_groups: List of network service group IDs.
+        :param pulumi.Input[Sequence[pulumi.Input[_builtins.int]]] nw_services: List of network service IDs.
+        :param pulumi.Input[_builtins.bool] predefined: Whether this is a predefined rule.
+        :param pulumi.Input[_builtins.int] rank: The admin rank of the rule. Default is 7.
+        :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] source_countries: List of source country codes.
+        :param pulumi.Input[Sequence[pulumi.Input[_builtins.int]]] src_ip_groups: List of source IP group IDs.
+        :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] src_ips: List of source IP addresses or CIDR ranges.
+        :param pulumi.Input[_builtins.str] state: The rule state. Accepted values: 'ENABLED' or 'DISABLED'. Default: 'ENABLED'.
+        :param pulumi.Input[Sequence[pulumi.Input[_builtins.int]]] time_windows: List of time window IDs.
+        :param pulumi.Input[_builtins.str] txn_sampling: Transaction sampling mode. Default: 'NONE'.
+        :param pulumi.Input[_builtins.str] txn_size_limit: Transaction size limit. Default: 'NONE'.
+        :param pulumi.Input[Sequence[pulumi.Input[_builtins.int]]] users: List of user IDs.
+        :param pulumi.Input[Sequence[pulumi.Input['WorkloadGroupInputArgs']]] workload_groups: List of workload groups.
         """
         pulumi.set(__self__, "name", name)
         pulumi.set(__self__, "order", order)
@@ -125,6 +158,9 @@ class TrafficCaptureRuleArgs:
     @_builtins.property
     @pulumi.getter
     def name(self) -> pulumi.Input[_builtins.str]:
+        """
+        Name of the traffic capture rule.
+        """
         return pulumi.get(self, "name")
 
     @name.setter
@@ -134,6 +170,9 @@ class TrafficCaptureRuleArgs:
     @_builtins.property
     @pulumi.getter
     def order(self) -> pulumi.Input[_builtins.int]:
+        """
+        The rule order of execution for the traffic capture rule.
+        """
         return pulumi.get(self, "order")
 
     @order.setter
@@ -143,6 +182,9 @@ class TrafficCaptureRuleArgs:
     @_builtins.property
     @pulumi.getter
     def action(self) -> Optional[pulumi.Input[_builtins.str]]:
+        """
+        The action taken when traffic matches the rule (e.g., 'CAPTURE'). Default: 'CAPTURE'.
+        """
         return pulumi.get(self, "action")
 
     @action.setter
@@ -152,6 +194,9 @@ class TrafficCaptureRuleArgs:
     @_builtins.property
     @pulumi.getter(name="appServiceGroups")
     def app_service_groups(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.int]]]]:
+        """
+        List of application service group IDs.
+        """
         return pulumi.get(self, "app_service_groups")
 
     @app_service_groups.setter
@@ -161,6 +206,9 @@ class TrafficCaptureRuleArgs:
     @_builtins.property
     @pulumi.getter(name="defaultRule")
     def default_rule(self) -> Optional[pulumi.Input[_builtins.bool]]:
+        """
+        Whether this is a default rule.
+        """
         return pulumi.get(self, "default_rule")
 
     @default_rule.setter
@@ -170,6 +218,9 @@ class TrafficCaptureRuleArgs:
     @_builtins.property
     @pulumi.getter
     def departments(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.int]]]]:
+        """
+        List of department IDs.
+        """
         return pulumi.get(self, "departments")
 
     @departments.setter
@@ -179,6 +230,9 @@ class TrafficCaptureRuleArgs:
     @_builtins.property
     @pulumi.getter
     def description(self) -> Optional[pulumi.Input[_builtins.str]]:
+        """
+        Description of the traffic capture rule.
+        """
         return pulumi.get(self, "description")
 
     @description.setter
@@ -188,6 +242,9 @@ class TrafficCaptureRuleArgs:
     @_builtins.property
     @pulumi.getter(name="destAddresses")
     def dest_addresses(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
+        """
+        List of destination addresses.
+        """
         return pulumi.get(self, "dest_addresses")
 
     @dest_addresses.setter
@@ -197,6 +254,9 @@ class TrafficCaptureRuleArgs:
     @_builtins.property
     @pulumi.getter(name="destCountries")
     def dest_countries(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
+        """
+        List of destination country codes.
+        """
         return pulumi.get(self, "dest_countries")
 
     @dest_countries.setter
@@ -206,6 +266,9 @@ class TrafficCaptureRuleArgs:
     @_builtins.property
     @pulumi.getter(name="destIpCategories")
     def dest_ip_categories(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
+        """
+        List of destination IP categories.
+        """
         return pulumi.get(self, "dest_ip_categories")
 
     @dest_ip_categories.setter
@@ -215,6 +278,9 @@ class TrafficCaptureRuleArgs:
     @_builtins.property
     @pulumi.getter(name="destIpGroups")
     def dest_ip_groups(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.int]]]]:
+        """
+        List of destination IP group IDs.
+        """
         return pulumi.get(self, "dest_ip_groups")
 
     @dest_ip_groups.setter
@@ -224,6 +290,9 @@ class TrafficCaptureRuleArgs:
     @_builtins.property
     @pulumi.getter(name="deviceGroups")
     def device_groups(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.int]]]]:
+        """
+        List of device group IDs.
+        """
         return pulumi.get(self, "device_groups")
 
     @device_groups.setter
@@ -233,6 +302,9 @@ class TrafficCaptureRuleArgs:
     @_builtins.property
     @pulumi.getter(name="deviceTrustLevels")
     def device_trust_levels(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
+        """
+        List of device trust levels.
+        """
         return pulumi.get(self, "device_trust_levels")
 
     @device_trust_levels.setter
@@ -242,6 +314,9 @@ class TrafficCaptureRuleArgs:
     @_builtins.property
     @pulumi.getter
     def devices(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.int]]]]:
+        """
+        List of device IDs.
+        """
         return pulumi.get(self, "devices")
 
     @devices.setter
@@ -251,6 +326,9 @@ class TrafficCaptureRuleArgs:
     @_builtins.property
     @pulumi.getter
     def groups(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.int]]]]:
+        """
+        List of group IDs.
+        """
         return pulumi.get(self, "groups")
 
     @groups.setter
@@ -260,6 +338,9 @@ class TrafficCaptureRuleArgs:
     @_builtins.property
     @pulumi.getter
     def labels(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.int]]]]:
+        """
+        List of label IDs.
+        """
         return pulumi.get(self, "labels")
 
     @labels.setter
@@ -269,6 +350,9 @@ class TrafficCaptureRuleArgs:
     @_builtins.property
     @pulumi.getter(name="locationGroups")
     def location_groups(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.int]]]]:
+        """
+        List of location group IDs.
+        """
         return pulumi.get(self, "location_groups")
 
     @location_groups.setter
@@ -278,6 +362,9 @@ class TrafficCaptureRuleArgs:
     @_builtins.property
     @pulumi.getter
     def locations(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.int]]]]:
+        """
+        List of location IDs.
+        """
         return pulumi.get(self, "locations")
 
     @locations.setter
@@ -287,6 +374,9 @@ class TrafficCaptureRuleArgs:
     @_builtins.property
     @pulumi.getter(name="nwApplicationGroups")
     def nw_application_groups(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.int]]]]:
+        """
+        List of network application group IDs.
+        """
         return pulumi.get(self, "nw_application_groups")
 
     @nw_application_groups.setter
@@ -296,6 +386,9 @@ class TrafficCaptureRuleArgs:
     @_builtins.property
     @pulumi.getter(name="nwApplications")
     def nw_applications(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
+        """
+        List of network applications.
+        """
         return pulumi.get(self, "nw_applications")
 
     @nw_applications.setter
@@ -305,6 +398,9 @@ class TrafficCaptureRuleArgs:
     @_builtins.property
     @pulumi.getter(name="nwServiceGroups")
     def nw_service_groups(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.int]]]]:
+        """
+        List of network service group IDs.
+        """
         return pulumi.get(self, "nw_service_groups")
 
     @nw_service_groups.setter
@@ -314,6 +410,9 @@ class TrafficCaptureRuleArgs:
     @_builtins.property
     @pulumi.getter(name="nwServices")
     def nw_services(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.int]]]]:
+        """
+        List of network service IDs.
+        """
         return pulumi.get(self, "nw_services")
 
     @nw_services.setter
@@ -323,6 +422,9 @@ class TrafficCaptureRuleArgs:
     @_builtins.property
     @pulumi.getter
     def predefined(self) -> Optional[pulumi.Input[_builtins.bool]]:
+        """
+        Whether this is a predefined rule.
+        """
         return pulumi.get(self, "predefined")
 
     @predefined.setter
@@ -332,6 +434,9 @@ class TrafficCaptureRuleArgs:
     @_builtins.property
     @pulumi.getter
     def rank(self) -> Optional[pulumi.Input[_builtins.int]]:
+        """
+        The admin rank of the rule. Default is 7.
+        """
         return pulumi.get(self, "rank")
 
     @rank.setter
@@ -341,6 +446,9 @@ class TrafficCaptureRuleArgs:
     @_builtins.property
     @pulumi.getter(name="sourceCountries")
     def source_countries(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
+        """
+        List of source country codes.
+        """
         return pulumi.get(self, "source_countries")
 
     @source_countries.setter
@@ -350,6 +458,9 @@ class TrafficCaptureRuleArgs:
     @_builtins.property
     @pulumi.getter(name="srcIpGroups")
     def src_ip_groups(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.int]]]]:
+        """
+        List of source IP group IDs.
+        """
         return pulumi.get(self, "src_ip_groups")
 
     @src_ip_groups.setter
@@ -359,6 +470,9 @@ class TrafficCaptureRuleArgs:
     @_builtins.property
     @pulumi.getter(name="srcIps")
     def src_ips(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
+        """
+        List of source IP addresses or CIDR ranges.
+        """
         return pulumi.get(self, "src_ips")
 
     @src_ips.setter
@@ -368,6 +482,9 @@ class TrafficCaptureRuleArgs:
     @_builtins.property
     @pulumi.getter
     def state(self) -> Optional[pulumi.Input[_builtins.str]]:
+        """
+        The rule state. Accepted values: 'ENABLED' or 'DISABLED'. Default: 'ENABLED'.
+        """
         return pulumi.get(self, "state")
 
     @state.setter
@@ -377,6 +494,9 @@ class TrafficCaptureRuleArgs:
     @_builtins.property
     @pulumi.getter(name="timeWindows")
     def time_windows(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.int]]]]:
+        """
+        List of time window IDs.
+        """
         return pulumi.get(self, "time_windows")
 
     @time_windows.setter
@@ -386,6 +506,9 @@ class TrafficCaptureRuleArgs:
     @_builtins.property
     @pulumi.getter(name="txnSampling")
     def txn_sampling(self) -> Optional[pulumi.Input[_builtins.str]]:
+        """
+        Transaction sampling mode. Default: 'NONE'.
+        """
         return pulumi.get(self, "txn_sampling")
 
     @txn_sampling.setter
@@ -395,6 +518,9 @@ class TrafficCaptureRuleArgs:
     @_builtins.property
     @pulumi.getter(name="txnSizeLimit")
     def txn_size_limit(self) -> Optional[pulumi.Input[_builtins.str]]:
+        """
+        Transaction size limit. Default: 'NONE'.
+        """
         return pulumi.get(self, "txn_size_limit")
 
     @txn_size_limit.setter
@@ -404,6 +530,9 @@ class TrafficCaptureRuleArgs:
     @_builtins.property
     @pulumi.getter
     def users(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.int]]]]:
+        """
+        List of user IDs.
+        """
         return pulumi.get(self, "users")
 
     @users.setter
@@ -413,6 +542,9 @@ class TrafficCaptureRuleArgs:
     @_builtins.property
     @pulumi.getter(name="workloadGroups")
     def workload_groups(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['WorkloadGroupInputArgs']]]]:
+        """
+        List of workload groups.
+        """
         return pulumi.get(self, "workload_groups")
 
     @workload_groups.setter
@@ -461,9 +593,70 @@ class TrafficCaptureRule(pulumi.CustomResource):
                  workload_groups: Optional[pulumi.Input[Sequence[pulumi.Input[Union['WorkloadGroupInputArgs', 'WorkloadGroupInputArgsDict']]]]] = None,
                  __props__=None):
         """
-        Create a TrafficCaptureRule resource with the given unique name, props, and options.
+        The zia.TrafficCaptureRule resource manages traffic capture rules in the Zscaler Internet Access (ZIA) cloud.
+        Traffic capture rules define criteria for capturing network traffic for analysis, specifying which traffic
+        to capture based on source/destination IPs, locations, departments, users, applications, and other criteria.
+
+        ## Example Usage
+        ### Basic Traffic Capture Rule
+
+        ```python
+        import zscaler_pulumi_zia as zia
+
+        example = zia.TrafficCaptureRule("example",
+            name="Example Capture Rule",
+            order=1,
+            description="Managed by Pulumi",
+            state="ENABLED",
+            action="CAPTURE",
+            src_ips=["192.168.1.0/24"],
+            dest_addresses=["10.0.0.0/8"],
+        )
+        ```
+
+        ## Import
+
+        An existing traffic capture rule can be imported using its ID, e.g.
+
+        ```sh
+        $ pulumi import zia:index:TrafficCaptureRule example 12345
+        ```
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
+        :param pulumi.Input[_builtins.str] action: The action taken when traffic matches the rule (e.g., 'CAPTURE'). Default: 'CAPTURE'.
+        :param pulumi.Input[Sequence[pulumi.Input[_builtins.int]]] app_service_groups: List of application service group IDs.
+        :param pulumi.Input[_builtins.bool] default_rule: Whether this is a default rule.
+        :param pulumi.Input[Sequence[pulumi.Input[_builtins.int]]] departments: List of department IDs.
+        :param pulumi.Input[_builtins.str] description: Description of the traffic capture rule.
+        :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] dest_addresses: List of destination addresses.
+        :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] dest_countries: List of destination country codes.
+        :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] dest_ip_categories: List of destination IP categories.
+        :param pulumi.Input[Sequence[pulumi.Input[_builtins.int]]] dest_ip_groups: List of destination IP group IDs.
+        :param pulumi.Input[Sequence[pulumi.Input[_builtins.int]]] device_groups: List of device group IDs.
+        :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] device_trust_levels: List of device trust levels.
+        :param pulumi.Input[Sequence[pulumi.Input[_builtins.int]]] devices: List of device IDs.
+        :param pulumi.Input[Sequence[pulumi.Input[_builtins.int]]] groups: List of group IDs.
+        :param pulumi.Input[Sequence[pulumi.Input[_builtins.int]]] labels: List of label IDs.
+        :param pulumi.Input[Sequence[pulumi.Input[_builtins.int]]] location_groups: List of location group IDs.
+        :param pulumi.Input[Sequence[pulumi.Input[_builtins.int]]] locations: List of location IDs.
+        :param pulumi.Input[_builtins.str] name: Name of the traffic capture rule.
+        :param pulumi.Input[Sequence[pulumi.Input[_builtins.int]]] nw_application_groups: List of network application group IDs.
+        :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] nw_applications: List of network applications.
+        :param pulumi.Input[Sequence[pulumi.Input[_builtins.int]]] nw_service_groups: List of network service group IDs.
+        :param pulumi.Input[Sequence[pulumi.Input[_builtins.int]]] nw_services: List of network service IDs.
+        :param pulumi.Input[_builtins.int] order: The rule order of execution for the traffic capture rule.
+        :param pulumi.Input[_builtins.bool] predefined: Whether this is a predefined rule.
+        :param pulumi.Input[_builtins.int] rank: The admin rank of the rule. Default is 7.
+        :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] source_countries: List of source country codes.
+        :param pulumi.Input[Sequence[pulumi.Input[_builtins.int]]] src_ip_groups: List of source IP group IDs.
+        :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] src_ips: List of source IP addresses or CIDR ranges.
+        :param pulumi.Input[_builtins.str] state: The rule state. Accepted values: 'ENABLED' or 'DISABLED'. Default: 'ENABLED'.
+        :param pulumi.Input[Sequence[pulumi.Input[_builtins.int]]] time_windows: List of time window IDs.
+        :param pulumi.Input[_builtins.str] txn_sampling: Transaction sampling mode. Default: 'NONE'.
+        :param pulumi.Input[_builtins.str] txn_size_limit: Transaction size limit. Default: 'NONE'.
+        :param pulumi.Input[Sequence[pulumi.Input[_builtins.int]]] users: List of user IDs.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['WorkloadGroupInputArgs', 'WorkloadGroupInputArgsDict']]]] workload_groups: List of workload groups.
         """
         ...
     @overload
@@ -472,7 +665,35 @@ class TrafficCaptureRule(pulumi.CustomResource):
                  args: TrafficCaptureRuleArgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
-        Create a TrafficCaptureRule resource with the given unique name, props, and options.
+        The zia.TrafficCaptureRule resource manages traffic capture rules in the Zscaler Internet Access (ZIA) cloud.
+        Traffic capture rules define criteria for capturing network traffic for analysis, specifying which traffic
+        to capture based on source/destination IPs, locations, departments, users, applications, and other criteria.
+
+        ## Example Usage
+        ### Basic Traffic Capture Rule
+
+        ```python
+        import zscaler_pulumi_zia as zia
+
+        example = zia.TrafficCaptureRule("example",
+            name="Example Capture Rule",
+            order=1,
+            description="Managed by Pulumi",
+            state="ENABLED",
+            action="CAPTURE",
+            src_ips=["192.168.1.0/24"],
+            dest_addresses=["10.0.0.0/8"],
+        )
+        ```
+
+        ## Import
+
+        An existing traffic capture rule can be imported using its ID, e.g.
+
+        ```sh
+        $ pulumi import zia:index:TrafficCaptureRule example 12345
+        ```
+
         :param str resource_name: The name of the resource.
         :param TrafficCaptureRuleArgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -629,170 +850,272 @@ class TrafficCaptureRule(pulumi.CustomResource):
     @_builtins.property
     @pulumi.getter
     def action(self) -> pulumi.Output[Optional[_builtins.str]]:
+        """
+        The action taken when traffic matches the rule (e.g., 'CAPTURE'). Default: 'CAPTURE'.
+        """
         return pulumi.get(self, "action")
 
     @_builtins.property
     @pulumi.getter(name="appServiceGroups")
     def app_service_groups(self) -> pulumi.Output[Optional[Sequence[_builtins.int]]]:
+        """
+        List of application service group IDs.
+        """
         return pulumi.get(self, "app_service_groups")
 
     @_builtins.property
     @pulumi.getter(name="defaultRule")
     def default_rule(self) -> pulumi.Output[Optional[_builtins.bool]]:
+        """
+        Whether this is a default rule.
+        """
         return pulumi.get(self, "default_rule")
 
     @_builtins.property
     @pulumi.getter
     def departments(self) -> pulumi.Output[Optional[Sequence[_builtins.int]]]:
+        """
+        List of department IDs.
+        """
         return pulumi.get(self, "departments")
 
     @_builtins.property
     @pulumi.getter
     def description(self) -> pulumi.Output[Optional[_builtins.str]]:
+        """
+        Description of the traffic capture rule.
+        """
         return pulumi.get(self, "description")
 
     @_builtins.property
     @pulumi.getter(name="destAddresses")
     def dest_addresses(self) -> pulumi.Output[Optional[Sequence[_builtins.str]]]:
+        """
+        List of destination addresses.
+        """
         return pulumi.get(self, "dest_addresses")
 
     @_builtins.property
     @pulumi.getter(name="destCountries")
     def dest_countries(self) -> pulumi.Output[Optional[Sequence[_builtins.str]]]:
+        """
+        List of destination country codes.
+        """
         return pulumi.get(self, "dest_countries")
 
     @_builtins.property
     @pulumi.getter(name="destIpCategories")
     def dest_ip_categories(self) -> pulumi.Output[Optional[Sequence[_builtins.str]]]:
+        """
+        List of destination IP categories.
+        """
         return pulumi.get(self, "dest_ip_categories")
 
     @_builtins.property
     @pulumi.getter(name="destIpGroups")
     def dest_ip_groups(self) -> pulumi.Output[Optional[Sequence[_builtins.int]]]:
+        """
+        List of destination IP group IDs.
+        """
         return pulumi.get(self, "dest_ip_groups")
 
     @_builtins.property
     @pulumi.getter(name="deviceGroups")
     def device_groups(self) -> pulumi.Output[Optional[Sequence[_builtins.int]]]:
+        """
+        List of device group IDs.
+        """
         return pulumi.get(self, "device_groups")
 
     @_builtins.property
     @pulumi.getter(name="deviceTrustLevels")
     def device_trust_levels(self) -> pulumi.Output[Optional[Sequence[_builtins.str]]]:
+        """
+        List of device trust levels.
+        """
         return pulumi.get(self, "device_trust_levels")
 
     @_builtins.property
     @pulumi.getter
     def devices(self) -> pulumi.Output[Optional[Sequence[_builtins.int]]]:
+        """
+        List of device IDs.
+        """
         return pulumi.get(self, "devices")
 
     @_builtins.property
     @pulumi.getter
     def groups(self) -> pulumi.Output[Optional[Sequence[_builtins.int]]]:
+        """
+        List of group IDs.
+        """
         return pulumi.get(self, "groups")
 
     @_builtins.property
     @pulumi.getter
     def labels(self) -> pulumi.Output[Optional[Sequence[_builtins.int]]]:
+        """
+        List of label IDs.
+        """
         return pulumi.get(self, "labels")
 
     @_builtins.property
     @pulumi.getter(name="locationGroups")
     def location_groups(self) -> pulumi.Output[Optional[Sequence[_builtins.int]]]:
+        """
+        List of location group IDs.
+        """
         return pulumi.get(self, "location_groups")
 
     @_builtins.property
     @pulumi.getter
     def locations(self) -> pulumi.Output[Optional[Sequence[_builtins.int]]]:
+        """
+        List of location IDs.
+        """
         return pulumi.get(self, "locations")
 
     @_builtins.property
     @pulumi.getter
     def name(self) -> pulumi.Output[_builtins.str]:
+        """
+        Name of the traffic capture rule.
+        """
         return pulumi.get(self, "name")
 
     @_builtins.property
     @pulumi.getter(name="nwApplicationGroups")
     def nw_application_groups(self) -> pulumi.Output[Optional[Sequence[_builtins.int]]]:
+        """
+        List of network application group IDs.
+        """
         return pulumi.get(self, "nw_application_groups")
 
     @_builtins.property
     @pulumi.getter(name="nwApplications")
     def nw_applications(self) -> pulumi.Output[Optional[Sequence[_builtins.str]]]:
+        """
+        List of network applications.
+        """
         return pulumi.get(self, "nw_applications")
 
     @_builtins.property
     @pulumi.getter(name="nwServiceGroups")
     def nw_service_groups(self) -> pulumi.Output[Optional[Sequence[_builtins.int]]]:
+        """
+        List of network service group IDs.
+        """
         return pulumi.get(self, "nw_service_groups")
 
     @_builtins.property
     @pulumi.getter(name="nwServices")
     def nw_services(self) -> pulumi.Output[Optional[Sequence[_builtins.int]]]:
+        """
+        List of network service IDs.
+        """
         return pulumi.get(self, "nw_services")
 
     @_builtins.property
     @pulumi.getter
     def order(self) -> pulumi.Output[_builtins.int]:
+        """
+        The rule order of execution for the traffic capture rule.
+        """
         return pulumi.get(self, "order")
 
     @_builtins.property
     @pulumi.getter
     def predefined(self) -> pulumi.Output[Optional[_builtins.bool]]:
+        """
+        Whether this is a predefined rule.
+        """
         return pulumi.get(self, "predefined")
 
     @_builtins.property
     @pulumi.getter
     def rank(self) -> pulumi.Output[Optional[_builtins.int]]:
+        """
+        The admin rank of the rule. Default is 7.
+        """
         return pulumi.get(self, "rank")
 
     @_builtins.property
     @pulumi.getter(name="ruleId")
     def rule_id(self) -> pulumi.Output[_builtins.int]:
+        """
+        The unique identifier for the traffic capture rule assigned by the ZIA cloud.
+        """
         return pulumi.get(self, "rule_id")
 
     @_builtins.property
     @pulumi.getter(name="sourceCountries")
     def source_countries(self) -> pulumi.Output[Optional[Sequence[_builtins.str]]]:
+        """
+        List of source country codes.
+        """
         return pulumi.get(self, "source_countries")
 
     @_builtins.property
     @pulumi.getter(name="srcIpGroups")
     def src_ip_groups(self) -> pulumi.Output[Optional[Sequence[_builtins.int]]]:
+        """
+        List of source IP group IDs.
+        """
         return pulumi.get(self, "src_ip_groups")
 
     @_builtins.property
     @pulumi.getter(name="srcIps")
     def src_ips(self) -> pulumi.Output[Optional[Sequence[_builtins.str]]]:
+        """
+        List of source IP addresses or CIDR ranges.
+        """
         return pulumi.get(self, "src_ips")
 
     @_builtins.property
     @pulumi.getter
     def state(self) -> pulumi.Output[Optional[_builtins.str]]:
+        """
+        The rule state. Accepted values: 'ENABLED' or 'DISABLED'. Default: 'ENABLED'.
+        """
         return pulumi.get(self, "state")
 
     @_builtins.property
     @pulumi.getter(name="timeWindows")
     def time_windows(self) -> pulumi.Output[Optional[Sequence[_builtins.int]]]:
+        """
+        List of time window IDs.
+        """
         return pulumi.get(self, "time_windows")
 
     @_builtins.property
     @pulumi.getter(name="txnSampling")
     def txn_sampling(self) -> pulumi.Output[Optional[_builtins.str]]:
+        """
+        Transaction sampling mode. Default: 'NONE'.
+        """
         return pulumi.get(self, "txn_sampling")
 
     @_builtins.property
     @pulumi.getter(name="txnSizeLimit")
     def txn_size_limit(self) -> pulumi.Output[Optional[_builtins.str]]:
+        """
+        Transaction size limit. Default: 'NONE'.
+        """
         return pulumi.get(self, "txn_size_limit")
 
     @_builtins.property
     @pulumi.getter
     def users(self) -> pulumi.Output[Optional[Sequence[_builtins.int]]]:
+        """
+        List of user IDs.
+        """
         return pulumi.get(self, "users")
 
     @_builtins.property
     @pulumi.getter(name="workloadGroups")
     def workload_groups(self) -> pulumi.Output[Optional[Sequence['outputs.WorkloadGroupInput']]]:
+        """
+        List of workload groups.
+        """
         return pulumi.get(self, "workload_groups")
 

@@ -14,17 +14,43 @@ import java.util.List;
 import java.util.Optional;
 import javax.annotation.Nullable;
 
+/**
+ * The zia_sandbox_behavioral_analysis_advanced_settings resource manages the list of MD5 file hashes that are blocked by the ZIA sandbox behavioral analysis engine. This is a singleton resource. Only MD5 hashes (32 characters) are supported.
+ * 
+ * For more information, see the [ZIA Cloud Sandbox documentation](https://help.zscaler.com/zia/about-cloud-sandbox-policies).
+ * 
+ * ## Example Usage
+ * 
+ * &gt; This is a singleton resource. Import is not applicable.
+ * 
+ */
 @ResourceType(type="zia:index:SandboxBehavioralAnalysisAdvancedSettings")
 public class SandboxBehavioralAnalysisAdvancedSettings extends com.pulumi.resources.CustomResource {
+    /**
+     * List of MD5 file hashes to be blocked. Each hash must be exactly 32 characters (MD5 format). SHA1 and SHA256 are not supported.
+     * 
+     */
     @Export(name="fileHashesToBeBlocked", refs={List.class,String.class}, tree="[0,1]")
     private Output</* @Nullable */ List<String>> fileHashesToBeBlocked;
 
+    /**
+     * @return List of MD5 file hashes to be blocked. Each hash must be exactly 32 characters (MD5 format). SHA1 and SHA256 are not supported.
+     * 
+     */
     public Output<Optional<List<String>>> fileHashesToBeBlocked() {
         return Codegen.optional(this.fileHashesToBeBlocked);
     }
+    /**
+     * The internal resource identifier for the sandbox settings.
+     * 
+     */
     @Export(name="resourceId", refs={String.class}, tree="[0]")
     private Output<String> resourceId;
 
+    /**
+     * @return The internal resource identifier for the sandbox settings.
+     * 
+     */
     public Output<String> resourceId() {
         return this.resourceId;
     }
@@ -68,6 +94,7 @@ public class SandboxBehavioralAnalysisAdvancedSettings extends com.pulumi.resour
     private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<java.lang.String> id) {
         var defaultOptions = com.pulumi.resources.CustomResourceOptions.builder()
             .version(Utilities.getVersion())
+            .pluginDownloadURL("github://api.github.com/zscaler")
             .build();
         return com.pulumi.resources.CustomResourceOptions.merge(defaultOptions, options, id);
     }

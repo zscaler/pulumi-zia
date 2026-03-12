@@ -89,11 +89,21 @@ func diffFields(typ reflect.Type, oldVal, newVal reflect.Value, prefix string, d
 // For *bool pointers it normalises nil to false so that an unset optional bool
 // is equivalent to an explicit false.
 func equalValues(a, b reflect.Value) bool {
-	if a.Kind() == reflect.Ptr && b.Kind() == reflect.Ptr &&
-		a.Type().Elem().Kind() == reflect.Bool && b.Type().Elem().Kind() == reflect.Bool {
-		aBool := !a.IsNil() && a.Elem().Bool()
-		bBool := !b.IsNil() && b.Elem().Bool()
-		return aBool == bBool
+	if a.Kind() == reflect.Ptr && b.Kind() == reflect.Ptr {
+		if a.Type().Elem().Kind() == reflect.Bool && b.Type().Elem().Kind() == reflect.Bool {
+			aBool := !a.IsNil() && a.Elem().Bool()
+			bBool := !b.IsNil() && b.Elem().Bool()
+			return aBool == bBool
+		}
+		if a.Type().Elem().Kind() == reflect.Struct && b.Type().Elem().Kind() == reflect.Struct {
+			if a.IsNil() && b.IsNil() {
+				return true
+			}
+			if a.IsNil() || b.IsNil() {
+				return false
+			}
+			return structEqualSkippingNil(a.Elem(), b.Elem())
+		}
 	}
 
 	if a.Kind() == reflect.Slice && b.Kind() == reflect.Slice {

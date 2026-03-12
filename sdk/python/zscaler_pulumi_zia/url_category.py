@@ -39,6 +39,22 @@ class UrlCategoryArgs:
                  urls: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None):
         """
         The set of arguments for constructing a UrlCategory resource.
+        :param pulumi.Input[_builtins.str] configured_name: The name of the URL category. Must be unique.
+        :param pulumi.Input[_builtins.bool] custom_category: If true, this is a custom URL category. Set to true for custom categories.
+        :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] db_categorized_urls: URLs added to a custom URL category that have been categorized by the Zscaler database.
+        :param pulumi.Input[_builtins.str] description: A description of the URL category. Maximum 256 characters.
+        :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] ip_ranges: List of custom IP address ranges associated with the URL category.
+        :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] ip_ranges_retaining_parent_category: List of IP ranges that retain their parent category classification.
+        :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] keywords: List of custom keywords associated with the URL category.
+        :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] keywords_retaining_parent_category: List of keywords that retain their parent category classification.
+        :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] regex_patterns: List of regex-based patterns for URL matching.
+        :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] regex_patterns_retaining_parent_category: List of regex patterns that retain their parent category classification.
+        :param pulumi.Input[Sequence[pulumi.Input['UrlCategoryScopeInputArgs']]] scopes: Scopes for the custom URL category, defining location or department restrictions.
+        :param pulumi.Input[_builtins.str] super_category: The super category for the URL category (e.g., `USER_DEFINED`).
+        :param pulumi.Input[_builtins.str] type: The type of URL category. Valid values: `URL_CATEGORY`, `TLD_CATEGORY`, `ALL`.
+        :param pulumi.Input['UrlCategoryUrlKeywordCountsInputArgs'] url_keyword_counts: URL and keyword count statistics for the category.
+        :param pulumi.Input[_builtins.str] url_type: The URL type. Valid values: `EXACT`, `REGEX`.
+        :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] urls: List of custom URLs to add to the category.
         """
         if configured_name is not None:
             pulumi.set(__self__, "configured_name", configured_name)
@@ -76,6 +92,9 @@ class UrlCategoryArgs:
     @_builtins.property
     @pulumi.getter(name="configuredName")
     def configured_name(self) -> Optional[pulumi.Input[_builtins.str]]:
+        """
+        The name of the URL category. Must be unique.
+        """
         return pulumi.get(self, "configured_name")
 
     @configured_name.setter
@@ -85,6 +104,9 @@ class UrlCategoryArgs:
     @_builtins.property
     @pulumi.getter(name="customCategory")
     def custom_category(self) -> Optional[pulumi.Input[_builtins.bool]]:
+        """
+        If true, this is a custom URL category. Set to true for custom categories.
+        """
         return pulumi.get(self, "custom_category")
 
     @custom_category.setter
@@ -94,6 +116,9 @@ class UrlCategoryArgs:
     @_builtins.property
     @pulumi.getter(name="dbCategorizedUrls")
     def db_categorized_urls(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
+        """
+        URLs added to a custom URL category that have been categorized by the Zscaler database.
+        """
         return pulumi.get(self, "db_categorized_urls")
 
     @db_categorized_urls.setter
@@ -103,6 +128,9 @@ class UrlCategoryArgs:
     @_builtins.property
     @pulumi.getter
     def description(self) -> Optional[pulumi.Input[_builtins.str]]:
+        """
+        A description of the URL category. Maximum 256 characters.
+        """
         return pulumi.get(self, "description")
 
     @description.setter
@@ -112,6 +140,9 @@ class UrlCategoryArgs:
     @_builtins.property
     @pulumi.getter(name="ipRanges")
     def ip_ranges(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
+        """
+        List of custom IP address ranges associated with the URL category.
+        """
         return pulumi.get(self, "ip_ranges")
 
     @ip_ranges.setter
@@ -121,6 +152,9 @@ class UrlCategoryArgs:
     @_builtins.property
     @pulumi.getter(name="ipRangesRetainingParentCategory")
     def ip_ranges_retaining_parent_category(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
+        """
+        List of IP ranges that retain their parent category classification.
+        """
         return pulumi.get(self, "ip_ranges_retaining_parent_category")
 
     @ip_ranges_retaining_parent_category.setter
@@ -130,6 +164,9 @@ class UrlCategoryArgs:
     @_builtins.property
     @pulumi.getter
     def keywords(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
+        """
+        List of custom keywords associated with the URL category.
+        """
         return pulumi.get(self, "keywords")
 
     @keywords.setter
@@ -139,6 +176,9 @@ class UrlCategoryArgs:
     @_builtins.property
     @pulumi.getter(name="keywordsRetainingParentCategory")
     def keywords_retaining_parent_category(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
+        """
+        List of keywords that retain their parent category classification.
+        """
         return pulumi.get(self, "keywords_retaining_parent_category")
 
     @keywords_retaining_parent_category.setter
@@ -148,6 +188,9 @@ class UrlCategoryArgs:
     @_builtins.property
     @pulumi.getter(name="regexPatterns")
     def regex_patterns(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
+        """
+        List of regex-based patterns for URL matching.
+        """
         return pulumi.get(self, "regex_patterns")
 
     @regex_patterns.setter
@@ -157,6 +200,9 @@ class UrlCategoryArgs:
     @_builtins.property
     @pulumi.getter(name="regexPatternsRetainingParentCategory")
     def regex_patterns_retaining_parent_category(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
+        """
+        List of regex patterns that retain their parent category classification.
+        """
         return pulumi.get(self, "regex_patterns_retaining_parent_category")
 
     @regex_patterns_retaining_parent_category.setter
@@ -166,6 +212,9 @@ class UrlCategoryArgs:
     @_builtins.property
     @pulumi.getter
     def scopes(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['UrlCategoryScopeInputArgs']]]]:
+        """
+        Scopes for the custom URL category, defining location or department restrictions.
+        """
         return pulumi.get(self, "scopes")
 
     @scopes.setter
@@ -175,6 +224,9 @@ class UrlCategoryArgs:
     @_builtins.property
     @pulumi.getter(name="superCategory")
     def super_category(self) -> Optional[pulumi.Input[_builtins.str]]:
+        """
+        The super category for the URL category (e.g., `USER_DEFINED`).
+        """
         return pulumi.get(self, "super_category")
 
     @super_category.setter
@@ -184,6 +236,9 @@ class UrlCategoryArgs:
     @_builtins.property
     @pulumi.getter
     def type(self) -> Optional[pulumi.Input[_builtins.str]]:
+        """
+        The type of URL category. Valid values: `URL_CATEGORY`, `TLD_CATEGORY`, `ALL`.
+        """
         return pulumi.get(self, "type")
 
     @type.setter
@@ -193,6 +248,9 @@ class UrlCategoryArgs:
     @_builtins.property
     @pulumi.getter(name="urlKeywordCounts")
     def url_keyword_counts(self) -> Optional[pulumi.Input['UrlCategoryUrlKeywordCountsInputArgs']]:
+        """
+        URL and keyword count statistics for the category.
+        """
         return pulumi.get(self, "url_keyword_counts")
 
     @url_keyword_counts.setter
@@ -202,6 +260,9 @@ class UrlCategoryArgs:
     @_builtins.property
     @pulumi.getter(name="urlType")
     def url_type(self) -> Optional[pulumi.Input[_builtins.str]]:
+        """
+        The URL type. Valid values: `EXACT`, `REGEX`.
+        """
         return pulumi.get(self, "url_type")
 
     @url_type.setter
@@ -211,6 +272,9 @@ class UrlCategoryArgs:
     @_builtins.property
     @pulumi.getter
     def urls(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
+        """
+        List of custom URLs to add to the category.
+        """
         return pulumi.get(self, "urls")
 
     @urls.setter
@@ -242,9 +306,55 @@ class UrlCategory(pulumi.CustomResource):
                  urls: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
                  __props__=None):
         """
-        Create a UrlCategory resource with the given unique name, props, and options.
+        The zia_url_categories resource manages custom URL categories in the Zscaler Internet Access (ZIA) cloud service. Custom URL categories allow administrators to define their own groupings of URLs, keywords, and IP ranges for use in URL filtering policies.
+
+        For more information, see the [ZIA URL Categories documentation](https://help.zscaler.com/zia/url-categories).
+
+        ## Example Usage
+        ### Basic Custom URL Category
+
+        ```python
+        import zscaler_pulumi_zia as zia
+
+        example = zia.UrlCategory("example",
+            configured_name="Example Custom Category",
+            description="Custom category for internal tools",
+            super_category="USER_DEFINED",
+            type="URL_CATEGORY",
+            urls=[
+                "internal.example.com",
+                "tools.example.com",
+            ],
+            custom_category=True,
+        )
+        ```
+
+        ## Import
+
+        An existing URL Category can be imported using its resource ID, e.g.
+
+        ```sh
+        $ pulumi import zia:index:UrlCategory example CUSTOM_01
+        ```
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
+        :param pulumi.Input[_builtins.str] configured_name: The name of the URL category. Must be unique.
+        :param pulumi.Input[_builtins.bool] custom_category: If true, this is a custom URL category. Set to true for custom categories.
+        :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] db_categorized_urls: URLs added to a custom URL category that have been categorized by the Zscaler database.
+        :param pulumi.Input[_builtins.str] description: A description of the URL category. Maximum 256 characters.
+        :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] ip_ranges: List of custom IP address ranges associated with the URL category.
+        :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] ip_ranges_retaining_parent_category: List of IP ranges that retain their parent category classification.
+        :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] keywords: List of custom keywords associated with the URL category.
+        :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] keywords_retaining_parent_category: List of keywords that retain their parent category classification.
+        :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] regex_patterns: List of regex-based patterns for URL matching.
+        :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] regex_patterns_retaining_parent_category: List of regex patterns that retain their parent category classification.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['UrlCategoryScopeInputArgs', 'UrlCategoryScopeInputArgsDict']]]] scopes: Scopes for the custom URL category, defining location or department restrictions.
+        :param pulumi.Input[_builtins.str] super_category: The super category for the URL category (e.g., `USER_DEFINED`).
+        :param pulumi.Input[_builtins.str] type: The type of URL category. Valid values: `URL_CATEGORY`, `TLD_CATEGORY`, `ALL`.
+        :param pulumi.Input[Union['UrlCategoryUrlKeywordCountsInputArgs', 'UrlCategoryUrlKeywordCountsInputArgsDict']] url_keyword_counts: URL and keyword count statistics for the category.
+        :param pulumi.Input[_builtins.str] url_type: The URL type. Valid values: `EXACT`, `REGEX`.
+        :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] urls: List of custom URLs to add to the category.
         """
         ...
     @overload
@@ -253,7 +363,37 @@ class UrlCategory(pulumi.CustomResource):
                  args: Optional[UrlCategoryArgs] = None,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
-        Create a UrlCategory resource with the given unique name, props, and options.
+        The zia_url_categories resource manages custom URL categories in the Zscaler Internet Access (ZIA) cloud service. Custom URL categories allow administrators to define their own groupings of URLs, keywords, and IP ranges for use in URL filtering policies.
+
+        For more information, see the [ZIA URL Categories documentation](https://help.zscaler.com/zia/url-categories).
+
+        ## Example Usage
+        ### Basic Custom URL Category
+
+        ```python
+        import zscaler_pulumi_zia as zia
+
+        example = zia.UrlCategory("example",
+            configured_name="Example Custom Category",
+            description="Custom category for internal tools",
+            super_category="USER_DEFINED",
+            type="URL_CATEGORY",
+            urls=[
+                "internal.example.com",
+                "tools.example.com",
+            ],
+            custom_category=True,
+        )
+        ```
+
+        ## Import
+
+        An existing URL Category can be imported using its resource ID, e.g.
+
+        ```sh
+        $ pulumi import zia:index:UrlCategory example CUSTOM_01
+        ```
+
         :param str resource_name: The name of the resource.
         :param UrlCategoryArgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -367,115 +507,184 @@ class UrlCategory(pulumi.CustomResource):
     @_builtins.property
     @pulumi.getter(name="categoryId")
     def category_id(self) -> pulumi.Output[_builtins.str]:
+        """
+        The system-generated ID of the URL category.
+        """
         return pulumi.get(self, "category_id")
 
     @_builtins.property
     @pulumi.getter(name="configuredName")
     def configured_name(self) -> pulumi.Output[Optional[_builtins.str]]:
+        """
+        The name of the URL category. Must be unique.
+        """
         return pulumi.get(self, "configured_name")
 
     @_builtins.property
     @pulumi.getter(name="customCategory")
     def custom_category(self) -> pulumi.Output[Optional[_builtins.bool]]:
+        """
+        If true, this is a custom URL category. Set to true for custom categories.
+        """
         return pulumi.get(self, "custom_category")
 
     @_builtins.property
     @pulumi.getter(name="customIpRangesCount")
     def custom_ip_ranges_count(self) -> pulumi.Output[Optional[_builtins.int]]:
+        """
+        The number of custom IP ranges in the category.
+        """
         return pulumi.get(self, "custom_ip_ranges_count")
 
     @_builtins.property
     @pulumi.getter(name="customUrlsCount")
     def custom_urls_count(self) -> pulumi.Output[Optional[_builtins.int]]:
+        """
+        The number of custom URLs in the category.
+        """
         return pulumi.get(self, "custom_urls_count")
 
     @_builtins.property
     @pulumi.getter(name="dbCategorizedUrls")
     def db_categorized_urls(self) -> pulumi.Output[Optional[Sequence[_builtins.str]]]:
+        """
+        URLs added to a custom URL category that have been categorized by the Zscaler database.
+        """
         return pulumi.get(self, "db_categorized_urls")
 
     @_builtins.property
     @pulumi.getter
     def description(self) -> pulumi.Output[Optional[_builtins.str]]:
+        """
+        A description of the URL category. Maximum 256 characters.
+        """
         return pulumi.get(self, "description")
 
     @_builtins.property
     @pulumi.getter
     def editable(self) -> pulumi.Output[Optional[_builtins.bool]]:
+        """
+        Whether the URL category is editable.
+        """
         return pulumi.get(self, "editable")
 
     @_builtins.property
     @pulumi.getter(name="ipRanges")
     def ip_ranges(self) -> pulumi.Output[Optional[Sequence[_builtins.str]]]:
+        """
+        List of custom IP address ranges associated with the URL category.
+        """
         return pulumi.get(self, "ip_ranges")
 
     @_builtins.property
     @pulumi.getter(name="ipRangesRetainingParentCategory")
     def ip_ranges_retaining_parent_category(self) -> pulumi.Output[Optional[Sequence[_builtins.str]]]:
+        """
+        List of IP ranges that retain their parent category classification.
+        """
         return pulumi.get(self, "ip_ranges_retaining_parent_category")
 
     @_builtins.property
     @pulumi.getter(name="ipRangesRetainingParentCategoryCount")
     def ip_ranges_retaining_parent_category_count(self) -> pulumi.Output[Optional[_builtins.int]]:
+        """
+        The number of IP ranges retaining parent category.
+        """
         return pulumi.get(self, "ip_ranges_retaining_parent_category_count")
 
     @_builtins.property
     @pulumi.getter
     def keywords(self) -> pulumi.Output[Optional[Sequence[_builtins.str]]]:
+        """
+        List of custom keywords associated with the URL category.
+        """
         return pulumi.get(self, "keywords")
 
     @_builtins.property
     @pulumi.getter(name="keywordsRetainingParentCategory")
     def keywords_retaining_parent_category(self) -> pulumi.Output[Optional[Sequence[_builtins.str]]]:
+        """
+        List of keywords that retain their parent category classification.
+        """
         return pulumi.get(self, "keywords_retaining_parent_category")
 
     @_builtins.property
     @pulumi.getter(name="regexPatterns")
     def regex_patterns(self) -> pulumi.Output[Optional[Sequence[_builtins.str]]]:
+        """
+        List of regex-based patterns for URL matching.
+        """
         return pulumi.get(self, "regex_patterns")
 
     @_builtins.property
     @pulumi.getter(name="regexPatternsRetainingParentCategory")
     def regex_patterns_retaining_parent_category(self) -> pulumi.Output[Optional[Sequence[_builtins.str]]]:
+        """
+        List of regex patterns that retain their parent category classification.
+        """
         return pulumi.get(self, "regex_patterns_retaining_parent_category")
 
     @_builtins.property
     @pulumi.getter
     def scopes(self) -> pulumi.Output[Optional[Sequence['outputs.UrlCategoryScopeInput']]]:
+        """
+        Scopes for the custom URL category, defining location or department restrictions.
+        """
         return pulumi.get(self, "scopes")
 
     @_builtins.property
     @pulumi.getter(name="superCategory")
     def super_category(self) -> pulumi.Output[Optional[_builtins.str]]:
+        """
+        The super category for the URL category (e.g., `USER_DEFINED`).
+        """
         return pulumi.get(self, "super_category")
 
     @_builtins.property
     @pulumi.getter
     def type(self) -> pulumi.Output[Optional[_builtins.str]]:
+        """
+        The type of URL category. Valid values: `URL_CATEGORY`, `TLD_CATEGORY`, `ALL`.
+        """
         return pulumi.get(self, "type")
 
     @_builtins.property
     @pulumi.getter(name="urlKeywordCounts")
     def url_keyword_counts(self) -> pulumi.Output[Optional['outputs.UrlCategoryUrlKeywordCountsInput']]:
+        """
+        URL and keyword count statistics for the category.
+        """
         return pulumi.get(self, "url_keyword_counts")
 
     @_builtins.property
     @pulumi.getter(name="urlType")
     def url_type(self) -> pulumi.Output[Optional[_builtins.str]]:
+        """
+        The URL type. Valid values: `EXACT`, `REGEX`.
+        """
         return pulumi.get(self, "url_type")
 
     @_builtins.property
     @pulumi.getter
     def urls(self) -> pulumi.Output[Optional[Sequence[_builtins.str]]]:
+        """
+        List of custom URLs to add to the category.
+        """
         return pulumi.get(self, "urls")
 
     @_builtins.property
     @pulumi.getter(name="urlsRetainingParentCategoryCount")
     def urls_retaining_parent_category_count(self) -> pulumi.Output[Optional[_builtins.int]]:
+        """
+        The number of URLs retaining parent category.
+        """
         return pulumi.get(self, "urls_retaining_parent_category_count")
 
     @_builtins.property
     @pulumi.getter
     def val(self) -> pulumi.Output[Optional[_builtins.int]]:
+        """
+        The internal numeric value of the URL category.
+        """
         return pulumi.get(self, "val")
 

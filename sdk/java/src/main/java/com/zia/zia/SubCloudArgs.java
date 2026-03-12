@@ -18,16 +18,32 @@ public final class SubCloudArgs extends com.pulumi.resources.ResourceArgs {
 
     public static final SubCloudArgs Empty = new SubCloudArgs();
 
+    /**
+     * The ID of the cloud to which this sub-cloud belongs.
+     * 
+     */
     @Import(name="cloudId", required=true)
     private Output<Integer> cloudId;
 
+    /**
+     * @return The ID of the cloud to which this sub-cloud belongs.
+     * 
+     */
     public Output<Integer> cloudId() {
         return this.cloudId;
     }
 
+    /**
+     * List of datacenter exclusions for the sub-cloud.
+     * 
+     */
     @Import(name="exclusions")
     private @Nullable Output<List<SubCloudExclusionInputArgs>> exclusions;
 
+    /**
+     * @return List of datacenter exclusions for the sub-cloud.
+     * 
+     */
     public Optional<Output<List<SubCloudExclusionInputArgs>>> exclusions() {
         return Optional.ofNullable(this.exclusions);
     }
@@ -57,24 +73,54 @@ public final class SubCloudArgs extends com.pulumi.resources.ResourceArgs {
             $ = new SubCloudArgs(Objects.requireNonNull(defaults));
         }
 
+        /**
+         * @param cloudId The ID of the cloud to which this sub-cloud belongs.
+         * 
+         * @return builder
+         * 
+         */
         public Builder cloudId(Output<Integer> cloudId) {
             $.cloudId = cloudId;
             return this;
         }
 
+        /**
+         * @param cloudId The ID of the cloud to which this sub-cloud belongs.
+         * 
+         * @return builder
+         * 
+         */
         public Builder cloudId(Integer cloudId) {
             return cloudId(Output.of(cloudId));
         }
 
+        /**
+         * @param exclusions List of datacenter exclusions for the sub-cloud.
+         * 
+         * @return builder
+         * 
+         */
         public Builder exclusions(@Nullable Output<List<SubCloudExclusionInputArgs>> exclusions) {
             $.exclusions = exclusions;
             return this;
         }
 
+        /**
+         * @param exclusions List of datacenter exclusions for the sub-cloud.
+         * 
+         * @return builder
+         * 
+         */
         public Builder exclusions(List<SubCloudExclusionInputArgs> exclusions) {
             return exclusions(Output.of(exclusions));
         }
 
+        /**
+         * @param exclusions List of datacenter exclusions for the sub-cloud.
+         * 
+         * @return builder
+         * 
+         */
         public Builder exclusions(SubCloudExclusionInputArgs... exclusions) {
             return exclusions(List.of(exclusions));
         }

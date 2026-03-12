@@ -6,6 +6,36 @@ import * as inputs from "./types/input";
 import * as outputs from "./types/output";
 import * as utilities from "./utilities";
 
+/**
+ * The zia_sandbox_rules resource manages sandbox policy rules in the Zscaler Internet Access (ZIA) cloud service. Sandbox rules define actions for file analysis based on criteria such as locations, departments, groups, users, and file types.
+ *
+ * For more information, see the [ZIA Cloud Sandbox documentation](https://help.zscaler.com/zia/about-cloud-sandbox-policies).
+ *
+ * ## Example Usage
+ * ### Basic Sandbox Rule
+ *
+ * ```typescript
+ * import * as zia from "@bdzscaler/pulumi-zia";
+ *
+ * const example = new zia.SandboxRule("example", {
+ *     name: "Example Sandbox Rule",
+ *     description: "Block suspicious file types",
+ *     order: 1,
+ *     state: "ENABLED",
+ *     baRuleAction: "ALLOW",
+ *     fileTypes: ["ALL_OUTBOUND"],
+ *     protocols: ["FTP_RULE", "SSL_RULE", "FOHTTP_RULE", "HTTP_PROXY"],
+ * });
+ * ```
+ *
+ * ## Import
+ *
+ * An existing Sandbox Rule can be imported using its resource ID, e.g.
+ *
+ * ```sh
+ * $ pulumi import zia:index:SandboxRule example 12345
+ * ```
+ */
 export class SandboxRule extends pulumi.CustomResource {
     /**
      * Get an existing SandboxRule resource's state with the given name, ID, and optional extra
@@ -33,27 +63,93 @@ export class SandboxRule extends pulumi.CustomResource {
         return obj['__pulumiType'] === SandboxRule.__pulumiType;
     }
 
+    /**
+     * List of behavioral analysis policy categories.
+     */
     declare public readonly baPolicyCategories: pulumi.Output<string[] | undefined>;
+    /**
+     * The action applied when the rule is matched. Valid values: `ALLOW`, `BLOCK`, `QUARANTINE`.
+     */
     declare public readonly baRuleAction: pulumi.Output<string | undefined>;
+    /**
+     * Threat score threshold for the rule. Files with a score above this value trigger the action.
+     */
     declare public readonly byThreatScore: pulumi.Output<number | undefined>;
+    /**
+     * IDs of departments to which the rule applies.
+     */
     declare public readonly departments: pulumi.Output<number[] | undefined>;
+    /**
+     * Additional information about the sandbox rule.
+     */
     declare public readonly description: pulumi.Output<string | undefined>;
+    /**
+     * List of file types for which the rule applies (e.g., `ALL_OUTBOUND`, `EXE`, `DLL`).
+     */
     declare public readonly fileTypes: pulumi.Output<string[] | undefined>;
+    /**
+     * If set to true, a first-time action is enabled.
+     */
     declare public readonly firstTimeEnable: pulumi.Output<boolean | undefined>;
+    /**
+     * The action for first-time file downloads. Valid values: `ALLOW_SCAN`, `QUARANTINE`.
+     */
     declare public readonly firstTimeOperation: pulumi.Output<string | undefined>;
+    /**
+     * IDs of groups to which the rule applies.
+     */
     declare public readonly groups: pulumi.Output<number[] | undefined>;
+    /**
+     * IDs of labels associated with the rule.
+     */
     declare public readonly labels: pulumi.Output<number[] | undefined>;
+    /**
+     * IDs of location groups to which the rule applies.
+     */
     declare public readonly locationGroups: pulumi.Output<number[] | undefined>;
+    /**
+     * IDs of locations to which the rule applies.
+     */
     declare public readonly locations: pulumi.Output<number[] | undefined>;
+    /**
+     * If set to true, machine learning-based analysis action is enabled.
+     */
     declare public readonly mlActionEnabled: pulumi.Output<boolean | undefined>;
+    /**
+     * The name of the sandbox rule. Must be unique.
+     */
     declare public readonly name: pulumi.Output<string>;
+    /**
+     * The order of execution of the rule with respect to other sandbox rules.
+     */
     declare public readonly order: pulumi.Output<number>;
+    /**
+     * Protocols to which the rule applies. Valid values: `FTP_RULE`, `SSL_RULE`, `FOHTTP_RULE`, `HTTP_PROXY`.
+     */
     declare public readonly protocols: pulumi.Output<string[] | undefined>;
+    /**
+     * Admin rank of the sandbox policy rule. Valid values: 0-7. Default: 7.
+     */
     declare public readonly rank: pulumi.Output<number | undefined>;
+    /**
+     * The system-generated ID of the sandbox rule.
+     */
     declare public /*out*/ readonly ruleId: pulumi.Output<number>;
+    /**
+     * Rule state. Valid values: `ENABLED`, `DISABLED`.
+     */
     declare public readonly state: pulumi.Output<string | undefined>;
+    /**
+     * List of URL categories to which the rule applies.
+     */
     declare public readonly urlCategories: pulumi.Output<string[] | undefined>;
+    /**
+     * IDs of users to which the rule applies.
+     */
     declare public readonly users: pulumi.Output<number[] | undefined>;
+    /**
+     * List of ZPA application segments to which the rule applies.
+     */
     declare public readonly zpaAppSegments: pulumi.Output<outputs.ZPAAppSegmentInput[] | undefined>;
 
     /**
@@ -128,25 +224,88 @@ export class SandboxRule extends pulumi.CustomResource {
  * The set of arguments for constructing a SandboxRule resource.
  */
 export interface SandboxRuleArgs {
+    /**
+     * List of behavioral analysis policy categories.
+     */
     baPolicyCategories?: pulumi.Input<pulumi.Input<string>[]>;
+    /**
+     * The action applied when the rule is matched. Valid values: `ALLOW`, `BLOCK`, `QUARANTINE`.
+     */
     baRuleAction?: pulumi.Input<string>;
+    /**
+     * Threat score threshold for the rule. Files with a score above this value trigger the action.
+     */
     byThreatScore?: pulumi.Input<number>;
+    /**
+     * IDs of departments to which the rule applies.
+     */
     departments?: pulumi.Input<pulumi.Input<number>[]>;
+    /**
+     * Additional information about the sandbox rule.
+     */
     description?: pulumi.Input<string>;
+    /**
+     * List of file types for which the rule applies (e.g., `ALL_OUTBOUND`, `EXE`, `DLL`).
+     */
     fileTypes?: pulumi.Input<pulumi.Input<string>[]>;
+    /**
+     * If set to true, a first-time action is enabled.
+     */
     firstTimeEnable?: pulumi.Input<boolean>;
+    /**
+     * The action for first-time file downloads. Valid values: `ALLOW_SCAN`, `QUARANTINE`.
+     */
     firstTimeOperation?: pulumi.Input<string>;
+    /**
+     * IDs of groups to which the rule applies.
+     */
     groups?: pulumi.Input<pulumi.Input<number>[]>;
+    /**
+     * IDs of labels associated with the rule.
+     */
     labels?: pulumi.Input<pulumi.Input<number>[]>;
+    /**
+     * IDs of location groups to which the rule applies.
+     */
     locationGroups?: pulumi.Input<pulumi.Input<number>[]>;
+    /**
+     * IDs of locations to which the rule applies.
+     */
     locations?: pulumi.Input<pulumi.Input<number>[]>;
+    /**
+     * If set to true, machine learning-based analysis action is enabled.
+     */
     mlActionEnabled?: pulumi.Input<boolean>;
+    /**
+     * The name of the sandbox rule. Must be unique.
+     */
     name: pulumi.Input<string>;
+    /**
+     * The order of execution of the rule with respect to other sandbox rules.
+     */
     order: pulumi.Input<number>;
+    /**
+     * Protocols to which the rule applies. Valid values: `FTP_RULE`, `SSL_RULE`, `FOHTTP_RULE`, `HTTP_PROXY`.
+     */
     protocols?: pulumi.Input<pulumi.Input<string>[]>;
+    /**
+     * Admin rank of the sandbox policy rule. Valid values: 0-7. Default: 7.
+     */
     rank?: pulumi.Input<number>;
+    /**
+     * Rule state. Valid values: `ENABLED`, `DISABLED`.
+     */
     state?: pulumi.Input<string>;
+    /**
+     * List of URL categories to which the rule applies.
+     */
     urlCategories?: pulumi.Input<pulumi.Input<string>[]>;
+    /**
+     * IDs of users to which the rule applies.
+     */
     users?: pulumi.Input<pulumi.Input<number>[]>;
+    /**
+     * List of ZPA application segments to which the rule applies.
+     */
     zpaAppSegments?: pulumi.Input<pulumi.Input<inputs.ZPAAppSegmentInputArgs>[]>;
 }

@@ -25,6 +25,8 @@ class SubCloudArgs:
                  exclusions: Optional[pulumi.Input[Sequence[pulumi.Input['SubCloudExclusionInputArgs']]]] = None):
         """
         The set of arguments for constructing a SubCloud resource.
+        :param pulumi.Input[_builtins.int] cloud_id: The ID of the cloud to which this sub-cloud belongs.
+        :param pulumi.Input[Sequence[pulumi.Input['SubCloudExclusionInputArgs']]] exclusions: List of datacenter exclusions for the sub-cloud.
         """
         pulumi.set(__self__, "cloud_id", cloud_id)
         if exclusions is not None:
@@ -33,6 +35,9 @@ class SubCloudArgs:
     @_builtins.property
     @pulumi.getter(name="cloudId")
     def cloud_id(self) -> pulumi.Input[_builtins.int]:
+        """
+        The ID of the cloud to which this sub-cloud belongs.
+        """
         return pulumi.get(self, "cloud_id")
 
     @cloud_id.setter
@@ -42,6 +47,9 @@ class SubCloudArgs:
     @_builtins.property
     @pulumi.getter
     def exclusions(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['SubCloudExclusionInputArgs']]]]:
+        """
+        List of datacenter exclusions for the sub-cloud.
+        """
         return pulumi.get(self, "exclusions")
 
     @exclusions.setter
@@ -59,9 +67,38 @@ class SubCloud(pulumi.CustomResource):
                  exclusions: Optional[pulumi.Input[Sequence[pulumi.Input[Union['SubCloudExclusionInputArgs', 'SubCloudExclusionInputArgsDict']]]]] = None,
                  __props__=None):
         """
-        Create a SubCloud resource with the given unique name, props, and options.
+        The zia.SubCloud resource manages sub-cloud configurations in the Zscaler Internet Access (ZIA) cloud.
+        Sub-clouds represent regional cloud instances with associated datacenters and exclusion rules.
+        Create and update both use the same API operation. Deleting the Pulumi resource does not remove
+        the underlying sub-cloud configuration.
+
+        ## Example Usage
+        ### Basic Sub-Cloud
+
+        ```python
+        import zscaler_pulumi_zia as zia
+
+        example = zia.SubCloud("example",
+            cloud_id=1,
+            exclusions=[{
+                "datacenter": {
+                    "resource_id": 100,
+                    "name": "US-East",
+                    "country": "US",
+                },
+                "country": "US",
+            }],
+        )
+        ```
+
+        ## Import
+
+        This resource uses a no-op delete. Import is not typically applicable for sub-cloud resources.
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
+        :param pulumi.Input[_builtins.int] cloud_id: The ID of the cloud to which this sub-cloud belongs.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['SubCloudExclusionInputArgs', 'SubCloudExclusionInputArgsDict']]]] exclusions: List of datacenter exclusions for the sub-cloud.
         """
         ...
     @overload
@@ -70,7 +107,34 @@ class SubCloud(pulumi.CustomResource):
                  args: SubCloudArgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
-        Create a SubCloud resource with the given unique name, props, and options.
+        The zia.SubCloud resource manages sub-cloud configurations in the Zscaler Internet Access (ZIA) cloud.
+        Sub-clouds represent regional cloud instances with associated datacenters and exclusion rules.
+        Create and update both use the same API operation. Deleting the Pulumi resource does not remove
+        the underlying sub-cloud configuration.
+
+        ## Example Usage
+        ### Basic Sub-Cloud
+
+        ```python
+        import zscaler_pulumi_zia as zia
+
+        example = zia.SubCloud("example",
+            cloud_id=1,
+            exclusions=[{
+                "datacenter": {
+                    "resource_id": 100,
+                    "name": "US-East",
+                    "country": "US",
+                },
+                "country": "US",
+            }],
+        )
+        ```
+
+        ## Import
+
+        This resource uses a no-op delete. Import is not typically applicable for sub-cloud resources.
+
         :param str resource_name: The name of the resource.
         :param SubCloudArgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -136,25 +200,40 @@ class SubCloud(pulumi.CustomResource):
     @_builtins.property
     @pulumi.getter(name="cloudId")
     def cloud_id(self) -> pulumi.Output[_builtins.int]:
+        """
+        The ID of the cloud to which this sub-cloud belongs.
+        """
         return pulumi.get(self, "cloud_id")
 
     @_builtins.property
     @pulumi.getter
     def dcs(self) -> pulumi.Output[Optional[Sequence['outputs.SubCloudDcOutput']]]:
+        """
+        List of datacenters associated with the sub-cloud.
+        """
         return pulumi.get(self, "dcs")
 
     @_builtins.property
     @pulumi.getter
     def exclusions(self) -> pulumi.Output[Optional[Sequence['outputs.SubCloudExclusionInput']]]:
+        """
+        List of datacenter exclusions for the sub-cloud.
+        """
         return pulumi.get(self, "exclusions")
 
     @_builtins.property
     @pulumi.getter
     def name(self) -> pulumi.Output[Optional[_builtins.str]]:
+        """
+        The name of the sub-cloud.
+        """
         return pulumi.get(self, "name")
 
     @_builtins.property
     @pulumi.getter(name="resourceId")
     def resource_id(self) -> pulumi.Output[_builtins.str]:
+        """
+        The resource ID of the sub-cloud.
+        """
         return pulumi.get(self, "resource_id")
 

@@ -15,16 +15,32 @@ public final class GetUserManagementUserPlainArgs extends com.pulumi.resources.I
 
     public static final GetUserManagementUserPlainArgs Empty = new GetUserManagementUserPlainArgs();
 
+    /**
+     * The name of the user to look up.
+     * 
+     */
     @Import(name="name")
     private @Nullable String name;
 
+    /**
+     * @return The name of the user to look up.
+     * 
+     */
     public Optional<String> name() {
         return Optional.ofNullable(this.name);
     }
 
+    /**
+     * The ID of the user to look up.
+     * 
+     */
     @Import(name="userId")
     private @Nullable Integer userId;
 
+    /**
+     * @return The ID of the user to look up.
+     * 
+     */
     public Optional<Integer> userId() {
         return Optional.ofNullable(this.userId);
     }
@@ -54,11 +70,23 @@ public final class GetUserManagementUserPlainArgs extends com.pulumi.resources.I
             $ = new GetUserManagementUserPlainArgs(Objects.requireNonNull(defaults));
         }
 
+        /**
+         * @param name The name of the user to look up.
+         * 
+         * @return builder
+         * 
+         */
         public Builder name(@Nullable String name) {
             $.name = name;
             return this;
         }
 
+        /**
+         * @param userId The ID of the user to look up.
+         * 
+         * @return builder
+         * 
+         */
         public Builder userId(@Nullable Integer userId) {
             $.userId = userId;
             return this;

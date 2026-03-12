@@ -18,345 +18,737 @@ public final class AdvancedSettingsArgs extends com.pulumi.resources.ResourceArg
 
     public static final AdvancedSettingsArgs Empty = new AdvancedSettingsArgs();
 
+    /**
+     * Cloud applications that bypass authentication.
+     * 
+     */
     @Import(name="authBypassApps")
     private @Nullable Output<List<String>> authBypassApps;
 
+    /**
+     * @return Cloud applications that bypass authentication.
+     * 
+     */
     public Optional<Output<List<String>>> authBypassApps() {
         return Optional.ofNullable(this.authBypassApps);
     }
 
+    /**
+     * URL categories that bypass authentication.
+     * 
+     */
     @Import(name="authBypassUrlCategories")
     private @Nullable Output<List<String>> authBypassUrlCategories;
 
+    /**
+     * @return URL categories that bypass authentication.
+     * 
+     */
     public Optional<Output<List<String>>> authBypassUrlCategories() {
         return Optional.ofNullable(this.authBypassUrlCategories);
     }
 
+    /**
+     * URLs that bypass authentication.
+     * 
+     */
     @Import(name="authBypassUrls")
     private @Nullable Output<List<String>> authBypassUrls;
 
+    /**
+     * @return URLs that bypass authentication.
+     * 
+     */
     public Optional<Output<List<String>>> authBypassUrls() {
         return Optional.ofNullable(this.authBypassUrls);
     }
 
+    /**
+     * Cloud applications that bypass basic authentication.
+     * 
+     */
     @Import(name="basicBypassApps")
     private @Nullable Output<List<String>> basicBypassApps;
 
+    /**
+     * @return Cloud applications that bypass basic authentication.
+     * 
+     */
     public Optional<Output<List<String>>> basicBypassApps() {
         return Optional.ofNullable(this.basicBypassApps);
     }
 
+    /**
+     * URL categories that bypass basic authentication.
+     * 
+     */
     @Import(name="basicBypassUrlCategories")
     private @Nullable Output<List<String>> basicBypassUrlCategories;
 
+    /**
+     * @return URL categories that bypass basic authentication.
+     * 
+     */
     public Optional<Output<List<String>>> basicBypassUrlCategories() {
         return Optional.ofNullable(this.basicBypassUrlCategories);
     }
 
+    /**
+     * Block connections where CONNECT host and SNI mismatch.
+     * 
+     */
     @Import(name="blockConnectHostSniMismatch")
     private @Nullable Output<Boolean> blockConnectHostSniMismatch;
 
+    /**
+     * @return Block connections where CONNECT host and SNI mismatch.
+     * 
+     */
     public Optional<Output<Boolean>> blockConnectHostSniMismatch() {
         return Optional.ofNullable(this.blockConnectHostSniMismatch);
     }
 
+    /**
+     * Cloud applications for which domain fronting is blocked.
+     * 
+     */
     @Import(name="blockDomainFrontingApps")
     private @Nullable Output<List<String>> blockDomainFrontingApps;
 
+    /**
+     * @return Cloud applications for which domain fronting is blocked.
+     * 
+     */
     public Optional<Output<List<String>>> blockDomainFrontingApps() {
         return Optional.ofNullable(this.blockDomainFrontingApps);
     }
 
+    /**
+     * Block domain fronting when the host header mismatches the SNI.
+     * 
+     */
     @Import(name="blockDomainFrontingOnHostHeader")
     private @Nullable Output<Boolean> blockDomainFrontingOnHostHeader;
 
+    /**
+     * @return Block domain fronting when the host header mismatches the SNI.
+     * 
+     */
     public Optional<Output<Boolean>> blockDomainFrontingOnHostHeader() {
         return Optional.ofNullable(this.blockDomainFrontingOnHostHeader);
     }
 
+    /**
+     * Block HTTP tunnels on non-HTTP ports.
+     * 
+     */
     @Import(name="blockHttpTunnelOnNonHttpPorts")
     private @Nullable Output<Boolean> blockHttpTunnelOnNonHttpPorts;
 
+    /**
+     * @return Block HTTP tunnels on non-HTTP ports.
+     * 
+     */
     public Optional<Output<Boolean>> blockHttpTunnelOnNonHttpPorts() {
         return Optional.ofNullable(this.blockHttpTunnelOnNonHttpPorts);
     }
 
+    /**
+     * Block non-compliant HTTP requests on HTTP ports.
+     * 
+     */
     @Import(name="blockNonCompliantHttpRequestOnHttpPorts")
     private @Nullable Output<Boolean> blockNonCompliantHttpRequestOnHttpPorts;
 
+    /**
+     * @return Block non-compliant HTTP requests on HTTP ports.
+     * 
+     */
     public Optional<Output<Boolean>> blockNonCompliantHttpRequestOnHttpPorts() {
         return Optional.ofNullable(this.blockNonCompliantHttpRequestOnHttpPorts);
     }
 
+    /**
+     * Block non-HTTP traffic on HTTP ports.
+     * 
+     */
     @Import(name="blockNonHttpOnHttpPortEnabled")
     private @Nullable Output<Boolean> blockNonHttpOnHttpPortEnabled;
 
+    /**
+     * @return Block non-HTTP traffic on HTTP ports.
+     * 
+     */
     public Optional<Output<Boolean>> blockNonHttpOnHttpPortEnabled() {
         return Optional.ofNullable(this.blockNonHttpOnHttpPortEnabled);
     }
 
+    /**
+     * Enable cascading URL filtering.
+     * 
+     */
     @Import(name="cascadeUrlFiltering")
     private @Nullable Output<Boolean> cascadeUrlFiltering;
 
+    /**
+     * @return Enable cascading URL filtering.
+     * 
+     */
     public Optional<Output<Boolean>> cascadeUrlFiltering() {
         return Optional.ofNullable(this.cascadeUrlFiltering);
     }
 
+    /**
+     * Cloud applications that bypass digest authentication.
+     * 
+     */
     @Import(name="digestAuthBypassApps")
     private @Nullable Output<List<String>> digestAuthBypassApps;
 
+    /**
+     * @return Cloud applications that bypass digest authentication.
+     * 
+     */
     public Optional<Output<List<String>>> digestAuthBypassApps() {
         return Optional.ofNullable(this.digestAuthBypassApps);
     }
 
+    /**
+     * URL categories that bypass digest authentication.
+     * 
+     */
     @Import(name="digestAuthBypassUrlCategories")
     private @Nullable Output<List<String>> digestAuthBypassUrlCategories;
 
+    /**
+     * @return URL categories that bypass digest authentication.
+     * 
+     */
     public Optional<Output<List<String>>> digestAuthBypassUrlCategories() {
         return Optional.ofNullable(this.digestAuthBypassUrlCategories);
     }
 
+    /**
+     * URLs that bypass digest authentication.
+     * 
+     */
     @Import(name="digestAuthBypassUrls")
     private @Nullable Output<List<String>> digestAuthBypassUrls;
 
+    /**
+     * @return URLs that bypass digest authentication.
+     * 
+     */
     public Optional<Output<List<String>>> digestAuthBypassUrls() {
         return Optional.ofNullable(this.digestAuthBypassUrls);
     }
 
+    /**
+     * Cloud applications with DNS resolution on transparent proxy enabled.
+     * 
+     */
     @Import(name="dnsResolutionOnTransparentProxyApps")
     private @Nullable Output<List<String>> dnsResolutionOnTransparentProxyApps;
 
+    /**
+     * @return Cloud applications with DNS resolution on transparent proxy enabled.
+     * 
+     */
     public Optional<Output<List<String>>> dnsResolutionOnTransparentProxyApps() {
         return Optional.ofNullable(this.dnsResolutionOnTransparentProxyApps);
     }
 
+    /**
+     * Cloud applications exempt from DNS resolution on transparent proxy.
+     * 
+     */
     @Import(name="dnsResolutionOnTransparentProxyExemptApps")
     private @Nullable Output<List<String>> dnsResolutionOnTransparentProxyExemptApps;
 
+    /**
+     * @return Cloud applications exempt from DNS resolution on transparent proxy.
+     * 
+     */
     public Optional<Output<List<String>>> dnsResolutionOnTransparentProxyExemptApps() {
         return Optional.ofNullable(this.dnsResolutionOnTransparentProxyExemptApps);
     }
 
+    /**
+     * URL categories exempt from DNS resolution on transparent proxy.
+     * 
+     */
     @Import(name="dnsResolutionOnTransparentProxyExemptUrlCategories")
     private @Nullable Output<List<String>> dnsResolutionOnTransparentProxyExemptUrlCategories;
 
+    /**
+     * @return URL categories exempt from DNS resolution on transparent proxy.
+     * 
+     */
     public Optional<Output<List<String>>> dnsResolutionOnTransparentProxyExemptUrlCategories() {
         return Optional.ofNullable(this.dnsResolutionOnTransparentProxyExemptUrlCategories);
     }
 
+    /**
+     * URLs exempt from DNS resolution on transparent proxy.
+     * 
+     */
     @Import(name="dnsResolutionOnTransparentProxyExemptUrls")
     private @Nullable Output<List<String>> dnsResolutionOnTransparentProxyExemptUrls;
 
+    /**
+     * @return URLs exempt from DNS resolution on transparent proxy.
+     * 
+     */
     public Optional<Output<List<String>>> dnsResolutionOnTransparentProxyExemptUrls() {
         return Optional.ofNullable(this.dnsResolutionOnTransparentProxyExemptUrls);
     }
 
+    /**
+     * Cloud applications with IPv6 DNS resolution on transparent proxy enabled.
+     * 
+     */
     @Import(name="dnsResolutionOnTransparentProxyIpv6Apps")
     private @Nullable Output<List<String>> dnsResolutionOnTransparentProxyIpv6Apps;
 
+    /**
+     * @return Cloud applications with IPv6 DNS resolution on transparent proxy enabled.
+     * 
+     */
     public Optional<Output<List<String>>> dnsResolutionOnTransparentProxyIpv6Apps() {
         return Optional.ofNullable(this.dnsResolutionOnTransparentProxyIpv6Apps);
     }
 
+    /**
+     * Cloud applications exempt from IPv6 DNS resolution on transparent proxy.
+     * 
+     */
     @Import(name="dnsResolutionOnTransparentProxyIpv6ExemptApps")
     private @Nullable Output<List<String>> dnsResolutionOnTransparentProxyIpv6ExemptApps;
 
+    /**
+     * @return Cloud applications exempt from IPv6 DNS resolution on transparent proxy.
+     * 
+     */
     public Optional<Output<List<String>>> dnsResolutionOnTransparentProxyIpv6ExemptApps() {
         return Optional.ofNullable(this.dnsResolutionOnTransparentProxyIpv6ExemptApps);
     }
 
+    /**
+     * URL categories exempt from IPv6 DNS resolution on transparent proxy.
+     * 
+     */
     @Import(name="dnsResolutionOnTransparentProxyIpv6ExemptUrlCategories")
     private @Nullable Output<List<String>> dnsResolutionOnTransparentProxyIpv6ExemptUrlCategories;
 
+    /**
+     * @return URL categories exempt from IPv6 DNS resolution on transparent proxy.
+     * 
+     */
     public Optional<Output<List<String>>> dnsResolutionOnTransparentProxyIpv6ExemptUrlCategories() {
         return Optional.ofNullable(this.dnsResolutionOnTransparentProxyIpv6ExemptUrlCategories);
     }
 
+    /**
+     * URL categories with IPv6 DNS resolution on transparent proxy enabled.
+     * 
+     */
     @Import(name="dnsResolutionOnTransparentProxyIpv6UrlCategories")
     private @Nullable Output<List<String>> dnsResolutionOnTransparentProxyIpv6UrlCategories;
 
+    /**
+     * @return URL categories with IPv6 DNS resolution on transparent proxy enabled.
+     * 
+     */
     public Optional<Output<List<String>>> dnsResolutionOnTransparentProxyIpv6UrlCategories() {
         return Optional.ofNullable(this.dnsResolutionOnTransparentProxyIpv6UrlCategories);
     }
 
+    /**
+     * URL categories with DNS resolution on transparent proxy enabled.
+     * 
+     */
     @Import(name="dnsResolutionOnTransparentProxyUrlCategories")
     private @Nullable Output<List<String>> dnsResolutionOnTransparentProxyUrlCategories;
 
+    /**
+     * @return URL categories with DNS resolution on transparent proxy enabled.
+     * 
+     */
     public Optional<Output<List<String>>> dnsResolutionOnTransparentProxyUrlCategories() {
         return Optional.ofNullable(this.dnsResolutionOnTransparentProxyUrlCategories);
     }
 
+    /**
+     * URLs with DNS resolution on transparent proxy enabled.
+     * 
+     */
     @Import(name="dnsResolutionOnTransparentProxyUrls")
     private @Nullable Output<List<String>> dnsResolutionOnTransparentProxyUrls;
 
+    /**
+     * @return URLs with DNS resolution on transparent proxy enabled.
+     * 
+     */
     public Optional<Output<List<String>>> dnsResolutionOnTransparentProxyUrls() {
         return Optional.ofNullable(this.dnsResolutionOnTransparentProxyUrls);
     }
 
+    /**
+     * URL categories that bypass domain fronting detection.
+     * 
+     */
     @Import(name="domainFrontingBypassUrlCategories")
     private @Nullable Output<List<String>> domainFrontingBypassUrlCategories;
 
+    /**
+     * @return URL categories that bypass domain fronting detection.
+     * 
+     */
     public Optional<Output<List<String>>> domainFrontingBypassUrlCategories() {
         return Optional.ofNullable(this.domainFrontingBypassUrlCategories);
     }
 
+    /**
+     * Enable dynamic user risk scoring.
+     * 
+     */
     @Import(name="dynamicUserRiskEnabled")
     private @Nullable Output<Boolean> dynamicUserRiskEnabled;
 
+    /**
+     * @return Enable dynamic user risk scoring.
+     * 
+     */
     public Optional<Output<Boolean>> dynamicUserRiskEnabled() {
         return Optional.ofNullable(this.dynamicUserRiskEnabled);
     }
 
+    /**
+     * Enable EDNS Client Subnet (ECS) for all DNS queries.
+     * 
+     */
     @Import(name="ecsForAllEnabled")
     private @Nullable Output<Boolean> ecsForAllEnabled;
 
+    /**
+     * @return Enable EDNS Client Subnet (ECS) for all DNS queries.
+     * 
+     */
     public Optional<Output<Boolean>> ecsForAllEnabled() {
         return Optional.ofNullable(this.ecsForAllEnabled);
     }
 
+    /**
+     * Enable admin rank-based access control.
+     * 
+     */
     @Import(name="enableAdminRankAccess")
     private @Nullable Output<Boolean> enableAdminRankAccess;
 
+    /**
+     * @return Enable admin rank-based access control.
+     * 
+     */
     public Optional<Output<Boolean>> enableAdminRankAccess() {
         return Optional.ofNullable(this.enableAdminRankAccess);
     }
 
+    /**
+     * Enable DNS resolution on transparent proxy.
+     * 
+     */
     @Import(name="enableDnsResolutionOnTransparentProxy")
     private @Nullable Output<Boolean> enableDnsResolutionOnTransparentProxy;
 
+    /**
+     * @return Enable DNS resolution on transparent proxy.
+     * 
+     */
     public Optional<Output<Boolean>> enableDnsResolutionOnTransparentProxy() {
         return Optional.ofNullable(this.enableDnsResolutionOnTransparentProxy);
     }
 
+    /**
+     * Enable policy evaluation on global SSL bypass.
+     * 
+     */
     @Import(name="enableEvaluatePolicyOnGlobalSslBypass")
     private @Nullable Output<Boolean> enableEvaluatePolicyOnGlobalSslBypass;
 
+    /**
+     * @return Enable policy evaluation on global SSL bypass.
+     * 
+     */
     public Optional<Output<Boolean>> enableEvaluatePolicyOnGlobalSslBypass() {
         return Optional.ofNullable(this.enableEvaluatePolicyOnGlobalSslBypass);
     }
 
+    /**
+     * Enable IPv6 DNS optimization on all transparent proxy connections.
+     * 
+     */
     @Import(name="enableIpv6DnsOptimizationOnAllTransparentProxy")
     private @Nullable Output<Boolean> enableIpv6DnsOptimizationOnAllTransparentProxy;
 
+    /**
+     * @return Enable IPv6 DNS optimization on all transparent proxy connections.
+     * 
+     */
     public Optional<Output<Boolean>> enableIpv6DnsOptimizationOnAllTransparentProxy() {
         return Optional.ofNullable(this.enableIpv6DnsOptimizationOnAllTransparentProxy);
     }
 
+    /**
+     * Enable IPv6 DNS resolution on transparent proxy.
+     * 
+     */
     @Import(name="enableIpv6DnsResolutionOnTransparentProxy")
     private @Nullable Output<Boolean> enableIpv6DnsResolutionOnTransparentProxy;
 
+    /**
+     * @return Enable IPv6 DNS resolution on transparent proxy.
+     * 
+     */
     public Optional<Output<Boolean>> enableIpv6DnsResolutionOnTransparentProxy() {
         return Optional.ofNullable(this.enableIpv6DnsResolutionOnTransparentProxy);
     }
 
+    /**
+     * Enable Office 365 one-click configuration.
+     * 
+     */
     @Import(name="enableOffice365")
     private @Nullable Output<Boolean> enableOffice365;
 
+    /**
+     * @return Enable Office 365 one-click configuration.
+     * 
+     */
     public Optional<Output<Boolean>> enableOffice365() {
         return Optional.ofNullable(this.enableOffice365);
     }
 
+    /**
+     * Enable policy evaluation for unauthenticated traffic.
+     * 
+     */
     @Import(name="enablePolicyForUnauthenticatedTraffic")
     private @Nullable Output<Boolean> enablePolicyForUnauthenticatedTraffic;
 
+    /**
+     * @return Enable policy evaluation for unauthenticated traffic.
+     * 
+     */
     public Optional<Output<Boolean>> enablePolicyForUnauthenticatedTraffic() {
         return Optional.ofNullable(this.enablePolicyForUnauthenticatedTraffic);
     }
 
+    /**
+     * Enforce surrogate IP for Windows applications.
+     * 
+     */
     @Import(name="enforceSurrogateIpForWindowsApp")
     private @Nullable Output<Boolean> enforceSurrogateIpForWindowsApp;
 
+    /**
+     * @return Enforce surrogate IP for Windows applications.
+     * 
+     */
     public Optional<Output<Boolean>> enforceSurrogateIpForWindowsApp() {
         return Optional.ofNullable(this.enforceSurrogateIpForWindowsApp);
     }
 
+    /**
+     * Enable HTTP/2 for non-browser traffic.
+     * 
+     */
     @Import(name="http2NonbrowserTrafficEnabled")
     private @Nullable Output<Boolean> http2NonbrowserTrafficEnabled;
 
+    /**
+     * @return Enable HTTP/2 for non-browser traffic.
+     * 
+     */
     public Optional<Output<Boolean>> http2NonbrowserTrafficEnabled() {
         return Optional.ofNullable(this.http2NonbrowserTrafficEnabled);
     }
 
+    /**
+     * URL categories for which HTTP range headers are removed.
+     * 
+     */
     @Import(name="httpRangeHeaderRemoveUrlCategories")
     private @Nullable Output<List<String>> httpRangeHeaderRemoveUrlCategories;
 
+    /**
+     * @return URL categories for which HTTP range headers are removed.
+     * 
+     */
     public Optional<Output<List<String>>> httpRangeHeaderRemoveUrlCategories() {
         return Optional.ofNullable(this.httpRangeHeaderRemoveUrlCategories);
     }
 
+    /**
+     * Cloud applications that bypass Kerberos authentication.
+     * 
+     */
     @Import(name="kerberosBypassApps")
     private @Nullable Output<List<String>> kerberosBypassApps;
 
+    /**
+     * @return Cloud applications that bypass Kerberos authentication.
+     * 
+     */
     public Optional<Output<List<String>>> kerberosBypassApps() {
         return Optional.ofNullable(this.kerberosBypassApps);
     }
 
+    /**
+     * URL categories that bypass Kerberos authentication.
+     * 
+     */
     @Import(name="kerberosBypassUrlCategories")
     private @Nullable Output<List<String>> kerberosBypassUrlCategories;
 
+    /**
+     * @return URL categories that bypass Kerberos authentication.
+     * 
+     */
     public Optional<Output<List<String>>> kerberosBypassUrlCategories() {
         return Optional.ofNullable(this.kerberosBypassUrlCategories);
     }
 
+    /**
+     * URLs that bypass Kerberos authentication.
+     * 
+     */
     @Import(name="kerberosBypassUrls")
     private @Nullable Output<List<String>> kerberosBypassUrls;
 
+    /**
+     * @return URLs that bypass Kerberos authentication.
+     * 
+     */
     public Optional<Output<List<String>>> kerberosBypassUrls() {
         return Optional.ofNullable(this.kerberosBypassUrls);
     }
 
+    /**
+     * Enable logging of internal IP addresses.
+     * 
+     */
     @Import(name="logInternalIp")
     private @Nullable Output<Boolean> logInternalIp;
 
+    /**
+     * @return Enable logging of internal IP addresses.
+     * 
+     */
     public Optional<Output<Boolean>> logInternalIp() {
         return Optional.ofNullable(this.logInternalIp);
     }
 
+    /**
+     * Prefer SNI over CONNECT host header for policy evaluation.
+     * 
+     */
     @Import(name="preferSniOverConnHost")
     private @Nullable Output<Boolean> preferSniOverConnHost;
 
+    /**
+     * @return Prefer SNI over CONNECT host header for policy evaluation.
+     * 
+     */
     public Optional<Output<Boolean>> preferSniOverConnHost() {
         return Optional.ofNullable(this.preferSniOverConnHost);
     }
 
+    /**
+     * Cloud applications that prefer SNI over CONNECT host header.
+     * 
+     */
     @Import(name="preferSniOverConnHostApps")
     private @Nullable Output<List<String>> preferSniOverConnHostApps;
 
+    /**
+     * @return Cloud applications that prefer SNI over CONNECT host header.
+     * 
+     */
     public Optional<Output<List<String>>> preferSniOverConnHostApps() {
         return Optional.ofNullable(this.preferSniOverConnHostApps);
     }
 
+    /**
+     * Enable X-Forwarded-For header for SIPA traffic.
+     * 
+     */
     @Import(name="sipaXffHeaderEnabled")
     private @Nullable Output<Boolean> sipaXffHeaderEnabled;
 
+    /**
+     * @return Enable X-Forwarded-For header for SIPA traffic.
+     * 
+     */
     public Optional<Output<Boolean>> sipaXffHeaderEnabled() {
         return Optional.ofNullable(this.sipaXffHeaderEnabled);
     }
 
+    /**
+     * URL categories that bypass SNI/DNS optimization.
+     * 
+     */
     @Import(name="sniDnsOptimizationBypassUrlCategories")
     private @Nullable Output<List<String>> sniDnsOptimizationBypassUrlCategories;
 
+    /**
+     * @return URL categories that bypass SNI/DNS optimization.
+     * 
+     */
     public Optional<Output<List<String>>> sniDnsOptimizationBypassUrlCategories() {
         return Optional.ofNullable(this.sniDnsOptimizationBypassUrlCategories);
     }
 
+    /**
+     * Track HTTP tunnels on HTTP ports.
+     * 
+     */
     @Import(name="trackHttpTunnelOnHttpPorts")
     private @Nullable Output<Boolean> trackHttpTunnelOnHttpPorts;
 
+    /**
+     * @return Track HTTP tunnels on HTTP ports.
+     * 
+     */
     public Optional<Output<Boolean>> trackHttpTunnelOnHttpPorts() {
         return Optional.ofNullable(this.trackHttpTunnelOnHttpPorts);
     }
 
+    /**
+     * UI session timeout in minutes.
+     * 
+     */
     @Import(name="uiSessionTimeout")
     private @Nullable Output<Integer> uiSessionTimeout;
 
+    /**
+     * @return UI session timeout in minutes.
+     * 
+     */
     public Optional<Output<Integer>> uiSessionTimeout() {
         return Optional.ofNullable(this.uiSessionTimeout);
     }
 
+    /**
+     * Include Zscaler Client Connector and PAC road warrior traffic in firewall policy.
+     * 
+     */
     @Import(name="zscalerClientConnector1AndPacRoadWarriorInFirewall")
     private @Nullable Output<Boolean> zscalerClientConnector1AndPacRoadWarriorInFirewall;
 
+    /**
+     * @return Include Zscaler Client Connector and PAC road warrior traffic in firewall policy.
+     * 
+     */
     public Optional<Output<Boolean>> zscalerClientConnector1AndPacRoadWarriorInFirewall() {
         return Optional.ofNullable(this.zscalerClientConnector1AndPacRoadWarriorInFirewall);
     }
@@ -433,547 +825,1291 @@ public final class AdvancedSettingsArgs extends com.pulumi.resources.ResourceArg
             $ = new AdvancedSettingsArgs(Objects.requireNonNull(defaults));
         }
 
+        /**
+         * @param authBypassApps Cloud applications that bypass authentication.
+         * 
+         * @return builder
+         * 
+         */
         public Builder authBypassApps(@Nullable Output<List<String>> authBypassApps) {
             $.authBypassApps = authBypassApps;
             return this;
         }
 
+        /**
+         * @param authBypassApps Cloud applications that bypass authentication.
+         * 
+         * @return builder
+         * 
+         */
         public Builder authBypassApps(List<String> authBypassApps) {
             return authBypassApps(Output.of(authBypassApps));
         }
 
+        /**
+         * @param authBypassApps Cloud applications that bypass authentication.
+         * 
+         * @return builder
+         * 
+         */
         public Builder authBypassApps(String... authBypassApps) {
             return authBypassApps(List.of(authBypassApps));
         }
 
+        /**
+         * @param authBypassUrlCategories URL categories that bypass authentication.
+         * 
+         * @return builder
+         * 
+         */
         public Builder authBypassUrlCategories(@Nullable Output<List<String>> authBypassUrlCategories) {
             $.authBypassUrlCategories = authBypassUrlCategories;
             return this;
         }
 
+        /**
+         * @param authBypassUrlCategories URL categories that bypass authentication.
+         * 
+         * @return builder
+         * 
+         */
         public Builder authBypassUrlCategories(List<String> authBypassUrlCategories) {
             return authBypassUrlCategories(Output.of(authBypassUrlCategories));
         }
 
+        /**
+         * @param authBypassUrlCategories URL categories that bypass authentication.
+         * 
+         * @return builder
+         * 
+         */
         public Builder authBypassUrlCategories(String... authBypassUrlCategories) {
             return authBypassUrlCategories(List.of(authBypassUrlCategories));
         }
 
+        /**
+         * @param authBypassUrls URLs that bypass authentication.
+         * 
+         * @return builder
+         * 
+         */
         public Builder authBypassUrls(@Nullable Output<List<String>> authBypassUrls) {
             $.authBypassUrls = authBypassUrls;
             return this;
         }
 
+        /**
+         * @param authBypassUrls URLs that bypass authentication.
+         * 
+         * @return builder
+         * 
+         */
         public Builder authBypassUrls(List<String> authBypassUrls) {
             return authBypassUrls(Output.of(authBypassUrls));
         }
 
+        /**
+         * @param authBypassUrls URLs that bypass authentication.
+         * 
+         * @return builder
+         * 
+         */
         public Builder authBypassUrls(String... authBypassUrls) {
             return authBypassUrls(List.of(authBypassUrls));
         }
 
+        /**
+         * @param basicBypassApps Cloud applications that bypass basic authentication.
+         * 
+         * @return builder
+         * 
+         */
         public Builder basicBypassApps(@Nullable Output<List<String>> basicBypassApps) {
             $.basicBypassApps = basicBypassApps;
             return this;
         }
 
+        /**
+         * @param basicBypassApps Cloud applications that bypass basic authentication.
+         * 
+         * @return builder
+         * 
+         */
         public Builder basicBypassApps(List<String> basicBypassApps) {
             return basicBypassApps(Output.of(basicBypassApps));
         }
 
+        /**
+         * @param basicBypassApps Cloud applications that bypass basic authentication.
+         * 
+         * @return builder
+         * 
+         */
         public Builder basicBypassApps(String... basicBypassApps) {
             return basicBypassApps(List.of(basicBypassApps));
         }
 
+        /**
+         * @param basicBypassUrlCategories URL categories that bypass basic authentication.
+         * 
+         * @return builder
+         * 
+         */
         public Builder basicBypassUrlCategories(@Nullable Output<List<String>> basicBypassUrlCategories) {
             $.basicBypassUrlCategories = basicBypassUrlCategories;
             return this;
         }
 
+        /**
+         * @param basicBypassUrlCategories URL categories that bypass basic authentication.
+         * 
+         * @return builder
+         * 
+         */
         public Builder basicBypassUrlCategories(List<String> basicBypassUrlCategories) {
             return basicBypassUrlCategories(Output.of(basicBypassUrlCategories));
         }
 
+        /**
+         * @param basicBypassUrlCategories URL categories that bypass basic authentication.
+         * 
+         * @return builder
+         * 
+         */
         public Builder basicBypassUrlCategories(String... basicBypassUrlCategories) {
             return basicBypassUrlCategories(List.of(basicBypassUrlCategories));
         }
 
+        /**
+         * @param blockConnectHostSniMismatch Block connections where CONNECT host and SNI mismatch.
+         * 
+         * @return builder
+         * 
+         */
         public Builder blockConnectHostSniMismatch(@Nullable Output<Boolean> blockConnectHostSniMismatch) {
             $.blockConnectHostSniMismatch = blockConnectHostSniMismatch;
             return this;
         }
 
+        /**
+         * @param blockConnectHostSniMismatch Block connections where CONNECT host and SNI mismatch.
+         * 
+         * @return builder
+         * 
+         */
         public Builder blockConnectHostSniMismatch(Boolean blockConnectHostSniMismatch) {
             return blockConnectHostSniMismatch(Output.of(blockConnectHostSniMismatch));
         }
 
+        /**
+         * @param blockDomainFrontingApps Cloud applications for which domain fronting is blocked.
+         * 
+         * @return builder
+         * 
+         */
         public Builder blockDomainFrontingApps(@Nullable Output<List<String>> blockDomainFrontingApps) {
             $.blockDomainFrontingApps = blockDomainFrontingApps;
             return this;
         }
 
+        /**
+         * @param blockDomainFrontingApps Cloud applications for which domain fronting is blocked.
+         * 
+         * @return builder
+         * 
+         */
         public Builder blockDomainFrontingApps(List<String> blockDomainFrontingApps) {
             return blockDomainFrontingApps(Output.of(blockDomainFrontingApps));
         }
 
+        /**
+         * @param blockDomainFrontingApps Cloud applications for which domain fronting is blocked.
+         * 
+         * @return builder
+         * 
+         */
         public Builder blockDomainFrontingApps(String... blockDomainFrontingApps) {
             return blockDomainFrontingApps(List.of(blockDomainFrontingApps));
         }
 
+        /**
+         * @param blockDomainFrontingOnHostHeader Block domain fronting when the host header mismatches the SNI.
+         * 
+         * @return builder
+         * 
+         */
         public Builder blockDomainFrontingOnHostHeader(@Nullable Output<Boolean> blockDomainFrontingOnHostHeader) {
             $.blockDomainFrontingOnHostHeader = blockDomainFrontingOnHostHeader;
             return this;
         }
 
+        /**
+         * @param blockDomainFrontingOnHostHeader Block domain fronting when the host header mismatches the SNI.
+         * 
+         * @return builder
+         * 
+         */
         public Builder blockDomainFrontingOnHostHeader(Boolean blockDomainFrontingOnHostHeader) {
             return blockDomainFrontingOnHostHeader(Output.of(blockDomainFrontingOnHostHeader));
         }
 
+        /**
+         * @param blockHttpTunnelOnNonHttpPorts Block HTTP tunnels on non-HTTP ports.
+         * 
+         * @return builder
+         * 
+         */
         public Builder blockHttpTunnelOnNonHttpPorts(@Nullable Output<Boolean> blockHttpTunnelOnNonHttpPorts) {
             $.blockHttpTunnelOnNonHttpPorts = blockHttpTunnelOnNonHttpPorts;
             return this;
         }
 
+        /**
+         * @param blockHttpTunnelOnNonHttpPorts Block HTTP tunnels on non-HTTP ports.
+         * 
+         * @return builder
+         * 
+         */
         public Builder blockHttpTunnelOnNonHttpPorts(Boolean blockHttpTunnelOnNonHttpPorts) {
             return blockHttpTunnelOnNonHttpPorts(Output.of(blockHttpTunnelOnNonHttpPorts));
         }
 
+        /**
+         * @param blockNonCompliantHttpRequestOnHttpPorts Block non-compliant HTTP requests on HTTP ports.
+         * 
+         * @return builder
+         * 
+         */
         public Builder blockNonCompliantHttpRequestOnHttpPorts(@Nullable Output<Boolean> blockNonCompliantHttpRequestOnHttpPorts) {
             $.blockNonCompliantHttpRequestOnHttpPorts = blockNonCompliantHttpRequestOnHttpPorts;
             return this;
         }
 
+        /**
+         * @param blockNonCompliantHttpRequestOnHttpPorts Block non-compliant HTTP requests on HTTP ports.
+         * 
+         * @return builder
+         * 
+         */
         public Builder blockNonCompliantHttpRequestOnHttpPorts(Boolean blockNonCompliantHttpRequestOnHttpPorts) {
             return blockNonCompliantHttpRequestOnHttpPorts(Output.of(blockNonCompliantHttpRequestOnHttpPorts));
         }
 
+        /**
+         * @param blockNonHttpOnHttpPortEnabled Block non-HTTP traffic on HTTP ports.
+         * 
+         * @return builder
+         * 
+         */
         public Builder blockNonHttpOnHttpPortEnabled(@Nullable Output<Boolean> blockNonHttpOnHttpPortEnabled) {
             $.blockNonHttpOnHttpPortEnabled = blockNonHttpOnHttpPortEnabled;
             return this;
         }
 
+        /**
+         * @param blockNonHttpOnHttpPortEnabled Block non-HTTP traffic on HTTP ports.
+         * 
+         * @return builder
+         * 
+         */
         public Builder blockNonHttpOnHttpPortEnabled(Boolean blockNonHttpOnHttpPortEnabled) {
             return blockNonHttpOnHttpPortEnabled(Output.of(blockNonHttpOnHttpPortEnabled));
         }
 
+        /**
+         * @param cascadeUrlFiltering Enable cascading URL filtering.
+         * 
+         * @return builder
+         * 
+         */
         public Builder cascadeUrlFiltering(@Nullable Output<Boolean> cascadeUrlFiltering) {
             $.cascadeUrlFiltering = cascadeUrlFiltering;
             return this;
         }
 
+        /**
+         * @param cascadeUrlFiltering Enable cascading URL filtering.
+         * 
+         * @return builder
+         * 
+         */
         public Builder cascadeUrlFiltering(Boolean cascadeUrlFiltering) {
             return cascadeUrlFiltering(Output.of(cascadeUrlFiltering));
         }
 
+        /**
+         * @param digestAuthBypassApps Cloud applications that bypass digest authentication.
+         * 
+         * @return builder
+         * 
+         */
         public Builder digestAuthBypassApps(@Nullable Output<List<String>> digestAuthBypassApps) {
             $.digestAuthBypassApps = digestAuthBypassApps;
             return this;
         }
 
+        /**
+         * @param digestAuthBypassApps Cloud applications that bypass digest authentication.
+         * 
+         * @return builder
+         * 
+         */
         public Builder digestAuthBypassApps(List<String> digestAuthBypassApps) {
             return digestAuthBypassApps(Output.of(digestAuthBypassApps));
         }
 
+        /**
+         * @param digestAuthBypassApps Cloud applications that bypass digest authentication.
+         * 
+         * @return builder
+         * 
+         */
         public Builder digestAuthBypassApps(String... digestAuthBypassApps) {
             return digestAuthBypassApps(List.of(digestAuthBypassApps));
         }
 
+        /**
+         * @param digestAuthBypassUrlCategories URL categories that bypass digest authentication.
+         * 
+         * @return builder
+         * 
+         */
         public Builder digestAuthBypassUrlCategories(@Nullable Output<List<String>> digestAuthBypassUrlCategories) {
             $.digestAuthBypassUrlCategories = digestAuthBypassUrlCategories;
             return this;
         }
 
+        /**
+         * @param digestAuthBypassUrlCategories URL categories that bypass digest authentication.
+         * 
+         * @return builder
+         * 
+         */
         public Builder digestAuthBypassUrlCategories(List<String> digestAuthBypassUrlCategories) {
             return digestAuthBypassUrlCategories(Output.of(digestAuthBypassUrlCategories));
         }
 
+        /**
+         * @param digestAuthBypassUrlCategories URL categories that bypass digest authentication.
+         * 
+         * @return builder
+         * 
+         */
         public Builder digestAuthBypassUrlCategories(String... digestAuthBypassUrlCategories) {
             return digestAuthBypassUrlCategories(List.of(digestAuthBypassUrlCategories));
         }
 
+        /**
+         * @param digestAuthBypassUrls URLs that bypass digest authentication.
+         * 
+         * @return builder
+         * 
+         */
         public Builder digestAuthBypassUrls(@Nullable Output<List<String>> digestAuthBypassUrls) {
             $.digestAuthBypassUrls = digestAuthBypassUrls;
             return this;
         }
 
+        /**
+         * @param digestAuthBypassUrls URLs that bypass digest authentication.
+         * 
+         * @return builder
+         * 
+         */
         public Builder digestAuthBypassUrls(List<String> digestAuthBypassUrls) {
             return digestAuthBypassUrls(Output.of(digestAuthBypassUrls));
         }
 
+        /**
+         * @param digestAuthBypassUrls URLs that bypass digest authentication.
+         * 
+         * @return builder
+         * 
+         */
         public Builder digestAuthBypassUrls(String... digestAuthBypassUrls) {
             return digestAuthBypassUrls(List.of(digestAuthBypassUrls));
         }
 
+        /**
+         * @param dnsResolutionOnTransparentProxyApps Cloud applications with DNS resolution on transparent proxy enabled.
+         * 
+         * @return builder
+         * 
+         */
         public Builder dnsResolutionOnTransparentProxyApps(@Nullable Output<List<String>> dnsResolutionOnTransparentProxyApps) {
             $.dnsResolutionOnTransparentProxyApps = dnsResolutionOnTransparentProxyApps;
             return this;
         }
 
+        /**
+         * @param dnsResolutionOnTransparentProxyApps Cloud applications with DNS resolution on transparent proxy enabled.
+         * 
+         * @return builder
+         * 
+         */
         public Builder dnsResolutionOnTransparentProxyApps(List<String> dnsResolutionOnTransparentProxyApps) {
             return dnsResolutionOnTransparentProxyApps(Output.of(dnsResolutionOnTransparentProxyApps));
         }
 
+        /**
+         * @param dnsResolutionOnTransparentProxyApps Cloud applications with DNS resolution on transparent proxy enabled.
+         * 
+         * @return builder
+         * 
+         */
         public Builder dnsResolutionOnTransparentProxyApps(String... dnsResolutionOnTransparentProxyApps) {
             return dnsResolutionOnTransparentProxyApps(List.of(dnsResolutionOnTransparentProxyApps));
         }
 
+        /**
+         * @param dnsResolutionOnTransparentProxyExemptApps Cloud applications exempt from DNS resolution on transparent proxy.
+         * 
+         * @return builder
+         * 
+         */
         public Builder dnsResolutionOnTransparentProxyExemptApps(@Nullable Output<List<String>> dnsResolutionOnTransparentProxyExemptApps) {
             $.dnsResolutionOnTransparentProxyExemptApps = dnsResolutionOnTransparentProxyExemptApps;
             return this;
         }
 
+        /**
+         * @param dnsResolutionOnTransparentProxyExemptApps Cloud applications exempt from DNS resolution on transparent proxy.
+         * 
+         * @return builder
+         * 
+         */
         public Builder dnsResolutionOnTransparentProxyExemptApps(List<String> dnsResolutionOnTransparentProxyExemptApps) {
             return dnsResolutionOnTransparentProxyExemptApps(Output.of(dnsResolutionOnTransparentProxyExemptApps));
         }
 
+        /**
+         * @param dnsResolutionOnTransparentProxyExemptApps Cloud applications exempt from DNS resolution on transparent proxy.
+         * 
+         * @return builder
+         * 
+         */
         public Builder dnsResolutionOnTransparentProxyExemptApps(String... dnsResolutionOnTransparentProxyExemptApps) {
             return dnsResolutionOnTransparentProxyExemptApps(List.of(dnsResolutionOnTransparentProxyExemptApps));
         }
 
+        /**
+         * @param dnsResolutionOnTransparentProxyExemptUrlCategories URL categories exempt from DNS resolution on transparent proxy.
+         * 
+         * @return builder
+         * 
+         */
         public Builder dnsResolutionOnTransparentProxyExemptUrlCategories(@Nullable Output<List<String>> dnsResolutionOnTransparentProxyExemptUrlCategories) {
             $.dnsResolutionOnTransparentProxyExemptUrlCategories = dnsResolutionOnTransparentProxyExemptUrlCategories;
             return this;
         }
 
+        /**
+         * @param dnsResolutionOnTransparentProxyExemptUrlCategories URL categories exempt from DNS resolution on transparent proxy.
+         * 
+         * @return builder
+         * 
+         */
         public Builder dnsResolutionOnTransparentProxyExemptUrlCategories(List<String> dnsResolutionOnTransparentProxyExemptUrlCategories) {
             return dnsResolutionOnTransparentProxyExemptUrlCategories(Output.of(dnsResolutionOnTransparentProxyExemptUrlCategories));
         }
 
+        /**
+         * @param dnsResolutionOnTransparentProxyExemptUrlCategories URL categories exempt from DNS resolution on transparent proxy.
+         * 
+         * @return builder
+         * 
+         */
         public Builder dnsResolutionOnTransparentProxyExemptUrlCategories(String... dnsResolutionOnTransparentProxyExemptUrlCategories) {
             return dnsResolutionOnTransparentProxyExemptUrlCategories(List.of(dnsResolutionOnTransparentProxyExemptUrlCategories));
         }
 
+        /**
+         * @param dnsResolutionOnTransparentProxyExemptUrls URLs exempt from DNS resolution on transparent proxy.
+         * 
+         * @return builder
+         * 
+         */
         public Builder dnsResolutionOnTransparentProxyExemptUrls(@Nullable Output<List<String>> dnsResolutionOnTransparentProxyExemptUrls) {
             $.dnsResolutionOnTransparentProxyExemptUrls = dnsResolutionOnTransparentProxyExemptUrls;
             return this;
         }
 
+        /**
+         * @param dnsResolutionOnTransparentProxyExemptUrls URLs exempt from DNS resolution on transparent proxy.
+         * 
+         * @return builder
+         * 
+         */
         public Builder dnsResolutionOnTransparentProxyExemptUrls(List<String> dnsResolutionOnTransparentProxyExemptUrls) {
             return dnsResolutionOnTransparentProxyExemptUrls(Output.of(dnsResolutionOnTransparentProxyExemptUrls));
         }
 
+        /**
+         * @param dnsResolutionOnTransparentProxyExemptUrls URLs exempt from DNS resolution on transparent proxy.
+         * 
+         * @return builder
+         * 
+         */
         public Builder dnsResolutionOnTransparentProxyExemptUrls(String... dnsResolutionOnTransparentProxyExemptUrls) {
             return dnsResolutionOnTransparentProxyExemptUrls(List.of(dnsResolutionOnTransparentProxyExemptUrls));
         }
 
+        /**
+         * @param dnsResolutionOnTransparentProxyIpv6Apps Cloud applications with IPv6 DNS resolution on transparent proxy enabled.
+         * 
+         * @return builder
+         * 
+         */
         public Builder dnsResolutionOnTransparentProxyIpv6Apps(@Nullable Output<List<String>> dnsResolutionOnTransparentProxyIpv6Apps) {
             $.dnsResolutionOnTransparentProxyIpv6Apps = dnsResolutionOnTransparentProxyIpv6Apps;
             return this;
         }
 
+        /**
+         * @param dnsResolutionOnTransparentProxyIpv6Apps Cloud applications with IPv6 DNS resolution on transparent proxy enabled.
+         * 
+         * @return builder
+         * 
+         */
         public Builder dnsResolutionOnTransparentProxyIpv6Apps(List<String> dnsResolutionOnTransparentProxyIpv6Apps) {
             return dnsResolutionOnTransparentProxyIpv6Apps(Output.of(dnsResolutionOnTransparentProxyIpv6Apps));
         }
 
+        /**
+         * @param dnsResolutionOnTransparentProxyIpv6Apps Cloud applications with IPv6 DNS resolution on transparent proxy enabled.
+         * 
+         * @return builder
+         * 
+         */
         public Builder dnsResolutionOnTransparentProxyIpv6Apps(String... dnsResolutionOnTransparentProxyIpv6Apps) {
             return dnsResolutionOnTransparentProxyIpv6Apps(List.of(dnsResolutionOnTransparentProxyIpv6Apps));
         }
 
+        /**
+         * @param dnsResolutionOnTransparentProxyIpv6ExemptApps Cloud applications exempt from IPv6 DNS resolution on transparent proxy.
+         * 
+         * @return builder
+         * 
+         */
         public Builder dnsResolutionOnTransparentProxyIpv6ExemptApps(@Nullable Output<List<String>> dnsResolutionOnTransparentProxyIpv6ExemptApps) {
             $.dnsResolutionOnTransparentProxyIpv6ExemptApps = dnsResolutionOnTransparentProxyIpv6ExemptApps;
             return this;
         }
 
+        /**
+         * @param dnsResolutionOnTransparentProxyIpv6ExemptApps Cloud applications exempt from IPv6 DNS resolution on transparent proxy.
+         * 
+         * @return builder
+         * 
+         */
         public Builder dnsResolutionOnTransparentProxyIpv6ExemptApps(List<String> dnsResolutionOnTransparentProxyIpv6ExemptApps) {
             return dnsResolutionOnTransparentProxyIpv6ExemptApps(Output.of(dnsResolutionOnTransparentProxyIpv6ExemptApps));
         }
 
+        /**
+         * @param dnsResolutionOnTransparentProxyIpv6ExemptApps Cloud applications exempt from IPv6 DNS resolution on transparent proxy.
+         * 
+         * @return builder
+         * 
+         */
         public Builder dnsResolutionOnTransparentProxyIpv6ExemptApps(String... dnsResolutionOnTransparentProxyIpv6ExemptApps) {
             return dnsResolutionOnTransparentProxyIpv6ExemptApps(List.of(dnsResolutionOnTransparentProxyIpv6ExemptApps));
         }
 
+        /**
+         * @param dnsResolutionOnTransparentProxyIpv6ExemptUrlCategories URL categories exempt from IPv6 DNS resolution on transparent proxy.
+         * 
+         * @return builder
+         * 
+         */
         public Builder dnsResolutionOnTransparentProxyIpv6ExemptUrlCategories(@Nullable Output<List<String>> dnsResolutionOnTransparentProxyIpv6ExemptUrlCategories) {
             $.dnsResolutionOnTransparentProxyIpv6ExemptUrlCategories = dnsResolutionOnTransparentProxyIpv6ExemptUrlCategories;
             return this;
         }
 
+        /**
+         * @param dnsResolutionOnTransparentProxyIpv6ExemptUrlCategories URL categories exempt from IPv6 DNS resolution on transparent proxy.
+         * 
+         * @return builder
+         * 
+         */
         public Builder dnsResolutionOnTransparentProxyIpv6ExemptUrlCategories(List<String> dnsResolutionOnTransparentProxyIpv6ExemptUrlCategories) {
             return dnsResolutionOnTransparentProxyIpv6ExemptUrlCategories(Output.of(dnsResolutionOnTransparentProxyIpv6ExemptUrlCategories));
         }
 
+        /**
+         * @param dnsResolutionOnTransparentProxyIpv6ExemptUrlCategories URL categories exempt from IPv6 DNS resolution on transparent proxy.
+         * 
+         * @return builder
+         * 
+         */
         public Builder dnsResolutionOnTransparentProxyIpv6ExemptUrlCategories(String... dnsResolutionOnTransparentProxyIpv6ExemptUrlCategories) {
             return dnsResolutionOnTransparentProxyIpv6ExemptUrlCategories(List.of(dnsResolutionOnTransparentProxyIpv6ExemptUrlCategories));
         }
 
+        /**
+         * @param dnsResolutionOnTransparentProxyIpv6UrlCategories URL categories with IPv6 DNS resolution on transparent proxy enabled.
+         * 
+         * @return builder
+         * 
+         */
         public Builder dnsResolutionOnTransparentProxyIpv6UrlCategories(@Nullable Output<List<String>> dnsResolutionOnTransparentProxyIpv6UrlCategories) {
             $.dnsResolutionOnTransparentProxyIpv6UrlCategories = dnsResolutionOnTransparentProxyIpv6UrlCategories;
             return this;
         }
 
+        /**
+         * @param dnsResolutionOnTransparentProxyIpv6UrlCategories URL categories with IPv6 DNS resolution on transparent proxy enabled.
+         * 
+         * @return builder
+         * 
+         */
         public Builder dnsResolutionOnTransparentProxyIpv6UrlCategories(List<String> dnsResolutionOnTransparentProxyIpv6UrlCategories) {
             return dnsResolutionOnTransparentProxyIpv6UrlCategories(Output.of(dnsResolutionOnTransparentProxyIpv6UrlCategories));
         }
 
+        /**
+         * @param dnsResolutionOnTransparentProxyIpv6UrlCategories URL categories with IPv6 DNS resolution on transparent proxy enabled.
+         * 
+         * @return builder
+         * 
+         */
         public Builder dnsResolutionOnTransparentProxyIpv6UrlCategories(String... dnsResolutionOnTransparentProxyIpv6UrlCategories) {
             return dnsResolutionOnTransparentProxyIpv6UrlCategories(List.of(dnsResolutionOnTransparentProxyIpv6UrlCategories));
         }
 
+        /**
+         * @param dnsResolutionOnTransparentProxyUrlCategories URL categories with DNS resolution on transparent proxy enabled.
+         * 
+         * @return builder
+         * 
+         */
         public Builder dnsResolutionOnTransparentProxyUrlCategories(@Nullable Output<List<String>> dnsResolutionOnTransparentProxyUrlCategories) {
             $.dnsResolutionOnTransparentProxyUrlCategories = dnsResolutionOnTransparentProxyUrlCategories;
             return this;
         }
 
+        /**
+         * @param dnsResolutionOnTransparentProxyUrlCategories URL categories with DNS resolution on transparent proxy enabled.
+         * 
+         * @return builder
+         * 
+         */
         public Builder dnsResolutionOnTransparentProxyUrlCategories(List<String> dnsResolutionOnTransparentProxyUrlCategories) {
             return dnsResolutionOnTransparentProxyUrlCategories(Output.of(dnsResolutionOnTransparentProxyUrlCategories));
         }
 
+        /**
+         * @param dnsResolutionOnTransparentProxyUrlCategories URL categories with DNS resolution on transparent proxy enabled.
+         * 
+         * @return builder
+         * 
+         */
         public Builder dnsResolutionOnTransparentProxyUrlCategories(String... dnsResolutionOnTransparentProxyUrlCategories) {
             return dnsResolutionOnTransparentProxyUrlCategories(List.of(dnsResolutionOnTransparentProxyUrlCategories));
         }
 
+        /**
+         * @param dnsResolutionOnTransparentProxyUrls URLs with DNS resolution on transparent proxy enabled.
+         * 
+         * @return builder
+         * 
+         */
         public Builder dnsResolutionOnTransparentProxyUrls(@Nullable Output<List<String>> dnsResolutionOnTransparentProxyUrls) {
             $.dnsResolutionOnTransparentProxyUrls = dnsResolutionOnTransparentProxyUrls;
             return this;
         }
 
+        /**
+         * @param dnsResolutionOnTransparentProxyUrls URLs with DNS resolution on transparent proxy enabled.
+         * 
+         * @return builder
+         * 
+         */
         public Builder dnsResolutionOnTransparentProxyUrls(List<String> dnsResolutionOnTransparentProxyUrls) {
             return dnsResolutionOnTransparentProxyUrls(Output.of(dnsResolutionOnTransparentProxyUrls));
         }
 
+        /**
+         * @param dnsResolutionOnTransparentProxyUrls URLs with DNS resolution on transparent proxy enabled.
+         * 
+         * @return builder
+         * 
+         */
         public Builder dnsResolutionOnTransparentProxyUrls(String... dnsResolutionOnTransparentProxyUrls) {
             return dnsResolutionOnTransparentProxyUrls(List.of(dnsResolutionOnTransparentProxyUrls));
         }
 
+        /**
+         * @param domainFrontingBypassUrlCategories URL categories that bypass domain fronting detection.
+         * 
+         * @return builder
+         * 
+         */
         public Builder domainFrontingBypassUrlCategories(@Nullable Output<List<String>> domainFrontingBypassUrlCategories) {
             $.domainFrontingBypassUrlCategories = domainFrontingBypassUrlCategories;
             return this;
         }
 
+        /**
+         * @param domainFrontingBypassUrlCategories URL categories that bypass domain fronting detection.
+         * 
+         * @return builder
+         * 
+         */
         public Builder domainFrontingBypassUrlCategories(List<String> domainFrontingBypassUrlCategories) {
             return domainFrontingBypassUrlCategories(Output.of(domainFrontingBypassUrlCategories));
         }
 
+        /**
+         * @param domainFrontingBypassUrlCategories URL categories that bypass domain fronting detection.
+         * 
+         * @return builder
+         * 
+         */
         public Builder domainFrontingBypassUrlCategories(String... domainFrontingBypassUrlCategories) {
             return domainFrontingBypassUrlCategories(List.of(domainFrontingBypassUrlCategories));
         }
 
+        /**
+         * @param dynamicUserRiskEnabled Enable dynamic user risk scoring.
+         * 
+         * @return builder
+         * 
+         */
         public Builder dynamicUserRiskEnabled(@Nullable Output<Boolean> dynamicUserRiskEnabled) {
             $.dynamicUserRiskEnabled = dynamicUserRiskEnabled;
             return this;
         }
 
+        /**
+         * @param dynamicUserRiskEnabled Enable dynamic user risk scoring.
+         * 
+         * @return builder
+         * 
+         */
         public Builder dynamicUserRiskEnabled(Boolean dynamicUserRiskEnabled) {
             return dynamicUserRiskEnabled(Output.of(dynamicUserRiskEnabled));
         }
 
+        /**
+         * @param ecsForAllEnabled Enable EDNS Client Subnet (ECS) for all DNS queries.
+         * 
+         * @return builder
+         * 
+         */
         public Builder ecsForAllEnabled(@Nullable Output<Boolean> ecsForAllEnabled) {
             $.ecsForAllEnabled = ecsForAllEnabled;
             return this;
         }
 
+        /**
+         * @param ecsForAllEnabled Enable EDNS Client Subnet (ECS) for all DNS queries.
+         * 
+         * @return builder
+         * 
+         */
         public Builder ecsForAllEnabled(Boolean ecsForAllEnabled) {
             return ecsForAllEnabled(Output.of(ecsForAllEnabled));
         }
 
+        /**
+         * @param enableAdminRankAccess Enable admin rank-based access control.
+         * 
+         * @return builder
+         * 
+         */
         public Builder enableAdminRankAccess(@Nullable Output<Boolean> enableAdminRankAccess) {
             $.enableAdminRankAccess = enableAdminRankAccess;
             return this;
         }
 
+        /**
+         * @param enableAdminRankAccess Enable admin rank-based access control.
+         * 
+         * @return builder
+         * 
+         */
         public Builder enableAdminRankAccess(Boolean enableAdminRankAccess) {
             return enableAdminRankAccess(Output.of(enableAdminRankAccess));
         }
 
+        /**
+         * @param enableDnsResolutionOnTransparentProxy Enable DNS resolution on transparent proxy.
+         * 
+         * @return builder
+         * 
+         */
         public Builder enableDnsResolutionOnTransparentProxy(@Nullable Output<Boolean> enableDnsResolutionOnTransparentProxy) {
             $.enableDnsResolutionOnTransparentProxy = enableDnsResolutionOnTransparentProxy;
             return this;
         }
 
+        /**
+         * @param enableDnsResolutionOnTransparentProxy Enable DNS resolution on transparent proxy.
+         * 
+         * @return builder
+         * 
+         */
         public Builder enableDnsResolutionOnTransparentProxy(Boolean enableDnsResolutionOnTransparentProxy) {
             return enableDnsResolutionOnTransparentProxy(Output.of(enableDnsResolutionOnTransparentProxy));
         }
 
+        /**
+         * @param enableEvaluatePolicyOnGlobalSslBypass Enable policy evaluation on global SSL bypass.
+         * 
+         * @return builder
+         * 
+         */
         public Builder enableEvaluatePolicyOnGlobalSslBypass(@Nullable Output<Boolean> enableEvaluatePolicyOnGlobalSslBypass) {
             $.enableEvaluatePolicyOnGlobalSslBypass = enableEvaluatePolicyOnGlobalSslBypass;
             return this;
         }
 
+        /**
+         * @param enableEvaluatePolicyOnGlobalSslBypass Enable policy evaluation on global SSL bypass.
+         * 
+         * @return builder
+         * 
+         */
         public Builder enableEvaluatePolicyOnGlobalSslBypass(Boolean enableEvaluatePolicyOnGlobalSslBypass) {
             return enableEvaluatePolicyOnGlobalSslBypass(Output.of(enableEvaluatePolicyOnGlobalSslBypass));
         }
 
+        /**
+         * @param enableIpv6DnsOptimizationOnAllTransparentProxy Enable IPv6 DNS optimization on all transparent proxy connections.
+         * 
+         * @return builder
+         * 
+         */
         public Builder enableIpv6DnsOptimizationOnAllTransparentProxy(@Nullable Output<Boolean> enableIpv6DnsOptimizationOnAllTransparentProxy) {
             $.enableIpv6DnsOptimizationOnAllTransparentProxy = enableIpv6DnsOptimizationOnAllTransparentProxy;
             return this;
         }
 
+        /**
+         * @param enableIpv6DnsOptimizationOnAllTransparentProxy Enable IPv6 DNS optimization on all transparent proxy connections.
+         * 
+         * @return builder
+         * 
+         */
         public Builder enableIpv6DnsOptimizationOnAllTransparentProxy(Boolean enableIpv6DnsOptimizationOnAllTransparentProxy) {
             return enableIpv6DnsOptimizationOnAllTransparentProxy(Output.of(enableIpv6DnsOptimizationOnAllTransparentProxy));
         }
 
+        /**
+         * @param enableIpv6DnsResolutionOnTransparentProxy Enable IPv6 DNS resolution on transparent proxy.
+         * 
+         * @return builder
+         * 
+         */
         public Builder enableIpv6DnsResolutionOnTransparentProxy(@Nullable Output<Boolean> enableIpv6DnsResolutionOnTransparentProxy) {
             $.enableIpv6DnsResolutionOnTransparentProxy = enableIpv6DnsResolutionOnTransparentProxy;
             return this;
         }
 
+        /**
+         * @param enableIpv6DnsResolutionOnTransparentProxy Enable IPv6 DNS resolution on transparent proxy.
+         * 
+         * @return builder
+         * 
+         */
         public Builder enableIpv6DnsResolutionOnTransparentProxy(Boolean enableIpv6DnsResolutionOnTransparentProxy) {
             return enableIpv6DnsResolutionOnTransparentProxy(Output.of(enableIpv6DnsResolutionOnTransparentProxy));
         }
 
+        /**
+         * @param enableOffice365 Enable Office 365 one-click configuration.
+         * 
+         * @return builder
+         * 
+         */
         public Builder enableOffice365(@Nullable Output<Boolean> enableOffice365) {
             $.enableOffice365 = enableOffice365;
             return this;
         }
 
+        /**
+         * @param enableOffice365 Enable Office 365 one-click configuration.
+         * 
+         * @return builder
+         * 
+         */
         public Builder enableOffice365(Boolean enableOffice365) {
             return enableOffice365(Output.of(enableOffice365));
         }
 
+        /**
+         * @param enablePolicyForUnauthenticatedTraffic Enable policy evaluation for unauthenticated traffic.
+         * 
+         * @return builder
+         * 
+         */
         public Builder enablePolicyForUnauthenticatedTraffic(@Nullable Output<Boolean> enablePolicyForUnauthenticatedTraffic) {
             $.enablePolicyForUnauthenticatedTraffic = enablePolicyForUnauthenticatedTraffic;
             return this;
         }
 
+        /**
+         * @param enablePolicyForUnauthenticatedTraffic Enable policy evaluation for unauthenticated traffic.
+         * 
+         * @return builder
+         * 
+         */
         public Builder enablePolicyForUnauthenticatedTraffic(Boolean enablePolicyForUnauthenticatedTraffic) {
             return enablePolicyForUnauthenticatedTraffic(Output.of(enablePolicyForUnauthenticatedTraffic));
         }
 
+        /**
+         * @param enforceSurrogateIpForWindowsApp Enforce surrogate IP for Windows applications.
+         * 
+         * @return builder
+         * 
+         */
         public Builder enforceSurrogateIpForWindowsApp(@Nullable Output<Boolean> enforceSurrogateIpForWindowsApp) {
             $.enforceSurrogateIpForWindowsApp = enforceSurrogateIpForWindowsApp;
             return this;
         }
 
+        /**
+         * @param enforceSurrogateIpForWindowsApp Enforce surrogate IP for Windows applications.
+         * 
+         * @return builder
+         * 
+         */
         public Builder enforceSurrogateIpForWindowsApp(Boolean enforceSurrogateIpForWindowsApp) {
             return enforceSurrogateIpForWindowsApp(Output.of(enforceSurrogateIpForWindowsApp));
         }
 
+        /**
+         * @param http2NonbrowserTrafficEnabled Enable HTTP/2 for non-browser traffic.
+         * 
+         * @return builder
+         * 
+         */
         public Builder http2NonbrowserTrafficEnabled(@Nullable Output<Boolean> http2NonbrowserTrafficEnabled) {
             $.http2NonbrowserTrafficEnabled = http2NonbrowserTrafficEnabled;
             return this;
         }
 
+        /**
+         * @param http2NonbrowserTrafficEnabled Enable HTTP/2 for non-browser traffic.
+         * 
+         * @return builder
+         * 
+         */
         public Builder http2NonbrowserTrafficEnabled(Boolean http2NonbrowserTrafficEnabled) {
             return http2NonbrowserTrafficEnabled(Output.of(http2NonbrowserTrafficEnabled));
         }
 
+        /**
+         * @param httpRangeHeaderRemoveUrlCategories URL categories for which HTTP range headers are removed.
+         * 
+         * @return builder
+         * 
+         */
         public Builder httpRangeHeaderRemoveUrlCategories(@Nullable Output<List<String>> httpRangeHeaderRemoveUrlCategories) {
             $.httpRangeHeaderRemoveUrlCategories = httpRangeHeaderRemoveUrlCategories;
             return this;
         }
 
+        /**
+         * @param httpRangeHeaderRemoveUrlCategories URL categories for which HTTP range headers are removed.
+         * 
+         * @return builder
+         * 
+         */
         public Builder httpRangeHeaderRemoveUrlCategories(List<String> httpRangeHeaderRemoveUrlCategories) {
             return httpRangeHeaderRemoveUrlCategories(Output.of(httpRangeHeaderRemoveUrlCategories));
         }
 
+        /**
+         * @param httpRangeHeaderRemoveUrlCategories URL categories for which HTTP range headers are removed.
+         * 
+         * @return builder
+         * 
+         */
         public Builder httpRangeHeaderRemoveUrlCategories(String... httpRangeHeaderRemoveUrlCategories) {
             return httpRangeHeaderRemoveUrlCategories(List.of(httpRangeHeaderRemoveUrlCategories));
         }
 
+        /**
+         * @param kerberosBypassApps Cloud applications that bypass Kerberos authentication.
+         * 
+         * @return builder
+         * 
+         */
         public Builder kerberosBypassApps(@Nullable Output<List<String>> kerberosBypassApps) {
             $.kerberosBypassApps = kerberosBypassApps;
             return this;
         }
 
+        /**
+         * @param kerberosBypassApps Cloud applications that bypass Kerberos authentication.
+         * 
+         * @return builder
+         * 
+         */
         public Builder kerberosBypassApps(List<String> kerberosBypassApps) {
             return kerberosBypassApps(Output.of(kerberosBypassApps));
         }
 
+        /**
+         * @param kerberosBypassApps Cloud applications that bypass Kerberos authentication.
+         * 
+         * @return builder
+         * 
+         */
         public Builder kerberosBypassApps(String... kerberosBypassApps) {
             return kerberosBypassApps(List.of(kerberosBypassApps));
         }
 
+        /**
+         * @param kerberosBypassUrlCategories URL categories that bypass Kerberos authentication.
+         * 
+         * @return builder
+         * 
+         */
         public Builder kerberosBypassUrlCategories(@Nullable Output<List<String>> kerberosBypassUrlCategories) {
             $.kerberosBypassUrlCategories = kerberosBypassUrlCategories;
             return this;
         }
 
+        /**
+         * @param kerberosBypassUrlCategories URL categories that bypass Kerberos authentication.
+         * 
+         * @return builder
+         * 
+         */
         public Builder kerberosBypassUrlCategories(List<String> kerberosBypassUrlCategories) {
             return kerberosBypassUrlCategories(Output.of(kerberosBypassUrlCategories));
         }
 
+        /**
+         * @param kerberosBypassUrlCategories URL categories that bypass Kerberos authentication.
+         * 
+         * @return builder
+         * 
+         */
         public Builder kerberosBypassUrlCategories(String... kerberosBypassUrlCategories) {
             return kerberosBypassUrlCategories(List.of(kerberosBypassUrlCategories));
         }
 
+        /**
+         * @param kerberosBypassUrls URLs that bypass Kerberos authentication.
+         * 
+         * @return builder
+         * 
+         */
         public Builder kerberosBypassUrls(@Nullable Output<List<String>> kerberosBypassUrls) {
             $.kerberosBypassUrls = kerberosBypassUrls;
             return this;
         }
 
+        /**
+         * @param kerberosBypassUrls URLs that bypass Kerberos authentication.
+         * 
+         * @return builder
+         * 
+         */
         public Builder kerberosBypassUrls(List<String> kerberosBypassUrls) {
             return kerberosBypassUrls(Output.of(kerberosBypassUrls));
         }
 
+        /**
+         * @param kerberosBypassUrls URLs that bypass Kerberos authentication.
+         * 
+         * @return builder
+         * 
+         */
         public Builder kerberosBypassUrls(String... kerberosBypassUrls) {
             return kerberosBypassUrls(List.of(kerberosBypassUrls));
         }
 
+        /**
+         * @param logInternalIp Enable logging of internal IP addresses.
+         * 
+         * @return builder
+         * 
+         */
         public Builder logInternalIp(@Nullable Output<Boolean> logInternalIp) {
             $.logInternalIp = logInternalIp;
             return this;
         }
 
+        /**
+         * @param logInternalIp Enable logging of internal IP addresses.
+         * 
+         * @return builder
+         * 
+         */
         public Builder logInternalIp(Boolean logInternalIp) {
             return logInternalIp(Output.of(logInternalIp));
         }
 
+        /**
+         * @param preferSniOverConnHost Prefer SNI over CONNECT host header for policy evaluation.
+         * 
+         * @return builder
+         * 
+         */
         public Builder preferSniOverConnHost(@Nullable Output<Boolean> preferSniOverConnHost) {
             $.preferSniOverConnHost = preferSniOverConnHost;
             return this;
         }
 
+        /**
+         * @param preferSniOverConnHost Prefer SNI over CONNECT host header for policy evaluation.
+         * 
+         * @return builder
+         * 
+         */
         public Builder preferSniOverConnHost(Boolean preferSniOverConnHost) {
             return preferSniOverConnHost(Output.of(preferSniOverConnHost));
         }
 
+        /**
+         * @param preferSniOverConnHostApps Cloud applications that prefer SNI over CONNECT host header.
+         * 
+         * @return builder
+         * 
+         */
         public Builder preferSniOverConnHostApps(@Nullable Output<List<String>> preferSniOverConnHostApps) {
             $.preferSniOverConnHostApps = preferSniOverConnHostApps;
             return this;
         }
 
+        /**
+         * @param preferSniOverConnHostApps Cloud applications that prefer SNI over CONNECT host header.
+         * 
+         * @return builder
+         * 
+         */
         public Builder preferSniOverConnHostApps(List<String> preferSniOverConnHostApps) {
             return preferSniOverConnHostApps(Output.of(preferSniOverConnHostApps));
         }
 
+        /**
+         * @param preferSniOverConnHostApps Cloud applications that prefer SNI over CONNECT host header.
+         * 
+         * @return builder
+         * 
+         */
         public Builder preferSniOverConnHostApps(String... preferSniOverConnHostApps) {
             return preferSniOverConnHostApps(List.of(preferSniOverConnHostApps));
         }
 
+        /**
+         * @param sipaXffHeaderEnabled Enable X-Forwarded-For header for SIPA traffic.
+         * 
+         * @return builder
+         * 
+         */
         public Builder sipaXffHeaderEnabled(@Nullable Output<Boolean> sipaXffHeaderEnabled) {
             $.sipaXffHeaderEnabled = sipaXffHeaderEnabled;
             return this;
         }
 
+        /**
+         * @param sipaXffHeaderEnabled Enable X-Forwarded-For header for SIPA traffic.
+         * 
+         * @return builder
+         * 
+         */
         public Builder sipaXffHeaderEnabled(Boolean sipaXffHeaderEnabled) {
             return sipaXffHeaderEnabled(Output.of(sipaXffHeaderEnabled));
         }
 
+        /**
+         * @param sniDnsOptimizationBypassUrlCategories URL categories that bypass SNI/DNS optimization.
+         * 
+         * @return builder
+         * 
+         */
         public Builder sniDnsOptimizationBypassUrlCategories(@Nullable Output<List<String>> sniDnsOptimizationBypassUrlCategories) {
             $.sniDnsOptimizationBypassUrlCategories = sniDnsOptimizationBypassUrlCategories;
             return this;
         }
 
+        /**
+         * @param sniDnsOptimizationBypassUrlCategories URL categories that bypass SNI/DNS optimization.
+         * 
+         * @return builder
+         * 
+         */
         public Builder sniDnsOptimizationBypassUrlCategories(List<String> sniDnsOptimizationBypassUrlCategories) {
             return sniDnsOptimizationBypassUrlCategories(Output.of(sniDnsOptimizationBypassUrlCategories));
         }
 
+        /**
+         * @param sniDnsOptimizationBypassUrlCategories URL categories that bypass SNI/DNS optimization.
+         * 
+         * @return builder
+         * 
+         */
         public Builder sniDnsOptimizationBypassUrlCategories(String... sniDnsOptimizationBypassUrlCategories) {
             return sniDnsOptimizationBypassUrlCategories(List.of(sniDnsOptimizationBypassUrlCategories));
         }
 
+        /**
+         * @param trackHttpTunnelOnHttpPorts Track HTTP tunnels on HTTP ports.
+         * 
+         * @return builder
+         * 
+         */
         public Builder trackHttpTunnelOnHttpPorts(@Nullable Output<Boolean> trackHttpTunnelOnHttpPorts) {
             $.trackHttpTunnelOnHttpPorts = trackHttpTunnelOnHttpPorts;
             return this;
         }
 
+        /**
+         * @param trackHttpTunnelOnHttpPorts Track HTTP tunnels on HTTP ports.
+         * 
+         * @return builder
+         * 
+         */
         public Builder trackHttpTunnelOnHttpPorts(Boolean trackHttpTunnelOnHttpPorts) {
             return trackHttpTunnelOnHttpPorts(Output.of(trackHttpTunnelOnHttpPorts));
         }
 
+        /**
+         * @param uiSessionTimeout UI session timeout in minutes.
+         * 
+         * @return builder
+         * 
+         */
         public Builder uiSessionTimeout(@Nullable Output<Integer> uiSessionTimeout) {
             $.uiSessionTimeout = uiSessionTimeout;
             return this;
         }
 
+        /**
+         * @param uiSessionTimeout UI session timeout in minutes.
+         * 
+         * @return builder
+         * 
+         */
         public Builder uiSessionTimeout(Integer uiSessionTimeout) {
             return uiSessionTimeout(Output.of(uiSessionTimeout));
         }
 
+        /**
+         * @param zscalerClientConnector1AndPacRoadWarriorInFirewall Include Zscaler Client Connector and PAC road warrior traffic in firewall policy.
+         * 
+         * @return builder
+         * 
+         */
         public Builder zscalerClientConnector1AndPacRoadWarriorInFirewall(@Nullable Output<Boolean> zscalerClientConnector1AndPacRoadWarriorInFirewall) {
             $.zscalerClientConnector1AndPacRoadWarriorInFirewall = zscalerClientConnector1AndPacRoadWarriorInFirewall;
             return this;
         }
 
+        /**
+         * @param zscalerClientConnector1AndPacRoadWarriorInFirewall Include Zscaler Client Connector and PAC road warrior traffic in firewall policy.
+         * 
+         * @return builder
+         * 
+         */
         public Builder zscalerClientConnector1AndPacRoadWarriorInFirewall(Boolean zscalerClientConnector1AndPacRoadWarriorInFirewall) {
             return zscalerClientConnector1AndPacRoadWarriorInFirewall(Output.of(zscalerClientConnector1AndPacRoadWarriorInFirewall));
         }

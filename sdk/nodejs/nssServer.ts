@@ -4,6 +4,32 @@
 import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "./utilities";
 
+/**
+ * The zia.NssServer resource manages NSS (Nanolog Streaming Service) server configurations in the
+ * Zscaler Internet Access (ZIA) cloud. NSS servers are used to stream logs from ZIA to external SIEM
+ * or log management systems.
+ *
+ * ## Example Usage
+ * ### Basic NSS Server
+ *
+ * ```typescript
+ * import * as zia from "@bdzscaler/pulumi-zia";
+ *
+ * const example = new zia.NssServer("example", {
+ *     name: "Example NSS Server",
+ *     status: "ENABLED",
+ *     type: "NSS_FOR_FIREWALL",
+ * });
+ * ```
+ *
+ * ## Import
+ *
+ * An existing NSS server can be imported using its ID, e.g.
+ *
+ * ```sh
+ * $ pulumi import zia:index:NssServer example 12345
+ * ```
+ */
 export class NssServer extends pulumi.CustomResource {
     /**
      * Get an existing NssServer resource's state with the given name, ID, and optional extra
@@ -31,10 +57,25 @@ export class NssServer extends pulumi.CustomResource {
         return obj['__pulumiType'] === NssServer.__pulumiType;
     }
 
+    /**
+     * The ICAP server ID associated with the NSS server.
+     */
     declare public readonly icapSvrId: pulumi.Output<number | undefined>;
+    /**
+     * Name of the NSS server.
+     */
     declare public readonly name: pulumi.Output<string>;
+    /**
+     * The unique identifier for the NSS server assigned by the ZIA cloud.
+     */
     declare public /*out*/ readonly nssId: pulumi.Output<number>;
+    /**
+     * The status of the NSS server. Accepted values: 'ENABLED' or 'DISABLED'. Default: 'ENABLED'.
+     */
     declare public readonly status: pulumi.Output<string | undefined>;
+    /**
+     * The NSS server type. Accepted values: 'NSS_FOR_FIREWALL', 'NSS_FOR_WEB'. Default: 'NSS_FOR_FIREWALL'.
+     */
     declare public readonly type: pulumi.Output<string | undefined>;
 
     /**
@@ -72,8 +113,20 @@ export class NssServer extends pulumi.CustomResource {
  * The set of arguments for constructing a NssServer resource.
  */
 export interface NssServerArgs {
+    /**
+     * The ICAP server ID associated with the NSS server.
+     */
     icapSvrId?: pulumi.Input<number>;
+    /**
+     * Name of the NSS server.
+     */
     name: pulumi.Input<string>;
+    /**
+     * The status of the NSS server. Accepted values: 'ENABLED' or 'DISABLED'. Default: 'ENABLED'.
+     */
     status?: pulumi.Input<string>;
+    /**
+     * The NSS server type. Accepted values: 'NSS_FOR_FIREWALL', 'NSS_FOR_WEB'. Default: 'NSS_FOR_FIREWALL'.
+     */
     type?: pulumi.Input<string>;
 }

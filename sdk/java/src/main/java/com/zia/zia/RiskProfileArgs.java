@@ -18,233 +18,497 @@ public final class RiskProfileArgs extends com.pulumi.resources.ResourceArgs {
 
     public static final RiskProfileArgs Empty = new RiskProfileArgs();
 
+    /**
+     * Risk level for admin audit log support.
+     * 
+     */
     @Import(name="adminAuditLogs")
     private @Nullable Output<String> adminAuditLogs;
 
+    /**
+     * @return Risk level for admin audit log support.
+     * 
+     */
     public Optional<Output<String>> adminAuditLogs() {
         return Optional.ofNullable(this.adminAuditLogs);
     }
 
+    /**
+     * List of required certifications (e.g., &#39;CSA_STAR&#39;, &#39;ISO_27001&#39;).
+     * 
+     */
     @Import(name="certifications")
     private @Nullable Output<List<String>> certifications;
 
+    /**
+     * @return List of required certifications (e.g., &#39;CSA_STAR&#39;, &#39;ISO_27001&#39;).
+     * 
+     */
     public Optional<Output<List<String>>> certifications() {
         return Optional.ofNullable(this.certifications);
     }
 
+    /**
+     * List of custom tag IDs associated with the profile.
+     * 
+     */
     @Import(name="customTags")
     private @Nullable Output<List<Integer>> customTags;
 
+    /**
+     * @return List of custom tag IDs associated with the profile.
+     * 
+     */
     public Optional<Output<List<Integer>>> customTags() {
         return Optional.ofNullable(this.customTags);
     }
 
+    /**
+     * Risk level for data breach history.
+     * 
+     */
     @Import(name="dataBreach")
     private @Nullable Output<String> dataBreach;
 
+    /**
+     * @return Risk level for data breach history.
+     * 
+     */
     public Optional<Output<String>> dataBreach() {
         return Optional.ofNullable(this.dataBreach);
     }
 
+    /**
+     * List of data encryption in transit protocols.
+     * 
+     */
     @Import(name="dataEncryptionInTransit")
     private @Nullable Output<List<String>> dataEncryptionInTransit;
 
+    /**
+     * @return List of data encryption in transit protocols.
+     * 
+     */
     public Optional<Output<List<String>>> dataEncryptionInTransit() {
         return Optional.ofNullable(this.dataEncryptionInTransit);
     }
 
+    /**
+     * Risk level for DNS CAA policy.
+     * 
+     */
     @Import(name="dnsCaaPolicy")
     private @Nullable Output<String> dnsCaaPolicy;
 
+    /**
+     * @return Risk level for DNS CAA policy.
+     * 
+     */
     public Optional<Output<String>> dnsCaaPolicy() {
         return Optional.ofNullable(this.dnsCaaPolicy);
     }
 
+    /**
+     * Risk level for DMARC support.
+     * 
+     */
     @Import(name="domainBasedMessageAuth")
     private @Nullable Output<String> domainBasedMessageAuth;
 
+    /**
+     * @return Risk level for DMARC support.
+     * 
+     */
     public Optional<Output<String>> domainBasedMessageAuth() {
         return Optional.ofNullable(this.domainBasedMessageAuth);
     }
 
+    /**
+     * Risk level for DKIM support.
+     * 
+     */
     @Import(name="domainKeysIdentifiedMail")
     private @Nullable Output<String> domainKeysIdentifiedMail;
 
+    /**
+     * @return Risk level for DKIM support.
+     * 
+     */
     public Optional<Output<String>> domainKeysIdentifiedMail() {
         return Optional.ofNullable(this.domainKeysIdentifiedMail);
     }
 
+    /**
+     * Risk level for evasive behavior.
+     * 
+     */
     @Import(name="evasive")
     private @Nullable Output<String> evasive;
 
+    /**
+     * @return Risk level for evasive behavior.
+     * 
+     */
     public Optional<Output<String>> evasive() {
         return Optional.ofNullable(this.evasive);
     }
 
+    /**
+     * Number of certifications to exclude.
+     * 
+     */
     @Import(name="excludeCertificates")
     private @Nullable Output<Integer> excludeCertificates;
 
+    /**
+     * @return Number of certifications to exclude.
+     * 
+     */
     public Optional<Output<Integer>> excludeCertificates() {
         return Optional.ofNullable(this.excludeCertificates);
     }
 
+    /**
+     * Risk level for file sharing support.
+     * 
+     */
     @Import(name="fileSharing")
     private @Nullable Output<String> fileSharing;
 
+    /**
+     * @return Risk level for file sharing support.
+     * 
+     */
     public Optional<Output<String>> fileSharing() {
         return Optional.ofNullable(this.fileSharing);
     }
 
+    /**
+     * Risk level for HTTP security headers.
+     * 
+     */
     @Import(name="httpSecurityHeaders")
     private @Nullable Output<String> httpSecurityHeaders;
 
+    /**
+     * @return Risk level for HTTP security headers.
+     * 
+     */
     public Optional<Output<String>> httpSecurityHeaders() {
         return Optional.ofNullable(this.httpSecurityHeaders);
     }
 
+    /**
+     * Risk level for malware scanning.
+     * 
+     */
     @Import(name="malwareScanningForContent")
     private @Nullable Output<String> malwareScanningForContent;
 
+    /**
+     * @return Risk level for malware scanning.
+     * 
+     */
     public Optional<Output<String>> malwareScanningForContent() {
         return Optional.ofNullable(this.malwareScanningForContent);
     }
 
+    /**
+     * Risk level for MFA support.
+     * 
+     */
     @Import(name="mfaSupport")
     private @Nullable Output<String> mfaSupport;
 
+    /**
+     * @return Risk level for MFA support.
+     * 
+     */
     public Optional<Output<String>> mfaSupport() {
         return Optional.ofNullable(this.mfaSupport);
     }
 
+    /**
+     * Risk level for password strength enforcement.
+     * 
+     */
     @Import(name="passwordStrength")
     private @Nullable Output<String> passwordStrength;
 
+    /**
+     * @return Risk level for password strength enforcement.
+     * 
+     */
     public Optional<Output<String>> passwordStrength() {
         return Optional.ofNullable(this.passwordStrength);
     }
 
+    /**
+     * Risk level for poor items of service.
+     * 
+     */
     @Import(name="poorItemsOfService")
     private @Nullable Output<String> poorItemsOfService;
 
+    /**
+     * @return Risk level for poor items of service.
+     * 
+     */
     public Optional<Output<String>> poorItemsOfService() {
         return Optional.ofNullable(this.poorItemsOfService);
     }
 
+    /**
+     * Name of the risk profile.
+     * 
+     */
     @Import(name="profileName", required=true)
     private Output<String> profileName;
 
+    /**
+     * @return Name of the risk profile.
+     * 
+     */
     public Output<String> profileName() {
         return this.profileName;
     }
 
+    /**
+     * The profile type (e.g., &#39;PREDEFINED&#39;, &#39;CUSTOM&#39;).
+     * 
+     */
     @Import(name="profileType")
     private @Nullable Output<String> profileType;
 
+    /**
+     * @return The profile type (e.g., &#39;PREDEFINED&#39;, &#39;CUSTOM&#39;).
+     * 
+     */
     public Optional<Output<String>> profileType() {
         return Optional.ofNullable(this.profileType);
     }
 
+    /**
+     * Risk level for remote screen sharing support.
+     * 
+     */
     @Import(name="remoteScreenSharing")
     private @Nullable Output<String> remoteScreenSharing;
 
+    /**
+     * @return Risk level for remote screen sharing support.
+     * 
+     */
     public Optional<Output<String>> remoteScreenSharing() {
         return Optional.ofNullable(this.remoteScreenSharing);
     }
 
+    /**
+     * List of risk index values.
+     * 
+     */
     @Import(name="riskIndex")
     private @Nullable Output<List<Integer>> riskIndex;
 
+    /**
+     * @return List of risk index values.
+     * 
+     */
     public Optional<Output<List<Integer>>> riskIndex() {
         return Optional.ofNullable(this.riskIndex);
     }
 
+    /**
+     * Risk level for SPF support.
+     * 
+     */
     @Import(name="senderPolicyFramework")
     private @Nullable Output<String> senderPolicyFramework;
 
+    /**
+     * @return Risk level for SPF support.
+     * 
+     */
     public Optional<Output<String>> senderPolicyFramework() {
         return Optional.ofNullable(this.senderPolicyFramework);
     }
 
+    /**
+     * Risk level for source IP restrictions.
+     * 
+     */
     @Import(name="sourceIpRestrictions")
     private @Nullable Output<String> sourceIpRestrictions;
 
+    /**
+     * @return Risk level for source IP restrictions.
+     * 
+     */
     public Optional<Output<String>> sourceIpRestrictions() {
         return Optional.ofNullable(this.sourceIpRestrictions);
     }
 
+    /**
+     * Risk level for SSL certificate key size.
+     * 
+     */
     @Import(name="sslCertKeySize")
     private @Nullable Output<String> sslCertKeySize;
 
+    /**
+     * @return Risk level for SSL certificate key size.
+     * 
+     */
     public Optional<Output<String>> sslCertKeySize() {
         return Optional.ofNullable(this.sslCertKeySize);
     }
 
+    /**
+     * Risk level for SSL certificate validity.
+     * 
+     */
     @Import(name="sslCertValidity")
     private @Nullable Output<String> sslCertValidity;
 
+    /**
+     * @return Risk level for SSL certificate validity.
+     * 
+     */
     public Optional<Output<String>> sslCertValidity() {
         return Optional.ofNullable(this.sslCertValidity);
     }
 
+    /**
+     * Risk level for SSL pinning.
+     * 
+     */
     @Import(name="sslPinned")
     private @Nullable Output<String> sslPinned;
 
+    /**
+     * @return Risk level for SSL pinning.
+     * 
+     */
     public Optional<Output<String>> sslPinned() {
         return Optional.ofNullable(this.sslPinned);
     }
 
+    /**
+     * The status of the risk profile (e.g., &#39;ENABLED&#39;, &#39;DISABLED&#39;).
+     * 
+     */
     @Import(name="status")
     private @Nullable Output<String> status;
 
+    /**
+     * @return The status of the risk profile (e.g., &#39;ENABLED&#39;, &#39;DISABLED&#39;).
+     * 
+     */
     public Optional<Output<String>> status() {
         return Optional.ofNullable(this.status);
     }
 
+    /**
+     * Risk level for WAF support.
+     * 
+     */
     @Import(name="supportForWaf")
     private @Nullable Output<String> supportForWaf;
 
+    /**
+     * @return Risk level for WAF support.
+     * 
+     */
     public Optional<Output<String>> supportForWaf() {
         return Optional.ofNullable(this.supportForWaf);
     }
 
+    /**
+     * Risk level for known vulnerabilities.
+     * 
+     */
     @Import(name="vulnerability")
     private @Nullable Output<String> vulnerability;
 
+    /**
+     * @return Risk level for known vulnerabilities.
+     * 
+     */
     public Optional<Output<String>> vulnerability() {
         return Optional.ofNullable(this.vulnerability);
     }
 
+    /**
+     * Risk level for vulnerability disclosure policy.
+     * 
+     */
     @Import(name="vulnerabilityDisclosure")
     private @Nullable Output<String> vulnerabilityDisclosure;
 
+    /**
+     * @return Risk level for vulnerability disclosure policy.
+     * 
+     */
     public Optional<Output<String>> vulnerabilityDisclosure() {
         return Optional.ofNullable(this.vulnerabilityDisclosure);
     }
 
+    /**
+     * Risk level for HeartBleed vulnerability.
+     * 
+     */
     @Import(name="vulnerableToHeartBleed")
     private @Nullable Output<String> vulnerableToHeartBleed;
 
+    /**
+     * @return Risk level for HeartBleed vulnerability.
+     * 
+     */
     public Optional<Output<String>> vulnerableToHeartBleed() {
         return Optional.ofNullable(this.vulnerableToHeartBleed);
     }
 
+    /**
+     * Risk level for LogJam vulnerability.
+     * 
+     */
     @Import(name="vulnerableToLogJam")
     private @Nullable Output<String> vulnerableToLogJam;
 
+    /**
+     * @return Risk level for LogJam vulnerability.
+     * 
+     */
     public Optional<Output<String>> vulnerableToLogJam() {
         return Optional.ofNullable(this.vulnerableToLogJam);
     }
 
+    /**
+     * Risk level for POODLE vulnerability.
+     * 
+     */
     @Import(name="vulnerableToPoodle")
     private @Nullable Output<String> vulnerableToPoodle;
 
+    /**
+     * @return Risk level for POODLE vulnerability.
+     * 
+     */
     public Optional<Output<String>> vulnerableToPoodle() {
         return Optional.ofNullable(this.vulnerableToPoodle);
     }
 
+    /**
+     * Risk level for weak cipher support.
+     * 
+     */
     @Import(name="weakCipherSupport")
     private @Nullable Output<String> weakCipherSupport;
 
+    /**
+     * @return Risk level for weak cipher support.
+     * 
+     */
     public Optional<Output<String>> weakCipherSupport() {
         return Optional.ofNullable(this.weakCipherSupport);
     }
@@ -305,315 +569,735 @@ public final class RiskProfileArgs extends com.pulumi.resources.ResourceArgs {
             $ = new RiskProfileArgs(Objects.requireNonNull(defaults));
         }
 
+        /**
+         * @param adminAuditLogs Risk level for admin audit log support.
+         * 
+         * @return builder
+         * 
+         */
         public Builder adminAuditLogs(@Nullable Output<String> adminAuditLogs) {
             $.adminAuditLogs = adminAuditLogs;
             return this;
         }
 
+        /**
+         * @param adminAuditLogs Risk level for admin audit log support.
+         * 
+         * @return builder
+         * 
+         */
         public Builder adminAuditLogs(String adminAuditLogs) {
             return adminAuditLogs(Output.of(adminAuditLogs));
         }
 
+        /**
+         * @param certifications List of required certifications (e.g., &#39;CSA_STAR&#39;, &#39;ISO_27001&#39;).
+         * 
+         * @return builder
+         * 
+         */
         public Builder certifications(@Nullable Output<List<String>> certifications) {
             $.certifications = certifications;
             return this;
         }
 
+        /**
+         * @param certifications List of required certifications (e.g., &#39;CSA_STAR&#39;, &#39;ISO_27001&#39;).
+         * 
+         * @return builder
+         * 
+         */
         public Builder certifications(List<String> certifications) {
             return certifications(Output.of(certifications));
         }
 
+        /**
+         * @param certifications List of required certifications (e.g., &#39;CSA_STAR&#39;, &#39;ISO_27001&#39;).
+         * 
+         * @return builder
+         * 
+         */
         public Builder certifications(String... certifications) {
             return certifications(List.of(certifications));
         }
 
+        /**
+         * @param customTags List of custom tag IDs associated with the profile.
+         * 
+         * @return builder
+         * 
+         */
         public Builder customTags(@Nullable Output<List<Integer>> customTags) {
             $.customTags = customTags;
             return this;
         }
 
+        /**
+         * @param customTags List of custom tag IDs associated with the profile.
+         * 
+         * @return builder
+         * 
+         */
         public Builder customTags(List<Integer> customTags) {
             return customTags(Output.of(customTags));
         }
 
+        /**
+         * @param customTags List of custom tag IDs associated with the profile.
+         * 
+         * @return builder
+         * 
+         */
         public Builder customTags(Integer... customTags) {
             return customTags(List.of(customTags));
         }
 
+        /**
+         * @param dataBreach Risk level for data breach history.
+         * 
+         * @return builder
+         * 
+         */
         public Builder dataBreach(@Nullable Output<String> dataBreach) {
             $.dataBreach = dataBreach;
             return this;
         }
 
+        /**
+         * @param dataBreach Risk level for data breach history.
+         * 
+         * @return builder
+         * 
+         */
         public Builder dataBreach(String dataBreach) {
             return dataBreach(Output.of(dataBreach));
         }
 
+        /**
+         * @param dataEncryptionInTransit List of data encryption in transit protocols.
+         * 
+         * @return builder
+         * 
+         */
         public Builder dataEncryptionInTransit(@Nullable Output<List<String>> dataEncryptionInTransit) {
             $.dataEncryptionInTransit = dataEncryptionInTransit;
             return this;
         }
 
+        /**
+         * @param dataEncryptionInTransit List of data encryption in transit protocols.
+         * 
+         * @return builder
+         * 
+         */
         public Builder dataEncryptionInTransit(List<String> dataEncryptionInTransit) {
             return dataEncryptionInTransit(Output.of(dataEncryptionInTransit));
         }
 
+        /**
+         * @param dataEncryptionInTransit List of data encryption in transit protocols.
+         * 
+         * @return builder
+         * 
+         */
         public Builder dataEncryptionInTransit(String... dataEncryptionInTransit) {
             return dataEncryptionInTransit(List.of(dataEncryptionInTransit));
         }
 
+        /**
+         * @param dnsCaaPolicy Risk level for DNS CAA policy.
+         * 
+         * @return builder
+         * 
+         */
         public Builder dnsCaaPolicy(@Nullable Output<String> dnsCaaPolicy) {
             $.dnsCaaPolicy = dnsCaaPolicy;
             return this;
         }
 
+        /**
+         * @param dnsCaaPolicy Risk level for DNS CAA policy.
+         * 
+         * @return builder
+         * 
+         */
         public Builder dnsCaaPolicy(String dnsCaaPolicy) {
             return dnsCaaPolicy(Output.of(dnsCaaPolicy));
         }
 
+        /**
+         * @param domainBasedMessageAuth Risk level for DMARC support.
+         * 
+         * @return builder
+         * 
+         */
         public Builder domainBasedMessageAuth(@Nullable Output<String> domainBasedMessageAuth) {
             $.domainBasedMessageAuth = domainBasedMessageAuth;
             return this;
         }
 
+        /**
+         * @param domainBasedMessageAuth Risk level for DMARC support.
+         * 
+         * @return builder
+         * 
+         */
         public Builder domainBasedMessageAuth(String domainBasedMessageAuth) {
             return domainBasedMessageAuth(Output.of(domainBasedMessageAuth));
         }
 
+        /**
+         * @param domainKeysIdentifiedMail Risk level for DKIM support.
+         * 
+         * @return builder
+         * 
+         */
         public Builder domainKeysIdentifiedMail(@Nullable Output<String> domainKeysIdentifiedMail) {
             $.domainKeysIdentifiedMail = domainKeysIdentifiedMail;
             return this;
         }
 
+        /**
+         * @param domainKeysIdentifiedMail Risk level for DKIM support.
+         * 
+         * @return builder
+         * 
+         */
         public Builder domainKeysIdentifiedMail(String domainKeysIdentifiedMail) {
             return domainKeysIdentifiedMail(Output.of(domainKeysIdentifiedMail));
         }
 
+        /**
+         * @param evasive Risk level for evasive behavior.
+         * 
+         * @return builder
+         * 
+         */
         public Builder evasive(@Nullable Output<String> evasive) {
             $.evasive = evasive;
             return this;
         }
 
+        /**
+         * @param evasive Risk level for evasive behavior.
+         * 
+         * @return builder
+         * 
+         */
         public Builder evasive(String evasive) {
             return evasive(Output.of(evasive));
         }
 
+        /**
+         * @param excludeCertificates Number of certifications to exclude.
+         * 
+         * @return builder
+         * 
+         */
         public Builder excludeCertificates(@Nullable Output<Integer> excludeCertificates) {
             $.excludeCertificates = excludeCertificates;
             return this;
         }
 
+        /**
+         * @param excludeCertificates Number of certifications to exclude.
+         * 
+         * @return builder
+         * 
+         */
         public Builder excludeCertificates(Integer excludeCertificates) {
             return excludeCertificates(Output.of(excludeCertificates));
         }
 
+        /**
+         * @param fileSharing Risk level for file sharing support.
+         * 
+         * @return builder
+         * 
+         */
         public Builder fileSharing(@Nullable Output<String> fileSharing) {
             $.fileSharing = fileSharing;
             return this;
         }
 
+        /**
+         * @param fileSharing Risk level for file sharing support.
+         * 
+         * @return builder
+         * 
+         */
         public Builder fileSharing(String fileSharing) {
             return fileSharing(Output.of(fileSharing));
         }
 
+        /**
+         * @param httpSecurityHeaders Risk level for HTTP security headers.
+         * 
+         * @return builder
+         * 
+         */
         public Builder httpSecurityHeaders(@Nullable Output<String> httpSecurityHeaders) {
             $.httpSecurityHeaders = httpSecurityHeaders;
             return this;
         }
 
+        /**
+         * @param httpSecurityHeaders Risk level for HTTP security headers.
+         * 
+         * @return builder
+         * 
+         */
         public Builder httpSecurityHeaders(String httpSecurityHeaders) {
             return httpSecurityHeaders(Output.of(httpSecurityHeaders));
         }
 
+        /**
+         * @param malwareScanningForContent Risk level for malware scanning.
+         * 
+         * @return builder
+         * 
+         */
         public Builder malwareScanningForContent(@Nullable Output<String> malwareScanningForContent) {
             $.malwareScanningForContent = malwareScanningForContent;
             return this;
         }
 
+        /**
+         * @param malwareScanningForContent Risk level for malware scanning.
+         * 
+         * @return builder
+         * 
+         */
         public Builder malwareScanningForContent(String malwareScanningForContent) {
             return malwareScanningForContent(Output.of(malwareScanningForContent));
         }
 
+        /**
+         * @param mfaSupport Risk level for MFA support.
+         * 
+         * @return builder
+         * 
+         */
         public Builder mfaSupport(@Nullable Output<String> mfaSupport) {
             $.mfaSupport = mfaSupport;
             return this;
         }
 
+        /**
+         * @param mfaSupport Risk level for MFA support.
+         * 
+         * @return builder
+         * 
+         */
         public Builder mfaSupport(String mfaSupport) {
             return mfaSupport(Output.of(mfaSupport));
         }
 
+        /**
+         * @param passwordStrength Risk level for password strength enforcement.
+         * 
+         * @return builder
+         * 
+         */
         public Builder passwordStrength(@Nullable Output<String> passwordStrength) {
             $.passwordStrength = passwordStrength;
             return this;
         }
 
+        /**
+         * @param passwordStrength Risk level for password strength enforcement.
+         * 
+         * @return builder
+         * 
+         */
         public Builder passwordStrength(String passwordStrength) {
             return passwordStrength(Output.of(passwordStrength));
         }
 
+        /**
+         * @param poorItemsOfService Risk level for poor items of service.
+         * 
+         * @return builder
+         * 
+         */
         public Builder poorItemsOfService(@Nullable Output<String> poorItemsOfService) {
             $.poorItemsOfService = poorItemsOfService;
             return this;
         }
 
+        /**
+         * @param poorItemsOfService Risk level for poor items of service.
+         * 
+         * @return builder
+         * 
+         */
         public Builder poorItemsOfService(String poorItemsOfService) {
             return poorItemsOfService(Output.of(poorItemsOfService));
         }
 
+        /**
+         * @param profileName Name of the risk profile.
+         * 
+         * @return builder
+         * 
+         */
         public Builder profileName(Output<String> profileName) {
             $.profileName = profileName;
             return this;
         }
 
+        /**
+         * @param profileName Name of the risk profile.
+         * 
+         * @return builder
+         * 
+         */
         public Builder profileName(String profileName) {
             return profileName(Output.of(profileName));
         }
 
+        /**
+         * @param profileType The profile type (e.g., &#39;PREDEFINED&#39;, &#39;CUSTOM&#39;).
+         * 
+         * @return builder
+         * 
+         */
         public Builder profileType(@Nullable Output<String> profileType) {
             $.profileType = profileType;
             return this;
         }
 
+        /**
+         * @param profileType The profile type (e.g., &#39;PREDEFINED&#39;, &#39;CUSTOM&#39;).
+         * 
+         * @return builder
+         * 
+         */
         public Builder profileType(String profileType) {
             return profileType(Output.of(profileType));
         }
 
+        /**
+         * @param remoteScreenSharing Risk level for remote screen sharing support.
+         * 
+         * @return builder
+         * 
+         */
         public Builder remoteScreenSharing(@Nullable Output<String> remoteScreenSharing) {
             $.remoteScreenSharing = remoteScreenSharing;
             return this;
         }
 
+        /**
+         * @param remoteScreenSharing Risk level for remote screen sharing support.
+         * 
+         * @return builder
+         * 
+         */
         public Builder remoteScreenSharing(String remoteScreenSharing) {
             return remoteScreenSharing(Output.of(remoteScreenSharing));
         }
 
+        /**
+         * @param riskIndex List of risk index values.
+         * 
+         * @return builder
+         * 
+         */
         public Builder riskIndex(@Nullable Output<List<Integer>> riskIndex) {
             $.riskIndex = riskIndex;
             return this;
         }
 
+        /**
+         * @param riskIndex List of risk index values.
+         * 
+         * @return builder
+         * 
+         */
         public Builder riskIndex(List<Integer> riskIndex) {
             return riskIndex(Output.of(riskIndex));
         }
 
+        /**
+         * @param riskIndex List of risk index values.
+         * 
+         * @return builder
+         * 
+         */
         public Builder riskIndex(Integer... riskIndex) {
             return riskIndex(List.of(riskIndex));
         }
 
+        /**
+         * @param senderPolicyFramework Risk level for SPF support.
+         * 
+         * @return builder
+         * 
+         */
         public Builder senderPolicyFramework(@Nullable Output<String> senderPolicyFramework) {
             $.senderPolicyFramework = senderPolicyFramework;
             return this;
         }
 
+        /**
+         * @param senderPolicyFramework Risk level for SPF support.
+         * 
+         * @return builder
+         * 
+         */
         public Builder senderPolicyFramework(String senderPolicyFramework) {
             return senderPolicyFramework(Output.of(senderPolicyFramework));
         }
 
+        /**
+         * @param sourceIpRestrictions Risk level for source IP restrictions.
+         * 
+         * @return builder
+         * 
+         */
         public Builder sourceIpRestrictions(@Nullable Output<String> sourceIpRestrictions) {
             $.sourceIpRestrictions = sourceIpRestrictions;
             return this;
         }
 
+        /**
+         * @param sourceIpRestrictions Risk level for source IP restrictions.
+         * 
+         * @return builder
+         * 
+         */
         public Builder sourceIpRestrictions(String sourceIpRestrictions) {
             return sourceIpRestrictions(Output.of(sourceIpRestrictions));
         }
 
+        /**
+         * @param sslCertKeySize Risk level for SSL certificate key size.
+         * 
+         * @return builder
+         * 
+         */
         public Builder sslCertKeySize(@Nullable Output<String> sslCertKeySize) {
             $.sslCertKeySize = sslCertKeySize;
             return this;
         }
 
+        /**
+         * @param sslCertKeySize Risk level for SSL certificate key size.
+         * 
+         * @return builder
+         * 
+         */
         public Builder sslCertKeySize(String sslCertKeySize) {
             return sslCertKeySize(Output.of(sslCertKeySize));
         }
 
+        /**
+         * @param sslCertValidity Risk level for SSL certificate validity.
+         * 
+         * @return builder
+         * 
+         */
         public Builder sslCertValidity(@Nullable Output<String> sslCertValidity) {
             $.sslCertValidity = sslCertValidity;
             return this;
         }
 
+        /**
+         * @param sslCertValidity Risk level for SSL certificate validity.
+         * 
+         * @return builder
+         * 
+         */
         public Builder sslCertValidity(String sslCertValidity) {
             return sslCertValidity(Output.of(sslCertValidity));
         }
 
+        /**
+         * @param sslPinned Risk level for SSL pinning.
+         * 
+         * @return builder
+         * 
+         */
         public Builder sslPinned(@Nullable Output<String> sslPinned) {
             $.sslPinned = sslPinned;
             return this;
         }
 
+        /**
+         * @param sslPinned Risk level for SSL pinning.
+         * 
+         * @return builder
+         * 
+         */
         public Builder sslPinned(String sslPinned) {
             return sslPinned(Output.of(sslPinned));
         }
 
+        /**
+         * @param status The status of the risk profile (e.g., &#39;ENABLED&#39;, &#39;DISABLED&#39;).
+         * 
+         * @return builder
+         * 
+         */
         public Builder status(@Nullable Output<String> status) {
             $.status = status;
             return this;
         }
 
+        /**
+         * @param status The status of the risk profile (e.g., &#39;ENABLED&#39;, &#39;DISABLED&#39;).
+         * 
+         * @return builder
+         * 
+         */
         public Builder status(String status) {
             return status(Output.of(status));
         }
 
+        /**
+         * @param supportForWaf Risk level for WAF support.
+         * 
+         * @return builder
+         * 
+         */
         public Builder supportForWaf(@Nullable Output<String> supportForWaf) {
             $.supportForWaf = supportForWaf;
             return this;
         }
 
+        /**
+         * @param supportForWaf Risk level for WAF support.
+         * 
+         * @return builder
+         * 
+         */
         public Builder supportForWaf(String supportForWaf) {
             return supportForWaf(Output.of(supportForWaf));
         }
 
+        /**
+         * @param vulnerability Risk level for known vulnerabilities.
+         * 
+         * @return builder
+         * 
+         */
         public Builder vulnerability(@Nullable Output<String> vulnerability) {
             $.vulnerability = vulnerability;
             return this;
         }
 
+        /**
+         * @param vulnerability Risk level for known vulnerabilities.
+         * 
+         * @return builder
+         * 
+         */
         public Builder vulnerability(String vulnerability) {
             return vulnerability(Output.of(vulnerability));
         }
 
+        /**
+         * @param vulnerabilityDisclosure Risk level for vulnerability disclosure policy.
+         * 
+         * @return builder
+         * 
+         */
         public Builder vulnerabilityDisclosure(@Nullable Output<String> vulnerabilityDisclosure) {
             $.vulnerabilityDisclosure = vulnerabilityDisclosure;
             return this;
         }
 
+        /**
+         * @param vulnerabilityDisclosure Risk level for vulnerability disclosure policy.
+         * 
+         * @return builder
+         * 
+         */
         public Builder vulnerabilityDisclosure(String vulnerabilityDisclosure) {
             return vulnerabilityDisclosure(Output.of(vulnerabilityDisclosure));
         }
 
+        /**
+         * @param vulnerableToHeartBleed Risk level for HeartBleed vulnerability.
+         * 
+         * @return builder
+         * 
+         */
         public Builder vulnerableToHeartBleed(@Nullable Output<String> vulnerableToHeartBleed) {
             $.vulnerableToHeartBleed = vulnerableToHeartBleed;
             return this;
         }
 
+        /**
+         * @param vulnerableToHeartBleed Risk level for HeartBleed vulnerability.
+         * 
+         * @return builder
+         * 
+         */
         public Builder vulnerableToHeartBleed(String vulnerableToHeartBleed) {
             return vulnerableToHeartBleed(Output.of(vulnerableToHeartBleed));
         }
 
+        /**
+         * @param vulnerableToLogJam Risk level for LogJam vulnerability.
+         * 
+         * @return builder
+         * 
+         */
         public Builder vulnerableToLogJam(@Nullable Output<String> vulnerableToLogJam) {
             $.vulnerableToLogJam = vulnerableToLogJam;
             return this;
         }
 
+        /**
+         * @param vulnerableToLogJam Risk level for LogJam vulnerability.
+         * 
+         * @return builder
+         * 
+         */
         public Builder vulnerableToLogJam(String vulnerableToLogJam) {
             return vulnerableToLogJam(Output.of(vulnerableToLogJam));
         }
 
+        /**
+         * @param vulnerableToPoodle Risk level for POODLE vulnerability.
+         * 
+         * @return builder
+         * 
+         */
         public Builder vulnerableToPoodle(@Nullable Output<String> vulnerableToPoodle) {
             $.vulnerableToPoodle = vulnerableToPoodle;
             return this;
         }
 
+        /**
+         * @param vulnerableToPoodle Risk level for POODLE vulnerability.
+         * 
+         * @return builder
+         * 
+         */
         public Builder vulnerableToPoodle(String vulnerableToPoodle) {
             return vulnerableToPoodle(Output.of(vulnerableToPoodle));
         }
 
+        /**
+         * @param weakCipherSupport Risk level for weak cipher support.
+         * 
+         * @return builder
+         * 
+         */
         public Builder weakCipherSupport(@Nullable Output<String> weakCipherSupport) {
             $.weakCipherSupport = weakCipherSupport;
             return this;
         }
 
+        /**
+         * @param weakCipherSupport Risk level for weak cipher support.
+         * 
+         * @return builder
+         * 
+         */
         public Builder weakCipherSupport(String weakCipherSupport) {
             return weakCipherSupport(Output.of(weakCipherSupport));
         }

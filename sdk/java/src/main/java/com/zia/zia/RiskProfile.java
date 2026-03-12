@@ -15,209 +15,497 @@ import java.util.List;
 import java.util.Optional;
 import javax.annotation.Nullable;
 
+/**
+ * The zia.RiskProfile resource manages cloud application risk profiles in the Zscaler Internet Access (ZIA) cloud.
+ * Risk profiles define criteria for evaluating the security posture of cloud applications based on factors such as
+ * certifications, encryption, vulnerability disclosure, and more.
+ * 
+ * ## Example Usage
+ * 
+ * ## Import
+ * 
+ * An existing risk profile can be imported using its ID, e.g.
+ * 
+ * ```sh
+ * $ pulumi import zia:index:RiskProfile example 12345
+ * ```
+ * 
+ */
 @ResourceType(type="zia:index:RiskProfile")
 public class RiskProfile extends com.pulumi.resources.CustomResource {
+    /**
+     * Risk level for admin audit log support.
+     * 
+     */
     @Export(name="adminAuditLogs", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> adminAuditLogs;
 
+    /**
+     * @return Risk level for admin audit log support.
+     * 
+     */
     public Output<Optional<String>> adminAuditLogs() {
         return Codegen.optional(this.adminAuditLogs);
     }
+    /**
+     * List of required certifications (e.g., &#39;CSA_STAR&#39;, &#39;ISO_27001&#39;).
+     * 
+     */
     @Export(name="certifications", refs={List.class,String.class}, tree="[0,1]")
     private Output</* @Nullable */ List<String>> certifications;
 
+    /**
+     * @return List of required certifications (e.g., &#39;CSA_STAR&#39;, &#39;ISO_27001&#39;).
+     * 
+     */
     public Output<Optional<List<String>>> certifications() {
         return Codegen.optional(this.certifications);
     }
+    /**
+     * List of custom tag IDs associated with the profile.
+     * 
+     */
     @Export(name="customTags", refs={List.class,Integer.class}, tree="[0,1]")
     private Output</* @Nullable */ List<Integer>> customTags;
 
+    /**
+     * @return List of custom tag IDs associated with the profile.
+     * 
+     */
     public Output<Optional<List<Integer>>> customTags() {
         return Codegen.optional(this.customTags);
     }
+    /**
+     * Risk level for data breach history.
+     * 
+     */
     @Export(name="dataBreach", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> dataBreach;
 
+    /**
+     * @return Risk level for data breach history.
+     * 
+     */
     public Output<Optional<String>> dataBreach() {
         return Codegen.optional(this.dataBreach);
     }
+    /**
+     * List of data encryption in transit protocols.
+     * 
+     */
     @Export(name="dataEncryptionInTransit", refs={List.class,String.class}, tree="[0,1]")
     private Output</* @Nullable */ List<String>> dataEncryptionInTransit;
 
+    /**
+     * @return List of data encryption in transit protocols.
+     * 
+     */
     public Output<Optional<List<String>>> dataEncryptionInTransit() {
         return Codegen.optional(this.dataEncryptionInTransit);
     }
+    /**
+     * Risk level for DNS CAA policy.
+     * 
+     */
     @Export(name="dnsCaaPolicy", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> dnsCaaPolicy;
 
+    /**
+     * @return Risk level for DNS CAA policy.
+     * 
+     */
     public Output<Optional<String>> dnsCaaPolicy() {
         return Codegen.optional(this.dnsCaaPolicy);
     }
+    /**
+     * Risk level for DMARC support.
+     * 
+     */
     @Export(name="domainBasedMessageAuth", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> domainBasedMessageAuth;
 
+    /**
+     * @return Risk level for DMARC support.
+     * 
+     */
     public Output<Optional<String>> domainBasedMessageAuth() {
         return Codegen.optional(this.domainBasedMessageAuth);
     }
+    /**
+     * Risk level for DKIM support.
+     * 
+     */
     @Export(name="domainKeysIdentifiedMail", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> domainKeysIdentifiedMail;
 
+    /**
+     * @return Risk level for DKIM support.
+     * 
+     */
     public Output<Optional<String>> domainKeysIdentifiedMail() {
         return Codegen.optional(this.domainKeysIdentifiedMail);
     }
+    /**
+     * Risk level for evasive behavior.
+     * 
+     */
     @Export(name="evasive", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> evasive;
 
+    /**
+     * @return Risk level for evasive behavior.
+     * 
+     */
     public Output<Optional<String>> evasive() {
         return Codegen.optional(this.evasive);
     }
+    /**
+     * Number of certifications to exclude.
+     * 
+     */
     @Export(name="excludeCertificates", refs={Integer.class}, tree="[0]")
     private Output</* @Nullable */ Integer> excludeCertificates;
 
+    /**
+     * @return Number of certifications to exclude.
+     * 
+     */
     public Output<Optional<Integer>> excludeCertificates() {
         return Codegen.optional(this.excludeCertificates);
     }
+    /**
+     * Risk level for file sharing support.
+     * 
+     */
     @Export(name="fileSharing", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> fileSharing;
 
+    /**
+     * @return Risk level for file sharing support.
+     * 
+     */
     public Output<Optional<String>> fileSharing() {
         return Codegen.optional(this.fileSharing);
     }
+    /**
+     * Risk level for HTTP security headers.
+     * 
+     */
     @Export(name="httpSecurityHeaders", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> httpSecurityHeaders;
 
+    /**
+     * @return Risk level for HTTP security headers.
+     * 
+     */
     public Output<Optional<String>> httpSecurityHeaders() {
         return Codegen.optional(this.httpSecurityHeaders);
     }
+    /**
+     * Risk level for malware scanning.
+     * 
+     */
     @Export(name="malwareScanningForContent", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> malwareScanningForContent;
 
+    /**
+     * @return Risk level for malware scanning.
+     * 
+     */
     public Output<Optional<String>> malwareScanningForContent() {
         return Codegen.optional(this.malwareScanningForContent);
     }
+    /**
+     * Risk level for MFA support.
+     * 
+     */
     @Export(name="mfaSupport", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> mfaSupport;
 
+    /**
+     * @return Risk level for MFA support.
+     * 
+     */
     public Output<Optional<String>> mfaSupport() {
         return Codegen.optional(this.mfaSupport);
     }
+    /**
+     * Risk level for password strength enforcement.
+     * 
+     */
     @Export(name="passwordStrength", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> passwordStrength;
 
+    /**
+     * @return Risk level for password strength enforcement.
+     * 
+     */
     public Output<Optional<String>> passwordStrength() {
         return Codegen.optional(this.passwordStrength);
     }
+    /**
+     * Risk level for poor items of service.
+     * 
+     */
     @Export(name="poorItemsOfService", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> poorItemsOfService;
 
+    /**
+     * @return Risk level for poor items of service.
+     * 
+     */
     public Output<Optional<String>> poorItemsOfService() {
         return Codegen.optional(this.poorItemsOfService);
     }
+    /**
+     * The unique identifier for the risk profile assigned by the ZIA cloud.
+     * 
+     */
     @Export(name="profileId", refs={Integer.class}, tree="[0]")
     private Output<Integer> profileId;
 
+    /**
+     * @return The unique identifier for the risk profile assigned by the ZIA cloud.
+     * 
+     */
     public Output<Integer> profileId() {
         return this.profileId;
     }
+    /**
+     * Name of the risk profile.
+     * 
+     */
     @Export(name="profileName", refs={String.class}, tree="[0]")
     private Output<String> profileName;
 
+    /**
+     * @return Name of the risk profile.
+     * 
+     */
     public Output<String> profileName() {
         return this.profileName;
     }
+    /**
+     * The profile type (e.g., &#39;PREDEFINED&#39;, &#39;CUSTOM&#39;).
+     * 
+     */
     @Export(name="profileType", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> profileType;
 
+    /**
+     * @return The profile type (e.g., &#39;PREDEFINED&#39;, &#39;CUSTOM&#39;).
+     * 
+     */
     public Output<Optional<String>> profileType() {
         return Codegen.optional(this.profileType);
     }
+    /**
+     * Risk level for remote screen sharing support.
+     * 
+     */
     @Export(name="remoteScreenSharing", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> remoteScreenSharing;
 
+    /**
+     * @return Risk level for remote screen sharing support.
+     * 
+     */
     public Output<Optional<String>> remoteScreenSharing() {
         return Codegen.optional(this.remoteScreenSharing);
     }
+    /**
+     * List of risk index values.
+     * 
+     */
     @Export(name="riskIndex", refs={List.class,Integer.class}, tree="[0,1]")
     private Output</* @Nullable */ List<Integer>> riskIndex;
 
+    /**
+     * @return List of risk index values.
+     * 
+     */
     public Output<Optional<List<Integer>>> riskIndex() {
         return Codegen.optional(this.riskIndex);
     }
+    /**
+     * Risk level for SPF support.
+     * 
+     */
     @Export(name="senderPolicyFramework", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> senderPolicyFramework;
 
+    /**
+     * @return Risk level for SPF support.
+     * 
+     */
     public Output<Optional<String>> senderPolicyFramework() {
         return Codegen.optional(this.senderPolicyFramework);
     }
+    /**
+     * Risk level for source IP restrictions.
+     * 
+     */
     @Export(name="sourceIpRestrictions", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> sourceIpRestrictions;
 
+    /**
+     * @return Risk level for source IP restrictions.
+     * 
+     */
     public Output<Optional<String>> sourceIpRestrictions() {
         return Codegen.optional(this.sourceIpRestrictions);
     }
+    /**
+     * Risk level for SSL certificate key size.
+     * 
+     */
     @Export(name="sslCertKeySize", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> sslCertKeySize;
 
+    /**
+     * @return Risk level for SSL certificate key size.
+     * 
+     */
     public Output<Optional<String>> sslCertKeySize() {
         return Codegen.optional(this.sslCertKeySize);
     }
+    /**
+     * Risk level for SSL certificate validity.
+     * 
+     */
     @Export(name="sslCertValidity", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> sslCertValidity;
 
+    /**
+     * @return Risk level for SSL certificate validity.
+     * 
+     */
     public Output<Optional<String>> sslCertValidity() {
         return Codegen.optional(this.sslCertValidity);
     }
+    /**
+     * Risk level for SSL pinning.
+     * 
+     */
     @Export(name="sslPinned", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> sslPinned;
 
+    /**
+     * @return Risk level for SSL pinning.
+     * 
+     */
     public Output<Optional<String>> sslPinned() {
         return Codegen.optional(this.sslPinned);
     }
+    /**
+     * The status of the risk profile (e.g., &#39;ENABLED&#39;, &#39;DISABLED&#39;).
+     * 
+     */
     @Export(name="status", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> status;
 
+    /**
+     * @return The status of the risk profile (e.g., &#39;ENABLED&#39;, &#39;DISABLED&#39;).
+     * 
+     */
     public Output<Optional<String>> status() {
         return Codegen.optional(this.status);
     }
+    /**
+     * Risk level for WAF support.
+     * 
+     */
     @Export(name="supportForWaf", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> supportForWaf;
 
+    /**
+     * @return Risk level for WAF support.
+     * 
+     */
     public Output<Optional<String>> supportForWaf() {
         return Codegen.optional(this.supportForWaf);
     }
+    /**
+     * Risk level for known vulnerabilities.
+     * 
+     */
     @Export(name="vulnerability", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> vulnerability;
 
+    /**
+     * @return Risk level for known vulnerabilities.
+     * 
+     */
     public Output<Optional<String>> vulnerability() {
         return Codegen.optional(this.vulnerability);
     }
+    /**
+     * Risk level for vulnerability disclosure policy.
+     * 
+     */
     @Export(name="vulnerabilityDisclosure", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> vulnerabilityDisclosure;
 
+    /**
+     * @return Risk level for vulnerability disclosure policy.
+     * 
+     */
     public Output<Optional<String>> vulnerabilityDisclosure() {
         return Codegen.optional(this.vulnerabilityDisclosure);
     }
+    /**
+     * Risk level for HeartBleed vulnerability.
+     * 
+     */
     @Export(name="vulnerableToHeartBleed", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> vulnerableToHeartBleed;
 
+    /**
+     * @return Risk level for HeartBleed vulnerability.
+     * 
+     */
     public Output<Optional<String>> vulnerableToHeartBleed() {
         return Codegen.optional(this.vulnerableToHeartBleed);
     }
+    /**
+     * Risk level for LogJam vulnerability.
+     * 
+     */
     @Export(name="vulnerableToLogJam", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> vulnerableToLogJam;
 
+    /**
+     * @return Risk level for LogJam vulnerability.
+     * 
+     */
     public Output<Optional<String>> vulnerableToLogJam() {
         return Codegen.optional(this.vulnerableToLogJam);
     }
+    /**
+     * Risk level for POODLE vulnerability.
+     * 
+     */
     @Export(name="vulnerableToPoodle", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> vulnerableToPoodle;
 
+    /**
+     * @return Risk level for POODLE vulnerability.
+     * 
+     */
     public Output<Optional<String>> vulnerableToPoodle() {
         return Codegen.optional(this.vulnerableToPoodle);
     }
+    /**
+     * Risk level for weak cipher support.
+     * 
+     */
     @Export(name="weakCipherSupport", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> weakCipherSupport;
 
+    /**
+     * @return Risk level for weak cipher support.
+     * 
+     */
     public Output<Optional<String>> weakCipherSupport() {
         return Codegen.optional(this.weakCipherSupport);
     }
@@ -261,6 +549,7 @@ public class RiskProfile extends com.pulumi.resources.CustomResource {
     private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<java.lang.String> id) {
         var defaultOptions = com.pulumi.resources.CustomResourceOptions.builder()
             .version(Utilities.getVersion())
+            .pluginDownloadURL("github://api.github.com/zscaler")
             .build();
         return com.pulumi.resources.CustomResourceOptions.merge(defaultOptions, options, id);
     }

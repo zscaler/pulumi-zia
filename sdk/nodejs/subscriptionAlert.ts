@@ -4,6 +4,33 @@
 import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "./utilities";
 
+/**
+ * The zia_subscription_alert resource manages subscription alert configurations in the Zscaler Internet Access (ZIA) cloud service. Subscription alerts notify administrators about various system events with configurable severity levels across different categories including security, management, compliance, and system alerts.
+ *
+ * For more information, see the [ZIA Subscription Alerts documentation](https://help.zscaler.com/zia/subscription-alerts).
+ *
+ * ## Example Usage
+ * ### Basic Subscription Alert
+ *
+ * ```typescript
+ * import * as zia from "@bdzscaler/pulumi-zia";
+ *
+ * const example = new zia.SubscriptionAlert("example", {
+ *     email: "admin@example.com",
+ *     description: "Critical security alerts",
+ *     secureSeverities: ["CRITICAL", "HIGH"],
+ *     systemSeverities: ["CRITICAL"],
+ * });
+ * ```
+ *
+ * ## Import
+ *
+ * An existing Subscription Alert can be imported using its resource ID, e.g.
+ *
+ * ```sh
+ * $ pulumi import zia:index:SubscriptionAlert example 12345
+ * ```
+ */
 export class SubscriptionAlert extends pulumi.CustomResource {
     /**
      * Get an existing SubscriptionAlert resource's state with the given name, ID, and optional extra
@@ -31,13 +58,37 @@ export class SubscriptionAlert extends pulumi.CustomResource {
         return obj['__pulumiType'] === SubscriptionAlert.__pulumiType;
     }
 
+    /**
+     * The system-generated ID of the subscription alert.
+     */
     declare public /*out*/ readonly alertId: pulumi.Output<number>;
+    /**
+     * Severity levels for compliance alerts.
+     */
     declare public readonly complySeverities: pulumi.Output<string[] | undefined>;
+    /**
+     * Additional information about the subscription alert.
+     */
     declare public readonly description: pulumi.Output<string | undefined>;
+    /**
+     * The email address to which alerts are sent.
+     */
     declare public readonly email: pulumi.Output<string | undefined>;
+    /**
+     * Severity levels for management alerts.
+     */
     declare public readonly manageSeverities: pulumi.Output<string[] | undefined>;
+    /**
+     * Severity levels for Pt0 alerts.
+     */
     declare public readonly pt0Severities: pulumi.Output<string[] | undefined>;
+    /**
+     * Severity levels for security alerts.
+     */
     declare public readonly secureSeverities: pulumi.Output<string[] | undefined>;
+    /**
+     * Severity levels for system alerts.
+     */
     declare public readonly systemSeverities: pulumi.Output<string[] | undefined>;
 
     /**
@@ -78,11 +129,32 @@ export class SubscriptionAlert extends pulumi.CustomResource {
  * The set of arguments for constructing a SubscriptionAlert resource.
  */
 export interface SubscriptionAlertArgs {
+    /**
+     * Severity levels for compliance alerts.
+     */
     complySeverities?: pulumi.Input<pulumi.Input<string>[]>;
+    /**
+     * Additional information about the subscription alert.
+     */
     description?: pulumi.Input<string>;
+    /**
+     * The email address to which alerts are sent.
+     */
     email?: pulumi.Input<string>;
+    /**
+     * Severity levels for management alerts.
+     */
     manageSeverities?: pulumi.Input<pulumi.Input<string>[]>;
+    /**
+     * Severity levels for Pt0 alerts.
+     */
     pt0Severities?: pulumi.Input<pulumi.Input<string>[]>;
+    /**
+     * Severity levels for security alerts.
+     */
     secureSeverities?: pulumi.Input<pulumi.Input<string>[]>;
+    /**
+     * Severity levels for system alerts.
+     */
     systemSeverities?: pulumi.Input<pulumi.Input<string>[]>;
 }

@@ -14,18 +14,18 @@ import javax.annotation.Nullable;
 @CustomType
 public final class SubCloudExclusionDatacenterInput {
     private @Nullable String country;
-    private Integer id;
     private @Nullable String name;
+    private Integer resourceId;
 
     private SubCloudExclusionDatacenterInput() {}
     public Optional<String> country() {
         return Optional.ofNullable(this.country);
     }
-    public Integer id() {
-        return this.id;
-    }
     public Optional<String> name() {
         return Optional.ofNullable(this.name);
+    }
+    public Integer resourceId() {
+        return this.resourceId;
     }
 
     public static Builder builder() {
@@ -38,14 +38,14 @@ public final class SubCloudExclusionDatacenterInput {
     @CustomType.Builder
     public static final class Builder {
         private @Nullable String country;
-        private Integer id;
         private @Nullable String name;
+        private Integer resourceId;
         public Builder() {}
         public Builder(SubCloudExclusionDatacenterInput defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.country = defaults.country;
-    	      this.id = defaults.id;
     	      this.name = defaults.name;
+    	      this.resourceId = defaults.resourceId;
         }
 
         @CustomType.Setter
@@ -55,24 +55,24 @@ public final class SubCloudExclusionDatacenterInput {
             return this;
         }
         @CustomType.Setter
-        public Builder id(Integer id) {
-            if (id == null) {
-              throw new MissingRequiredPropertyException("SubCloudExclusionDatacenterInput", "id");
-            }
-            this.id = id;
-            return this;
-        }
-        @CustomType.Setter
         public Builder name(@Nullable String name) {
 
             this.name = name;
             return this;
         }
+        @CustomType.Setter
+        public Builder resourceId(Integer resourceId) {
+            if (resourceId == null) {
+              throw new MissingRequiredPropertyException("SubCloudExclusionDatacenterInput", "resourceId");
+            }
+            this.resourceId = resourceId;
+            return this;
+        }
         public SubCloudExclusionDatacenterInput build() {
             final var _resultValue = new SubCloudExclusionDatacenterInput();
             _resultValue.country = country;
-            _resultValue.id = id;
             _resultValue.name = name;
+            _resultValue.resourceId = resourceId;
             return _resultValue;
         }
     }

@@ -4,6 +4,26 @@
 import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "./utilities";
 
+/**
+ * The zia_activation resource triggers the activation of ZIA configuration changes in the Zscaler Internet Access (ZIA) cloud service. After making configuration changes to ZIA resources, this resource can be used to activate and push those changes to the ZIA cloud. Delete is a no-op.
+ *
+ * For more information, see the [ZIA Configuration Activation documentation](https://help.zscaler.com/zia/activating-configuration-changes).
+ *
+ * ## Example Usage
+ * ### Basic Configuration Activation
+ *
+ * ```typescript
+ * import * as zia from "@bdzscaler/pulumi-zia";
+ *
+ * const example = new zia.Activation("example", {
+ *     status: "ACTIVE",
+ * });
+ * ```
+ *
+ * ## Import
+ *
+ * This is a singleton resource and does not support traditional import. It is automatically managed by the provider.
+ */
 export class Activation extends pulumi.CustomResource {
     /**
      * Get an existing Activation resource's state with the given name, ID, and optional extra
@@ -31,7 +51,13 @@ export class Activation extends pulumi.CustomResource {
         return obj['__pulumiType'] === Activation.__pulumiType;
     }
 
+    /**
+     * The internal resource identifier for the activation.
+     */
     declare public /*out*/ readonly resourceId: pulumi.Output<string>;
+    /**
+     * The activation status. Must be `ACTIVE` to trigger configuration activation.
+     */
     declare public readonly status: pulumi.Output<string>;
 
     /**
@@ -63,5 +89,8 @@ export class Activation extends pulumi.CustomResource {
  * The set of arguments for constructing a Activation resource.
  */
 export interface ActivationArgs {
+    /**
+     * The activation status. Must be `ACTIVE` to trigger configuration activation.
+     */
     status: pulumi.Input<string>;
 }

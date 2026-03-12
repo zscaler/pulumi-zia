@@ -14,41 +14,113 @@ import java.util.Objects;
 
 @CustomType
 public final class GetVzenClusterResult {
+    /**
+     * @return The ID of the VZEN cluster.
+     * 
+     */
     private Integer clusterId;
+    /**
+     * @return The default gateway of the VZEN cluster.
+     * 
+     */
     private String defaultGateway;
+    /**
+     * @return The IP address of the VZEN cluster.
+     * 
+     */
     private String ipAddress;
+    /**
+     * @return Whether IPSec is enabled on the cluster.
+     * 
+     */
     private Boolean ipSecEnabled;
+    /**
+     * @return The name of the VZEN cluster.
+     * 
+     */
     private String name;
+    /**
+     * @return The status of the VZEN cluster.
+     * 
+     */
     private String status;
+    /**
+     * @return The subnet mask of the VZEN cluster.
+     * 
+     */
     private String subnetMask;
+    /**
+     * @return The type of the VZEN cluster.
+     * 
+     */
     private String type;
+    /**
+     * @return The list of virtual ZEN nodes in this cluster.
+     * 
+     */
     private List<VirtualZenNodeOutput> virtualZenNodes;
 
     private GetVzenClusterResult() {}
+    /**
+     * @return The ID of the VZEN cluster.
+     * 
+     */
     public Integer clusterId() {
         return this.clusterId;
     }
+    /**
+     * @return The default gateway of the VZEN cluster.
+     * 
+     */
     public String defaultGateway() {
         return this.defaultGateway;
     }
+    /**
+     * @return The IP address of the VZEN cluster.
+     * 
+     */
     public String ipAddress() {
         return this.ipAddress;
     }
+    /**
+     * @return Whether IPSec is enabled on the cluster.
+     * 
+     */
     public Boolean ipSecEnabled() {
         return this.ipSecEnabled;
     }
+    /**
+     * @return The name of the VZEN cluster.
+     * 
+     */
     public String name() {
         return this.name;
     }
+    /**
+     * @return The status of the VZEN cluster.
+     * 
+     */
     public String status() {
         return this.status;
     }
+    /**
+     * @return The subnet mask of the VZEN cluster.
+     * 
+     */
     public String subnetMask() {
         return this.subnetMask;
     }
+    /**
+     * @return The type of the VZEN cluster.
+     * 
+     */
     public String type() {
         return this.type;
     }
+    /**
+     * @return The list of virtual ZEN nodes in this cluster.
+     * 
+     */
     public List<VirtualZenNodeOutput> virtualZenNodes() {
         return this.virtualZenNodes;
     }

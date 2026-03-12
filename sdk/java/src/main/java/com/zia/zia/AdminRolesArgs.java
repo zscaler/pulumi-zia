@@ -19,128 +19,272 @@ public final class AdminRolesArgs extends com.pulumi.resources.ResourceArgs {
 
     public static final AdminRolesArgs Empty = new AdminRolesArgs();
 
+    /**
+     * Admin and role management access permission. Valid values: `NONE`, `READ_ONLY`, `READ_WRITE`.
+     * 
+     */
     @Import(name="adminAcctAccess")
     private @Nullable Output<String> adminAcctAccess;
 
+    /**
+     * @return Admin and role management access permission. Valid values: `NONE`, `READ_ONLY`, `READ_WRITE`.
+     * 
+     */
     public Optional<Output<String>> adminAcctAccess() {
         return Optional.ofNullable(this.adminAcctAccess);
     }
 
+    /**
+     * Alerting access permission. Valid values: `NONE`, `READ_ONLY`, `READ_WRITE`.
+     * 
+     */
     @Import(name="alertingAccess")
     private @Nullable Output<String> alertingAccess;
 
+    /**
+     * @return Alerting access permission. Valid values: `NONE`, `READ_ONLY`, `READ_WRITE`.
+     * 
+     */
     public Optional<Output<String>> alertingAccess() {
         return Optional.ofNullable(this.alertingAccess);
     }
 
+    /**
+     * Insights logs access permission. Valid values: `NONE`, `READ_ONLY`, `READ_WRITE`.
+     * 
+     */
     @Import(name="analysisAccess")
     private @Nullable Output<String> analysisAccess;
 
+    /**
+     * @return Insights logs access permission. Valid values: `NONE`, `READ_ONLY`, `READ_WRITE`.
+     * 
+     */
     public Optional<Output<String>> analysisAccess() {
         return Optional.ofNullable(this.analysisAccess);
     }
 
+    /**
+     * Dashboard access permission. Valid values: `NONE`, `READ_ONLY`.
+     * 
+     */
     @Import(name="dashboardAccess")
     private @Nullable Output<String> dashboardAccess;
 
+    /**
+     * @return Dashboard access permission. Valid values: `NONE`, `READ_ONLY`.
+     * 
+     */
     public Optional<Output<String>> dashboardAccess() {
         return Optional.ofNullable(this.dashboardAccess);
     }
 
+    /**
+     * Device info access permission. Valid values: `NONE`, `READ_ONLY`.
+     * 
+     */
     @Import(name="deviceInfoAccess")
     private @Nullable Output<String> deviceInfoAccess;
 
+    /**
+     * @return Device info access permission. Valid values: `NONE`, `READ_ONLY`.
+     * 
+     */
     public Optional<Output<String>> deviceInfoAccess() {
         return Optional.ofNullable(this.deviceInfoAccess);
     }
 
+    /**
+     * Map of extended feature permissions to their access levels.
+     * 
+     */
     @Import(name="extFeaturePermissions")
     private @Nullable Output<Map<String,String>> extFeaturePermissions;
 
+    /**
+     * @return Map of extended feature permissions to their access levels.
+     * 
+     */
     public Optional<Output<Map<String,String>>> extFeaturePermissions() {
         return Optional.ofNullable(this.extFeaturePermissions);
     }
 
+    /**
+     * Map of feature permissions to their access levels.
+     * 
+     */
     @Import(name="featurePermissions")
     private @Nullable Output<Map<String,String>> featurePermissions;
 
+    /**
+     * @return Map of feature permissions to their access levels.
+     * 
+     */
     public Optional<Output<Map<String,String>>> featurePermissions() {
         return Optional.ofNullable(this.featurePermissions);
     }
 
+    /**
+     * Indicates whether this is an auditor role.
+     * 
+     */
     @Import(name="isAuditor")
     private @Nullable Output<Boolean> isAuditor;
 
+    /**
+     * @return Indicates whether this is an auditor role.
+     * 
+     */
     public Optional<Output<Boolean>> isAuditor() {
         return Optional.ofNullable(this.isAuditor);
     }
 
+    /**
+     * Indicates whether the role is non-editable (built-in system role).
+     * 
+     */
     @Import(name="isNonEditable")
     private @Nullable Output<Boolean> isNonEditable;
 
+    /**
+     * @return Indicates whether the role is non-editable (built-in system role).
+     * 
+     */
     public Optional<Output<Boolean>> isNonEditable() {
         return Optional.ofNullable(this.isNonEditable);
     }
 
+    /**
+     * Log range limit. Valid values: `UNRESTRICTED`, `LAST_1_HR`, `LAST_2_HRS`, `LAST_6_HRS`, `LAST_24_HRS`, `LAST_1_MONTH`.
+     * 
+     */
     @Import(name="logsLimit")
     private @Nullable Output<String> logsLimit;
 
+    /**
+     * @return Log range limit. Valid values: `UNRESTRICTED`, `LAST_1_HR`, `LAST_2_HRS`, `LAST_6_HRS`, `LAST_24_HRS`, `LAST_1_MONTH`.
+     * 
+     */
     public Optional<Output<String>> logsLimit() {
         return Optional.ofNullable(this.logsLimit);
     }
 
+    /**
+     * The name of the admin role.
+     * 
+     */
     @Import(name="name")
     private @Nullable Output<String> name;
 
+    /**
+     * @return The name of the admin role.
+     * 
+     */
     public Optional<Output<String>> name() {
         return Optional.ofNullable(this.name);
     }
 
+    /**
+     * List of functional areas to which this role has access (e.g., `POLICY`, `DASHBOARD`).
+     * 
+     */
     @Import(name="permissions")
     private @Nullable Output<List<String>> permissions;
 
+    /**
+     * @return List of functional areas to which this role has access (e.g., `POLICY`, `DASHBOARD`).
+     * 
+     */
     public Optional<Output<List<String>>> permissions() {
         return Optional.ofNullable(this.permissions);
     }
 
+    /**
+     * Policy access permission. Valid values: `NONE`, `READ_ONLY`, `READ_WRITE`.
+     * 
+     */
     @Import(name="policyAccess")
     private @Nullable Output<String> policyAccess;
 
+    /**
+     * @return Policy access permission. Valid values: `NONE`, `READ_ONLY`, `READ_WRITE`.
+     * 
+     */
     public Optional<Output<String>> policyAccess() {
         return Optional.ofNullable(this.policyAccess);
     }
 
+    /**
+     * Admin rank of the role. Default: 7. Valid values: 0-7.
+     * 
+     */
     @Import(name="rank")
     private @Nullable Output<Integer> rank;
 
+    /**
+     * @return Admin rank of the role. Default: 7. Valid values: 0-7.
+     * 
+     */
     public Optional<Output<Integer>> rank() {
         return Optional.ofNullable(this.rank);
     }
 
+    /**
+     * Report access permission. Valid values: `NONE`, `READ_ONLY`.
+     * 
+     */
     @Import(name="reportAccess")
     private @Nullable Output<String> reportAccess;
 
+    /**
+     * @return Report access permission. Valid values: `NONE`, `READ_ONLY`.
+     * 
+     */
     public Optional<Output<String>> reportAccess() {
         return Optional.ofNullable(this.reportAccess);
     }
 
+    /**
+     * Report time duration in days.
+     * 
+     */
     @Import(name="reportTimeDuration")
     private @Nullable Output<Integer> reportTimeDuration;
 
+    /**
+     * @return Report time duration in days.
+     * 
+     */
     public Optional<Output<Integer>> reportTimeDuration() {
         return Optional.ofNullable(this.reportTimeDuration);
     }
 
+    /**
+     * The admin role type. Valid values: `EXEC_INSIGHT_AND_ORG_ADMIN`, `ORG_ADMIN`.
+     * 
+     */
     @Import(name="roleType")
     private @Nullable Output<String> roleType;
 
+    /**
+     * @return The admin role type. Valid values: `EXEC_INSIGHT_AND_ORG_ADMIN`, `ORG_ADMIN`.
+     * 
+     */
     public Optional<Output<String>> roleType() {
         return Optional.ofNullable(this.roleType);
     }
 
+    /**
+     * Username access permission. Valid values: `NONE`, `READ_ONLY`.
+     * 
+     */
     @Import(name="usernameAccess")
     private @Nullable Output<String> usernameAccess;
 
+    /**
+     * @return Username access permission. Valid values: `NONE`, `READ_ONLY`.
+     * 
+     */
     public Optional<Output<String>> usernameAccess() {
         return Optional.ofNullable(this.usernameAccess);
     }
@@ -186,168 +330,390 @@ public final class AdminRolesArgs extends com.pulumi.resources.ResourceArgs {
             $ = new AdminRolesArgs(Objects.requireNonNull(defaults));
         }
 
+        /**
+         * @param adminAcctAccess Admin and role management access permission. Valid values: `NONE`, `READ_ONLY`, `READ_WRITE`.
+         * 
+         * @return builder
+         * 
+         */
         public Builder adminAcctAccess(@Nullable Output<String> adminAcctAccess) {
             $.adminAcctAccess = adminAcctAccess;
             return this;
         }
 
+        /**
+         * @param adminAcctAccess Admin and role management access permission. Valid values: `NONE`, `READ_ONLY`, `READ_WRITE`.
+         * 
+         * @return builder
+         * 
+         */
         public Builder adminAcctAccess(String adminAcctAccess) {
             return adminAcctAccess(Output.of(adminAcctAccess));
         }
 
+        /**
+         * @param alertingAccess Alerting access permission. Valid values: `NONE`, `READ_ONLY`, `READ_WRITE`.
+         * 
+         * @return builder
+         * 
+         */
         public Builder alertingAccess(@Nullable Output<String> alertingAccess) {
             $.alertingAccess = alertingAccess;
             return this;
         }
 
+        /**
+         * @param alertingAccess Alerting access permission. Valid values: `NONE`, `READ_ONLY`, `READ_WRITE`.
+         * 
+         * @return builder
+         * 
+         */
         public Builder alertingAccess(String alertingAccess) {
             return alertingAccess(Output.of(alertingAccess));
         }
 
+        /**
+         * @param analysisAccess Insights logs access permission. Valid values: `NONE`, `READ_ONLY`, `READ_WRITE`.
+         * 
+         * @return builder
+         * 
+         */
         public Builder analysisAccess(@Nullable Output<String> analysisAccess) {
             $.analysisAccess = analysisAccess;
             return this;
         }
 
+        /**
+         * @param analysisAccess Insights logs access permission. Valid values: `NONE`, `READ_ONLY`, `READ_WRITE`.
+         * 
+         * @return builder
+         * 
+         */
         public Builder analysisAccess(String analysisAccess) {
             return analysisAccess(Output.of(analysisAccess));
         }
 
+        /**
+         * @param dashboardAccess Dashboard access permission. Valid values: `NONE`, `READ_ONLY`.
+         * 
+         * @return builder
+         * 
+         */
         public Builder dashboardAccess(@Nullable Output<String> dashboardAccess) {
             $.dashboardAccess = dashboardAccess;
             return this;
         }
 
+        /**
+         * @param dashboardAccess Dashboard access permission. Valid values: `NONE`, `READ_ONLY`.
+         * 
+         * @return builder
+         * 
+         */
         public Builder dashboardAccess(String dashboardAccess) {
             return dashboardAccess(Output.of(dashboardAccess));
         }
 
+        /**
+         * @param deviceInfoAccess Device info access permission. Valid values: `NONE`, `READ_ONLY`.
+         * 
+         * @return builder
+         * 
+         */
         public Builder deviceInfoAccess(@Nullable Output<String> deviceInfoAccess) {
             $.deviceInfoAccess = deviceInfoAccess;
             return this;
         }
 
+        /**
+         * @param deviceInfoAccess Device info access permission. Valid values: `NONE`, `READ_ONLY`.
+         * 
+         * @return builder
+         * 
+         */
         public Builder deviceInfoAccess(String deviceInfoAccess) {
             return deviceInfoAccess(Output.of(deviceInfoAccess));
         }
 
+        /**
+         * @param extFeaturePermissions Map of extended feature permissions to their access levels.
+         * 
+         * @return builder
+         * 
+         */
         public Builder extFeaturePermissions(@Nullable Output<Map<String,String>> extFeaturePermissions) {
             $.extFeaturePermissions = extFeaturePermissions;
             return this;
         }
 
+        /**
+         * @param extFeaturePermissions Map of extended feature permissions to their access levels.
+         * 
+         * @return builder
+         * 
+         */
         public Builder extFeaturePermissions(Map<String,String> extFeaturePermissions) {
             return extFeaturePermissions(Output.of(extFeaturePermissions));
         }
 
+        /**
+         * @param featurePermissions Map of feature permissions to their access levels.
+         * 
+         * @return builder
+         * 
+         */
         public Builder featurePermissions(@Nullable Output<Map<String,String>> featurePermissions) {
             $.featurePermissions = featurePermissions;
             return this;
         }
 
+        /**
+         * @param featurePermissions Map of feature permissions to their access levels.
+         * 
+         * @return builder
+         * 
+         */
         public Builder featurePermissions(Map<String,String> featurePermissions) {
             return featurePermissions(Output.of(featurePermissions));
         }
 
+        /**
+         * @param isAuditor Indicates whether this is an auditor role.
+         * 
+         * @return builder
+         * 
+         */
         public Builder isAuditor(@Nullable Output<Boolean> isAuditor) {
             $.isAuditor = isAuditor;
             return this;
         }
 
+        /**
+         * @param isAuditor Indicates whether this is an auditor role.
+         * 
+         * @return builder
+         * 
+         */
         public Builder isAuditor(Boolean isAuditor) {
             return isAuditor(Output.of(isAuditor));
         }
 
+        /**
+         * @param isNonEditable Indicates whether the role is non-editable (built-in system role).
+         * 
+         * @return builder
+         * 
+         */
         public Builder isNonEditable(@Nullable Output<Boolean> isNonEditable) {
             $.isNonEditable = isNonEditable;
             return this;
         }
 
+        /**
+         * @param isNonEditable Indicates whether the role is non-editable (built-in system role).
+         * 
+         * @return builder
+         * 
+         */
         public Builder isNonEditable(Boolean isNonEditable) {
             return isNonEditable(Output.of(isNonEditable));
         }
 
+        /**
+         * @param logsLimit Log range limit. Valid values: `UNRESTRICTED`, `LAST_1_HR`, `LAST_2_HRS`, `LAST_6_HRS`, `LAST_24_HRS`, `LAST_1_MONTH`.
+         * 
+         * @return builder
+         * 
+         */
         public Builder logsLimit(@Nullable Output<String> logsLimit) {
             $.logsLimit = logsLimit;
             return this;
         }
 
+        /**
+         * @param logsLimit Log range limit. Valid values: `UNRESTRICTED`, `LAST_1_HR`, `LAST_2_HRS`, `LAST_6_HRS`, `LAST_24_HRS`, `LAST_1_MONTH`.
+         * 
+         * @return builder
+         * 
+         */
         public Builder logsLimit(String logsLimit) {
             return logsLimit(Output.of(logsLimit));
         }
 
+        /**
+         * @param name The name of the admin role.
+         * 
+         * @return builder
+         * 
+         */
         public Builder name(@Nullable Output<String> name) {
             $.name = name;
             return this;
         }
 
+        /**
+         * @param name The name of the admin role.
+         * 
+         * @return builder
+         * 
+         */
         public Builder name(String name) {
             return name(Output.of(name));
         }
 
+        /**
+         * @param permissions List of functional areas to which this role has access (e.g., `POLICY`, `DASHBOARD`).
+         * 
+         * @return builder
+         * 
+         */
         public Builder permissions(@Nullable Output<List<String>> permissions) {
             $.permissions = permissions;
             return this;
         }
 
+        /**
+         * @param permissions List of functional areas to which this role has access (e.g., `POLICY`, `DASHBOARD`).
+         * 
+         * @return builder
+         * 
+         */
         public Builder permissions(List<String> permissions) {
             return permissions(Output.of(permissions));
         }
 
+        /**
+         * @param permissions List of functional areas to which this role has access (e.g., `POLICY`, `DASHBOARD`).
+         * 
+         * @return builder
+         * 
+         */
         public Builder permissions(String... permissions) {
             return permissions(List.of(permissions));
         }
 
+        /**
+         * @param policyAccess Policy access permission. Valid values: `NONE`, `READ_ONLY`, `READ_WRITE`.
+         * 
+         * @return builder
+         * 
+         */
         public Builder policyAccess(@Nullable Output<String> policyAccess) {
             $.policyAccess = policyAccess;
             return this;
         }
 
+        /**
+         * @param policyAccess Policy access permission. Valid values: `NONE`, `READ_ONLY`, `READ_WRITE`.
+         * 
+         * @return builder
+         * 
+         */
         public Builder policyAccess(String policyAccess) {
             return policyAccess(Output.of(policyAccess));
         }
 
+        /**
+         * @param rank Admin rank of the role. Default: 7. Valid values: 0-7.
+         * 
+         * @return builder
+         * 
+         */
         public Builder rank(@Nullable Output<Integer> rank) {
             $.rank = rank;
             return this;
         }
 
+        /**
+         * @param rank Admin rank of the role. Default: 7. Valid values: 0-7.
+         * 
+         * @return builder
+         * 
+         */
         public Builder rank(Integer rank) {
             return rank(Output.of(rank));
         }
 
+        /**
+         * @param reportAccess Report access permission. Valid values: `NONE`, `READ_ONLY`.
+         * 
+         * @return builder
+         * 
+         */
         public Builder reportAccess(@Nullable Output<String> reportAccess) {
             $.reportAccess = reportAccess;
             return this;
         }
 
+        /**
+         * @param reportAccess Report access permission. Valid values: `NONE`, `READ_ONLY`.
+         * 
+         * @return builder
+         * 
+         */
         public Builder reportAccess(String reportAccess) {
             return reportAccess(Output.of(reportAccess));
         }
 
+        /**
+         * @param reportTimeDuration Report time duration in days.
+         * 
+         * @return builder
+         * 
+         */
         public Builder reportTimeDuration(@Nullable Output<Integer> reportTimeDuration) {
             $.reportTimeDuration = reportTimeDuration;
             return this;
         }
 
+        /**
+         * @param reportTimeDuration Report time duration in days.
+         * 
+         * @return builder
+         * 
+         */
         public Builder reportTimeDuration(Integer reportTimeDuration) {
             return reportTimeDuration(Output.of(reportTimeDuration));
         }
 
+        /**
+         * @param roleType The admin role type. Valid values: `EXEC_INSIGHT_AND_ORG_ADMIN`, `ORG_ADMIN`.
+         * 
+         * @return builder
+         * 
+         */
         public Builder roleType(@Nullable Output<String> roleType) {
             $.roleType = roleType;
             return this;
         }
 
+        /**
+         * @param roleType The admin role type. Valid values: `EXEC_INSIGHT_AND_ORG_ADMIN`, `ORG_ADMIN`.
+         * 
+         * @return builder
+         * 
+         */
         public Builder roleType(String roleType) {
             return roleType(Output.of(roleType));
         }
 
+        /**
+         * @param usernameAccess Username access permission. Valid values: `NONE`, `READ_ONLY`.
+         * 
+         * @return builder
+         * 
+         */
         public Builder usernameAccess(@Nullable Output<String> usernameAccess) {
             $.usernameAccess = usernameAccess;
             return this;
         }
 
+        /**
+         * @param usernameAccess Username access permission. Valid values: `NONE`, `READ_ONLY`.
+         * 
+         * @return builder
+         * 
+         */
         public Builder usernameAccess(String usernameAccess) {
             return usernameAccess(Output.of(usernameAccess));
         }

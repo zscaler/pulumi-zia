@@ -26,6 +26,9 @@ class WorkloadGroupArgs:
                  name: Optional[pulumi.Input[_builtins.str]] = None):
         """
         The set of arguments for constructing a WorkloadGroup resource.
+        :param pulumi.Input[_builtins.str] description: Description of the workload group.
+        :param pulumi.Input['WorkloadGroupExpressionJsonInputArgs'] expression_json: The expression JSON that defines the workload group matching criteria using tag expressions.
+        :param pulumi.Input[_builtins.str] name: Name of the workload group.
         """
         if description is not None:
             pulumi.set(__self__, "description", description)
@@ -37,6 +40,9 @@ class WorkloadGroupArgs:
     @_builtins.property
     @pulumi.getter
     def description(self) -> Optional[pulumi.Input[_builtins.str]]:
+        """
+        Description of the workload group.
+        """
         return pulumi.get(self, "description")
 
     @description.setter
@@ -46,6 +52,9 @@ class WorkloadGroupArgs:
     @_builtins.property
     @pulumi.getter(name="expressionJson")
     def expression_json(self) -> Optional[pulumi.Input['WorkloadGroupExpressionJsonInputArgs']]:
+        """
+        The expression JSON that defines the workload group matching criteria using tag expressions.
+        """
         return pulumi.get(self, "expression_json")
 
     @expression_json.setter
@@ -55,6 +64,9 @@ class WorkloadGroupArgs:
     @_builtins.property
     @pulumi.getter
     def name(self) -> Optional[pulumi.Input[_builtins.str]]:
+        """
+        Name of the workload group.
+        """
         return pulumi.get(self, "name")
 
     @name.setter
@@ -73,9 +85,49 @@ class WorkloadGroup(pulumi.CustomResource):
                  name: Optional[pulumi.Input[_builtins.str]] = None,
                  __props__=None):
         """
-        Create a WorkloadGroup resource with the given unique name, props, and options.
+        The zia.WorkloadGroup resource manages workload groups in the Zscaler Internet Access (ZIA) cloud.
+        Workload groups define sets of cloud workloads based on tag expressions that can be used in
+        firewall rules, URL filtering rules, and other policy rules to apply policies to specific
+        cloud workloads (e.g., VMs, subnets, ENIs).
+
+        ## Example Usage
+        ### Basic Workload Group
+
+        ```python
+        import zscaler_pulumi_zia as zia
+
+        example = zia.WorkloadGroup("example",
+            name="Example Workload Group",
+            description="Managed by Pulumi",
+            expression_json={
+                "expression_containers": [{
+                    "tag_type": "VM",
+                    "operator": "AND",
+                    "tag_container": {
+                        "tags": [{
+                            "key": "environment",
+                            "value": "production",
+                        }],
+                        "operator": "OR",
+                    },
+                }],
+            },
+        )
+        ```
+
+        ## Import
+
+        An existing workload group can be imported using its ID, e.g.
+
+        ```sh
+        $ pulumi import zia:index:WorkloadGroup example 12345
+        ```
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
+        :param pulumi.Input[_builtins.str] description: Description of the workload group.
+        :param pulumi.Input[Union['WorkloadGroupExpressionJsonInputArgs', 'WorkloadGroupExpressionJsonInputArgsDict']] expression_json: The expression JSON that defines the workload group matching criteria using tag expressions.
+        :param pulumi.Input[_builtins.str] name: Name of the workload group.
         """
         ...
     @overload
@@ -84,7 +136,44 @@ class WorkloadGroup(pulumi.CustomResource):
                  args: Optional[WorkloadGroupArgs] = None,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
-        Create a WorkloadGroup resource with the given unique name, props, and options.
+        The zia.WorkloadGroup resource manages workload groups in the Zscaler Internet Access (ZIA) cloud.
+        Workload groups define sets of cloud workloads based on tag expressions that can be used in
+        firewall rules, URL filtering rules, and other policy rules to apply policies to specific
+        cloud workloads (e.g., VMs, subnets, ENIs).
+
+        ## Example Usage
+        ### Basic Workload Group
+
+        ```python
+        import zscaler_pulumi_zia as zia
+
+        example = zia.WorkloadGroup("example",
+            name="Example Workload Group",
+            description="Managed by Pulumi",
+            expression_json={
+                "expression_containers": [{
+                    "tag_type": "VM",
+                    "operator": "AND",
+                    "tag_container": {
+                        "tags": [{
+                            "key": "environment",
+                            "value": "production",
+                        }],
+                        "operator": "OR",
+                    },
+                }],
+            },
+        )
+        ```
+
+        ## Import
+
+        An existing workload group can be imported using its ID, e.g.
+
+        ```sh
+        $ pulumi import zia:index:WorkloadGroup example 12345
+        ```
+
         :param str resource_name: The name of the resource.
         :param WorkloadGroupArgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -147,20 +236,32 @@ class WorkloadGroup(pulumi.CustomResource):
     @_builtins.property
     @pulumi.getter
     def description(self) -> pulumi.Output[Optional[_builtins.str]]:
+        """
+        Description of the workload group.
+        """
         return pulumi.get(self, "description")
 
     @_builtins.property
     @pulumi.getter(name="expressionJson")
     def expression_json(self) -> pulumi.Output[Optional['outputs.WorkloadGroupExpressionJsonInput']]:
+        """
+        The expression JSON that defines the workload group matching criteria using tag expressions.
+        """
         return pulumi.get(self, "expression_json")
 
     @_builtins.property
     @pulumi.getter(name="groupId")
     def group_id(self) -> pulumi.Output[_builtins.int]:
+        """
+        The unique identifier for the workload group assigned by the ZIA cloud.
+        """
         return pulumi.get(self, "group_id")
 
     @_builtins.property
     @pulumi.getter
     def name(self) -> pulumi.Output[Optional[_builtins.str]]:
+        """
+        Name of the workload group.
+        """
         return pulumi.get(self, "name")
 

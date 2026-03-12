@@ -9,6 +9,52 @@ import com.pulumi.deployment.Deployment;
 import com.pulumi.deployment.InvokeOptions;
 import com.pulumi.deployment.InvokeOutputOptions;
 import com.zia.zia.Utilities;
+import com.zia.zia.inputs.GetCasbEmailLabelArgs;
+import com.zia.zia.inputs.GetCasbEmailLabelPlainArgs;
+import com.zia.zia.inputs.GetCasbTenantArgs;
+import com.zia.zia.inputs.GetCasbTenantPlainArgs;
+import com.zia.zia.inputs.GetCasbTombstoneTemplateArgs;
+import com.zia.zia.inputs.GetCasbTombstoneTemplatePlainArgs;
+import com.zia.zia.inputs.GetCloudApplicationsArgs;
+import com.zia.zia.inputs.GetCloudApplicationsPlainArgs;
+import com.zia.zia.inputs.GetCloudBrowserIsolationProfileArgs;
+import com.zia.zia.inputs.GetCloudBrowserIsolationProfilePlainArgs;
+import com.zia.zia.inputs.GetDatacentersArgs;
+import com.zia.zia.inputs.GetDatacentersPlainArgs;
+import com.zia.zia.inputs.GetDeviceArgs;
+import com.zia.zia.inputs.GetDeviceGroupArgs;
+import com.zia.zia.inputs.GetDeviceGroupPlainArgs;
+import com.zia.zia.inputs.GetDevicePlainArgs;
+import com.zia.zia.inputs.GetDlpCloudToCloudIrArgs;
+import com.zia.zia.inputs.GetDlpCloudToCloudIrPlainArgs;
+import com.zia.zia.inputs.GetDlpDictionaryPredefinedIdentifiersArgs;
+import com.zia.zia.inputs.GetDlpDictionaryPredefinedIdentifiersPlainArgs;
+import com.zia.zia.inputs.GetDlpEdmSchemaArgs;
+import com.zia.zia.inputs.GetDlpEdmSchemaPlainArgs;
+import com.zia.zia.inputs.GetDlpIcapServerArgs;
+import com.zia.zia.inputs.GetDlpIcapServerPlainArgs;
+import com.zia.zia.inputs.GetDlpIdmProfileArgs;
+import com.zia.zia.inputs.GetDlpIdmProfileLiteArgs;
+import com.zia.zia.inputs.GetDlpIdmProfileLitePlainArgs;
+import com.zia.zia.inputs.GetDlpIdmProfilePlainArgs;
+import com.zia.zia.inputs.GetDlpIncidentReceiverServerArgs;
+import com.zia.zia.inputs.GetDlpIncidentReceiverServerPlainArgs;
+import com.zia.zia.inputs.GetDomainProfileArgs;
+import com.zia.zia.inputs.GetDomainProfilePlainArgs;
+import com.zia.zia.inputs.GetFileTypeCategoriesArgs;
+import com.zia.zia.inputs.GetFileTypeCategoriesPlainArgs;
+import com.zia.zia.inputs.GetFwNetworkServiceArgs;
+import com.zia.zia.inputs.GetFwNetworkServicePlainArgs;
+import com.zia.zia.inputs.GetLocationGroupArgs;
+import com.zia.zia.inputs.GetLocationGroupPlainArgs;
+import com.zia.zia.inputs.GetSandboxReportArgs;
+import com.zia.zia.inputs.GetSandboxReportPlainArgs;
+import com.zia.zia.inputs.GetTimeWindowArgs;
+import com.zia.zia.inputs.GetTimeWindowPlainArgs;
+import com.zia.zia.inputs.GetUserManagementDepartmentArgs;
+import com.zia.zia.inputs.GetUserManagementDepartmentPlainArgs;
+import com.zia.zia.inputs.GetUserManagementGroupArgs;
+import com.zia.zia.inputs.GetUserManagementGroupPlainArgs;
 import com.zia.zia.inputs.GetUserManagementUserArgs;
 import com.zia.zia.inputs.GetUserManagementUserPlainArgs;
 import com.zia.zia.inputs.GetVzenClusterArgs;
@@ -17,6 +63,29 @@ import com.zia.zia.inputs.GetVzenNodeArgs;
 import com.zia.zia.inputs.GetVzenNodePlainArgs;
 import com.zia.zia.inputs.GetWorkloadGroupArgs;
 import com.zia.zia.inputs.GetWorkloadGroupPlainArgs;
+import com.zia.zia.outputs.GetCasbEmailLabelResult;
+import com.zia.zia.outputs.GetCasbTenantResult;
+import com.zia.zia.outputs.GetCasbTombstoneTemplateResult;
+import com.zia.zia.outputs.GetCloudApplicationsResult;
+import com.zia.zia.outputs.GetCloudBrowserIsolationProfileResult;
+import com.zia.zia.outputs.GetDatacentersResult;
+import com.zia.zia.outputs.GetDeviceGroupResult;
+import com.zia.zia.outputs.GetDeviceResult;
+import com.zia.zia.outputs.GetDlpCloudToCloudIrResult;
+import com.zia.zia.outputs.GetDlpDictionaryPredefinedIdentifiersResult;
+import com.zia.zia.outputs.GetDlpEdmSchemaResult;
+import com.zia.zia.outputs.GetDlpIcapServerResult;
+import com.zia.zia.outputs.GetDlpIdmProfileLiteResult;
+import com.zia.zia.outputs.GetDlpIdmProfileResult;
+import com.zia.zia.outputs.GetDlpIncidentReceiverServerResult;
+import com.zia.zia.outputs.GetDomainProfileResult;
+import com.zia.zia.outputs.GetFileTypeCategoriesResult;
+import com.zia.zia.outputs.GetFwNetworkServiceResult;
+import com.zia.zia.outputs.GetLocationGroupResult;
+import com.zia.zia.outputs.GetSandboxReportResult;
+import com.zia.zia.outputs.GetTimeWindowResult;
+import com.zia.zia.outputs.GetUserManagementDepartmentResult;
+import com.zia.zia.outputs.GetUserManagementGroupResult;
 import com.zia.zia.outputs.GetUserManagementUserResult;
 import com.zia.zia.outputs.GetVzenClusterResult;
 import com.zia.zia.outputs.GetVzenNodeResult;
@@ -24,87 +93,1326 @@ import com.zia.zia.outputs.GetWorkloadGroupResult;
 import java.util.concurrent.CompletableFuture;
 
 public final class ZiaFunctions {
+    /**
+     * Use this data source to look up a CASB email label by ID or name.
+     * 
+     */
+    public static Output<GetCasbEmailLabelResult> getCasbEmailLabel() {
+        return getCasbEmailLabel(GetCasbEmailLabelArgs.Empty, InvokeOptions.Empty);
+    }
+    /**
+     * Use this data source to look up a CASB email label by ID or name.
+     * 
+     */
+    public static CompletableFuture<GetCasbEmailLabelResult> getCasbEmailLabelPlain() {
+        return getCasbEmailLabelPlain(GetCasbEmailLabelPlainArgs.Empty, InvokeOptions.Empty);
+    }
+    /**
+     * Use this data source to look up a CASB email label by ID or name.
+     * 
+     */
+    public static Output<GetCasbEmailLabelResult> getCasbEmailLabel(GetCasbEmailLabelArgs args) {
+        return getCasbEmailLabel(args, InvokeOptions.Empty);
+    }
+    /**
+     * Use this data source to look up a CASB email label by ID or name.
+     * 
+     */
+    public static CompletableFuture<GetCasbEmailLabelResult> getCasbEmailLabelPlain(GetCasbEmailLabelPlainArgs args) {
+        return getCasbEmailLabelPlain(args, InvokeOptions.Empty);
+    }
+    /**
+     * Use this data source to look up a CASB email label by ID or name.
+     * 
+     */
+    public static Output<GetCasbEmailLabelResult> getCasbEmailLabel(GetCasbEmailLabelArgs args, InvokeOptions options) {
+        return Deployment.getInstance().invoke("zia:index:getCasbEmailLabel", TypeShape.of(GetCasbEmailLabelResult.class), args, Utilities.withVersion(options));
+    }
+    /**
+     * Use this data source to look up a CASB email label by ID or name.
+     * 
+     */
+    public static Output<GetCasbEmailLabelResult> getCasbEmailLabel(GetCasbEmailLabelArgs args, InvokeOutputOptions options) {
+        return Deployment.getInstance().invoke("zia:index:getCasbEmailLabel", TypeShape.of(GetCasbEmailLabelResult.class), args, Utilities.withVersion(options));
+    }
+    /**
+     * Use this data source to look up a CASB email label by ID or name.
+     * 
+     */
+    public static CompletableFuture<GetCasbEmailLabelResult> getCasbEmailLabelPlain(GetCasbEmailLabelPlainArgs args, InvokeOptions options) {
+        return Deployment.getInstance().invokeAsync("zia:index:getCasbEmailLabel", TypeShape.of(GetCasbEmailLabelResult.class), args, Utilities.withVersion(options));
+    }
+    /**
+     * Use this data source to look up a CASB tenant by ID or name.
+     * 
+     */
+    public static Output<GetCasbTenantResult> getCasbTenant() {
+        return getCasbTenant(GetCasbTenantArgs.Empty, InvokeOptions.Empty);
+    }
+    /**
+     * Use this data source to look up a CASB tenant by ID or name.
+     * 
+     */
+    public static CompletableFuture<GetCasbTenantResult> getCasbTenantPlain() {
+        return getCasbTenantPlain(GetCasbTenantPlainArgs.Empty, InvokeOptions.Empty);
+    }
+    /**
+     * Use this data source to look up a CASB tenant by ID or name.
+     * 
+     */
+    public static Output<GetCasbTenantResult> getCasbTenant(GetCasbTenantArgs args) {
+        return getCasbTenant(args, InvokeOptions.Empty);
+    }
+    /**
+     * Use this data source to look up a CASB tenant by ID or name.
+     * 
+     */
+    public static CompletableFuture<GetCasbTenantResult> getCasbTenantPlain(GetCasbTenantPlainArgs args) {
+        return getCasbTenantPlain(args, InvokeOptions.Empty);
+    }
+    /**
+     * Use this data source to look up a CASB tenant by ID or name.
+     * 
+     */
+    public static Output<GetCasbTenantResult> getCasbTenant(GetCasbTenantArgs args, InvokeOptions options) {
+        return Deployment.getInstance().invoke("zia:index:getCasbTenant", TypeShape.of(GetCasbTenantResult.class), args, Utilities.withVersion(options));
+    }
+    /**
+     * Use this data source to look up a CASB tenant by ID or name.
+     * 
+     */
+    public static Output<GetCasbTenantResult> getCasbTenant(GetCasbTenantArgs args, InvokeOutputOptions options) {
+        return Deployment.getInstance().invoke("zia:index:getCasbTenant", TypeShape.of(GetCasbTenantResult.class), args, Utilities.withVersion(options));
+    }
+    /**
+     * Use this data source to look up a CASB tenant by ID or name.
+     * 
+     */
+    public static CompletableFuture<GetCasbTenantResult> getCasbTenantPlain(GetCasbTenantPlainArgs args, InvokeOptions options) {
+        return Deployment.getInstance().invokeAsync("zia:index:getCasbTenant", TypeShape.of(GetCasbTenantResult.class), args, Utilities.withVersion(options));
+    }
+    /**
+     * Use this data source to look up a CASB quarantine tombstone template by ID or name.
+     * 
+     */
+    public static Output<GetCasbTombstoneTemplateResult> getCasbTombstoneTemplate() {
+        return getCasbTombstoneTemplate(GetCasbTombstoneTemplateArgs.Empty, InvokeOptions.Empty);
+    }
+    /**
+     * Use this data source to look up a CASB quarantine tombstone template by ID or name.
+     * 
+     */
+    public static CompletableFuture<GetCasbTombstoneTemplateResult> getCasbTombstoneTemplatePlain() {
+        return getCasbTombstoneTemplatePlain(GetCasbTombstoneTemplatePlainArgs.Empty, InvokeOptions.Empty);
+    }
+    /**
+     * Use this data source to look up a CASB quarantine tombstone template by ID or name.
+     * 
+     */
+    public static Output<GetCasbTombstoneTemplateResult> getCasbTombstoneTemplate(GetCasbTombstoneTemplateArgs args) {
+        return getCasbTombstoneTemplate(args, InvokeOptions.Empty);
+    }
+    /**
+     * Use this data source to look up a CASB quarantine tombstone template by ID or name.
+     * 
+     */
+    public static CompletableFuture<GetCasbTombstoneTemplateResult> getCasbTombstoneTemplatePlain(GetCasbTombstoneTemplatePlainArgs args) {
+        return getCasbTombstoneTemplatePlain(args, InvokeOptions.Empty);
+    }
+    /**
+     * Use this data source to look up a CASB quarantine tombstone template by ID or name.
+     * 
+     */
+    public static Output<GetCasbTombstoneTemplateResult> getCasbTombstoneTemplate(GetCasbTombstoneTemplateArgs args, InvokeOptions options) {
+        return Deployment.getInstance().invoke("zia:index:getCasbTombstoneTemplate", TypeShape.of(GetCasbTombstoneTemplateResult.class), args, Utilities.withVersion(options));
+    }
+    /**
+     * Use this data source to look up a CASB quarantine tombstone template by ID or name.
+     * 
+     */
+    public static Output<GetCasbTombstoneTemplateResult> getCasbTombstoneTemplate(GetCasbTombstoneTemplateArgs args, InvokeOutputOptions options) {
+        return Deployment.getInstance().invoke("zia:index:getCasbTombstoneTemplate", TypeShape.of(GetCasbTombstoneTemplateResult.class), args, Utilities.withVersion(options));
+    }
+    /**
+     * Use this data source to look up a CASB quarantine tombstone template by ID or name.
+     * 
+     */
+    public static CompletableFuture<GetCasbTombstoneTemplateResult> getCasbTombstoneTemplatePlain(GetCasbTombstoneTemplatePlainArgs args, InvokeOptions options) {
+        return Deployment.getInstance().invokeAsync("zia:index:getCasbTombstoneTemplate", TypeShape.of(GetCasbTombstoneTemplateResult.class), args, Utilities.withVersion(options));
+    }
+    /**
+     * Use this data source to look up cloud applications by policy type, application class, or application name.
+     * 
+     */
+    public static Output<GetCloudApplicationsResult> getCloudApplications(GetCloudApplicationsArgs args) {
+        return getCloudApplications(args, InvokeOptions.Empty);
+    }
+    /**
+     * Use this data source to look up cloud applications by policy type, application class, or application name.
+     * 
+     */
+    public static CompletableFuture<GetCloudApplicationsResult> getCloudApplicationsPlain(GetCloudApplicationsPlainArgs args) {
+        return getCloudApplicationsPlain(args, InvokeOptions.Empty);
+    }
+    /**
+     * Use this data source to look up cloud applications by policy type, application class, or application name.
+     * 
+     */
+    public static Output<GetCloudApplicationsResult> getCloudApplications(GetCloudApplicationsArgs args, InvokeOptions options) {
+        return Deployment.getInstance().invoke("zia:index:getCloudApplications", TypeShape.of(GetCloudApplicationsResult.class), args, Utilities.withVersion(options));
+    }
+    /**
+     * Use this data source to look up cloud applications by policy type, application class, or application name.
+     * 
+     */
+    public static Output<GetCloudApplicationsResult> getCloudApplications(GetCloudApplicationsArgs args, InvokeOutputOptions options) {
+        return Deployment.getInstance().invoke("zia:index:getCloudApplications", TypeShape.of(GetCloudApplicationsResult.class), args, Utilities.withVersion(options));
+    }
+    /**
+     * Use this data source to look up cloud applications by policy type, application class, or application name.
+     * 
+     */
+    public static CompletableFuture<GetCloudApplicationsResult> getCloudApplicationsPlain(GetCloudApplicationsPlainArgs args, InvokeOptions options) {
+        return Deployment.getInstance().invokeAsync("zia:index:getCloudApplications", TypeShape.of(GetCloudApplicationsResult.class), args, Utilities.withVersion(options));
+    }
+    /**
+     * Use this data source to look up a cloud browser isolation profile by name.
+     * 
+     */
+    public static Output<GetCloudBrowserIsolationProfileResult> getCloudBrowserIsolationProfile() {
+        return getCloudBrowserIsolationProfile(GetCloudBrowserIsolationProfileArgs.Empty, InvokeOptions.Empty);
+    }
+    /**
+     * Use this data source to look up a cloud browser isolation profile by name.
+     * 
+     */
+    public static CompletableFuture<GetCloudBrowserIsolationProfileResult> getCloudBrowserIsolationProfilePlain() {
+        return getCloudBrowserIsolationProfilePlain(GetCloudBrowserIsolationProfilePlainArgs.Empty, InvokeOptions.Empty);
+    }
+    /**
+     * Use this data source to look up a cloud browser isolation profile by name.
+     * 
+     */
+    public static Output<GetCloudBrowserIsolationProfileResult> getCloudBrowserIsolationProfile(GetCloudBrowserIsolationProfileArgs args) {
+        return getCloudBrowserIsolationProfile(args, InvokeOptions.Empty);
+    }
+    /**
+     * Use this data source to look up a cloud browser isolation profile by name.
+     * 
+     */
+    public static CompletableFuture<GetCloudBrowserIsolationProfileResult> getCloudBrowserIsolationProfilePlain(GetCloudBrowserIsolationProfilePlainArgs args) {
+        return getCloudBrowserIsolationProfilePlain(args, InvokeOptions.Empty);
+    }
+    /**
+     * Use this data source to look up a cloud browser isolation profile by name.
+     * 
+     */
+    public static Output<GetCloudBrowserIsolationProfileResult> getCloudBrowserIsolationProfile(GetCloudBrowserIsolationProfileArgs args, InvokeOptions options) {
+        return Deployment.getInstance().invoke("zia:index:getCloudBrowserIsolationProfile", TypeShape.of(GetCloudBrowserIsolationProfileResult.class), args, Utilities.withVersion(options));
+    }
+    /**
+     * Use this data source to look up a cloud browser isolation profile by name.
+     * 
+     */
+    public static Output<GetCloudBrowserIsolationProfileResult> getCloudBrowserIsolationProfile(GetCloudBrowserIsolationProfileArgs args, InvokeOutputOptions options) {
+        return Deployment.getInstance().invoke("zia:index:getCloudBrowserIsolationProfile", TypeShape.of(GetCloudBrowserIsolationProfileResult.class), args, Utilities.withVersion(options));
+    }
+    /**
+     * Use this data source to look up a cloud browser isolation profile by name.
+     * 
+     */
+    public static CompletableFuture<GetCloudBrowserIsolationProfileResult> getCloudBrowserIsolationProfilePlain(GetCloudBrowserIsolationProfilePlainArgs args, InvokeOptions options) {
+        return Deployment.getInstance().invokeAsync("zia:index:getCloudBrowserIsolationProfile", TypeShape.of(GetCloudBrowserIsolationProfileResult.class), args, Utilities.withVersion(options));
+    }
+    /**
+     * Use the **zia:index/getDatacenters:getDatacenters** data source to retrieve a list of Zscaler data centers. Results can be filtered by datacenter ID, name (case-insensitive partial match), or city (case-insensitive partial match).
+     * 
+     * ## Example Usage
+     * 
+     * ## Import
+     * 
+     * This data source is read-only and does not support import.
+     * 
+     */
+    public static Output<GetDatacentersResult> getDatacenters() {
+        return getDatacenters(GetDatacentersArgs.Empty, InvokeOptions.Empty);
+    }
+    /**
+     * Use the **zia:index/getDatacenters:getDatacenters** data source to retrieve a list of Zscaler data centers. Results can be filtered by datacenter ID, name (case-insensitive partial match), or city (case-insensitive partial match).
+     * 
+     * ## Example Usage
+     * 
+     * ## Import
+     * 
+     * This data source is read-only and does not support import.
+     * 
+     */
+    public static CompletableFuture<GetDatacentersResult> getDatacentersPlain() {
+        return getDatacentersPlain(GetDatacentersPlainArgs.Empty, InvokeOptions.Empty);
+    }
+    /**
+     * Use the **zia:index/getDatacenters:getDatacenters** data source to retrieve a list of Zscaler data centers. Results can be filtered by datacenter ID, name (case-insensitive partial match), or city (case-insensitive partial match).
+     * 
+     * ## Example Usage
+     * 
+     * ## Import
+     * 
+     * This data source is read-only and does not support import.
+     * 
+     */
+    public static Output<GetDatacentersResult> getDatacenters(GetDatacentersArgs args) {
+        return getDatacenters(args, InvokeOptions.Empty);
+    }
+    /**
+     * Use the **zia:index/getDatacenters:getDatacenters** data source to retrieve a list of Zscaler data centers. Results can be filtered by datacenter ID, name (case-insensitive partial match), or city (case-insensitive partial match).
+     * 
+     * ## Example Usage
+     * 
+     * ## Import
+     * 
+     * This data source is read-only and does not support import.
+     * 
+     */
+    public static CompletableFuture<GetDatacentersResult> getDatacentersPlain(GetDatacentersPlainArgs args) {
+        return getDatacentersPlain(args, InvokeOptions.Empty);
+    }
+    /**
+     * Use the **zia:index/getDatacenters:getDatacenters** data source to retrieve a list of Zscaler data centers. Results can be filtered by datacenter ID, name (case-insensitive partial match), or city (case-insensitive partial match).
+     * 
+     * ## Example Usage
+     * 
+     * ## Import
+     * 
+     * This data source is read-only and does not support import.
+     * 
+     */
+    public static Output<GetDatacentersResult> getDatacenters(GetDatacentersArgs args, InvokeOptions options) {
+        return Deployment.getInstance().invoke("zia:index:getDatacenters", TypeShape.of(GetDatacentersResult.class), args, Utilities.withVersion(options));
+    }
+    /**
+     * Use the **zia:index/getDatacenters:getDatacenters** data source to retrieve a list of Zscaler data centers. Results can be filtered by datacenter ID, name (case-insensitive partial match), or city (case-insensitive partial match).
+     * 
+     * ## Example Usage
+     * 
+     * ## Import
+     * 
+     * This data source is read-only and does not support import.
+     * 
+     */
+    public static Output<GetDatacentersResult> getDatacenters(GetDatacentersArgs args, InvokeOutputOptions options) {
+        return Deployment.getInstance().invoke("zia:index:getDatacenters", TypeShape.of(GetDatacentersResult.class), args, Utilities.withVersion(options));
+    }
+    /**
+     * Use the **zia:index/getDatacenters:getDatacenters** data source to retrieve a list of Zscaler data centers. Results can be filtered by datacenter ID, name (case-insensitive partial match), or city (case-insensitive partial match).
+     * 
+     * ## Example Usage
+     * 
+     * ## Import
+     * 
+     * This data source is read-only and does not support import.
+     * 
+     */
+    public static CompletableFuture<GetDatacentersResult> getDatacentersPlain(GetDatacentersPlainArgs args, InvokeOptions options) {
+        return Deployment.getInstance().invokeAsync("zia:index:getDatacenters", TypeShape.of(GetDatacentersResult.class), args, Utilities.withVersion(options));
+    }
+    /**
+     * Use this data source to look up a device by ID, name, model, owner, or OS attributes.
+     * 
+     */
+    public static Output<GetDeviceResult> getDevice() {
+        return getDevice(GetDeviceArgs.Empty, InvokeOptions.Empty);
+    }
+    /**
+     * Use this data source to look up a device by ID, name, model, owner, or OS attributes.
+     * 
+     */
+    public static CompletableFuture<GetDeviceResult> getDevicePlain() {
+        return getDevicePlain(GetDevicePlainArgs.Empty, InvokeOptions.Empty);
+    }
+    /**
+     * Use this data source to look up a device by ID, name, model, owner, or OS attributes.
+     * 
+     */
+    public static Output<GetDeviceResult> getDevice(GetDeviceArgs args) {
+        return getDevice(args, InvokeOptions.Empty);
+    }
+    /**
+     * Use this data source to look up a device by ID, name, model, owner, or OS attributes.
+     * 
+     */
+    public static CompletableFuture<GetDeviceResult> getDevicePlain(GetDevicePlainArgs args) {
+        return getDevicePlain(args, InvokeOptions.Empty);
+    }
+    /**
+     * Use this data source to look up a device by ID, name, model, owner, or OS attributes.
+     * 
+     */
+    public static Output<GetDeviceResult> getDevice(GetDeviceArgs args, InvokeOptions options) {
+        return Deployment.getInstance().invoke("zia:index:getDevice", TypeShape.of(GetDeviceResult.class), args, Utilities.withVersion(options));
+    }
+    /**
+     * Use this data source to look up a device by ID, name, model, owner, or OS attributes.
+     * 
+     */
+    public static Output<GetDeviceResult> getDevice(GetDeviceArgs args, InvokeOutputOptions options) {
+        return Deployment.getInstance().invoke("zia:index:getDevice", TypeShape.of(GetDeviceResult.class), args, Utilities.withVersion(options));
+    }
+    /**
+     * Use this data source to look up a device by ID, name, model, owner, or OS attributes.
+     * 
+     */
+    public static CompletableFuture<GetDeviceResult> getDevicePlain(GetDevicePlainArgs args, InvokeOptions options) {
+        return Deployment.getInstance().invokeAsync("zia:index:getDevice", TypeShape.of(GetDeviceResult.class), args, Utilities.withVersion(options));
+    }
+    /**
+     * Use this data source to look up a device group by ID or name.
+     * 
+     */
+    public static Output<GetDeviceGroupResult> getDeviceGroup() {
+        return getDeviceGroup(GetDeviceGroupArgs.Empty, InvokeOptions.Empty);
+    }
+    /**
+     * Use this data source to look up a device group by ID or name.
+     * 
+     */
+    public static CompletableFuture<GetDeviceGroupResult> getDeviceGroupPlain() {
+        return getDeviceGroupPlain(GetDeviceGroupPlainArgs.Empty, InvokeOptions.Empty);
+    }
+    /**
+     * Use this data source to look up a device group by ID or name.
+     * 
+     */
+    public static Output<GetDeviceGroupResult> getDeviceGroup(GetDeviceGroupArgs args) {
+        return getDeviceGroup(args, InvokeOptions.Empty);
+    }
+    /**
+     * Use this data source to look up a device group by ID or name.
+     * 
+     */
+    public static CompletableFuture<GetDeviceGroupResult> getDeviceGroupPlain(GetDeviceGroupPlainArgs args) {
+        return getDeviceGroupPlain(args, InvokeOptions.Empty);
+    }
+    /**
+     * Use this data source to look up a device group by ID or name.
+     * 
+     */
+    public static Output<GetDeviceGroupResult> getDeviceGroup(GetDeviceGroupArgs args, InvokeOptions options) {
+        return Deployment.getInstance().invoke("zia:index:getDeviceGroup", TypeShape.of(GetDeviceGroupResult.class), args, Utilities.withVersion(options));
+    }
+    /**
+     * Use this data source to look up a device group by ID or name.
+     * 
+     */
+    public static Output<GetDeviceGroupResult> getDeviceGroup(GetDeviceGroupArgs args, InvokeOutputOptions options) {
+        return Deployment.getInstance().invoke("zia:index:getDeviceGroup", TypeShape.of(GetDeviceGroupResult.class), args, Utilities.withVersion(options));
+    }
+    /**
+     * Use this data source to look up a device group by ID or name.
+     * 
+     */
+    public static CompletableFuture<GetDeviceGroupResult> getDeviceGroupPlain(GetDeviceGroupPlainArgs args, InvokeOptions options) {
+        return Deployment.getInstance().invokeAsync("zia:index:getDeviceGroup", TypeShape.of(GetDeviceGroupResult.class), args, Utilities.withVersion(options));
+    }
+    /**
+     * Use this data source to look up a DLP cloud-to-cloud incident receiver by ID or name.
+     * 
+     */
+    public static Output<GetDlpCloudToCloudIrResult> getDlpCloudToCloudIr() {
+        return getDlpCloudToCloudIr(GetDlpCloudToCloudIrArgs.Empty, InvokeOptions.Empty);
+    }
+    /**
+     * Use this data source to look up a DLP cloud-to-cloud incident receiver by ID or name.
+     * 
+     */
+    public static CompletableFuture<GetDlpCloudToCloudIrResult> getDlpCloudToCloudIrPlain() {
+        return getDlpCloudToCloudIrPlain(GetDlpCloudToCloudIrPlainArgs.Empty, InvokeOptions.Empty);
+    }
+    /**
+     * Use this data source to look up a DLP cloud-to-cloud incident receiver by ID or name.
+     * 
+     */
+    public static Output<GetDlpCloudToCloudIrResult> getDlpCloudToCloudIr(GetDlpCloudToCloudIrArgs args) {
+        return getDlpCloudToCloudIr(args, InvokeOptions.Empty);
+    }
+    /**
+     * Use this data source to look up a DLP cloud-to-cloud incident receiver by ID or name.
+     * 
+     */
+    public static CompletableFuture<GetDlpCloudToCloudIrResult> getDlpCloudToCloudIrPlain(GetDlpCloudToCloudIrPlainArgs args) {
+        return getDlpCloudToCloudIrPlain(args, InvokeOptions.Empty);
+    }
+    /**
+     * Use this data source to look up a DLP cloud-to-cloud incident receiver by ID or name.
+     * 
+     */
+    public static Output<GetDlpCloudToCloudIrResult> getDlpCloudToCloudIr(GetDlpCloudToCloudIrArgs args, InvokeOptions options) {
+        return Deployment.getInstance().invoke("zia:index:getDlpCloudToCloudIr", TypeShape.of(GetDlpCloudToCloudIrResult.class), args, Utilities.withVersion(options));
+    }
+    /**
+     * Use this data source to look up a DLP cloud-to-cloud incident receiver by ID or name.
+     * 
+     */
+    public static Output<GetDlpCloudToCloudIrResult> getDlpCloudToCloudIr(GetDlpCloudToCloudIrArgs args, InvokeOutputOptions options) {
+        return Deployment.getInstance().invoke("zia:index:getDlpCloudToCloudIr", TypeShape.of(GetDlpCloudToCloudIrResult.class), args, Utilities.withVersion(options));
+    }
+    /**
+     * Use this data source to look up a DLP cloud-to-cloud incident receiver by ID or name.
+     * 
+     */
+    public static CompletableFuture<GetDlpCloudToCloudIrResult> getDlpCloudToCloudIrPlain(GetDlpCloudToCloudIrPlainArgs args, InvokeOptions options) {
+        return Deployment.getInstance().invokeAsync("zia:index:getDlpCloudToCloudIr", TypeShape.of(GetDlpCloudToCloudIrResult.class), args, Utilities.withVersion(options));
+    }
+    /**
+     * Use this data source to look up predefined DLP dictionary identifiers by dictionary name.
+     * 
+     */
+    public static Output<GetDlpDictionaryPredefinedIdentifiersResult> getDlpDictionaryPredefinedIdentifiers(GetDlpDictionaryPredefinedIdentifiersArgs args) {
+        return getDlpDictionaryPredefinedIdentifiers(args, InvokeOptions.Empty);
+    }
+    /**
+     * Use this data source to look up predefined DLP dictionary identifiers by dictionary name.
+     * 
+     */
+    public static CompletableFuture<GetDlpDictionaryPredefinedIdentifiersResult> getDlpDictionaryPredefinedIdentifiersPlain(GetDlpDictionaryPredefinedIdentifiersPlainArgs args) {
+        return getDlpDictionaryPredefinedIdentifiersPlain(args, InvokeOptions.Empty);
+    }
+    /**
+     * Use this data source to look up predefined DLP dictionary identifiers by dictionary name.
+     * 
+     */
+    public static Output<GetDlpDictionaryPredefinedIdentifiersResult> getDlpDictionaryPredefinedIdentifiers(GetDlpDictionaryPredefinedIdentifiersArgs args, InvokeOptions options) {
+        return Deployment.getInstance().invoke("zia:index:getDlpDictionaryPredefinedIdentifiers", TypeShape.of(GetDlpDictionaryPredefinedIdentifiersResult.class), args, Utilities.withVersion(options));
+    }
+    /**
+     * Use this data source to look up predefined DLP dictionary identifiers by dictionary name.
+     * 
+     */
+    public static Output<GetDlpDictionaryPredefinedIdentifiersResult> getDlpDictionaryPredefinedIdentifiers(GetDlpDictionaryPredefinedIdentifiersArgs args, InvokeOutputOptions options) {
+        return Deployment.getInstance().invoke("zia:index:getDlpDictionaryPredefinedIdentifiers", TypeShape.of(GetDlpDictionaryPredefinedIdentifiersResult.class), args, Utilities.withVersion(options));
+    }
+    /**
+     * Use this data source to look up predefined DLP dictionary identifiers by dictionary name.
+     * 
+     */
+    public static CompletableFuture<GetDlpDictionaryPredefinedIdentifiersResult> getDlpDictionaryPredefinedIdentifiersPlain(GetDlpDictionaryPredefinedIdentifiersPlainArgs args, InvokeOptions options) {
+        return Deployment.getInstance().invokeAsync("zia:index:getDlpDictionaryPredefinedIdentifiers", TypeShape.of(GetDlpDictionaryPredefinedIdentifiersResult.class), args, Utilities.withVersion(options));
+    }
+    /**
+     * Use this data source to look up a DLP Exact Data Match (EDM) schema by ID or project name.
+     * 
+     */
+    public static Output<GetDlpEdmSchemaResult> getDlpEdmSchema() {
+        return getDlpEdmSchema(GetDlpEdmSchemaArgs.Empty, InvokeOptions.Empty);
+    }
+    /**
+     * Use this data source to look up a DLP Exact Data Match (EDM) schema by ID or project name.
+     * 
+     */
+    public static CompletableFuture<GetDlpEdmSchemaResult> getDlpEdmSchemaPlain() {
+        return getDlpEdmSchemaPlain(GetDlpEdmSchemaPlainArgs.Empty, InvokeOptions.Empty);
+    }
+    /**
+     * Use this data source to look up a DLP Exact Data Match (EDM) schema by ID or project name.
+     * 
+     */
+    public static Output<GetDlpEdmSchemaResult> getDlpEdmSchema(GetDlpEdmSchemaArgs args) {
+        return getDlpEdmSchema(args, InvokeOptions.Empty);
+    }
+    /**
+     * Use this data source to look up a DLP Exact Data Match (EDM) schema by ID or project name.
+     * 
+     */
+    public static CompletableFuture<GetDlpEdmSchemaResult> getDlpEdmSchemaPlain(GetDlpEdmSchemaPlainArgs args) {
+        return getDlpEdmSchemaPlain(args, InvokeOptions.Empty);
+    }
+    /**
+     * Use this data source to look up a DLP Exact Data Match (EDM) schema by ID or project name.
+     * 
+     */
+    public static Output<GetDlpEdmSchemaResult> getDlpEdmSchema(GetDlpEdmSchemaArgs args, InvokeOptions options) {
+        return Deployment.getInstance().invoke("zia:index:getDlpEdmSchema", TypeShape.of(GetDlpEdmSchemaResult.class), args, Utilities.withVersion(options));
+    }
+    /**
+     * Use this data source to look up a DLP Exact Data Match (EDM) schema by ID or project name.
+     * 
+     */
+    public static Output<GetDlpEdmSchemaResult> getDlpEdmSchema(GetDlpEdmSchemaArgs args, InvokeOutputOptions options) {
+        return Deployment.getInstance().invoke("zia:index:getDlpEdmSchema", TypeShape.of(GetDlpEdmSchemaResult.class), args, Utilities.withVersion(options));
+    }
+    /**
+     * Use this data source to look up a DLP Exact Data Match (EDM) schema by ID or project name.
+     * 
+     */
+    public static CompletableFuture<GetDlpEdmSchemaResult> getDlpEdmSchemaPlain(GetDlpEdmSchemaPlainArgs args, InvokeOptions options) {
+        return Deployment.getInstance().invokeAsync("zia:index:getDlpEdmSchema", TypeShape.of(GetDlpEdmSchemaResult.class), args, Utilities.withVersion(options));
+    }
+    /**
+     * Use this data source to look up a DLP ICAP server by ID or name.
+     * 
+     */
+    public static Output<GetDlpIcapServerResult> getDlpIcapServer() {
+        return getDlpIcapServer(GetDlpIcapServerArgs.Empty, InvokeOptions.Empty);
+    }
+    /**
+     * Use this data source to look up a DLP ICAP server by ID or name.
+     * 
+     */
+    public static CompletableFuture<GetDlpIcapServerResult> getDlpIcapServerPlain() {
+        return getDlpIcapServerPlain(GetDlpIcapServerPlainArgs.Empty, InvokeOptions.Empty);
+    }
+    /**
+     * Use this data source to look up a DLP ICAP server by ID or name.
+     * 
+     */
+    public static Output<GetDlpIcapServerResult> getDlpIcapServer(GetDlpIcapServerArgs args) {
+        return getDlpIcapServer(args, InvokeOptions.Empty);
+    }
+    /**
+     * Use this data source to look up a DLP ICAP server by ID or name.
+     * 
+     */
+    public static CompletableFuture<GetDlpIcapServerResult> getDlpIcapServerPlain(GetDlpIcapServerPlainArgs args) {
+        return getDlpIcapServerPlain(args, InvokeOptions.Empty);
+    }
+    /**
+     * Use this data source to look up a DLP ICAP server by ID or name.
+     * 
+     */
+    public static Output<GetDlpIcapServerResult> getDlpIcapServer(GetDlpIcapServerArgs args, InvokeOptions options) {
+        return Deployment.getInstance().invoke("zia:index:getDlpIcapServer", TypeShape.of(GetDlpIcapServerResult.class), args, Utilities.withVersion(options));
+    }
+    /**
+     * Use this data source to look up a DLP ICAP server by ID or name.
+     * 
+     */
+    public static Output<GetDlpIcapServerResult> getDlpIcapServer(GetDlpIcapServerArgs args, InvokeOutputOptions options) {
+        return Deployment.getInstance().invoke("zia:index:getDlpIcapServer", TypeShape.of(GetDlpIcapServerResult.class), args, Utilities.withVersion(options));
+    }
+    /**
+     * Use this data source to look up a DLP ICAP server by ID or name.
+     * 
+     */
+    public static CompletableFuture<GetDlpIcapServerResult> getDlpIcapServerPlain(GetDlpIcapServerPlainArgs args, InvokeOptions options) {
+        return Deployment.getInstance().invokeAsync("zia:index:getDlpIcapServer", TypeShape.of(GetDlpIcapServerResult.class), args, Utilities.withVersion(options));
+    }
+    /**
+     * Use this data source to look up a DLP IDM profile by ID or name.
+     * 
+     */
+    public static Output<GetDlpIdmProfileResult> getDlpIdmProfile() {
+        return getDlpIdmProfile(GetDlpIdmProfileArgs.Empty, InvokeOptions.Empty);
+    }
+    /**
+     * Use this data source to look up a DLP IDM profile by ID or name.
+     * 
+     */
+    public static CompletableFuture<GetDlpIdmProfileResult> getDlpIdmProfilePlain() {
+        return getDlpIdmProfilePlain(GetDlpIdmProfilePlainArgs.Empty, InvokeOptions.Empty);
+    }
+    /**
+     * Use this data source to look up a DLP IDM profile by ID or name.
+     * 
+     */
+    public static Output<GetDlpIdmProfileResult> getDlpIdmProfile(GetDlpIdmProfileArgs args) {
+        return getDlpIdmProfile(args, InvokeOptions.Empty);
+    }
+    /**
+     * Use this data source to look up a DLP IDM profile by ID or name.
+     * 
+     */
+    public static CompletableFuture<GetDlpIdmProfileResult> getDlpIdmProfilePlain(GetDlpIdmProfilePlainArgs args) {
+        return getDlpIdmProfilePlain(args, InvokeOptions.Empty);
+    }
+    /**
+     * Use this data source to look up a DLP IDM profile by ID or name.
+     * 
+     */
+    public static Output<GetDlpIdmProfileResult> getDlpIdmProfile(GetDlpIdmProfileArgs args, InvokeOptions options) {
+        return Deployment.getInstance().invoke("zia:index:getDlpIdmProfile", TypeShape.of(GetDlpIdmProfileResult.class), args, Utilities.withVersion(options));
+    }
+    /**
+     * Use this data source to look up a DLP IDM profile by ID or name.
+     * 
+     */
+    public static Output<GetDlpIdmProfileResult> getDlpIdmProfile(GetDlpIdmProfileArgs args, InvokeOutputOptions options) {
+        return Deployment.getInstance().invoke("zia:index:getDlpIdmProfile", TypeShape.of(GetDlpIdmProfileResult.class), args, Utilities.withVersion(options));
+    }
+    /**
+     * Use this data source to look up a DLP IDM profile by ID or name.
+     * 
+     */
+    public static CompletableFuture<GetDlpIdmProfileResult> getDlpIdmProfilePlain(GetDlpIdmProfilePlainArgs args, InvokeOptions options) {
+        return Deployment.getInstance().invokeAsync("zia:index:getDlpIdmProfile", TypeShape.of(GetDlpIdmProfileResult.class), args, Utilities.withVersion(options));
+    }
+    /**
+     * Use this data source to look up a DLP IDM profile (lite) by ID or template name.
+     * 
+     */
+    public static Output<GetDlpIdmProfileLiteResult> getDlpIdmProfileLite() {
+        return getDlpIdmProfileLite(GetDlpIdmProfileLiteArgs.Empty, InvokeOptions.Empty);
+    }
+    /**
+     * Use this data source to look up a DLP IDM profile (lite) by ID or template name.
+     * 
+     */
+    public static CompletableFuture<GetDlpIdmProfileLiteResult> getDlpIdmProfileLitePlain() {
+        return getDlpIdmProfileLitePlain(GetDlpIdmProfileLitePlainArgs.Empty, InvokeOptions.Empty);
+    }
+    /**
+     * Use this data source to look up a DLP IDM profile (lite) by ID or template name.
+     * 
+     */
+    public static Output<GetDlpIdmProfileLiteResult> getDlpIdmProfileLite(GetDlpIdmProfileLiteArgs args) {
+        return getDlpIdmProfileLite(args, InvokeOptions.Empty);
+    }
+    /**
+     * Use this data source to look up a DLP IDM profile (lite) by ID or template name.
+     * 
+     */
+    public static CompletableFuture<GetDlpIdmProfileLiteResult> getDlpIdmProfileLitePlain(GetDlpIdmProfileLitePlainArgs args) {
+        return getDlpIdmProfileLitePlain(args, InvokeOptions.Empty);
+    }
+    /**
+     * Use this data source to look up a DLP IDM profile (lite) by ID or template name.
+     * 
+     */
+    public static Output<GetDlpIdmProfileLiteResult> getDlpIdmProfileLite(GetDlpIdmProfileLiteArgs args, InvokeOptions options) {
+        return Deployment.getInstance().invoke("zia:index:getDlpIdmProfileLite", TypeShape.of(GetDlpIdmProfileLiteResult.class), args, Utilities.withVersion(options));
+    }
+    /**
+     * Use this data source to look up a DLP IDM profile (lite) by ID or template name.
+     * 
+     */
+    public static Output<GetDlpIdmProfileLiteResult> getDlpIdmProfileLite(GetDlpIdmProfileLiteArgs args, InvokeOutputOptions options) {
+        return Deployment.getInstance().invoke("zia:index:getDlpIdmProfileLite", TypeShape.of(GetDlpIdmProfileLiteResult.class), args, Utilities.withVersion(options));
+    }
+    /**
+     * Use this data source to look up a DLP IDM profile (lite) by ID or template name.
+     * 
+     */
+    public static CompletableFuture<GetDlpIdmProfileLiteResult> getDlpIdmProfileLitePlain(GetDlpIdmProfileLitePlainArgs args, InvokeOptions options) {
+        return Deployment.getInstance().invokeAsync("zia:index:getDlpIdmProfileLite", TypeShape.of(GetDlpIdmProfileLiteResult.class), args, Utilities.withVersion(options));
+    }
+    /**
+     * Use this data source to look up a DLP incident receiver server by ID or name.
+     * 
+     */
+    public static Output<GetDlpIncidentReceiverServerResult> getDlpIncidentReceiverServer() {
+        return getDlpIncidentReceiverServer(GetDlpIncidentReceiverServerArgs.Empty, InvokeOptions.Empty);
+    }
+    /**
+     * Use this data source to look up a DLP incident receiver server by ID or name.
+     * 
+     */
+    public static CompletableFuture<GetDlpIncidentReceiverServerResult> getDlpIncidentReceiverServerPlain() {
+        return getDlpIncidentReceiverServerPlain(GetDlpIncidentReceiverServerPlainArgs.Empty, InvokeOptions.Empty);
+    }
+    /**
+     * Use this data source to look up a DLP incident receiver server by ID or name.
+     * 
+     */
+    public static Output<GetDlpIncidentReceiverServerResult> getDlpIncidentReceiverServer(GetDlpIncidentReceiverServerArgs args) {
+        return getDlpIncidentReceiverServer(args, InvokeOptions.Empty);
+    }
+    /**
+     * Use this data source to look up a DLP incident receiver server by ID or name.
+     * 
+     */
+    public static CompletableFuture<GetDlpIncidentReceiverServerResult> getDlpIncidentReceiverServerPlain(GetDlpIncidentReceiverServerPlainArgs args) {
+        return getDlpIncidentReceiverServerPlain(args, InvokeOptions.Empty);
+    }
+    /**
+     * Use this data source to look up a DLP incident receiver server by ID or name.
+     * 
+     */
+    public static Output<GetDlpIncidentReceiverServerResult> getDlpIncidentReceiverServer(GetDlpIncidentReceiverServerArgs args, InvokeOptions options) {
+        return Deployment.getInstance().invoke("zia:index:getDlpIncidentReceiverServer", TypeShape.of(GetDlpIncidentReceiverServerResult.class), args, Utilities.withVersion(options));
+    }
+    /**
+     * Use this data source to look up a DLP incident receiver server by ID or name.
+     * 
+     */
+    public static Output<GetDlpIncidentReceiverServerResult> getDlpIncidentReceiverServer(GetDlpIncidentReceiverServerArgs args, InvokeOutputOptions options) {
+        return Deployment.getInstance().invoke("zia:index:getDlpIncidentReceiverServer", TypeShape.of(GetDlpIncidentReceiverServerResult.class), args, Utilities.withVersion(options));
+    }
+    /**
+     * Use this data source to look up a DLP incident receiver server by ID or name.
+     * 
+     */
+    public static CompletableFuture<GetDlpIncidentReceiverServerResult> getDlpIncidentReceiverServerPlain(GetDlpIncidentReceiverServerPlainArgs args, InvokeOptions options) {
+        return Deployment.getInstance().invokeAsync("zia:index:getDlpIncidentReceiverServer", TypeShape.of(GetDlpIncidentReceiverServerResult.class), args, Utilities.withVersion(options));
+    }
+    /**
+     * Use this data source to look up a domain profile by ID or profile name.
+     * 
+     */
+    public static Output<GetDomainProfileResult> getDomainProfile() {
+        return getDomainProfile(GetDomainProfileArgs.Empty, InvokeOptions.Empty);
+    }
+    /**
+     * Use this data source to look up a domain profile by ID or profile name.
+     * 
+     */
+    public static CompletableFuture<GetDomainProfileResult> getDomainProfilePlain() {
+        return getDomainProfilePlain(GetDomainProfilePlainArgs.Empty, InvokeOptions.Empty);
+    }
+    /**
+     * Use this data source to look up a domain profile by ID or profile name.
+     * 
+     */
+    public static Output<GetDomainProfileResult> getDomainProfile(GetDomainProfileArgs args) {
+        return getDomainProfile(args, InvokeOptions.Empty);
+    }
+    /**
+     * Use this data source to look up a domain profile by ID or profile name.
+     * 
+     */
+    public static CompletableFuture<GetDomainProfileResult> getDomainProfilePlain(GetDomainProfilePlainArgs args) {
+        return getDomainProfilePlain(args, InvokeOptions.Empty);
+    }
+    /**
+     * Use this data source to look up a domain profile by ID or profile name.
+     * 
+     */
+    public static Output<GetDomainProfileResult> getDomainProfile(GetDomainProfileArgs args, InvokeOptions options) {
+        return Deployment.getInstance().invoke("zia:index:getDomainProfile", TypeShape.of(GetDomainProfileResult.class), args, Utilities.withVersion(options));
+    }
+    /**
+     * Use this data source to look up a domain profile by ID or profile name.
+     * 
+     */
+    public static Output<GetDomainProfileResult> getDomainProfile(GetDomainProfileArgs args, InvokeOutputOptions options) {
+        return Deployment.getInstance().invoke("zia:index:getDomainProfile", TypeShape.of(GetDomainProfileResult.class), args, Utilities.withVersion(options));
+    }
+    /**
+     * Use this data source to look up a domain profile by ID or profile name.
+     * 
+     */
+    public static CompletableFuture<GetDomainProfileResult> getDomainProfilePlain(GetDomainProfilePlainArgs args, InvokeOptions options) {
+        return Deployment.getInstance().invokeAsync("zia:index:getDomainProfile", TypeShape.of(GetDomainProfileResult.class), args, Utilities.withVersion(options));
+    }
+    /**
+     * Use this data source to look up file type categories, optionally filtered by ID, name, or enum type.
+     * 
+     */
+    public static Output<GetFileTypeCategoriesResult> getFileTypeCategories() {
+        return getFileTypeCategories(GetFileTypeCategoriesArgs.Empty, InvokeOptions.Empty);
+    }
+    /**
+     * Use this data source to look up file type categories, optionally filtered by ID, name, or enum type.
+     * 
+     */
+    public static CompletableFuture<GetFileTypeCategoriesResult> getFileTypeCategoriesPlain() {
+        return getFileTypeCategoriesPlain(GetFileTypeCategoriesPlainArgs.Empty, InvokeOptions.Empty);
+    }
+    /**
+     * Use this data source to look up file type categories, optionally filtered by ID, name, or enum type.
+     * 
+     */
+    public static Output<GetFileTypeCategoriesResult> getFileTypeCategories(GetFileTypeCategoriesArgs args) {
+        return getFileTypeCategories(args, InvokeOptions.Empty);
+    }
+    /**
+     * Use this data source to look up file type categories, optionally filtered by ID, name, or enum type.
+     * 
+     */
+    public static CompletableFuture<GetFileTypeCategoriesResult> getFileTypeCategoriesPlain(GetFileTypeCategoriesPlainArgs args) {
+        return getFileTypeCategoriesPlain(args, InvokeOptions.Empty);
+    }
+    /**
+     * Use this data source to look up file type categories, optionally filtered by ID, name, or enum type.
+     * 
+     */
+    public static Output<GetFileTypeCategoriesResult> getFileTypeCategories(GetFileTypeCategoriesArgs args, InvokeOptions options) {
+        return Deployment.getInstance().invoke("zia:index:getFileTypeCategories", TypeShape.of(GetFileTypeCategoriesResult.class), args, Utilities.withVersion(options));
+    }
+    /**
+     * Use this data source to look up file type categories, optionally filtered by ID, name, or enum type.
+     * 
+     */
+    public static Output<GetFileTypeCategoriesResult> getFileTypeCategories(GetFileTypeCategoriesArgs args, InvokeOutputOptions options) {
+        return Deployment.getInstance().invoke("zia:index:getFileTypeCategories", TypeShape.of(GetFileTypeCategoriesResult.class), args, Utilities.withVersion(options));
+    }
+    /**
+     * Use this data source to look up file type categories, optionally filtered by ID, name, or enum type.
+     * 
+     */
+    public static CompletableFuture<GetFileTypeCategoriesResult> getFileTypeCategoriesPlain(GetFileTypeCategoriesPlainArgs args, InvokeOptions options) {
+        return Deployment.getInstance().invokeAsync("zia:index:getFileTypeCategories", TypeShape.of(GetFileTypeCategoriesResult.class), args, Utilities.withVersion(options));
+    }
+    /**
+     * Use this data source to look up a firewall network service by ID or name.
+     * 
+     */
+    public static Output<GetFwNetworkServiceResult> getFwNetworkService() {
+        return getFwNetworkService(GetFwNetworkServiceArgs.Empty, InvokeOptions.Empty);
+    }
+    /**
+     * Use this data source to look up a firewall network service by ID or name.
+     * 
+     */
+    public static CompletableFuture<GetFwNetworkServiceResult> getFwNetworkServicePlain() {
+        return getFwNetworkServicePlain(GetFwNetworkServicePlainArgs.Empty, InvokeOptions.Empty);
+    }
+    /**
+     * Use this data source to look up a firewall network service by ID or name.
+     * 
+     */
+    public static Output<GetFwNetworkServiceResult> getFwNetworkService(GetFwNetworkServiceArgs args) {
+        return getFwNetworkService(args, InvokeOptions.Empty);
+    }
+    /**
+     * Use this data source to look up a firewall network service by ID or name.
+     * 
+     */
+    public static CompletableFuture<GetFwNetworkServiceResult> getFwNetworkServicePlain(GetFwNetworkServicePlainArgs args) {
+        return getFwNetworkServicePlain(args, InvokeOptions.Empty);
+    }
+    /**
+     * Use this data source to look up a firewall network service by ID or name.
+     * 
+     */
+    public static Output<GetFwNetworkServiceResult> getFwNetworkService(GetFwNetworkServiceArgs args, InvokeOptions options) {
+        return Deployment.getInstance().invoke("zia:index:getFwNetworkService", TypeShape.of(GetFwNetworkServiceResult.class), args, Utilities.withVersion(options));
+    }
+    /**
+     * Use this data source to look up a firewall network service by ID or name.
+     * 
+     */
+    public static Output<GetFwNetworkServiceResult> getFwNetworkService(GetFwNetworkServiceArgs args, InvokeOutputOptions options) {
+        return Deployment.getInstance().invoke("zia:index:getFwNetworkService", TypeShape.of(GetFwNetworkServiceResult.class), args, Utilities.withVersion(options));
+    }
+    /**
+     * Use this data source to look up a firewall network service by ID or name.
+     * 
+     */
+    public static CompletableFuture<GetFwNetworkServiceResult> getFwNetworkServicePlain(GetFwNetworkServicePlainArgs args, InvokeOptions options) {
+        return Deployment.getInstance().invokeAsync("zia:index:getFwNetworkService", TypeShape.of(GetFwNetworkServiceResult.class), args, Utilities.withVersion(options));
+    }
+    /**
+     * Use this data source to look up a location group by ID or name.
+     * 
+     */
+    public static Output<GetLocationGroupResult> getLocationGroup() {
+        return getLocationGroup(GetLocationGroupArgs.Empty, InvokeOptions.Empty);
+    }
+    /**
+     * Use this data source to look up a location group by ID or name.
+     * 
+     */
+    public static CompletableFuture<GetLocationGroupResult> getLocationGroupPlain() {
+        return getLocationGroupPlain(GetLocationGroupPlainArgs.Empty, InvokeOptions.Empty);
+    }
+    /**
+     * Use this data source to look up a location group by ID or name.
+     * 
+     */
+    public static Output<GetLocationGroupResult> getLocationGroup(GetLocationGroupArgs args) {
+        return getLocationGroup(args, InvokeOptions.Empty);
+    }
+    /**
+     * Use this data source to look up a location group by ID or name.
+     * 
+     */
+    public static CompletableFuture<GetLocationGroupResult> getLocationGroupPlain(GetLocationGroupPlainArgs args) {
+        return getLocationGroupPlain(args, InvokeOptions.Empty);
+    }
+    /**
+     * Use this data source to look up a location group by ID or name.
+     * 
+     */
+    public static Output<GetLocationGroupResult> getLocationGroup(GetLocationGroupArgs args, InvokeOptions options) {
+        return Deployment.getInstance().invoke("zia:index:getLocationGroup", TypeShape.of(GetLocationGroupResult.class), args, Utilities.withVersion(options));
+    }
+    /**
+     * Use this data source to look up a location group by ID or name.
+     * 
+     */
+    public static Output<GetLocationGroupResult> getLocationGroup(GetLocationGroupArgs args, InvokeOutputOptions options) {
+        return Deployment.getInstance().invoke("zia:index:getLocationGroup", TypeShape.of(GetLocationGroupResult.class), args, Utilities.withVersion(options));
+    }
+    /**
+     * Use this data source to look up a location group by ID or name.
+     * 
+     */
+    public static CompletableFuture<GetLocationGroupResult> getLocationGroupPlain(GetLocationGroupPlainArgs args, InvokeOptions options) {
+        return Deployment.getInstance().invokeAsync("zia:index:getLocationGroup", TypeShape.of(GetLocationGroupResult.class), args, Utilities.withVersion(options));
+    }
+    /**
+     * Use this data source to retrieve a sandbox report for a given MD5 hash.
+     * 
+     */
+    public static Output<GetSandboxReportResult> getSandboxReport(GetSandboxReportArgs args) {
+        return getSandboxReport(args, InvokeOptions.Empty);
+    }
+    /**
+     * Use this data source to retrieve a sandbox report for a given MD5 hash.
+     * 
+     */
+    public static CompletableFuture<GetSandboxReportResult> getSandboxReportPlain(GetSandboxReportPlainArgs args) {
+        return getSandboxReportPlain(args, InvokeOptions.Empty);
+    }
+    /**
+     * Use this data source to retrieve a sandbox report for a given MD5 hash.
+     * 
+     */
+    public static Output<GetSandboxReportResult> getSandboxReport(GetSandboxReportArgs args, InvokeOptions options) {
+        return Deployment.getInstance().invoke("zia:index:getSandboxReport", TypeShape.of(GetSandboxReportResult.class), args, Utilities.withVersion(options));
+    }
+    /**
+     * Use this data source to retrieve a sandbox report for a given MD5 hash.
+     * 
+     */
+    public static Output<GetSandboxReportResult> getSandboxReport(GetSandboxReportArgs args, InvokeOutputOptions options) {
+        return Deployment.getInstance().invoke("zia:index:getSandboxReport", TypeShape.of(GetSandboxReportResult.class), args, Utilities.withVersion(options));
+    }
+    /**
+     * Use this data source to retrieve a sandbox report for a given MD5 hash.
+     * 
+     */
+    public static CompletableFuture<GetSandboxReportResult> getSandboxReportPlain(GetSandboxReportPlainArgs args, InvokeOptions options) {
+        return Deployment.getInstance().invokeAsync("zia:index:getSandboxReport", TypeShape.of(GetSandboxReportResult.class), args, Utilities.withVersion(options));
+    }
+    /**
+     * Use this data source to look up a firewall time window by ID or name.
+     * 
+     */
+    public static Output<GetTimeWindowResult> getTimeWindow() {
+        return getTimeWindow(GetTimeWindowArgs.Empty, InvokeOptions.Empty);
+    }
+    /**
+     * Use this data source to look up a firewall time window by ID or name.
+     * 
+     */
+    public static CompletableFuture<GetTimeWindowResult> getTimeWindowPlain() {
+        return getTimeWindowPlain(GetTimeWindowPlainArgs.Empty, InvokeOptions.Empty);
+    }
+    /**
+     * Use this data source to look up a firewall time window by ID or name.
+     * 
+     */
+    public static Output<GetTimeWindowResult> getTimeWindow(GetTimeWindowArgs args) {
+        return getTimeWindow(args, InvokeOptions.Empty);
+    }
+    /**
+     * Use this data source to look up a firewall time window by ID or name.
+     * 
+     */
+    public static CompletableFuture<GetTimeWindowResult> getTimeWindowPlain(GetTimeWindowPlainArgs args) {
+        return getTimeWindowPlain(args, InvokeOptions.Empty);
+    }
+    /**
+     * Use this data source to look up a firewall time window by ID or name.
+     * 
+     */
+    public static Output<GetTimeWindowResult> getTimeWindow(GetTimeWindowArgs args, InvokeOptions options) {
+        return Deployment.getInstance().invoke("zia:index:getTimeWindow", TypeShape.of(GetTimeWindowResult.class), args, Utilities.withVersion(options));
+    }
+    /**
+     * Use this data source to look up a firewall time window by ID or name.
+     * 
+     */
+    public static Output<GetTimeWindowResult> getTimeWindow(GetTimeWindowArgs args, InvokeOutputOptions options) {
+        return Deployment.getInstance().invoke("zia:index:getTimeWindow", TypeShape.of(GetTimeWindowResult.class), args, Utilities.withVersion(options));
+    }
+    /**
+     * Use this data source to look up a firewall time window by ID or name.
+     * 
+     */
+    public static CompletableFuture<GetTimeWindowResult> getTimeWindowPlain(GetTimeWindowPlainArgs args, InvokeOptions options) {
+        return Deployment.getInstance().invokeAsync("zia:index:getTimeWindow", TypeShape.of(GetTimeWindowResult.class), args, Utilities.withVersion(options));
+    }
+    /**
+     * Use this data source to look up a user management department by ID or name.
+     * 
+     */
+    public static Output<GetUserManagementDepartmentResult> getUserManagementDepartment() {
+        return getUserManagementDepartment(GetUserManagementDepartmentArgs.Empty, InvokeOptions.Empty);
+    }
+    /**
+     * Use this data source to look up a user management department by ID or name.
+     * 
+     */
+    public static CompletableFuture<GetUserManagementDepartmentResult> getUserManagementDepartmentPlain() {
+        return getUserManagementDepartmentPlain(GetUserManagementDepartmentPlainArgs.Empty, InvokeOptions.Empty);
+    }
+    /**
+     * Use this data source to look up a user management department by ID or name.
+     * 
+     */
+    public static Output<GetUserManagementDepartmentResult> getUserManagementDepartment(GetUserManagementDepartmentArgs args) {
+        return getUserManagementDepartment(args, InvokeOptions.Empty);
+    }
+    /**
+     * Use this data source to look up a user management department by ID or name.
+     * 
+     */
+    public static CompletableFuture<GetUserManagementDepartmentResult> getUserManagementDepartmentPlain(GetUserManagementDepartmentPlainArgs args) {
+        return getUserManagementDepartmentPlain(args, InvokeOptions.Empty);
+    }
+    /**
+     * Use this data source to look up a user management department by ID or name.
+     * 
+     */
+    public static Output<GetUserManagementDepartmentResult> getUserManagementDepartment(GetUserManagementDepartmentArgs args, InvokeOptions options) {
+        return Deployment.getInstance().invoke("zia:index:getUserManagementDepartment", TypeShape.of(GetUserManagementDepartmentResult.class), args, Utilities.withVersion(options));
+    }
+    /**
+     * Use this data source to look up a user management department by ID or name.
+     * 
+     */
+    public static Output<GetUserManagementDepartmentResult> getUserManagementDepartment(GetUserManagementDepartmentArgs args, InvokeOutputOptions options) {
+        return Deployment.getInstance().invoke("zia:index:getUserManagementDepartment", TypeShape.of(GetUserManagementDepartmentResult.class), args, Utilities.withVersion(options));
+    }
+    /**
+     * Use this data source to look up a user management department by ID or name.
+     * 
+     */
+    public static CompletableFuture<GetUserManagementDepartmentResult> getUserManagementDepartmentPlain(GetUserManagementDepartmentPlainArgs args, InvokeOptions options) {
+        return Deployment.getInstance().invokeAsync("zia:index:getUserManagementDepartment", TypeShape.of(GetUserManagementDepartmentResult.class), args, Utilities.withVersion(options));
+    }
+    /**
+     * Use this data source to look up a user management group by ID or name.
+     * 
+     */
+    public static Output<GetUserManagementGroupResult> getUserManagementGroup() {
+        return getUserManagementGroup(GetUserManagementGroupArgs.Empty, InvokeOptions.Empty);
+    }
+    /**
+     * Use this data source to look up a user management group by ID or name.
+     * 
+     */
+    public static CompletableFuture<GetUserManagementGroupResult> getUserManagementGroupPlain() {
+        return getUserManagementGroupPlain(GetUserManagementGroupPlainArgs.Empty, InvokeOptions.Empty);
+    }
+    /**
+     * Use this data source to look up a user management group by ID or name.
+     * 
+     */
+    public static Output<GetUserManagementGroupResult> getUserManagementGroup(GetUserManagementGroupArgs args) {
+        return getUserManagementGroup(args, InvokeOptions.Empty);
+    }
+    /**
+     * Use this data source to look up a user management group by ID or name.
+     * 
+     */
+    public static CompletableFuture<GetUserManagementGroupResult> getUserManagementGroupPlain(GetUserManagementGroupPlainArgs args) {
+        return getUserManagementGroupPlain(args, InvokeOptions.Empty);
+    }
+    /**
+     * Use this data source to look up a user management group by ID or name.
+     * 
+     */
+    public static Output<GetUserManagementGroupResult> getUserManagementGroup(GetUserManagementGroupArgs args, InvokeOptions options) {
+        return Deployment.getInstance().invoke("zia:index:getUserManagementGroup", TypeShape.of(GetUserManagementGroupResult.class), args, Utilities.withVersion(options));
+    }
+    /**
+     * Use this data source to look up a user management group by ID or name.
+     * 
+     */
+    public static Output<GetUserManagementGroupResult> getUserManagementGroup(GetUserManagementGroupArgs args, InvokeOutputOptions options) {
+        return Deployment.getInstance().invoke("zia:index:getUserManagementGroup", TypeShape.of(GetUserManagementGroupResult.class), args, Utilities.withVersion(options));
+    }
+    /**
+     * Use this data source to look up a user management group by ID or name.
+     * 
+     */
+    public static CompletableFuture<GetUserManagementGroupResult> getUserManagementGroupPlain(GetUserManagementGroupPlainArgs args, InvokeOptions options) {
+        return Deployment.getInstance().invokeAsync("zia:index:getUserManagementGroup", TypeShape.of(GetUserManagementGroupResult.class), args, Utilities.withVersion(options));
+    }
+    /**
+     * Use this data source to look up a user management user by ID or name.
+     * 
+     */
     public static Output<GetUserManagementUserResult> getUserManagementUser() {
         return getUserManagementUser(GetUserManagementUserArgs.Empty, InvokeOptions.Empty);
     }
+    /**
+     * Use this data source to look up a user management user by ID or name.
+     * 
+     */
     public static CompletableFuture<GetUserManagementUserResult> getUserManagementUserPlain() {
         return getUserManagementUserPlain(GetUserManagementUserPlainArgs.Empty, InvokeOptions.Empty);
     }
+    /**
+     * Use this data source to look up a user management user by ID or name.
+     * 
+     */
     public static Output<GetUserManagementUserResult> getUserManagementUser(GetUserManagementUserArgs args) {
         return getUserManagementUser(args, InvokeOptions.Empty);
     }
+    /**
+     * Use this data source to look up a user management user by ID or name.
+     * 
+     */
     public static CompletableFuture<GetUserManagementUserResult> getUserManagementUserPlain(GetUserManagementUserPlainArgs args) {
         return getUserManagementUserPlain(args, InvokeOptions.Empty);
     }
+    /**
+     * Use this data source to look up a user management user by ID or name.
+     * 
+     */
     public static Output<GetUserManagementUserResult> getUserManagementUser(GetUserManagementUserArgs args, InvokeOptions options) {
         return Deployment.getInstance().invoke("zia:index:getUserManagementUser", TypeShape.of(GetUserManagementUserResult.class), args, Utilities.withVersion(options));
     }
+    /**
+     * Use this data source to look up a user management user by ID or name.
+     * 
+     */
     public static Output<GetUserManagementUserResult> getUserManagementUser(GetUserManagementUserArgs args, InvokeOutputOptions options) {
         return Deployment.getInstance().invoke("zia:index:getUserManagementUser", TypeShape.of(GetUserManagementUserResult.class), args, Utilities.withVersion(options));
     }
+    /**
+     * Use this data source to look up a user management user by ID or name.
+     * 
+     */
     public static CompletableFuture<GetUserManagementUserResult> getUserManagementUserPlain(GetUserManagementUserPlainArgs args, InvokeOptions options) {
         return Deployment.getInstance().invokeAsync("zia:index:getUserManagementUser", TypeShape.of(GetUserManagementUserResult.class), args, Utilities.withVersion(options));
     }
+    /**
+     * Use this data source to look up a VZEN cluster by ID or name.
+     * 
+     */
     public static Output<GetVzenClusterResult> getVzenCluster() {
         return getVzenCluster(GetVzenClusterArgs.Empty, InvokeOptions.Empty);
     }
+    /**
+     * Use this data source to look up a VZEN cluster by ID or name.
+     * 
+     */
     public static CompletableFuture<GetVzenClusterResult> getVzenClusterPlain() {
         return getVzenClusterPlain(GetVzenClusterPlainArgs.Empty, InvokeOptions.Empty);
     }
+    /**
+     * Use this data source to look up a VZEN cluster by ID or name.
+     * 
+     */
     public static Output<GetVzenClusterResult> getVzenCluster(GetVzenClusterArgs args) {
         return getVzenCluster(args, InvokeOptions.Empty);
     }
+    /**
+     * Use this data source to look up a VZEN cluster by ID or name.
+     * 
+     */
     public static CompletableFuture<GetVzenClusterResult> getVzenClusterPlain(GetVzenClusterPlainArgs args) {
         return getVzenClusterPlain(args, InvokeOptions.Empty);
     }
+    /**
+     * Use this data source to look up a VZEN cluster by ID or name.
+     * 
+     */
     public static Output<GetVzenClusterResult> getVzenCluster(GetVzenClusterArgs args, InvokeOptions options) {
         return Deployment.getInstance().invoke("zia:index:getVzenCluster", TypeShape.of(GetVzenClusterResult.class), args, Utilities.withVersion(options));
     }
+    /**
+     * Use this data source to look up a VZEN cluster by ID or name.
+     * 
+     */
     public static Output<GetVzenClusterResult> getVzenCluster(GetVzenClusterArgs args, InvokeOutputOptions options) {
         return Deployment.getInstance().invoke("zia:index:getVzenCluster", TypeShape.of(GetVzenClusterResult.class), args, Utilities.withVersion(options));
     }
+    /**
+     * Use this data source to look up a VZEN cluster by ID or name.
+     * 
+     */
     public static CompletableFuture<GetVzenClusterResult> getVzenClusterPlain(GetVzenClusterPlainArgs args, InvokeOptions options) {
         return Deployment.getInstance().invokeAsync("zia:index:getVzenCluster", TypeShape.of(GetVzenClusterResult.class), args, Utilities.withVersion(options));
     }
+    /**
+     * Use this data source to look up a VZEN node by ID or name.
+     * 
+     */
     public static Output<GetVzenNodeResult> getVzenNode() {
         return getVzenNode(GetVzenNodeArgs.Empty, InvokeOptions.Empty);
     }
+    /**
+     * Use this data source to look up a VZEN node by ID or name.
+     * 
+     */
     public static CompletableFuture<GetVzenNodeResult> getVzenNodePlain() {
         return getVzenNodePlain(GetVzenNodePlainArgs.Empty, InvokeOptions.Empty);
     }
+    /**
+     * Use this data source to look up a VZEN node by ID or name.
+     * 
+     */
     public static Output<GetVzenNodeResult> getVzenNode(GetVzenNodeArgs args) {
         return getVzenNode(args, InvokeOptions.Empty);
     }
+    /**
+     * Use this data source to look up a VZEN node by ID or name.
+     * 
+     */
     public static CompletableFuture<GetVzenNodeResult> getVzenNodePlain(GetVzenNodePlainArgs args) {
         return getVzenNodePlain(args, InvokeOptions.Empty);
     }
+    /**
+     * Use this data source to look up a VZEN node by ID or name.
+     * 
+     */
     public static Output<GetVzenNodeResult> getVzenNode(GetVzenNodeArgs args, InvokeOptions options) {
         return Deployment.getInstance().invoke("zia:index:getVzenNode", TypeShape.of(GetVzenNodeResult.class), args, Utilities.withVersion(options));
     }
+    /**
+     * Use this data source to look up a VZEN node by ID or name.
+     * 
+     */
     public static Output<GetVzenNodeResult> getVzenNode(GetVzenNodeArgs args, InvokeOutputOptions options) {
         return Deployment.getInstance().invoke("zia:index:getVzenNode", TypeShape.of(GetVzenNodeResult.class), args, Utilities.withVersion(options));
     }
+    /**
+     * Use this data source to look up a VZEN node by ID or name.
+     * 
+     */
     public static CompletableFuture<GetVzenNodeResult> getVzenNodePlain(GetVzenNodePlainArgs args, InvokeOptions options) {
         return Deployment.getInstance().invokeAsync("zia:index:getVzenNode", TypeShape.of(GetVzenNodeResult.class), args, Utilities.withVersion(options));
     }
+    /**
+     * Use this data source to look up a workload group by ID or name.
+     * 
+     */
     public static Output<GetWorkloadGroupResult> getWorkloadGroup() {
         return getWorkloadGroup(GetWorkloadGroupArgs.Empty, InvokeOptions.Empty);
     }
+    /**
+     * Use this data source to look up a workload group by ID or name.
+     * 
+     */
     public static CompletableFuture<GetWorkloadGroupResult> getWorkloadGroupPlain() {
         return getWorkloadGroupPlain(GetWorkloadGroupPlainArgs.Empty, InvokeOptions.Empty);
     }
+    /**
+     * Use this data source to look up a workload group by ID or name.
+     * 
+     */
     public static Output<GetWorkloadGroupResult> getWorkloadGroup(GetWorkloadGroupArgs args) {
         return getWorkloadGroup(args, InvokeOptions.Empty);
     }
+    /**
+     * Use this data source to look up a workload group by ID or name.
+     * 
+     */
     public static CompletableFuture<GetWorkloadGroupResult> getWorkloadGroupPlain(GetWorkloadGroupPlainArgs args) {
         return getWorkloadGroupPlain(args, InvokeOptions.Empty);
     }
+    /**
+     * Use this data source to look up a workload group by ID or name.
+     * 
+     */
     public static Output<GetWorkloadGroupResult> getWorkloadGroup(GetWorkloadGroupArgs args, InvokeOptions options) {
         return Deployment.getInstance().invoke("zia:index:getWorkloadGroup", TypeShape.of(GetWorkloadGroupResult.class), args, Utilities.withVersion(options));
     }
+    /**
+     * Use this data source to look up a workload group by ID or name.
+     * 
+     */
     public static Output<GetWorkloadGroupResult> getWorkloadGroup(GetWorkloadGroupArgs args, InvokeOutputOptions options) {
         return Deployment.getInstance().invoke("zia:index:getWorkloadGroup", TypeShape.of(GetWorkloadGroupResult.class), args, Utilities.withVersion(options));
     }
+    /**
+     * Use this data source to look up a workload group by ID or name.
+     * 
+     */
     public static CompletableFuture<GetWorkloadGroupResult> getWorkloadGroupPlain(GetWorkloadGroupPlainArgs args, InvokeOptions options) {
         return Deployment.getInstance().invokeAsync("zia:index:getWorkloadGroup", TypeShape.of(GetWorkloadGroupResult.class), args, Utilities.withVersion(options));
     }

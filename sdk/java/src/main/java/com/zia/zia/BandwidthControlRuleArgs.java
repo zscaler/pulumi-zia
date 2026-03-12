@@ -18,93 +18,197 @@ public final class BandwidthControlRuleArgs extends com.pulumi.resources.Resourc
 
     public static final BandwidthControlRuleArgs Empty = new BandwidthControlRuleArgs();
 
+    /**
+     * IDs of bandwidth classes associated with this rule.
+     * 
+     */
     @Import(name="bandwidthClasses")
     private @Nullable Output<List<Integer>> bandwidthClasses;
 
+    /**
+     * @return IDs of bandwidth classes associated with this rule.
+     * 
+     */
     public Optional<Output<List<Integer>>> bandwidthClasses() {
         return Optional.ofNullable(this.bandwidthClasses);
     }
 
+    /**
+     * Additional information about the bandwidth control rule.
+     * 
+     */
     @Import(name="description")
     private @Nullable Output<String> description;
 
+    /**
+     * @return Additional information about the bandwidth control rule.
+     * 
+     */
     public Optional<Output<String>> description() {
         return Optional.ofNullable(this.description);
     }
 
+    /**
+     * IDs of labels associated with the bandwidth control rule.
+     * 
+     */
     @Import(name="labels")
     private @Nullable Output<List<Integer>> labels;
 
+    /**
+     * @return IDs of labels associated with the bandwidth control rule.
+     * 
+     */
     public Optional<Output<List<Integer>>> labels() {
         return Optional.ofNullable(this.labels);
     }
 
+    /**
+     * IDs of location groups for which the rule must be applied.
+     * 
+     */
     @Import(name="locationGroups")
     private @Nullable Output<List<Integer>> locationGroups;
 
+    /**
+     * @return IDs of location groups for which the rule must be applied.
+     * 
+     */
     public Optional<Output<List<Integer>>> locationGroups() {
         return Optional.ofNullable(this.locationGroups);
     }
 
+    /**
+     * IDs of locations for which the rule must be applied.
+     * 
+     */
     @Import(name="locations")
     private @Nullable Output<List<Integer>> locations;
 
+    /**
+     * @return IDs of locations for which the rule must be applied.
+     * 
+     */
     public Optional<Output<List<Integer>>> locations() {
         return Optional.ofNullable(this.locations);
     }
 
+    /**
+     * The maximum bandwidth percentage allowed. Valid range: 0-100.
+     * 
+     */
     @Import(name="maxBandwidth")
     private @Nullable Output<Integer> maxBandwidth;
 
+    /**
+     * @return The maximum bandwidth percentage allowed. Valid range: 0-100.
+     * 
+     */
     public Optional<Output<Integer>> maxBandwidth() {
         return Optional.ofNullable(this.maxBandwidth);
     }
 
+    /**
+     * The minimum bandwidth percentage allocated. Valid range: 0-100.
+     * 
+     */
     @Import(name="minBandwidth")
     private @Nullable Output<Integer> minBandwidth;
 
+    /**
+     * @return The minimum bandwidth percentage allocated. Valid range: 0-100.
+     * 
+     */
     public Optional<Output<Integer>> minBandwidth() {
         return Optional.ofNullable(this.minBandwidth);
     }
 
+    /**
+     * The name of the bandwidth control rule. Must be unique.
+     * 
+     */
     @Import(name="name", required=true)
     private Output<String> name;
 
+    /**
+     * @return The name of the bandwidth control rule. Must be unique.
+     * 
+     */
     public Output<String> name() {
         return this.name;
     }
 
+    /**
+     * The order of execution of the rule with respect to other bandwidth control rules.
+     * 
+     */
     @Import(name="order", required=true)
     private Output<Integer> order;
 
+    /**
+     * @return The order of execution of the rule with respect to other bandwidth control rules.
+     * 
+     */
     public Output<Integer> order() {
         return this.order;
     }
 
+    /**
+     * Protocols to which the rule applies. Valid values: `ANY_RULE`, `TCP_RULE`, `UDP_RULE`, `SSL_RULE`.
+     * 
+     */
     @Import(name="protocols")
     private @Nullable Output<List<String>> protocols;
 
+    /**
+     * @return Protocols to which the rule applies. Valid values: `ANY_RULE`, `TCP_RULE`, `UDP_RULE`, `SSL_RULE`.
+     * 
+     */
     public Optional<Output<List<String>>> protocols() {
         return Optional.ofNullable(this.protocols);
     }
 
+    /**
+     * Admin rank of the bandwidth control rule. Valid values: 0-7. Default: 7.
+     * 
+     */
     @Import(name="rank")
     private @Nullable Output<Integer> rank;
 
+    /**
+     * @return Admin rank of the bandwidth control rule. Valid values: 0-7. Default: 7.
+     * 
+     */
     public Optional<Output<Integer>> rank() {
         return Optional.ofNullable(this.rank);
     }
 
+    /**
+     * Rule state. Valid values: `ENABLED`, `DISABLED`.
+     * 
+     */
     @Import(name="state")
     private @Nullable Output<String> state;
 
+    /**
+     * @return Rule state. Valid values: `ENABLED`, `DISABLED`.
+     * 
+     */
     public Optional<Output<String>> state() {
         return Optional.ofNullable(this.state);
     }
 
+    /**
+     * IDs of time intervals during which the rule must be enforced.
+     * 
+     */
     @Import(name="timeWindows")
     private @Nullable Output<List<Integer>> timeWindows;
 
+    /**
+     * @return IDs of time intervals during which the rule must be enforced.
+     * 
+     */
     public Optional<Output<List<Integer>>> timeWindows() {
         return Optional.ofNullable(this.timeWindows);
     }
@@ -145,143 +249,335 @@ public final class BandwidthControlRuleArgs extends com.pulumi.resources.Resourc
             $ = new BandwidthControlRuleArgs(Objects.requireNonNull(defaults));
         }
 
+        /**
+         * @param bandwidthClasses IDs of bandwidth classes associated with this rule.
+         * 
+         * @return builder
+         * 
+         */
         public Builder bandwidthClasses(@Nullable Output<List<Integer>> bandwidthClasses) {
             $.bandwidthClasses = bandwidthClasses;
             return this;
         }
 
+        /**
+         * @param bandwidthClasses IDs of bandwidth classes associated with this rule.
+         * 
+         * @return builder
+         * 
+         */
         public Builder bandwidthClasses(List<Integer> bandwidthClasses) {
             return bandwidthClasses(Output.of(bandwidthClasses));
         }
 
+        /**
+         * @param bandwidthClasses IDs of bandwidth classes associated with this rule.
+         * 
+         * @return builder
+         * 
+         */
         public Builder bandwidthClasses(Integer... bandwidthClasses) {
             return bandwidthClasses(List.of(bandwidthClasses));
         }
 
+        /**
+         * @param description Additional information about the bandwidth control rule.
+         * 
+         * @return builder
+         * 
+         */
         public Builder description(@Nullable Output<String> description) {
             $.description = description;
             return this;
         }
 
+        /**
+         * @param description Additional information about the bandwidth control rule.
+         * 
+         * @return builder
+         * 
+         */
         public Builder description(String description) {
             return description(Output.of(description));
         }
 
+        /**
+         * @param labels IDs of labels associated with the bandwidth control rule.
+         * 
+         * @return builder
+         * 
+         */
         public Builder labels(@Nullable Output<List<Integer>> labels) {
             $.labels = labels;
             return this;
         }
 
+        /**
+         * @param labels IDs of labels associated with the bandwidth control rule.
+         * 
+         * @return builder
+         * 
+         */
         public Builder labels(List<Integer> labels) {
             return labels(Output.of(labels));
         }
 
+        /**
+         * @param labels IDs of labels associated with the bandwidth control rule.
+         * 
+         * @return builder
+         * 
+         */
         public Builder labels(Integer... labels) {
             return labels(List.of(labels));
         }
 
+        /**
+         * @param locationGroups IDs of location groups for which the rule must be applied.
+         * 
+         * @return builder
+         * 
+         */
         public Builder locationGroups(@Nullable Output<List<Integer>> locationGroups) {
             $.locationGroups = locationGroups;
             return this;
         }
 
+        /**
+         * @param locationGroups IDs of location groups for which the rule must be applied.
+         * 
+         * @return builder
+         * 
+         */
         public Builder locationGroups(List<Integer> locationGroups) {
             return locationGroups(Output.of(locationGroups));
         }
 
+        /**
+         * @param locationGroups IDs of location groups for which the rule must be applied.
+         * 
+         * @return builder
+         * 
+         */
         public Builder locationGroups(Integer... locationGroups) {
             return locationGroups(List.of(locationGroups));
         }
 
+        /**
+         * @param locations IDs of locations for which the rule must be applied.
+         * 
+         * @return builder
+         * 
+         */
         public Builder locations(@Nullable Output<List<Integer>> locations) {
             $.locations = locations;
             return this;
         }
 
+        /**
+         * @param locations IDs of locations for which the rule must be applied.
+         * 
+         * @return builder
+         * 
+         */
         public Builder locations(List<Integer> locations) {
             return locations(Output.of(locations));
         }
 
+        /**
+         * @param locations IDs of locations for which the rule must be applied.
+         * 
+         * @return builder
+         * 
+         */
         public Builder locations(Integer... locations) {
             return locations(List.of(locations));
         }
 
+        /**
+         * @param maxBandwidth The maximum bandwidth percentage allowed. Valid range: 0-100.
+         * 
+         * @return builder
+         * 
+         */
         public Builder maxBandwidth(@Nullable Output<Integer> maxBandwidth) {
             $.maxBandwidth = maxBandwidth;
             return this;
         }
 
+        /**
+         * @param maxBandwidth The maximum bandwidth percentage allowed. Valid range: 0-100.
+         * 
+         * @return builder
+         * 
+         */
         public Builder maxBandwidth(Integer maxBandwidth) {
             return maxBandwidth(Output.of(maxBandwidth));
         }
 
+        /**
+         * @param minBandwidth The minimum bandwidth percentage allocated. Valid range: 0-100.
+         * 
+         * @return builder
+         * 
+         */
         public Builder minBandwidth(@Nullable Output<Integer> minBandwidth) {
             $.minBandwidth = minBandwidth;
             return this;
         }
 
+        /**
+         * @param minBandwidth The minimum bandwidth percentage allocated. Valid range: 0-100.
+         * 
+         * @return builder
+         * 
+         */
         public Builder minBandwidth(Integer minBandwidth) {
             return minBandwidth(Output.of(minBandwidth));
         }
 
+        /**
+         * @param name The name of the bandwidth control rule. Must be unique.
+         * 
+         * @return builder
+         * 
+         */
         public Builder name(Output<String> name) {
             $.name = name;
             return this;
         }
 
+        /**
+         * @param name The name of the bandwidth control rule. Must be unique.
+         * 
+         * @return builder
+         * 
+         */
         public Builder name(String name) {
             return name(Output.of(name));
         }
 
+        /**
+         * @param order The order of execution of the rule with respect to other bandwidth control rules.
+         * 
+         * @return builder
+         * 
+         */
         public Builder order(Output<Integer> order) {
             $.order = order;
             return this;
         }
 
+        /**
+         * @param order The order of execution of the rule with respect to other bandwidth control rules.
+         * 
+         * @return builder
+         * 
+         */
         public Builder order(Integer order) {
             return order(Output.of(order));
         }
 
+        /**
+         * @param protocols Protocols to which the rule applies. Valid values: `ANY_RULE`, `TCP_RULE`, `UDP_RULE`, `SSL_RULE`.
+         * 
+         * @return builder
+         * 
+         */
         public Builder protocols(@Nullable Output<List<String>> protocols) {
             $.protocols = protocols;
             return this;
         }
 
+        /**
+         * @param protocols Protocols to which the rule applies. Valid values: `ANY_RULE`, `TCP_RULE`, `UDP_RULE`, `SSL_RULE`.
+         * 
+         * @return builder
+         * 
+         */
         public Builder protocols(List<String> protocols) {
             return protocols(Output.of(protocols));
         }
 
+        /**
+         * @param protocols Protocols to which the rule applies. Valid values: `ANY_RULE`, `TCP_RULE`, `UDP_RULE`, `SSL_RULE`.
+         * 
+         * @return builder
+         * 
+         */
         public Builder protocols(String... protocols) {
             return protocols(List.of(protocols));
         }
 
+        /**
+         * @param rank Admin rank of the bandwidth control rule. Valid values: 0-7. Default: 7.
+         * 
+         * @return builder
+         * 
+         */
         public Builder rank(@Nullable Output<Integer> rank) {
             $.rank = rank;
             return this;
         }
 
+        /**
+         * @param rank Admin rank of the bandwidth control rule. Valid values: 0-7. Default: 7.
+         * 
+         * @return builder
+         * 
+         */
         public Builder rank(Integer rank) {
             return rank(Output.of(rank));
         }
 
+        /**
+         * @param state Rule state. Valid values: `ENABLED`, `DISABLED`.
+         * 
+         * @return builder
+         * 
+         */
         public Builder state(@Nullable Output<String> state) {
             $.state = state;
             return this;
         }
 
+        /**
+         * @param state Rule state. Valid values: `ENABLED`, `DISABLED`.
+         * 
+         * @return builder
+         * 
+         */
         public Builder state(String state) {
             return state(Output.of(state));
         }
 
+        /**
+         * @param timeWindows IDs of time intervals during which the rule must be enforced.
+         * 
+         * @return builder
+         * 
+         */
         public Builder timeWindows(@Nullable Output<List<Integer>> timeWindows) {
             $.timeWindows = timeWindows;
             return this;
         }
 
+        /**
+         * @param timeWindows IDs of time intervals during which the rule must be enforced.
+         * 
+         * @return builder
+         * 
+         */
         public Builder timeWindows(List<Integer> timeWindows) {
             return timeWindows(Output.of(timeWindows));
         }
 
+        /**
+         * @param timeWindows IDs of time intervals during which the rule must be enforced.
+         * 
+         * @return builder
+         * 
+         */
         public Builder timeWindows(Integer... timeWindows) {
             return timeWindows(List.of(timeWindows));
         }

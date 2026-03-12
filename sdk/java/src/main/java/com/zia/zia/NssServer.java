@@ -14,35 +14,91 @@ import java.lang.String;
 import java.util.Optional;
 import javax.annotation.Nullable;
 
+/**
+ * The zia.NssServer resource manages NSS (Nanolog Streaming Service) server configurations in the
+ * Zscaler Internet Access (ZIA) cloud. NSS servers are used to stream logs from ZIA to external SIEM
+ * or log management systems.
+ * 
+ * ## Example Usage
+ * 
+ * ## Import
+ * 
+ * An existing NSS server can be imported using its ID, e.g.
+ * 
+ * ```sh
+ * $ pulumi import zia:index:NssServer example 12345
+ * ```
+ * 
+ */
 @ResourceType(type="zia:index:NssServer")
 public class NssServer extends com.pulumi.resources.CustomResource {
+    /**
+     * The ICAP server ID associated with the NSS server.
+     * 
+     */
     @Export(name="icapSvrId", refs={Integer.class}, tree="[0]")
     private Output</* @Nullable */ Integer> icapSvrId;
 
+    /**
+     * @return The ICAP server ID associated with the NSS server.
+     * 
+     */
     public Output<Optional<Integer>> icapSvrId() {
         return Codegen.optional(this.icapSvrId);
     }
+    /**
+     * Name of the NSS server.
+     * 
+     */
     @Export(name="name", refs={String.class}, tree="[0]")
     private Output<String> name;
 
+    /**
+     * @return Name of the NSS server.
+     * 
+     */
     public Output<String> name() {
         return this.name;
     }
+    /**
+     * The unique identifier for the NSS server assigned by the ZIA cloud.
+     * 
+     */
     @Export(name="nssId", refs={Integer.class}, tree="[0]")
     private Output<Integer> nssId;
 
+    /**
+     * @return The unique identifier for the NSS server assigned by the ZIA cloud.
+     * 
+     */
     public Output<Integer> nssId() {
         return this.nssId;
     }
+    /**
+     * The status of the NSS server. Accepted values: &#39;ENABLED&#39; or &#39;DISABLED&#39;. Default: &#39;ENABLED&#39;.
+     * 
+     */
     @Export(name="status", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> status;
 
+    /**
+     * @return The status of the NSS server. Accepted values: &#39;ENABLED&#39; or &#39;DISABLED&#39;. Default: &#39;ENABLED&#39;.
+     * 
+     */
     public Output<Optional<String>> status() {
         return Codegen.optional(this.status);
     }
+    /**
+     * The NSS server type. Accepted values: &#39;NSS_FOR_FIREWALL&#39;, &#39;NSS_FOR_WEB&#39;. Default: &#39;NSS_FOR_FIREWALL&#39;.
+     * 
+     */
     @Export(name="type", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> type;
 
+    /**
+     * @return The NSS server type. Accepted values: &#39;NSS_FOR_FIREWALL&#39;, &#39;NSS_FOR_WEB&#39;. Default: &#39;NSS_FOR_FIREWALL&#39;.
+     * 
+     */
     public Output<Optional<String>> type() {
         return Codegen.optional(this.type);
     }
@@ -86,6 +142,7 @@ public class NssServer extends com.pulumi.resources.CustomResource {
     private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<java.lang.String> id) {
         var defaultOptions = com.pulumi.resources.CustomResourceOptions.builder()
             .version(Utilities.getVersion())
+            .pluginDownloadURL("github://api.github.com/zscaler")
             .build();
         return com.pulumi.resources.CustomResourceOptions.merge(defaultOptions, options, id);
     }

@@ -10,10 +10,50 @@ export interface AdminUserRoleInput {
 }
 
 export interface CBIProfileInput {
-    id?: string;
     name?: string;
     profileSeq?: number;
+    resourceId?: string;
     url?: string;
+}
+
+export interface ClassificationOutput {
+    category: string;
+    detectedMalware: string;
+    score: number;
+    type: string;
+}
+
+export interface CloudApplicationItem {
+    app: string;
+    appName: string;
+    parent: string;
+    parentName: string;
+}
+
+export interface DatacenterInfo {
+    city: string;
+    createTime: number;
+    dontProvision: boolean;
+    dontPublish: boolean;
+    downloadBandwidth: number;
+    forFutureUse: boolean;
+    govOnly: boolean;
+    id: number;
+    lastModifiedTime: number;
+    lat: number;
+    latitude: number;
+    longi: number;
+    longitude: number;
+    managedBcp: boolean;
+    name: string;
+    notReadyForUse: boolean;
+    ownedByCustomer: boolean;
+    provider: string;
+    regionalSurcharge: boolean;
+    thirdPartyCloud: boolean;
+    timezone: string;
+    uploadBandwidth: number;
+    virtual: boolean;
 }
 
 export interface DecryptSubActionsInput {
@@ -26,6 +66,27 @@ export interface DecryptSubActionsInput {
     serverCertificates?: string;
 }
 
+export interface DeviceGroupItem {
+    description: string;
+    deviceCount: number;
+    deviceNames: string;
+    groupType: string;
+    name: string;
+    osType: string;
+    predefined: boolean;
+    resourceId: number;
+}
+
+export interface DlpDictionaryPatternInput {
+    action?: string;
+    pattern?: string;
+}
+
+export interface DlpDictionaryPhraseInput {
+    action?: string;
+    phrase?: string;
+}
+
 export interface DoNotDecryptSubActionsInput {
     blockSslTrafficWithNoSniEnabled?: boolean;
     bypassOtherPolicies?: boolean;
@@ -34,10 +95,103 @@ export interface DoNotDecryptSubActionsInput {
     serverCertificates?: string;
 }
 
+export interface ExtranetDnsListInput {
+    id?: number;
+    name?: string;
+    primaryDnsServer?: string;
+    secondaryDnsServer?: string;
+    useAsDefault?: boolean;
+}
+
+export interface ExtranetIpPoolListInput {
+    id?: number;
+    ipEnd?: string;
+    ipStart?: string;
+    name?: string;
+    useAsDefault?: boolean;
+}
+
+export interface FilePropertiesOutput {
+    digitalCertificate: string;
+    fileSize: number;
+    fileType: string;
+    issuer: string;
+    md5: string;
+    rootCa: string;
+    sha1: string;
+    sha256: string;
+    ssdeep: string;
+}
+
+export interface FileTypeCategoryItem {
+    name: string;
+    parent: string;
+    resourceId: number;
+}
+
 export interface GreTunnelDestVipOutput {
     datacenter?: string;
     id?: number;
     virtualIp?: string;
+}
+
+export interface IdNameExtensionsOutput {
+    name: string;
+    resourceId: number;
+}
+
+export interface InstanceIdentifierInput {
+    identifierType?: string;
+    instanceId?: number;
+    instanceIdentifier?: string;
+    instanceIdentifierName?: string;
+}
+
+export interface LastModifiedByOutput {
+    name: string;
+    resourceId: number;
+}
+
+export interface LastValidationMsgOutput {
+    errorCode: string;
+    errorMsg: string;
+}
+
+export interface Md5HashValueInput {
+    type?: string;
+    url?: string;
+    urlComment?: string;
+}
+
+export interface NetworkPortInput {
+    end?: number;
+    start?: number;
+}
+
+export interface OnboardableEntityOutput {
+    application: string;
+    enterpriseTenantId: string;
+    lastValidationMsg?: outputs.LastValidationMsgOutput;
+    name: string;
+    resourceId: number;
+    type: string;
+    zscalerAppTenantId?: outputs.LastModifiedByOutput;
+}
+
+export interface OriginOutput {
+    country: string;
+    language: string;
+    risk: string;
+}
+
+export interface SandboxRssOutput {
+    risk: string;
+    signature: string;
+    signatureSources: string[];
+}
+
+export interface SmartIsolationProfileInput {
+    id?: string;
 }
 
 export interface SslInspectionActionInput {
@@ -56,14 +210,14 @@ export interface SslInterceptionCertInput {
 
 export interface SubCloudDcOutput {
     country: string;
-    id: number;
     name: string;
+    resourceId: number;
 }
 
 export interface SubCloudExclusionDatacenterInput {
     country?: string;
-    id: number;
     name?: string;
+    resourceId: number;
 }
 
 export interface SubCloudExclusionInput {
@@ -71,6 +225,14 @@ export interface SubCloudExclusionInput {
     datacenter: outputs.SubCloudExclusionDatacenterInput;
     endTime?: number;
     endTimeUtc?: string;
+}
+
+export interface SummaryDetailOutput {
+    category: string;
+    duration: number;
+    fileType: string;
+    startTime: number;
+    status: string;
 }
 
 export interface UrlCategoryScopeInput {
@@ -114,6 +276,14 @@ export interface VirtualZenNodeOutput {
     nodeId: number;
 }
 
+export interface VpnCredentialInput {
+    fqdn?: string;
+    id?: number;
+    ipAddress?: string;
+    preSharedKey?: string;
+    type?: string;
+}
+
 export interface WorkloadGroupExpressionContainerInput {
     operator?: string;
     tagContainer?: outputs.WorkloadGroupTagContainerInput;
@@ -125,8 +295,8 @@ export interface WorkloadGroupExpressionJsonInput {
 }
 
 export interface WorkloadGroupInput {
-    id: number;
     name?: string;
+    resourceId: number;
 }
 
 export interface WorkloadGroupTagContainerInput {
@@ -142,5 +312,15 @@ export interface WorkloadGroupTagInput {
 export interface ZPAAppSegmentInput {
     externalId: string;
     name: string;
+}
+
+export interface ZpaGatewayAppSegmentInput {
+    externalId?: string;
+    name?: string;
+}
+
+export interface ZpaServerGroupInput {
+    externalId?: string;
+    name?: string;
 }
 

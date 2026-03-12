@@ -17,35 +17,88 @@ import java.util.List;
 import java.util.Optional;
 import javax.annotation.Nullable;
 
+/**
+ * The zia.SubCloud resource manages sub-cloud configurations in the Zscaler Internet Access (ZIA) cloud.
+ * Sub-clouds represent regional cloud instances with associated datacenters and exclusion rules.
+ * Create and update both use the same API operation. Deleting the Pulumi resource does not remove
+ * the underlying sub-cloud configuration.
+ * 
+ * ## Example Usage
+ * 
+ * ## Import
+ * 
+ * This resource uses a no-op delete. Import is not typically applicable for sub-cloud resources.
+ * 
+ */
 @ResourceType(type="zia:index:SubCloud")
 public class SubCloud extends com.pulumi.resources.CustomResource {
+    /**
+     * The ID of the cloud to which this sub-cloud belongs.
+     * 
+     */
     @Export(name="cloudId", refs={Integer.class}, tree="[0]")
     private Output<Integer> cloudId;
 
+    /**
+     * @return The ID of the cloud to which this sub-cloud belongs.
+     * 
+     */
     public Output<Integer> cloudId() {
         return this.cloudId;
     }
+    /**
+     * List of datacenters associated with the sub-cloud.
+     * 
+     */
     @Export(name="dcs", refs={List.class,SubCloudDcOutput.class}, tree="[0,1]")
     private Output</* @Nullable */ List<SubCloudDcOutput>> dcs;
 
+    /**
+     * @return List of datacenters associated with the sub-cloud.
+     * 
+     */
     public Output<Optional<List<SubCloudDcOutput>>> dcs() {
         return Codegen.optional(this.dcs);
     }
+    /**
+     * List of datacenter exclusions for the sub-cloud.
+     * 
+     */
     @Export(name="exclusions", refs={List.class,SubCloudExclusionInput.class}, tree="[0,1]")
     private Output</* @Nullable */ List<SubCloudExclusionInput>> exclusions;
 
+    /**
+     * @return List of datacenter exclusions for the sub-cloud.
+     * 
+     */
     public Output<Optional<List<SubCloudExclusionInput>>> exclusions() {
         return Codegen.optional(this.exclusions);
     }
+    /**
+     * The name of the sub-cloud.
+     * 
+     */
     @Export(name="name", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> name;
 
+    /**
+     * @return The name of the sub-cloud.
+     * 
+     */
     public Output<Optional<String>> name() {
         return Codegen.optional(this.name);
     }
+    /**
+     * The resource ID of the sub-cloud.
+     * 
+     */
     @Export(name="resourceId", refs={String.class}, tree="[0]")
     private Output<String> resourceId;
 
+    /**
+     * @return The resource ID of the sub-cloud.
+     * 
+     */
     public Output<String> resourceId() {
         return this.resourceId;
     }
@@ -89,6 +142,7 @@ public class SubCloud extends com.pulumi.resources.CustomResource {
     private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<java.lang.String> id) {
         var defaultOptions = com.pulumi.resources.CustomResourceOptions.builder()
             .version(Utilities.getVersion())
+            .pluginDownloadURL("github://api.github.com/zscaler")
             .build();
         return com.pulumi.resources.CustomResourceOptions.merge(defaultOptions, options, id);
     }

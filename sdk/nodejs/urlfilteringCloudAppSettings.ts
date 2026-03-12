@@ -4,6 +4,34 @@
 import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "./utilities";
 
+/**
+ * The zia_url_filtering_and_cloud_app_settings resource manages URL filtering and cloud application settings in the Zscaler Internet Access (ZIA) cloud service. This is a singleton resource that controls global settings for URL filtering features such as safe search enforcement, UCaaS application controls, AI/ML prompt visibility, and CIPA compliance.
+ *
+ * For more information, see the [ZIA URL Filtering documentation](https://help.zscaler.com/zia/url-filtering).
+ *
+ * ## Example Usage
+ * ### Configure URL Filtering and Cloud App Settings
+ *
+ * ```typescript
+ * import * as zia from "@bdzscaler/pulumi-zia";
+ *
+ * const example = new zia.UrlFilteringCloudAppSettings("example", {
+ *     enableDynamicContentCat: true,
+ *     enforceSafeSearch: true,
+ *     enableOffice365: true,
+ *     enableChatgptPrompt: true,
+ *     enableCipaCompliance: false,
+ * });
+ * ```
+ *
+ * ## Import
+ *
+ * The singleton URL Filtering Cloud App Settings resource can be imported using its fixed ID, e.g.
+ *
+ * ```sh
+ * $ pulumi import zia:index:UrlFilteringCloudAppSettings example app_setting
+ * ```
+ */
 export class UrlFilteringCloudAppSettings extends pulumi.CustomResource {
     /**
      * Get an existing UrlFilteringCloudAppSettings resource's state with the given name, ID, and optional extra
@@ -31,28 +59,126 @@ export class UrlFilteringCloudAppSettings extends pulumi.CustomResource {
         return obj['__pulumiType'] === UrlFilteringCloudAppSettings.__pulumiType;
     }
 
+    /**
+     * If true, Skype is blocked.
+     */
     declare public readonly blockSkype: pulumi.Output<boolean | undefined>;
+    /**
+     * If true, embedded sites within web pages are considered for URL filtering.
+     */
     declare public readonly considerEmbeddedSites: pulumi.Output<boolean | undefined>;
+    /**
+     * If true, block override is enabled for non-authenticated users.
+     */
     declare public readonly enableBlockOverrideForNonAuthUser: pulumi.Output<boolean | undefined>;
+    /**
+     * If true, ChatGPT prompt visibility and logging is enabled.
+     */
     declare public readonly enableChatgptPrompt: pulumi.Output<boolean | undefined>;
+    /**
+     * If true, CIPA (Children's Internet Protection Act) compliance mode is enabled.
+     */
     declare public readonly enableCipaCompliance: pulumi.Output<boolean | undefined>;
+    /**
+     * If true, Claude AI prompt visibility and logging is enabled.
+     */
+    declare public readonly enableClaudePrompt: pulumi.Output<boolean | undefined>;
+    /**
+     * If true, Creative Commons search results are enabled.
+     */
+    declare public readonly enableCreativeCommonsSearchResults: pulumi.Output<boolean | undefined>;
+    /**
+     * If true, DeepSeek AI prompt visibility and logging is enabled.
+     */
+    declare public readonly enableDeepSeekPrompt: pulumi.Output<boolean | undefined>;
+    /**
+     * If true, dynamic content categorization is enabled.
+     */
     declare public readonly enableDynamicContentCat: pulumi.Output<boolean | undefined>;
+    /**
+     * If true, Google Gemini prompt visibility and logging is enabled.
+     */
     declare public readonly enableGeminiPrompt: pulumi.Output<boolean | undefined>;
+    /**
+     * If true, Grammarly AI prompt visibility and logging is enabled.
+     */
+    declare public readonly enableGrammarlyPrompt: pulumi.Output<boolean | undefined>;
+    /**
+     * If true, Grok AI prompt visibility and logging is enabled.
+     */
+    declare public readonly enableGrokPrompt: pulumi.Output<boolean | undefined>;
+    /**
+     * If true, Meta AI prompt visibility and logging is enabled.
+     */
     declare public readonly enableMetaPrompt: pulumi.Output<boolean | undefined>;
+    /**
+     * If true, Microsoft Copilot prompt visibility and logging is enabled.
+     */
     declare public readonly enableMicrosoftCopilotPrompt: pulumi.Output<boolean | undefined>;
+    /**
+     * If true, Mistral AI prompt visibility and logging is enabled.
+     */
+    declare public readonly enableMistralAiPrompt: pulumi.Output<boolean | undefined>;
+    /**
+     * If true, Microsoft Office 365 optimization is enabled.
+     */
     declare public readonly enableMsftO365: pulumi.Output<boolean | undefined>;
+    /**
+     * If true, newly registered domains detection is enabled.
+     */
     declare public readonly enableNewlyRegisteredDomains: pulumi.Output<boolean | undefined>;
+    /**
+     * If true, Office 365 one-click configuration is enabled.
+     */
     declare public readonly enableOffice365: pulumi.Output<boolean | undefined>;
+    /**
+     * If true, Perplexity AI prompt visibility and logging is enabled.
+     */
     declare public readonly enablePerPlexityPrompt: pulumi.Output<boolean | undefined>;
+    /**
+     * If true, POE prompt visibility and logging is enabled.
+     */
     declare public readonly enablePoepPrompt: pulumi.Output<boolean | undefined>;
+    /**
+     * If true, UCaaS controls for LogMeIn are enabled.
+     */
     declare public readonly enableUcaasLogmein: pulumi.Output<boolean | undefined>;
+    /**
+     * If true, UCaaS controls for RingCentral are enabled.
+     */
     declare public readonly enableUcaasRingCentral: pulumi.Output<boolean | undefined>;
+    /**
+     * If true, UCaaS controls for Talkdesk are enabled.
+     */
     declare public readonly enableUcaasTalkdesk: pulumi.Output<boolean | undefined>;
+    /**
+     * If true, UCaaS controls for Webex are enabled.
+     */
     declare public readonly enableUcaasWebex: pulumi.Output<boolean | undefined>;
+    /**
+     * If true, UCaaS controls for Zoom are enabled.
+     */
     declare public readonly enableUcaasZoom: pulumi.Output<boolean | undefined>;
+    /**
+     * If true, Writer AI prompt visibility and logging is enabled.
+     */
+    declare public readonly enableWriterPrompt: pulumi.Output<boolean | undefined>;
+    /**
+     * If true, safe search is enforced for supported search engines.
+     */
     declare public readonly enforceSafeSearch: pulumi.Output<boolean | undefined>;
+    /**
+     * The fixed resource ID of the singleton URL filtering cloud app settings.
+     */
     declare public /*out*/ readonly resourceId: pulumi.Output<string>;
+    /**
+     * List of application names for which safe search is enforced.
+     */
     declare public readonly safeSearchApps: pulumi.Output<string[] | undefined>;
+    /**
+     * If true, Zvelo database lookup is disabled.
+     */
+    declare public readonly zveloDbLookupDisabled: pulumi.Output<boolean | undefined>;
 
     /**
      * Create a UrlFilteringCloudAppSettings resource with the given unique name, arguments, and options.
@@ -70,10 +196,16 @@ export class UrlFilteringCloudAppSettings extends pulumi.CustomResource {
             resourceInputs["enableBlockOverrideForNonAuthUser"] = args?.enableBlockOverrideForNonAuthUser;
             resourceInputs["enableChatgptPrompt"] = args?.enableChatgptPrompt;
             resourceInputs["enableCipaCompliance"] = args?.enableCipaCompliance;
+            resourceInputs["enableClaudePrompt"] = args?.enableClaudePrompt;
+            resourceInputs["enableCreativeCommonsSearchResults"] = args?.enableCreativeCommonsSearchResults;
+            resourceInputs["enableDeepSeekPrompt"] = args?.enableDeepSeekPrompt;
             resourceInputs["enableDynamicContentCat"] = args?.enableDynamicContentCat;
             resourceInputs["enableGeminiPrompt"] = args?.enableGeminiPrompt;
+            resourceInputs["enableGrammarlyPrompt"] = args?.enableGrammarlyPrompt;
+            resourceInputs["enableGrokPrompt"] = args?.enableGrokPrompt;
             resourceInputs["enableMetaPrompt"] = args?.enableMetaPrompt;
             resourceInputs["enableMicrosoftCopilotPrompt"] = args?.enableMicrosoftCopilotPrompt;
+            resourceInputs["enableMistralAiPrompt"] = args?.enableMistralAiPrompt;
             resourceInputs["enableMsftO365"] = args?.enableMsftO365;
             resourceInputs["enableNewlyRegisteredDomains"] = args?.enableNewlyRegisteredDomains;
             resourceInputs["enableOffice365"] = args?.enableOffice365;
@@ -84,8 +216,10 @@ export class UrlFilteringCloudAppSettings extends pulumi.CustomResource {
             resourceInputs["enableUcaasTalkdesk"] = args?.enableUcaasTalkdesk;
             resourceInputs["enableUcaasWebex"] = args?.enableUcaasWebex;
             resourceInputs["enableUcaasZoom"] = args?.enableUcaasZoom;
+            resourceInputs["enableWriterPrompt"] = args?.enableWriterPrompt;
             resourceInputs["enforceSafeSearch"] = args?.enforceSafeSearch;
             resourceInputs["safeSearchApps"] = args?.safeSearchApps;
+            resourceInputs["zveloDbLookupDisabled"] = args?.zveloDbLookupDisabled;
             resourceInputs["resourceId"] = undefined /*out*/;
         } else {
             resourceInputs["blockSkype"] = undefined /*out*/;
@@ -93,10 +227,16 @@ export class UrlFilteringCloudAppSettings extends pulumi.CustomResource {
             resourceInputs["enableBlockOverrideForNonAuthUser"] = undefined /*out*/;
             resourceInputs["enableChatgptPrompt"] = undefined /*out*/;
             resourceInputs["enableCipaCompliance"] = undefined /*out*/;
+            resourceInputs["enableClaudePrompt"] = undefined /*out*/;
+            resourceInputs["enableCreativeCommonsSearchResults"] = undefined /*out*/;
+            resourceInputs["enableDeepSeekPrompt"] = undefined /*out*/;
             resourceInputs["enableDynamicContentCat"] = undefined /*out*/;
             resourceInputs["enableGeminiPrompt"] = undefined /*out*/;
+            resourceInputs["enableGrammarlyPrompt"] = undefined /*out*/;
+            resourceInputs["enableGrokPrompt"] = undefined /*out*/;
             resourceInputs["enableMetaPrompt"] = undefined /*out*/;
             resourceInputs["enableMicrosoftCopilotPrompt"] = undefined /*out*/;
+            resourceInputs["enableMistralAiPrompt"] = undefined /*out*/;
             resourceInputs["enableMsftO365"] = undefined /*out*/;
             resourceInputs["enableNewlyRegisteredDomains"] = undefined /*out*/;
             resourceInputs["enableOffice365"] = undefined /*out*/;
@@ -107,9 +247,11 @@ export class UrlFilteringCloudAppSettings extends pulumi.CustomResource {
             resourceInputs["enableUcaasTalkdesk"] = undefined /*out*/;
             resourceInputs["enableUcaasWebex"] = undefined /*out*/;
             resourceInputs["enableUcaasZoom"] = undefined /*out*/;
+            resourceInputs["enableWriterPrompt"] = undefined /*out*/;
             resourceInputs["enforceSafeSearch"] = undefined /*out*/;
             resourceInputs["resourceId"] = undefined /*out*/;
             resourceInputs["safeSearchApps"] = undefined /*out*/;
+            resourceInputs["zveloDbLookupDisabled"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
         super(UrlFilteringCloudAppSettings.__pulumiType, name, resourceInputs, opts);
@@ -120,25 +262,120 @@ export class UrlFilteringCloudAppSettings extends pulumi.CustomResource {
  * The set of arguments for constructing a UrlFilteringCloudAppSettings resource.
  */
 export interface UrlFilteringCloudAppSettingsArgs {
+    /**
+     * If true, Skype is blocked.
+     */
     blockSkype?: pulumi.Input<boolean>;
+    /**
+     * If true, embedded sites within web pages are considered for URL filtering.
+     */
     considerEmbeddedSites?: pulumi.Input<boolean>;
+    /**
+     * If true, block override is enabled for non-authenticated users.
+     */
     enableBlockOverrideForNonAuthUser?: pulumi.Input<boolean>;
+    /**
+     * If true, ChatGPT prompt visibility and logging is enabled.
+     */
     enableChatgptPrompt?: pulumi.Input<boolean>;
+    /**
+     * If true, CIPA (Children's Internet Protection Act) compliance mode is enabled.
+     */
     enableCipaCompliance?: pulumi.Input<boolean>;
+    /**
+     * If true, Claude AI prompt visibility and logging is enabled.
+     */
+    enableClaudePrompt?: pulumi.Input<boolean>;
+    /**
+     * If true, Creative Commons search results are enabled.
+     */
+    enableCreativeCommonsSearchResults?: pulumi.Input<boolean>;
+    /**
+     * If true, DeepSeek AI prompt visibility and logging is enabled.
+     */
+    enableDeepSeekPrompt?: pulumi.Input<boolean>;
+    /**
+     * If true, dynamic content categorization is enabled.
+     */
     enableDynamicContentCat?: pulumi.Input<boolean>;
+    /**
+     * If true, Google Gemini prompt visibility and logging is enabled.
+     */
     enableGeminiPrompt?: pulumi.Input<boolean>;
+    /**
+     * If true, Grammarly AI prompt visibility and logging is enabled.
+     */
+    enableGrammarlyPrompt?: pulumi.Input<boolean>;
+    /**
+     * If true, Grok AI prompt visibility and logging is enabled.
+     */
+    enableGrokPrompt?: pulumi.Input<boolean>;
+    /**
+     * If true, Meta AI prompt visibility and logging is enabled.
+     */
     enableMetaPrompt?: pulumi.Input<boolean>;
+    /**
+     * If true, Microsoft Copilot prompt visibility and logging is enabled.
+     */
     enableMicrosoftCopilotPrompt?: pulumi.Input<boolean>;
+    /**
+     * If true, Mistral AI prompt visibility and logging is enabled.
+     */
+    enableMistralAiPrompt?: pulumi.Input<boolean>;
+    /**
+     * If true, Microsoft Office 365 optimization is enabled.
+     */
     enableMsftO365?: pulumi.Input<boolean>;
+    /**
+     * If true, newly registered domains detection is enabled.
+     */
     enableNewlyRegisteredDomains?: pulumi.Input<boolean>;
+    /**
+     * If true, Office 365 one-click configuration is enabled.
+     */
     enableOffice365?: pulumi.Input<boolean>;
+    /**
+     * If true, Perplexity AI prompt visibility and logging is enabled.
+     */
     enablePerPlexityPrompt?: pulumi.Input<boolean>;
+    /**
+     * If true, POE prompt visibility and logging is enabled.
+     */
     enablePoepPrompt?: pulumi.Input<boolean>;
+    /**
+     * If true, UCaaS controls for LogMeIn are enabled.
+     */
     enableUcaasLogmein?: pulumi.Input<boolean>;
+    /**
+     * If true, UCaaS controls for RingCentral are enabled.
+     */
     enableUcaasRingCentral?: pulumi.Input<boolean>;
+    /**
+     * If true, UCaaS controls for Talkdesk are enabled.
+     */
     enableUcaasTalkdesk?: pulumi.Input<boolean>;
+    /**
+     * If true, UCaaS controls for Webex are enabled.
+     */
     enableUcaasWebex?: pulumi.Input<boolean>;
+    /**
+     * If true, UCaaS controls for Zoom are enabled.
+     */
     enableUcaasZoom?: pulumi.Input<boolean>;
+    /**
+     * If true, Writer AI prompt visibility and logging is enabled.
+     */
+    enableWriterPrompt?: pulumi.Input<boolean>;
+    /**
+     * If true, safe search is enforced for supported search engines.
+     */
     enforceSafeSearch?: pulumi.Input<boolean>;
+    /**
+     * List of application names for which safe search is enforced.
+     */
     safeSearchApps?: pulumi.Input<pulumi.Input<string>[]>;
+    /**
+     * If true, Zvelo database lookup is disabled.
+     */
+    zveloDbLookupDisabled?: pulumi.Input<boolean>;
 }

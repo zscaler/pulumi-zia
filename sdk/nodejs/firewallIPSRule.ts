@@ -6,6 +6,34 @@ import * as inputs from "./types/input";
 import * as outputs from "./types/output";
 import * as utilities from "./utilities";
 
+/**
+ * The zia_firewall_ips_rule resource manages firewall IPS (Intrusion Prevention System) rules in the Zscaler Internet Access (ZIA) cloud service. IPS rules allow you to detect and prevent network intrusions by inspecting traffic for known threat signatures and anomalous patterns.
+ *
+ * For more information, see the [ZIA IPS Control Policies documentation](https://help.zscaler.com/zia/ips-control-policies).
+ *
+ * ## Example Usage
+ * ### Basic Firewall IPS Rule
+ *
+ * ```typescript
+ * import * as zia from "@bdzscaler/pulumi-zia";
+ *
+ * const example = new zia.FirewallIPSRule("example", {
+ *     name: "Example IPS Rule",
+ *     description: "Block intrusion attempts",
+ *     order: 1,
+ *     state: "ENABLED",
+ *     action: "BLOCK_DROP",
+ * });
+ * ```
+ *
+ * ## Import
+ *
+ * An existing Firewall IPS Rule can be imported using its resource ID, e.g.
+ *
+ * ```sh
+ * $ pulumi import zia:index:FirewallIPSRule example 12345
+ * ```
+ */
 export class FirewallIPSRule extends pulumi.CustomResource {
     /**
      * Get an existing FirewallIPSRule resource's state with the given name, ID, and optional extra
@@ -33,41 +61,149 @@ export class FirewallIPSRule extends pulumi.CustomResource {
         return obj['__pulumiType'] === FirewallIPSRule.__pulumiType;
     }
 
+    /**
+     * The action the rule takes when traffic matches. Valid values: `ALLOW`, `BLOCK_DROP`, `BLOCK_RESET`, `BLOCK_ICMP`.
+     */
     declare public readonly action: pulumi.Output<string | undefined>;
+    /**
+     * If set to true, enables packet capture (PCAP) for the rule.
+     */
     declare public readonly capturePcap: pulumi.Output<boolean | undefined>;
+    /**
+     * Indicates whether this is the default firewall IPS rule.
+     */
     declare public readonly defaultRule: pulumi.Output<boolean | undefined>;
+    /**
+     * IDs of departments to which the rule must be applied.
+     */
     declare public readonly departments: pulumi.Output<number[] | undefined>;
+    /**
+     * Additional information about the firewall IPS rule.
+     */
     declare public readonly description: pulumi.Output<string | undefined>;
+    /**
+     * Destination IP addresses, FQDNs, or wildcard FQDNs for the rule.
+     */
     declare public readonly destAddresses: pulumi.Output<string[] | undefined>;
+    /**
+     * Destination countries (ISO 3166-1 alpha-2 codes) for the rule.
+     */
     declare public readonly destCountries: pulumi.Output<string[] | undefined>;
+    /**
+     * Destination IP address URL categories for the rule.
+     */
     declare public readonly destIpCategories: pulumi.Output<string[] | undefined>;
+    /**
+     * IDs of destination IP address groups for the rule.
+     */
     declare public readonly destIpGroups: pulumi.Output<number[] | undefined>;
+    /**
+     * IDs of destination IPv6 address groups for the rule.
+     */
     declare public readonly destIpv6Groups: pulumi.Output<number[] | undefined>;
+    /**
+     * IDs of device groups for which the rule must be applied. Applicable for devices managed using Zscaler Client Connector.
+     */
     declare public readonly deviceGroups: pulumi.Output<number[] | undefined>;
+    /**
+     * IDs of devices for which the rule must be applied.
+     */
     declare public readonly devices: pulumi.Output<number[] | undefined>;
+    /**
+     * If set to true, enables full logging for the rule.
+     */
     declare public readonly enableFullLogging: pulumi.Output<boolean | undefined>;
+    /**
+     * The ID of the end user notification template associated with the rule.
+     */
     declare public readonly eunTemplateId: pulumi.Output<number | undefined>;
+    /**
+     * IDs of groups to which the rule must be applied.
+     */
     declare public readonly groups: pulumi.Output<number[] | undefined>;
+    /**
+     * If set to true, enables end user notification for the rule.
+     */
     declare public readonly isEunEnabled: pulumi.Output<boolean | undefined>;
+    /**
+     * IDs of labels associated with the rule.
+     */
     declare public readonly labels: pulumi.Output<number[] | undefined>;
+    /**
+     * IDs of location groups to which the rule must be applied.
+     */
     declare public readonly locationGroups: pulumi.Output<number[] | undefined>;
+    /**
+     * IDs of locations to which the rule must be applied.
+     */
     declare public readonly locations: pulumi.Output<number[] | undefined>;
+    /**
+     * The name of the firewall IPS rule. Must be unique.
+     */
     declare public readonly name: pulumi.Output<string>;
+    /**
+     * IDs of network service groups to which the rule applies.
+     */
     declare public readonly nwServiceGroups: pulumi.Output<number[] | undefined>;
+    /**
+     * IDs of network services to which the rule applies.
+     */
     declare public readonly nwServices: pulumi.Output<number[] | undefined>;
+    /**
+     * The order of execution of the rule with respect to other firewall IPS rules.
+     */
     declare public readonly order: pulumi.Output<number>;
+    /**
+     * Indicates whether this is a predefined rule.
+     */
     declare public readonly predefined: pulumi.Output<boolean | undefined>;
+    /**
+     * Admin rank of the firewall IPS policy rule. Valid values: 0-7. Default: 7.
+     */
     declare public readonly rank: pulumi.Output<number | undefined>;
+    /**
+     * URL categories that apply to the response for the rule.
+     */
     declare public readonly resCategories: pulumi.Output<string[] | undefined>;
+    /**
+     * The system-generated ID of the firewall IPS rule.
+     */
     declare public /*out*/ readonly ruleId: pulumi.Output<number>;
+    /**
+     * Source countries (ISO 3166-1 alpha-2 codes) for the rule.
+     */
     declare public readonly sourceCountries: pulumi.Output<string[] | undefined>;
+    /**
+     * IDs of source IP address groups for the rule.
+     */
     declare public readonly srcIpGroups: pulumi.Output<number[] | undefined>;
+    /**
+     * Source IP addresses or CIDR ranges for the rule.
+     */
     declare public readonly srcIps: pulumi.Output<string[] | undefined>;
+    /**
+     * IDs of source IPv6 address groups for the rule.
+     */
     declare public readonly srcIpv6Groups: pulumi.Output<number[] | undefined>;
+    /**
+     * Rule state. Valid values: `ENABLED`, `DISABLED`.
+     */
     declare public readonly state: pulumi.Output<string | undefined>;
+    /**
+     * IDs of threat categories to which the rule applies.
+     */
     declare public readonly threatCategories: pulumi.Output<number[] | undefined>;
+    /**
+     * IDs of time intervals during which the rule must be enforced.
+     */
     declare public readonly timeWindows: pulumi.Output<number[] | undefined>;
+    /**
+     * IDs of users to which the rule must be applied.
+     */
     declare public readonly users: pulumi.Output<number[] | undefined>;
+    /**
+     * List of ZPA application segments for which this rule is applicable. This field is applicable only for the ZPA gateway forwarding method.
+     */
     declare public readonly zpaAppSegments: pulumi.Output<outputs.ZPAAppSegmentInput[] | undefined>;
 
     /**
@@ -170,39 +306,144 @@ export class FirewallIPSRule extends pulumi.CustomResource {
  * The set of arguments for constructing a FirewallIPSRule resource.
  */
 export interface FirewallIPSRuleArgs {
+    /**
+     * The action the rule takes when traffic matches. Valid values: `ALLOW`, `BLOCK_DROP`, `BLOCK_RESET`, `BLOCK_ICMP`.
+     */
     action?: pulumi.Input<string>;
+    /**
+     * If set to true, enables packet capture (PCAP) for the rule.
+     */
     capturePcap?: pulumi.Input<boolean>;
+    /**
+     * Indicates whether this is the default firewall IPS rule.
+     */
     defaultRule?: pulumi.Input<boolean>;
+    /**
+     * IDs of departments to which the rule must be applied.
+     */
     departments?: pulumi.Input<pulumi.Input<number>[]>;
+    /**
+     * Additional information about the firewall IPS rule.
+     */
     description?: pulumi.Input<string>;
+    /**
+     * Destination IP addresses, FQDNs, or wildcard FQDNs for the rule.
+     */
     destAddresses?: pulumi.Input<pulumi.Input<string>[]>;
+    /**
+     * Destination countries (ISO 3166-1 alpha-2 codes) for the rule.
+     */
     destCountries?: pulumi.Input<pulumi.Input<string>[]>;
+    /**
+     * Destination IP address URL categories for the rule.
+     */
     destIpCategories?: pulumi.Input<pulumi.Input<string>[]>;
+    /**
+     * IDs of destination IP address groups for the rule.
+     */
     destIpGroups?: pulumi.Input<pulumi.Input<number>[]>;
+    /**
+     * IDs of destination IPv6 address groups for the rule.
+     */
     destIpv6Groups?: pulumi.Input<pulumi.Input<number>[]>;
+    /**
+     * IDs of device groups for which the rule must be applied. Applicable for devices managed using Zscaler Client Connector.
+     */
     deviceGroups?: pulumi.Input<pulumi.Input<number>[]>;
+    /**
+     * IDs of devices for which the rule must be applied.
+     */
     devices?: pulumi.Input<pulumi.Input<number>[]>;
+    /**
+     * If set to true, enables full logging for the rule.
+     */
     enableFullLogging?: pulumi.Input<boolean>;
+    /**
+     * The ID of the end user notification template associated with the rule.
+     */
     eunTemplateId?: pulumi.Input<number>;
+    /**
+     * IDs of groups to which the rule must be applied.
+     */
     groups?: pulumi.Input<pulumi.Input<number>[]>;
+    /**
+     * If set to true, enables end user notification for the rule.
+     */
     isEunEnabled?: pulumi.Input<boolean>;
+    /**
+     * IDs of labels associated with the rule.
+     */
     labels?: pulumi.Input<pulumi.Input<number>[]>;
+    /**
+     * IDs of location groups to which the rule must be applied.
+     */
     locationGroups?: pulumi.Input<pulumi.Input<number>[]>;
+    /**
+     * IDs of locations to which the rule must be applied.
+     */
     locations?: pulumi.Input<pulumi.Input<number>[]>;
+    /**
+     * The name of the firewall IPS rule. Must be unique.
+     */
     name: pulumi.Input<string>;
+    /**
+     * IDs of network service groups to which the rule applies.
+     */
     nwServiceGroups?: pulumi.Input<pulumi.Input<number>[]>;
+    /**
+     * IDs of network services to which the rule applies.
+     */
     nwServices?: pulumi.Input<pulumi.Input<number>[]>;
+    /**
+     * The order of execution of the rule with respect to other firewall IPS rules.
+     */
     order: pulumi.Input<number>;
+    /**
+     * Indicates whether this is a predefined rule.
+     */
     predefined?: pulumi.Input<boolean>;
+    /**
+     * Admin rank of the firewall IPS policy rule. Valid values: 0-7. Default: 7.
+     */
     rank?: pulumi.Input<number>;
+    /**
+     * URL categories that apply to the response for the rule.
+     */
     resCategories?: pulumi.Input<pulumi.Input<string>[]>;
+    /**
+     * Source countries (ISO 3166-1 alpha-2 codes) for the rule.
+     */
     sourceCountries?: pulumi.Input<pulumi.Input<string>[]>;
+    /**
+     * IDs of source IP address groups for the rule.
+     */
     srcIpGroups?: pulumi.Input<pulumi.Input<number>[]>;
+    /**
+     * Source IP addresses or CIDR ranges for the rule.
+     */
     srcIps?: pulumi.Input<pulumi.Input<string>[]>;
+    /**
+     * IDs of source IPv6 address groups for the rule.
+     */
     srcIpv6Groups?: pulumi.Input<pulumi.Input<number>[]>;
+    /**
+     * Rule state. Valid values: `ENABLED`, `DISABLED`.
+     */
     state?: pulumi.Input<string>;
+    /**
+     * IDs of threat categories to which the rule applies.
+     */
     threatCategories?: pulumi.Input<pulumi.Input<number>[]>;
+    /**
+     * IDs of time intervals during which the rule must be enforced.
+     */
     timeWindows?: pulumi.Input<pulumi.Input<number>[]>;
+    /**
+     * IDs of users to which the rule must be applied.
+     */
     users?: pulumi.Input<pulumi.Input<number>[]>;
+    /**
+     * List of ZPA application segments for which this rule is applicable. This field is applicable only for the ZPA gateway forwarding method.
+     */
     zpaAppSegments?: pulumi.Input<pulumi.Input<inputs.ZPAAppSegmentInputArgs>[]>;
 }

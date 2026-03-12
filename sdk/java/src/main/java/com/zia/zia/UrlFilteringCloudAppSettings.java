@@ -15,139 +15,443 @@ import java.util.List;
 import java.util.Optional;
 import javax.annotation.Nullable;
 
+/**
+ * The zia_url_filtering_and_cloud_app_settings resource manages URL filtering and cloud application settings in the Zscaler Internet Access (ZIA) cloud service. This is a singleton resource that controls global settings for URL filtering features such as safe search enforcement, UCaaS application controls, AI/ML prompt visibility, and CIPA compliance.
+ * 
+ * For more information, see the [ZIA URL Filtering documentation](https://help.zscaler.com/zia/url-filtering).
+ * 
+ * ## Example Usage
+ * 
+ * ## Import
+ * 
+ * The singleton URL Filtering Cloud App Settings resource can be imported using its fixed ID, e.g.
+ * 
+ * ```sh
+ * $ pulumi import zia:index:UrlFilteringCloudAppSettings example app_setting
+ * ```
+ * 
+ */
 @ResourceType(type="zia:index:UrlFilteringCloudAppSettings")
 public class UrlFilteringCloudAppSettings extends com.pulumi.resources.CustomResource {
+    /**
+     * If true, Skype is blocked.
+     * 
+     */
     @Export(name="blockSkype", refs={Boolean.class}, tree="[0]")
     private Output</* @Nullable */ Boolean> blockSkype;
 
+    /**
+     * @return If true, Skype is blocked.
+     * 
+     */
     public Output<Optional<Boolean>> blockSkype() {
         return Codegen.optional(this.blockSkype);
     }
+    /**
+     * If true, embedded sites within web pages are considered for URL filtering.
+     * 
+     */
     @Export(name="considerEmbeddedSites", refs={Boolean.class}, tree="[0]")
     private Output</* @Nullable */ Boolean> considerEmbeddedSites;
 
+    /**
+     * @return If true, embedded sites within web pages are considered for URL filtering.
+     * 
+     */
     public Output<Optional<Boolean>> considerEmbeddedSites() {
         return Codegen.optional(this.considerEmbeddedSites);
     }
+    /**
+     * If true, block override is enabled for non-authenticated users.
+     * 
+     */
     @Export(name="enableBlockOverrideForNonAuthUser", refs={Boolean.class}, tree="[0]")
     private Output</* @Nullable */ Boolean> enableBlockOverrideForNonAuthUser;
 
+    /**
+     * @return If true, block override is enabled for non-authenticated users.
+     * 
+     */
     public Output<Optional<Boolean>> enableBlockOverrideForNonAuthUser() {
         return Codegen.optional(this.enableBlockOverrideForNonAuthUser);
     }
+    /**
+     * If true, ChatGPT prompt visibility and logging is enabled.
+     * 
+     */
     @Export(name="enableChatgptPrompt", refs={Boolean.class}, tree="[0]")
     private Output</* @Nullable */ Boolean> enableChatgptPrompt;
 
+    /**
+     * @return If true, ChatGPT prompt visibility and logging is enabled.
+     * 
+     */
     public Output<Optional<Boolean>> enableChatgptPrompt() {
         return Codegen.optional(this.enableChatgptPrompt);
     }
+    /**
+     * If true, CIPA (Children&#39;s Internet Protection Act) compliance mode is enabled.
+     * 
+     */
     @Export(name="enableCipaCompliance", refs={Boolean.class}, tree="[0]")
     private Output</* @Nullable */ Boolean> enableCipaCompliance;
 
+    /**
+     * @return If true, CIPA (Children&#39;s Internet Protection Act) compliance mode is enabled.
+     * 
+     */
     public Output<Optional<Boolean>> enableCipaCompliance() {
         return Codegen.optional(this.enableCipaCompliance);
     }
+    /**
+     * If true, Claude AI prompt visibility and logging is enabled.
+     * 
+     */
+    @Export(name="enableClaudePrompt", refs={Boolean.class}, tree="[0]")
+    private Output</* @Nullable */ Boolean> enableClaudePrompt;
+
+    /**
+     * @return If true, Claude AI prompt visibility and logging is enabled.
+     * 
+     */
+    public Output<Optional<Boolean>> enableClaudePrompt() {
+        return Codegen.optional(this.enableClaudePrompt);
+    }
+    /**
+     * If true, Creative Commons search results are enabled.
+     * 
+     */
+    @Export(name="enableCreativeCommonsSearchResults", refs={Boolean.class}, tree="[0]")
+    private Output</* @Nullable */ Boolean> enableCreativeCommonsSearchResults;
+
+    /**
+     * @return If true, Creative Commons search results are enabled.
+     * 
+     */
+    public Output<Optional<Boolean>> enableCreativeCommonsSearchResults() {
+        return Codegen.optional(this.enableCreativeCommonsSearchResults);
+    }
+    /**
+     * If true, DeepSeek AI prompt visibility and logging is enabled.
+     * 
+     */
+    @Export(name="enableDeepSeekPrompt", refs={Boolean.class}, tree="[0]")
+    private Output</* @Nullable */ Boolean> enableDeepSeekPrompt;
+
+    /**
+     * @return If true, DeepSeek AI prompt visibility and logging is enabled.
+     * 
+     */
+    public Output<Optional<Boolean>> enableDeepSeekPrompt() {
+        return Codegen.optional(this.enableDeepSeekPrompt);
+    }
+    /**
+     * If true, dynamic content categorization is enabled.
+     * 
+     */
     @Export(name="enableDynamicContentCat", refs={Boolean.class}, tree="[0]")
     private Output</* @Nullable */ Boolean> enableDynamicContentCat;
 
+    /**
+     * @return If true, dynamic content categorization is enabled.
+     * 
+     */
     public Output<Optional<Boolean>> enableDynamicContentCat() {
         return Codegen.optional(this.enableDynamicContentCat);
     }
+    /**
+     * If true, Google Gemini prompt visibility and logging is enabled.
+     * 
+     */
     @Export(name="enableGeminiPrompt", refs={Boolean.class}, tree="[0]")
     private Output</* @Nullable */ Boolean> enableGeminiPrompt;
 
+    /**
+     * @return If true, Google Gemini prompt visibility and logging is enabled.
+     * 
+     */
     public Output<Optional<Boolean>> enableGeminiPrompt() {
         return Codegen.optional(this.enableGeminiPrompt);
     }
+    /**
+     * If true, Grammarly AI prompt visibility and logging is enabled.
+     * 
+     */
+    @Export(name="enableGrammarlyPrompt", refs={Boolean.class}, tree="[0]")
+    private Output</* @Nullable */ Boolean> enableGrammarlyPrompt;
+
+    /**
+     * @return If true, Grammarly AI prompt visibility and logging is enabled.
+     * 
+     */
+    public Output<Optional<Boolean>> enableGrammarlyPrompt() {
+        return Codegen.optional(this.enableGrammarlyPrompt);
+    }
+    /**
+     * If true, Grok AI prompt visibility and logging is enabled.
+     * 
+     */
+    @Export(name="enableGrokPrompt", refs={Boolean.class}, tree="[0]")
+    private Output</* @Nullable */ Boolean> enableGrokPrompt;
+
+    /**
+     * @return If true, Grok AI prompt visibility and logging is enabled.
+     * 
+     */
+    public Output<Optional<Boolean>> enableGrokPrompt() {
+        return Codegen.optional(this.enableGrokPrompt);
+    }
+    /**
+     * If true, Meta AI prompt visibility and logging is enabled.
+     * 
+     */
     @Export(name="enableMetaPrompt", refs={Boolean.class}, tree="[0]")
     private Output</* @Nullable */ Boolean> enableMetaPrompt;
 
+    /**
+     * @return If true, Meta AI prompt visibility and logging is enabled.
+     * 
+     */
     public Output<Optional<Boolean>> enableMetaPrompt() {
         return Codegen.optional(this.enableMetaPrompt);
     }
+    /**
+     * If true, Microsoft Copilot prompt visibility and logging is enabled.
+     * 
+     */
     @Export(name="enableMicrosoftCopilotPrompt", refs={Boolean.class}, tree="[0]")
     private Output</* @Nullable */ Boolean> enableMicrosoftCopilotPrompt;
 
+    /**
+     * @return If true, Microsoft Copilot prompt visibility and logging is enabled.
+     * 
+     */
     public Output<Optional<Boolean>> enableMicrosoftCopilotPrompt() {
         return Codegen.optional(this.enableMicrosoftCopilotPrompt);
     }
+    /**
+     * If true, Mistral AI prompt visibility and logging is enabled.
+     * 
+     */
+    @Export(name="enableMistralAiPrompt", refs={Boolean.class}, tree="[0]")
+    private Output</* @Nullable */ Boolean> enableMistralAiPrompt;
+
+    /**
+     * @return If true, Mistral AI prompt visibility and logging is enabled.
+     * 
+     */
+    public Output<Optional<Boolean>> enableMistralAiPrompt() {
+        return Codegen.optional(this.enableMistralAiPrompt);
+    }
+    /**
+     * If true, Microsoft Office 365 optimization is enabled.
+     * 
+     */
     @Export(name="enableMsftO365", refs={Boolean.class}, tree="[0]")
     private Output</* @Nullable */ Boolean> enableMsftO365;
 
+    /**
+     * @return If true, Microsoft Office 365 optimization is enabled.
+     * 
+     */
     public Output<Optional<Boolean>> enableMsftO365() {
         return Codegen.optional(this.enableMsftO365);
     }
+    /**
+     * If true, newly registered domains detection is enabled.
+     * 
+     */
     @Export(name="enableNewlyRegisteredDomains", refs={Boolean.class}, tree="[0]")
     private Output</* @Nullable */ Boolean> enableNewlyRegisteredDomains;
 
+    /**
+     * @return If true, newly registered domains detection is enabled.
+     * 
+     */
     public Output<Optional<Boolean>> enableNewlyRegisteredDomains() {
         return Codegen.optional(this.enableNewlyRegisteredDomains);
     }
+    /**
+     * If true, Office 365 one-click configuration is enabled.
+     * 
+     */
     @Export(name="enableOffice365", refs={Boolean.class}, tree="[0]")
     private Output</* @Nullable */ Boolean> enableOffice365;
 
+    /**
+     * @return If true, Office 365 one-click configuration is enabled.
+     * 
+     */
     public Output<Optional<Boolean>> enableOffice365() {
         return Codegen.optional(this.enableOffice365);
     }
+    /**
+     * If true, Perplexity AI prompt visibility and logging is enabled.
+     * 
+     */
     @Export(name="enablePerPlexityPrompt", refs={Boolean.class}, tree="[0]")
     private Output</* @Nullable */ Boolean> enablePerPlexityPrompt;
 
+    /**
+     * @return If true, Perplexity AI prompt visibility and logging is enabled.
+     * 
+     */
     public Output<Optional<Boolean>> enablePerPlexityPrompt() {
         return Codegen.optional(this.enablePerPlexityPrompt);
     }
+    /**
+     * If true, POE prompt visibility and logging is enabled.
+     * 
+     */
     @Export(name="enablePoepPrompt", refs={Boolean.class}, tree="[0]")
     private Output</* @Nullable */ Boolean> enablePoepPrompt;
 
+    /**
+     * @return If true, POE prompt visibility and logging is enabled.
+     * 
+     */
     public Output<Optional<Boolean>> enablePoepPrompt() {
         return Codegen.optional(this.enablePoepPrompt);
     }
+    /**
+     * If true, UCaaS controls for LogMeIn are enabled.
+     * 
+     */
     @Export(name="enableUcaasLogmein", refs={Boolean.class}, tree="[0]")
     private Output</* @Nullable */ Boolean> enableUcaasLogmein;
 
+    /**
+     * @return If true, UCaaS controls for LogMeIn are enabled.
+     * 
+     */
     public Output<Optional<Boolean>> enableUcaasLogmein() {
         return Codegen.optional(this.enableUcaasLogmein);
     }
+    /**
+     * If true, UCaaS controls for RingCentral are enabled.
+     * 
+     */
     @Export(name="enableUcaasRingCentral", refs={Boolean.class}, tree="[0]")
     private Output</* @Nullable */ Boolean> enableUcaasRingCentral;
 
+    /**
+     * @return If true, UCaaS controls for RingCentral are enabled.
+     * 
+     */
     public Output<Optional<Boolean>> enableUcaasRingCentral() {
         return Codegen.optional(this.enableUcaasRingCentral);
     }
+    /**
+     * If true, UCaaS controls for Talkdesk are enabled.
+     * 
+     */
     @Export(name="enableUcaasTalkdesk", refs={Boolean.class}, tree="[0]")
     private Output</* @Nullable */ Boolean> enableUcaasTalkdesk;
 
+    /**
+     * @return If true, UCaaS controls for Talkdesk are enabled.
+     * 
+     */
     public Output<Optional<Boolean>> enableUcaasTalkdesk() {
         return Codegen.optional(this.enableUcaasTalkdesk);
     }
+    /**
+     * If true, UCaaS controls for Webex are enabled.
+     * 
+     */
     @Export(name="enableUcaasWebex", refs={Boolean.class}, tree="[0]")
     private Output</* @Nullable */ Boolean> enableUcaasWebex;
 
+    /**
+     * @return If true, UCaaS controls for Webex are enabled.
+     * 
+     */
     public Output<Optional<Boolean>> enableUcaasWebex() {
         return Codegen.optional(this.enableUcaasWebex);
     }
+    /**
+     * If true, UCaaS controls for Zoom are enabled.
+     * 
+     */
     @Export(name="enableUcaasZoom", refs={Boolean.class}, tree="[0]")
     private Output</* @Nullable */ Boolean> enableUcaasZoom;
 
+    /**
+     * @return If true, UCaaS controls for Zoom are enabled.
+     * 
+     */
     public Output<Optional<Boolean>> enableUcaasZoom() {
         return Codegen.optional(this.enableUcaasZoom);
     }
+    /**
+     * If true, Writer AI prompt visibility and logging is enabled.
+     * 
+     */
+    @Export(name="enableWriterPrompt", refs={Boolean.class}, tree="[0]")
+    private Output</* @Nullable */ Boolean> enableWriterPrompt;
+
+    /**
+     * @return If true, Writer AI prompt visibility and logging is enabled.
+     * 
+     */
+    public Output<Optional<Boolean>> enableWriterPrompt() {
+        return Codegen.optional(this.enableWriterPrompt);
+    }
+    /**
+     * If true, safe search is enforced for supported search engines.
+     * 
+     */
     @Export(name="enforceSafeSearch", refs={Boolean.class}, tree="[0]")
     private Output</* @Nullable */ Boolean> enforceSafeSearch;
 
+    /**
+     * @return If true, safe search is enforced for supported search engines.
+     * 
+     */
     public Output<Optional<Boolean>> enforceSafeSearch() {
         return Codegen.optional(this.enforceSafeSearch);
     }
+    /**
+     * The fixed resource ID of the singleton URL filtering cloud app settings.
+     * 
+     */
     @Export(name="resourceId", refs={String.class}, tree="[0]")
     private Output<String> resourceId;
 
+    /**
+     * @return The fixed resource ID of the singleton URL filtering cloud app settings.
+     * 
+     */
     public Output<String> resourceId() {
         return this.resourceId;
     }
+    /**
+     * List of application names for which safe search is enforced.
+     * 
+     */
     @Export(name="safeSearchApps", refs={List.class,String.class}, tree="[0,1]")
     private Output</* @Nullable */ List<String>> safeSearchApps;
 
+    /**
+     * @return List of application names for which safe search is enforced.
+     * 
+     */
     public Output<Optional<List<String>>> safeSearchApps() {
         return Codegen.optional(this.safeSearchApps);
+    }
+    /**
+     * If true, Zvelo database lookup is disabled.
+     * 
+     */
+    @Export(name="zveloDbLookupDisabled", refs={Boolean.class}, tree="[0]")
+    private Output</* @Nullable */ Boolean> zveloDbLookupDisabled;
+
+    /**
+     * @return If true, Zvelo database lookup is disabled.
+     * 
+     */
+    public Output<Optional<Boolean>> zveloDbLookupDisabled() {
+        return Codegen.optional(this.zveloDbLookupDisabled);
     }
 
     /**
@@ -189,6 +493,7 @@ public class UrlFilteringCloudAppSettings extends com.pulumi.resources.CustomRes
     private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<java.lang.String> id) {
         var defaultOptions = com.pulumi.resources.CustomResourceOptions.builder()
             .version(Utilities.getVersion())
+            .pluginDownloadURL("github://api.github.com/zscaler")
             .build();
         return com.pulumi.resources.CustomResourceOptions.merge(defaultOptions, options, id);
     }

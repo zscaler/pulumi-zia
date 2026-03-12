@@ -17,197 +17,469 @@ import java.util.List;
 import java.util.Optional;
 import javax.annotation.Nullable;
 
+/**
+ * The zia.FileTypeControlRule resource manages file type control rules in the Zscaler Internet Access (ZIA) cloud.
+ * File type control rules allow you to block, caution, or allow file downloads and uploads based on file types,
+ * protocols, URL categories, and other criteria. Predefined rules cannot be deleted.
+ * 
+ * ## Example Usage
+ * 
+ * ## Import
+ * 
+ * An existing file type control rule can be imported using its ID, e.g.
+ * 
+ * ```sh
+ * $ pulumi import zia:index:FileTypeControlRule example 12345
+ * ```
+ * 
+ */
 @ResourceType(type="zia:index:FileTypeControlRule")
 public class FileTypeControlRule extends com.pulumi.resources.CustomResource {
+    /**
+     * Whether the rule applies to files with active content.
+     * 
+     */
     @Export(name="activeContent", refs={Boolean.class}, tree="[0]")
     private Output</* @Nullable */ Boolean> activeContent;
 
+    /**
+     * @return Whether the rule applies to files with active content.
+     * 
+     */
     public Output<Optional<Boolean>> activeContent() {
         return Codegen.optional(this.activeContent);
     }
+    /**
+     * The browser end-user notification template ID.
+     * 
+     */
     @Export(name="browserEunTemplateId", refs={Integer.class}, tree="[0]")
     private Output</* @Nullable */ Integer> browserEunTemplateId;
 
+    /**
+     * @return The browser end-user notification template ID.
+     * 
+     */
     public Output<Optional<Integer>> browserEunTemplateId() {
         return Codegen.optional(this.browserEunTemplateId);
     }
+    /**
+     * Whether to capture PCAP data for the rule.
+     * 
+     */
     @Export(name="capturePcap", refs={Boolean.class}, tree="[0]")
     private Output</* @Nullable */ Boolean> capturePcap;
 
+    /**
+     * @return Whether to capture PCAP data for the rule.
+     * 
+     */
     public Output<Optional<Boolean>> capturePcap() {
         return Codegen.optional(this.capturePcap);
     }
+    /**
+     * List of cloud applications to which the rule applies.
+     * 
+     */
     @Export(name="cloudApplications", refs={List.class,String.class}, tree="[0,1]")
     private Output</* @Nullable */ List<String>> cloudApplications;
 
+    /**
+     * @return List of cloud applications to which the rule applies.
+     * 
+     */
     public Output<Optional<List<String>>> cloudApplications() {
         return Codegen.optional(this.cloudApplications);
     }
+    /**
+     * List of department IDs to which the rule applies.
+     * 
+     */
     @Export(name="departments", refs={List.class,Integer.class}, tree="[0,1]")
     private Output</* @Nullable */ List<Integer>> departments;
 
+    /**
+     * @return List of department IDs to which the rule applies.
+     * 
+     */
     public Output<Optional<List<Integer>>> departments() {
         return Codegen.optional(this.departments);
     }
+    /**
+     * Description of the file type control rule.
+     * 
+     */
     @Export(name="description", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> description;
 
+    /**
+     * @return Description of the file type control rule.
+     * 
+     */
     public Output<Optional<String>> description() {
         return Codegen.optional(this.description);
     }
+    /**
+     * List of device group IDs to which the rule applies.
+     * 
+     */
     @Export(name="deviceGroups", refs={List.class,Integer.class}, tree="[0,1]")
     private Output</* @Nullable */ List<Integer>> deviceGroups;
 
+    /**
+     * @return List of device group IDs to which the rule applies.
+     * 
+     */
     public Output<Optional<List<Integer>>> deviceGroups() {
         return Codegen.optional(this.deviceGroups);
     }
+    /**
+     * List of device trust levels for the rule.
+     * 
+     */
     @Export(name="deviceTrustLevels", refs={List.class,String.class}, tree="[0,1]")
     private Output</* @Nullable */ List<String>> deviceTrustLevels;
 
+    /**
+     * @return List of device trust levels for the rule.
+     * 
+     */
     public Output<Optional<List<String>>> deviceTrustLevels() {
         return Codegen.optional(this.deviceTrustLevels);
     }
+    /**
+     * List of device IDs to which the rule applies.
+     * 
+     */
     @Export(name="devices", refs={List.class,Integer.class}, tree="[0,1]")
     private Output</* @Nullable */ List<Integer>> devices;
 
+    /**
+     * @return List of device IDs to which the rule applies.
+     * 
+     */
     public Output<Optional<List<Integer>>> devices() {
         return Codegen.optional(this.devices);
     }
+    /**
+     * List of file types to which the rule applies (e.g., &#39;EXE&#39;, &#39;DLL&#39;).
+     * 
+     */
     @Export(name="fileTypes", refs={List.class,String.class}, tree="[0,1]")
     private Output</* @Nullable */ List<String>> fileTypes;
 
+    /**
+     * @return List of file types to which the rule applies (e.g., &#39;EXE&#39;, &#39;DLL&#39;).
+     * 
+     */
     public Output<Optional<List<String>>> fileTypes() {
         return Codegen.optional(this.fileTypes);
     }
+    /**
+     * The action taken when traffic matches the rule (e.g., &#39;BLOCK&#39;, &#39;CAUTION&#39;, &#39;ALLOW&#39;).
+     * 
+     */
     @Export(name="filteringAction", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> filteringAction;
 
+    /**
+     * @return The action taken when traffic matches the rule (e.g., &#39;BLOCK&#39;, &#39;CAUTION&#39;, &#39;ALLOW&#39;).
+     * 
+     */
     public Output<Optional<String>> filteringAction() {
         return Codegen.optional(this.filteringAction);
     }
+    /**
+     * List of group IDs to which the rule applies.
+     * 
+     */
     @Export(name="groups", refs={List.class,Integer.class}, tree="[0,1]")
     private Output</* @Nullable */ List<Integer>> groups;
 
+    /**
+     * @return List of group IDs to which the rule applies.
+     * 
+     */
     public Output<Optional<List<Integer>>> groups() {
         return Codegen.optional(this.groups);
     }
+    /**
+     * List of label IDs associated with the rule.
+     * 
+     */
     @Export(name="labels", refs={List.class,Integer.class}, tree="[0,1]")
     private Output</* @Nullable */ List<Integer>> labels;
 
+    /**
+     * @return List of label IDs associated with the rule.
+     * 
+     */
     public Output<Optional<List<Integer>>> labels() {
         return Codegen.optional(this.labels);
     }
+    /**
+     * List of location group IDs to which the rule applies.
+     * 
+     */
     @Export(name="locationGroups", refs={List.class,Integer.class}, tree="[0,1]")
     private Output</* @Nullable */ List<Integer>> locationGroups;
 
+    /**
+     * @return List of location group IDs to which the rule applies.
+     * 
+     */
     public Output<Optional<List<Integer>>> locationGroups() {
         return Codegen.optional(this.locationGroups);
     }
+    /**
+     * List of location IDs to which the rule applies.
+     * 
+     */
     @Export(name="locations", refs={List.class,Integer.class}, tree="[0,1]")
     private Output</* @Nullable */ List<Integer>> locations;
 
+    /**
+     * @return List of location IDs to which the rule applies.
+     * 
+     */
     public Output<Optional<List<Integer>>> locations() {
         return Codegen.optional(this.locations);
     }
+    /**
+     * Maximum file size in bytes for the rule to apply.
+     * 
+     */
     @Export(name="maxSize", refs={Integer.class}, tree="[0]")
     private Output</* @Nullable */ Integer> maxSize;
 
+    /**
+     * @return Maximum file size in bytes for the rule to apply.
+     * 
+     */
     public Output<Optional<Integer>> maxSize() {
         return Codegen.optional(this.maxSize);
     }
+    /**
+     * Minimum file size in bytes for the rule to apply.
+     * 
+     */
     @Export(name="minSize", refs={Integer.class}, tree="[0]")
     private Output</* @Nullable */ Integer> minSize;
 
+    /**
+     * @return Minimum file size in bytes for the rule to apply.
+     * 
+     */
     public Output<Optional<Integer>> minSize() {
         return Codegen.optional(this.minSize);
     }
+    /**
+     * Name of the file type control rule.
+     * 
+     */
     @Export(name="name", refs={String.class}, tree="[0]")
     private Output<String> name;
 
+    /**
+     * @return Name of the file type control rule.
+     * 
+     */
     public Output<String> name() {
         return this.name;
     }
+    /**
+     * The type of file operation (e.g., &#39;DOWNLOAD&#39;, &#39;UPLOAD&#39;).
+     * 
+     */
     @Export(name="operation", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> operation;
 
+    /**
+     * @return The type of file operation (e.g., &#39;DOWNLOAD&#39;, &#39;UPLOAD&#39;).
+     * 
+     */
     public Output<Optional<String>> operation() {
         return Codegen.optional(this.operation);
     }
+    /**
+     * The rule order of execution for the file type control rule.
+     * 
+     */
     @Export(name="order", refs={Integer.class}, tree="[0]")
     private Output<Integer> order;
 
+    /**
+     * @return The rule order of execution for the file type control rule.
+     * 
+     */
     public Output<Integer> order() {
         return this.order;
     }
+    /**
+     * Whether the rule applies to password-protected files.
+     * 
+     */
     @Export(name="passwordProtected", refs={Boolean.class}, tree="[0]")
     private Output</* @Nullable */ Boolean> passwordProtected;
 
+    /**
+     * @return Whether the rule applies to password-protected files.
+     * 
+     */
     public Output<Optional<Boolean>> passwordProtected() {
         return Codegen.optional(this.passwordProtected);
     }
+    /**
+     * List of protocols to which the rule applies (e.g., &#39;FTP_RULE&#39;, &#39;HTTPS_RULE&#39;).
+     * 
+     */
     @Export(name="protocols", refs={List.class,String.class}, tree="[0,1]")
     private Output</* @Nullable */ List<String>> protocols;
 
+    /**
+     * @return List of protocols to which the rule applies (e.g., &#39;FTP_RULE&#39;, &#39;HTTPS_RULE&#39;).
+     * 
+     */
     public Output<Optional<List<String>>> protocols() {
         return Codegen.optional(this.protocols);
     }
+    /**
+     * The admin rank of the rule. Default is 7.
+     * 
+     */
     @Export(name="rank", refs={Integer.class}, tree="[0]")
     private Output</* @Nullable */ Integer> rank;
 
+    /**
+     * @return The admin rank of the rule. Default is 7.
+     * 
+     */
     public Output<Optional<Integer>> rank() {
         return Codegen.optional(this.rank);
     }
+    /**
+     * The unique identifier for the file type control rule assigned by the ZIA cloud.
+     * 
+     */
     @Export(name="ruleId", refs={Integer.class}, tree="[0]")
     private Output<Integer> ruleId;
 
+    /**
+     * @return The unique identifier for the file type control rule assigned by the ZIA cloud.
+     * 
+     */
     public Output<Integer> ruleId() {
         return this.ruleId;
     }
+    /**
+     * Size quota in KB beyond which the URL filtering rule is applied.
+     * 
+     */
     @Export(name="sizeQuota", refs={Integer.class}, tree="[0]")
     private Output</* @Nullable */ Integer> sizeQuota;
 
+    /**
+     * @return Size quota in KB beyond which the URL filtering rule is applied.
+     * 
+     */
     public Output<Optional<Integer>> sizeQuota() {
         return Codegen.optional(this.sizeQuota);
     }
+    /**
+     * The rule state. Accepted values: &#39;ENABLED&#39; or &#39;DISABLED&#39;.
+     * 
+     */
     @Export(name="state", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> state;
 
+    /**
+     * @return The rule state. Accepted values: &#39;ENABLED&#39; or &#39;DISABLED&#39;.
+     * 
+     */
     public Output<Optional<String>> state() {
         return Codegen.optional(this.state);
     }
+    /**
+     * Time quota in minutes after which the URL filtering rule is applied.
+     * 
+     */
     @Export(name="timeQuota", refs={Integer.class}, tree="[0]")
     private Output</* @Nullable */ Integer> timeQuota;
 
+    /**
+     * @return Time quota in minutes after which the URL filtering rule is applied.
+     * 
+     */
     public Output<Optional<Integer>> timeQuota() {
         return Codegen.optional(this.timeQuota);
     }
+    /**
+     * List of time window IDs during which the rule is active.
+     * 
+     */
     @Export(name="timeWindows", refs={List.class,Integer.class}, tree="[0,1]")
     private Output</* @Nullable */ List<Integer>> timeWindows;
 
+    /**
+     * @return List of time window IDs during which the rule is active.
+     * 
+     */
     public Output<Optional<List<Integer>>> timeWindows() {
         return Codegen.optional(this.timeWindows);
     }
+    /**
+     * Whether the rule applies to unscannable files.
+     * 
+     */
     @Export(name="unscannable", refs={Boolean.class}, tree="[0]")
     private Output</* @Nullable */ Boolean> unscannable;
 
+    /**
+     * @return Whether the rule applies to unscannable files.
+     * 
+     */
     public Output<Optional<Boolean>> unscannable() {
         return Codegen.optional(this.unscannable);
     }
+    /**
+     * List of URL categories to which the rule applies.
+     * 
+     */
     @Export(name="urlCategories", refs={List.class,String.class}, tree="[0,1]")
     private Output</* @Nullable */ List<String>> urlCategories;
 
+    /**
+     * @return List of URL categories to which the rule applies.
+     * 
+     */
     public Output<Optional<List<String>>> urlCategories() {
         return Codegen.optional(this.urlCategories);
     }
+    /**
+     * List of user IDs to which the rule applies.
+     * 
+     */
     @Export(name="users", refs={List.class,Integer.class}, tree="[0,1]")
     private Output</* @Nullable */ List<Integer>> users;
 
+    /**
+     * @return List of user IDs to which the rule applies.
+     * 
+     */
     public Output<Optional<List<Integer>>> users() {
         return Codegen.optional(this.users);
     }
+    /**
+     * List of ZPA application segments for the rule.
+     * 
+     */
     @Export(name="zpaAppSegments", refs={List.class,ZPAAppSegmentInput.class}, tree="[0,1]")
     private Output</* @Nullable */ List<ZPAAppSegmentInput>> zpaAppSegments;
 
+    /**
+     * @return List of ZPA application segments for the rule.
+     * 
+     */
     public Output<Optional<List<ZPAAppSegmentInput>>> zpaAppSegments() {
         return Codegen.optional(this.zpaAppSegments);
     }
@@ -251,6 +523,7 @@ public class FileTypeControlRule extends com.pulumi.resources.CustomResource {
     private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<java.lang.String> id) {
         var defaultOptions = com.pulumi.resources.CustomResourceOptions.builder()
             .version(Utilities.getVersion())
+            .pluginDownloadURL("github://api.github.com/zscaler")
             .build();
         return com.pulumi.resources.CustomResourceOptions.merge(defaultOptions, options, id);
     }

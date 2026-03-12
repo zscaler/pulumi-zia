@@ -19,58 +19,122 @@ public final class UserManagementUserArgs extends com.pulumi.resources.ResourceA
 
     public static final UserManagementUserArgs Empty = new UserManagementUserArgs();
 
+    /**
+     * Authentication methods for the user. Accepted values: &#39;BASIC&#39;, &#39;DIGEST&#39;.
+     * 
+     */
     @Import(name="authMethods")
     private @Nullable Output<List<String>> authMethods;
 
+    /**
+     * @return Authentication methods for the user. Accepted values: &#39;BASIC&#39;, &#39;DIGEST&#39;.
+     * 
+     */
     public Optional<Output<List<String>>> authMethods() {
         return Optional.ofNullable(this.authMethods);
     }
 
+    /**
+     * Comments or notes about the user. Maximum 10240 characters.
+     * 
+     */
     @Import(name="comments")
     private @Nullable Output<String> comments;
 
+    /**
+     * @return Comments or notes about the user. Maximum 10240 characters.
+     * 
+     */
     public Optional<Output<String>> comments() {
         return Optional.ofNullable(this.comments);
     }
 
+    /**
+     * The department the user belongs to.
+     * 
+     */
     @Import(name="department")
     private @Nullable Output<UserDepartmentInputArgs> department;
 
+    /**
+     * @return The department the user belongs to.
+     * 
+     */
     public Optional<Output<UserDepartmentInputArgs>> department() {
         return Optional.ofNullable(this.department);
     }
 
+    /**
+     * The user&#39;s email address. Maximum 127 characters.
+     * 
+     */
     @Import(name="email", required=true)
     private Output<String> email;
 
+    /**
+     * @return The user&#39;s email address. Maximum 127 characters.
+     * 
+     */
     public Output<String> email() {
         return this.email;
     }
 
+    /**
+     * List of group IDs the user belongs to.
+     * 
+     */
     @Import(name="groups")
     private @Nullable Output<List<Integer>> groups;
 
+    /**
+     * @return List of group IDs the user belongs to.
+     * 
+     */
     public Optional<Output<List<Integer>>> groups() {
         return Optional.ofNullable(this.groups);
     }
 
+    /**
+     * The user&#39;s full name. Maximum 127 characters.
+     * 
+     */
     @Import(name="name", required=true)
     private Output<String> name;
 
+    /**
+     * @return The user&#39;s full name. Maximum 127 characters.
+     * 
+     */
     public Output<String> name() {
         return this.name;
     }
 
+    /**
+     * The user&#39;s password. This is a secret and will not be stored in plaintext in the state.
+     * 
+     */
     @Import(name="password", required=true)
     private Output<String> password;
 
+    /**
+     * @return The user&#39;s password. This is a secret and will not be stored in plaintext in the state.
+     * 
+     */
     public Output<String> password() {
         return this.password;
     }
 
+    /**
+     * Temporary authentication email for the user.
+     * 
+     */
     @Import(name="tempAuthEmail")
     private @Nullable Output<String> tempAuthEmail;
 
+    /**
+     * @return Temporary authentication email for the user.
+     * 
+     */
     public Optional<Output<String>> tempAuthEmail() {
         return Optional.ofNullable(this.tempAuthEmail);
     }
@@ -106,82 +170,190 @@ public final class UserManagementUserArgs extends com.pulumi.resources.ResourceA
             $ = new UserManagementUserArgs(Objects.requireNonNull(defaults));
         }
 
+        /**
+         * @param authMethods Authentication methods for the user. Accepted values: &#39;BASIC&#39;, &#39;DIGEST&#39;.
+         * 
+         * @return builder
+         * 
+         */
         public Builder authMethods(@Nullable Output<List<String>> authMethods) {
             $.authMethods = authMethods;
             return this;
         }
 
+        /**
+         * @param authMethods Authentication methods for the user. Accepted values: &#39;BASIC&#39;, &#39;DIGEST&#39;.
+         * 
+         * @return builder
+         * 
+         */
         public Builder authMethods(List<String> authMethods) {
             return authMethods(Output.of(authMethods));
         }
 
+        /**
+         * @param authMethods Authentication methods for the user. Accepted values: &#39;BASIC&#39;, &#39;DIGEST&#39;.
+         * 
+         * @return builder
+         * 
+         */
         public Builder authMethods(String... authMethods) {
             return authMethods(List.of(authMethods));
         }
 
+        /**
+         * @param comments Comments or notes about the user. Maximum 10240 characters.
+         * 
+         * @return builder
+         * 
+         */
         public Builder comments(@Nullable Output<String> comments) {
             $.comments = comments;
             return this;
         }
 
+        /**
+         * @param comments Comments or notes about the user. Maximum 10240 characters.
+         * 
+         * @return builder
+         * 
+         */
         public Builder comments(String comments) {
             return comments(Output.of(comments));
         }
 
+        /**
+         * @param department The department the user belongs to.
+         * 
+         * @return builder
+         * 
+         */
         public Builder department(@Nullable Output<UserDepartmentInputArgs> department) {
             $.department = department;
             return this;
         }
 
+        /**
+         * @param department The department the user belongs to.
+         * 
+         * @return builder
+         * 
+         */
         public Builder department(UserDepartmentInputArgs department) {
             return department(Output.of(department));
         }
 
+        /**
+         * @param email The user&#39;s email address. Maximum 127 characters.
+         * 
+         * @return builder
+         * 
+         */
         public Builder email(Output<String> email) {
             $.email = email;
             return this;
         }
 
+        /**
+         * @param email The user&#39;s email address. Maximum 127 characters.
+         * 
+         * @return builder
+         * 
+         */
         public Builder email(String email) {
             return email(Output.of(email));
         }
 
+        /**
+         * @param groups List of group IDs the user belongs to.
+         * 
+         * @return builder
+         * 
+         */
         public Builder groups(@Nullable Output<List<Integer>> groups) {
             $.groups = groups;
             return this;
         }
 
+        /**
+         * @param groups List of group IDs the user belongs to.
+         * 
+         * @return builder
+         * 
+         */
         public Builder groups(List<Integer> groups) {
             return groups(Output.of(groups));
         }
 
+        /**
+         * @param groups List of group IDs the user belongs to.
+         * 
+         * @return builder
+         * 
+         */
         public Builder groups(Integer... groups) {
             return groups(List.of(groups));
         }
 
+        /**
+         * @param name The user&#39;s full name. Maximum 127 characters.
+         * 
+         * @return builder
+         * 
+         */
         public Builder name(Output<String> name) {
             $.name = name;
             return this;
         }
 
+        /**
+         * @param name The user&#39;s full name. Maximum 127 characters.
+         * 
+         * @return builder
+         * 
+         */
         public Builder name(String name) {
             return name(Output.of(name));
         }
 
+        /**
+         * @param password The user&#39;s password. This is a secret and will not be stored in plaintext in the state.
+         * 
+         * @return builder
+         * 
+         */
         public Builder password(Output<String> password) {
             $.password = password;
             return this;
         }
 
+        /**
+         * @param password The user&#39;s password. This is a secret and will not be stored in plaintext in the state.
+         * 
+         * @return builder
+         * 
+         */
         public Builder password(String password) {
             return password(Output.of(password));
         }
 
+        /**
+         * @param tempAuthEmail Temporary authentication email for the user.
+         * 
+         * @return builder
+         * 
+         */
         public Builder tempAuthEmail(@Nullable Output<String> tempAuthEmail) {
             $.tempAuthEmail = tempAuthEmail;
             return this;
         }
 
+        /**
+         * @param tempAuthEmail Temporary authentication email for the user.
+         * 
+         * @return builder
+         * 
+         */
         public Builder tempAuthEmail(String tempAuthEmail) {
             return tempAuthEmail(Output.of(tempAuthEmail));
         }

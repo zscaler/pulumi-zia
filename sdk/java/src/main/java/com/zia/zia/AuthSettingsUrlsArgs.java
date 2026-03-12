@@ -16,9 +16,17 @@ public final class AuthSettingsUrlsArgs extends com.pulumi.resources.ResourceArg
 
     public static final AuthSettingsUrlsArgs Empty = new AuthSettingsUrlsArgs();
 
+    /**
+     * List of URLs that are exempted from user authentication.
+     * 
+     */
     @Import(name="urls")
     private @Nullable Output<List<String>> urls;
 
+    /**
+     * @return List of URLs that are exempted from user authentication.
+     * 
+     */
     public Optional<Output<List<String>>> urls() {
         return Optional.ofNullable(this.urls);
     }
@@ -47,15 +55,33 @@ public final class AuthSettingsUrlsArgs extends com.pulumi.resources.ResourceArg
             $ = new AuthSettingsUrlsArgs(Objects.requireNonNull(defaults));
         }
 
+        /**
+         * @param urls List of URLs that are exempted from user authentication.
+         * 
+         * @return builder
+         * 
+         */
         public Builder urls(@Nullable Output<List<String>> urls) {
             $.urls = urls;
             return this;
         }
 
+        /**
+         * @param urls List of URLs that are exempted from user authentication.
+         * 
+         * @return builder
+         * 
+         */
         public Builder urls(List<String> urls) {
             return urls(Output.of(urls));
         }
 
+        /**
+         * @param urls List of URLs that are exempted from user authentication.
+         * 
+         * @return builder
+         * 
+         */
         public Builder urls(String... urls) {
             return urls(List.of(urls));
         }

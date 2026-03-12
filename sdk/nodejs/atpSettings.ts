@@ -4,6 +4,31 @@
 import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "./utilities";
 
+/**
+ * The zia_atp_settings resource manages Advanced Threat Protection (ATP) settings in the Zscaler Internet Access (ZIA) cloud service. ATP settings control which threat categories are blocked or captured (logged) for packet capture analysis. This is a singleton resource.
+ *
+ * For more information, see the [ZIA Advanced Threat Protection documentation](https://help.zscaler.com/zia/about-advanced-threat-protection-policy).
+ *
+ * ## Example Usage
+ * ### Configure ATP Settings
+ *
+ * ```typescript
+ * import * as zia from "@bdzscaler/pulumi-zia";
+ *
+ * const example = new zia.AtpSettings("example", {
+ *     malwareSitesBlocked: true,
+ *     malwareSitesCapture: true,
+ *     knownPhishingSitesBlocked: true,
+ *     knownPhishingSitesCapture: true,
+ *     cmdCtlServerBlocked: true,
+ *     cryptoMiningBlocked: true,
+ *     torBlocked: true,
+ *     riskTolerance: 0,
+ * });
+ * ```
+ *
+ * > This is a singleton resource. Import is not applicable.
+ */
 export class AtpSettings extends pulumi.CustomResource {
     /**
      * Get an existing AtpSettings resource's state with the given name, ID, and optional extra
@@ -31,54 +56,201 @@ export class AtpSettings extends pulumi.CustomResource {
         return obj['__pulumiType'] === AtpSettings.__pulumiType;
     }
 
+    /**
+     * Block ActiveX controls.
+     */
     declare public readonly activexBlocked: pulumi.Output<boolean | undefined>;
+    /**
+     * Enable packet capture for ActiveX events.
+     */
     declare public readonly activexCapture: pulumi.Output<boolean | undefined>;
+    /**
+     * Block adware/spyware sites.
+     */
     declare public readonly adSpywareSitesBlocked: pulumi.Output<boolean | undefined>;
+    /**
+     * Enable packet capture for adware/spyware site events.
+     */
     declare public readonly adSpywareSitesCapture: pulumi.Output<boolean | undefined>;
+    /**
+     * Enable alerts for unknown or suspicious C2 traffic.
+     */
     declare public readonly alertForUnknownSuspiciousC2Traffic: pulumi.Output<boolean | undefined>;
+    /**
+     * Block anonymizers.
+     */
     declare public readonly anonymizerBlocked: pulumi.Output<boolean | undefined>;
+    /**
+     * Enable packet capture for anonymizer events.
+     */
     declare public readonly anonymizerCapture: pulumi.Output<boolean | undefined>;
+    /**
+     * Block BitTorrent traffic.
+     */
     declare public readonly bitTorrentBlocked: pulumi.Output<boolean | undefined>;
+    /**
+     * Enable packet capture for BitTorrent events.
+     */
     declare public readonly bitTorrentCapture: pulumi.Output<boolean | undefined>;
+    /**
+     * Enable packet capture for blocked countries events.
+     */
     declare public readonly blockCountriesCapture: pulumi.Output<boolean | undefined>;
+    /**
+     * List of countries (ISO 3166-1 alpha-2 codes) to block.
+     */
     declare public readonly blockedCountries: pulumi.Output<string[] | undefined>;
+    /**
+     * Block browser exploits.
+     */
     declare public readonly browserExploitsBlocked: pulumi.Output<boolean | undefined>;
+    /**
+     * Enable packet capture for browser exploit events.
+     */
     declare public readonly browserExploitsCapture: pulumi.Output<boolean | undefined>;
+    /**
+     * Block known command-and-control servers.
+     */
     declare public readonly cmdCtlServerBlocked: pulumi.Output<boolean | undefined>;
+    /**
+     * Enable packet capture for command-and-control server events.
+     */
     declare public readonly cmdCtlServerCapture: pulumi.Output<boolean | undefined>;
+    /**
+     * Block command-and-control traffic.
+     */
     declare public readonly cmdCtlTrafficBlocked: pulumi.Output<boolean | undefined>;
+    /**
+     * Enable packet capture for command-and-control traffic events.
+     */
     declare public readonly cmdCtlTrafficCapture: pulumi.Output<boolean | undefined>;
+    /**
+     * Block cookie stealing attempts.
+     */
     declare public readonly cookieStealingBlocked: pulumi.Output<boolean | undefined>;
+    /**
+     * Enable packet capture for cookie stealing events.
+     */
     declare public readonly cookieStealingPcapEnabled: pulumi.Output<boolean | undefined>;
+    /**
+     * Block crypto mining traffic.
+     */
     declare public readonly cryptoMiningBlocked: pulumi.Output<boolean | undefined>;
+    /**
+     * Enable packet capture for crypto mining events.
+     */
     declare public readonly cryptoMiningCapture: pulumi.Output<boolean | undefined>;
+    /**
+     * Block domain generation algorithm (DGA) domains.
+     */
     declare public readonly dgaDomainsBlocked: pulumi.Output<boolean | undefined>;
+    /**
+     * Enable packet capture for DGA domain events.
+     */
     declare public readonly dgaDomainsCapture: pulumi.Output<boolean | undefined>;
+    /**
+     * Block file format vulnerabilities.
+     */
     declare public readonly fileFormatVunerabilitesBlocked: pulumi.Output<boolean | undefined>;
+    /**
+     * Enable packet capture for file format vulnerability events.
+     */
     declare public readonly fileFormatVunerabilitesCapture: pulumi.Output<boolean | undefined>;
+    /**
+     * Block Google Talk traffic.
+     */
     declare public readonly googleTalkBlocked: pulumi.Output<boolean | undefined>;
+    /**
+     * Enable packet capture for Google Talk events.
+     */
     declare public readonly googleTalkCapture: pulumi.Output<boolean | undefined>;
+    /**
+     * Block IRC tunnelling.
+     */
     declare public readonly ircTunnellingBlocked: pulumi.Output<boolean | undefined>;
+    /**
+     * Enable packet capture for IRC tunnelling events.
+     */
     declare public readonly ircTunnellingCapture: pulumi.Output<boolean | undefined>;
+    /**
+     * Block known phishing sites.
+     */
     declare public readonly knownPhishingSitesBlocked: pulumi.Output<boolean | undefined>;
+    /**
+     * Enable packet capture for known phishing site events.
+     */
     declare public readonly knownPhishingSitesCapture: pulumi.Output<boolean | undefined>;
+    /**
+     * Enable packet capture for malicious URL events.
+     */
     declare public readonly maliciousUrlsCapture: pulumi.Output<boolean | undefined>;
+    /**
+     * Block known malware sites.
+     */
     declare public readonly malwareSitesBlocked: pulumi.Output<boolean | undefined>;
+    /**
+     * Enable packet capture for malware site events.
+     */
     declare public readonly malwareSitesCapture: pulumi.Output<boolean | undefined>;
+    /**
+     * Block potentially malicious requests.
+     */
     declare public readonly potentialMaliciousRequestsBlocked: pulumi.Output<boolean | undefined>;
+    /**
+     * Enable packet capture for potentially malicious request events.
+     */
     declare public readonly potentialMaliciousRequestsCapture: pulumi.Output<boolean | undefined>;
+    /**
+     * The internal resource identifier for the ATP settings.
+     */
     declare public /*out*/ readonly resourceId: pulumi.Output<string>;
+    /**
+     * Risk tolerance level. Controls the sensitivity for detecting threats.
+     */
     declare public readonly riskTolerance: pulumi.Output<number | undefined>;
+    /**
+     * Enable packet capture for risk tolerance events.
+     */
     declare public readonly riskToleranceCapture: pulumi.Output<boolean | undefined>;
+    /**
+     * Block SSH tunnelling.
+     */
     declare public readonly sshTunnellingBlocked: pulumi.Output<boolean | undefined>;
+    /**
+     * Enable packet capture for SSH tunnelling events.
+     */
     declare public readonly sshTunnellingCapture: pulumi.Output<boolean | undefined>;
+    /**
+     * Block suspect adware/spyware sites.
+     */
     declare public readonly suspectAdwareSpywareSitesBlocked: pulumi.Output<boolean | undefined>;
+    /**
+     * Enable packet capture for suspect adware/spyware site events.
+     */
     declare public readonly suspectAdwareSpywareSitesCapture: pulumi.Output<boolean | undefined>;
+    /**
+     * Block suspected phishing sites.
+     */
     declare public readonly suspectedPhishingSitesBlocked: pulumi.Output<boolean | undefined>;
+    /**
+     * Enable packet capture for suspected phishing site events.
+     */
     declare public readonly suspectedPhishingSitesCapture: pulumi.Output<boolean | undefined>;
+    /**
+     * Block Tor traffic.
+     */
     declare public readonly torBlocked: pulumi.Output<boolean | undefined>;
+    /**
+     * Enable packet capture for Tor events.
+     */
     declare public readonly torCapture: pulumi.Output<boolean | undefined>;
+    /**
+     * Block web spam.
+     */
     declare public readonly webSpamBlocked: pulumi.Output<boolean | undefined>;
+    /**
+     * Enable packet capture for web spam events.
+     */
     declare public readonly webSpamCapture: pulumi.Output<boolean | undefined>;
 
     /**
@@ -201,52 +373,196 @@ export class AtpSettings extends pulumi.CustomResource {
  * The set of arguments for constructing a AtpSettings resource.
  */
 export interface AtpSettingsArgs {
+    /**
+     * Block ActiveX controls.
+     */
     activexBlocked?: pulumi.Input<boolean>;
+    /**
+     * Enable packet capture for ActiveX events.
+     */
     activexCapture?: pulumi.Input<boolean>;
+    /**
+     * Block adware/spyware sites.
+     */
     adSpywareSitesBlocked?: pulumi.Input<boolean>;
+    /**
+     * Enable packet capture for adware/spyware site events.
+     */
     adSpywareSitesCapture?: pulumi.Input<boolean>;
+    /**
+     * Enable alerts for unknown or suspicious C2 traffic.
+     */
     alertForUnknownSuspiciousC2Traffic?: pulumi.Input<boolean>;
+    /**
+     * Block anonymizers.
+     */
     anonymizerBlocked?: pulumi.Input<boolean>;
+    /**
+     * Enable packet capture for anonymizer events.
+     */
     anonymizerCapture?: pulumi.Input<boolean>;
+    /**
+     * Block BitTorrent traffic.
+     */
     bitTorrentBlocked?: pulumi.Input<boolean>;
+    /**
+     * Enable packet capture for BitTorrent events.
+     */
     bitTorrentCapture?: pulumi.Input<boolean>;
+    /**
+     * Enable packet capture for blocked countries events.
+     */
     blockCountriesCapture?: pulumi.Input<boolean>;
+    /**
+     * List of countries (ISO 3166-1 alpha-2 codes) to block.
+     */
     blockedCountries?: pulumi.Input<pulumi.Input<string>[]>;
+    /**
+     * Block browser exploits.
+     */
     browserExploitsBlocked?: pulumi.Input<boolean>;
+    /**
+     * Enable packet capture for browser exploit events.
+     */
     browserExploitsCapture?: pulumi.Input<boolean>;
+    /**
+     * Block known command-and-control servers.
+     */
     cmdCtlServerBlocked?: pulumi.Input<boolean>;
+    /**
+     * Enable packet capture for command-and-control server events.
+     */
     cmdCtlServerCapture?: pulumi.Input<boolean>;
+    /**
+     * Block command-and-control traffic.
+     */
     cmdCtlTrafficBlocked?: pulumi.Input<boolean>;
+    /**
+     * Enable packet capture for command-and-control traffic events.
+     */
     cmdCtlTrafficCapture?: pulumi.Input<boolean>;
+    /**
+     * Block cookie stealing attempts.
+     */
     cookieStealingBlocked?: pulumi.Input<boolean>;
+    /**
+     * Enable packet capture for cookie stealing events.
+     */
     cookieStealingPcapEnabled?: pulumi.Input<boolean>;
+    /**
+     * Block crypto mining traffic.
+     */
     cryptoMiningBlocked?: pulumi.Input<boolean>;
+    /**
+     * Enable packet capture for crypto mining events.
+     */
     cryptoMiningCapture?: pulumi.Input<boolean>;
+    /**
+     * Block domain generation algorithm (DGA) domains.
+     */
     dgaDomainsBlocked?: pulumi.Input<boolean>;
+    /**
+     * Enable packet capture for DGA domain events.
+     */
     dgaDomainsCapture?: pulumi.Input<boolean>;
+    /**
+     * Block file format vulnerabilities.
+     */
     fileFormatVunerabilitesBlocked?: pulumi.Input<boolean>;
+    /**
+     * Enable packet capture for file format vulnerability events.
+     */
     fileFormatVunerabilitesCapture?: pulumi.Input<boolean>;
+    /**
+     * Block Google Talk traffic.
+     */
     googleTalkBlocked?: pulumi.Input<boolean>;
+    /**
+     * Enable packet capture for Google Talk events.
+     */
     googleTalkCapture?: pulumi.Input<boolean>;
+    /**
+     * Block IRC tunnelling.
+     */
     ircTunnellingBlocked?: pulumi.Input<boolean>;
+    /**
+     * Enable packet capture for IRC tunnelling events.
+     */
     ircTunnellingCapture?: pulumi.Input<boolean>;
+    /**
+     * Block known phishing sites.
+     */
     knownPhishingSitesBlocked?: pulumi.Input<boolean>;
+    /**
+     * Enable packet capture for known phishing site events.
+     */
     knownPhishingSitesCapture?: pulumi.Input<boolean>;
+    /**
+     * Enable packet capture for malicious URL events.
+     */
     maliciousUrlsCapture?: pulumi.Input<boolean>;
+    /**
+     * Block known malware sites.
+     */
     malwareSitesBlocked?: pulumi.Input<boolean>;
+    /**
+     * Enable packet capture for malware site events.
+     */
     malwareSitesCapture?: pulumi.Input<boolean>;
+    /**
+     * Block potentially malicious requests.
+     */
     potentialMaliciousRequestsBlocked?: pulumi.Input<boolean>;
+    /**
+     * Enable packet capture for potentially malicious request events.
+     */
     potentialMaliciousRequestsCapture?: pulumi.Input<boolean>;
+    /**
+     * Risk tolerance level. Controls the sensitivity for detecting threats.
+     */
     riskTolerance?: pulumi.Input<number>;
+    /**
+     * Enable packet capture for risk tolerance events.
+     */
     riskToleranceCapture?: pulumi.Input<boolean>;
+    /**
+     * Block SSH tunnelling.
+     */
     sshTunnellingBlocked?: pulumi.Input<boolean>;
+    /**
+     * Enable packet capture for SSH tunnelling events.
+     */
     sshTunnellingCapture?: pulumi.Input<boolean>;
+    /**
+     * Block suspect adware/spyware sites.
+     */
     suspectAdwareSpywareSitesBlocked?: pulumi.Input<boolean>;
+    /**
+     * Enable packet capture for suspect adware/spyware site events.
+     */
     suspectAdwareSpywareSitesCapture?: pulumi.Input<boolean>;
+    /**
+     * Block suspected phishing sites.
+     */
     suspectedPhishingSitesBlocked?: pulumi.Input<boolean>;
+    /**
+     * Enable packet capture for suspected phishing site events.
+     */
     suspectedPhishingSitesCapture?: pulumi.Input<boolean>;
+    /**
+     * Block Tor traffic.
+     */
     torBlocked?: pulumi.Input<boolean>;
+    /**
+     * Enable packet capture for Tor events.
+     */
     torCapture?: pulumi.Input<boolean>;
+    /**
+     * Block web spam.
+     */
     webSpamBlocked?: pulumi.Input<boolean>;
+    /**
+     * Enable packet capture for web spam events.
+     */
     webSpamCapture?: pulumi.Input<boolean>;
 }

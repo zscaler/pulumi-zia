@@ -16,59 +16,147 @@ import java.lang.String;
 import java.util.Optional;
 import javax.annotation.Nullable;
 
+/**
+ * The zia_traffic_forwarding_gre_tunnel resource manages GRE (Generic Routing Encapsulation) tunnels for traffic forwarding in the Zscaler Internet Access (ZIA) cloud service. GRE tunnels are used to forward traffic from on-premises networks to the Zscaler cloud.
+ * 
+ * For more information, see the [ZIA Traffic Forwarding documentation](https://help.zscaler.com/zia/traffic-forwarding).
+ * 
+ * ## Example Usage
+ * 
+ * ## Import
+ * 
+ * An existing GRE tunnel can be imported using its resource ID, e.g.
+ * 
+ * ```sh
+ * $ pulumi import zia:index:TrafficForwardingGreTunnel example 12345
+ * ```
+ * 
+ */
 @ResourceType(type="zia:index:TrafficForwardingGreTunnel")
 public class TrafficForwardingGreTunnel extends com.pulumi.resources.CustomResource {
+    /**
+     * Additional information about the GRE tunnel.
+     * 
+     */
     @Export(name="comment", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> comment;
 
+    /**
+     * @return Additional information about the GRE tunnel.
+     * 
+     */
     public Output<Optional<String>> comment() {
         return Codegen.optional(this.comment);
     }
+    /**
+     * Country code (ISO 3166-1 alpha-2) used when withinCountry is true to restrict VIP selection.
+     * 
+     */
     @Export(name="countryCode", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> countryCode;
 
+    /**
+     * @return Country code (ISO 3166-1 alpha-2) used when withinCountry is true to restrict VIP selection.
+     * 
+     */
     public Output<Optional<String>> countryCode() {
         return Codegen.optional(this.countryCode);
     }
+    /**
+     * The start of the internal IP address in /29 CIDR range. Automatically assigned if not provided.
+     * 
+     */
     @Export(name="internalIpRange", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> internalIpRange;
 
+    /**
+     * @return The start of the internal IP address in /29 CIDR range. Automatically assigned if not provided.
+     * 
+     */
     public Output<Optional<String>> internalIpRange() {
         return Codegen.optional(this.internalIpRange);
     }
+    /**
+     * When set to true, indicates that the GRE tunnel interface is unnumbered (no internal IP range is assigned).
+     * 
+     */
     @Export(name="ipUnnumbered", refs={Boolean.class}, tree="[0]")
     private Output</* @Nullable */ Boolean> ipUnnumbered;
 
+    /**
+     * @return When set to true, indicates that the GRE tunnel interface is unnumbered (no internal IP range is assigned).
+     * 
+     */
     public Output<Optional<Boolean>> ipUnnumbered() {
         return Codegen.optional(this.ipUnnumbered);
     }
+    /**
+     * The primary destination data center and virtual IP address (VIP) of the GRE tunnel.
+     * 
+     */
     @Export(name="primaryDestVip", refs={GreTunnelDestVipOutput.class}, tree="[0]")
     private Output</* @Nullable */ GreTunnelDestVipOutput> primaryDestVip;
 
+    /**
+     * @return The primary destination data center and virtual IP address (VIP) of the GRE tunnel.
+     * 
+     */
     public Output<Optional<GreTunnelDestVipOutput>> primaryDestVip() {
         return Codegen.optional(this.primaryDestVip);
     }
+    /**
+     * The secondary destination data center and virtual IP address (VIP) of the GRE tunnel.
+     * 
+     */
     @Export(name="secondaryDestVip", refs={GreTunnelDestVipOutput.class}, tree="[0]")
     private Output</* @Nullable */ GreTunnelDestVipOutput> secondaryDestVip;
 
+    /**
+     * @return The secondary destination data center and virtual IP address (VIP) of the GRE tunnel.
+     * 
+     */
     public Output<Optional<GreTunnelDestVipOutput>> secondaryDestVip() {
         return Codegen.optional(this.secondaryDestVip);
     }
+    /**
+     * The source IP address of the GRE tunnel. This is typically a static IP associated with the location.
+     * 
+     */
     @Export(name="sourceIp", refs={String.class}, tree="[0]")
     private Output<String> sourceIp;
 
+    /**
+     * @return The source IP address of the GRE tunnel. This is typically a static IP associated with the location.
+     * 
+     */
     public Output<String> sourceIp() {
         return this.sourceIp;
     }
+    /**
+     * The system-generated ID of the GRE tunnel.
+     * 
+     */
     @Export(name="tunnelId", refs={Integer.class}, tree="[0]")
     private Output<Integer> tunnelId;
 
+    /**
+     * @return The system-generated ID of the GRE tunnel.
+     * 
+     */
     public Output<Integer> tunnelId() {
         return this.tunnelId;
     }
+    /**
+     * Restrict the data center virtual IP addresses (VIPs) only to those within the same country as the source IP.
+     * 
+     */
     @Export(name="withinCountry", refs={Boolean.class}, tree="[0]")
     private Output</* @Nullable */ Boolean> withinCountry;
 
+    /**
+     * @return Restrict the data center virtual IP addresses (VIPs) only to those within the same country as the source IP.
+     * 
+     */
     public Output<Optional<Boolean>> withinCountry() {
         return Codegen.optional(this.withinCountry);
     }
@@ -112,6 +200,7 @@ public class TrafficForwardingGreTunnel extends com.pulumi.resources.CustomResou
     private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<java.lang.String> id) {
         var defaultOptions = com.pulumi.resources.CustomResourceOptions.builder()
             .version(Utilities.getVersion())
+            .pluginDownloadURL("github://api.github.com/zscaler")
             .build();
         return com.pulumi.resources.CustomResourceOptions.merge(defaultOptions, options, id);
     }

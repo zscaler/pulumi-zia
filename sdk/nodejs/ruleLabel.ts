@@ -4,6 +4,31 @@
 import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "./utilities";
 
+/**
+ * The zia_rule_label resource manages rule labels in the Zscaler Internet Access (ZIA) cloud service. Rule labels are used to tag and organize firewall filtering rules, URL filtering rules, and other policy rules.
+ *
+ * For more information, see the [ZIA Rule Labels documentation](https://help.zscaler.com/zia/rule-labels).
+ *
+ * ## Example Usage
+ * ### Basic Rule Label
+ *
+ * ```typescript
+ * import * as zia from "@bdzscaler/pulumi-zia";
+ *
+ * const example = new zia.RuleLabel("example", {
+ *     name: "Example Rule Label",
+ *     description: "Label for branch office rules",
+ * });
+ * ```
+ *
+ * ## Import
+ *
+ * An existing rule label can be imported using its resource ID, e.g.
+ *
+ * ```sh
+ * $ pulumi import zia:index:RuleLabel example 12345
+ * ```
+ */
 export class RuleLabel extends pulumi.CustomResource {
     /**
      * Get an existing RuleLabel resource's state with the given name, ID, and optional extra
@@ -31,8 +56,17 @@ export class RuleLabel extends pulumi.CustomResource {
         return obj['__pulumiType'] === RuleLabel.__pulumiType;
     }
 
+    /**
+     * Additional information about the rule label. Maximum 10240 characters.
+     */
     declare public readonly description: pulumi.Output<string | undefined>;
+    /**
+     * The name of the rule label. Maximum 255 characters.
+     */
     declare public readonly name: pulumi.Output<string | undefined>;
+    /**
+     * The system-generated ID of the rule label.
+     */
     declare public /*out*/ readonly ruleLabelId: pulumi.Output<number>;
 
     /**
@@ -63,6 +97,12 @@ export class RuleLabel extends pulumi.CustomResource {
  * The set of arguments for constructing a RuleLabel resource.
  */
 export interface RuleLabelArgs {
+    /**
+     * Additional information about the rule label. Maximum 10240 characters.
+     */
     description?: pulumi.Input<string>;
+    /**
+     * The name of the rule label. Maximum 255 characters.
+     */
     name?: pulumi.Input<string>;
 }

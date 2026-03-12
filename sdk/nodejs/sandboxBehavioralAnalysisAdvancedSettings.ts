@@ -4,6 +4,27 @@
 import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "./utilities";
 
+/**
+ * The zia_sandbox_behavioral_analysis_advanced_settings resource manages the list of MD5 file hashes that are blocked by the ZIA sandbox behavioral analysis engine. This is a singleton resource. Only MD5 hashes (32 characters) are supported.
+ *
+ * For more information, see the [ZIA Cloud Sandbox documentation](https://help.zscaler.com/zia/about-cloud-sandbox-policies).
+ *
+ * ## Example Usage
+ * ### Block File Hashes via Sandbox Settings
+ *
+ * ```typescript
+ * import * as zia from "@bdzscaler/pulumi-zia";
+ *
+ * const example = new zia.SandboxBehavioralAnalysisAdvancedSettings("example", {
+ *     fileHashesToBeBlocked: [
+ *         "42914d6d213a20a2684064be5c80ffa9",
+ *         "c0202cf6aeab8437c638533d14563d35",
+ *     ],
+ * });
+ * ```
+ *
+ * > This is a singleton resource. Import is not applicable.
+ */
 export class SandboxBehavioralAnalysisAdvancedSettings extends pulumi.CustomResource {
     /**
      * Get an existing SandboxBehavioralAnalysisAdvancedSettings resource's state with the given name, ID, and optional extra
@@ -31,7 +52,13 @@ export class SandboxBehavioralAnalysisAdvancedSettings extends pulumi.CustomReso
         return obj['__pulumiType'] === SandboxBehavioralAnalysisAdvancedSettings.__pulumiType;
     }
 
+    /**
+     * List of MD5 file hashes to be blocked. Each hash must be exactly 32 characters (MD5 format). SHA1 and SHA256 are not supported.
+     */
     declare public readonly fileHashesToBeBlocked: pulumi.Output<string[] | undefined>;
+    /**
+     * The internal resource identifier for the sandbox settings.
+     */
     declare public /*out*/ readonly resourceId: pulumi.Output<string>;
 
     /**
@@ -60,5 +87,8 @@ export class SandboxBehavioralAnalysisAdvancedSettings extends pulumi.CustomReso
  * The set of arguments for constructing a SandboxBehavioralAnalysisAdvancedSettings resource.
  */
 export interface SandboxBehavioralAnalysisAdvancedSettingsArgs {
+    /**
+     * List of MD5 file hashes to be blocked. Each hash must be exactly 32 characters (MD5 format). SHA1 and SHA256 are not supported.
+     */
     fileHashesToBeBlocked?: pulumi.Input<pulumi.Input<string>[]>;
 }

@@ -4,6 +4,34 @@
 import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "./utilities";
 
+/**
+ * The zia.RiskProfile resource manages cloud application risk profiles in the Zscaler Internet Access (ZIA) cloud.
+ * Risk profiles define criteria for evaluating the security posture of cloud applications based on factors such as
+ * certifications, encryption, vulnerability disclosure, and more.
+ *
+ * ## Example Usage
+ * ### Basic Risk Profile
+ *
+ * ```typescript
+ * import * as zia from "@bdzscaler/pulumi-zia";
+ *
+ * const example = new zia.RiskProfile("example", {
+ *     profileName: "Example Risk Profile",
+ *     profileType: "PREDEFINED",
+ *     status: "ENABLED",
+ *     riskIndex: [1, 2, 3],
+ *     certifications: ["CSA_STAR", "ISO_27001"],
+ * });
+ * ```
+ *
+ * ## Import
+ *
+ * An existing risk profile can be imported using its ID, e.g.
+ *
+ * ```sh
+ * $ pulumi import zia:index:RiskProfile example 12345
+ * ```
+ */
 export class RiskProfile extends pulumi.CustomResource {
     /**
      * Get an existing RiskProfile resource's state with the given name, ID, and optional extra
@@ -31,39 +59,141 @@ export class RiskProfile extends pulumi.CustomResource {
         return obj['__pulumiType'] === RiskProfile.__pulumiType;
     }
 
+    /**
+     * Risk level for admin audit log support.
+     */
     declare public readonly adminAuditLogs: pulumi.Output<string | undefined>;
+    /**
+     * List of required certifications (e.g., 'CSA_STAR', 'ISO_27001').
+     */
     declare public readonly certifications: pulumi.Output<string[] | undefined>;
+    /**
+     * List of custom tag IDs associated with the profile.
+     */
     declare public readonly customTags: pulumi.Output<number[] | undefined>;
+    /**
+     * Risk level for data breach history.
+     */
     declare public readonly dataBreach: pulumi.Output<string | undefined>;
+    /**
+     * List of data encryption in transit protocols.
+     */
     declare public readonly dataEncryptionInTransit: pulumi.Output<string[] | undefined>;
+    /**
+     * Risk level for DNS CAA policy.
+     */
     declare public readonly dnsCaaPolicy: pulumi.Output<string | undefined>;
+    /**
+     * Risk level for DMARC support.
+     */
     declare public readonly domainBasedMessageAuth: pulumi.Output<string | undefined>;
+    /**
+     * Risk level for DKIM support.
+     */
     declare public readonly domainKeysIdentifiedMail: pulumi.Output<string | undefined>;
+    /**
+     * Risk level for evasive behavior.
+     */
     declare public readonly evasive: pulumi.Output<string | undefined>;
+    /**
+     * Number of certifications to exclude.
+     */
     declare public readonly excludeCertificates: pulumi.Output<number | undefined>;
+    /**
+     * Risk level for file sharing support.
+     */
     declare public readonly fileSharing: pulumi.Output<string | undefined>;
+    /**
+     * Risk level for HTTP security headers.
+     */
     declare public readonly httpSecurityHeaders: pulumi.Output<string | undefined>;
+    /**
+     * Risk level for malware scanning.
+     */
     declare public readonly malwareScanningForContent: pulumi.Output<string | undefined>;
+    /**
+     * Risk level for MFA support.
+     */
     declare public readonly mfaSupport: pulumi.Output<string | undefined>;
+    /**
+     * Risk level for password strength enforcement.
+     */
     declare public readonly passwordStrength: pulumi.Output<string | undefined>;
+    /**
+     * Risk level for poor items of service.
+     */
     declare public readonly poorItemsOfService: pulumi.Output<string | undefined>;
+    /**
+     * The unique identifier for the risk profile assigned by the ZIA cloud.
+     */
     declare public /*out*/ readonly profileId: pulumi.Output<number>;
+    /**
+     * Name of the risk profile.
+     */
     declare public readonly profileName: pulumi.Output<string>;
+    /**
+     * The profile type (e.g., 'PREDEFINED', 'CUSTOM').
+     */
     declare public readonly profileType: pulumi.Output<string | undefined>;
+    /**
+     * Risk level for remote screen sharing support.
+     */
     declare public readonly remoteScreenSharing: pulumi.Output<string | undefined>;
+    /**
+     * List of risk index values.
+     */
     declare public readonly riskIndex: pulumi.Output<number[] | undefined>;
+    /**
+     * Risk level for SPF support.
+     */
     declare public readonly senderPolicyFramework: pulumi.Output<string | undefined>;
+    /**
+     * Risk level for source IP restrictions.
+     */
     declare public readonly sourceIpRestrictions: pulumi.Output<string | undefined>;
+    /**
+     * Risk level for SSL certificate key size.
+     */
     declare public readonly sslCertKeySize: pulumi.Output<string | undefined>;
+    /**
+     * Risk level for SSL certificate validity.
+     */
     declare public readonly sslCertValidity: pulumi.Output<string | undefined>;
+    /**
+     * Risk level for SSL pinning.
+     */
     declare public readonly sslPinned: pulumi.Output<string | undefined>;
+    /**
+     * The status of the risk profile (e.g., 'ENABLED', 'DISABLED').
+     */
     declare public readonly status: pulumi.Output<string | undefined>;
+    /**
+     * Risk level for WAF support.
+     */
     declare public readonly supportForWaf: pulumi.Output<string | undefined>;
+    /**
+     * Risk level for known vulnerabilities.
+     */
     declare public readonly vulnerability: pulumi.Output<string | undefined>;
+    /**
+     * Risk level for vulnerability disclosure policy.
+     */
     declare public readonly vulnerabilityDisclosure: pulumi.Output<string | undefined>;
+    /**
+     * Risk level for HeartBleed vulnerability.
+     */
     declare public readonly vulnerableToHeartBleed: pulumi.Output<string | undefined>;
+    /**
+     * Risk level for LogJam vulnerability.
+     */
     declare public readonly vulnerableToLogJam: pulumi.Output<string | undefined>;
+    /**
+     * Risk level for POODLE vulnerability.
+     */
     declare public readonly vulnerableToPoodle: pulumi.Output<string | undefined>;
+    /**
+     * Risk level for weak cipher support.
+     */
     declare public readonly weakCipherSupport: pulumi.Output<string | undefined>;
 
     /**
@@ -159,37 +289,136 @@ export class RiskProfile extends pulumi.CustomResource {
  * The set of arguments for constructing a RiskProfile resource.
  */
 export interface RiskProfileArgs {
+    /**
+     * Risk level for admin audit log support.
+     */
     adminAuditLogs?: pulumi.Input<string>;
+    /**
+     * List of required certifications (e.g., 'CSA_STAR', 'ISO_27001').
+     */
     certifications?: pulumi.Input<pulumi.Input<string>[]>;
+    /**
+     * List of custom tag IDs associated with the profile.
+     */
     customTags?: pulumi.Input<pulumi.Input<number>[]>;
+    /**
+     * Risk level for data breach history.
+     */
     dataBreach?: pulumi.Input<string>;
+    /**
+     * List of data encryption in transit protocols.
+     */
     dataEncryptionInTransit?: pulumi.Input<pulumi.Input<string>[]>;
+    /**
+     * Risk level for DNS CAA policy.
+     */
     dnsCaaPolicy?: pulumi.Input<string>;
+    /**
+     * Risk level for DMARC support.
+     */
     domainBasedMessageAuth?: pulumi.Input<string>;
+    /**
+     * Risk level for DKIM support.
+     */
     domainKeysIdentifiedMail?: pulumi.Input<string>;
+    /**
+     * Risk level for evasive behavior.
+     */
     evasive?: pulumi.Input<string>;
+    /**
+     * Number of certifications to exclude.
+     */
     excludeCertificates?: pulumi.Input<number>;
+    /**
+     * Risk level for file sharing support.
+     */
     fileSharing?: pulumi.Input<string>;
+    /**
+     * Risk level for HTTP security headers.
+     */
     httpSecurityHeaders?: pulumi.Input<string>;
+    /**
+     * Risk level for malware scanning.
+     */
     malwareScanningForContent?: pulumi.Input<string>;
+    /**
+     * Risk level for MFA support.
+     */
     mfaSupport?: pulumi.Input<string>;
+    /**
+     * Risk level for password strength enforcement.
+     */
     passwordStrength?: pulumi.Input<string>;
+    /**
+     * Risk level for poor items of service.
+     */
     poorItemsOfService?: pulumi.Input<string>;
+    /**
+     * Name of the risk profile.
+     */
     profileName: pulumi.Input<string>;
+    /**
+     * The profile type (e.g., 'PREDEFINED', 'CUSTOM').
+     */
     profileType?: pulumi.Input<string>;
+    /**
+     * Risk level for remote screen sharing support.
+     */
     remoteScreenSharing?: pulumi.Input<string>;
+    /**
+     * List of risk index values.
+     */
     riskIndex?: pulumi.Input<pulumi.Input<number>[]>;
+    /**
+     * Risk level for SPF support.
+     */
     senderPolicyFramework?: pulumi.Input<string>;
+    /**
+     * Risk level for source IP restrictions.
+     */
     sourceIpRestrictions?: pulumi.Input<string>;
+    /**
+     * Risk level for SSL certificate key size.
+     */
     sslCertKeySize?: pulumi.Input<string>;
+    /**
+     * Risk level for SSL certificate validity.
+     */
     sslCertValidity?: pulumi.Input<string>;
+    /**
+     * Risk level for SSL pinning.
+     */
     sslPinned?: pulumi.Input<string>;
+    /**
+     * The status of the risk profile (e.g., 'ENABLED', 'DISABLED').
+     */
     status?: pulumi.Input<string>;
+    /**
+     * Risk level for WAF support.
+     */
     supportForWaf?: pulumi.Input<string>;
+    /**
+     * Risk level for known vulnerabilities.
+     */
     vulnerability?: pulumi.Input<string>;
+    /**
+     * Risk level for vulnerability disclosure policy.
+     */
     vulnerabilityDisclosure?: pulumi.Input<string>;
+    /**
+     * Risk level for HeartBleed vulnerability.
+     */
     vulnerableToHeartBleed?: pulumi.Input<string>;
+    /**
+     * Risk level for LogJam vulnerability.
+     */
     vulnerableToLogJam?: pulumi.Input<string>;
+    /**
+     * Risk level for POODLE vulnerability.
+     */
     vulnerableToPoodle?: pulumi.Input<string>;
+    /**
+     * Risk level for weak cipher support.
+     */
     weakCipherSupport?: pulumi.Input<string>;
 }

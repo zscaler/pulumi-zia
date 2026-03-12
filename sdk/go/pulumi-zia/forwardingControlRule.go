@@ -54,6 +54,8 @@ type ForwardingControlRule struct {
 
 	// IDs of application service groups to which the rule applies.
 	AppServiceGroups pulumi.IntArrayOutput `pulumi:"appServiceGroups"`
+	// The ID of the dedicated IP gateway. Applicable only for the Proxy Chaining forwarding method.
+	DedicatedIpGatewayId pulumi.IntPtrOutput `pulumi:"dedicatedIpGatewayId"`
 	// IDs of departments to which the rule must be applied.
 	Departments pulumi.IntArrayOutput `pulumi:"departments"`
 	// Additional information about the forwarding control rule.
@@ -72,7 +74,7 @@ type ForwardingControlRule struct {
 	DeviceGroups pulumi.IntArrayOutput `pulumi:"deviceGroups"`
 	// IDs of Zscaler Edge Connector groups to which the rule applies.
 	EcGroups pulumi.IntArrayOutput `pulumi:"ecGroups"`
-	// The type of traffic forwarding method. Valid values: `DIRECT`, `PROXYCHAIN`, `ZPA`, `ECZPA`, `DIRECT_NSS`.
+	// The type of traffic forwarding method. Valid values: `INVALID`, `DIRECT`, `PROXYCHAIN`, `ZPA`, `ECZPA`, `ZIA`, `ECSELF`, `DROP`, `ENATDEDIP`.
 	ForwardMethod pulumi.StringOutput `pulumi:"forwardMethod"`
 	// IDs of groups to which the rule must be applied.
 	Groups pulumi.IntArrayOutput `pulumi:"groups"`
@@ -169,6 +171,8 @@ func (ForwardingControlRuleState) ElementType() reflect.Type {
 type forwardingControlRuleArgs struct {
 	// IDs of application service groups to which the rule applies.
 	AppServiceGroups []int `pulumi:"appServiceGroups"`
+	// The ID of the dedicated IP gateway. Applicable only for the Proxy Chaining forwarding method.
+	DedicatedIpGatewayId *int `pulumi:"dedicatedIpGatewayId"`
 	// IDs of departments to which the rule must be applied.
 	Departments []int `pulumi:"departments"`
 	// Additional information about the forwarding control rule.
@@ -187,7 +191,7 @@ type forwardingControlRuleArgs struct {
 	DeviceGroups []int `pulumi:"deviceGroups"`
 	// IDs of Zscaler Edge Connector groups to which the rule applies.
 	EcGroups []int `pulumi:"ecGroups"`
-	// The type of traffic forwarding method. Valid values: `DIRECT`, `PROXYCHAIN`, `ZPA`, `ECZPA`, `DIRECT_NSS`.
+	// The type of traffic forwarding method. Valid values: `INVALID`, `DIRECT`, `PROXYCHAIN`, `ZPA`, `ECZPA`, `ZIA`, `ECSELF`, `DROP`, `ENATDEDIP`.
 	ForwardMethod string `pulumi:"forwardMethod"`
 	// IDs of groups to which the rule must be applied.
 	Groups []int `pulumi:"groups"`
@@ -235,6 +239,8 @@ type forwardingControlRuleArgs struct {
 type ForwardingControlRuleArgs struct {
 	// IDs of application service groups to which the rule applies.
 	AppServiceGroups pulumi.IntArrayInput
+	// The ID of the dedicated IP gateway. Applicable only for the Proxy Chaining forwarding method.
+	DedicatedIpGatewayId pulumi.IntPtrInput
 	// IDs of departments to which the rule must be applied.
 	Departments pulumi.IntArrayInput
 	// Additional information about the forwarding control rule.
@@ -253,7 +259,7 @@ type ForwardingControlRuleArgs struct {
 	DeviceGroups pulumi.IntArrayInput
 	// IDs of Zscaler Edge Connector groups to which the rule applies.
 	EcGroups pulumi.IntArrayInput
-	// The type of traffic forwarding method. Valid values: `DIRECT`, `PROXYCHAIN`, `ZPA`, `ECZPA`, `DIRECT_NSS`.
+	// The type of traffic forwarding method. Valid values: `INVALID`, `DIRECT`, `PROXYCHAIN`, `ZPA`, `ECZPA`, `ZIA`, `ECSELF`, `DROP`, `ENATDEDIP`.
 	ForwardMethod pulumi.StringInput
 	// IDs of groups to which the rule must be applied.
 	Groups pulumi.IntArrayInput
@@ -389,6 +395,11 @@ func (o ForwardingControlRuleOutput) AppServiceGroups() pulumi.IntArrayOutput {
 	return o.ApplyT(func(v *ForwardingControlRule) pulumi.IntArrayOutput { return v.AppServiceGroups }).(pulumi.IntArrayOutput)
 }
 
+// The ID of the dedicated IP gateway. Applicable only for the Proxy Chaining forwarding method.
+func (o ForwardingControlRuleOutput) DedicatedIpGatewayId() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *ForwardingControlRule) pulumi.IntPtrOutput { return v.DedicatedIpGatewayId }).(pulumi.IntPtrOutput)
+}
+
 // IDs of departments to which the rule must be applied.
 func (o ForwardingControlRuleOutput) Departments() pulumi.IntArrayOutput {
 	return o.ApplyT(func(v *ForwardingControlRule) pulumi.IntArrayOutput { return v.Departments }).(pulumi.IntArrayOutput)
@@ -434,7 +445,7 @@ func (o ForwardingControlRuleOutput) EcGroups() pulumi.IntArrayOutput {
 	return o.ApplyT(func(v *ForwardingControlRule) pulumi.IntArrayOutput { return v.EcGroups }).(pulumi.IntArrayOutput)
 }
 
-// The type of traffic forwarding method. Valid values: `DIRECT`, `PROXYCHAIN`, `ZPA`, `ECZPA`, `DIRECT_NSS`.
+// The type of traffic forwarding method. Valid values: `INVALID`, `DIRECT`, `PROXYCHAIN`, `ZPA`, `ECZPA`, `ZIA`, `ECSELF`, `DROP`, `ENATDEDIP`.
 func (o ForwardingControlRuleOutput) ForwardMethod() pulumi.StringOutput {
 	return o.ApplyT(func(v *ForwardingControlRule) pulumi.StringOutput { return v.ForwardMethod }).(pulumi.StringOutput)
 }

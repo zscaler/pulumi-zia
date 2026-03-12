@@ -6,6 +6,38 @@ import * as inputs from "./types/input";
 import * as outputs from "./types/output";
 import * as utilities from "./utilities";
 
+/**
+ * The zia_url_categories resource manages custom URL categories in the Zscaler Internet Access (ZIA) cloud service. Custom URL categories allow administrators to define their own groupings of URLs, keywords, and IP ranges for use in URL filtering policies.
+ *
+ * For more information, see the [ZIA URL Categories documentation](https://help.zscaler.com/zia/url-categories).
+ *
+ * ## Example Usage
+ * ### Basic Custom URL Category
+ *
+ * ```typescript
+ * import * as zia from "@bdzscaler/pulumi-zia";
+ *
+ * const example = new zia.UrlCategory("example", {
+ *     configuredName: "Example Custom Category",
+ *     description: "Custom category for internal tools",
+ *     superCategory: "USER_DEFINED",
+ *     type: "URL_CATEGORY",
+ *     urls: [
+ *         "internal.example.com",
+ *         "tools.example.com",
+ *     ],
+ *     customCategory: true,
+ * });
+ * ```
+ *
+ * ## Import
+ *
+ * An existing URL Category can be imported using its resource ID, e.g.
+ *
+ * ```sh
+ * $ pulumi import zia:index:UrlCategory example CUSTOM_01
+ * ```
+ */
 export class UrlCategory extends pulumi.CustomResource {
     /**
      * Get an existing UrlCategory resource's state with the given name, ID, and optional extra
@@ -33,28 +65,97 @@ export class UrlCategory extends pulumi.CustomResource {
         return obj['__pulumiType'] === UrlCategory.__pulumiType;
     }
 
+    /**
+     * The system-generated ID of the URL category.
+     */
     declare public /*out*/ readonly categoryId: pulumi.Output<string>;
+    /**
+     * The name of the URL category. Must be unique.
+     */
     declare public readonly configuredName: pulumi.Output<string | undefined>;
+    /**
+     * If true, this is a custom URL category. Set to true for custom categories.
+     */
     declare public readonly customCategory: pulumi.Output<boolean | undefined>;
+    /**
+     * The number of custom IP ranges in the category.
+     */
     declare public /*out*/ readonly customIpRangesCount: pulumi.Output<number | undefined>;
+    /**
+     * The number of custom URLs in the category.
+     */
     declare public /*out*/ readonly customUrlsCount: pulumi.Output<number | undefined>;
+    /**
+     * URLs added to a custom URL category that have been categorized by the Zscaler database.
+     */
     declare public readonly dbCategorizedUrls: pulumi.Output<string[] | undefined>;
+    /**
+     * A description of the URL category. Maximum 256 characters.
+     */
     declare public readonly description: pulumi.Output<string | undefined>;
+    /**
+     * Whether the URL category is editable.
+     */
     declare public /*out*/ readonly editable: pulumi.Output<boolean | undefined>;
+    /**
+     * List of custom IP address ranges associated with the URL category.
+     */
     declare public readonly ipRanges: pulumi.Output<string[] | undefined>;
+    /**
+     * List of IP ranges that retain their parent category classification.
+     */
     declare public readonly ipRangesRetainingParentCategory: pulumi.Output<string[] | undefined>;
+    /**
+     * The number of IP ranges retaining parent category.
+     */
     declare public /*out*/ readonly ipRangesRetainingParentCategoryCount: pulumi.Output<number | undefined>;
+    /**
+     * List of custom keywords associated with the URL category.
+     */
     declare public readonly keywords: pulumi.Output<string[] | undefined>;
+    /**
+     * List of keywords that retain their parent category classification.
+     */
     declare public readonly keywordsRetainingParentCategory: pulumi.Output<string[] | undefined>;
+    /**
+     * List of regex-based patterns for URL matching.
+     */
     declare public readonly regexPatterns: pulumi.Output<string[] | undefined>;
+    /**
+     * List of regex patterns that retain their parent category classification.
+     */
     declare public readonly regexPatternsRetainingParentCategory: pulumi.Output<string[] | undefined>;
+    /**
+     * Scopes for the custom URL category, defining location or department restrictions.
+     */
     declare public readonly scopes: pulumi.Output<outputs.UrlCategoryScopeInput[] | undefined>;
+    /**
+     * The super category for the URL category (e.g., `USER_DEFINED`).
+     */
     declare public readonly superCategory: pulumi.Output<string | undefined>;
+    /**
+     * The type of URL category. Valid values: `URL_CATEGORY`, `TLD_CATEGORY`, `ALL`.
+     */
     declare public readonly type: pulumi.Output<string | undefined>;
+    /**
+     * URL and keyword count statistics for the category.
+     */
     declare public readonly urlKeywordCounts: pulumi.Output<outputs.UrlCategoryUrlKeywordCountsInput | undefined>;
+    /**
+     * The URL type. Valid values: `EXACT`, `REGEX`.
+     */
     declare public readonly urlType: pulumi.Output<string | undefined>;
+    /**
+     * List of custom URLs to add to the category.
+     */
     declare public readonly urls: pulumi.Output<string[] | undefined>;
+    /**
+     * The number of URLs retaining parent category.
+     */
     declare public /*out*/ readonly urlsRetainingParentCategoryCount: pulumi.Output<number | undefined>;
+    /**
+     * The internal numeric value of the URL category.
+     */
     declare public /*out*/ readonly val: pulumi.Output<number | undefined>;
 
     /**
@@ -125,20 +226,68 @@ export class UrlCategory extends pulumi.CustomResource {
  * The set of arguments for constructing a UrlCategory resource.
  */
 export interface UrlCategoryArgs {
+    /**
+     * The name of the URL category. Must be unique.
+     */
     configuredName?: pulumi.Input<string>;
+    /**
+     * If true, this is a custom URL category. Set to true for custom categories.
+     */
     customCategory?: pulumi.Input<boolean>;
+    /**
+     * URLs added to a custom URL category that have been categorized by the Zscaler database.
+     */
     dbCategorizedUrls?: pulumi.Input<pulumi.Input<string>[]>;
+    /**
+     * A description of the URL category. Maximum 256 characters.
+     */
     description?: pulumi.Input<string>;
+    /**
+     * List of custom IP address ranges associated with the URL category.
+     */
     ipRanges?: pulumi.Input<pulumi.Input<string>[]>;
+    /**
+     * List of IP ranges that retain their parent category classification.
+     */
     ipRangesRetainingParentCategory?: pulumi.Input<pulumi.Input<string>[]>;
+    /**
+     * List of custom keywords associated with the URL category.
+     */
     keywords?: pulumi.Input<pulumi.Input<string>[]>;
+    /**
+     * List of keywords that retain their parent category classification.
+     */
     keywordsRetainingParentCategory?: pulumi.Input<pulumi.Input<string>[]>;
+    /**
+     * List of regex-based patterns for URL matching.
+     */
     regexPatterns?: pulumi.Input<pulumi.Input<string>[]>;
+    /**
+     * List of regex patterns that retain their parent category classification.
+     */
     regexPatternsRetainingParentCategory?: pulumi.Input<pulumi.Input<string>[]>;
+    /**
+     * Scopes for the custom URL category, defining location or department restrictions.
+     */
     scopes?: pulumi.Input<pulumi.Input<inputs.UrlCategoryScopeInputArgs>[]>;
+    /**
+     * The super category for the URL category (e.g., `USER_DEFINED`).
+     */
     superCategory?: pulumi.Input<string>;
+    /**
+     * The type of URL category. Valid values: `URL_CATEGORY`, `TLD_CATEGORY`, `ALL`.
+     */
     type?: pulumi.Input<string>;
+    /**
+     * URL and keyword count statistics for the category.
+     */
     urlKeywordCounts?: pulumi.Input<inputs.UrlCategoryUrlKeywordCountsInputArgs>;
+    /**
+     * The URL type. Valid values: `EXACT`, `REGEX`.
+     */
     urlType?: pulumi.Input<string>;
+    /**
+     * List of custom URLs to add to the category.
+     */
     urls?: pulumi.Input<pulumi.Input<string>[]>;
 }

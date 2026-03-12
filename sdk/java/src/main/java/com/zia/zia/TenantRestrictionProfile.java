@@ -16,89 +16,218 @@ import java.util.List;
 import java.util.Optional;
 import javax.annotation.Nullable;
 
+/**
+ * The zia.TenantRestrictionProfile resource manages tenant restriction profiles in the
+ * Zscaler Internet Access (ZIA) cloud. Tenant restriction profiles control access to cloud
+ * application tenants (e.g., Microsoft 365, Google Workspace) by restricting users to
+ * authorized tenant domains.
+ * 
+ * ## Example Usage
+ * 
+ * ## Import
+ * 
+ * An existing tenant restriction profile can be imported using its ID, e.g.
+ * 
+ * ```sh
+ * $ pulumi import zia:index:TenantRestrictionProfile example 12345
+ * ```
+ * 
+ */
 @ResourceType(type="zia:index:TenantRestrictionProfile")
 public class TenantRestrictionProfile extends com.pulumi.resources.CustomResource {
+    /**
+     * Whether to allow GCP Cloud Storage read access.
+     * 
+     */
     @Export(name="allowGcpCloudStorageRead", refs={Boolean.class}, tree="[0]")
     private Output</* @Nullable */ Boolean> allowGcpCloudStorageRead;
 
+    /**
+     * @return Whether to allow GCP Cloud Storage read access.
+     * 
+     */
     public Output<Optional<Boolean>> allowGcpCloudStorageRead() {
         return Codegen.optional(this.allowGcpCloudStorageRead);
     }
+    /**
+     * Whether to allow Google consumer accounts.
+     * 
+     */
     @Export(name="allowGoogleConsumers", refs={Boolean.class}, tree="[0]")
     private Output</* @Nullable */ Boolean> allowGoogleConsumers;
 
+    /**
+     * @return Whether to allow Google consumer accounts.
+     * 
+     */
     public Output<Optional<Boolean>> allowGoogleConsumers() {
         return Codegen.optional(this.allowGoogleConsumers);
     }
+    /**
+     * Whether to allow Google visitor accounts.
+     * 
+     */
     @Export(name="allowGoogleVisitors", refs={Boolean.class}, tree="[0]")
     private Output</* @Nullable */ Boolean> allowGoogleVisitors;
 
+    /**
+     * @return Whether to allow Google visitor accounts.
+     * 
+     */
     public Output<Optional<Boolean>> allowGoogleVisitors() {
         return Codegen.optional(this.allowGoogleVisitors);
     }
+    /**
+     * The cloud application type (e.g., &#39;MICROSOFT&#39;, &#39;GOOGLE&#39;).
+     * 
+     */
     @Export(name="appType", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> appType;
 
+    /**
+     * @return The cloud application type (e.g., &#39;MICROSOFT&#39;, &#39;GOOGLE&#39;).
+     * 
+     */
     public Output<Optional<String>> appType() {
         return Codegen.optional(this.appType);
     }
+    /**
+     * Description of the tenant restriction profile.
+     * 
+     */
     @Export(name="description", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> description;
 
+    /**
+     * @return Description of the tenant restriction profile.
+     * 
+     */
     public Output<Optional<String>> description() {
         return Codegen.optional(this.description);
     }
+    /**
+     * List of primary item data values (e.g., tenant IDs).
+     * 
+     */
     @Export(name="itemDataPrimary", refs={List.class,String.class}, tree="[0,1]")
     private Output</* @Nullable */ List<String>> itemDataPrimary;
 
+    /**
+     * @return List of primary item data values (e.g., tenant IDs).
+     * 
+     */
     public Output<Optional<List<String>>> itemDataPrimary() {
         return Codegen.optional(this.itemDataPrimary);
     }
+    /**
+     * List of secondary item data values.
+     * 
+     */
     @Export(name="itemDataSecondary", refs={List.class,String.class}, tree="[0,1]")
     private Output</* @Nullable */ List<String>> itemDataSecondary;
 
+    /**
+     * @return List of secondary item data values.
+     * 
+     */
     public Output<Optional<List<String>>> itemDataSecondary() {
         return Codegen.optional(this.itemDataSecondary);
     }
+    /**
+     * The primary item type (e.g., &#39;TENANT_ID&#39;).
+     * 
+     */
     @Export(name="itemTypePrimary", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> itemTypePrimary;
 
+    /**
+     * @return The primary item type (e.g., &#39;TENANT_ID&#39;).
+     * 
+     */
     public Output<Optional<String>> itemTypePrimary() {
         return Codegen.optional(this.itemTypePrimary);
     }
+    /**
+     * The secondary item type.
+     * 
+     */
     @Export(name="itemTypeSecondary", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> itemTypeSecondary;
 
+    /**
+     * @return The secondary item type.
+     * 
+     */
     public Output<Optional<String>> itemTypeSecondary() {
         return Codegen.optional(this.itemTypeSecondary);
     }
+    /**
+     * List of item values.
+     * 
+     */
     @Export(name="itemValue", refs={List.class,String.class}, tree="[0,1]")
     private Output</* @Nullable */ List<String>> itemValue;
 
+    /**
+     * @return List of item values.
+     * 
+     */
     public Output<Optional<List<String>>> itemValue() {
         return Codegen.optional(this.itemValue);
     }
+    /**
+     * Whether to enable Microsoft login services tenant restriction v2.
+     * 
+     */
     @Export(name="msLoginServicesTrV2", refs={Boolean.class}, tree="[0]")
     private Output</* @Nullable */ Boolean> msLoginServicesTrV2;
 
+    /**
+     * @return Whether to enable Microsoft login services tenant restriction v2.
+     * 
+     */
     public Output<Optional<Boolean>> msLoginServicesTrV2() {
         return Codegen.optional(this.msLoginServicesTrV2);
     }
+    /**
+     * Name of the tenant restriction profile.
+     * 
+     */
     @Export(name="name", refs={String.class}, tree="[0]")
     private Output<String> name;
 
+    /**
+     * @return Name of the tenant restriction profile.
+     * 
+     */
     public Output<String> name() {
         return this.name;
     }
+    /**
+     * The unique identifier for the tenant restriction profile assigned by the ZIA cloud.
+     * 
+     */
     @Export(name="profileId", refs={Integer.class}, tree="[0]")
     private Output<Integer> profileId;
 
+    /**
+     * @return The unique identifier for the tenant restriction profile assigned by the ZIA cloud.
+     * 
+     */
     public Output<Integer> profileId() {
         return this.profileId;
     }
+    /**
+     * Whether to restrict personal Office 365 domains.
+     * 
+     */
     @Export(name="restrictPersonalO365Domains", refs={Boolean.class}, tree="[0]")
     private Output</* @Nullable */ Boolean> restrictPersonalO365Domains;
 
+    /**
+     * @return Whether to restrict personal Office 365 domains.
+     * 
+     */
     public Output<Optional<Boolean>> restrictPersonalO365Domains() {
         return Codegen.optional(this.restrictPersonalO365Domains);
     }
@@ -142,6 +271,7 @@ public class TenantRestrictionProfile extends com.pulumi.resources.CustomResourc
     private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<java.lang.String> id) {
         var defaultOptions = com.pulumi.resources.CustomResourceOptions.builder()
             .version(Utilities.getVersion())
+            .pluginDownloadURL("github://api.github.com/zscaler")
             .build();
         return com.pulumi.resources.CustomResourceOptions.merge(defaultOptions, options, id);
     }

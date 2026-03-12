@@ -16,16 +16,32 @@ public final class GetVzenClusterArgs extends com.pulumi.resources.InvokeArgs {
 
     public static final GetVzenClusterArgs Empty = new GetVzenClusterArgs();
 
+    /**
+     * The ID of the VZEN cluster to look up.
+     * 
+     */
     @Import(name="clusterId")
     private @Nullable Output<Integer> clusterId;
 
+    /**
+     * @return The ID of the VZEN cluster to look up.
+     * 
+     */
     public Optional<Output<Integer>> clusterId() {
         return Optional.ofNullable(this.clusterId);
     }
 
+    /**
+     * The name of the VZEN cluster to look up.
+     * 
+     */
     @Import(name="name")
     private @Nullable Output<String> name;
 
+    /**
+     * @return The name of the VZEN cluster to look up.
+     * 
+     */
     public Optional<Output<String>> name() {
         return Optional.ofNullable(this.name);
     }
@@ -55,20 +71,44 @@ public final class GetVzenClusterArgs extends com.pulumi.resources.InvokeArgs {
             $ = new GetVzenClusterArgs(Objects.requireNonNull(defaults));
         }
 
+        /**
+         * @param clusterId The ID of the VZEN cluster to look up.
+         * 
+         * @return builder
+         * 
+         */
         public Builder clusterId(@Nullable Output<Integer> clusterId) {
             $.clusterId = clusterId;
             return this;
         }
 
+        /**
+         * @param clusterId The ID of the VZEN cluster to look up.
+         * 
+         * @return builder
+         * 
+         */
         public Builder clusterId(Integer clusterId) {
             return clusterId(Output.of(clusterId));
         }
 
+        /**
+         * @param name The name of the VZEN cluster to look up.
+         * 
+         * @return builder
+         * 
+         */
         public Builder name(@Nullable Output<String> name) {
             $.name = name;
             return this;
         }
 
+        /**
+         * @param name The name of the VZEN cluster to look up.
+         * 
+         * @return builder
+         * 
+         */
         public Builder name(String name) {
             return name(Output.of(name));
         }

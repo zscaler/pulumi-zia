@@ -48,6 +48,31 @@ class SslInspectionRuleArgs:
                  workload_groups: Optional[pulumi.Input[Sequence[pulumi.Input['WorkloadGroupInputArgs']]]] = None):
         """
         The set of arguments for constructing a SslInspectionRule resource.
+        :param pulumi.Input['SslInspectionActionInputArgs'] action: The action configuration for the SSL inspection rule, including decrypt/do-not-decrypt sub-actions.
+        :param pulumi.Input[_builtins.str] name: The name of the SSL inspection rule. Must be unique.
+        :param pulumi.Input[_builtins.int] order: The order of execution of the rule with respect to other SSL inspection rules.
+        :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] cloud_applications: List of cloud application names to which the rule applies.
+        :param pulumi.Input[Sequence[pulumi.Input[_builtins.int]]] departments: IDs of departments to which the rule applies.
+        :param pulumi.Input[_builtins.str] description: Additional information about the SSL inspection rule.
+        :param pulumi.Input[Sequence[pulumi.Input[_builtins.int]]] dest_ip_groups: IDs of destination IP address groups for the rule.
+        :param pulumi.Input[Sequence[pulumi.Input[_builtins.int]]] device_groups: IDs of device groups to which the rule applies.
+        :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] device_trust_levels: Device trust levels for the rule. Valid values: `ANY`, `UNKNOWN_DEVICETRUSTLEVEL`, `LOW_TRUST`, `MEDIUM_TRUST`, `HIGH_TRUST`.
+        :param pulumi.Input[Sequence[pulumi.Input[_builtins.int]]] devices: IDs of devices to which the rule applies.
+        :param pulumi.Input[Sequence[pulumi.Input[_builtins.int]]] groups: IDs of groups to which the rule applies.
+        :param pulumi.Input[Sequence[pulumi.Input[_builtins.int]]] labels: IDs of labels associated with the rule.
+        :param pulumi.Input[Sequence[pulumi.Input[_builtins.int]]] location_groups: IDs of location groups to which the rule applies.
+        :param pulumi.Input[Sequence[pulumi.Input[_builtins.int]]] locations: IDs of locations to which the rule applies.
+        :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] platforms: Platforms to which the rule applies (e.g., `SCAN_IOS`, `SCAN_ANDROID`, `SCAN_MACOS`, `SCAN_WINDOWS`, `SCAN_LINUX`).
+        :param pulumi.Input[Sequence[pulumi.Input[_builtins.int]]] proxy_gateways: IDs of proxy gateway configurations for the rule.
+        :param pulumi.Input[_builtins.int] rank: Admin rank of the SSL inspection policy rule. Valid values: 0-7. Default: 7.
+        :param pulumi.Input[_builtins.bool] road_warrior_for_kerberos: Indicates whether the rule applies to road warrior (remote) users using Kerberos authentication.
+        :param pulumi.Input[Sequence[pulumi.Input[_builtins.int]]] source_ip_groups: IDs of source IP address groups for the rule.
+        :param pulumi.Input[_builtins.str] state: Rule state. Valid values: `ENABLED`, `DISABLED`.
+        :param pulumi.Input[Sequence[pulumi.Input[_builtins.int]]] time_windows: IDs of time intervals during which the rule must be enforced.
+        :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] url_categories: List of URL categories to which the rule applies.
+        :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] user_agent_types: User agent types the rule applies to.
+        :param pulumi.Input[Sequence[pulumi.Input[_builtins.int]]] users: IDs of users to which the rule applies.
+        :param pulumi.Input[Sequence[pulumi.Input['WorkloadGroupInputArgs']]] workload_groups: List of preconfigured workload groups to which the policy must be applied.
         """
         pulumi.set(__self__, "action", action)
         pulumi.set(__self__, "name", name)
@@ -100,6 +125,9 @@ class SslInspectionRuleArgs:
     @_builtins.property
     @pulumi.getter
     def action(self) -> pulumi.Input['SslInspectionActionInputArgs']:
+        """
+        The action configuration for the SSL inspection rule, including decrypt/do-not-decrypt sub-actions.
+        """
         return pulumi.get(self, "action")
 
     @action.setter
@@ -109,6 +137,9 @@ class SslInspectionRuleArgs:
     @_builtins.property
     @pulumi.getter
     def name(self) -> pulumi.Input[_builtins.str]:
+        """
+        The name of the SSL inspection rule. Must be unique.
+        """
         return pulumi.get(self, "name")
 
     @name.setter
@@ -118,6 +149,9 @@ class SslInspectionRuleArgs:
     @_builtins.property
     @pulumi.getter
     def order(self) -> pulumi.Input[_builtins.int]:
+        """
+        The order of execution of the rule with respect to other SSL inspection rules.
+        """
         return pulumi.get(self, "order")
 
     @order.setter
@@ -127,6 +161,9 @@ class SslInspectionRuleArgs:
     @_builtins.property
     @pulumi.getter(name="cloudApplications")
     def cloud_applications(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
+        """
+        List of cloud application names to which the rule applies.
+        """
         return pulumi.get(self, "cloud_applications")
 
     @cloud_applications.setter
@@ -136,6 +173,9 @@ class SslInspectionRuleArgs:
     @_builtins.property
     @pulumi.getter
     def departments(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.int]]]]:
+        """
+        IDs of departments to which the rule applies.
+        """
         return pulumi.get(self, "departments")
 
     @departments.setter
@@ -145,6 +185,9 @@ class SslInspectionRuleArgs:
     @_builtins.property
     @pulumi.getter
     def description(self) -> Optional[pulumi.Input[_builtins.str]]:
+        """
+        Additional information about the SSL inspection rule.
+        """
         return pulumi.get(self, "description")
 
     @description.setter
@@ -154,6 +197,9 @@ class SslInspectionRuleArgs:
     @_builtins.property
     @pulumi.getter(name="destIpGroups")
     def dest_ip_groups(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.int]]]]:
+        """
+        IDs of destination IP address groups for the rule.
+        """
         return pulumi.get(self, "dest_ip_groups")
 
     @dest_ip_groups.setter
@@ -163,6 +209,9 @@ class SslInspectionRuleArgs:
     @_builtins.property
     @pulumi.getter(name="deviceGroups")
     def device_groups(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.int]]]]:
+        """
+        IDs of device groups to which the rule applies.
+        """
         return pulumi.get(self, "device_groups")
 
     @device_groups.setter
@@ -172,6 +221,9 @@ class SslInspectionRuleArgs:
     @_builtins.property
     @pulumi.getter(name="deviceTrustLevels")
     def device_trust_levels(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
+        """
+        Device trust levels for the rule. Valid values: `ANY`, `UNKNOWN_DEVICETRUSTLEVEL`, `LOW_TRUST`, `MEDIUM_TRUST`, `HIGH_TRUST`.
+        """
         return pulumi.get(self, "device_trust_levels")
 
     @device_trust_levels.setter
@@ -181,6 +233,9 @@ class SslInspectionRuleArgs:
     @_builtins.property
     @pulumi.getter
     def devices(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.int]]]]:
+        """
+        IDs of devices to which the rule applies.
+        """
         return pulumi.get(self, "devices")
 
     @devices.setter
@@ -190,6 +245,9 @@ class SslInspectionRuleArgs:
     @_builtins.property
     @pulumi.getter
     def groups(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.int]]]]:
+        """
+        IDs of groups to which the rule applies.
+        """
         return pulumi.get(self, "groups")
 
     @groups.setter
@@ -199,6 +257,9 @@ class SslInspectionRuleArgs:
     @_builtins.property
     @pulumi.getter
     def labels(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.int]]]]:
+        """
+        IDs of labels associated with the rule.
+        """
         return pulumi.get(self, "labels")
 
     @labels.setter
@@ -208,6 +269,9 @@ class SslInspectionRuleArgs:
     @_builtins.property
     @pulumi.getter(name="locationGroups")
     def location_groups(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.int]]]]:
+        """
+        IDs of location groups to which the rule applies.
+        """
         return pulumi.get(self, "location_groups")
 
     @location_groups.setter
@@ -217,6 +281,9 @@ class SslInspectionRuleArgs:
     @_builtins.property
     @pulumi.getter
     def locations(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.int]]]]:
+        """
+        IDs of locations to which the rule applies.
+        """
         return pulumi.get(self, "locations")
 
     @locations.setter
@@ -226,6 +293,9 @@ class SslInspectionRuleArgs:
     @_builtins.property
     @pulumi.getter
     def platforms(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
+        """
+        Platforms to which the rule applies (e.g., `SCAN_IOS`, `SCAN_ANDROID`, `SCAN_MACOS`, `SCAN_WINDOWS`, `SCAN_LINUX`).
+        """
         return pulumi.get(self, "platforms")
 
     @platforms.setter
@@ -235,6 +305,9 @@ class SslInspectionRuleArgs:
     @_builtins.property
     @pulumi.getter(name="proxyGateways")
     def proxy_gateways(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.int]]]]:
+        """
+        IDs of proxy gateway configurations for the rule.
+        """
         return pulumi.get(self, "proxy_gateways")
 
     @proxy_gateways.setter
@@ -244,6 +317,9 @@ class SslInspectionRuleArgs:
     @_builtins.property
     @pulumi.getter
     def rank(self) -> Optional[pulumi.Input[_builtins.int]]:
+        """
+        Admin rank of the SSL inspection policy rule. Valid values: 0-7. Default: 7.
+        """
         return pulumi.get(self, "rank")
 
     @rank.setter
@@ -253,6 +329,9 @@ class SslInspectionRuleArgs:
     @_builtins.property
     @pulumi.getter(name="roadWarriorForKerberos")
     def road_warrior_for_kerberos(self) -> Optional[pulumi.Input[_builtins.bool]]:
+        """
+        Indicates whether the rule applies to road warrior (remote) users using Kerberos authentication.
+        """
         return pulumi.get(self, "road_warrior_for_kerberos")
 
     @road_warrior_for_kerberos.setter
@@ -262,6 +341,9 @@ class SslInspectionRuleArgs:
     @_builtins.property
     @pulumi.getter(name="sourceIpGroups")
     def source_ip_groups(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.int]]]]:
+        """
+        IDs of source IP address groups for the rule.
+        """
         return pulumi.get(self, "source_ip_groups")
 
     @source_ip_groups.setter
@@ -271,6 +353,9 @@ class SslInspectionRuleArgs:
     @_builtins.property
     @pulumi.getter
     def state(self) -> Optional[pulumi.Input[_builtins.str]]:
+        """
+        Rule state. Valid values: `ENABLED`, `DISABLED`.
+        """
         return pulumi.get(self, "state")
 
     @state.setter
@@ -280,6 +365,9 @@ class SslInspectionRuleArgs:
     @_builtins.property
     @pulumi.getter(name="timeWindows")
     def time_windows(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.int]]]]:
+        """
+        IDs of time intervals during which the rule must be enforced.
+        """
         return pulumi.get(self, "time_windows")
 
     @time_windows.setter
@@ -289,6 +377,9 @@ class SslInspectionRuleArgs:
     @_builtins.property
     @pulumi.getter(name="urlCategories")
     def url_categories(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
+        """
+        List of URL categories to which the rule applies.
+        """
         return pulumi.get(self, "url_categories")
 
     @url_categories.setter
@@ -298,6 +389,9 @@ class SslInspectionRuleArgs:
     @_builtins.property
     @pulumi.getter(name="userAgentTypes")
     def user_agent_types(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
+        """
+        User agent types the rule applies to.
+        """
         return pulumi.get(self, "user_agent_types")
 
     @user_agent_types.setter
@@ -307,6 +401,9 @@ class SslInspectionRuleArgs:
     @_builtins.property
     @pulumi.getter
     def users(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.int]]]]:
+        """
+        IDs of users to which the rule applies.
+        """
         return pulumi.get(self, "users")
 
     @users.setter
@@ -316,6 +413,9 @@ class SslInspectionRuleArgs:
     @_builtins.property
     @pulumi.getter(name="workloadGroups")
     def workload_groups(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['WorkloadGroupInputArgs']]]]:
+        """
+        List of preconfigured workload groups to which the policy must be applied.
+        """
         return pulumi.get(self, "workload_groups")
 
     @workload_groups.setter
@@ -356,9 +456,69 @@ class SslInspectionRule(pulumi.CustomResource):
                  workload_groups: Optional[pulumi.Input[Sequence[pulumi.Input[Union['WorkloadGroupInputArgs', 'WorkloadGroupInputArgsDict']]]]] = None,
                  __props__=None):
         """
-        Create a SslInspectionRule resource with the given unique name, props, and options.
+        The zia_ssl_inspection_rules resource manages SSL inspection rules in the Zscaler Internet Access (ZIA) cloud service. SSL inspection rules determine whether to decrypt, not decrypt, or block SSL/TLS traffic based on criteria such as locations, departments, groups, users, URL categories, cloud applications, and platforms.
+
+        For more information, see the [ZIA SSL Inspection documentation](https://help.zscaler.com/zia/about-ssl-inspection-policies).
+
+        ## Example Usage
+        ### Basic SSL Inspection Rule
+
+        ```python
+        import zscaler_pulumi_zia as zia
+
+        example = zia.SslInspectionRule("example",
+            name="Example SSL Inspection Rule",
+            description="Decrypt corporate traffic",
+            order=1,
+            state="ENABLED",
+            action={
+                "type": "DECRYPT",
+                "show_eun": False,
+                "decrypt_sub_actions": {
+                    "server_certificates": "ALLOW",
+                    "ocsp_check": True,
+                    "http2_enabled": True,
+                },
+            },
+            url_categories=["ANY"],
+        )
+        ```
+
+        ## Import
+
+        An existing SSL Inspection Rule can be imported using its resource ID, e.g.
+
+        ```sh
+        $ pulumi import zia:index:SslInspectionRule example 12345
+        ```
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
+        :param pulumi.Input[Union['SslInspectionActionInputArgs', 'SslInspectionActionInputArgsDict']] action: The action configuration for the SSL inspection rule, including decrypt/do-not-decrypt sub-actions.
+        :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] cloud_applications: List of cloud application names to which the rule applies.
+        :param pulumi.Input[Sequence[pulumi.Input[_builtins.int]]] departments: IDs of departments to which the rule applies.
+        :param pulumi.Input[_builtins.str] description: Additional information about the SSL inspection rule.
+        :param pulumi.Input[Sequence[pulumi.Input[_builtins.int]]] dest_ip_groups: IDs of destination IP address groups for the rule.
+        :param pulumi.Input[Sequence[pulumi.Input[_builtins.int]]] device_groups: IDs of device groups to which the rule applies.
+        :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] device_trust_levels: Device trust levels for the rule. Valid values: `ANY`, `UNKNOWN_DEVICETRUSTLEVEL`, `LOW_TRUST`, `MEDIUM_TRUST`, `HIGH_TRUST`.
+        :param pulumi.Input[Sequence[pulumi.Input[_builtins.int]]] devices: IDs of devices to which the rule applies.
+        :param pulumi.Input[Sequence[pulumi.Input[_builtins.int]]] groups: IDs of groups to which the rule applies.
+        :param pulumi.Input[Sequence[pulumi.Input[_builtins.int]]] labels: IDs of labels associated with the rule.
+        :param pulumi.Input[Sequence[pulumi.Input[_builtins.int]]] location_groups: IDs of location groups to which the rule applies.
+        :param pulumi.Input[Sequence[pulumi.Input[_builtins.int]]] locations: IDs of locations to which the rule applies.
+        :param pulumi.Input[_builtins.str] name: The name of the SSL inspection rule. Must be unique.
+        :param pulumi.Input[_builtins.int] order: The order of execution of the rule with respect to other SSL inspection rules.
+        :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] platforms: Platforms to which the rule applies (e.g., `SCAN_IOS`, `SCAN_ANDROID`, `SCAN_MACOS`, `SCAN_WINDOWS`, `SCAN_LINUX`).
+        :param pulumi.Input[Sequence[pulumi.Input[_builtins.int]]] proxy_gateways: IDs of proxy gateway configurations for the rule.
+        :param pulumi.Input[_builtins.int] rank: Admin rank of the SSL inspection policy rule. Valid values: 0-7. Default: 7.
+        :param pulumi.Input[_builtins.bool] road_warrior_for_kerberos: Indicates whether the rule applies to road warrior (remote) users using Kerberos authentication.
+        :param pulumi.Input[Sequence[pulumi.Input[_builtins.int]]] source_ip_groups: IDs of source IP address groups for the rule.
+        :param pulumi.Input[_builtins.str] state: Rule state. Valid values: `ENABLED`, `DISABLED`.
+        :param pulumi.Input[Sequence[pulumi.Input[_builtins.int]]] time_windows: IDs of time intervals during which the rule must be enforced.
+        :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] url_categories: List of URL categories to which the rule applies.
+        :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] user_agent_types: User agent types the rule applies to.
+        :param pulumi.Input[Sequence[pulumi.Input[_builtins.int]]] users: IDs of users to which the rule applies.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['WorkloadGroupInputArgs', 'WorkloadGroupInputArgsDict']]]] workload_groups: List of preconfigured workload groups to which the policy must be applied.
         """
         ...
     @overload
@@ -367,7 +527,42 @@ class SslInspectionRule(pulumi.CustomResource):
                  args: SslInspectionRuleArgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
-        Create a SslInspectionRule resource with the given unique name, props, and options.
+        The zia_ssl_inspection_rules resource manages SSL inspection rules in the Zscaler Internet Access (ZIA) cloud service. SSL inspection rules determine whether to decrypt, not decrypt, or block SSL/TLS traffic based on criteria such as locations, departments, groups, users, URL categories, cloud applications, and platforms.
+
+        For more information, see the [ZIA SSL Inspection documentation](https://help.zscaler.com/zia/about-ssl-inspection-policies).
+
+        ## Example Usage
+        ### Basic SSL Inspection Rule
+
+        ```python
+        import zscaler_pulumi_zia as zia
+
+        example = zia.SslInspectionRule("example",
+            name="Example SSL Inspection Rule",
+            description="Decrypt corporate traffic",
+            order=1,
+            state="ENABLED",
+            action={
+                "type": "DECRYPT",
+                "show_eun": False,
+                "decrypt_sub_actions": {
+                    "server_certificates": "ALLOW",
+                    "ocsp_check": True,
+                    "http2_enabled": True,
+                },
+            },
+            url_categories=["ANY"],
+        )
+        ```
+
+        ## Import
+
+        An existing SSL Inspection Rule can be imported using its resource ID, e.g.
+
+        ```sh
+        $ pulumi import zia:index:SslInspectionRule example 12345
+        ```
+
         :param str resource_name: The name of the resource.
         :param SslInspectionRuleArgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -502,130 +697,208 @@ class SslInspectionRule(pulumi.CustomResource):
     @_builtins.property
     @pulumi.getter
     def action(self) -> pulumi.Output['outputs.SslInspectionActionInput']:
+        """
+        The action configuration for the SSL inspection rule, including decrypt/do-not-decrypt sub-actions.
+        """
         return pulumi.get(self, "action")
 
     @_builtins.property
     @pulumi.getter(name="cloudApplications")
     def cloud_applications(self) -> pulumi.Output[Optional[Sequence[_builtins.str]]]:
+        """
+        List of cloud application names to which the rule applies.
+        """
         return pulumi.get(self, "cloud_applications")
 
     @_builtins.property
     @pulumi.getter
     def departments(self) -> pulumi.Output[Optional[Sequence[_builtins.int]]]:
+        """
+        IDs of departments to which the rule applies.
+        """
         return pulumi.get(self, "departments")
 
     @_builtins.property
     @pulumi.getter
     def description(self) -> pulumi.Output[Optional[_builtins.str]]:
+        """
+        Additional information about the SSL inspection rule.
+        """
         return pulumi.get(self, "description")
 
     @_builtins.property
     @pulumi.getter(name="destIpGroups")
     def dest_ip_groups(self) -> pulumi.Output[Optional[Sequence[_builtins.int]]]:
+        """
+        IDs of destination IP address groups for the rule.
+        """
         return pulumi.get(self, "dest_ip_groups")
 
     @_builtins.property
     @pulumi.getter(name="deviceGroups")
     def device_groups(self) -> pulumi.Output[Optional[Sequence[_builtins.int]]]:
+        """
+        IDs of device groups to which the rule applies.
+        """
         return pulumi.get(self, "device_groups")
 
     @_builtins.property
     @pulumi.getter(name="deviceTrustLevels")
     def device_trust_levels(self) -> pulumi.Output[Optional[Sequence[_builtins.str]]]:
+        """
+        Device trust levels for the rule. Valid values: `ANY`, `UNKNOWN_DEVICETRUSTLEVEL`, `LOW_TRUST`, `MEDIUM_TRUST`, `HIGH_TRUST`.
+        """
         return pulumi.get(self, "device_trust_levels")
 
     @_builtins.property
     @pulumi.getter
     def devices(self) -> pulumi.Output[Optional[Sequence[_builtins.int]]]:
+        """
+        IDs of devices to which the rule applies.
+        """
         return pulumi.get(self, "devices")
 
     @_builtins.property
     @pulumi.getter
     def groups(self) -> pulumi.Output[Optional[Sequence[_builtins.int]]]:
+        """
+        IDs of groups to which the rule applies.
+        """
         return pulumi.get(self, "groups")
 
     @_builtins.property
     @pulumi.getter
     def labels(self) -> pulumi.Output[Optional[Sequence[_builtins.int]]]:
+        """
+        IDs of labels associated with the rule.
+        """
         return pulumi.get(self, "labels")
 
     @_builtins.property
     @pulumi.getter(name="locationGroups")
     def location_groups(self) -> pulumi.Output[Optional[Sequence[_builtins.int]]]:
+        """
+        IDs of location groups to which the rule applies.
+        """
         return pulumi.get(self, "location_groups")
 
     @_builtins.property
     @pulumi.getter
     def locations(self) -> pulumi.Output[Optional[Sequence[_builtins.int]]]:
+        """
+        IDs of locations to which the rule applies.
+        """
         return pulumi.get(self, "locations")
 
     @_builtins.property
     @pulumi.getter
     def name(self) -> pulumi.Output[_builtins.str]:
+        """
+        The name of the SSL inspection rule. Must be unique.
+        """
         return pulumi.get(self, "name")
 
     @_builtins.property
     @pulumi.getter
     def order(self) -> pulumi.Output[_builtins.int]:
+        """
+        The order of execution of the rule with respect to other SSL inspection rules.
+        """
         return pulumi.get(self, "order")
 
     @_builtins.property
     @pulumi.getter
     def platforms(self) -> pulumi.Output[Optional[Sequence[_builtins.str]]]:
+        """
+        Platforms to which the rule applies (e.g., `SCAN_IOS`, `SCAN_ANDROID`, `SCAN_MACOS`, `SCAN_WINDOWS`, `SCAN_LINUX`).
+        """
         return pulumi.get(self, "platforms")
 
     @_builtins.property
     @pulumi.getter(name="proxyGateways")
     def proxy_gateways(self) -> pulumi.Output[Optional[Sequence[_builtins.int]]]:
+        """
+        IDs of proxy gateway configurations for the rule.
+        """
         return pulumi.get(self, "proxy_gateways")
 
     @_builtins.property
     @pulumi.getter
     def rank(self) -> pulumi.Output[Optional[_builtins.int]]:
+        """
+        Admin rank of the SSL inspection policy rule. Valid values: 0-7. Default: 7.
+        """
         return pulumi.get(self, "rank")
 
     @_builtins.property
     @pulumi.getter(name="roadWarriorForKerberos")
     def road_warrior_for_kerberos(self) -> pulumi.Output[Optional[_builtins.bool]]:
+        """
+        Indicates whether the rule applies to road warrior (remote) users using Kerberos authentication.
+        """
         return pulumi.get(self, "road_warrior_for_kerberos")
 
     @_builtins.property
     @pulumi.getter(name="ruleId")
     def rule_id(self) -> pulumi.Output[_builtins.int]:
+        """
+        The system-generated ID of the SSL inspection rule.
+        """
         return pulumi.get(self, "rule_id")
 
     @_builtins.property
     @pulumi.getter(name="sourceIpGroups")
     def source_ip_groups(self) -> pulumi.Output[Optional[Sequence[_builtins.int]]]:
+        """
+        IDs of source IP address groups for the rule.
+        """
         return pulumi.get(self, "source_ip_groups")
 
     @_builtins.property
     @pulumi.getter
     def state(self) -> pulumi.Output[Optional[_builtins.str]]:
+        """
+        Rule state. Valid values: `ENABLED`, `DISABLED`.
+        """
         return pulumi.get(self, "state")
 
     @_builtins.property
     @pulumi.getter(name="timeWindows")
     def time_windows(self) -> pulumi.Output[Optional[Sequence[_builtins.int]]]:
+        """
+        IDs of time intervals during which the rule must be enforced.
+        """
         return pulumi.get(self, "time_windows")
 
     @_builtins.property
     @pulumi.getter(name="urlCategories")
     def url_categories(self) -> pulumi.Output[Optional[Sequence[_builtins.str]]]:
+        """
+        List of URL categories to which the rule applies.
+        """
         return pulumi.get(self, "url_categories")
 
     @_builtins.property
     @pulumi.getter(name="userAgentTypes")
     def user_agent_types(self) -> pulumi.Output[Optional[Sequence[_builtins.str]]]:
+        """
+        User agent types the rule applies to.
+        """
         return pulumi.get(self, "user_agent_types")
 
     @_builtins.property
     @pulumi.getter
     def users(self) -> pulumi.Output[Optional[Sequence[_builtins.int]]]:
+        """
+        IDs of users to which the rule applies.
+        """
         return pulumi.get(self, "users")
 
     @_builtins.property
     @pulumi.getter(name="workloadGroups")
     def workload_groups(self) -> pulumi.Output[Optional[Sequence['outputs.WorkloadGroupInput']]]:
+        """
+        List of preconfigured workload groups to which the policy must be applied.
+        """
         return pulumi.get(self, "workload_groups")
 

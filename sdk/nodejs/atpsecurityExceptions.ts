@@ -4,6 +4,27 @@
 import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "./utilities";
 
+/**
+ * The zia_atp_security_exceptions resource manages the list of bypass URLs for Advanced Threat Protection (ATP) in the Zscaler Internet Access (ZIA) cloud service. URLs added to this list are excluded from ATP scanning. This is a singleton resource.
+ *
+ * For more information, see the [ZIA Advanced Threat Protection documentation](https://help.zscaler.com/zia/about-advanced-threat-protection-policy).
+ *
+ * ## Example Usage
+ * ### Configure ATP Security Exceptions
+ *
+ * ```typescript
+ * import * as zia from "@bdzscaler/pulumi-zia";
+ *
+ * const example = new zia.AtpSecurityExceptions("example", {
+ *     bypassUrls: [
+ *         "trusted-partner.com",
+ *         "internal-app.example.org",
+ *     ],
+ * });
+ * ```
+ *
+ * > This is a singleton resource. Import is not applicable.
+ */
 export class AtpSecurityExceptions extends pulumi.CustomResource {
     /**
      * Get an existing AtpSecurityExceptions resource's state with the given name, ID, and optional extra
@@ -31,7 +52,13 @@ export class AtpSecurityExceptions extends pulumi.CustomResource {
         return obj['__pulumiType'] === AtpSecurityExceptions.__pulumiType;
     }
 
+    /**
+     * List of URLs to be excluded (bypassed) from Advanced Threat Protection scanning.
+     */
     declare public readonly bypassUrls: pulumi.Output<string[] | undefined>;
+    /**
+     * The internal resource identifier for the ATP security exceptions.
+     */
     declare public /*out*/ readonly resourceId: pulumi.Output<string>;
 
     /**
@@ -60,5 +87,8 @@ export class AtpSecurityExceptions extends pulumi.CustomResource {
  * The set of arguments for constructing a AtpSecurityExceptions resource.
  */
 export interface AtpSecurityExceptionsArgs {
+    /**
+     * List of URLs to be excluded (bypassed) from Advanced Threat Protection scanning.
+     */
     bypassUrls?: pulumi.Input<pulumi.Input<string>[]>;
 }
