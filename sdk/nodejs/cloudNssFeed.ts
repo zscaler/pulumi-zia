@@ -243,7 +243,7 @@ export class CloudNssFeed extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            resourceInputs["authenticationToken"] = args?.authenticationToken;
+            resourceInputs["authenticationToken"] = args?.authenticationToken ? pulumi.secret(args.authenticationToken) : undefined;
             resourceInputs["authenticationUrl"] = args?.authenticationUrl;
             resourceInputs["base64EncodedCertificate"] = args?.base64EncodedCertificate;
             resourceInputs["buckets"] = args?.buckets;
@@ -332,6 +332,8 @@ export class CloudNssFeed extends pulumi.CustomResource {
             resourceInputs["vpnCredentials"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+        const secretOpts = { additionalSecretOutputs: ["authenticationToken"] };
+        opts = pulumi.mergeOptions(opts, secretOpts);
         super(CloudNssFeed.__pulumiType, name, resourceInputs, opts);
     }
 }

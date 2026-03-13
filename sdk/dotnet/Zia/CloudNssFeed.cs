@@ -308,6 +308,10 @@ namespace zscaler.PulumiPackage.Zia
             {
                 Version = Utilities.Version,
                 PluginDownloadURL = "github://api.github.com/zscaler",
+                AdditionalSecretOutputs =
+                {
+                    "authenticationToken",
+                },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);
             // Override the ID if one was specified for consistency with other language SDKs.
@@ -330,11 +334,21 @@ namespace zscaler.PulumiPackage.Zia
 
     public sealed class CloudNssFeedArgs : global::Pulumi.ResourceArgs
     {
+        [Input("authenticationToken")]
+        private Input<string>? _authenticationToken;
+
         /// <summary>
         /// Authentication token for the SIEM connection.
         /// </summary>
-        [Input("authenticationToken")]
-        public Input<string>? AuthenticationToken { get; set; }
+        public Input<string>? AuthenticationToken
+        {
+            get => _authenticationToken;
+            set
+            {
+                var emptySecret = Output.CreateSecret(0);
+                _authenticationToken = Output.Tuple<Input<string>?, int>(value, emptySecret).Apply(t => t.Item1);
+            }
+        }
 
         /// <summary>
         /// OAuth authentication URL for the SIEM connection.

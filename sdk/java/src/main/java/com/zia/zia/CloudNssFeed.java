@@ -675,6 +675,9 @@ public class CloudNssFeed extends com.pulumi.resources.CustomResource {
         var defaultOptions = com.pulumi.resources.CustomResourceOptions.builder()
             .version(Utilities.getVersion())
             .pluginDownloadURL("github://api.github.com/zscaler")
+            .additionalSecretOutputs(List.of(
+                "authenticationToken"
+            ))
             .build();
         return com.pulumi.resources.CustomResourceOptions.merge(defaultOptions, options, id);
     }

@@ -4,6 +4,7 @@ import (
 	"context"
 	"os"
 
+	p "github.com/pulumi/pulumi-go-provider"
 	"github.com/pulumi/pulumi-go-provider/infer"
 	"github.com/zscaler/pulumi-zia/provider/internal/zia"
 	"github.com/zscaler/pulumi-zia/provider/version"
@@ -127,6 +128,15 @@ func (c *Config) Configure(ctx context.Context) error {
 	}
 	c.client = client
 	return nil
+}
+
+// Diff prevents provider version upgrades from triggering resource replacement.
+// A version-only change in the provider config is never a breaking change.
+func (c *Config) Diff(_ context.Context, _ infer.DiffRequest[Config, Config]) (p.DiffResponse, error) {
+	return p.DiffResponse{
+		HasChanges:          false,
+		DeleteBeforeReplace: false,
+	}, nil
 }
 
 // Client returns the configured ZIA client. Must be called after Configure.

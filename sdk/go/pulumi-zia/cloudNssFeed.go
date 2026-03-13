@@ -120,6 +120,13 @@ func NewCloudNssFeed(ctx *pulumi.Context,
 		args = &CloudNssFeedArgs{}
 	}
 
+	if args.AuthenticationToken != nil {
+		args.AuthenticationToken = pulumi.ToSecret(args.AuthenticationToken).(pulumi.StringPtrInput)
+	}
+	secrets := pulumi.AdditionalSecretOutputs([]string{
+		"authenticationToken",
+	})
+	opts = append(opts, secrets)
 	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource CloudNssFeed
 	err := ctx.RegisterResource("zia:index:CloudNssFeed", name, args, &resource, opts...)
