@@ -339,7 +339,7 @@ func (CloudAppControlRule) Read(ctx context.Context, req infer.ReadRequest[Cloud
 	rule, err := cloudappcontrol.GetByRuleID(ctx, svc, ruleType, id)
 	if err != nil {
 		if respErr, ok := err.(*errorx.ErrorResponse); ok && respErr.IsObjectNotFound() {
-			return infer.ReadResponse[CloudAppControlRuleArgs, CloudAppControlRuleState]{}, fmt.Errorf("cloud app control rule not found")
+			return infer.ReadResponse[CloudAppControlRuleArgs, CloudAppControlRuleState]{}, nil
 		}
 		return infer.ReadResponse[CloudAppControlRuleArgs, CloudAppControlRuleState]{}, err
 	}
@@ -377,6 +377,9 @@ func (CloudAppControlRule) Update(ctx context.Context, req infer.UpdateRequest[C
 	}
 
 	_, err = cloudappcontrol.Update(ctx, svc, ruleType, id, &apiReq)
+	if respErr, ok := err.(*errorx.ErrorResponse); ok && respErr.IsObjectNotFound() {
+		return infer.UpdateResponse[CloudAppControlRuleState]{}, nil
+	}
 	if customErr := failFastOnErrorCodes(err); customErr != nil {
 		return infer.UpdateResponse[CloudAppControlRuleState]{}, customErr
 	}
@@ -449,6 +452,9 @@ func (CloudAppControlRule) Delete(ctx context.Context, req infer.DeleteRequest[C
 		return infer.DeleteResponse{}, fmt.Errorf("rule type is required for delete")
 	}
 	if _, err := cloudappcontrol.Delete(ctx, svc, ruleType, id); err != nil {
+		if respErr, ok := err.(*errorx.ErrorResponse); ok && respErr.IsObjectNotFound() {
+			return infer.DeleteResponse{}, nil
+		}
 		return infer.DeleteResponse{}, err
 	}
 	if shouldActivate() {

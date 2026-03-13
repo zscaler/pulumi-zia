@@ -146,7 +146,7 @@ func (VzenCluster) Read(ctx context.Context, req infer.ReadRequest[VzenClusterAr
 		rule, lookupErr := vzen_clusters.GetClusterByName(ctx, svc, req.ID)
 		if lookupErr != nil {
 			if respErr, ok := lookupErr.(*errorx.ErrorResponse); ok && respErr.IsObjectNotFound() {
-				return infer.ReadResponse[VzenClusterArgs, VzenClusterState]{}, fmt.Errorf("vzen cluster not found")
+				return infer.ReadResponse[VzenClusterArgs, VzenClusterState]{}, nil
 			}
 			return infer.ReadResponse[VzenClusterArgs, VzenClusterState]{}, lookupErr
 		}
@@ -156,7 +156,7 @@ func (VzenCluster) Read(ctx context.Context, req infer.ReadRequest[VzenClusterAr
 	rule, err := vzen_clusters.Get(ctx, svc, id)
 	if err != nil {
 		if respErr, ok := err.(*errorx.ErrorResponse); ok && respErr.IsObjectNotFound() {
-			return infer.ReadResponse[VzenClusterArgs, VzenClusterState]{}, fmt.Errorf("vzen cluster not found")
+			return infer.ReadResponse[VzenClusterArgs, VzenClusterState]{}, nil
 		}
 		return infer.ReadResponse[VzenClusterArgs, VzenClusterState]{}, err
 	}
@@ -185,6 +185,9 @@ func (VzenCluster) Update(ctx context.Context, req infer.UpdateRequest[VzenClust
 
 	apiReq := vzenClusterArgsToAPI(req.Inputs, id)
 	if _, _, err := vzen_clusters.Update(ctx, svc, id, &apiReq); err != nil {
+		if respErr, ok := err.(*errorx.ErrorResponse); ok && respErr.IsObjectNotFound() {
+			return infer.UpdateResponse[VzenClusterState]{}, nil
+		}
 		return infer.UpdateResponse[VzenClusterState]{}, fmt.Errorf("updating vzen cluster: %w", err)
 	}
 
@@ -218,6 +221,9 @@ func (VzenCluster) Delete(ctx context.Context, req infer.DeleteRequest[VzenClust
 	}
 
 	if _, err := vzen_clusters.Delete(ctx, svc, id); err != nil {
+		if respErr, ok := err.(*errorx.ErrorResponse); ok && respErr.IsObjectNotFound() {
+			return infer.DeleteResponse{}, nil
+		}
 		return infer.DeleteResponse{}, fmt.Errorf("deleting vzen cluster: %w", err)
 	}
 

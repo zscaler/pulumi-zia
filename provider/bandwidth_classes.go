@@ -238,6 +238,9 @@ func (BandwidthClass) Delete(ctx context.Context, req infer.DeleteRequest[Bandwi
 	}
 	if classID != 0 {
 		if _, err := bandwidth_classes.Delete(ctx, service, classID); err != nil {
+			if respErr, ok := err.(*errorx.ErrorResponse); ok && respErr.IsObjectNotFound() {
+				return infer.DeleteResponse{}, nil
+			}
 			return infer.DeleteResponse{}, err
 		}
 		log.Printf("[INFO] ZIA bandwidth class deleted")

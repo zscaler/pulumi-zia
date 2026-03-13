@@ -230,6 +230,9 @@ func (CloudApplicationInstance) Delete(ctx context.Context, req infer.DeleteRequ
 	}
 	if instanceID != 0 {
 		if _, err := cloud_app_instances.Delete(ctx, service, instanceID); err != nil {
+			if respErr, ok := err.(*errorx.ErrorResponse); ok && respErr.IsObjectNotFound() {
+				return infer.DeleteResponse{}, nil
+			}
 			return infer.DeleteResponse{}, err
 		}
 		log.Printf("[INFO] ZIA cloud application instance deleted")

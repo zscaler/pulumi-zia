@@ -107,7 +107,7 @@ func (RuleLabel) Read(ctx context.Context, req infer.ReadRequest[RuleLabelArgs, 
 		resp, lookupErr := rule_labels.GetRuleLabelByName(ctx, svc, req.ID)
 		if lookupErr != nil {
 			if respErr, ok := lookupErr.(*errorx.ErrorResponse); ok && respErr.IsObjectNotFound() {
-				return infer.ReadResponse[RuleLabelArgs, RuleLabelState]{}, fmt.Errorf("rule label not found")
+				return infer.ReadResponse[RuleLabelArgs, RuleLabelState]{}, nil
 			}
 			return infer.ReadResponse[RuleLabelArgs, RuleLabelState]{}, fmt.Errorf("reading rule label by name: %w", lookupErr)
 		}
@@ -117,7 +117,7 @@ func (RuleLabel) Read(ctx context.Context, req infer.ReadRequest[RuleLabelArgs, 
 	resp, err := rule_labels.Get(ctx, svc, id)
 	if err != nil {
 		if respErr, ok := err.(*errorx.ErrorResponse); ok && respErr.IsObjectNotFound() {
-			return infer.ReadResponse[RuleLabelArgs, RuleLabelState]{}, fmt.Errorf("rule label not found")
+			return infer.ReadResponse[RuleLabelArgs, RuleLabelState]{}, nil
 		}
 		return infer.ReadResponse[RuleLabelArgs, RuleLabelState]{}, fmt.Errorf("reading rule label: %w", err)
 	}
@@ -160,6 +160,9 @@ func (RuleLabel) Update(ctx context.Context, req infer.UpdateRequest[RuleLabelAr
 
 	_, _, err = rule_labels.Update(ctx, svc, id, &rl)
 	if err != nil {
+		if respErr, ok := err.(*errorx.ErrorResponse); ok && respErr.IsObjectNotFound() {
+			return infer.UpdateResponse[RuleLabelState]{}, nil
+		}
 		return infer.UpdateResponse[RuleLabelState]{}, fmt.Errorf("updating rule label: %w", err)
 	}
 
@@ -189,6 +192,9 @@ func (RuleLabel) Delete(ctx context.Context, req infer.DeleteRequest[RuleLabelSt
 
 	_, err = rule_labels.Delete(ctx, svc, id)
 	if err != nil {
+		if respErr, ok := err.(*errorx.ErrorResponse); ok && respErr.IsObjectNotFound() {
+			return infer.DeleteResponse{}, nil
+		}
 		return infer.DeleteResponse{}, fmt.Errorf("deleting rule label: %w", err)
 	}
 	return infer.DeleteResponse{}, nil

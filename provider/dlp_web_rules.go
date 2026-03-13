@@ -292,7 +292,7 @@ func (DlpWebRule) Read(ctx context.Context, req infer.ReadRequest[DlpWebRuleArgs
 		rule, lookupErr := dlp_web_rules.GetByName(ctx, svc, req.ID)
 		if lookupErr != nil {
 			if respErr, ok := lookupErr.(*errorx.ErrorResponse); ok && respErr.IsObjectNotFound() {
-				return infer.ReadResponse[DlpWebRuleArgs, DlpWebRuleState]{}, fmt.Errorf("DLP web rule not found")
+				return infer.ReadResponse[DlpWebRuleArgs, DlpWebRuleState]{}, nil
 			}
 			return infer.ReadResponse[DlpWebRuleArgs, DlpWebRuleState]{}, lookupErr
 		}
@@ -302,7 +302,7 @@ func (DlpWebRule) Read(ctx context.Context, req infer.ReadRequest[DlpWebRuleArgs
 	rule, err := dlp_web_rules.Get(ctx, svc, id)
 	if err != nil {
 		if respErr, ok := err.(*errorx.ErrorResponse); ok && respErr.IsObjectNotFound() {
-			return infer.ReadResponse[DlpWebRuleArgs, DlpWebRuleState]{}, fmt.Errorf("DLP web rule not found")
+			return infer.ReadResponse[DlpWebRuleArgs, DlpWebRuleState]{}, nil
 		}
 		return infer.ReadResponse[DlpWebRuleArgs, DlpWebRuleState]{}, err
 	}
@@ -339,6 +339,9 @@ func (DlpWebRule) Update(ctx context.Context, req infer.UpdateRequest[DlpWebRule
 	start := time.Now()
 	for {
 		if _, err := dlp_web_rules.Update(ctx, svc, id, &apiReq); err != nil {
+			if respErr, ok := err.(*errorx.ErrorResponse); ok && respErr.IsObjectNotFound() {
+				return infer.UpdateResponse[DlpWebRuleState]{}, nil
+			}
 			if customErr := failFastOnErrorCodes(err); customErr != nil {
 				return infer.UpdateResponse[DlpWebRuleState]{}, customErr
 			}
@@ -417,6 +420,9 @@ func (DlpWebRule) Delete(ctx context.Context, req infer.DeleteRequest[DlpWebRule
 		return infer.DeleteResponse{}, fmt.Errorf("invalid DLP web rule ID: %s", req.ID)
 	}
 	if _, err := dlp_web_rules.Delete(ctx, svc, id); err != nil {
+		if respErr, ok := err.(*errorx.ErrorResponse); ok && respErr.IsObjectNotFound() {
+			return infer.DeleteResponse{}, nil
+		}
 		return infer.DeleteResponse{}, err
 	}
 	if shouldActivate() {

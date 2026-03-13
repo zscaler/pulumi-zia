@@ -187,6 +187,9 @@ func (DlpEngine) Delete(ctx context.Context, req infer.DeleteRequest[DlpEngineSt
 	}
 	if id != 0 {
 		if _, err := dlp_engines.Delete(ctx, service, id); err != nil {
+			if respErr, ok := err.(*errorx.ErrorResponse); ok && respErr.IsObjectNotFound() {
+				return infer.DeleteResponse{}, nil
+			}
 			return infer.DeleteResponse{}, err
 		}
 		log.Printf("[INFO] ZIA DLP engine deleted")

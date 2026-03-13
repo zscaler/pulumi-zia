@@ -358,7 +358,7 @@ func (FirewallFilteringRule) Read(ctx context.Context, req infer.ReadRequest[Fir
 		rule, lookupErr := filteringrules.GetByName(ctx, svc, req.ID)
 		if lookupErr != nil {
 			if respErr, ok := lookupErr.(*errorx.ErrorResponse); ok && respErr.IsObjectNotFound() {
-				return infer.ReadResponse[FirewallFilteringRuleArgs, FirewallFilteringRuleState]{}, fmt.Errorf("firewall filtering rule not found")
+				return infer.ReadResponse[FirewallFilteringRuleArgs, FirewallFilteringRuleState]{}, nil
 			}
 			return infer.ReadResponse[FirewallFilteringRuleArgs, FirewallFilteringRuleState]{}, lookupErr
 		}
@@ -368,7 +368,7 @@ func (FirewallFilteringRule) Read(ctx context.Context, req infer.ReadRequest[Fir
 	rule, err := filteringrules.Get(ctx, svc, id)
 	if err != nil {
 		if respErr, ok := err.(*errorx.ErrorResponse); ok && respErr.IsObjectNotFound() {
-			return infer.ReadResponse[FirewallFilteringRuleArgs, FirewallFilteringRuleState]{}, fmt.Errorf("firewall filtering rule not found")
+			return infer.ReadResponse[FirewallFilteringRuleArgs, FirewallFilteringRuleState]{}, nil
 		}
 		return infer.ReadResponse[FirewallFilteringRuleArgs, FirewallFilteringRuleState]{}, err
 	}
@@ -415,6 +415,9 @@ func (FirewallFilteringRule) Update(ctx context.Context, req infer.UpdateRequest
 	start := time.Now()
 	for {
 		if _, err := filteringrules.Update(ctx, svc, id, &apiReq); err != nil {
+			if respErr, ok := err.(*errorx.ErrorResponse); ok && respErr.IsObjectNotFound() {
+				return infer.UpdateResponse[FirewallFilteringRuleState]{}, nil
+			}
 			if customErr := failFastOnErrorCodes(err); customErr != nil {
 				return infer.UpdateResponse[FirewallFilteringRuleState]{}, customErr
 			}
@@ -504,6 +507,9 @@ func (FirewallFilteringRule) Delete(ctx context.Context, req infer.DeleteRequest
 		return infer.DeleteResponse{}, fmt.Errorf("deletion of predefined rule '%s' is not allowed", rule.Name)
 	}
 	if _, err := filteringrules.Delete(ctx, svc, id); err != nil {
+		if respErr, ok := err.(*errorx.ErrorResponse); ok && respErr.IsObjectNotFound() {
+			return infer.DeleteResponse{}, nil
+		}
 		return infer.DeleteResponse{}, err
 	}
 	if shouldActivate() {

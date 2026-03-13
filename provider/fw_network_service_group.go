@@ -218,6 +218,9 @@ func (FwNetworkServiceGroup) Delete(ctx context.Context, req infer.DeleteRequest
 			return infer.DeleteResponse{}, err
 		}
 		if _, err := networkservicegroups.DeleteNetworkServiceGroups(ctx, service, id); err != nil {
+			if respErr, ok := err.(*errorx.ErrorResponse); ok && respErr.IsObjectNotFound() {
+				return infer.DeleteResponse{}, nil
+			}
 			return infer.DeleteResponse{}, err
 		}
 		log.Printf("[INFO] ZIA network service group deleted")

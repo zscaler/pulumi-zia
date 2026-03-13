@@ -485,7 +485,7 @@ func (URLFilteringRule) Read(ctx context.Context, req infer.ReadRequest[URLFilte
 		rule, lookupErr := urlfilteringpolicies.GetByName(ctx, svc, req.ID)
 		if lookupErr != nil {
 			if respErr, ok := lookupErr.(*errorx.ErrorResponse); ok && respErr.IsObjectNotFound() {
-				return infer.ReadResponse[URLFilteringRuleArgs, URLFilteringRuleState]{}, fmt.Errorf("url filtering rule not found")
+				return infer.ReadResponse[URLFilteringRuleArgs, URLFilteringRuleState]{}, nil
 			}
 			return infer.ReadResponse[URLFilteringRuleArgs, URLFilteringRuleState]{}, lookupErr
 		}
@@ -495,7 +495,7 @@ func (URLFilteringRule) Read(ctx context.Context, req infer.ReadRequest[URLFilte
 	rule, err := urlfilteringpolicies.Get(ctx, svc, id)
 	if err != nil {
 		if respErr, ok := err.(*errorx.ErrorResponse); ok && respErr.IsObjectNotFound() {
-			return infer.ReadResponse[URLFilteringRuleArgs, URLFilteringRuleState]{}, fmt.Errorf("url filtering rule not found")
+			return infer.ReadResponse[URLFilteringRuleArgs, URLFilteringRuleState]{}, nil
 		}
 		return infer.ReadResponse[URLFilteringRuleArgs, URLFilteringRuleState]{}, err
 	}
@@ -543,6 +543,9 @@ func (URLFilteringRule) Update(ctx context.Context, req infer.UpdateRequest[URLF
 	apiReq.Order = nextAvailableOrder
 
 	_, err = urlfilteringpolicies.Update(ctx, svc, id, &apiReq)
+	if respErr, ok := err.(*errorx.ErrorResponse); ok && respErr.IsObjectNotFound() {
+		return infer.UpdateResponse[URLFilteringRuleState]{}, nil
+	}
 	if customErr := failFastOnErrorCodes(err); customErr != nil {
 		return infer.UpdateResponse[URLFilteringRuleState]{}, customErr
 	}
@@ -612,6 +615,9 @@ func (URLFilteringRule) Delete(ctx context.Context, req infer.DeleteRequest[URLF
 	}
 
 	if _, err := urlfilteringpolicies.Delete(ctx, svc, id); err != nil {
+		if respErr, ok := err.(*errorx.ErrorResponse); ok && respErr.IsObjectNotFound() {
+			return infer.DeleteResponse{}, nil
+		}
 		return infer.DeleteResponse{}, fmt.Errorf("deleting url filtering rule: %w", err)
 	}
 

@@ -392,7 +392,7 @@ func (SslInspectionRule) Read(ctx context.Context, req infer.ReadRequest[SslInsp
 		rule, lookupErr := sslinspection.GetByName(ctx, svc, req.ID)
 		if lookupErr != nil {
 			if respErr, ok := lookupErr.(*errorx.ErrorResponse); ok && respErr.IsObjectNotFound() {
-				return infer.ReadResponse[SslInspectionRuleArgs, SslInspectionRuleState]{}, fmt.Errorf("ssl inspection rule not found")
+				return infer.ReadResponse[SslInspectionRuleArgs, SslInspectionRuleState]{}, nil
 			}
 			return infer.ReadResponse[SslInspectionRuleArgs, SslInspectionRuleState]{}, lookupErr
 		}
@@ -402,7 +402,7 @@ func (SslInspectionRule) Read(ctx context.Context, req infer.ReadRequest[SslInsp
 	rule, err := sslinspection.Get(ctx, svc, id)
 	if err != nil {
 		if respErr, ok := err.(*errorx.ErrorResponse); ok && respErr.IsObjectNotFound() {
-			return infer.ReadResponse[SslInspectionRuleArgs, SslInspectionRuleState]{}, fmt.Errorf("ssl inspection rule not found")
+			return infer.ReadResponse[SslInspectionRuleArgs, SslInspectionRuleState]{}, nil
 		}
 		return infer.ReadResponse[SslInspectionRuleArgs, SslInspectionRuleState]{}, err
 	}
@@ -445,6 +445,9 @@ func (SslInspectionRule) Update(ctx context.Context, req infer.UpdateRequest[Ssl
 	apiReq.Order = nextAvailableOrder
 
 	if _, err = sslinspection.Update(ctx, svc, id, &apiReq); err != nil {
+		if respErr, ok := err.(*errorx.ErrorResponse); ok && respErr.IsObjectNotFound() {
+			return infer.UpdateResponse[SslInspectionRuleState]{}, nil
+		}
 		if customErr := failFastOnErrorCodes(err); customErr != nil {
 			return infer.UpdateResponse[SslInspectionRuleState]{}, customErr
 		}
@@ -515,6 +518,9 @@ func (SslInspectionRule) Delete(ctx context.Context, req infer.DeleteRequest[Ssl
 		return infer.DeleteResponse{}, fmt.Errorf("invalid ssl inspection rule ID: %s", req.ID)
 	}
 	if _, err := sslinspection.Delete(ctx, svc, id); err != nil {
+		if respErr, ok := err.(*errorx.ErrorResponse); ok && respErr.IsObjectNotFound() {
+			return infer.DeleteResponse{}, nil
+		}
 		return infer.DeleteResponse{}, err
 	}
 	if shouldActivate() {

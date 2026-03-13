@@ -1,5 +1,16 @@
 # Changelog
 
+## 1.3.8 (March, 13 2026)
+
+### Notes
+
+- Release date: **(March, 13 2026)**
+- Supported Terraform version: **v1.x**
+
+### Bug Fix
+
+- [PR #68](https://github.com/zscaler/pulumi-zia/pull/68) - Marked `authenticationToken` as secret in `zia_cloud_nss_feed` to prevent plaintext storage in state. Improved graceful handling of externally deleted resources across all Read, Update, and Delete functions by returning empty state on not-found instead of erroring, matching Terraform provider behavior.
+
 ## 1.3.7 (March, 13 2026)
 
 ### Notes

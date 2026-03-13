@@ -173,6 +173,9 @@ func (TenantRestrictionProfile) Delete(ctx context.Context, req infer.DeleteRequ
 	}
 
 	if _, err := tenancy_restriction.Delete(ctx, service, id); err != nil {
+		if respErr, ok := err.(*errorx.ErrorResponse); ok && respErr.IsObjectNotFound() {
+			return infer.DeleteResponse{}, nil
+		}
 		return infer.DeleteResponse{}, err
 	}
 

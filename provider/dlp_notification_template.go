@@ -193,6 +193,9 @@ func (DlpNotificationTemplate) Delete(ctx context.Context, req infer.DeleteReque
 	}
 	if id != 0 {
 		if _, err := dlp_notification_templates.Delete(ctx, service, id); err != nil {
+			if respErr, ok := err.(*errorx.ErrorResponse); ok && respErr.IsObjectNotFound() {
+				return infer.DeleteResponse{}, nil
+			}
 			return infer.DeleteResponse{}, err
 		}
 		log.Printf("[INFO] ZIA DLP notification template deleted")

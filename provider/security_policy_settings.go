@@ -97,7 +97,7 @@ func (SecurityPolicySettings) Read(ctx context.Context, req infer.ReadRequest[Se
 		return infer.ReadResponse[SecurityPolicySettingsArgs, SecurityPolicySettingsState]{}, err
 	}
 	if resp == nil {
-		return infer.ReadResponse[SecurityPolicySettingsArgs, SecurityPolicySettingsState]{}, fmt.Errorf("couldn't read security policy settings")
+		return infer.ReadResponse[SecurityPolicySettingsArgs, SecurityPolicySettingsState]{}, nil
 	}
 
 	state := SecurityPolicySettingsState{

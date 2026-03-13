@@ -191,7 +191,7 @@ func (UserManagementUser) Read(ctx context.Context, req infer.ReadRequest[UserMa
 		rule, lookupErr := users.GetUserByName(ctx, svc, req.ID)
 		if lookupErr != nil {
 			if respErr, ok := lookupErr.(*errorx.ErrorResponse); ok && respErr.IsObjectNotFound() {
-				return infer.ReadResponse[UserManagementUserArgs, UserManagementUserState]{}, fmt.Errorf("user not found")
+				return infer.ReadResponse[UserManagementUserArgs, UserManagementUserState]{}, nil
 			}
 			return infer.ReadResponse[UserManagementUserArgs, UserManagementUserState]{}, lookupErr
 		}
@@ -201,7 +201,7 @@ func (UserManagementUser) Read(ctx context.Context, req infer.ReadRequest[UserMa
 	rule, err := users.Get(ctx, svc, id)
 	if err != nil {
 		if respErr, ok := err.(*errorx.ErrorResponse); ok && respErr.IsObjectNotFound() {
-			return infer.ReadResponse[UserManagementUserArgs, UserManagementUserState]{}, fmt.Errorf("user not found")
+			return infer.ReadResponse[UserManagementUserArgs, UserManagementUserState]{}, nil
 		}
 		return infer.ReadResponse[UserManagementUserArgs, UserManagementUserState]{}, err
 	}
@@ -230,6 +230,9 @@ func (UserManagementUser) Update(ctx context.Context, req infer.UpdateRequest[Us
 
 	apiReq := userManagementUserArgsToAPI(req.Inputs, id)
 	if _, _, err := users.Update(ctx, svc, id, &apiReq); err != nil {
+		if respErr, ok := err.(*errorx.ErrorResponse); ok && respErr.IsObjectNotFound() {
+			return infer.UpdateResponse[UserManagementUserState]{}, nil
+		}
 		return infer.UpdateResponse[UserManagementUserState]{}, fmt.Errorf("updating user: %w", err)
 	}
 
@@ -284,6 +287,9 @@ func (UserManagementUser) Delete(ctx context.Context, req infer.DeleteRequest[Us
 	}
 
 	if _, err := users.Delete(ctx, svc, id); err != nil {
+		if respErr, ok := err.(*errorx.ErrorResponse); ok && respErr.IsObjectNotFound() {
+			return infer.DeleteResponse{}, nil
+		}
 		return infer.DeleteResponse{}, fmt.Errorf("deleting user: %w", err)
 	}
 

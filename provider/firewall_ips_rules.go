@@ -324,7 +324,7 @@ func (FirewallIPSRule) Read(ctx context.Context, req infer.ReadRequest[FirewallI
 		rule, lookupErr := firewallipscontrolpolicies.GetByName(ctx, svc, req.ID)
 		if lookupErr != nil {
 			if respErr, ok := lookupErr.(*errorx.ErrorResponse); ok && respErr.IsObjectNotFound() {
-				return infer.ReadResponse[FirewallIPSRuleArgs, FirewallIPSRuleState]{}, fmt.Errorf("firewall IPS rule not found")
+				return infer.ReadResponse[FirewallIPSRuleArgs, FirewallIPSRuleState]{}, nil
 			}
 			return infer.ReadResponse[FirewallIPSRuleArgs, FirewallIPSRuleState]{}, lookupErr
 		}
@@ -334,7 +334,7 @@ func (FirewallIPSRule) Read(ctx context.Context, req infer.ReadRequest[FirewallI
 	rule, err := firewallipscontrolpolicies.Get(ctx, svc, id)
 	if err != nil {
 		if respErr, ok := err.(*errorx.ErrorResponse); ok && respErr.IsObjectNotFound() {
-			return infer.ReadResponse[FirewallIPSRuleArgs, FirewallIPSRuleState]{}, fmt.Errorf("firewall IPS rule not found")
+			return infer.ReadResponse[FirewallIPSRuleArgs, FirewallIPSRuleState]{}, nil
 		}
 		return infer.ReadResponse[FirewallIPSRuleArgs, FirewallIPSRuleState]{}, err
 	}
@@ -370,6 +370,9 @@ func (FirewallIPSRule) Update(ctx context.Context, req infer.UpdateRequest[Firew
 	}
 
 	_, err = firewallipscontrolpolicies.Update(ctx, svc, id, &apiReq)
+	if respErr, ok := err.(*errorx.ErrorResponse); ok && respErr.IsObjectNotFound() {
+		return infer.UpdateResponse[FirewallIPSRuleState]{}, nil
+	}
 	if customErr := failFastOnErrorCodes(err); customErr != nil {
 		return infer.UpdateResponse[FirewallIPSRuleState]{}, customErr
 	}
@@ -447,6 +450,9 @@ func (FirewallIPSRule) Delete(ctx context.Context, req infer.DeleteRequest[Firew
 		return infer.DeleteResponse{}, fmt.Errorf("deletion of predefined rule '%s' is not allowed", rule.Name)
 	}
 	if _, err := firewallipscontrolpolicies.Delete(ctx, svc, id); err != nil {
+		if respErr, ok := err.(*errorx.ErrorResponse); ok && respErr.IsObjectNotFound() {
+			return infer.DeleteResponse{}, nil
+		}
 		return infer.DeleteResponse{}, err
 	}
 	if shouldActivate() {

@@ -131,7 +131,7 @@ func (BrowserControlPolicy) Read(ctx context.Context, req infer.ReadRequest[Brow
 		return infer.ReadResponse[BrowserControlPolicyArgs, BrowserControlPolicyState]{}, err
 	}
 	if resp == nil {
-		return infer.ReadResponse[BrowserControlPolicyArgs, BrowserControlPolicyState]{}, fmt.Errorf("could not read browser control policy")
+		return infer.ReadResponse[BrowserControlPolicyArgs, BrowserControlPolicyState]{}, nil
 	}
 
 	var smartProfile *SmartIsolationProfileInput

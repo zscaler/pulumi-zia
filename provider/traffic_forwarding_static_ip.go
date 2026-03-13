@@ -304,6 +304,9 @@ func (TrafficForwardingStaticIp) Delete(ctx context.Context, req infer.DeleteReq
 	}
 
 	if _, err := staticips.Delete(ctx, service, id); err != nil {
+		if respErr, ok := err.(*errorx.ErrorResponse); ok && respErr.IsObjectNotFound() {
+			return infer.DeleteResponse{}, nil
+		}
 		return infer.DeleteResponse{}, err
 	}
 

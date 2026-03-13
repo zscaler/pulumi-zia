@@ -218,6 +218,9 @@ func (FwIpDestinationGroup) Delete(ctx context.Context, req infer.DeleteRequest[
 			return infer.DeleteResponse{}, err
 		}
 		if _, err := ipdestinationgroups.Delete(ctx, service, id); err != nil {
+			if respErr, ok := err.(*errorx.ErrorResponse); ok && respErr.IsObjectNotFound() {
+				return infer.DeleteResponse{}, nil
+			}
 			return infer.DeleteResponse{}, err
 		}
 		log.Printf("[INFO] ZIA IP destination group deleted")

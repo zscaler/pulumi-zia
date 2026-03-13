@@ -260,7 +260,7 @@ func (BandwidthControlRule) Read(ctx context.Context, req infer.ReadRequest[Band
 		rule, lookupErr := bandwidth_control_rules.GetByName(ctx, svc, req.ID)
 		if lookupErr != nil {
 			if respErr, ok := lookupErr.(*errorx.ErrorResponse); ok && respErr.IsObjectNotFound() {
-				return infer.ReadResponse[BandwidthControlRuleArgs, BandwidthControlRuleState]{}, fmt.Errorf("bandwidth control rule not found")
+				return infer.ReadResponse[BandwidthControlRuleArgs, BandwidthControlRuleState]{}, nil
 			}
 			return infer.ReadResponse[BandwidthControlRuleArgs, BandwidthControlRuleState]{}, lookupErr
 		}
@@ -270,7 +270,7 @@ func (BandwidthControlRule) Read(ctx context.Context, req infer.ReadRequest[Band
 	rule, err := bandwidth_control_rules.Get(ctx, svc, id)
 	if err != nil {
 		if respErr, ok := err.(*errorx.ErrorResponse); ok && respErr.IsObjectNotFound() {
-			return infer.ReadResponse[BandwidthControlRuleArgs, BandwidthControlRuleState]{}, fmt.Errorf("bandwidth control rule not found")
+			return infer.ReadResponse[BandwidthControlRuleArgs, BandwidthControlRuleState]{}, nil
 		}
 		return infer.ReadResponse[BandwidthControlRuleArgs, BandwidthControlRuleState]{}, err
 	}
@@ -300,6 +300,9 @@ func (BandwidthControlRule) Update(ctx context.Context, req infer.UpdateRequest[
 
 	for {
 		_, err = bandwidth_control_rules.Update(ctx, svc, id, &apiReq)
+		if respErr, ok := err.(*errorx.ErrorResponse); ok && respErr.IsObjectNotFound() {
+			return infer.UpdateResponse[BandwidthControlRuleState]{}, nil
+		}
 		if customErr := failFastOnErrorCodes(err); customErr != nil {
 			return infer.UpdateResponse[BandwidthControlRuleState]{}, customErr
 		}
@@ -374,6 +377,9 @@ func (BandwidthControlRule) Delete(ctx context.Context, req infer.DeleteRequest[
 		return infer.DeleteResponse{}, fmt.Errorf("invalid bandwidth control rule ID: %s", req.ID)
 	}
 	if _, err := bandwidth_control_rules.Delete(ctx, svc, id); err != nil {
+		if respErr, ok := err.(*errorx.ErrorResponse); ok && respErr.IsObjectNotFound() {
+			return infer.DeleteResponse{}, nil
+		}
 		return infer.DeleteResponse{}, err
 	}
 	if shouldActivate() {

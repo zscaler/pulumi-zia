@@ -201,7 +201,7 @@ func (SubCloud) Read(ctx context.Context, req infer.ReadRequest[SubCloudArgs, Su
 		}
 	}
 	if resp == nil {
-		return infer.ReadResponse[SubCloudArgs, SubCloudState]{}, fmt.Errorf("subcloud not found")
+		return infer.ReadResponse[SubCloudArgs, SubCloudState]{}, nil
 	}
 	state := SubCloudState{
 		SubCloudArgs: SubCloudArgs{
