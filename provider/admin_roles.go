@@ -115,7 +115,7 @@ func (AdminRoles) Read(ctx context.Context, req infer.ReadRequest[AdminRolesArgs
 		resp, lookupErr := roles.GetByName(ctx, svc, req.ID)
 		if lookupErr != nil {
 			if respErr, ok := lookupErr.(*errorx.ErrorResponse); ok && respErr.IsObjectNotFound() {
-				return infer.ReadResponse[AdminRolesArgs, AdminRolesState]{}, fmt.Errorf("admin role not found")
+				return infer.ReadResponse[AdminRolesArgs, AdminRolesState]{}, nil
 			}
 			return infer.ReadResponse[AdminRolesArgs, AdminRolesState]{}, lookupErr
 		}
@@ -125,7 +125,7 @@ func (AdminRoles) Read(ctx context.Context, req infer.ReadRequest[AdminRolesArgs
 	resp, err := roles.Get(ctx, svc, id)
 	if err != nil {
 		if respErr, ok := err.(*errorx.ErrorResponse); ok && respErr.IsObjectNotFound() {
-			return infer.ReadResponse[AdminRolesArgs, AdminRolesState]{}, fmt.Errorf("admin role not found")
+			return infer.ReadResponse[AdminRolesArgs, AdminRolesState]{}, nil
 		}
 		return infer.ReadResponse[AdminRolesArgs, AdminRolesState]{}, err
 	}
@@ -154,6 +154,9 @@ func (AdminRoles) Update(ctx context.Context, req infer.UpdateRequest[AdminRoles
 
 	apiReq := adminRolesArgsToAPI(req.Inputs, id)
 	if _, _, err := roles.Update(ctx, svc, id, &apiReq); err != nil {
+		if respErr, ok := err.(*errorx.ErrorResponse); ok && respErr.IsObjectNotFound() {
+			return infer.UpdateResponse[AdminRolesState]{}, nil
+		}
 		return infer.UpdateResponse[AdminRolesState]{}, fmt.Errorf("updating admin role: %w", err)
 	}
 
@@ -185,6 +188,9 @@ func (AdminRoles) Delete(ctx context.Context, req infer.DeleteRequest[AdminRoles
 	}
 
 	if _, err := roles.Delete(ctx, svc, id); err != nil {
+		if respErr, ok := err.(*errorx.ErrorResponse); ok && respErr.IsObjectNotFound() {
+			return infer.DeleteResponse{}, nil
+		}
 		return infer.DeleteResponse{}, fmt.Errorf("deleting admin role: %w", err)
 	}
 

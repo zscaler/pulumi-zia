@@ -314,7 +314,7 @@ func (SandboxRule) Read(ctx context.Context, req infer.ReadRequest[SandboxRuleAr
 		rule, lookupErr := sandbox_rules.GetByName(ctx, svc, req.ID)
 		if lookupErr != nil {
 			if respErr, ok := lookupErr.(*errorx.ErrorResponse); ok && respErr.IsObjectNotFound() {
-				return infer.ReadResponse[SandboxRuleArgs, SandboxRuleState]{}, fmt.Errorf("sandbox rule not found")
+				return infer.ReadResponse[SandboxRuleArgs, SandboxRuleState]{}, nil
 			}
 			return infer.ReadResponse[SandboxRuleArgs, SandboxRuleState]{}, lookupErr
 		}
@@ -324,12 +324,12 @@ func (SandboxRule) Read(ctx context.Context, req infer.ReadRequest[SandboxRuleAr
 	rule, err := sandbox_rules.Get(ctx, svc, id)
 	if err != nil {
 		if respErr, ok := err.(*errorx.ErrorResponse); ok && respErr.IsObjectNotFound() {
-			return infer.ReadResponse[SandboxRuleArgs, SandboxRuleState]{}, fmt.Errorf("sandbox rule not found")
+			return infer.ReadResponse[SandboxRuleArgs, SandboxRuleState]{}, nil
 		}
 		return infer.ReadResponse[SandboxRuleArgs, SandboxRuleState]{}, err
 	}
 	if rule.Order == 127 || rule.Name == "Default BA Rule" {
-		return infer.ReadResponse[SandboxRuleArgs, SandboxRuleState]{}, fmt.Errorf("sandbox rule not found")
+		return infer.ReadResponse[SandboxRuleArgs, SandboxRuleState]{}, nil
 	}
 
 	state := sandboxRuleAPIToState(rule)
@@ -372,6 +372,9 @@ func (SandboxRule) Update(ctx context.Context, req infer.UpdateRequest[SandboxRu
 	apiReq.Order = nextAvailableOrder
 
 	if _, err = sandbox_rules.Update(ctx, svc, id, &apiReq); err != nil {
+		if respErr, ok := err.(*errorx.ErrorResponse); ok && respErr.IsObjectNotFound() {
+			return infer.UpdateResponse[SandboxRuleState]{}, nil
+		}
 		if customErr := failFastOnErrorCodes(err); customErr != nil {
 			return infer.UpdateResponse[SandboxRuleState]{}, customErr
 		}
@@ -441,6 +444,9 @@ func (SandboxRule) Delete(ctx context.Context, req infer.DeleteRequest[SandboxRu
 		return infer.DeleteResponse{}, fmt.Errorf("invalid sandbox rule ID: %s", req.ID)
 	}
 	if _, err := sandbox_rules.Delete(ctx, svc, id); err != nil {
+		if respErr, ok := err.(*errorx.ErrorResponse); ok && respErr.IsObjectNotFound() {
+			return infer.DeleteResponse{}, nil
+		}
 		return infer.DeleteResponse{}, err
 	}
 	if shouldActivate() {

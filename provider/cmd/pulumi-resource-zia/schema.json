@@ -4261,7 +4261,8 @@
       "properties": {
         "authenticationToken": {
           "type": "string",
-          "description": "Authentication token for the SIEM connection."
+          "description": "Authentication token for the SIEM connection.",
+          "secret": true
         },
         "authenticationUrl": {
           "type": "string",
@@ -4504,7 +4505,8 @@
       "inputProperties": {
         "authenticationToken": {
           "type": "string",
-          "description": "Authentication token for the SIEM connection."
+          "description": "Authentication token for the SIEM connection.",
+          "secret": true
         },
         "authenticationUrl": {
           "type": "string",

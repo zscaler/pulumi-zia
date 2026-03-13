@@ -150,7 +150,7 @@ func (AdvancedSettings) Read(ctx context.Context, req infer.ReadRequest[Advanced
 		return infer.ReadResponse[AdvancedSettingsArgs, AdvancedSettingsState]{}, err
 	}
 	if resp == nil {
-		return infer.ReadResponse[AdvancedSettingsArgs, AdvancedSettingsState]{}, fmt.Errorf("couldn't read advanced settings")
+		return infer.ReadResponse[AdvancedSettingsArgs, AdvancedSettingsState]{}, nil
 	}
 
 	state := advancedSettingsAPIToState(resp)

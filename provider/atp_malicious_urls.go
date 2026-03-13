@@ -93,7 +93,7 @@ func (AtpMaliciousUrls) Read(ctx context.Context, req infer.ReadRequest[AtpMalic
 		return infer.ReadResponse[AtpMaliciousUrlsArgs, AtpMaliciousUrlsState]{}, err
 	}
 	if resp == nil {
-		return infer.ReadResponse[AtpMaliciousUrlsArgs, AtpMaliciousUrlsState]{}, fmt.Errorf("couldn't read malicious URLs")
+		return infer.ReadResponse[AtpMaliciousUrlsArgs, AtpMaliciousUrlsState]{}, nil
 	}
 
 	state := AtpMaliciousUrlsState{

@@ -209,7 +209,7 @@ func (RiskProfile) Read(ctx context.Context, req infer.ReadRequest[RiskProfileAr
 		profile, lookupErr := risk_profiles.GetByName(ctx, service, req.ID)
 		if lookupErr != nil {
 			if respErr, ok := lookupErr.(*errorx.ErrorResponse); ok && respErr.IsObjectNotFound() {
-				return infer.ReadResponse[RiskProfileArgs, RiskProfileState]{}, fmt.Errorf("risk profile not found")
+				return infer.ReadResponse[RiskProfileArgs, RiskProfileState]{}, nil
 			}
 			return infer.ReadResponse[RiskProfileArgs, RiskProfileState]{}, lookupErr
 		}
@@ -219,7 +219,7 @@ func (RiskProfile) Read(ctx context.Context, req infer.ReadRequest[RiskProfileAr
 	resp, err := risk_profiles.Get(ctx, service, id)
 	if err != nil {
 		if respErr, ok := err.(*errorx.ErrorResponse); ok && respErr.IsObjectNotFound() {
-			return infer.ReadResponse[RiskProfileArgs, RiskProfileState]{}, fmt.Errorf("risk profile not found")
+			return infer.ReadResponse[RiskProfileArgs, RiskProfileState]{}, nil
 		}
 		return infer.ReadResponse[RiskProfileArgs, RiskProfileState]{}, err
 	}
@@ -247,6 +247,9 @@ func (RiskProfile) Update(ctx context.Context, req infer.UpdateRequest[RiskProfi
 	apiReq := riskProfileArgsToAPI(&req.Inputs, id)
 
 	if _, _, err := risk_profiles.Update(ctx, service, id, &apiReq); err != nil {
+		if respErr, ok := err.(*errorx.ErrorResponse); ok && respErr.IsObjectNotFound() {
+			return infer.UpdateResponse[RiskProfileState]{}, nil
+		}
 		return infer.UpdateResponse[RiskProfileState]{}, err
 	}
 
@@ -280,6 +283,9 @@ func (RiskProfile) Delete(ctx context.Context, req infer.DeleteRequest[RiskProfi
 		return infer.DeleteResponse{}, fmt.Errorf("invalid risk profile ID: %s", req.ID)
 	}
 	if _, err := risk_profiles.Delete(ctx, service, id); err != nil {
+		if respErr, ok := err.(*errorx.ErrorResponse); ok && respErr.IsObjectNotFound() {
+			return infer.DeleteResponse{}, nil
+		}
 		return infer.DeleteResponse{}, err
 	}
 	if shouldActivate() {

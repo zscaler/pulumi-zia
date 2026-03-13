@@ -328,7 +328,7 @@ func (NatControlRule) Read(ctx context.Context, req infer.ReadRequest[NatControl
 		rule, lookupErr := nat_control_policies.GetByName(ctx, svc, req.ID)
 		if lookupErr != nil {
 			if respErr, ok := lookupErr.(*errorx.ErrorResponse); ok && respErr.IsObjectNotFound() {
-				return infer.ReadResponse[NatControlRuleArgs, NatControlRuleState]{}, fmt.Errorf("nat control rule not found")
+				return infer.ReadResponse[NatControlRuleArgs, NatControlRuleState]{}, nil
 			}
 			return infer.ReadResponse[NatControlRuleArgs, NatControlRuleState]{}, lookupErr
 		}
@@ -338,7 +338,7 @@ func (NatControlRule) Read(ctx context.Context, req infer.ReadRequest[NatControl
 	rule, err := nat_control_policies.Get(ctx, svc, id)
 	if err != nil {
 		if respErr, ok := err.(*errorx.ErrorResponse); ok && respErr.IsObjectNotFound() {
-			return infer.ReadResponse[NatControlRuleArgs, NatControlRuleState]{}, fmt.Errorf("nat control rule not found")
+			return infer.ReadResponse[NatControlRuleArgs, NatControlRuleState]{}, nil
 		}
 		return infer.ReadResponse[NatControlRuleArgs, NatControlRuleState]{}, err
 	}
@@ -372,6 +372,9 @@ func (NatControlRule) Update(ctx context.Context, req infer.UpdateRequest[NatCon
 	start := time.Now()
 	for {
 		if _, err := nat_control_policies.Update(ctx, svc, id, &apiReq); err != nil {
+			if respErr, ok := err.(*errorx.ErrorResponse); ok && respErr.IsObjectNotFound() {
+				return infer.UpdateResponse[NatControlRuleState]{}, nil
+			}
 			if customErr := failFastOnErrorCodes(err); customErr != nil {
 				return infer.UpdateResponse[NatControlRuleState]{}, customErr
 			}
@@ -462,6 +465,9 @@ func (NatControlRule) Delete(ctx context.Context, req infer.DeleteRequest[NatCon
 		return infer.DeleteResponse{}, fmt.Errorf("deletion of predefined rule '%s' is not allowed", rule.Name)
 	}
 	if _, err := nat_control_policies.Delete(ctx, svc, id); err != nil {
+		if respErr, ok := err.(*errorx.ErrorResponse); ok && respErr.IsObjectNotFound() {
+			return infer.DeleteResponse{}, nil
+		}
 		return infer.DeleteResponse{}, err
 	}
 	if shouldActivate() {

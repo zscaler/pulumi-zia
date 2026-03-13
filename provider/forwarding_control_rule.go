@@ -332,7 +332,7 @@ func (ForwardingControlRule) Read(ctx context.Context, req infer.ReadRequest[For
 		rule, lookupErr := forwarding_rules.GetByName(ctx, svc, req.ID)
 		if lookupErr != nil {
 			if respErr, ok := lookupErr.(*errorx.ErrorResponse); ok && respErr.IsObjectNotFound() {
-				return infer.ReadResponse[ForwardingControlRuleArgs, ForwardingControlRuleState]{}, fmt.Errorf("forwarding control rule not found")
+				return infer.ReadResponse[ForwardingControlRuleArgs, ForwardingControlRuleState]{}, nil
 			}
 			return infer.ReadResponse[ForwardingControlRuleArgs, ForwardingControlRuleState]{}, lookupErr
 		}
@@ -342,7 +342,7 @@ func (ForwardingControlRule) Read(ctx context.Context, req infer.ReadRequest[For
 	rule, err := forwarding_rules.Get(ctx, svc, id)
 	if err != nil {
 		if respErr, ok := err.(*errorx.ErrorResponse); ok && respErr.IsObjectNotFound() {
-			return infer.ReadResponse[ForwardingControlRuleArgs, ForwardingControlRuleState]{}, fmt.Errorf("forwarding control rule not found")
+			return infer.ReadResponse[ForwardingControlRuleArgs, ForwardingControlRuleState]{}, nil
 		}
 		return infer.ReadResponse[ForwardingControlRuleArgs, ForwardingControlRuleState]{}, err
 	}
@@ -402,6 +402,9 @@ func (ForwardingControlRule) Update(ctx context.Context, req infer.UpdateRequest
 			continue
 		}
 		break
+	}
+	if respErr, ok := err.(*errorx.ErrorResponse); ok && respErr.IsObjectNotFound() {
+		return infer.UpdateResponse[ForwardingControlRuleState]{}, nil
 	}
 	if customErr := failFastOnErrorCodes(err); customErr != nil {
 		return infer.UpdateResponse[ForwardingControlRuleState]{}, customErr
@@ -473,6 +476,9 @@ func (ForwardingControlRule) Delete(ctx context.Context, req infer.DeleteRequest
 		return infer.DeleteResponse{}, err
 	}
 	if _, err := forwarding_rules.Delete(ctx, svc, id); err != nil {
+		if respErr, ok := err.(*errorx.ErrorResponse); ok && respErr.IsObjectNotFound() {
+			return infer.DeleteResponse{}, nil
+		}
 		return infer.DeleteResponse{}, err
 	}
 	if shouldActivate() {

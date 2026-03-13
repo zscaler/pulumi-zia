@@ -193,7 +193,7 @@ func (VzenNode) Read(ctx context.Context, req infer.ReadRequest[VzenNodeArgs, Vz
 		rule, lookupErr := vzen_nodes.GetNodeByName(ctx, svc, req.ID)
 		if lookupErr != nil {
 			if respErr, ok := lookupErr.(*errorx.ErrorResponse); ok && respErr.IsObjectNotFound() {
-				return infer.ReadResponse[VzenNodeArgs, VzenNodeState]{}, fmt.Errorf("vzen node not found")
+				return infer.ReadResponse[VzenNodeArgs, VzenNodeState]{}, nil
 			}
 			return infer.ReadResponse[VzenNodeArgs, VzenNodeState]{}, lookupErr
 		}
@@ -203,7 +203,7 @@ func (VzenNode) Read(ctx context.Context, req infer.ReadRequest[VzenNodeArgs, Vz
 	rule, err := vzen_nodes.Get(ctx, svc, id)
 	if err != nil {
 		if respErr, ok := err.(*errorx.ErrorResponse); ok && respErr.IsObjectNotFound() {
-			return infer.ReadResponse[VzenNodeArgs, VzenNodeState]{}, fmt.Errorf("vzen node not found")
+			return infer.ReadResponse[VzenNodeArgs, VzenNodeState]{}, nil
 		}
 		return infer.ReadResponse[VzenNodeArgs, VzenNodeState]{}, err
 	}
@@ -232,6 +232,9 @@ func (VzenNode) Update(ctx context.Context, req infer.UpdateRequest[VzenNodeArgs
 
 	apiReq := vzenNodeArgsToAPI(req.Inputs, id)
 	if _, _, err := vzen_nodes.Update(ctx, svc, id, &apiReq); err != nil {
+		if respErr, ok := err.(*errorx.ErrorResponse); ok && respErr.IsObjectNotFound() {
+			return infer.UpdateResponse[VzenNodeState]{}, nil
+		}
 		return infer.UpdateResponse[VzenNodeState]{}, fmt.Errorf("updating vzen node: %w", err)
 	}
 
@@ -265,6 +268,9 @@ func (VzenNode) Delete(ctx context.Context, req infer.DeleteRequest[VzenNodeStat
 	}
 
 	if _, err := vzen_nodes.Delete(ctx, svc, id); err != nil {
+		if respErr, ok := err.(*errorx.ErrorResponse); ok && respErr.IsObjectNotFound() {
+			return infer.DeleteResponse{}, nil
+		}
 		return infer.DeleteResponse{}, fmt.Errorf("deleting vzen node: %w", err)
 	}
 

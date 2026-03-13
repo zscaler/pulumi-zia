@@ -136,7 +136,7 @@ func (AdminUsers) Read(ctx context.Context, req infer.ReadRequest[AdminUsersArgs
 		resp, lookupErr := admins.GetAdminUsersByLoginName(ctx, svc, req.ID)
 		if lookupErr != nil {
 			if respErr, ok := lookupErr.(*errorx.ErrorResponse); ok && respErr.IsObjectNotFound() {
-				return infer.ReadResponse[AdminUsersArgs, AdminUsersState]{}, fmt.Errorf("admin user not found")
+				return infer.ReadResponse[AdminUsersArgs, AdminUsersState]{}, nil
 			}
 			return infer.ReadResponse[AdminUsersArgs, AdminUsersState]{}, lookupErr
 		}
@@ -146,7 +146,7 @@ func (AdminUsers) Read(ctx context.Context, req infer.ReadRequest[AdminUsersArgs
 	resp, err := admins.GetAdminUsers(ctx, svc, id)
 	if err != nil {
 		if respErr, ok := err.(*errorx.ErrorResponse); ok && respErr.IsObjectNotFound() {
-			return infer.ReadResponse[AdminUsersArgs, AdminUsersState]{}, fmt.Errorf("admin user not found")
+			return infer.ReadResponse[AdminUsersArgs, AdminUsersState]{}, nil
 		}
 		return infer.ReadResponse[AdminUsersArgs, AdminUsersState]{}, err
 	}
@@ -179,6 +179,9 @@ func (AdminUsers) Update(ctx context.Context, req infer.UpdateRequest[AdminUsers
 	}
 
 	if _, err := admins.UpdateAdminUser(ctx, svc, id, apiReq); err != nil {
+		if respErr, ok := err.(*errorx.ErrorResponse); ok && respErr.IsObjectNotFound() {
+			return infer.UpdateResponse[AdminUsersState]{}, nil
+		}
 		return infer.UpdateResponse[AdminUsersState]{}, fmt.Errorf("updating admin user: %w", err)
 	}
 
@@ -212,6 +215,9 @@ func (AdminUsers) Delete(ctx context.Context, req infer.DeleteRequest[AdminUsers
 	}
 
 	if _, err := admins.DeleteAdminUser(ctx, svc, id); err != nil {
+		if respErr, ok := err.(*errorx.ErrorResponse); ok && respErr.IsObjectNotFound() {
+			return infer.DeleteResponse{}, nil
+		}
 		return infer.DeleteResponse{}, fmt.Errorf("deleting admin user: %w", err)
 	}
 

@@ -93,7 +93,7 @@ func (AuthSettingsUrls) Read(ctx context.Context, req infer.ReadRequest[AuthSett
 		return infer.ReadResponse[AuthSettingsUrlsArgs, AuthSettingsUrlsState]{}, err
 	}
 	if resp == nil {
-		return infer.ReadResponse[AuthSettingsUrlsArgs, AuthSettingsUrlsState]{}, fmt.Errorf("couldn't read auth settings URLs")
+		return infer.ReadResponse[AuthSettingsUrlsArgs, AuthSettingsUrlsState]{}, nil
 	}
 
 	state := AuthSettingsUrlsState{

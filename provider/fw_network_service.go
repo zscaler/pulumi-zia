@@ -249,6 +249,9 @@ func (FwNetworkService) Delete(ctx context.Context, req infer.DeleteRequest[FwNe
 			return infer.DeleteResponse{}, err
 		}
 		if _, err := networkservices.Delete(ctx, service, id); err != nil {
+			if respErr, ok := err.(*errorx.ErrorResponse); ok && respErr.IsObjectNotFound() {
+				return infer.DeleteResponse{}, nil
+			}
 			return infer.DeleteResponse{}, err
 		}
 		log.Printf("[INFO] ZIA network service deleted")

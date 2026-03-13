@@ -52,7 +52,7 @@ type CloudNssFeedArgs struct {
 	SiemType                 *string  `pulumi:"siemType,optional"`
 	MaxBatchSize             *int     `pulumi:"maxBatchSize,optional"`
 	ConnectionURL            *string  `pulumi:"connectionUrl,optional"`
-	AuthenticationToken      *string  `pulumi:"authenticationToken,optional"`
+	AuthenticationToken      *string  `pulumi:"authenticationToken,optional" provider:"secret"`
 	ConnectionHeaders        []string `pulumi:"connectionHeaders,optional"`
 	Base64EncodedCertificate *string  `pulumi:"base64EncodedCertificate,optional"`
 	NssType                  *string  `pulumi:"nssType,optional"`
@@ -303,6 +303,9 @@ func (CloudNssFeed) Delete(ctx context.Context, req infer.DeleteRequest[CloudNss
 	}
 	if nssID != 0 {
 		if _, err := cloudnss.Delete(ctx, service, nssID); err != nil {
+			if respErr, ok := err.(*errorx.ErrorResponse); ok && respErr.IsObjectNotFound() {
+				return infer.DeleteResponse{}, nil
+			}
 			return infer.DeleteResponse{}, err
 		}
 		log.Printf("[INFO] ZIA cloud NSS feed deleted")

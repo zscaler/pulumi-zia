@@ -9,7 +9,7 @@
     <PackageProjectUrl>https://github.com/zscaler/pulumi-zia</PackageProjectUrl>
     <RepositoryUrl>https://github.com/zscaler/pulumi-zia</RepositoryUrl>
     <PackageIcon>logo.png</PackageIcon>
-    <Version>1.0.0-alpha.0+dev</Version>
+    <Version>1.3.8</Version>
 
     <TargetFramework>net6.0</TargetFramework>
     <Nullable>enable</Nullable>

@@ -149,7 +149,7 @@ func (AtpSettings) Read(ctx context.Context, req infer.ReadRequest[AtpSettingsAr
 		return infer.ReadResponse[AtpSettingsArgs, AtpSettingsState]{}, err
 	}
 	if resp == nil {
-		return infer.ReadResponse[AtpSettingsArgs, AtpSettingsState]{}, fmt.Errorf("couldn't read advanced threat settings")
+		return infer.ReadResponse[AtpSettingsArgs, AtpSettingsState]{}, nil
 	}
 
 	state := atpSettingsAPIToState(resp)

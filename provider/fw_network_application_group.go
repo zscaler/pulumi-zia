@@ -198,6 +198,9 @@ func (FwNetworkApplicationGroup) Delete(ctx context.Context, req infer.DeleteReq
 			return infer.DeleteResponse{}, err
 		}
 		if _, err := networkapplicationgroups.Delete(ctx, service, id); err != nil {
+			if respErr, ok := err.(*errorx.ErrorResponse); ok && respErr.IsObjectNotFound() {
+				return infer.DeleteResponse{}, nil
+			}
 			return infer.DeleteResponse{}, err
 		}
 		log.Printf("[INFO] ZIA network application group deleted")

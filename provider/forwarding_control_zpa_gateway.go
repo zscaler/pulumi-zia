@@ -31,6 +31,7 @@ import (
 	"time"
 
 	"github.com/pulumi/pulumi-go-provider/infer"
+	"github.com/zscaler/zscaler-sdk-go/v3/zscaler/errorx"
 	"github.com/zscaler/zscaler-sdk-go/v3/zscaler/zia/services/forwarding_control_policy/zpa_gateways"
 )
 
@@ -275,6 +276,9 @@ func (ForwardingControlZpaGateway) Delete(ctx context.Context, req infer.DeleteR
 
 	gw, err := zpa_gateways.Get(ctx, service, id)
 	if err != nil {
+		if respErr, ok := err.(*errorx.ErrorResponse); ok && respErr.IsObjectNotFound() {
+			return infer.DeleteResponse{}, nil
+		}
 		return infer.DeleteResponse{}, err
 	}
 	if err := validateZpaGatewayPredefined(*gw); err != nil {
@@ -282,6 +286,9 @@ func (ForwardingControlZpaGateway) Delete(ctx context.Context, req infer.DeleteR
 	}
 
 	if _, err := zpa_gateways.Delete(ctx, service, id); err != nil {
+		if respErr, ok := err.(*errorx.ErrorResponse); ok && respErr.IsObjectNotFound() {
+			return infer.DeleteResponse{}, nil
+		}
 		return infer.DeleteResponse{}, err
 	}
 	log.Printf("[INFO] ZIA Forwarding Control ZPA Gateway deleted")

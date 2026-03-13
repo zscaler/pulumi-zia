@@ -93,7 +93,7 @@ func (AtpSecurityExceptions) Read(ctx context.Context, req infer.ReadRequest[Atp
 		return infer.ReadResponse[AtpSecurityExceptionsArgs, AtpSecurityExceptionsState]{}, err
 	}
 	if resp == nil {
-		return infer.ReadResponse[AtpSecurityExceptionsArgs, AtpSecurityExceptionsState]{}, fmt.Errorf("couldn't read bypass URLs")
+		return infer.ReadResponse[AtpSecurityExceptionsArgs, AtpSecurityExceptionsState]{}, nil
 	}
 
 	state := AtpSecurityExceptionsState{

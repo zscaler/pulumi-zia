@@ -365,6 +365,9 @@ func (LocationManagement) Delete(ctx context.Context, req infer.DeleteRequest[Lo
 			return infer.DeleteResponse{}, err
 		}
 		if _, err := locationmanagement.Delete(ctx, service, id); err != nil {
+			if respErr, ok := err.(*errorx.ErrorResponse); ok && respErr.IsObjectNotFound() {
+				return infer.DeleteResponse{}, nil
+			}
 			return infer.DeleteResponse{}, err
 		}
 		log.Printf("[INFO] ZIA location deleted")

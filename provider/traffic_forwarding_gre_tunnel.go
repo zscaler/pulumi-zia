@@ -231,7 +231,7 @@ func (TrafficForwardingGreTunnel) Read(ctx context.Context, req infer.ReadReques
 	resp, err := gretunnels.GetGreTunnels(ctx, service, id)
 	if err != nil {
 		if apiErr, ok := err.(*errorx.ErrorResponse); ok && apiErr.IsObjectNotFound() {
-			return infer.ReadResponse[TrafficForwardingGreTunnelArgs, TrafficForwardingGreTunnelState]{}, fmt.Errorf("GRE tunnel not found")
+			return infer.ReadResponse[TrafficForwardingGreTunnelArgs, TrafficForwardingGreTunnelState]{}, nil
 		}
 		return infer.ReadResponse[TrafficForwardingGreTunnelArgs, TrafficForwardingGreTunnelState]{}, err
 	}
@@ -260,6 +260,9 @@ func (TrafficForwardingGreTunnel) Update(ctx context.Context, req infer.UpdateRe
 		return infer.UpdateResponse[TrafficForwardingGreTunnelState]{}, fmt.Errorf("error assigning VIPs: %w", err)
 	}
 	if _, _, err := gretunnels.UpdateGreTunnels(ctx, service, id, &apiReq); err != nil {
+		if respErr, ok := err.(*errorx.ErrorResponse); ok && respErr.IsObjectNotFound() {
+			return infer.UpdateResponse[TrafficForwardingGreTunnelState]{}, nil
+		}
 		return infer.UpdateResponse[TrafficForwardingGreTunnelState]{}, err
 	}
 	time.Sleep(2 * time.Second)
@@ -295,6 +298,9 @@ func (TrafficForwardingGreTunnel) Delete(ctx context.Context, req infer.DeleteRe
 		return infer.DeleteResponse{}, fmt.Errorf("invalid GRE tunnel ID: %s", req.ID)
 	}
 	if _, err := gretunnels.DeleteGreTunnels(ctx, service, id); err != nil {
+		if respErr, ok := err.(*errorx.ErrorResponse); ok && respErr.IsObjectNotFound() {
+			return infer.DeleteResponse{}, nil
+		}
 		return infer.DeleteResponse{}, err
 	}
 	time.Sleep(2 * time.Second)

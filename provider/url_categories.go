@@ -311,6 +311,9 @@ func (UrlCategory) Delete(ctx context.Context, req infer.DeleteRequest[UrlCatego
 	}
 
 	if _, err := urlcategories.DeleteURLCategories(ctx, service, id); err != nil {
+		if respErr, ok := err.(*errorx.ErrorResponse); ok && respErr.IsObjectNotFound() {
+			return infer.DeleteResponse{}, nil
+		}
 		return infer.DeleteResponse{}, err
 	}
 

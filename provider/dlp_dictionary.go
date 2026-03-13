@@ -252,6 +252,9 @@ func (DlpDictionary) Delete(ctx context.Context, req infer.DeleteRequest[DlpDict
 	}
 	if id != 0 {
 		if _, err := dlpdictionaries.DeleteDlpDictionary(ctx, service, id); err != nil {
+			if respErr, ok := err.(*errorx.ErrorResponse); ok && respErr.IsObjectNotFound() {
+				return infer.DeleteResponse{}, nil
+			}
 			return infer.DeleteResponse{}, err
 		}
 		log.Printf("[INFO] ZIA DLP dictionary deleted")

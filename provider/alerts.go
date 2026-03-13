@@ -206,6 +206,9 @@ func (SubscriptionAlert) Delete(ctx context.Context, req infer.DeleteRequest[Sub
 	}
 	if alertID != 0 {
 		if _, err := alerts.Delete(ctx, service, alertID); err != nil {
+			if respErr, ok := err.(*errorx.ErrorResponse); ok && respErr.IsObjectNotFound() {
+				return infer.DeleteResponse{}, nil
+			}
 			return infer.DeleteResponse{}, err
 		}
 		log.Printf("[INFO] ZIA subscription alert deleted")

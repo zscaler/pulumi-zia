@@ -187,6 +187,9 @@ func (CustomFileType) Delete(ctx context.Context, req infer.DeleteRequest[Custom
 	}
 	if id != 0 {
 		if _, err := custom_file_types.Delete(ctx, service, id); err != nil {
+			if respErr, ok := err.(*errorx.ErrorResponse); ok && respErr.IsObjectNotFound() {
+				return infer.DeleteResponse{}, nil
+			}
 			return infer.DeleteResponse{}, err
 		}
 		log.Printf("[INFO] ZIA custom file type deleted")

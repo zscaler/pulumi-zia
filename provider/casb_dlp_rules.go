@@ -311,7 +311,7 @@ func (CasbDlpRule) Read(ctx context.Context, req infer.ReadRequest[CasbDlpRuleAr
 	rule, err := casb_dlp_rules.GetByRuleID(ctx, svc, ruleType, id)
 	if err != nil {
 		if respErr, ok := err.(*errorx.ErrorResponse); ok && respErr.IsObjectNotFound() {
-			return infer.ReadResponse[CasbDlpRuleArgs, CasbDlpRuleState]{}, fmt.Errorf("casb dlp rule not found")
+			return infer.ReadResponse[CasbDlpRuleArgs, CasbDlpRuleState]{}, nil
 		}
 		return infer.ReadResponse[CasbDlpRuleArgs, CasbDlpRuleState]{}, err
 	}
@@ -342,6 +342,9 @@ func (CasbDlpRule) Update(ctx context.Context, req infer.UpdateRequest[CasbDlpRu
 
 	for {
 		_, err = casb_dlp_rules.Update(ctx, svc, id, &apiReq)
+		if respErr, ok := err.(*errorx.ErrorResponse); ok && respErr.IsObjectNotFound() {
+			return infer.UpdateResponse[CasbDlpRuleState]{}, nil
+		}
 		if customErr := failFastOnErrorCodes(err); customErr != nil {
 			return infer.UpdateResponse[CasbDlpRuleState]{}, customErr
 		}
@@ -419,6 +422,9 @@ func (CasbDlpRule) Delete(ctx context.Context, req infer.DeleteRequest[CasbDlpRu
 		return infer.DeleteResponse{}, fmt.Errorf("rule type is required for delete")
 	}
 	if _, err := casb_dlp_rules.Delete(ctx, svc, ruleType, id); err != nil {
+		if respErr, ok := err.(*errorx.ErrorResponse); ok && respErr.IsObjectNotFound() {
+			return infer.DeleteResponse{}, nil
+		}
 		return infer.DeleteResponse{}, err
 	}
 	if shouldActivate() {

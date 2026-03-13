@@ -169,7 +169,7 @@ func (WorkloadGroup) Read(ctx context.Context, req infer.ReadRequest[WorkloadGro
 		rule, lookupErr := workloadgroups.GetByName(ctx, svc, req.ID)
 		if lookupErr != nil {
 			if respErr, ok := lookupErr.(*errorx.ErrorResponse); ok && respErr.IsObjectNotFound() {
-				return infer.ReadResponse[WorkloadGroupArgs, WorkloadGroupState]{}, fmt.Errorf("workload group not found")
+				return infer.ReadResponse[WorkloadGroupArgs, WorkloadGroupState]{}, nil
 			}
 			return infer.ReadResponse[WorkloadGroupArgs, WorkloadGroupState]{}, lookupErr
 		}
@@ -179,7 +179,7 @@ func (WorkloadGroup) Read(ctx context.Context, req infer.ReadRequest[WorkloadGro
 	rule, err := workloadgroups.Get(ctx, svc, id)
 	if err != nil {
 		if respErr, ok := err.(*errorx.ErrorResponse); ok && respErr.IsObjectNotFound() {
-			return infer.ReadResponse[WorkloadGroupArgs, WorkloadGroupState]{}, fmt.Errorf("workload group not found")
+			return infer.ReadResponse[WorkloadGroupArgs, WorkloadGroupState]{}, nil
 		}
 		return infer.ReadResponse[WorkloadGroupArgs, WorkloadGroupState]{}, err
 	}
@@ -208,6 +208,9 @@ func (WorkloadGroup) Update(ctx context.Context, req infer.UpdateRequest[Workloa
 
 	apiReq := workloadGroupArgsToAPI(req.Inputs, id)
 	if _, _, err := workloadgroups.Update(ctx, svc, id, &apiReq); err != nil {
+		if respErr, ok := err.(*errorx.ErrorResponse); ok && respErr.IsObjectNotFound() {
+			return infer.UpdateResponse[WorkloadGroupState]{}, nil
+		}
 		return infer.UpdateResponse[WorkloadGroupState]{}, fmt.Errorf("updating workload group: %w", err)
 	}
 
@@ -241,6 +244,9 @@ func (WorkloadGroup) Delete(ctx context.Context, req infer.DeleteRequest[Workloa
 	}
 
 	if _, err := workloadgroups.Delete(ctx, svc, id); err != nil {
+		if respErr, ok := err.(*errorx.ErrorResponse); ok && respErr.IsObjectNotFound() {
+			return infer.DeleteResponse{}, nil
+		}
 		return infer.DeleteResponse{}, fmt.Errorf("deleting workload group: %w", err)
 	}
 

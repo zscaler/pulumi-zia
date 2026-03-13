@@ -128,7 +128,7 @@ func (NssServer) Read(ctx context.Context, req infer.ReadRequest[NssServerArgs, 
 		server, lookupErr := nss_servers.GetByName(ctx, service, req.ID)
 		if lookupErr != nil {
 			if respErr, ok := lookupErr.(*errorx.ErrorResponse); ok && respErr.IsObjectNotFound() {
-				return infer.ReadResponse[NssServerArgs, NssServerState]{}, fmt.Errorf("nss server not found")
+				return infer.ReadResponse[NssServerArgs, NssServerState]{}, nil
 			}
 			return infer.ReadResponse[NssServerArgs, NssServerState]{}, lookupErr
 		}
@@ -138,7 +138,7 @@ func (NssServer) Read(ctx context.Context, req infer.ReadRequest[NssServerArgs, 
 	resp, err := nss_servers.Get(ctx, service, id)
 	if err != nil {
 		if respErr, ok := err.(*errorx.ErrorResponse); ok && respErr.IsObjectNotFound() {
-			return infer.ReadResponse[NssServerArgs, NssServerState]{}, fmt.Errorf("nss server not found")
+			return infer.ReadResponse[NssServerArgs, NssServerState]{}, nil
 		}
 		return infer.ReadResponse[NssServerArgs, NssServerState]{}, err
 	}
@@ -166,6 +166,9 @@ func (NssServer) Update(ctx context.Context, req infer.UpdateRequest[NssServerAr
 	apiReq := nssServerArgsToAPI(&req.Inputs, id)
 
 	if _, err := nss_servers.Update(ctx, service, id, &apiReq); err != nil {
+		if respErr, ok := err.(*errorx.ErrorResponse); ok && respErr.IsObjectNotFound() {
+			return infer.UpdateResponse[NssServerState]{}, nil
+		}
 		return infer.UpdateResponse[NssServerState]{}, err
 	}
 
@@ -199,6 +202,9 @@ func (NssServer) Delete(ctx context.Context, req infer.DeleteRequest[NssServerSt
 		return infer.DeleteResponse{}, fmt.Errorf("invalid nss server ID: %s", req.ID)
 	}
 	if _, err := nss_servers.Delete(ctx, service, id); err != nil {
+		if respErr, ok := err.(*errorx.ErrorResponse); ok && respErr.IsObjectNotFound() {
+			return infer.DeleteResponse{}, nil
+		}
 		return infer.DeleteResponse{}, err
 	}
 

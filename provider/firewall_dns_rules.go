@@ -343,7 +343,7 @@ func (FirewallDNSRule) Read(ctx context.Context, req infer.ReadRequest[FirewallD
 		rule, lookupErr := firewalldnscontrolpolicies.GetByName(ctx, svc, req.ID)
 		if lookupErr != nil {
 			if respErr, ok := lookupErr.(*errorx.ErrorResponse); ok && respErr.IsObjectNotFound() {
-				return infer.ReadResponse[FirewallDNSRuleArgs, FirewallDNSRuleState]{}, fmt.Errorf("firewall DNS rule not found")
+				return infer.ReadResponse[FirewallDNSRuleArgs, FirewallDNSRuleState]{}, nil
 			}
 			return infer.ReadResponse[FirewallDNSRuleArgs, FirewallDNSRuleState]{}, lookupErr
 		}
@@ -353,7 +353,7 @@ func (FirewallDNSRule) Read(ctx context.Context, req infer.ReadRequest[FirewallD
 	rule, err := firewalldnscontrolpolicies.Get(ctx, svc, id)
 	if err != nil {
 		if respErr, ok := err.(*errorx.ErrorResponse); ok && respErr.IsObjectNotFound() {
-			return infer.ReadResponse[FirewallDNSRuleArgs, FirewallDNSRuleState]{}, fmt.Errorf("firewall DNS rule not found")
+			return infer.ReadResponse[FirewallDNSRuleArgs, FirewallDNSRuleState]{}, nil
 		}
 		return infer.ReadResponse[FirewallDNSRuleArgs, FirewallDNSRuleState]{}, err
 	}
@@ -400,6 +400,9 @@ func (FirewallDNSRule) Update(ctx context.Context, req infer.UpdateRequest[Firew
 	start := time.Now()
 	for {
 		if _, err := firewalldnscontrolpolicies.Update(ctx, svc, id, &apiReq); err != nil {
+			if respErr, ok := err.(*errorx.ErrorResponse); ok && respErr.IsObjectNotFound() {
+				return infer.UpdateResponse[FirewallDNSRuleState]{}, nil
+			}
 			if customErr := failFastOnErrorCodes(err); customErr != nil {
 				return infer.UpdateResponse[FirewallDNSRuleState]{}, customErr
 			}
@@ -486,6 +489,9 @@ func (FirewallDNSRule) Delete(ctx context.Context, req infer.DeleteRequest[Firew
 		return infer.DeleteResponse{}, fmt.Errorf("deletion of predefined rule '%s' is not allowed", rule.Name)
 	}
 	if _, err := firewalldnscontrolpolicies.Delete(ctx, svc, id); err != nil {
+		if respErr, ok := err.(*errorx.ErrorResponse); ok && respErr.IsObjectNotFound() {
+			return infer.DeleteResponse{}, nil
+		}
 		return infer.DeleteResponse{}, err
 	}
 	if shouldActivate() {

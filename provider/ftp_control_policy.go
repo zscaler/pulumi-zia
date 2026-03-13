@@ -104,7 +104,7 @@ func (FtpControlPolicy) Read(ctx context.Context, req infer.ReadRequest[FtpContr
 		return infer.ReadResponse[FtpControlPolicyArgs, FtpControlPolicyState]{}, err
 	}
 	if resp == nil {
-		return infer.ReadResponse[FtpControlPolicyArgs, FtpControlPolicyState]{}, fmt.Errorf("could not read FTP control policy")
+		return infer.ReadResponse[FtpControlPolicyArgs, FtpControlPolicyState]{}, nil
 	}
 
 	urlCategories := resp.UrlCategories

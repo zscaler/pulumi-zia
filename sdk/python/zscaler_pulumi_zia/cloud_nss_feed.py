@@ -918,7 +918,7 @@ class CloudNssFeed(pulumi.CustomResource):
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
             __props__ = CloudNssFeedArgs.__new__(CloudNssFeedArgs)
 
-            __props__.__dict__["authentication_token"] = authentication_token
+            __props__.__dict__["authentication_token"] = None if authentication_token is None else pulumi.Output.secret(authentication_token)
             __props__.__dict__["authentication_url"] = authentication_url
             __props__.__dict__["base64_encoded_certificate"] = base64_encoded_certificate
             __props__.__dict__["buckets"] = buckets
@@ -961,6 +961,8 @@ class CloudNssFeed(pulumi.CustomResource):
             __props__.__dict__["users"] = users
             __props__.__dict__["vpn_credentials"] = vpn_credentials
             __props__.__dict__["nss_id"] = None
+        secret_opts = pulumi.ResourceOptions(additional_secret_outputs=["authenticationToken"])
+        opts = pulumi.ResourceOptions.merge(opts, secret_opts)
         super(CloudNssFeed, __self__).__init__(
             'zia:index:CloudNssFeed',
             resource_name,
