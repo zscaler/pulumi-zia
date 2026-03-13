@@ -209,8 +209,17 @@ func (CloudAppControlRule) Create(ctx context.Context, req infer.CreateRequest[C
 	timeout := 60 * time.Minute
 	start := time.Now()
 
+	intendedOrder := apiReq.Order
+	intendedRank := ptrToIntDefault(req.Inputs.Rank, 7)
+
 	for {
-		cloudAppRuleLock.Lock()
+		select {
+		case cloudAppRuleSem <- struct{}{}:
+		case <-ctx.Done():
+			return infer.CreateResponse[CloudAppControlRuleState]{}, fmt.Errorf("creating cloud app control rule: %w", ctx.Err())
+		}
+
+		cloudAppRuleOrderMu.Lock()
 		if cloudAppRuleStartingOrder == 0 {
 			rules, _ := cloudappcontrol.GetByRuleType(ctx, svc, ruleType)
 			for _, r := range rules {
@@ -222,24 +231,38 @@ func (CloudAppControlRule) Create(ctx context.Context, req infer.CreateRequest[C
 				cloudAppRuleStartingOrder = 1
 			}
 		}
-		cloudAppRuleLock.Unlock()
 
-		intendedOrder := apiReq.Order
-		intendedRank := ptrToIntDefault(req.Inputs.Rank, 7)
 		if intendedRank < 7 {
 			apiReq.Rank = 7
 		}
 		apiReq.Order = cloudAppRuleStartingOrder
+		cloudAppRuleOrderMu.Unlock()
 
 		resp, err := cloudappcontrol.Create(ctx, svc, ruleType, &apiReq)
+
+		if err == nil {
+			cloudAppRuleOrderMu.Lock()
+			cloudAppRuleStartingOrder++
+			cloudAppRuleOrderMu.Unlock()
+		}
+
+		<-cloudAppRuleSem
+
 		if customErr := failFastOnErrorCodes(err); customErr != nil {
 			return infer.CreateResponse[CloudAppControlRuleState]{}, customErr
 		}
 		if err != nil {
 			if strings.Contains(err.Error(), "INVALID_INPUT_ARGUMENT") {
 				log.Printf("[INFO] Creating cloud app control rule name: %v, got INVALID_INPUT_ARGUMENT\n", apiReq.Name)
+				cloudAppRuleOrderMu.Lock()
+				cloudAppRuleStartingOrder = 0
+				cloudAppRuleOrderMu.Unlock()
 				if time.Since(start) < timeout {
-					time.Sleep(10 * time.Second)
+					select {
+					case <-time.After(10 * time.Second):
+					case <-ctx.Done():
+						return infer.CreateResponse[CloudAppControlRuleState]{}, fmt.Errorf("creating cloud app control rule: %w", ctx.Err())
+					}
 					continue
 				}
 			}

@@ -277,7 +277,13 @@ func (SslInspectionRule) Create(ctx context.Context, req infer.CreateRequest[Ssl
 
 	apiReq := sslInspectionRuleArgsToAPI(&req.Inputs, 0)
 
-	sslInspectionLock.Lock()
+	select {
+	case sslInspectionSem <- struct{}{}:
+	case <-ctx.Done():
+		return infer.CreateResponse[SslInspectionRuleState]{}, fmt.Errorf("creating ssl inspection rule: %w", ctx.Err())
+	}
+
+	sslInspectionOrderMu.Lock()
 	if sslInspectionStartingOrder == 0 {
 		list, _ := sslinspection.GetAll(ctx, svc)
 		for _, r := range list {
@@ -289,7 +295,6 @@ func (SslInspectionRule) Create(ctx context.Context, req infer.CreateRequest[Ssl
 			sslInspectionStartingOrder = 1
 		}
 	}
-	sslInspectionLock.Unlock()
 
 	intendedOrder := apiReq.Order
 	intendedRank := ptrToIntDefault(req.Inputs.Rank, 7)
@@ -297,8 +302,18 @@ func (SslInspectionRule) Create(ctx context.Context, req infer.CreateRequest[Ssl
 		apiReq.Rank = 7
 	}
 	apiReq.Order = sslInspectionStartingOrder
+	sslInspectionOrderMu.Unlock()
 
 	resp, err := sslinspection.Create(ctx, svc, &apiReq)
+
+	if err == nil {
+		sslInspectionOrderMu.Lock()
+		sslInspectionStartingOrder++
+		sslInspectionOrderMu.Unlock()
+	}
+
+	<-sslInspectionSem
+
 	if customErr := failFastOnErrorCodes(err); customErr != nil {
 		return infer.CreateResponse[SslInspectionRuleState]{}, customErr
 	}

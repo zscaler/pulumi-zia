@@ -198,8 +198,17 @@ func (FirewallIPSRule) Create(ctx context.Context, req infer.CreateRequest[Firew
 	timeout := 60 * time.Minute
 	start := time.Now()
 
+	intendedOrder := apiReq.Order
+	intendedRank := ptrToIntDefault(req.Inputs.Rank, 7)
+
 	for {
-		firewallIPSLock.Lock()
+		select {
+		case firewallIPSSem <- struct{}{}:
+		case <-ctx.Done():
+			return infer.CreateResponse[FirewallIPSRuleState]{}, fmt.Errorf("creating firewall IPS rule: %w", ctx.Err())
+		}
+
+		firewallIPSOrderMu.Lock()
 		if firewallIPSStartingOrder == 0 {
 			list, _ := firewallipscontrolpolicies.GetAll(ctx, svc)
 			for _, r := range list {
@@ -211,16 +220,23 @@ func (FirewallIPSRule) Create(ctx context.Context, req infer.CreateRequest[Firew
 				firewallIPSStartingOrder = 1
 			}
 		}
-		firewallIPSLock.Unlock()
 
-		intendedOrder := apiReq.Order
-		intendedRank := ptrToIntDefault(req.Inputs.Rank, 7)
 		if intendedRank < 7 {
 			apiReq.Rank = 7
 		}
 		apiReq.Order = firewallIPSStartingOrder
+		firewallIPSOrderMu.Unlock()
 
 		resp, err := firewallipscontrolpolicies.Create(ctx, svc, &apiReq)
+
+		if err == nil {
+			firewallIPSOrderMu.Lock()
+			firewallIPSStartingOrder++
+			firewallIPSOrderMu.Unlock()
+		}
+
+		<-firewallIPSSem
+
 		if customErr := failFastOnErrorCodes(err); customErr != nil {
 			return infer.CreateResponse[FirewallIPSRuleState]{}, customErr
 		}
@@ -231,8 +247,15 @@ func (FirewallIPSRule) Create(ctx context.Context, req infer.CreateRequest[Firew
 			}
 			if strings.Contains(err.Error(), "INVALID_INPUT_ARGUMENT") {
 				log.Printf("[INFO] Creating firewall ips rule name: %v, got INVALID_INPUT_ARGUMENT\n", apiReq.Name)
+				firewallIPSOrderMu.Lock()
+				firewallIPSStartingOrder = 0
+				firewallIPSOrderMu.Unlock()
 				if time.Since(start) < timeout {
-					time.Sleep(10 * time.Second)
+					select {
+					case <-time.After(10 * time.Second):
+					case <-ctx.Done():
+						return infer.CreateResponse[FirewallIPSRuleState]{}, fmt.Errorf("creating firewall IPS rule: %w", ctx.Err())
+					}
 					continue
 				}
 			}

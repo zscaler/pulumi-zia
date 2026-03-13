@@ -211,8 +211,17 @@ func (FirewallDNSRule) Create(ctx context.Context, req infer.CreateRequest[Firew
 	timeout := 60 * time.Minute
 	start := time.Now()
 
+	intendedOrder := apiReq.Order
+	intendedRank := ptrToIntDefault(req.Inputs.Rank, 7)
+
 	for {
-		firewallDNSLock.Lock()
+		select {
+		case firewallDNSSem <- struct{}{}:
+		case <-ctx.Done():
+			return infer.CreateResponse[FirewallDNSRuleState]{}, fmt.Errorf("creating firewall DNS rule: %w", ctx.Err())
+		}
+
+		firewallDNSOrderMu.Lock()
 		if firewallDNSStartingOrder == 0 {
 			list, _ := firewalldnscontrolpolicies.GetAll(ctx, svc)
 			for _, r := range list {
@@ -224,17 +233,23 @@ func (FirewallDNSRule) Create(ctx context.Context, req infer.CreateRequest[Firew
 				firewallDNSStartingOrder = 1
 			}
 		}
-		orderToUse := firewallDNSStartingOrder
-		firewallDNSLock.Unlock()
 
-		intendedOrder := apiReq.Order
-		intendedRank := ptrToIntDefault(req.Inputs.Rank, 7)
 		if intendedRank < 7 {
 			apiReq.Rank = 7
 		}
-		apiReq.Order = orderToUse
+		apiReq.Order = firewallDNSStartingOrder
+		firewallDNSOrderMu.Unlock()
 
 		resp, err := firewalldnscontrolpolicies.Create(ctx, svc, &apiReq)
+
+		if err == nil {
+			firewallDNSOrderMu.Lock()
+			firewallDNSStartingOrder++
+			firewallDNSOrderMu.Unlock()
+		}
+
+		<-firewallDNSSem
+
 		if customErr := failFastOnErrorCodes(err); customErr != nil {
 			return infer.CreateResponse[FirewallDNSRuleState]{}, customErr
 		}
@@ -246,8 +261,15 @@ func (FirewallDNSRule) Create(ctx context.Context, req infer.CreateRequest[Firew
 			}
 			if strings.Contains(err.Error(), "INVALID_INPUT_ARGUMENT") {
 				log.Printf("[INFO] Creating firewall DNS rule name: %v, got INVALID_INPUT_ARGUMENT\n", apiReq.Name)
+				firewallDNSOrderMu.Lock()
+				firewallDNSStartingOrder = 0
+				firewallDNSOrderMu.Unlock()
 				if time.Since(start) < timeout {
-					time.Sleep(10 * time.Second)
+					select {
+					case <-time.After(10 * time.Second):
+					case <-ctx.Done():
+						return infer.CreateResponse[FirewallDNSRuleState]{}, fmt.Errorf("creating firewall DNS rule: %w", ctx.Err())
+					}
 					continue
 				}
 			}

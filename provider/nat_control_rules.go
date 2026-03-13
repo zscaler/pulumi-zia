@@ -196,8 +196,17 @@ func (NatControlRule) Create(ctx context.Context, req infer.CreateRequest[NatCon
 	timeout := 60 * time.Minute
 	start := time.Now()
 
+	intendedOrder := apiReq.Order
+	intendedRank := ptrToIntDefault(req.Inputs.Rank, 7)
+
 	for {
-		natControlRuleLock.Lock()
+		select {
+		case natControlRuleSem <- struct{}{}:
+		case <-ctx.Done():
+			return infer.CreateResponse[NatControlRuleState]{}, fmt.Errorf("creating nat control rule: %w", ctx.Err())
+		}
+
+		natControlRuleOrderMu.Lock()
 		if natControlRuleStartingOrder == 0 {
 			list, _ := nat_control_policies.GetAll(ctx, svc)
 			for _, r := range list {
@@ -209,16 +218,23 @@ func (NatControlRule) Create(ctx context.Context, req infer.CreateRequest[NatCon
 				natControlRuleStartingOrder = 1
 			}
 		}
-		natControlRuleLock.Unlock()
 
-		intendedOrder := apiReq.Order
-		intendedRank := ptrToIntDefault(req.Inputs.Rank, 7)
 		if intendedRank < 7 {
 			apiReq.Rank = 7
 		}
 		apiReq.Order = natControlRuleStartingOrder
+		natControlRuleOrderMu.Unlock()
 
 		resp, err := nat_control_policies.Create(ctx, svc, &apiReq)
+
+		if err == nil {
+			natControlRuleOrderMu.Lock()
+			natControlRuleStartingOrder++
+			natControlRuleOrderMu.Unlock()
+		}
+
+		<-natControlRuleSem
+
 		if customErr := failFastOnErrorCodes(err); customErr != nil {
 			return infer.CreateResponse[NatControlRuleState]{}, customErr
 		}
@@ -230,8 +246,15 @@ func (NatControlRule) Create(ctx context.Context, req infer.CreateRequest[NatCon
 			}
 			if strings.Contains(err.Error(), "INVALID_INPUT_ARGUMENT") {
 				log.Printf("[INFO] Creating nat control rule name: %v, got INVALID_INPUT_ARGUMENT\n", apiReq.Name)
+				natControlRuleOrderMu.Lock()
+				natControlRuleStartingOrder = 0
+				natControlRuleOrderMu.Unlock()
 				if time.Since(start) < timeout {
-					time.Sleep(10 * time.Second)
+					select {
+					case <-time.After(10 * time.Second):
+					case <-ctx.Done():
+						return infer.CreateResponse[NatControlRuleState]{}, fmt.Errorf("creating nat control rule: %w", ctx.Err())
+					}
 					continue
 				}
 			}

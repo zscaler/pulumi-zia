@@ -187,8 +187,16 @@ func (CasbDlpRule) Create(ctx context.Context, req infer.CreateRequest[CasbDlpRu
 	timeout := 60 * time.Minute
 	start := time.Now()
 
+	intendedOrder := apiReq.Order
+
 	for {
-		cloudCasbDlpRuleLock.Lock()
+		select {
+		case cloudCasbDlpRuleSem <- struct{}{}:
+		case <-ctx.Done():
+			return infer.CreateResponse[CasbDlpRuleState]{}, fmt.Errorf("creating casb dlp rule: %w", ctx.Err())
+		}
+
+		cloudCasbDlpRuleOrderMu.Lock()
 		if cloudCasbDlpRuleStartingOrder == 0 {
 			rules, _ := casb_dlp_rules.GetByRuleType(ctx, svc, ruleType)
 			for _, r := range rules {
@@ -200,20 +208,34 @@ func (CasbDlpRule) Create(ctx context.Context, req infer.CreateRequest[CasbDlpRu
 				cloudCasbDlpRuleStartingOrder = 1
 			}
 		}
-		cloudCasbDlpRuleLock.Unlock()
-
-		intendedOrder := apiReq.Order
 		apiReq.Order = cloudCasbDlpRuleStartingOrder
+		cloudCasbDlpRuleOrderMu.Unlock()
 
 		resp, err := casb_dlp_rules.Create(ctx, svc, &apiReq)
+
+		if err == nil {
+			cloudCasbDlpRuleOrderMu.Lock()
+			cloudCasbDlpRuleStartingOrder++
+			cloudCasbDlpRuleOrderMu.Unlock()
+		}
+
+		<-cloudCasbDlpRuleSem
+
 		if customErr := failFastOnErrorCodes(err); customErr != nil {
 			return infer.CreateResponse[CasbDlpRuleState]{}, customErr
 		}
 		if err != nil {
 			if strings.Contains(err.Error(), "INVALID_INPUT_ARGUMENT") {
 				log.Printf("[INFO] Creating casb dlp rule name: %v, got INVALID_INPUT_ARGUMENT\n", apiReq.Name)
+				cloudCasbDlpRuleOrderMu.Lock()
+				cloudCasbDlpRuleStartingOrder = 0
+				cloudCasbDlpRuleOrderMu.Unlock()
 				if time.Since(start) < timeout {
-					time.Sleep(10 * time.Second)
+					select {
+					case <-time.After(10 * time.Second):
+					case <-ctx.Done():
+						return infer.CreateResponse[CasbDlpRuleState]{}, fmt.Errorf("creating casb dlp rule: %w", ctx.Err())
+					}
 					continue
 				}
 			}

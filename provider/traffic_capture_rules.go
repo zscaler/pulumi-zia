@@ -216,8 +216,17 @@ func (TrafficCaptureRule) Create(ctx context.Context, req infer.CreateRequest[Tr
 	timeout := 60 * time.Minute
 	start := time.Now()
 
+	intendedOrder := apiReq.Order
+	intendedRank := ptrToIntDefault(req.Inputs.Rank, 7)
+
 	for {
-		trafficCaptureLock.Lock()
+		select {
+		case trafficCaptureSem <- struct{}{}:
+		case <-ctx.Done():
+			return infer.CreateResponse[TrafficCaptureRuleState]{}, fmt.Errorf("creating traffic capture rule: %w", ctx.Err())
+		}
+
+		trafficCaptureOrderMu.Lock()
 		if trafficCaptureStartingOrder == 0 {
 			list, _ := traffic_capture.GetAll(ctx, svc, nil)
 			for _, r := range list {
@@ -231,16 +240,23 @@ func (TrafficCaptureRule) Create(ctx context.Context, req infer.CreateRequest[Tr
 				trafficCaptureStartingOrder++
 			}
 		}
-		trafficCaptureLock.Unlock()
 
-		intendedOrder := apiReq.Order
-		intendedRank := ptrToIntDefault(req.Inputs.Rank, 7)
 		if intendedRank < 7 {
 			apiReq.Rank = 7
 		}
 		apiReq.Order = trafficCaptureStartingOrder
+		trafficCaptureOrderMu.Unlock()
 
 		resp, err := traffic_capture.Create(ctx, svc, &apiReq)
+
+		if err == nil {
+			trafficCaptureOrderMu.Lock()
+			trafficCaptureStartingOrder++
+			trafficCaptureOrderMu.Unlock()
+		}
+
+		<-trafficCaptureSem
+
 		if customErr := failFastOnErrorCodes(err); customErr != nil {
 			return infer.CreateResponse[TrafficCaptureRuleState]{}, customErr
 		}
@@ -252,8 +268,15 @@ func (TrafficCaptureRule) Create(ctx context.Context, req infer.CreateRequest[Tr
 			}
 			if strings.Contains(err.Error(), "INVALID_INPUT_ARGUMENT") {
 				log.Printf("[INFO] Creating traffic capture rule name: %v, got INVALID_INPUT_ARGUMENT\n", apiReq.Name)
+				trafficCaptureOrderMu.Lock()
+				trafficCaptureStartingOrder = 0
+				trafficCaptureOrderMu.Unlock()
 				if time.Since(start) < timeout {
-					time.Sleep(10 * time.Second)
+					select {
+					case <-time.After(10 * time.Second):
+					case <-ctx.Done():
+						return infer.CreateResponse[TrafficCaptureRuleState]{}, fmt.Errorf("creating traffic capture rule: %w", ctx.Err())
+					}
 					continue
 				}
 			}

@@ -36,36 +36,65 @@ import (
 // --- Reorder logic (from terraform-provider-zia common.go) ---
 
 var (
-	urlFilteringLock                  sync.Mutex
-	urlFilteringStartingOrder         int
-	trafficCaptureLock                sync.Mutex
-	trafficCaptureStartingOrder       int
-	sslInspectionLock                 sync.Mutex
-	sslInspectionStartingOrder        int
-	sandboxLock                       sync.Mutex
-	sandboxStartingOrder              int
-	natControlRuleLock                sync.Mutex
-	natControlRuleStartingOrder       int
-	forwardingControlLock             sync.Mutex
-	forwardingControlStartingOrder    int
-	firewallIPSLock                   sync.Mutex
-	firewallIPSStartingOrder          int
-	firewallFilteringLock             sync.Mutex
-	firewallFilteringStartingOrder    int
-	firewallDNSLock                   sync.Mutex
-	firewallDNSStartingOrder          int
-	fileTypeLock                      sync.Mutex
-	fileTypeStartingOrder             int
-	dlpWebRulesLock                   sync.Mutex
-	dlpWebStartingOrder               int
-	cloudAppRuleLock                  sync.Mutex
-	cloudAppRuleStartingOrder         int
-	cloudCasbDlpRuleLock              sync.Mutex
-	cloudCasbDlpRuleStartingOrder     int
-	cloudCasbMalwareRuleLock          sync.Mutex
+	urlFilteringSem           = make(chan struct{}, 1)
+	urlFilteringStartingOrder int
+	urlFilteringOrderMu       sync.Mutex
+
+	trafficCaptureSem           = make(chan struct{}, 1)
+	trafficCaptureStartingOrder int
+	trafficCaptureOrderMu       sync.Mutex
+
+	sslInspectionSem           = make(chan struct{}, 1)
+	sslInspectionStartingOrder int
+	sslInspectionOrderMu       sync.Mutex
+
+	sandboxSem           = make(chan struct{}, 1)
+	sandboxStartingOrder int
+	sandboxOrderMu       sync.Mutex
+
+	natControlRuleSem           = make(chan struct{}, 1)
+	natControlRuleStartingOrder int
+	natControlRuleOrderMu       sync.Mutex
+
+	forwardingControlSem           = make(chan struct{}, 1)
+	forwardingControlStartingOrder int
+	forwardingControlOrderMu       sync.Mutex
+
+	firewallIPSSem           = make(chan struct{}, 1)
+	firewallIPSStartingOrder int
+	firewallIPSOrderMu       sync.Mutex
+
+	firewallFilteringSem           = make(chan struct{}, 1)
+	firewallFilteringStartingOrder int
+	firewallFilteringOrderMu       sync.Mutex
+
+	firewallDNSSem           = make(chan struct{}, 1)
+	firewallDNSStartingOrder int
+	firewallDNSOrderMu       sync.Mutex
+
+	fileTypeSem           = make(chan struct{}, 1)
+	fileTypeStartingOrder int
+	fileTypeOrderMu       sync.Mutex
+
+	dlpWebRulesSem      = make(chan struct{}, 1)
+	dlpWebStartingOrder int
+	dlpWebOrderMu       sync.Mutex
+
+	cloudAppRuleSem           = make(chan struct{}, 1)
+	cloudAppRuleStartingOrder int
+	cloudAppRuleOrderMu       sync.Mutex
+
+	cloudCasbDlpRuleSem           = make(chan struct{}, 1)
+	cloudCasbDlpRuleStartingOrder int
+	cloudCasbDlpRuleOrderMu       sync.Mutex
+
+	cloudCasbMalwareRuleSem           = make(chan struct{}, 1)
 	cloudCasbMalwareRuleStartingOrder int
-	bandwidthControlLock              sync.Mutex
-	bandwidthControlStartingOrder     int
+	cloudCasbMalwareRuleOrderMu       sync.Mutex
+
+	bandwidthControlSem           = make(chan struct{}, 1)
+	bandwidthControlStartingOrder int
+	bandwidthControlOrderMu       sync.Mutex
 )
 
 // OrderRule holds the intended order and rank for a rule.
@@ -142,18 +171,16 @@ func reorderAll(resourceType string, getCount func() (int, error), updateOrder f
 
 			if allDone && size > 0 {
 				if size != lastSeenSize {
-					// New rules registered since last tick — reset and wait for
-					// all parallel Create calls to finish before reordering.
 					log.Printf("[INFO] reorder: %s rule count changed from %d to %d, waiting for stability", resourceType, lastSeenSize, size)
 					lastSeenSize = size
 					sizeStableTicks = 0
 				} else {
 					sizeStableTicks++
 					if sizeStableTicks == 1 {
-						// First tick with a stable rule count — perform the reorder
-						// now that all parallel Creates have registered.
-						count, _ := getCount()
 						sorted := sortOrders(rules.orders[resourceType])
+						rules.Unlock()
+
+						count, _ := getCount()
 						log.Printf("[INFO] reorder: performing reorder for %s (%d rules, api count=%d), sorted: %v", resourceType, size, count, sorted)
 						if beforeReorder != nil {
 							beforeReorder()
@@ -165,6 +192,8 @@ func reorderAll(resourceType string, getCount func() (int, error), updateOrder f
 								}
 							}
 						}
+
+						rules.Lock()
 					}
 					log.Printf("[INFO] reorder stable tick %d/3 for %s (%d rules)", sizeStableTicks, resourceType, size)
 				}
