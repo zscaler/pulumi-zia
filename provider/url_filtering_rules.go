@@ -347,8 +347,17 @@ func (URLFilteringRule) Create(ctx context.Context, req infer.CreateRequest[URLF
 	timeout := 60 * time.Minute
 	start := time.Now()
 
+	intendedOrder := apiReq.Order
+	intendedRank := ptrToIntDefault(req.Inputs.Rank, 7)
+
 	for {
-		urlFilteringLock.Lock()
+		select {
+		case urlFilteringSem <- struct{}{}:
+		case <-ctx.Done():
+			return infer.CreateResponse[URLFilteringRuleState]{}, fmt.Errorf("creating url filtering rule: %w", ctx.Err())
+		}
+
+		urlFilteringOrderMu.Lock()
 		if urlFilteringStartingOrder == 0 {
 			list, _ := urlfilteringpolicies.GetAll(ctx, svc)
 			for _, r := range list {
@@ -360,16 +369,22 @@ func (URLFilteringRule) Create(ctx context.Context, req infer.CreateRequest[URLF
 				urlFilteringStartingOrder = 1
 			}
 		}
-		urlFilteringLock.Unlock()
 
-		intendedOrder := apiReq.Order
-		intendedRank := ptrToIntDefault(req.Inputs.Rank, 7)
 		if intendedRank < 7 {
 			apiReq.Rank = 7
 		}
 		apiReq.Order = urlFilteringStartingOrder
+		urlFilteringOrderMu.Unlock()
 
 		resp, err := urlfilteringpolicies.Create(ctx, svc, &apiReq)
+
+		if err == nil {
+			urlFilteringOrderMu.Lock()
+			urlFilteringStartingOrder++
+			urlFilteringOrderMu.Unlock()
+		}
+
+		<-urlFilteringSem
 
 		if customErr := failFastOnErrorCodes(err); customErr != nil {
 			return infer.CreateResponse[URLFilteringRuleState]{}, customErr
@@ -383,8 +398,15 @@ func (URLFilteringRule) Create(ctx context.Context, req infer.CreateRequest[URLF
 			}
 			if strings.Contains(err.Error(), "INVALID_INPUT_ARGUMENT") {
 				log.Printf("[INFO] Creating url filtering rule name: %v, got INVALID_INPUT_ARGUMENT\n", apiReq.Name)
+				urlFilteringOrderMu.Lock()
+				urlFilteringStartingOrder = 0
+				urlFilteringOrderMu.Unlock()
 				if time.Since(start) < timeout {
-					time.Sleep(10 * time.Second)
+					select {
+					case <-time.After(10 * time.Second):
+					case <-ctx.Done():
+						return infer.CreateResponse[URLFilteringRuleState]{}, fmt.Errorf("creating url filtering rule: %w", ctx.Err())
+					}
 					continue
 				}
 			}

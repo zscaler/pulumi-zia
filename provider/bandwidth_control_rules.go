@@ -138,8 +138,16 @@ func (BandwidthControlRule) Create(ctx context.Context, req infer.CreateRequest[
 	timeout := 60 * time.Minute
 	start := time.Now()
 
+	intendedOrder := apiReq.Order
+
 	for {
-		bandwidthControlLock.Lock()
+		select {
+		case bandwidthControlSem <- struct{}{}:
+		case <-ctx.Done():
+			return infer.CreateResponse[BandwidthControlRuleState]{}, fmt.Errorf("creating bandwidth control rule: %w", ctx.Err())
+		}
+
+		bandwidthControlOrderMu.Lock()
 		if bandwidthControlStartingOrder == 0 {
 			list, _ := bandwidth_control_rules.GetAll(ctx, svc)
 			for _, r := range list {
@@ -154,12 +162,19 @@ func (BandwidthControlRule) Create(ctx context.Context, req infer.CreateRequest[
 				bandwidthControlStartingOrder = 1
 			}
 		}
-		bandwidthControlLock.Unlock()
-
-		intendedOrder := apiReq.Order
 		apiReq.Order = bandwidthControlStartingOrder
+		bandwidthControlOrderMu.Unlock()
 
 		resp, err := bandwidth_control_rules.Create(ctx, svc, &apiReq)
+
+		if err == nil {
+			bandwidthControlOrderMu.Lock()
+			bandwidthControlStartingOrder++
+			bandwidthControlOrderMu.Unlock()
+		}
+
+		<-bandwidthControlSem
+
 		if customErr := failFastOnErrorCodes(err); customErr != nil {
 			return infer.CreateResponse[BandwidthControlRuleState]{}, customErr
 		}
@@ -170,8 +185,15 @@ func (BandwidthControlRule) Create(ctx context.Context, req infer.CreateRequest[
 			}
 			if strings.Contains(err.Error(), "INVALID_INPUT_ARGUMENT") {
 				log.Printf("[INFO] Creating bandwidth control rule name: %v, got INVALID_INPUT_ARGUMENT\n", apiReq.Name)
+				bandwidthControlOrderMu.Lock()
+				bandwidthControlStartingOrder = 0
+				bandwidthControlOrderMu.Unlock()
 				if time.Since(start) < timeout {
-					time.Sleep(10 * time.Second)
+					select {
+					case <-time.After(10 * time.Second):
+					case <-ctx.Done():
+						return infer.CreateResponse[BandwidthControlRuleState]{}, fmt.Errorf("creating bandwidth control rule: %w", ctx.Err())
+					}
 					continue
 				}
 			}

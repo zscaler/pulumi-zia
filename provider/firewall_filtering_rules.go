@@ -224,8 +224,17 @@ func (FirewallFilteringRule) Create(ctx context.Context, req infer.CreateRequest
 	timeout := 60 * time.Minute
 	start := time.Now()
 
+	intendedOrder := apiReq.Order
+	intendedRank := ptrToIntDefault(req.Inputs.Rank, 7)
+
 	for {
-		firewallFilteringLock.Lock()
+		select {
+		case firewallFilteringSem <- struct{}{}:
+		case <-ctx.Done():
+			return infer.CreateResponse[FirewallFilteringRuleState]{}, fmt.Errorf("creating firewall filtering rule: %w", ctx.Err())
+		}
+
+		firewallFilteringOrderMu.Lock()
 		if firewallFilteringStartingOrder == 0 {
 			list, _ := filteringrules.GetAll(ctx, svc, nil)
 			for _, r := range list {
@@ -239,16 +248,23 @@ func (FirewallFilteringRule) Create(ctx context.Context, req infer.CreateRequest
 				firewallFilteringStartingOrder++
 			}
 		}
-		firewallFilteringLock.Unlock()
 
-		intendedOrder := apiReq.Order
-		intendedRank := ptrToIntDefault(req.Inputs.Rank, 7)
 		if intendedRank < 7 {
 			apiReq.Rank = 7
 		}
 		apiReq.Order = firewallFilteringStartingOrder
+		firewallFilteringOrderMu.Unlock()
 
 		resp, err := filteringrules.Create(ctx, svc, &apiReq)
+
+		if err == nil {
+			firewallFilteringOrderMu.Lock()
+			firewallFilteringStartingOrder++
+			firewallFilteringOrderMu.Unlock()
+		}
+
+		<-firewallFilteringSem
+
 		if customErr := failFastOnErrorCodes(err); customErr != nil {
 			return infer.CreateResponse[FirewallFilteringRuleState]{}, customErr
 		}
@@ -260,8 +276,15 @@ func (FirewallFilteringRule) Create(ctx context.Context, req infer.CreateRequest
 			}
 			if strings.Contains(err.Error(), "INVALID_INPUT_ARGUMENT") {
 				log.Printf("[INFO] Creating firewall filtering rule name: %v, got INVALID_INPUT_ARGUMENT\n", apiReq.Name)
+				firewallFilteringOrderMu.Lock()
+				firewallFilteringStartingOrder = 0
+				firewallFilteringOrderMu.Unlock()
 				if time.Since(start) < timeout {
-					time.Sleep(10 * time.Second)
+					select {
+					case <-time.After(10 * time.Second):
+					case <-ctx.Done():
+						return infer.CreateResponse[FirewallFilteringRuleState]{}, fmt.Errorf("creating firewall filtering rule: %w", ctx.Err())
+					}
 					continue
 				}
 			}

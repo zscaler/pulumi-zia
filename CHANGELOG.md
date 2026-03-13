@@ -1,5 +1,16 @@
 # Changelog
 
+## 1.3.7 (March, 13 2026)
+
+### Notes
+
+- Release date: **(March, 13 2026)**
+- Supported Terraform version: **v1.x**
+
+### Bug Fix
+
+- [PR #67](https://github.com/zscaler/pulumi-zia/pull/67) - Added context-aware concurrency safeguards to all rule-based resources to improve parallel creation reliability and graceful cancellation. Optimized global reorder mutex to avoid cross-resource-type blocking during bulk deployments.
+
 ## 1.3.6 (March, 12 2026)
 
 ### Notes

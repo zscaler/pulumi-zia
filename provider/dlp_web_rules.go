@@ -165,8 +165,17 @@ func (DlpWebRule) Create(ctx context.Context, req infer.CreateRequest[DlpWebRule
 	timeout := 60 * time.Minute
 	start := time.Now()
 
+	intendedOrder := apiReq.Order
+	intendedRank := ptrToIntDefault(req.Inputs.Rank, 7)
+
 	for {
-		dlpWebRulesLock.Lock()
+		select {
+		case dlpWebRulesSem <- struct{}{}:
+		case <-ctx.Done():
+			return infer.CreateResponse[DlpWebRuleState]{}, fmt.Errorf("creating DLP web rule: %w", ctx.Err())
+		}
+
+		dlpWebOrderMu.Lock()
 		if dlpWebStartingOrder == 0 {
 			list, _ := dlp_web_rules.GetAll(ctx, svc)
 			for _, r := range list {
@@ -178,17 +187,23 @@ func (DlpWebRule) Create(ctx context.Context, req infer.CreateRequest[DlpWebRule
 				dlpWebStartingOrder = 1
 			}
 		}
-		orderToUse := dlpWebStartingOrder
-		dlpWebRulesLock.Unlock()
 
-		intendedOrder := apiReq.Order
-		intendedRank := ptrToIntDefault(req.Inputs.Rank, 7)
 		if intendedRank < 7 {
 			apiReq.Rank = 7
 		}
-		apiReq.Order = orderToUse
+		apiReq.Order = dlpWebStartingOrder
+		dlpWebOrderMu.Unlock()
 
 		resp, err := dlp_web_rules.Create(ctx, svc, &apiReq)
+
+		if err == nil {
+			dlpWebOrderMu.Lock()
+			dlpWebStartingOrder++
+			dlpWebOrderMu.Unlock()
+		}
+
+		<-dlpWebRulesSem
+
 		if customErr := failFastOnErrorCodes(err); customErr != nil {
 			return infer.CreateResponse[DlpWebRuleState]{}, customErr
 		}
@@ -200,8 +215,15 @@ func (DlpWebRule) Create(ctx context.Context, req infer.CreateRequest[DlpWebRule
 			}
 			if strings.Contains(err.Error(), "INVALID_INPUT_ARGUMENT") {
 				log.Printf("[INFO] Creating DLP web rule name: %v, got INVALID_INPUT_ARGUMENT\n", apiReq.Name)
+				dlpWebOrderMu.Lock()
+				dlpWebStartingOrder = 0
+				dlpWebOrderMu.Unlock()
 				if time.Since(start) < timeout {
-					time.Sleep(10 * time.Second)
+					select {
+					case <-time.After(10 * time.Second):
+					case <-ctx.Done():
+						return infer.CreateResponse[DlpWebRuleState]{}, fmt.Errorf("creating DLP web rule: %w", ctx.Err())
+					}
 					continue
 				}
 			}

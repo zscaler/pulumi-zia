@@ -214,8 +214,17 @@ func (ForwardingControlRule) Create(ctx context.Context, req infer.CreateRequest
 		time.Sleep(60 * time.Second)
 	}
 
+	intendedOrder := apiReq.Order
+	intendedRank := ptrToIntDefault(req.Inputs.Rank, 7)
+
 	for {
-		forwardingControlLock.Lock()
+		select {
+		case forwardingControlSem <- struct{}{}:
+		case <-ctx.Done():
+			return infer.CreateResponse[ForwardingControlRuleState]{}, fmt.Errorf("creating forwarding control rule: %w", ctx.Err())
+		}
+
+		forwardingControlOrderMu.Lock()
 		if forwardingControlStartingOrder == 0 {
 			list, _ := forwarding_rules.GetAll(ctx, svc)
 			for _, r := range list {
@@ -227,14 +236,12 @@ func (ForwardingControlRule) Create(ctx context.Context, req infer.CreateRequest
 				forwardingControlStartingOrder = 1
 			}
 		}
-		forwardingControlLock.Unlock()
 
-		intendedOrder := apiReq.Order
-		intendedRank := ptrToIntDefault(req.Inputs.Rank, 7)
 		if intendedRank < 7 {
 			apiReq.Rank = 7
 		}
 		apiReq.Order = forwardingControlStartingOrder
+		forwardingControlOrderMu.Unlock()
 
 		var resp *forwarding_rules.ForwardingRules
 		var err error
@@ -250,6 +257,15 @@ func (ForwardingControlRule) Create(ctx context.Context, req infer.CreateRequest
 			}
 			break
 		}
+
+		if err == nil {
+			forwardingControlOrderMu.Lock()
+			forwardingControlStartingOrder++
+			forwardingControlOrderMu.Unlock()
+		}
+
+		<-forwardingControlSem
+
 		if customErr := failFastOnErrorCodes(err); customErr != nil {
 			return infer.CreateResponse[ForwardingControlRuleState]{}, customErr
 		}

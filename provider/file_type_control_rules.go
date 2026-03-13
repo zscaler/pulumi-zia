@@ -183,8 +183,17 @@ func (FileTypeControlRule) Create(ctx context.Context, req infer.CreateRequest[F
 	timeout := 60 * time.Minute
 	start := time.Now()
 
+	intendedOrder := apiReq.Order
+	intendedRank := ptrToIntDefault(req.Inputs.Rank, 7)
+
 	for {
-		fileTypeLock.Lock()
+		select {
+		case fileTypeSem <- struct{}{}:
+		case <-ctx.Done():
+			return infer.CreateResponse[FileTypeControlRuleState]{}, fmt.Errorf("creating file type control rule: %w", ctx.Err())
+		}
+
+		fileTypeOrderMu.Lock()
 		if fileTypeStartingOrder == 0 {
 			list, _ := filetypecontrol.GetAll(ctx, svc)
 			for _, r := range list {
@@ -196,17 +205,23 @@ func (FileTypeControlRule) Create(ctx context.Context, req infer.CreateRequest[F
 				fileTypeStartingOrder = 1
 			}
 		}
-		orderToUse := fileTypeStartingOrder
-		fileTypeLock.Unlock()
 
-		intendedOrder := apiReq.Order
-		intendedRank := ptrToIntDefault(req.Inputs.Rank, 7)
 		if intendedRank < 7 {
 			apiReq.Rank = 7
 		}
-		apiReq.Order = orderToUse
+		apiReq.Order = fileTypeStartingOrder
+		fileTypeOrderMu.Unlock()
 
 		resp, err := filetypecontrol.Create(ctx, svc, &apiReq)
+
+		if err == nil {
+			fileTypeOrderMu.Lock()
+			fileTypeStartingOrder++
+			fileTypeOrderMu.Unlock()
+		}
+
+		<-fileTypeSem
+
 		if customErr := failFastOnErrorCodes(err); customErr != nil {
 			return infer.CreateResponse[FileTypeControlRuleState]{}, customErr
 		}
@@ -218,8 +233,15 @@ func (FileTypeControlRule) Create(ctx context.Context, req infer.CreateRequest[F
 			}
 			if strings.Contains(err.Error(), "INVALID_INPUT_ARGUMENT") {
 				log.Printf("[INFO] Creating file type control rule name: %v, got INVALID_INPUT_ARGUMENT\n", apiReq.Name)
+				fileTypeOrderMu.Lock()
+				fileTypeStartingOrder = 0
+				fileTypeOrderMu.Unlock()
 				if time.Since(start) < timeout {
-					time.Sleep(10 * time.Second)
+					select {
+					case <-time.After(10 * time.Second):
+					case <-ctx.Done():
+						return infer.CreateResponse[FileTypeControlRuleState]{}, fmt.Errorf("creating file type control rule: %w", ctx.Err())
+					}
 					continue
 				}
 			}

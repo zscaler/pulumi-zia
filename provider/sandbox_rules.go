@@ -180,8 +180,17 @@ func (SandboxRule) Create(ctx context.Context, req infer.CreateRequest[SandboxRu
 	timeout := 60 * time.Minute
 	start := time.Now()
 
+	intendedOrder := apiReq.Order
+	intendedRank := ptrToIntDefault(req.Inputs.Rank, 7)
+
 	for {
-		sandboxLock.Lock()
+		select {
+		case sandboxSem <- struct{}{}:
+		case <-ctx.Done():
+			return infer.CreateResponse[SandboxRuleState]{}, fmt.Errorf("creating sandbox rule: %w", ctx.Err())
+		}
+
+		sandboxOrderMu.Lock()
 		if sandboxStartingOrder == 0 {
 			list, _ := sandbox_rules.GetAll(ctx, svc)
 			for _, r := range list {
@@ -196,16 +205,23 @@ func (SandboxRule) Create(ctx context.Context, req infer.CreateRequest[SandboxRu
 				sandboxStartingOrder = 1
 			}
 		}
-		sandboxLock.Unlock()
 
-		intendedOrder := apiReq.Order
-		intendedRank := ptrToIntDefault(req.Inputs.Rank, 7)
 		if intendedRank < 7 {
 			apiReq.Rank = 7
 		}
 		apiReq.Order = sandboxStartingOrder
+		sandboxOrderMu.Unlock()
 
 		resp, err := sandbox_rules.Create(ctx, svc, &apiReq)
+
+		if err == nil {
+			sandboxOrderMu.Lock()
+			sandboxStartingOrder++
+			sandboxOrderMu.Unlock()
+		}
+
+		<-sandboxSem
+
 		if customErr := failFastOnErrorCodes(err); customErr != nil {
 			return infer.CreateResponse[SandboxRuleState]{}, customErr
 		}
@@ -217,8 +233,15 @@ func (SandboxRule) Create(ctx context.Context, req infer.CreateRequest[SandboxRu
 			}
 			if strings.Contains(err.Error(), "INVALID_INPUT_ARGUMENT") {
 				log.Printf("[INFO] Creating sandbox rule name: %v, got INVALID_INPUT_ARGUMENT\n", apiReq.Name)
+				sandboxOrderMu.Lock()
+				sandboxStartingOrder = 0
+				sandboxOrderMu.Unlock()
 				if time.Since(start) < timeout {
-					time.Sleep(10 * time.Second)
+					select {
+					case <-time.After(10 * time.Second):
+					case <-ctx.Done():
+						return infer.CreateResponse[SandboxRuleState]{}, fmt.Errorf("creating sandbox rule: %w", ctx.Err())
+					}
 					continue
 				}
 			}
