@@ -1,5 +1,16 @@
 # Changelog
 
+## 1.3.9 (April, 2 2026)
+
+### Notes
+
+- Release date: **(April, 2 2026)**
+- Supported Terraform version: **v1.x**
+
+### Maintanance
+
+- [PR #73](https://github.com/zscaler/pulumi-zia/pull/73) - Updated to [Zscaler-SDK-GO v3.8.29](https://github.com/zscaler/zscaler-sdk-go/releases/tag/v3.8.29)
+
 ## 1.3.8 (March, 13 2026)
 
 ### Notes
