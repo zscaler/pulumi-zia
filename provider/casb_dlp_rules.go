@@ -246,12 +246,16 @@ func (CasbDlpRule) Create(ctx context.Context, req infer.CreateRequest[CasbDlpRu
 			OrderRule{Order: intendedOrder, Rank: apiReq.Rank},
 			resp.ID,
 			casbDlpResourceType,
-			func() (int, error) {
+			func() (map[int]OrderRule, error) {
 				rules, err := casb_dlp_rules.GetByRuleType(ctx, svc, ruleType)
 				if err != nil {
-					return 0, err
+					return nil, err
 				}
-				return len(rules), nil
+				m := make(map[int]OrderRule, len(rules))
+				for _, r := range rules {
+					m[r.ID] = OrderRule{Order: r.Order, Rank: r.Rank}
+				}
+				return m, nil
 			},
 			func(id int, order OrderRule) error {
 				rule, err := casb_dlp_rules.GetByRuleID(ctx, svc, ruleType, id)
@@ -363,12 +367,16 @@ func (CasbDlpRule) Update(ctx context.Context, req infer.UpdateRequest[CasbDlpRu
 			OrderRule{Order: req.Inputs.Order, Rank: ptrToIntDefault(req.Inputs.Rank, 7)},
 			id,
 			casbDlpResourceType,
-			func() (int, error) {
+			func() (map[int]OrderRule, error) {
 				rules, err := casb_dlp_rules.GetByRuleType(ctx, svc, ruleType)
 				if err != nil {
-					return 0, err
+					return nil, err
 				}
-				return len(rules), nil
+				m := make(map[int]OrderRule, len(rules))
+				for _, r := range rules {
+					m[r.ID] = OrderRule{Order: r.Order, Rank: r.Rank}
+				}
+				return m, nil
 			},
 			func(ruleID int, order OrderRule) error {
 				rule, err := casb_dlp_rules.GetByRuleID(ctx, svc, ruleType, ruleID)

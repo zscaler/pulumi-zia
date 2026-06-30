@@ -252,12 +252,16 @@ func (FileTypeControlRule) Create(ctx context.Context, req infer.CreateRequest[F
 			OrderRule{Order: intendedOrder, Rank: intendedRank},
 			resp.ID,
 			fileTypeControlResourceType,
-			func() (int, error) {
+			func() (map[int]OrderRule, error) {
 				allRules, err := filetypecontrol.GetAll(ctx, svc)
 				if err != nil {
-					return 0, err
+					return nil, err
 				}
-				return len(allRules), nil
+				m := make(map[int]OrderRule, len(allRules))
+				for _, r := range allRules {
+					m[r.ID] = OrderRule{Order: r.Order, Rank: r.Rank}
+				}
+				return m, nil
 			},
 			func(id int, order OrderRule) error {
 				rule, err := filetypecontrol.Get(ctx, svc, id)
@@ -388,12 +392,16 @@ func (FileTypeControlRule) Update(ctx context.Context, req infer.UpdateRequest[F
 			OrderRule{Order: intendedOrder, Rank: intendedRank},
 			id,
 			fileTypeControlResourceType,
-			func() (int, error) {
+			func() (map[int]OrderRule, error) {
 				allRules, err := filetypecontrol.GetAll(ctx, svc)
 				if err != nil {
-					return 0, err
+					return nil, err
 				}
-				return len(allRules), nil
+				m := make(map[int]OrderRule, len(allRules))
+				for _, r := range allRules {
+					m[r.ID] = OrderRule{Order: r.Order, Rank: r.Rank}
+				}
+				return m, nil
 			},
 			func(ruleID int, order OrderRule) error {
 				rule, err := filetypecontrol.Get(ctx, svc, ruleID)

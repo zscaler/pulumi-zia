@@ -234,12 +234,16 @@ func (DlpWebRule) Create(ctx context.Context, req infer.CreateRequest[DlpWebRule
 			OrderRule{Order: intendedOrder, Rank: intendedRank},
 			resp.ID,
 			dlpWebRulesResourceType,
-			func() (int, error) {
+			func() (map[int]OrderRule, error) {
 				allRules, err := dlp_web_rules.GetAll(ctx, svc)
 				if err != nil {
-					return 0, err
+					return nil, err
 				}
-				return len(allRules), nil
+				m := make(map[int]OrderRule, len(allRules))
+				for _, r := range allRules {
+					m[r.ID] = OrderRule{Order: r.Order, Rank: r.Rank}
+				}
+				return m, nil
 			},
 			func(id int, order OrderRule) error {
 				rule, err := dlp_web_rules.Get(ctx, svc, id)
@@ -359,12 +363,16 @@ func (DlpWebRule) Update(ctx context.Context, req infer.UpdateRequest[DlpWebRule
 			OrderRule{Order: intendedOrder, Rank: intendedRank},
 			id,
 			dlpWebRulesResourceType,
-			func() (int, error) {
+			func() (map[int]OrderRule, error) {
 				allRules, err := dlp_web_rules.GetAll(ctx, svc)
 				if err != nil {
-					return 0, err
+					return nil, err
 				}
-				return len(allRules), nil
+				m := make(map[int]OrderRule, len(allRules))
+				for _, r := range allRules {
+					m[r.ID] = OrderRule{Order: r.Order, Rank: r.Rank}
+				}
+				return m, nil
 			},
 			func(ruleID int, order OrderRule) error {
 				rule, err := dlp_web_rules.Get(ctx, svc, ruleID)
