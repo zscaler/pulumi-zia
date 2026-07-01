@@ -252,12 +252,17 @@ func (SandboxRule) Create(ctx context.Context, req infer.CreateRequest[SandboxRu
 			OrderRule{Order: intendedOrder, Rank: intendedRank},
 			resp.ID,
 			sandboxResourceType,
-			func() (int, error) {
+			func() (map[int]OrderRule, error) {
 				list, err := sandbox_rules.GetAll(ctx, svc)
 				if err != nil {
-					return 0, err
+					return nil, err
 				}
-				return len(filterOutDefaultSandboxRule(list)), nil
+				filtered := filterOutDefaultSandboxRule(list)
+				m := make(map[int]OrderRule, len(filtered))
+				for _, r := range filtered {
+					m[r.ID] = OrderRule{Order: r.Order, Rank: r.Rank}
+				}
+				return m, nil
 			},
 			func(id int, order OrderRule) error {
 				rule, err := sandbox_rules.Get(ctx, svc, id)
@@ -385,12 +390,17 @@ func (SandboxRule) Update(ctx context.Context, req infer.UpdateRequest[SandboxRu
 		OrderRule{Order: intendedOrder, Rank: intendedRank},
 		id,
 		sandboxResourceType,
-		func() (int, error) {
+		func() (map[int]OrderRule, error) {
 			list, err := sandbox_rules.GetAll(ctx, svc)
 			if err != nil {
-				return 0, err
+				return nil, err
 			}
-			return len(filterOutDefaultSandboxRule(list)), nil
+			filtered := filterOutDefaultSandboxRule(list)
+			m := make(map[int]OrderRule, len(filtered))
+			for _, r := range filtered {
+				m[r.ID] = OrderRule{Order: r.Order, Rank: r.Rank}
+			}
+			return m, nil
 		},
 		func(ruleID int, order OrderRule) error {
 			rule, err := sandbox_rules.Get(ctx, svc, ruleID)

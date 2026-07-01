@@ -287,12 +287,16 @@ func (TrafficCaptureRule) Create(ctx context.Context, req infer.CreateRequest[Tr
 			OrderRule{Order: intendedOrder, Rank: intendedRank},
 			resp.ID,
 			trafficCaptureResourceType,
-			func() (int, error) {
+			func() (map[int]OrderRule, error) {
 				allRules, err := traffic_capture.GetAll(ctx, svc, nil)
 				if err != nil {
-					return 0, err
+					return nil, err
 				}
-				return len(allRules), nil
+				m := make(map[int]OrderRule, len(allRules))
+				for _, r := range allRules {
+					m[r.ID] = OrderRule{Order: r.Order, Rank: r.Rank}
+				}
+				return m, nil
 			},
 			func(id int, order OrderRule) error {
 				rule, err := traffic_capture.Get(ctx, svc, id)
@@ -418,12 +422,16 @@ func (TrafficCaptureRule) Update(ctx context.Context, req infer.UpdateRequest[Tr
 		OrderRule{Order: intendedOrder, Rank: intendedRank},
 		id,
 		trafficCaptureResourceType,
-		func() (int, error) {
+		func() (map[int]OrderRule, error) {
 			allRules, err := traffic_capture.GetAll(ctx, svc, nil)
 			if err != nil {
-				return 0, err
+				return nil, err
 			}
-			return len(allRules), nil
+			m := make(map[int]OrderRule, len(allRules))
+			for _, r := range allRules {
+				m[r.ID] = OrderRule{Order: r.Order, Rank: r.Rank}
+			}
+			return m, nil
 		},
 		func(ruleID int, order OrderRule) error {
 			rule, err := traffic_capture.Get(ctx, svc, ruleID)

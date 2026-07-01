@@ -281,12 +281,16 @@ func (ForwardingControlRule) Create(ctx context.Context, req infer.CreateRequest
 			OrderRule{Order: intendedOrder, Rank: intendedRank},
 			resp.ID,
 			forwardingControlResourceType,
-			func() (int, error) {
+			func() (map[int]OrderRule, error) {
 				allRules, err := forwarding_rules.GetAll(ctx, svc)
 				if err != nil {
-					return 0, err
+					return nil, err
 				}
-				return len(allRules), nil
+				m := make(map[int]OrderRule, len(allRules))
+				for _, r := range allRules {
+					m[r.ID] = OrderRule{Order: r.Order, Rank: r.Rank}
+				}
+				return m, nil
 			},
 			func(id int, order OrderRule) error {
 				rule, err := forwarding_rules.Get(ctx, svc, id)
@@ -417,12 +421,16 @@ func (ForwardingControlRule) Update(ctx context.Context, req infer.UpdateRequest
 		OrderRule{Order: intendedOrder, Rank: intendedRank},
 		id,
 		forwardingControlResourceType,
-		func() (int, error) {
+		func() (map[int]OrderRule, error) {
 			allRules, err := forwarding_rules.GetAll(ctx, svc)
 			if err != nil {
-				return 0, err
+				return nil, err
 			}
-			return len(allRules), nil
+			m := make(map[int]OrderRule, len(allRules))
+			for _, r := range allRules {
+				m[r.ID] = OrderRule{Order: r.Order, Rank: r.Rank}
+			}
+			return m, nil
 		},
 		func(ruleID int, order OrderRule) error {
 			rule, err := forwarding_rules.Get(ctx, svc, ruleID)

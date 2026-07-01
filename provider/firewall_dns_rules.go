@@ -280,12 +280,16 @@ func (FirewallDNSRule) Create(ctx context.Context, req infer.CreateRequest[Firew
 			OrderRule{Order: intendedOrder, Rank: intendedRank},
 			resp.ID,
 			firewallDNSResourceType,
-			func() (int, error) {
+			func() (map[int]OrderRule, error) {
 				allRules, err := firewalldnscontrolpolicies.GetAll(ctx, svc)
 				if err != nil {
-					return 0, err
+					return nil, err
 				}
-				return len(allRules), nil
+				m := make(map[int]OrderRule, len(allRules))
+				for _, r := range allRules {
+					m[r.ID] = OrderRule{Order: r.Order, Rank: r.Rank}
+				}
+				return m, nil
 			},
 			func(id int, order OrderRule) error {
 				rule, err := firewalldnscontrolpolicies.Get(ctx, svc, id)
@@ -420,12 +424,16 @@ func (FirewallDNSRule) Update(ctx context.Context, req infer.UpdateRequest[Firew
 			OrderRule{Order: intendedOrder, Rank: intendedRank},
 			id,
 			firewallDNSResourceType,
-			func() (int, error) {
+			func() (map[int]OrderRule, error) {
 				allRules, err := firewalldnscontrolpolicies.GetAll(ctx, svc)
 				if err != nil {
-					return 0, err
+					return nil, err
 				}
-				return len(allRules), nil
+				m := make(map[int]OrderRule, len(allRules))
+				for _, r := range allRules {
+					m[r.ID] = OrderRule{Order: r.Order, Rank: r.Rank}
+				}
+				return m, nil
 			},
 			func(ruleID int, order OrderRule) error {
 				rule, err := firewalldnscontrolpolicies.Get(ctx, svc, ruleID)

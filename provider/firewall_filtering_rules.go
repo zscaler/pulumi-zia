@@ -295,12 +295,16 @@ func (FirewallFilteringRule) Create(ctx context.Context, req infer.CreateRequest
 			OrderRule{Order: intendedOrder, Rank: intendedRank},
 			resp.ID,
 			firewallFilteringResourceType,
-			func() (int, error) {
+			func() (map[int]OrderRule, error) {
 				allRules, err := filteringrules.GetAll(ctx, svc, nil)
 				if err != nil {
-					return 0, err
+					return nil, err
 				}
-				return len(allRules), nil
+				m := make(map[int]OrderRule, len(allRules))
+				for _, r := range allRules {
+					m[r.ID] = OrderRule{Order: r.Order, Rank: r.Rank}
+				}
+				return m, nil
 			},
 			func(id int, order OrderRule) error {
 				rule, err := filteringrules.Get(ctx, svc, id)
@@ -435,12 +439,16 @@ func (FirewallFilteringRule) Update(ctx context.Context, req infer.UpdateRequest
 			OrderRule{Order: intendedOrder, Rank: intendedRank},
 			id,
 			firewallFilteringResourceType,
-			func() (int, error) {
+			func() (map[int]OrderRule, error) {
 				allRules, err := filteringrules.GetAll(ctx, svc, nil)
 				if err != nil {
-					return 0, err
+					return nil, err
 				}
-				return len(allRules), nil
+				m := make(map[int]OrderRule, len(allRules))
+				for _, r := range allRules {
+					m[r.ID] = OrderRule{Order: r.Order, Rank: r.Rank}
+				}
+				return m, nil
 			},
 			func(ruleID int, order OrderRule) error {
 				rule, err := filteringrules.Get(ctx, svc, ruleID)

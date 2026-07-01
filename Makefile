@@ -43,7 +43,7 @@ prepare:
 
 # Override during CI using `make [TARGET] PROVIDER_VERSION=""` or by setting a PROVIDER_VERSION environment variable
 # Local & branch builds will just used this fixed default version unless specified
-PROVIDER_VERSION ?= 1.3.5
+PROVIDER_VERSION ?= 1.4.0
 # Fail-safe: CI must always set PROVIDER_VERSION explicitly to avoid publishing with the default version
 ifeq ($(CI)$(origin PROVIDER_VERSION),truedefault)
 $(error PROVIDER_VERSION must be set in CI environments)

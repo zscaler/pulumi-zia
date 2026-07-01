@@ -53,7 +53,30 @@ ZIA requires explicit policy activation after changes. Resources that modify ZIA
 
 ### Rule Ordering
 
-Many ZIA rule resources (URL filtering, firewall, NAT, forwarding control, etc.) have ordering constraints. The provider uses per-rule-type mutex locks and `reorderRules...()` helpers in `common.go` to ensure rules are created in the correct order and reordered after CRUD operations.
+Many ZIA rule resources (SSL inspection, URL filtering, firewall filtering/DNS/IPS, NAT, forwarding control, file type control, DLP web, cloud app control, CASB DLP/malware, bandwidth control, sandbox, traffic capture — 15 resources total) have ordering constraints. Ordering is reconciled by a shared, background **diff-based convergent reorder engine** in `common.go` (`reorderAll` / `reorderWithBeforeReorder` / `markOrderRuleAsDone` / `waitForReorder`), plus per-rule-type semaphores and mutexes.
+
+**This engine is a faithful, line-for-line port of the Terraform provider's `reorderAll` (`terraform-provider-zia/zia/common.go`).** It MUST stay in sync with that file. The Terraform implementation is the source of truth — it received the diff-based rewrite in terraform-provider-zia PR #567 ("Significantly reduced apply time and API call volume … across all rule-based resources"), preceded by the race-condition fix in PR #521. When the Terraform reorder logic changes, port the same change here; when adding a new orderable rule resource here, wire it to this engine exactly as the existing ones do.
+
+#### Why a convergence loop is required (the bug fixed by porting this)
+
+The ZIA API treats a rule's `order` as an **insertion/shift**, not an absolute set: PUTting a rule to order 3 shifts every rule currently at ≥3 down by one. Pulumi (like Terraform `--parallel 10`) dispatches resource `Create`s concurrently, so multiple in-flight order writes interleave. A single ascending sweep of absolute-position PUTs therefore does **not** land on the declared ordering — it scrambles custom rules and drifts predefined rules. (See [issue #74](https://github.com/zscaler/pulumi-zia/issues/74): 11 SSL inspection rules at orders 1–11 ended up scrambled, non-deterministic across re-applies. The old, pre-port engine did exactly one reorder pass and never reconciled the residual drift.)
+
+The ported engine fixes this by reconciling to convergence:
+
+- **`getCurrent func() (map[int]OrderRule, error)`** (NOT a count). Each pass calls `getCurrent` **once** to fetch `{ruleID → {Order, Rank}}` for every rule the API knows about. The old engine's `getCount func() (int, error)` callback could not diff and was the root cause — never reintroduce it.
+- **Diff-based PUTs.** A rule already at its desired `Order` AND `Rank` is skipped entirely (no GET, no PUT). Only drifted rules are written. A fully-settled pass costs one `GetAll` and zero PUTs.
+- **Out-of-range deferral.** Desired orders outside `1..count` (more rules still being POSTed) are deferred to the next tick instead of erroring with `INVALID_INPUT_ARGUMENT`.
+- **Convergence requires two consecutive clean passes**, so an in-flight PUT from the previous pass is reflected by `GetAll` before the goroutine returns.
+- **Deadlock-breakers** for the parallel-batch case: `maxStuckOnSkippedTicks` (fast early-exit so a blocked `waitForReorder` releases and the next Create batch can extend the orderable range) and `maxNoProgressTicks` (slow safety net for genuinely unreachable declared orders, e.g. gaps).
+
+#### Per-resource wiring (keep identical across all 15 resources)
+
+In each rule resource's `Create` and `Update`, after the initial create/update with a temporary appended order:
+
+1. Call `reorderWithBeforeReorder(OrderRule{Order: intendedOrder, Rank: intendedRank}, id, resourceType, getCurrent, updateOrder, nil)`.
+2. `getCurrent` builds `map[int]OrderRule` from the SDK `GetAll`/`GetByRuleType` (filtering out default/predefined rules where applicable, e.g. `filterOutBandwidthDefaultRule`, `filterOutDefaultSandboxRule`). Use `Rank: r.Rank` — except CASB malware rules, which have no admin rank and register `Rank: 0` on both the desired `OrderRule` and the map.
+3. `updateOrder` re-fetches the rule, strips server-managed/read-only fields (`LastModifiedTime`, `LastModifiedBy`, `Predefined`, `DefaultRule`, `AccessControl`) so PUTs against predefined rules aren't rejected with "Request body is invalid", sets `Order`/`Rank`, and PUTs.
+4. Call `markOrderRuleAsDone(id, resourceType)` then `waitForReorder(resourceType)` before reading back / activating.
 
 ### Client Initialization
 

@@ -32,7 +32,7 @@ import (
 
 	"github.com/pulumi/pulumi-go-provider/infer"
 	"github.com/zscaler/zscaler-sdk-go/v3/zscaler/errorx"
-	"github.com/zscaler/zscaler-sdk-go/v3/zscaler/zia/services/firewallipscontrolpolicies"
+	"github.com/zscaler/zscaler-sdk-go/v3/zscaler/zia/services/ips_control_policies/ips_policies"
 )
 
 const firewallIPSResourceType = "firewall_ips_rule"
@@ -82,7 +82,7 @@ type FirewallIPSRuleState struct {
 	RuleID *int `pulumi:"ruleId"`
 }
 
-func firewallIPSRuleArgsToAPI(args *FirewallIPSRuleArgs, id int) firewallipscontrolpolicies.FirewallIPSRules {
+func firewallIPSRuleArgsToAPI(args *FirewallIPSRuleArgs, id int) ips_policies.FirewallIPSRules {
 	order := args.Order
 	if order == 0 {
 		order = 1
@@ -92,7 +92,7 @@ func firewallIPSRuleArgsToAPI(args *FirewallIPSRuleArgs, id int) firewallipscont
 	if args.EunTemplateId != nil {
 		eunID = *args.EunTemplateId
 	}
-	return firewallipscontrolpolicies.FirewallIPSRules{
+	return ips_policies.FirewallIPSRules{
 		ID:                id,
 		Name:              args.Name,
 		Order:             order,
@@ -132,7 +132,7 @@ func firewallIPSRuleArgsToAPI(args *FirewallIPSRuleArgs, id int) firewallipscont
 	}
 }
 
-func firewallIPSRuleAPIToState(api *firewallipscontrolpolicies.FirewallIPSRules) FirewallIPSRuleState {
+func firewallIPSRuleAPIToState(api *ips_policies.FirewallIPSRules) FirewallIPSRuleState {
 	return FirewallIPSRuleState{
 		FirewallIPSRuleArgs: FirewallIPSRuleArgs{
 			Name:              api.Name,
@@ -210,7 +210,7 @@ func (FirewallIPSRule) Create(ctx context.Context, req infer.CreateRequest[Firew
 
 		firewallIPSOrderMu.Lock()
 		if firewallIPSStartingOrder == 0 {
-			list, _ := firewallipscontrolpolicies.GetAll(ctx, svc)
+			list, _ := ips_policies.GetAll(ctx, svc)
 			for _, r := range list {
 				if r.Order > firewallIPSStartingOrder {
 					firewallIPSStartingOrder = r.Order
@@ -227,7 +227,7 @@ func (FirewallIPSRule) Create(ctx context.Context, req infer.CreateRequest[Firew
 		apiReq.Order = firewallIPSStartingOrder
 		firewallIPSOrderMu.Unlock()
 
-		resp, err := firewallipscontrolpolicies.Create(ctx, svc, &apiReq)
+		resp, err := ips_policies.Create(ctx, svc, &apiReq)
 
 		if err == nil {
 			firewallIPSOrderMu.Lock()
@@ -266,15 +266,19 @@ func (FirewallIPSRule) Create(ctx context.Context, req infer.CreateRequest[Firew
 			OrderRule{Order: intendedOrder, Rank: intendedRank},
 			resp.ID,
 			firewallIPSResourceType,
-			func() (int, error) {
-				allRules, err := firewallipscontrolpolicies.GetAll(ctx, svc)
+			func() (map[int]OrderRule, error) {
+				allRules, err := ips_policies.GetAll(ctx, svc)
 				if err != nil {
-					return 0, err
+					return nil, err
 				}
-				return len(allRules), nil
+				m := make(map[int]OrderRule, len(allRules))
+				for _, r := range allRules {
+					m[r.ID] = OrderRule{Order: r.Order, Rank: r.Rank}
+				}
+				return m, nil
 			},
 			func(id int, order OrderRule) error {
-				rule, err := firewallipscontrolpolicies.Get(ctx, svc, id)
+				rule, err := ips_policies.Get(ctx, svc, id)
 				if err != nil {
 					return err
 				}
@@ -287,7 +291,7 @@ func (FirewallIPSRule) Create(ctx context.Context, req infer.CreateRequest[Firew
 				rule.AccessControl = ""
 				rule.Order = order.Order
 				rule.Rank = order.Rank
-				_, err = firewallipscontrolpolicies.Update(ctx, svc, id, rule)
+				_, err = ips_policies.Update(ctx, svc, id, rule)
 				return err
 			},
 			nil,
@@ -304,7 +308,7 @@ func (FirewallIPSRule) Create(ctx context.Context, req infer.CreateRequest[Firew
 			log.Printf("[INFO] Skipping configuration activation due to ZIA_ACTIVATION env var not being set to true.")
 		}
 
-		rule, err := firewallipscontrolpolicies.Get(ctx, svc, resp.ID)
+		rule, err := ips_policies.Get(ctx, svc, resp.ID)
 		if err != nil {
 			return infer.CreateResponse[FirewallIPSRuleState]{ID: strconv.Itoa(resp.ID), Output: FirewallIPSRuleState{FirewallIPSRuleArgs: req.Inputs, RuleID: intPtr(resp.ID)}}, nil
 		}
@@ -321,7 +325,7 @@ func (FirewallIPSRule) Read(ctx context.Context, req infer.ReadRequest[FirewallI
 
 	id, err := strconv.Atoi(req.ID)
 	if err != nil {
-		rule, lookupErr := firewallipscontrolpolicies.GetByName(ctx, svc, req.ID)
+		rule, lookupErr := ips_policies.GetByName(ctx, svc, req.ID)
 		if lookupErr != nil {
 			if respErr, ok := lookupErr.(*errorx.ErrorResponse); ok && respErr.IsObjectNotFound() {
 				return infer.ReadResponse[FirewallIPSRuleArgs, FirewallIPSRuleState]{}, nil
@@ -331,7 +335,7 @@ func (FirewallIPSRule) Read(ctx context.Context, req infer.ReadRequest[FirewallI
 		id = rule.ID
 	}
 
-	rule, err := firewallipscontrolpolicies.Get(ctx, svc, id)
+	rule, err := ips_policies.Get(ctx, svc, id)
 	if err != nil {
 		if respErr, ok := err.(*errorx.ErrorResponse); ok && respErr.IsObjectNotFound() {
 			return infer.ReadResponse[FirewallIPSRuleArgs, FirewallIPSRuleState]{}, nil
@@ -360,7 +364,7 @@ func (FirewallIPSRule) Update(ctx context.Context, req infer.UpdateRequest[Firew
 	}
 	apiReq := firewallIPSRuleArgsToAPI(&req.Inputs, id)
 
-	existingRules, err := firewallipscontrolpolicies.GetAll(ctx, svc)
+	existingRules, err := ips_policies.GetAll(ctx, svc)
 	if err == nil && len(existingRules) > 0 {
 		sort.Slice(existingRules, func(i, j int) bool {
 			return existingRules[i].Rank < existingRules[j].Rank || (existingRules[i].Rank == existingRules[j].Rank && existingRules[i].Order < existingRules[j].Order)
@@ -369,7 +373,7 @@ func (FirewallIPSRule) Update(ctx context.Context, req infer.UpdateRequest[Firew
 		apiReq.Order = existingRules[len(existingRules)-1].Order
 	}
 
-	_, err = firewallipscontrolpolicies.Update(ctx, svc, id, &apiReq)
+	_, err = ips_policies.Update(ctx, svc, id, &apiReq)
 	if respErr, ok := err.(*errorx.ErrorResponse); ok && respErr.IsObjectNotFound() {
 		return infer.UpdateResponse[FirewallIPSRuleState]{}, nil
 	}
@@ -387,15 +391,19 @@ func (FirewallIPSRule) Update(ctx context.Context, req infer.UpdateRequest[Firew
 		OrderRule{Order: intendedOrder, Rank: intendedRank},
 		id,
 		firewallIPSResourceType,
-		func() (int, error) {
-			allRules, err := firewallipscontrolpolicies.GetAll(ctx, svc)
+		func() (map[int]OrderRule, error) {
+			allRules, err := ips_policies.GetAll(ctx, svc)
 			if err != nil {
-				return 0, err
+				return nil, err
 			}
-			return len(allRules), nil
+			m := make(map[int]OrderRule, len(allRules))
+			for _, r := range allRules {
+				m[r.ID] = OrderRule{Order: r.Order, Rank: r.Rank}
+			}
+			return m, nil
 		},
 		func(ruleID int, order OrderRule) error {
-			rule, err := firewallipscontrolpolicies.Get(ctx, svc, ruleID)
+			rule, err := ips_policies.Get(ctx, svc, ruleID)
 			if err != nil {
 				return err
 			}
@@ -408,7 +416,7 @@ func (FirewallIPSRule) Update(ctx context.Context, req infer.UpdateRequest[Firew
 			rule.AccessControl = ""
 			rule.Order = order.Order
 			rule.Rank = order.Rank
-			_, err = firewallipscontrolpolicies.Update(ctx, svc, ruleID, rule)
+			_, err = ips_policies.Update(ctx, svc, ruleID, rule)
 			return err
 		},
 		nil,
@@ -423,7 +431,7 @@ func (FirewallIPSRule) Update(ctx context.Context, req infer.UpdateRequest[Firew
 		}
 	}
 
-	updated, err := firewallipscontrolpolicies.Get(ctx, svc, id)
+	updated, err := ips_policies.Get(ctx, svc, id)
 	if err != nil {
 		return infer.UpdateResponse[FirewallIPSRuleState]{Output: FirewallIPSRuleState{FirewallIPSRuleArgs: req.Inputs, RuleID: intPtr(id)}}, nil
 	}
@@ -442,14 +450,14 @@ func (FirewallIPSRule) Delete(ctx context.Context, req infer.DeleteRequest[Firew
 	if err != nil {
 		return infer.DeleteResponse{}, fmt.Errorf("invalid firewall IPS rule ID: %s", req.ID)
 	}
-	rule, err := firewallipscontrolpolicies.Get(ctx, svc, id)
+	rule, err := ips_policies.Get(ctx, svc, id)
 	if err != nil {
 		return infer.DeleteResponse{}, fmt.Errorf("error retrieving firewall IPS rule %d: %w", id, err)
 	}
 	if rule.Predefined {
 		return infer.DeleteResponse{}, fmt.Errorf("deletion of predefined rule '%s' is not allowed", rule.Name)
 	}
-	if _, err := firewallipscontrolpolicies.Delete(ctx, svc, id); err != nil {
+	if _, err := ips_policies.Delete(ctx, svc, id); err != nil {
 		if respErr, ok := err.(*errorx.ErrorResponse); ok && respErr.IsObjectNotFound() {
 			return infer.DeleteResponse{}, nil
 		}

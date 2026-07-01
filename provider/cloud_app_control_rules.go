@@ -273,12 +273,16 @@ func (CloudAppControlRule) Create(ctx context.Context, req infer.CreateRequest[C
 			OrderRule{Order: intendedOrder, Rank: intendedRank},
 			resp.ID,
 			cloudAppControlResourceType,
-			func() (int, error) {
+			func() (map[int]OrderRule, error) {
 				rules, err := cloudappcontrol.GetByRuleType(ctx, svc, ruleType)
 				if err != nil {
-					return 0, err
+					return nil, err
 				}
-				return len(rules), nil
+				m := make(map[int]OrderRule, len(rules))
+				for _, r := range rules {
+					m[r.ID] = OrderRule{Order: r.Order, Rank: r.Rank}
+				}
+				return m, nil
 			},
 			func(id int, order OrderRule) error {
 				rule, err := cloudappcontrol.GetByRuleID(ctx, svc, ruleType, id)
@@ -394,12 +398,16 @@ func (CloudAppControlRule) Update(ctx context.Context, req infer.UpdateRequest[C
 		OrderRule{Order: intendedOrder, Rank: intendedRank},
 		id,
 		cloudAppControlResourceType,
-		func() (int, error) {
+		func() (map[int]OrderRule, error) {
 			rules, err := cloudappcontrol.GetByRuleType(ctx, svc, ruleType)
 			if err != nil {
-				return 0, err
+				return nil, err
 			}
-			return len(rules), nil
+			m := make(map[int]OrderRule, len(rules))
+			for _, r := range rules {
+				m[r.ID] = OrderRule{Order: r.Order, Rank: r.Rank}
+			}
+			return m, nil
 		},
 		func(ruleID int, order OrderRule) error {
 			rule, err := cloudappcontrol.GetByRuleID(ctx, svc, ruleType, ruleID)

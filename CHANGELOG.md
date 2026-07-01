@@ -1,5 +1,17 @@
 # Changelog
 
+## 1.4.0 (June, 30 2026)
+
+### Notes
+
+- Release date: **(June, 30 2026)**
+- Supported Terraform version: **v1.x**
+
+### Bug Fix
+
+- [PR #80](https://github.com/zscaler/pulumi-zia/pull/80) - Fixed non-deterministic rule ordering (scrambled `order` values, drift on re-apply, and predefined-rule movement) when creating multiple order-based rules concurrently. Replaced the single-pass, count-based reorder with a diff-based convergent engine across all 15 rule-based resources (SSL inspection, URL filtering, cloud firewall filtering/DNS/IPS, NAT, forwarding control, file type control, web DLP, cloud app control, CASB DLP/malware, bandwidth control, sandbox, and traffic capture), porting the reconciliation logic to match the Terraform provider. The engine now only updates rules whose position actually drifted, defers out-of-range orders, and converges over multiple passes, eliminating the need for `--parallel 1`.
+
+
 ## 1.3.9 (April, 2 2026)
 
 ### Notes

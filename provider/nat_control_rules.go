@@ -265,12 +265,16 @@ func (NatControlRule) Create(ctx context.Context, req infer.CreateRequest[NatCon
 			OrderRule{Order: intendedOrder, Rank: intendedRank},
 			resp.ID,
 			natControlResourceType,
-			func() (int, error) {
+			func() (map[int]OrderRule, error) {
 				allRules, err := nat_control_policies.GetAll(ctx, svc)
 				if err != nil {
-					return 0, err
+					return nil, err
 				}
-				return len(allRules), nil
+				m := make(map[int]OrderRule, len(allRules))
+				for _, r := range allRules {
+					m[r.ID] = OrderRule{Order: r.Order, Rank: r.Rank}
+				}
+				return m, nil
 			},
 			func(id int, order OrderRule) error {
 				rule, err := nat_control_policies.Get(ctx, svc, id)
@@ -392,12 +396,16 @@ func (NatControlRule) Update(ctx context.Context, req infer.UpdateRequest[NatCon
 			OrderRule{Order: apiReq.Order, Rank: apiReq.Rank},
 			id,
 			natControlResourceType,
-			func() (int, error) {
+			func() (map[int]OrderRule, error) {
 				allRules, err := nat_control_policies.GetAll(ctx, svc)
 				if err != nil {
-					return 0, err
+					return nil, err
 				}
-				return len(allRules), nil
+				m := make(map[int]OrderRule, len(allRules))
+				for _, r := range allRules {
+					m[r.ID] = OrderRule{Order: r.Order, Rank: r.Rank}
+				}
+				return m, nil
 			},
 			func(ruleID int, order OrderRule) error {
 				rule, err := nat_control_policies.Get(ctx, svc, ruleID)

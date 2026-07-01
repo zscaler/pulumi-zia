@@ -330,12 +330,16 @@ func (SslInspectionRule) Create(ctx context.Context, req infer.CreateRequest[Ssl
 		OrderRule{Order: intendedOrder, Rank: intendedRank},
 		resp.ID,
 		sslInspectionResourceType,
-		func() (int, error) {
+		func() (map[int]OrderRule, error) {
 			allRules, err := sslinspection.GetAll(ctx, svc)
 			if err != nil {
-				return 0, err
+				return nil, err
 			}
-			return len(allRules), nil
+			m := make(map[int]OrderRule, len(allRules))
+			for _, r := range allRules {
+				m[r.ID] = OrderRule{Order: r.Order, Rank: r.Rank}
+			}
+			return m, nil
 		},
 		func(id int, order OrderRule) error {
 			rule, err := sslinspection.Get(ctx, svc, id)
@@ -458,12 +462,16 @@ func (SslInspectionRule) Update(ctx context.Context, req infer.UpdateRequest[Ssl
 		OrderRule{Order: intendedOrder, Rank: intendedRank},
 		id,
 		sslInspectionResourceType,
-		func() (int, error) {
+		func() (map[int]OrderRule, error) {
 			allRules, err := sslinspection.GetAll(ctx, svc)
 			if err != nil {
-				return 0, err
+				return nil, err
 			}
-			return len(allRules), nil
+			m := make(map[int]OrderRule, len(allRules))
+			for _, r := range allRules {
+				m[r.ID] = OrderRule{Order: r.Order, Rank: r.Rank}
+			}
+			return m, nil
 		},
 		func(ruleID int, order OrderRule) error {
 			rule, err := sslinspection.Get(ctx, svc, ruleID)

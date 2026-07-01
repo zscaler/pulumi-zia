@@ -204,12 +204,17 @@ func (BandwidthControlRule) Create(ctx context.Context, req infer.CreateRequest[
 			OrderRule{Order: intendedOrder, Rank: apiReq.Rank},
 			resp.ID,
 			bandwidthControlResourceType,
-			func() (int, error) {
+			func() (map[int]OrderRule, error) {
 				list, err := bandwidth_control_rules.GetAll(ctx, svc)
 				if err != nil {
-					return 0, err
+					return nil, err
 				}
-				return len(filterOutBandwidthDefaultRule(list)), nil
+				filtered := filterOutBandwidthDefaultRule(list)
+				m := make(map[int]OrderRule, len(filtered))
+				for _, r := range filtered {
+					m[r.ID] = OrderRule{Order: r.Order, Rank: r.Rank}
+				}
+				return m, nil
 			},
 			func(id int, order OrderRule) error {
 				rule, err := bandwidth_control_rules.Get(ctx, svc, id)
@@ -321,12 +326,17 @@ func (BandwidthControlRule) Update(ctx context.Context, req infer.UpdateRequest[
 			OrderRule{Order: apiReq.Order, Rank: apiReq.Rank},
 			id,
 			bandwidthControlResourceType,
-			func() (int, error) {
+			func() (map[int]OrderRule, error) {
 				list, err := bandwidth_control_rules.GetAll(ctx, svc)
 				if err != nil {
-					return 0, err
+					return nil, err
 				}
-				return len(filterOutBandwidthDefaultRule(list)), nil
+				filtered := filterOutBandwidthDefaultRule(list)
+				m := make(map[int]OrderRule, len(filtered))
+				for _, r := range filtered {
+					m[r.ID] = OrderRule{Order: r.Order, Rank: r.Rank}
+				}
+				return m, nil
 			},
 			func(ruleID int, order OrderRule) error {
 				rule, err := bandwidth_control_rules.Get(ctx, svc, ruleID)
