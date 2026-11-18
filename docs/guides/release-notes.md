@@ -29,6 +29,7 @@ Track all Zscaler Pulumi ZIA provider releases. New resources, features, and bug
 
 - Updated to [Zscaler-SDK-GO v3.8.60](https://github.com/zscaler/zscaler-sdk-go/releases/tag/v3.8.60).
 - Go modules, the workspace, and the CI/release workflows now use Go 1.26.
+- CI/release workflows now build the Python SDK with Python 3.12. `ubuntu-latest` runners are now Ubuntu 26.04, which has no Python 3.9 build, so the Python SDK job failed at `Setup Python`. The published package still supports Python 3.9 and later (`requires-python = ">=3.9"`).
 - Reverted the `github.com/pulumi/pulumi/sdk/v3` v3.249.0 bump ([PR #81](https://github.com/zscaler/pulumi-zia/pull/81), [PR #82](https://github.com/zscaler/pulumi-zia/pull/82)) to v3.217.0. It does not build against `pulumi/pkg/v3` v3.217.0, the version `pulumi-go-provider` v1.3.0 requires.
 
 ### Bug Fix
