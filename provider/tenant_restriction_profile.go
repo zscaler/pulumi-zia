@@ -62,6 +62,12 @@ type TenantRestrictionProfileState struct {
 }
 
 func (TenantRestrictionProfile) Create(ctx context.Context, req infer.CreateRequest[TenantRestrictionProfileArgs]) (infer.CreateResponse[TenantRestrictionProfileState], error) {
+	if req.DryRun {
+		// Preview: return the predicted state without calling the ZIA API.
+		s := TenantRestrictionProfileState{TenantRestrictionProfileArgs: req.Inputs, ProfileId: intPtr(0)}
+		return infer.CreateResponse[TenantRestrictionProfileState]{ID: "preview", Output: s}, nil
+	}
+
 	cfg := infer.GetConfig[Config](ctx)
 	if cfg.Client() == nil {
 		return infer.CreateResponse[TenantRestrictionProfileState]{}, fmt.Errorf("ZIA provider not configured")
@@ -119,6 +125,13 @@ func (TenantRestrictionProfile) Read(ctx context.Context, req infer.ReadRequest[
 }
 
 func (TenantRestrictionProfile) Update(ctx context.Context, req infer.UpdateRequest[TenantRestrictionProfileArgs, TenantRestrictionProfileState]) (infer.UpdateResponse[TenantRestrictionProfileState], error) {
+	if req.DryRun {
+		// Preview: return the predicted state without calling the ZIA API.
+		state := req.State
+		state.TenantRestrictionProfileArgs = req.Inputs
+		return infer.UpdateResponse[TenantRestrictionProfileState]{Output: state}, nil
+	}
+
 	cfg := infer.GetConfig[Config](ctx)
 	if cfg.Client() == nil {
 		return infer.UpdateResponse[TenantRestrictionProfileState]{}, fmt.Errorf("ZIA provider not configured")

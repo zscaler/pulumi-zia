@@ -356,6 +356,13 @@ func (NatControlRule) Read(ctx context.Context, req infer.ReadRequest[NatControl
 }
 
 func (NatControlRule) Update(ctx context.Context, req infer.UpdateRequest[NatControlRuleArgs, NatControlRuleState]) (infer.UpdateResponse[NatControlRuleState], error) {
+	if req.DryRun {
+		// Preview: return the predicted state without calling the ZIA API.
+		state := req.State
+		state.NatControlRuleArgs = req.Inputs
+		return infer.UpdateResponse[NatControlRuleState]{Output: state}, nil
+	}
+
 	if req.Inputs.Order < 1 {
 		return infer.UpdateResponse[NatControlRuleState]{}, fmt.Errorf("order must be a positive whole number (>= 1), got %d", req.Inputs.Order)
 	}

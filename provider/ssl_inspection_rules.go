@@ -419,6 +419,13 @@ func (SslInspectionRule) Read(ctx context.Context, req infer.ReadRequest[SslInsp
 }
 
 func (SslInspectionRule) Update(ctx context.Context, req infer.UpdateRequest[SslInspectionRuleArgs, SslInspectionRuleState]) (infer.UpdateResponse[SslInspectionRuleState], error) {
+	if req.DryRun {
+		// Preview: return the predicted state without calling the ZIA API.
+		state := req.State
+		state.SslInspectionRuleArgs = req.Inputs
+		return infer.UpdateResponse[SslInspectionRuleState]{Output: state}, nil
+	}
+
 	if req.Inputs.Order < 1 {
 		return infer.UpdateResponse[SslInspectionRuleState]{}, fmt.Errorf("order must be a positive whole number (>= 1), got %d", req.Inputs.Order)
 	}

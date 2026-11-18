@@ -99,6 +99,12 @@ type AtpSettingsState struct {
 }
 
 func (AtpSettings) Create(ctx context.Context, req infer.CreateRequest[AtpSettingsArgs]) (infer.CreateResponse[AtpSettingsState], error) {
+	if req.DryRun {
+		// Preview: return the predicted state without calling the ZIA API.
+		s := AtpSettingsState{AtpSettingsArgs: req.Inputs, ResourceId: atpSettingsID}
+		return infer.CreateResponse[AtpSettingsState]{ID: atpSettingsID, Output: s}, nil
+	}
+
 	cfg := infer.GetConfig[Config](ctx)
 	if cfg.Client() == nil {
 		return infer.CreateResponse[AtpSettingsState]{}, fmt.Errorf("ZIA provider not configured")
@@ -161,6 +167,13 @@ func (AtpSettings) Read(ctx context.Context, req infer.ReadRequest[AtpSettingsAr
 }
 
 func (AtpSettings) Update(ctx context.Context, req infer.UpdateRequest[AtpSettingsArgs, AtpSettingsState]) (infer.UpdateResponse[AtpSettingsState], error) {
+	if req.DryRun {
+		// Preview: return the predicted state without calling the ZIA API.
+		state := req.State
+		state.AtpSettingsArgs = req.Inputs
+		return infer.UpdateResponse[AtpSettingsState]{Output: state}, nil
+	}
+
 	cfg := infer.GetConfig[Config](ctx)
 	if cfg.Client() == nil {
 		return infer.UpdateResponse[AtpSettingsState]{}, fmt.Errorf("ZIA provider not configured")

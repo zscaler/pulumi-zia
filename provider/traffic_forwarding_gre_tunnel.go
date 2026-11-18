@@ -173,6 +173,12 @@ func trafficForwardingGreTunnelToState(api *gretunnels.GreTunnels) TrafficForwar
 }
 
 func (TrafficForwardingGreTunnel) Create(ctx context.Context, req infer.CreateRequest[TrafficForwardingGreTunnelArgs]) (infer.CreateResponse[TrafficForwardingGreTunnelState], error) {
+	if req.DryRun {
+		// Preview: return the predicted state without calling the ZIA API.
+		s := TrafficForwardingGreTunnelState{TrafficForwardingGreTunnelArgs: req.Inputs, TunnelId: intPtr(0)}
+		return infer.CreateResponse[TrafficForwardingGreTunnelState]{ID: "preview", Output: s}, nil
+	}
+
 	cfg := infer.GetConfig[Config](ctx)
 	if cfg.Client() == nil {
 		return infer.CreateResponse[TrafficForwardingGreTunnelState]{}, fmt.Errorf("ZIA provider not configured")
@@ -244,6 +250,13 @@ func (TrafficForwardingGreTunnel) Read(ctx context.Context, req infer.ReadReques
 }
 
 func (TrafficForwardingGreTunnel) Update(ctx context.Context, req infer.UpdateRequest[TrafficForwardingGreTunnelArgs, TrafficForwardingGreTunnelState]) (infer.UpdateResponse[TrafficForwardingGreTunnelState], error) {
+	if req.DryRun {
+		// Preview: return the predicted state without calling the ZIA API.
+		state := req.State
+		state.TrafficForwardingGreTunnelArgs = req.Inputs
+		return infer.UpdateResponse[TrafficForwardingGreTunnelState]{Output: state}, nil
+	}
+
 	cfg := infer.GetConfig[Config](ctx)
 	if cfg.Client() == nil {
 		return infer.UpdateResponse[TrafficForwardingGreTunnelState]{}, fmt.Errorf("ZIA provider not configured")

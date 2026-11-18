@@ -194,6 +194,13 @@ func (WorkloadGroup) Read(ctx context.Context, req infer.ReadRequest[WorkloadGro
 }
 
 func (WorkloadGroup) Update(ctx context.Context, req infer.UpdateRequest[WorkloadGroupArgs, WorkloadGroupState]) (infer.UpdateResponse[WorkloadGroupState], error) {
+	if req.DryRun {
+		// Preview: return the predicted state without calling the ZIA API.
+		state := req.State
+		state.WorkloadGroupArgs = req.Inputs
+		return infer.UpdateResponse[WorkloadGroupState]{Output: state}, nil
+	}
+
 	cfg := infer.GetConfig[Config](ctx)
 	if cfg.Client() == nil {
 		return infer.UpdateResponse[WorkloadGroupState]{}, fmt.Errorf("ZIA provider not configured")

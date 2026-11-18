@@ -348,6 +348,13 @@ func (FirewallIPSRule) Read(ctx context.Context, req infer.ReadRequest[FirewallI
 }
 
 func (FirewallIPSRule) Update(ctx context.Context, req infer.UpdateRequest[FirewallIPSRuleArgs, FirewallIPSRuleState]) (infer.UpdateResponse[FirewallIPSRuleState], error) {
+	if req.DryRun {
+		// Preview: return the predicted state without calling the ZIA API.
+		state := req.State
+		state.FirewallIPSRuleArgs = req.Inputs
+		return infer.UpdateResponse[FirewallIPSRuleState]{Output: state}, nil
+	}
+
 	if req.Inputs.Order < 1 {
 		return infer.UpdateResponse[FirewallIPSRuleState]{}, fmt.Errorf("order must be a positive whole number (>= 1), got %d", req.Inputs.Order)
 	}

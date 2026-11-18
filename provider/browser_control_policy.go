@@ -93,6 +93,12 @@ func browserControlPolicyToAPI(args BrowserControlPolicyArgs) browser_control_se
 }
 
 func (BrowserControlPolicy) Create(ctx context.Context, req infer.CreateRequest[BrowserControlPolicyArgs]) (infer.CreateResponse[BrowserControlPolicyState], error) {
+	if req.DryRun {
+		// Preview: return the predicted state without calling the ZIA API.
+		s := BrowserControlPolicyState{BrowserControlPolicyArgs: req.Inputs}
+		return infer.CreateResponse[BrowserControlPolicyState]{ID: browserControlPolicyID, Output: s}, nil
+	}
+
 	cfg := infer.GetConfig[Config](ctx)
 	if cfg.Client() == nil {
 		return infer.CreateResponse[BrowserControlPolicyState]{}, fmt.Errorf("ZIA provider not configured")
@@ -164,6 +170,13 @@ func (BrowserControlPolicy) Read(ctx context.Context, req infer.ReadRequest[Brow
 }
 
 func (BrowserControlPolicy) Update(ctx context.Context, req infer.UpdateRequest[BrowserControlPolicyArgs, BrowserControlPolicyState]) (infer.UpdateResponse[BrowserControlPolicyState], error) {
+	if req.DryRun {
+		// Preview: return the predicted state without calling the ZIA API.
+		state := req.State
+		state.BrowserControlPolicyArgs = req.Inputs
+		return infer.UpdateResponse[BrowserControlPolicyState]{Output: state}, nil
+	}
+
 	cfg := infer.GetConfig[Config](ctx)
 	if cfg.Client() == nil {
 		return infer.UpdateResponse[BrowserControlPolicyState]{}, fmt.Errorf("ZIA provider not configured")

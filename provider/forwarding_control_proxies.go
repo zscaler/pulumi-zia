@@ -75,6 +75,12 @@ func forwardingControlProxiesToAPI(args ForwardingControlProxiesArgs, id int) pr
 }
 
 func (ForwardingControlProxies) Create(ctx context.Context, req infer.CreateRequest[ForwardingControlProxiesArgs]) (infer.CreateResponse[ForwardingControlProxiesState], error) {
+	if req.DryRun {
+		// Preview: return the predicted state without calling the ZIA API.
+		s := ForwardingControlProxiesState{ForwardingControlProxiesArgs: req.Inputs, ProxyId: intPtr(0)}
+		return infer.CreateResponse[ForwardingControlProxiesState]{ID: "preview", Output: s}, nil
+	}
+
 	cfg := infer.GetConfig[Config](ctx)
 	if cfg.Client() == nil {
 		return infer.CreateResponse[ForwardingControlProxiesState]{}, fmt.Errorf("ZIA provider not configured")
@@ -155,6 +161,13 @@ func (ForwardingControlProxies) Read(ctx context.Context, req infer.ReadRequest[
 }
 
 func (ForwardingControlProxies) Update(ctx context.Context, req infer.UpdateRequest[ForwardingControlProxiesArgs, ForwardingControlProxiesState]) (infer.UpdateResponse[ForwardingControlProxiesState], error) {
+	if req.DryRun {
+		// Preview: return the predicted state without calling the ZIA API.
+		state := req.State
+		state.ForwardingControlProxiesArgs = req.Inputs
+		return infer.UpdateResponse[ForwardingControlProxiesState]{Output: state}, nil
+	}
+
 	cfg := infer.GetConfig[Config](ctx)
 	if cfg.Client() == nil {
 		return infer.UpdateResponse[ForwardingControlProxiesState]{}, fmt.Errorf("ZIA provider not configured")

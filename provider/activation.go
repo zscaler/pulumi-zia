@@ -50,6 +50,12 @@ type ActivationState struct {
 }
 
 func (Activation) Create(ctx context.Context, req infer.CreateRequest[ActivationArgs]) (infer.CreateResponse[ActivationState], error) {
+	if req.DryRun {
+		// Preview: return the predicted state without calling the ZIA API.
+		s := ActivationState{ActivationArgs: req.Inputs, ResourceId: activationID}
+		return infer.CreateResponse[ActivationState]{ID: activationID, Output: s}, nil
+	}
+
 	cfg := infer.GetConfig[Config](ctx)
 	if cfg.Client() == nil {
 		return infer.CreateResponse[ActivationState]{}, fmt.Errorf("ZIA provider not configured")

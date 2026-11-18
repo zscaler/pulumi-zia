@@ -67,6 +67,12 @@ func dlpNotificationTemplateToAPI(args DlpNotificationTemplateArgs, id int) dlp_
 }
 
 func (DlpNotificationTemplate) Create(ctx context.Context, req infer.CreateRequest[DlpNotificationTemplateArgs]) (infer.CreateResponse[DlpNotificationTemplateState], error) {
+	if req.DryRun {
+		// Preview: return the predicted state without calling the ZIA API.
+		s := DlpNotificationTemplateState{DlpNotificationTemplateArgs: req.Inputs, TemplateId: intPtr(0)}
+		return infer.CreateResponse[DlpNotificationTemplateState]{ID: "preview", Output: s}, nil
+	}
+
 	cfg := infer.GetConfig[Config](ctx)
 	if cfg.Client() == nil {
 		return infer.CreateResponse[DlpNotificationTemplateState]{}, fmt.Errorf("ZIA provider not configured")
@@ -140,6 +146,13 @@ func (DlpNotificationTemplate) Read(ctx context.Context, req infer.ReadRequest[D
 }
 
 func (DlpNotificationTemplate) Update(ctx context.Context, req infer.UpdateRequest[DlpNotificationTemplateArgs, DlpNotificationTemplateState]) (infer.UpdateResponse[DlpNotificationTemplateState], error) {
+	if req.DryRun {
+		// Preview: return the predicted state without calling the ZIA API.
+		state := req.State
+		state.DlpNotificationTemplateArgs = req.Inputs
+		return infer.UpdateResponse[DlpNotificationTemplateState]{Output: state}, nil
+	}
+
 	cfg := infer.GetConfig[Config](ctx)
 	if cfg.Client() == nil {
 		return infer.UpdateResponse[DlpNotificationTemplateState]{}, fmt.Errorf("ZIA provider not configured")

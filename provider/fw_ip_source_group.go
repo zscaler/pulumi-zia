@@ -136,6 +136,13 @@ func (FwIpSourceGroup) Read(ctx context.Context, req infer.ReadRequest[FwIpSourc
 }
 
 func (FwIpSourceGroup) Update(ctx context.Context, req infer.UpdateRequest[FwIpSourceGroupArgs, FwIpSourceGroupState]) (infer.UpdateResponse[FwIpSourceGroupState], error) {
+	if req.DryRun {
+		// Preview: return the predicted state without calling the ZIA API.
+		state := req.State
+		state.FwIpSourceGroupArgs = req.Inputs
+		return infer.UpdateResponse[FwIpSourceGroupState]{Output: state}, nil
+	}
+
 	cfg := infer.GetConfig[Config](ctx)
 	if cfg.Client() == nil {
 		return infer.UpdateResponse[FwIpSourceGroupState]{}, fmt.Errorf("ZIA provider not configured")

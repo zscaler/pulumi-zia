@@ -320,6 +320,13 @@ func (DlpWebRule) Read(ctx context.Context, req infer.ReadRequest[DlpWebRuleArgs
 }
 
 func (DlpWebRule) Update(ctx context.Context, req infer.UpdateRequest[DlpWebRuleArgs, DlpWebRuleState]) (infer.UpdateResponse[DlpWebRuleState], error) {
+	if req.DryRun {
+		// Preview: return the predicted state without calling the ZIA API.
+		state := req.State
+		state.DlpWebRuleArgs = req.Inputs
+		return infer.UpdateResponse[DlpWebRuleState]{Output: state}, nil
+	}
+
 	if req.Inputs.Order < 1 {
 		return infer.UpdateResponse[DlpWebRuleState]{}, fmt.Errorf("order must be a positive whole number (>= 1), got %d", req.Inputs.Order)
 	}

@@ -218,6 +218,13 @@ func (VzenNode) Read(ctx context.Context, req infer.ReadRequest[VzenNodeArgs, Vz
 }
 
 func (VzenNode) Update(ctx context.Context, req infer.UpdateRequest[VzenNodeArgs, VzenNodeState]) (infer.UpdateResponse[VzenNodeState], error) {
+	if req.DryRun {
+		// Preview: return the predicted state without calling the ZIA API.
+		state := req.State
+		state.VzenNodeArgs = req.Inputs
+		return infer.UpdateResponse[VzenNodeState]{Output: state}, nil
+	}
+
 	cfg := infer.GetConfig[Config](ctx)
 	if cfg.Client() == nil {
 		return infer.UpdateResponse[VzenNodeState]{}, fmt.Errorf("ZIA provider not configured")

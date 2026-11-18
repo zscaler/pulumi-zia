@@ -145,6 +145,12 @@ func flattenSubCloudExclusionsForResource(exclusions []sub_clouds.Exclusions) []
 }
 
 func (SubCloud) Create(ctx context.Context, req infer.CreateRequest[SubCloudArgs]) (infer.CreateResponse[SubCloudState], error) {
+	if req.DryRun {
+		// Preview: return the predicted state without calling the ZIA API.
+		s := SubCloudState{SubCloudArgs: req.Inputs, Id: "preview"}
+		return infer.CreateResponse[SubCloudState]{ID: "preview", Output: s}, nil
+	}
+
 	cfg := infer.GetConfig[Config](ctx)
 	if cfg.Client() == nil {
 		return infer.CreateResponse[SubCloudState]{}, fmt.Errorf("ZIA provider not configured")
@@ -220,6 +226,13 @@ func (SubCloud) Read(ctx context.Context, req infer.ReadRequest[SubCloudArgs, Su
 }
 
 func (SubCloud) Update(ctx context.Context, req infer.UpdateRequest[SubCloudArgs, SubCloudState]) (infer.UpdateResponse[SubCloudState], error) {
+	if req.DryRun {
+		// Preview: return the predicted state without calling the ZIA API.
+		state := req.State
+		state.SubCloudArgs = req.Inputs
+		return infer.UpdateResponse[SubCloudState]{Output: state}, nil
+	}
+
 	cfg := infer.GetConfig[Config](ctx)
 	if cfg.Client() == nil {
 		return infer.UpdateResponse[SubCloudState]{}, fmt.Errorf("ZIA provider not configured")

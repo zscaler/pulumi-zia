@@ -233,6 +233,13 @@ func (RiskProfile) Read(ctx context.Context, req infer.ReadRequest[RiskProfileAr
 }
 
 func (RiskProfile) Update(ctx context.Context, req infer.UpdateRequest[RiskProfileArgs, RiskProfileState]) (infer.UpdateResponse[RiskProfileState], error) {
+	if req.DryRun {
+		// Preview: return the predicted state without calling the ZIA API.
+		state := req.State
+		state.RiskProfileArgs = req.Inputs
+		return infer.UpdateResponse[RiskProfileState]{Output: state}, nil
+	}
+
 	cfg := infer.GetConfig[Config](ctx)
 	if cfg.Client() == nil {
 		return infer.UpdateResponse[RiskProfileState]{}, fmt.Errorf("ZIA provider not configured")

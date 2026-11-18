@@ -105,6 +105,12 @@ func cloudApplicationInstanceToAPI(args CloudApplicationInstanceArgs, instanceID
 }
 
 func (CloudApplicationInstance) Create(ctx context.Context, req infer.CreateRequest[CloudApplicationInstanceArgs]) (infer.CreateResponse[CloudApplicationInstanceState], error) {
+	if req.DryRun {
+		// Preview: return the predicted state without calling the ZIA API.
+		s := CloudApplicationInstanceState{CloudApplicationInstanceArgs: req.Inputs, InstanceId: intPtr(0)}
+		return infer.CreateResponse[CloudApplicationInstanceState]{ID: "preview", Output: s}, nil
+	}
+
 	cfg := infer.GetConfig[Config](ctx)
 	if cfg.Client() == nil {
 		return infer.CreateResponse[CloudApplicationInstanceState]{}, fmt.Errorf("ZIA provider not configured")
@@ -177,6 +183,13 @@ func (CloudApplicationInstance) Read(ctx context.Context, req infer.ReadRequest[
 }
 
 func (CloudApplicationInstance) Update(ctx context.Context, req infer.UpdateRequest[CloudApplicationInstanceArgs, CloudApplicationInstanceState]) (infer.UpdateResponse[CloudApplicationInstanceState], error) {
+	if req.DryRun {
+		// Preview: return the predicted state without calling the ZIA API.
+		state := req.State
+		state.CloudApplicationInstanceArgs = req.Inputs
+		return infer.UpdateResponse[CloudApplicationInstanceState]{Output: state}, nil
+	}
+
 	cfg := infer.GetConfig[Config](ctx)
 	if cfg.Client() == nil {
 		return infer.UpdateResponse[CloudApplicationInstanceState]{}, fmt.Errorf("ZIA provider not configured")

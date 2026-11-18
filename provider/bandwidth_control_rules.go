@@ -285,6 +285,13 @@ func (BandwidthControlRule) Read(ctx context.Context, req infer.ReadRequest[Band
 }
 
 func (BandwidthControlRule) Update(ctx context.Context, req infer.UpdateRequest[BandwidthControlRuleArgs, BandwidthControlRuleState]) (infer.UpdateResponse[BandwidthControlRuleState], error) {
+	if req.DryRun {
+		// Preview: return the predicted state without calling the ZIA API.
+		state := req.State
+		state.BandwidthControlRuleArgs = req.Inputs
+		return infer.UpdateResponse[BandwidthControlRuleState]{Output: state}, nil
+	}
+
 	if req.Inputs.Order < 1 {
 		return infer.UpdateResponse[BandwidthControlRuleState]{}, fmt.Errorf("order must be a positive whole number (>= 1), got %d", req.Inputs.Order)
 	}
