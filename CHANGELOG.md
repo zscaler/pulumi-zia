@@ -1,5 +1,29 @@
 # Changelog
 
+## 1.4.1 (November, 18 2026)
+
+### Notes
+
+- Release date: **(November, 18 2026)**
+- Supported Terraform version: **v1.x**
+- Golang: **v1.26**
+
+### Maintenance
+
+- Updated to [Zscaler-SDK-GO v3.8.60](https://github.com/zscaler/zscaler-sdk-go/releases/tag/v3.8.60).
+- Go modules, the workspace, and the CI/release workflows now use Go 1.26.
+- Reverted the `github.com/pulumi/pulumi/sdk/v3` v3.249.0 bump ([PR #81](https://github.com/zscaler/pulumi-zia/pull/81), [PR #82](https://github.com/zscaler/pulumi-zia/pull/82)) to v3.217.0. It does not build against `pulumi/pkg/v3` v3.217.0, the version `pulumi-go-provider` v1.3.0 requires.
+
+### Bug Fix
+
+- [Issue #83](https://github.com/zscaler/pulumi-zia/issues/83) - `pulumi preview` no longer sends write requests (`POST`/`PUT`) to the ZIA API. Previously, a preview could change the live tenant while Pulumi state stayed unchanged:
+  - **In-place updates:** none of the 69 resource `Update` methods checked `req.DryRun`. A planned update was applied during preview, for example a `UrlCategory` URL change sent `PUT /urlCategories/{id}?action=ADD_TO_LIST`, and rule updates ran policy updates and rule reorder `PUT`s.
+  - **Creates:** 33 resource `Create` methods did not check `req.DryRun`, including `Activation`, `DlpDictionary`, `DlpEngine`, `TrafficForwardingGreTunnel`, `SandboxSubmission` (which uploaded the file to Sandbox), and the ATP, advanced, and security settings resources.
+  - **Activation:** previewing a new `Activation` resource activated the tenant's staged configuration, and with `ZIA_ACTIVATION=true` any previewed update or create could trigger activation.
+
+  Every resource `Create` and `Update` now returns the predicted state during preview before making any API call. Updates keep computed values such as IDs from the current state. Two input checks now run at `pulumi up` instead of preview: `Activation` `status` must be `ACTIVE`, and `DcExclusion` requires `datacenterId`.
+- Added regression tests that fail if any resource `Create` or `Update` does not start with a `req.DryRun` guard, or if a preview reaches the ZIA client.
+
 ## 1.4.0 (June, 30 2026)
 
 ### Notes

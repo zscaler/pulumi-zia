@@ -171,6 +171,13 @@ func (TrafficForwardingVpnCredentials) Read(ctx context.Context, req infer.ReadR
 }
 
 func (TrafficForwardingVpnCredentials) Update(ctx context.Context, req infer.UpdateRequest[TrafficForwardingVpnCredentialsArgs, TrafficForwardingVpnCredentialsState]) (infer.UpdateResponse[TrafficForwardingVpnCredentialsState], error) {
+	if req.DryRun {
+		// Preview: return the predicted state without calling the ZIA API.
+		state := req.State
+		state.TrafficForwardingVpnCredentialsArgs = req.Inputs
+		return infer.UpdateResponse[TrafficForwardingVpnCredentialsState]{Output: state}, nil
+	}
+
 	cfg := infer.GetConfig[Config](ctx)
 	if cfg.Client() == nil {
 		return infer.UpdateResponse[TrafficForwardingVpnCredentialsState]{}, fmt.Errorf("ZIA provider not configured")

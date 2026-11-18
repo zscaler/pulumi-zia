@@ -183,6 +183,13 @@ func (UrlCategoryPredefined) Read(ctx context.Context, req infer.ReadRequest[Url
 }
 
 func (UrlCategoryPredefined) Update(ctx context.Context, req infer.UpdateRequest[UrlCategoryPredefinedArgs, UrlCategoryPredefinedState]) (infer.UpdateResponse[UrlCategoryPredefinedState], error) {
+	if req.DryRun {
+		// Preview: return the predicted state without calling the ZIA API.
+		state := req.State
+		state.UrlCategoryPredefinedArgs = req.Inputs
+		return infer.UpdateResponse[UrlCategoryPredefinedState]{Output: state}, nil
+	}
+
 	cfg := infer.GetConfig[Config](ctx)
 	if cfg.Client() == nil {
 		return infer.UpdateResponse[UrlCategoryPredefinedState]{}, fmt.Errorf("ZIA provider not configured")

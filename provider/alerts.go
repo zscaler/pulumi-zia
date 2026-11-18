@@ -73,6 +73,12 @@ func subscriptionAlertToAPI(args SubscriptionAlertArgs, id *int) alerts.AlertSub
 }
 
 func (SubscriptionAlert) Create(ctx context.Context, req infer.CreateRequest[SubscriptionAlertArgs]) (infer.CreateResponse[SubscriptionAlertState], error) {
+	if req.DryRun {
+		// Preview: return the predicted state without calling the ZIA API.
+		s := SubscriptionAlertState{SubscriptionAlertArgs: req.Inputs, AlertId: intPtr(0)}
+		return infer.CreateResponse[SubscriptionAlertState]{ID: "preview", Output: s}, nil
+	}
+
 	cfg := infer.GetConfig[Config](ctx)
 	if cfg.Client() == nil {
 		return infer.CreateResponse[SubscriptionAlertState]{}, fmt.Errorf("ZIA provider not configured")
@@ -152,6 +158,13 @@ func (SubscriptionAlert) Read(ctx context.Context, req infer.ReadRequest[Subscri
 }
 
 func (SubscriptionAlert) Update(ctx context.Context, req infer.UpdateRequest[SubscriptionAlertArgs, SubscriptionAlertState]) (infer.UpdateResponse[SubscriptionAlertState], error) {
+	if req.DryRun {
+		// Preview: return the predicted state without calling the ZIA API.
+		state := req.State
+		state.SubscriptionAlertArgs = req.Inputs
+		return infer.UpdateResponse[SubscriptionAlertState]{Output: state}, nil
+	}
+
 	cfg := infer.GetConfig[Config](ctx)
 	if cfg.Client() == nil {
 		return infer.UpdateResponse[SubscriptionAlertState]{}, fmt.Errorf("ZIA provider not configured")

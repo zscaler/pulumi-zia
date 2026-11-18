@@ -104,6 +104,12 @@ func md5HashValueListsEqual(a, b []sandbox_settings.Md5HashValue) bool {
 }
 
 func (SandboxBehavioralAnalysisAdvancedSettingsV2) Create(ctx context.Context, req infer.CreateRequest[SandboxBehavioralAnalysisAdvancedSettingsV2Args]) (infer.CreateResponse[SandboxBehavioralAnalysisAdvancedSettingsV2State], error) {
+	if req.DryRun {
+		// Preview: return the predicted state without calling the ZIA API.
+		s := SandboxBehavioralAnalysisAdvancedSettingsV2State{SandboxBehavioralAnalysisAdvancedSettingsV2Args: req.Inputs}
+		return infer.CreateResponse[SandboxBehavioralAnalysisAdvancedSettingsV2State]{ID: sandboxSettingsV2ID, Output: s}, nil
+	}
+
 	cfg := infer.GetConfig[Config](ctx)
 	if cfg.Client() == nil {
 		return infer.CreateResponse[SandboxBehavioralAnalysisAdvancedSettingsV2State]{}, fmt.Errorf("ZIA provider not configured")
@@ -166,6 +172,13 @@ func (SandboxBehavioralAnalysisAdvancedSettingsV2) Read(ctx context.Context, req
 }
 
 func (SandboxBehavioralAnalysisAdvancedSettingsV2) Update(ctx context.Context, req infer.UpdateRequest[SandboxBehavioralAnalysisAdvancedSettingsV2Args, SandboxBehavioralAnalysisAdvancedSettingsV2State]) (infer.UpdateResponse[SandboxBehavioralAnalysisAdvancedSettingsV2State], error) {
+	if req.DryRun {
+		// Preview: return the predicted state without calling the ZIA API.
+		state := req.State
+		state.SandboxBehavioralAnalysisAdvancedSettingsV2Args = req.Inputs
+		return infer.UpdateResponse[SandboxBehavioralAnalysisAdvancedSettingsV2State]{Output: state}, nil
+	}
+
 	cfg := infer.GetConfig[Config](ctx)
 	if cfg.Client() == nil {
 		return infer.UpdateResponse[SandboxBehavioralAnalysisAdvancedSettingsV2State]{}, fmt.Errorf("ZIA provider not configured")

@@ -63,6 +63,12 @@ func customFileTypeToAPI(args CustomFileTypeArgs, id int) custom_file_types.Cust
 }
 
 func (CustomFileType) Create(ctx context.Context, req infer.CreateRequest[CustomFileTypeArgs]) (infer.CreateResponse[CustomFileTypeState], error) {
+	if req.DryRun {
+		// Preview: return the predicted state without calling the ZIA API.
+		s := CustomFileTypeState{CustomFileTypeArgs: req.Inputs, FileId: intPtr(0)}
+		return infer.CreateResponse[CustomFileTypeState]{ID: "preview", Output: s}, nil
+	}
+
 	cfg := infer.GetConfig[Config](ctx)
 	if cfg.Client() == nil {
 		return infer.CreateResponse[CustomFileTypeState]{}, fmt.Errorf("ZIA provider not configured")
@@ -134,6 +140,13 @@ func (CustomFileType) Read(ctx context.Context, req infer.ReadRequest[CustomFile
 }
 
 func (CustomFileType) Update(ctx context.Context, req infer.UpdateRequest[CustomFileTypeArgs, CustomFileTypeState]) (infer.UpdateResponse[CustomFileTypeState], error) {
+	if req.DryRun {
+		// Preview: return the predicted state without calling the ZIA API.
+		state := req.State
+		state.CustomFileTypeArgs = req.Inputs
+		return infer.UpdateResponse[CustomFileTypeState]{Output: state}, nil
+	}
+
 	cfg := infer.GetConfig[Config](ctx)
 	if cfg.Client() == nil {
 		return infer.UpdateResponse[CustomFileTypeState]{}, fmt.Errorf("ZIA provider not configured")

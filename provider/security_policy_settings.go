@@ -52,6 +52,12 @@ type SecurityPolicySettingsState struct {
 }
 
 func (SecurityPolicySettings) Create(ctx context.Context, req infer.CreateRequest[SecurityPolicySettingsArgs]) (infer.CreateResponse[SecurityPolicySettingsState], error) {
+	if req.DryRun {
+		// Preview: return the predicted state without calling the ZIA API.
+		s := SecurityPolicySettingsState{SecurityPolicySettingsArgs: req.Inputs, Id: securityPolicySettingsID}
+		return infer.CreateResponse[SecurityPolicySettingsState]{ID: securityPolicySettingsID, Output: s}, nil
+	}
+
 	cfg := infer.GetConfig[Config](ctx)
 	if cfg.Client() == nil {
 		return infer.CreateResponse[SecurityPolicySettingsState]{}, fmt.Errorf("ZIA provider not configured")
@@ -115,6 +121,13 @@ func (SecurityPolicySettings) Read(ctx context.Context, req infer.ReadRequest[Se
 }
 
 func (SecurityPolicySettings) Update(ctx context.Context, req infer.UpdateRequest[SecurityPolicySettingsArgs, SecurityPolicySettingsState]) (infer.UpdateResponse[SecurityPolicySettingsState], error) {
+	if req.DryRun {
+		// Preview: return the predicted state without calling the ZIA API.
+		state := req.State
+		state.SecurityPolicySettingsArgs = req.Inputs
+		return infer.UpdateResponse[SecurityPolicySettingsState]{Output: state}, nil
+	}
+
 	cfg := infer.GetConfig[Config](ctx)
 	if cfg.Client() == nil {
 		return infer.UpdateResponse[SecurityPolicySettingsState]{}, fmt.Errorf("ZIA provider not configured")

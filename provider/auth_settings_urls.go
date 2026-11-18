@@ -51,6 +51,12 @@ type AuthSettingsUrlsState struct {
 }
 
 func (AuthSettingsUrls) Create(ctx context.Context, req infer.CreateRequest[AuthSettingsUrlsArgs]) (infer.CreateResponse[AuthSettingsUrlsState], error) {
+	if req.DryRun {
+		// Preview: return the predicted state without calling the ZIA API.
+		s := AuthSettingsUrlsState{AuthSettingsUrlsArgs: req.Inputs, ResourceId: authSettingsUrlsID}
+		return infer.CreateResponse[AuthSettingsUrlsState]{ID: authSettingsUrlsID, Output: s}, nil
+	}
+
 	cfg := infer.GetConfig[Config](ctx)
 	if cfg.Client() == nil {
 		return infer.CreateResponse[AuthSettingsUrlsState]{}, fmt.Errorf("ZIA provider not configured")
@@ -108,6 +114,13 @@ func (AuthSettingsUrls) Read(ctx context.Context, req infer.ReadRequest[AuthSett
 }
 
 func (AuthSettingsUrls) Update(ctx context.Context, req infer.UpdateRequest[AuthSettingsUrlsArgs, AuthSettingsUrlsState]) (infer.UpdateResponse[AuthSettingsUrlsState], error) {
+	if req.DryRun {
+		// Preview: return the predicted state without calling the ZIA API.
+		state := req.State
+		state.AuthSettingsUrlsArgs = req.Inputs
+		return infer.UpdateResponse[AuthSettingsUrlsState]{Output: state}, nil
+	}
+
 	cfg := infer.GetConfig[Config](ctx)
 	if cfg.Client() == nil {
 		return infer.UpdateResponse[AuthSettingsUrlsState]{}, fmt.Errorf("ZIA provider not configured")

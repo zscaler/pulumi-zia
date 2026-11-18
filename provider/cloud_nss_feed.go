@@ -139,6 +139,12 @@ func cloudNssFeedToAPI(args CloudNssFeedArgs, id int) cloudnss.NSSFeed {
 }
 
 func (CloudNssFeed) Create(ctx context.Context, req infer.CreateRequest[CloudNssFeedArgs]) (infer.CreateResponse[CloudNssFeedState], error) {
+	if req.DryRun {
+		// Preview: return the predicted state without calling the ZIA API.
+		s := CloudNssFeedState{CloudNssFeedArgs: req.Inputs, NssId: intPtr(0)}
+		return infer.CreateResponse[CloudNssFeedState]{ID: "preview", Output: s}, nil
+	}
+
 	cfg := infer.GetConfig[Config](ctx)
 	if cfg.Client() == nil {
 		return infer.CreateResponse[CloudNssFeedState]{}, fmt.Errorf("ZIA provider not configured")
@@ -250,6 +256,13 @@ func (CloudNssFeed) Read(ctx context.Context, req infer.ReadRequest[CloudNssFeed
 }
 
 func (CloudNssFeed) Update(ctx context.Context, req infer.UpdateRequest[CloudNssFeedArgs, CloudNssFeedState]) (infer.UpdateResponse[CloudNssFeedState], error) {
+	if req.DryRun {
+		// Preview: return the predicted state without calling the ZIA API.
+		state := req.State
+		state.CloudNssFeedArgs = req.Inputs
+		return infer.UpdateResponse[CloudNssFeedState]{Output: state}, nil
+	}
+
 	cfg := infer.GetConfig[Config](ctx)
 	if cfg.Client() == nil {
 		return infer.UpdateResponse[CloudNssFeedState]{}, fmt.Errorf("ZIA provider not configured")

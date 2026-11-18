@@ -139,6 +139,13 @@ func (RuleLabel) Read(ctx context.Context, req infer.ReadRequest[RuleLabelArgs, 
 
 // Update updates an existing Rule Label.
 func (RuleLabel) Update(ctx context.Context, req infer.UpdateRequest[RuleLabelArgs, RuleLabelState]) (infer.UpdateResponse[RuleLabelState], error) {
+	if req.DryRun {
+		// Preview: return the predicted state without calling the ZIA API.
+		state := req.State
+		state.RuleLabelArgs = req.Inputs
+		return infer.UpdateResponse[RuleLabelState]{Output: state}, nil
+	}
+
 	cfg := infer.GetConfig[Config](ctx)
 	if cfg.Client() == nil {
 		return infer.UpdateResponse[RuleLabelState]{}, fmt.Errorf("ZIA provider not configured")

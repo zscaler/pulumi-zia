@@ -161,6 +161,13 @@ func (AdminUsers) Read(ctx context.Context, req infer.ReadRequest[AdminUsersArgs
 }
 
 func (AdminUsers) Update(ctx context.Context, req infer.UpdateRequest[AdminUsersArgs, AdminUsersState]) (infer.UpdateResponse[AdminUsersState], error) {
+	if req.DryRun {
+		// Preview: return the predicted state without calling the ZIA API.
+		state := req.State
+		state.AdminUsersArgs = req.Inputs
+		return infer.UpdateResponse[AdminUsersState]{Output: state}, nil
+	}
+
 	cfg := infer.GetConfig[Config](ctx)
 	if cfg.Client() == nil {
 		return infer.UpdateResponse[AdminUsersState]{}, fmt.Errorf("ZIA provider not configured")

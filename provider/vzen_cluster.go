@@ -171,6 +171,13 @@ func (VzenCluster) Read(ctx context.Context, req infer.ReadRequest[VzenClusterAr
 }
 
 func (VzenCluster) Update(ctx context.Context, req infer.UpdateRequest[VzenClusterArgs, VzenClusterState]) (infer.UpdateResponse[VzenClusterState], error) {
+	if req.DryRun {
+		// Preview: return the predicted state without calling the ZIA API.
+		state := req.State
+		state.VzenClusterArgs = req.Inputs
+		return infer.UpdateResponse[VzenClusterState]{Output: state}, nil
+	}
+
 	cfg := infer.GetConfig[Config](ctx)
 	if cfg.Client() == nil {
 		return infer.UpdateResponse[VzenClusterState]{}, fmt.Errorf("ZIA provider not configured")

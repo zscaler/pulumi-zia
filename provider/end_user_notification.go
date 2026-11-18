@@ -113,6 +113,12 @@ func endUserNotificationToAPI(args EndUserNotificationArgs) end_user_notificatio
 }
 
 func (EndUserNotification) Create(ctx context.Context, req infer.CreateRequest[EndUserNotificationArgs]) (infer.CreateResponse[EndUserNotificationState], error) {
+	if req.DryRun {
+		// Preview: return the predicted state without calling the ZIA API.
+		s := EndUserNotificationState{EndUserNotificationArgs: req.Inputs}
+		return infer.CreateResponse[EndUserNotificationState]{ID: endUserNotificationID, Output: s}, nil
+	}
+
 	cfg := infer.GetConfig[Config](ctx)
 	if cfg.Client() == nil {
 		return infer.CreateResponse[EndUserNotificationState]{}, fmt.Errorf("ZIA provider not configured")
@@ -192,6 +198,13 @@ func (EndUserNotification) Read(ctx context.Context, req infer.ReadRequest[EndUs
 }
 
 func (EndUserNotification) Update(ctx context.Context, req infer.UpdateRequest[EndUserNotificationArgs, EndUserNotificationState]) (infer.UpdateResponse[EndUserNotificationState], error) {
+	if req.DryRun {
+		// Preview: return the predicted state without calling the ZIA API.
+		state := req.State
+		state.EndUserNotificationArgs = req.Inputs
+		return infer.UpdateResponse[EndUserNotificationState]{Output: state}, nil
+	}
+
 	cfg := infer.GetConfig[Config](ctx)
 	if cfg.Client() == nil {
 		return infer.UpdateResponse[EndUserNotificationState]{}, fmt.Errorf("ZIA provider not configured")

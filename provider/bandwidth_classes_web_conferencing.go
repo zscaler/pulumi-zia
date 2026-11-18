@@ -64,6 +64,12 @@ func bandwidthClassWebConferencingToAPI(args BandwidthClassWebConferencingArgs, 
 }
 
 func (BandwidthClassWebConferencing) Create(ctx context.Context, req infer.CreateRequest[BandwidthClassWebConferencingArgs]) (infer.CreateResponse[BandwidthClassWebConferencingState], error) {
+	if req.DryRun {
+		// Preview: return the predicted state without calling the ZIA API.
+		s := BandwidthClassWebConferencingState{BandwidthClassWebConferencingArgs: req.Inputs, ClassId: intPtr(0)}
+		return infer.CreateResponse[BandwidthClassWebConferencingState]{ID: "preview", Output: s}, nil
+	}
+
 	cfg := infer.GetConfig[Config](ctx)
 	if cfg.Client() == nil {
 		return infer.CreateResponse[BandwidthClassWebConferencingState]{}, fmt.Errorf("ZIA provider not configured")
@@ -145,6 +151,13 @@ func (BandwidthClassWebConferencing) Read(ctx context.Context, req infer.ReadReq
 }
 
 func (BandwidthClassWebConferencing) Update(ctx context.Context, req infer.UpdateRequest[BandwidthClassWebConferencingArgs, BandwidthClassWebConferencingState]) (infer.UpdateResponse[BandwidthClassWebConferencingState], error) {
+	if req.DryRun {
+		// Preview: return the predicted state without calling the ZIA API.
+		state := req.State
+		state.BandwidthClassWebConferencingArgs = req.Inputs
+		return infer.UpdateResponse[BandwidthClassWebConferencingState]{Output: state}, nil
+	}
+
 	cfg := infer.GetConfig[Config](ctx)
 	if cfg.Client() == nil {
 		return infer.UpdateResponse[BandwidthClassWebConferencingState]{}, fmt.Errorf("ZIA provider not configured")

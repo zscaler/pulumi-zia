@@ -244,6 +244,13 @@ func (TrafficForwardingStaticIp) Read(ctx context.Context, req infer.ReadRequest
 }
 
 func (TrafficForwardingStaticIp) Update(ctx context.Context, req infer.UpdateRequest[TrafficForwardingStaticIpArgs, TrafficForwardingStaticIpState]) (infer.UpdateResponse[TrafficForwardingStaticIpState], error) {
+	if req.DryRun {
+		// Preview: return the predicted state without calling the ZIA API.
+		state := req.State
+		state.TrafficForwardingStaticIpArgs = req.Inputs
+		return infer.UpdateResponse[TrafficForwardingStaticIpState]{Output: state}, nil
+	}
+
 	cfg := infer.GetConfig[Config](ctx)
 	if cfg.Client() == nil {
 		return infer.UpdateResponse[TrafficForwardingStaticIpState]{}, fmt.Errorf("ZIA provider not configured")

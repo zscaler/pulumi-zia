@@ -152,6 +152,13 @@ func (NssServer) Read(ctx context.Context, req infer.ReadRequest[NssServerArgs, 
 }
 
 func (NssServer) Update(ctx context.Context, req infer.UpdateRequest[NssServerArgs, NssServerState]) (infer.UpdateResponse[NssServerState], error) {
+	if req.DryRun {
+		// Preview: return the predicted state without calling the ZIA API.
+		state := req.State
+		state.NssServerArgs = req.Inputs
+		return infer.UpdateResponse[NssServerState]{Output: state}, nil
+	}
+
 	cfg := infer.GetConfig[Config](ctx)
 	if cfg.Client() == nil {
 		return infer.UpdateResponse[NssServerState]{}, fmt.Errorf("ZIA provider not configured")

@@ -15,7 +15,7 @@ on:
   workflow_dispatch:
 
 env:
-  GOVERSION: "1.25.x"
+  GOVERSION: "1.26.x"
   DOTNETVERSION: |
     6.0.x
     3.1.301

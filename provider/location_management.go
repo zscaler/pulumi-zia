@@ -306,6 +306,13 @@ func (LocationManagement) Read(ctx context.Context, req infer.ReadRequest[Locati
 }
 
 func (LocationManagement) Update(ctx context.Context, req infer.UpdateRequest[LocationManagementArgs, LocationManagementState]) (infer.UpdateResponse[LocationManagementState], error) {
+	if req.DryRun {
+		// Preview: return the predicted state without calling the ZIA API.
+		state := req.State
+		state.LocationManagementArgs = req.Inputs
+		return infer.UpdateResponse[LocationManagementState]{Output: state}, nil
+	}
+
 	cfg := infer.GetConfig[Config](ctx)
 	if cfg.Client() == nil {
 		return infer.UpdateResponse[LocationManagementState]{}, fmt.Errorf("ZIA provider not configured")

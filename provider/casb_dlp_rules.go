@@ -325,6 +325,13 @@ func (CasbDlpRule) Read(ctx context.Context, req infer.ReadRequest[CasbDlpRuleAr
 }
 
 func (CasbDlpRule) Update(ctx context.Context, req infer.UpdateRequest[CasbDlpRuleArgs, CasbDlpRuleState]) (infer.UpdateResponse[CasbDlpRuleState], error) {
+	if req.DryRun {
+		// Preview: return the predicted state without calling the ZIA API.
+		state := req.State
+		state.CasbDlpRuleArgs = req.Inputs
+		return infer.UpdateResponse[CasbDlpRuleState]{Output: state}, nil
+	}
+
 	if req.Inputs.Order < 1 {
 		return infer.UpdateResponse[CasbDlpRuleState]{}, fmt.Errorf("order must be a positive whole number (>= 1), got %d", req.Inputs.Order)
 	}

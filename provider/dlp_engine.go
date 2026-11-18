@@ -63,6 +63,12 @@ func dlpEngineToAPI(args DlpEngineArgs, id int) dlp_engines.DLPEngines {
 }
 
 func (DlpEngine) Create(ctx context.Context, req infer.CreateRequest[DlpEngineArgs]) (infer.CreateResponse[DlpEngineState], error) {
+	if req.DryRun {
+		// Preview: return the predicted state without calling the ZIA API.
+		s := DlpEngineState{DlpEngineArgs: req.Inputs, EngineId: intPtr(0)}
+		return infer.CreateResponse[DlpEngineState]{ID: "preview", Output: s}, nil
+	}
+
 	cfg := infer.GetConfig[Config](ctx)
 	if cfg.Client() == nil {
 		return infer.CreateResponse[DlpEngineState]{}, fmt.Errorf("ZIA provider not configured")
@@ -134,6 +140,13 @@ func (DlpEngine) Read(ctx context.Context, req infer.ReadRequest[DlpEngineArgs, 
 }
 
 func (DlpEngine) Update(ctx context.Context, req infer.UpdateRequest[DlpEngineArgs, DlpEngineState]) (infer.UpdateResponse[DlpEngineState], error) {
+	if req.DryRun {
+		// Preview: return the predicted state without calling the ZIA API.
+		state := req.State
+		state.DlpEngineArgs = req.Inputs
+		return infer.UpdateResponse[DlpEngineState]{Output: state}, nil
+	}
+
 	cfg := infer.GetConfig[Config](ctx)
 	if cfg.Client() == nil {
 		return infer.UpdateResponse[DlpEngineState]{}, fmt.Errorf("ZIA provider not configured")

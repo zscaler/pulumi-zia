@@ -190,6 +190,13 @@ func (FwNetworkService) Read(ctx context.Context, req infer.ReadRequest[FwNetwor
 }
 
 func (FwNetworkService) Update(ctx context.Context, req infer.UpdateRequest[FwNetworkServiceArgs, FwNetworkServiceState]) (infer.UpdateResponse[FwNetworkServiceState], error) {
+	if req.DryRun {
+		// Preview: return the predicted state without calling the ZIA API.
+		state := req.State
+		state.FwNetworkServiceArgs = req.Inputs
+		return infer.UpdateResponse[FwNetworkServiceState]{Output: state}, nil
+	}
+
 	cfg := infer.GetConfig[Config](ctx)
 	if cfg.Client() == nil {
 		return infer.UpdateResponse[FwNetworkServiceState]{}, fmt.Errorf("ZIA provider not configured")
