@@ -27,14 +27,16 @@ Track all Zscaler Pulumi ZIA provider releases. New resources, features, and bug
 
 ### Maintenance
 
-- Updated to [Zscaler-SDK-GO v3.8.60](https://github.com/zscaler/zscaler-sdk-go/releases/tag/v3.8.60).
-- Go modules, the workspace, and the CI/release workflows now use Go 1.26.
-- CI/release workflows now build the Python SDK with Python 3.12. `ubuntu-latest` runners are now Ubuntu 26.04, which has no Python 3.9 build, so the Python SDK job failed at `Setup Python`. The published package still supports Python 3.9 and later (`requires-python = ">=3.9"`).
-- Reverted the `github.com/pulumi/pulumi/sdk/v3` v3.249.0 bump ([PR #81](https://github.com/zscaler/pulumi-zia/pull/81), [PR #82](https://github.com/zscaler/pulumi-zia/pull/82)) to v3.217.0. It does not build against `pulumi/pkg/v3` v3.217.0, the version `pulumi-go-provider` v1.3.0 requires.
+- [PR #85](https://github.com/zscaler/pulumi-zia/pull/85) - Updated to [Zscaler-SDK-GO v3.8.60](https://github.com/zscaler/zscaler-sdk-go/releases/tag/v3.8.60).
+- [PR #85](https://github.com/zscaler/pulumi-zia/pull/85) - Go modules, the workspace, and the CI/release workflows now use Go 1.26.
+- [PR #85](https://github.com/zscaler/pulumi-zia/pull/85) - CI/release workflows now build the Python SDK with Python 3.12. GitHub is moving `ubuntu-latest` to Ubuntu 26.04, which has no Python 3.9 build, so the Python SDK job failed at `Setup Python`. The published package still supports Python 3.9 and later (`requires-python = ">=3.9"`).
+- [PR #85](https://github.com/zscaler/pulumi-zia/pull/85) - CI/release workflows now build the Node.js SDK with Node.js 24 (was 20). `@pulumi/pulumi` 3.249.0 and later require Node.js 22 or newer, and the SDK's `^3.142.0` range resolves to the latest release, so `yarn install` failed with `The engine "node" is incompatible with this module`. The published package's dependencies are unchanged.
+- [PR #85](https://github.com/zscaler/pulumi-zia/pull/85) - CI/release workflows now install the .NET 10 SDK instead of the end-of-life .NET 6.0 and 3.1 SDKs. The NuGet package still targets `net6.0`.
+- [PR #85](https://github.com/zscaler/pulumi-zia/pull/85) - Reverted the `github.com/pulumi/pulumi/sdk/v3` v3.249.0 bump ([PR #81](https://github.com/zscaler/pulumi-zia/pull/81), [PR #82](https://github.com/zscaler/pulumi-zia/pull/82)) to v3.217.0. It does not build against `pulumi/pkg/v3` v3.217.0, the version `pulumi-go-provider` v1.3.0 requires.
 
 ### Bug Fix
 
-- [Issue #83](https://github.com/zscaler/pulumi-zia/issues/83) - `pulumi preview` no longer sends write requests (`POST`/`PUT`) to the ZIA API. Previously, a preview could change the live tenant while Pulumi state stayed unchanged:
+- [PR #85](https://github.com/zscaler/pulumi-zia/pull/85) [Issue #83](https://github.com/zscaler/pulumi-zia/issues/83) - `pulumi preview` no longer sends write requests (`POST`/`PUT`) to the ZIA API. Previously, a preview could change the live tenant while Pulumi state stayed unchanged:
   - **In-place updates:** none of the 69 resource `Update` methods checked `req.DryRun`. A planned update was applied during preview, for example a `UrlCategory` URL change sent `PUT /urlCategories/{id}?action=ADD_TO_LIST`, and rule updates ran policy updates and rule reorder `PUT`s.
   - **Creates:** 33 resource `Create` methods did not check `req.DryRun`, including `Activation`, `DlpDictionary`, `DlpEngine`, `TrafficForwardingGreTunnel`, `SandboxSubmission` (which uploaded the file to Sandbox), and the ATP, advanced, and security settings resources.
   - **Activation:** previewing a new `Activation` resource activated the tenant's staged configuration, and with `ZIA_ACTIVATION=true` any previewed update or create could trigger activation.

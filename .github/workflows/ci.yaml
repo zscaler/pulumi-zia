@@ -16,10 +16,8 @@ on:
 
 env:
   GOVERSION: "1.26.x"
-  DOTNETVERSION: |
-    6.0.x
-    3.1.301
-  NODEVERSION: 20.x
+  DOTNETVERSION: "10.0.x"
+  NODEVERSION: 24.x
   PYTHONVERSION: "3.12"
 
 jobs:

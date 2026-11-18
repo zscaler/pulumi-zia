@@ -11,12 +11,10 @@ permissions:
 
 env:
   PROVIDER: zia
-  DOTNETVERSION: |
-    6.0.x
-    3.1.301
+  DOTNETVERSION: "10.0.x"
   GOVERSION: "1.26.x"
   JAVAVERSION: "11"
-  NODEVERSION: 20.x
+  NODEVERSION: 24.x
   PYTHONVERSION: "3.12"
   GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
   NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
