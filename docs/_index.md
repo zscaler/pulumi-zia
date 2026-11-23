@@ -9,7 +9,7 @@ The ZIA provider must be configured with credentials to deploy and update resour
 
 ## Example
 
-{{< chooser language "typescript,python,go,csharp" >}}
+{{< chooser language "typescript,python,go" >}}
 {{% choosable language typescript %}}
 
 ```typescript
@@ -71,29 +71,4 @@ func main() {
 ```
 
 {{% /choosable %}}
-{{% choosable language csharp %}}
-
-```csharp
-    using System.Collections.Generic;
-    using Pulumi;
-    using zia = zscaler.PulumiPackage.Zia;
-
-    return await Deployment.RunAsync(() =&gt;
-    {
-        // ZIA Traffic Forwarding - Static IP
-     var example = new zia.ZIATrafficForwardingStaticIP("static_ip_example", new()
-            {
-             Comment = "Pulumi Traffic Forwarding Static IP",
-             GeoOverride = true,
-             RoutableIp = true,
-             IpAddress = "123.234.244.245",
-             Latitude = -36.848461,
-             Longitude = 174.763336,
-         });
-
-     });
-```
-
-{{% /choosable %}}
-
 {{< /chooser >}}

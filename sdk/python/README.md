@@ -39,11 +39,7 @@ go get github.com/zscaler/pulumi-zia/sdk/go/...
 
 ### .NET
 
-To use from .NET, install using `dotnet add package`:
-
-```bash
-dotnet add package zscaler.PulumiPackage.Zia
-```
+The .NET SDK (`zscaler.PulumiPackage.Zia`) is temporarily unavailable. New versions are not being published to NuGet while the publishing account is migrated. Versions already on NuGet (up to 1.4.0) remain available but will not receive updates.
 
 ## Zscaler OneAPI Client Secret Authentication
 

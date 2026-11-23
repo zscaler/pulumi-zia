@@ -6,12 +6,13 @@ layout: installation
 
 ## Installation
 
-The Pulumi ZIA provider is available as a package in all Pulumi languages:
+The Pulumi ZIA provider is available as a package in the following Pulumi languages:
 
 * JavaScript/TypeScript: [`@bdzscaler/pulumi-zia`](https://www.npmjs.com/package/@zscaler/pulumi-zia)
 * Python: [`zscaler_pulumi_zia`](https://pypi.org/project/zscaler-pulumi-zia/)
 * Go: [`github.com/zscaler/pulumi-zia/sdk/go/zia`](https://pkg.go.dev/github.com/zscaler/pulumi-zia/sdk)
-* .NET: [`zscaler.PulumiPackage.Zia`](https://www.nuget.org/packages/zscaler.PulumiPackage.Zia)
+
+The .NET SDK is temporarily unavailable: new versions are not being published to NuGet while the publishing account is migrated.
 
 ### Provider Binary
 

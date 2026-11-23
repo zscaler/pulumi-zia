@@ -8,10 +8,6 @@
   "publisher": "Zscaler",
   "namespace": "zia",
   "language": {
-    "csharp": {
-      "respectSchemaVersion": true,
-      "rootNamespace": "zscaler.PulumiPackage"
-    },
     "go": {
       "generateResourceContainerTypes": true,
       "importBasePath": "github.com/zscaler/pulumi-zia/sdk/go/pulumi-zia",

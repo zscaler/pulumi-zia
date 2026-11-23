@@ -33,7 +33,7 @@ import (
 const Name string = "zia"
 
 // SDK package names match the bridged provider (pulumi-zia) for registry compatibility.
-// When replacing the bridged provider, PyPI/npm/NuGet names remain unchanged.
+// When replacing the bridged provider, PyPI/npm names remain unchanged.
 const (
 	pythonPackageName = "zscaler_pulumi_zia"
 	nodeJSPackageName = "@bdzscaler/pulumi-zia"
@@ -65,10 +65,6 @@ func Provider() p.Provider {
 				"pyproject": map[string]any{
 					"enabled": true,
 				},
-			},
-			"csharp": map[string]any{
-				"respectSchemaVersion": true,
-				"rootNamespace":        "zscaler.PulumiPackage",
 			},
 		}).
 		WithResources(

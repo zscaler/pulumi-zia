@@ -5,7 +5,7 @@ go 1.26.0
 require (
 	github.com/pulumi/pulumi-go-provider v1.3.0
 	github.com/pulumi/pulumi/sdk/v3 v3.217.0
-	github.com/zscaler/zscaler-sdk-go/v3 v3.8.60
+	github.com/zscaler/zscaler-sdk-go/v3 v3.8.62
 )
 
 require (

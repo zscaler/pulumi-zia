@@ -1,6 +1,0 @@
-{
-  "resource": true,
-  "name": "zia",
-  "version": "1.4.0",
-  "server": "github://api.github.com/zscaler"
-}
