@@ -99,7 +99,6 @@ make provider
 # Build individual SDKs
 make build_nodejs
 make build_python
-make build_dotnet
 make build_go
 make build_java
 
@@ -170,11 +169,10 @@ make lint
 - `sdk/` - Generated SDK code
   - `nodejs/` - TypeScript/JavaScript SDK (`@bdzscaler/pulumi-zia`)
   - `python/` - Python SDK (`zscaler_pulumi_zia`)
-  - `dotnet/` - .NET SDK (`zscaler.PulumiPackage.Zia`)
   - `go/pulumi-zia/` - Go SDK (`github.com/zscaler/pulumi-zia/sdk/go/pulumi-zia`)
   - `java/` - Java SDK
 - `tests/` - E2E integration tests (45 test files)
-- `examples/` - Example Pulumi programs (simple, yaml, Go, dotnet)
+- `examples/` - Example Pulumi programs (simple, yaml, Go, Node.js, Python)
 - `local_dev/` - Local development helpers
 - `.github/workflows/` - CI/CD (ci.yaml, release.yaml)
 - `.goreleaser.yml` - GoReleaser configuration for binary releases
@@ -233,7 +231,7 @@ The Terraform provider (`terraform-provider-zia`) can also serve as a secondary 
 ## CI/CD
 
 - **CI** (`ci.yaml`): Builds provider, generates schema, runs unit tests, builds all SDKs on push/PR
-- **Release** (`release.yaml`): Triggered by `v*.*.*` tags; builds binaries via GoReleaser, publishes SDKs to npm/PyPI/NuGet, creates `sdk/` tag for Go SDK
+- **Release** (`release.yaml`): Triggered by `v*.*.*` tags; builds binaries via GoReleaser, publishes SDKs to npm/PyPI, creates `sdk/` tag for Go SDK
 - Provider binaries are distributed via GitHub Releases (not S3)
 
 ## Important Implementation Notes
@@ -252,7 +250,7 @@ Resource-level `Annotate()` uses value receivers (required by `pulumi-go-provide
 
 - npm: `@bdzscaler/pulumi-zia`
 - PyPI: `zscaler_pulumi_zia`
-- NuGet: `zscaler.PulumiPackage.Zia`
+- NuGet: `zscaler.PulumiPackage.Zia` (publishing paused; the .NET SDK was removed while the NuGet account is migrated)
 - Go: `github.com/zscaler/pulumi-zia/sdk/go/pulumi-zia`
 
 ### License

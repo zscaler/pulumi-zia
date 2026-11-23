@@ -11,7 +11,6 @@ permissions:
 
 env:
   PROVIDER: zia
-  DOTNETVERSION: "10.0.x"
   GOVERSION: "1.26.x"
   JAVAVERSION: "11"
   NODEVERSION: 24.x
@@ -19,18 +18,14 @@ env:
   GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
   NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
   NPM_TOKEN: ${{ secrets.NPM_TOKEN }}
-  NUGET_PUBLISH_KEY: ${{ secrets.NUGET_PUBLISH_KEY }}
-  NUGET_FEED_URL: https://api.nuget.org/v3/index.json
   PULUMI_ACCESS_TOKEN: ${{ secrets.PULUMI_ACCESS_TOKEN }}
   PULUMI_API: https://api.pulumi.com
   PULUMI_GO_DEP_ROOT: ${{ github.workspace }}/..
-  PULUMI_LOCAL_NUGET: ${{ github.workspace }}/nuget
   PULUMI_TEST_OWNER: "zscaler"
   PYPI_PASSWORD: ${{ secrets.PYPI_API_TOKEN }}
   PYPI_USERNAME: __token__
   PUBLISH_PYPI: true
   PUBLISH_NPM: true
-  PUBLISH_NUGET: true
 
 jobs:
   publish_binary:
@@ -106,10 +101,6 @@ jobs:
         with:
           node-version: ${{ env.NODEVERSION }}
           registry-url: https://registry.npmjs.org
-      - name: Setup DotNet
-        uses: actions/setup-dotnet@v4
-        with:
-          dotnet-version: ${{ env.DOTNETVERSION }}
       - name: Setup Python
         uses: actions/setup-python@v5
         with:
@@ -133,11 +124,6 @@ jobs:
           token: ${{ env.NPM_TOKEN }}
           package: ${{ github.workspace }}/sdk/nodejs/bin/package.json
           provenance: true
-      - if: ${{ matrix.language == 'dotnet' && env.PUBLISH_NUGET == 'true' }}
-        name: Publish NuGet package
-        run: |
-          dotnet nuget push ${{ github.workspace }}/sdk/dotnet/bin/Debug/*.nupkg -s ${{ env.NUGET_FEED_URL }} -k ${{ env.NUGET_PUBLISH_KEY }}
-          echo "done publishing packages"
       - if: ${{ matrix.language == 'go' }}
         name: Publish Go SDK - commit and update sdk tag
         run: |
@@ -153,5 +139,4 @@ jobs:
         language:
           - nodejs
           - python
-          - dotnet
           - go

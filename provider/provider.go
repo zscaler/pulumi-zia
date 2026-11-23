@@ -66,10 +66,6 @@ func Provider() p.Provider {
 					"enabled": true,
 				},
 			},
-			"csharp": map[string]any{
-				"respectSchemaVersion": true,
-				"rootNamespace":        "zscaler.PulumiPackage",
-			},
 		}).
 		WithResources(
 			infer.Resource(Activation{}),
