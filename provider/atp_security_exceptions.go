@@ -51,6 +51,12 @@ type AtpSecurityExceptionsState struct {
 }
 
 func (AtpSecurityExceptions) Create(ctx context.Context, req infer.CreateRequest[AtpSecurityExceptionsArgs]) (infer.CreateResponse[AtpSecurityExceptionsState], error) {
+	if req.DryRun {
+		// Preview: return the predicted state without calling the ZIA API.
+		s := AtpSecurityExceptionsState{AtpSecurityExceptionsArgs: req.Inputs, ResourceId: atpSecurityExceptionsID}
+		return infer.CreateResponse[AtpSecurityExceptionsState]{ID: atpSecurityExceptionsID, Output: s}, nil
+	}
+
 	cfg := infer.GetConfig[Config](ctx)
 	if cfg.Client() == nil {
 		return infer.CreateResponse[AtpSecurityExceptionsState]{}, fmt.Errorf("ZIA provider not configured")
@@ -108,6 +114,13 @@ func (AtpSecurityExceptions) Read(ctx context.Context, req infer.ReadRequest[Atp
 }
 
 func (AtpSecurityExceptions) Update(ctx context.Context, req infer.UpdateRequest[AtpSecurityExceptionsArgs, AtpSecurityExceptionsState]) (infer.UpdateResponse[AtpSecurityExceptionsState], error) {
+	if req.DryRun {
+		// Preview: return the predicted state without calling the ZIA API.
+		state := req.State
+		state.AtpSecurityExceptionsArgs = req.Inputs
+		return infer.UpdateResponse[AtpSecurityExceptionsState]{Output: state}, nil
+	}
+
 	cfg := infer.GetConfig[Config](ctx)
 	if cfg.Client() == nil {
 		return infer.UpdateResponse[AtpSecurityExceptionsState]{}, fmt.Errorf("ZIA provider not configured")

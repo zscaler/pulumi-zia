@@ -73,6 +73,12 @@ func bandwidthClassFileSizeToAPI(args BandwidthClassFileSizeArgs, id int, existi
 }
 
 func (BandwidthClassFileSize) Create(ctx context.Context, req infer.CreateRequest[BandwidthClassFileSizeArgs]) (infer.CreateResponse[BandwidthClassFileSizeState], error) {
+	if req.DryRun {
+		// Preview: return the predicted state without calling the ZIA API.
+		s := BandwidthClassFileSizeState{BandwidthClassFileSizeArgs: req.Inputs, ClassId: intPtr(0)}
+		return infer.CreateResponse[BandwidthClassFileSizeState]{ID: "preview", Output: s}, nil
+	}
+
 	cfg := infer.GetConfig[Config](ctx)
 	if cfg.Client() == nil {
 		return infer.CreateResponse[BandwidthClassFileSizeState]{}, fmt.Errorf("ZIA provider not configured")
@@ -160,6 +166,13 @@ func (BandwidthClassFileSize) Read(ctx context.Context, req infer.ReadRequest[Ba
 }
 
 func (BandwidthClassFileSize) Update(ctx context.Context, req infer.UpdateRequest[BandwidthClassFileSizeArgs, BandwidthClassFileSizeState]) (infer.UpdateResponse[BandwidthClassFileSizeState], error) {
+	if req.DryRun {
+		// Preview: return the predicted state without calling the ZIA API.
+		state := req.State
+		state.BandwidthClassFileSizeArgs = req.Inputs
+		return infer.UpdateResponse[BandwidthClassFileSizeState]{Output: state}, nil
+	}
+
 	cfg := infer.GetConfig[Config](ctx)
 	if cfg.Client() == nil {
 		return infer.UpdateResponse[BandwidthClassFileSizeState]{}, fmt.Errorf("ZIA provider not configured")

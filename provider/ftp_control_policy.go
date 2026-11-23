@@ -126,6 +126,13 @@ func (FtpControlPolicy) Read(ctx context.Context, req infer.ReadRequest[FtpContr
 }
 
 func (FtpControlPolicy) Update(ctx context.Context, req infer.UpdateRequest[FtpControlPolicyArgs, FtpControlPolicyState]) (infer.UpdateResponse[FtpControlPolicyState], error) {
+	if req.DryRun {
+		// Preview: return the predicted state without calling the ZIA API.
+		state := req.State
+		state.FtpControlPolicyArgs = req.Inputs
+		return infer.UpdateResponse[FtpControlPolicyState]{Output: state}, nil
+	}
+
 	cfg := infer.GetConfig[Config](ctx)
 	if cfg.Client() == nil {
 		return infer.UpdateResponse[FtpControlPolicyState]{}, fmt.Errorf("ZIA provider not configured")

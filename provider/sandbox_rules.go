@@ -346,6 +346,13 @@ func (SandboxRule) Read(ctx context.Context, req infer.ReadRequest[SandboxRuleAr
 }
 
 func (SandboxRule) Update(ctx context.Context, req infer.UpdateRequest[SandboxRuleArgs, SandboxRuleState]) (infer.UpdateResponse[SandboxRuleState], error) {
+	if req.DryRun {
+		// Preview: return the predicted state without calling the ZIA API.
+		state := req.State
+		state.SandboxRuleArgs = req.Inputs
+		return infer.UpdateResponse[SandboxRuleState]{Output: state}, nil
+	}
+
 	if req.Inputs.Order < 1 {
 		return infer.UpdateResponse[SandboxRuleState]{}, fmt.Errorf("order must be a positive whole number (>= 1), got %d", req.Inputs.Order)
 	}

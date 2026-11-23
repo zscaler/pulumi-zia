@@ -99,6 +99,12 @@ type AdvancedSettingsState struct {
 }
 
 func (AdvancedSettings) Create(ctx context.Context, req infer.CreateRequest[AdvancedSettingsArgs]) (infer.CreateResponse[AdvancedSettingsState], error) {
+	if req.DryRun {
+		// Preview: return the predicted state without calling the ZIA API.
+		s := AdvancedSettingsState{AdvancedSettingsArgs: req.Inputs, ResourceId: advancedSettingsID}
+		return infer.CreateResponse[AdvancedSettingsState]{ID: advancedSettingsID, Output: s}, nil
+	}
+
 	cfg := infer.GetConfig[Config](ctx)
 	if cfg.Client() == nil {
 		return infer.CreateResponse[AdvancedSettingsState]{}, fmt.Errorf("ZIA provider not configured")
@@ -162,6 +168,13 @@ func (AdvancedSettings) Read(ctx context.Context, req infer.ReadRequest[Advanced
 }
 
 func (AdvancedSettings) Update(ctx context.Context, req infer.UpdateRequest[AdvancedSettingsArgs, AdvancedSettingsState]) (infer.UpdateResponse[AdvancedSettingsState], error) {
+	if req.DryRun {
+		// Preview: return the predicted state without calling the ZIA API.
+		state := req.State
+		state.AdvancedSettingsArgs = req.Inputs
+		return infer.UpdateResponse[AdvancedSettingsState]{Output: state}, nil
+	}
+
 	cfg := infer.GetConfig[Config](ctx)
 	if cfg.Client() == nil {
 		return infer.UpdateResponse[AdvancedSettingsState]{}, fmt.Errorf("ZIA provider not configured")

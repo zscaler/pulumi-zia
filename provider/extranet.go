@@ -173,6 +173,13 @@ func (Extranet) Read(ctx context.Context, req infer.ReadRequest[ExtranetArgs, Ex
 }
 
 func (Extranet) Update(ctx context.Context, req infer.UpdateRequest[ExtranetArgs, ExtranetState]) (infer.UpdateResponse[ExtranetState], error) {
+	if req.DryRun {
+		// Preview: return the predicted state without calling the ZIA API.
+		state := req.State
+		state.ExtranetArgs = req.Inputs
+		return infer.UpdateResponse[ExtranetState]{Output: state}, nil
+	}
+
 	cfg := infer.GetConfig[Config](ctx)
 	if cfg.Client() == nil {
 		return infer.UpdateResponse[ExtranetState]{}, fmt.Errorf("ZIA provider not configured")

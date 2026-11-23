@@ -63,6 +63,12 @@ func bandwidthClassToAPI(args BandwidthClassArgs, id int) bandwidth_classes.Band
 }
 
 func (BandwidthClass) Create(ctx context.Context, req infer.CreateRequest[BandwidthClassArgs]) (infer.CreateResponse[BandwidthClassState], error) {
+	if req.DryRun {
+		// Preview: return the predicted state without calling the ZIA API.
+		s := BandwidthClassState{BandwidthClassArgs: req.Inputs, ClassId: intPtr(0)}
+		return infer.CreateResponse[BandwidthClassState]{ID: "preview", Output: s}, nil
+	}
+
 	cfg := infer.GetConfig[Config](ctx)
 	if cfg.Client() == nil {
 		return infer.CreateResponse[BandwidthClassState]{}, fmt.Errorf("ZIA provider not configured")
@@ -179,6 +185,13 @@ func (BandwidthClass) Read(ctx context.Context, req infer.ReadRequest[BandwidthC
 }
 
 func (BandwidthClass) Update(ctx context.Context, req infer.UpdateRequest[BandwidthClassArgs, BandwidthClassState]) (infer.UpdateResponse[BandwidthClassState], error) {
+	if req.DryRun {
+		// Preview: return the predicted state without calling the ZIA API.
+		state := req.State
+		state.BandwidthClassArgs = req.Inputs
+		return infer.UpdateResponse[BandwidthClassState]{Output: state}, nil
+	}
+
 	cfg := infer.GetConfig[Config](ctx)
 	if cfg.Client() == nil {
 		return infer.UpdateResponse[BandwidthClassState]{}, fmt.Errorf("ZIA provider not configured")

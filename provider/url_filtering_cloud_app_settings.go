@@ -79,6 +79,12 @@ type UrlFilteringCloudAppSettingsState struct {
 }
 
 func (UrlFilteringCloudAppSettings) Create(ctx context.Context, req infer.CreateRequest[UrlFilteringCloudAppSettingsArgs]) (infer.CreateResponse[UrlFilteringCloudAppSettingsState], error) {
+	if req.DryRun {
+		// Preview: return the predicted state without calling the ZIA API.
+		s := UrlFilteringCloudAppSettingsState{UrlFilteringCloudAppSettingsArgs: req.Inputs, Id: urlFilteringCloudAppSettingsID}
+		return infer.CreateResponse[UrlFilteringCloudAppSettingsState]{ID: urlFilteringCloudAppSettingsID, Output: s}, nil
+	}
+
 	cfg := infer.GetConfig[Config](ctx)
 	if cfg.Client() == nil {
 		return infer.CreateResponse[UrlFilteringCloudAppSettingsState]{}, fmt.Errorf("ZIA provider not configured")
@@ -133,6 +139,13 @@ func (UrlFilteringCloudAppSettings) Read(ctx context.Context, req infer.ReadRequ
 }
 
 func (UrlFilteringCloudAppSettings) Update(ctx context.Context, req infer.UpdateRequest[UrlFilteringCloudAppSettingsArgs, UrlFilteringCloudAppSettingsState]) (infer.UpdateResponse[UrlFilteringCloudAppSettingsState], error) {
+	if req.DryRun {
+		// Preview: return the predicted state without calling the ZIA API.
+		state := req.State
+		state.UrlFilteringCloudAppSettingsArgs = req.Inputs
+		return infer.UpdateResponse[UrlFilteringCloudAppSettingsState]{Output: state}, nil
+	}
+
 	cfg := infer.GetConfig[Config](ctx)
 	if cfg.Client() == nil {
 		return infer.UpdateResponse[UrlFilteringCloudAppSettingsState]{}, fmt.Errorf("ZIA provider not configured")

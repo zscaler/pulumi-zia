@@ -386,6 +386,13 @@ func (FirewallFilteringRule) Read(ctx context.Context, req infer.ReadRequest[Fir
 }
 
 func (FirewallFilteringRule) Update(ctx context.Context, req infer.UpdateRequest[FirewallFilteringRuleArgs, FirewallFilteringRuleState]) (infer.UpdateResponse[FirewallFilteringRuleState], error) {
+	if req.DryRun {
+		// Preview: return the predicted state without calling the ZIA API.
+		state := req.State
+		state.FirewallFilteringRuleArgs = req.Inputs
+		return infer.UpdateResponse[FirewallFilteringRuleState]{Output: state}, nil
+	}
+
 	if req.Inputs.Order < 1 {
 		return infer.UpdateResponse[FirewallFilteringRuleState]{}, fmt.Errorf("order must be a positive whole number (>= 1), got %d", req.Inputs.Order)
 	}

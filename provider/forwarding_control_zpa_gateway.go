@@ -102,6 +102,12 @@ func forwardingControlZpaGatewayToAPI(args ForwardingControlZpaGatewayArgs, id i
 }
 
 func (ForwardingControlZpaGateway) Create(ctx context.Context, req infer.CreateRequest[ForwardingControlZpaGatewayArgs]) (infer.CreateResponse[ForwardingControlZpaGatewayState], error) {
+	if req.DryRun {
+		// Preview: return the predicted state without calling the ZIA API.
+		s := ForwardingControlZpaGatewayState{ForwardingControlZpaGatewayArgs: req.Inputs, GatewayId: intPtr(0)}
+		return infer.CreateResponse[ForwardingControlZpaGatewayState]{ID: "preview", Output: s}, nil
+	}
+
 	cfg := infer.GetConfig[Config](ctx)
 	if cfg.Client() == nil {
 		return infer.CreateResponse[ForwardingControlZpaGatewayState]{}, fmt.Errorf("ZIA provider not configured")
@@ -207,6 +213,13 @@ func (ForwardingControlZpaGateway) Read(ctx context.Context, req infer.ReadReque
 }
 
 func (ForwardingControlZpaGateway) Update(ctx context.Context, req infer.UpdateRequest[ForwardingControlZpaGatewayArgs, ForwardingControlZpaGatewayState]) (infer.UpdateResponse[ForwardingControlZpaGatewayState], error) {
+	if req.DryRun {
+		// Preview: return the predicted state without calling the ZIA API.
+		state := req.State
+		state.ForwardingControlZpaGatewayArgs = req.Inputs
+		return infer.UpdateResponse[ForwardingControlZpaGatewayState]{Output: state}, nil
+	}
+
 	cfg := infer.GetConfig[Config](ctx)
 	if cfg.Client() == nil {
 		return infer.UpdateResponse[ForwardingControlZpaGatewayState]{}, fmt.Errorf("ZIA provider not configured")

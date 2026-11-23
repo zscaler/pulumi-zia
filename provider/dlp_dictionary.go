@@ -106,6 +106,12 @@ func dlpDictionaryToAPI(args DlpDictionaryArgs, id int) dlpdictionaries.DlpDicti
 }
 
 func (DlpDictionary) Create(ctx context.Context, req infer.CreateRequest[DlpDictionaryArgs]) (infer.CreateResponse[DlpDictionaryState], error) {
+	if req.DryRun {
+		// Preview: return the predicted state without calling the ZIA API.
+		s := DlpDictionaryState{DlpDictionaryArgs: req.Inputs, DictionaryId: intPtr(0)}
+		return infer.CreateResponse[DlpDictionaryState]{ID: "preview", Output: s}, nil
+	}
+
 	cfg := infer.GetConfig[Config](ctx)
 	if cfg.Client() == nil {
 		return infer.CreateResponse[DlpDictionaryState]{}, fmt.Errorf("ZIA provider not configured")
@@ -199,6 +205,13 @@ func (DlpDictionary) Read(ctx context.Context, req infer.ReadRequest[DlpDictiona
 }
 
 func (DlpDictionary) Update(ctx context.Context, req infer.UpdateRequest[DlpDictionaryArgs, DlpDictionaryState]) (infer.UpdateResponse[DlpDictionaryState], error) {
+	if req.DryRun {
+		// Preview: return the predicted state without calling the ZIA API.
+		state := req.State
+		state.DlpDictionaryArgs = req.Inputs
+		return infer.UpdateResponse[DlpDictionaryState]{Output: state}, nil
+	}
+
 	cfg := infer.GetConfig[Config](ctx)
 	if cfg.Client() == nil {
 		return infer.UpdateResponse[DlpDictionaryState]{}, fmt.Errorf("ZIA provider not configured")

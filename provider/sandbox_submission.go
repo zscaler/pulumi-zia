@@ -57,6 +57,12 @@ type SandboxSubmissionState struct {
 }
 
 func (SandboxSubmission) Create(ctx context.Context, req infer.CreateRequest[SandboxSubmissionArgs]) (infer.CreateResponse[SandboxSubmissionState], error) {
+	if req.DryRun {
+		// Preview: return the predicted state without calling the ZIA API.
+		s := SandboxSubmissionState{SandboxSubmissionArgs: req.Inputs}
+		return infer.CreateResponse[SandboxSubmissionState]{ID: "preview", Output: s}, nil
+	}
+
 	cfg := infer.GetConfig[Config](ctx)
 	if cfg.Client() == nil {
 		return infer.CreateResponse[SandboxSubmissionState]{}, fmt.Errorf("ZIA provider not configured")
@@ -117,6 +123,13 @@ func (SandboxSubmission) Read(ctx context.Context, req infer.ReadRequest[Sandbox
 }
 
 func (SandboxSubmission) Update(ctx context.Context, req infer.UpdateRequest[SandboxSubmissionArgs, SandboxSubmissionState]) (infer.UpdateResponse[SandboxSubmissionState], error) {
+	if req.DryRun {
+		// Preview: return the predicted state without calling the ZIA API.
+		state := req.State
+		state.SandboxSubmissionArgs = req.Inputs
+		return infer.UpdateResponse[SandboxSubmissionState]{Output: state}, nil
+	}
+
 	// Re-create on file_path or force change
 	cfg := infer.GetConfig[Config](ctx)
 	if cfg.Client() == nil {

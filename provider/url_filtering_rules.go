@@ -516,6 +516,13 @@ func (URLFilteringRule) Read(ctx context.Context, req infer.ReadRequest[URLFilte
 
 // Update updates an existing URL Filtering Rule.
 func (URLFilteringRule) Update(ctx context.Context, req infer.UpdateRequest[URLFilteringRuleArgs, URLFilteringRuleState]) (infer.UpdateResponse[URLFilteringRuleState], error) {
+	if req.DryRun {
+		// Preview: return the predicted state without calling the ZIA API.
+		state := req.State
+		state.URLFilteringRuleArgs = req.Inputs
+		return infer.UpdateResponse[URLFilteringRuleState]{Output: state}, nil
+	}
+
 	cfg := infer.GetConfig[Config](ctx)
 	if cfg.Client() == nil {
 		return infer.UpdateResponse[URLFilteringRuleState]{}, fmt.Errorf("ZIA provider not configured")

@@ -96,6 +96,12 @@ func dcExclusionToAPI(args DcExclusionArgs, dcID int) (dc_exclusions.DCExclusion
 }
 
 func (DcExclusion) Create(ctx context.Context, req infer.CreateRequest[DcExclusionArgs]) (infer.CreateResponse[DcExclusionState], error) {
+	if req.DryRun {
+		// Preview: return the predicted state without calling the ZIA API.
+		s := DcExclusionState{DcExclusionArgs: req.Inputs}
+		return infer.CreateResponse[DcExclusionState]{ID: "preview", Output: s}, nil
+	}
+
 	cfg := infer.GetConfig[Config](ctx)
 	if cfg.Client() == nil {
 		return infer.CreateResponse[DcExclusionState]{}, fmt.Errorf("ZIA provider not configured")
@@ -204,6 +210,13 @@ func (DcExclusion) Read(ctx context.Context, req infer.ReadRequest[DcExclusionAr
 }
 
 func (DcExclusion) Update(ctx context.Context, req infer.UpdateRequest[DcExclusionArgs, DcExclusionState]) (infer.UpdateResponse[DcExclusionState], error) {
+	if req.DryRun {
+		// Preview: return the predicted state without calling the ZIA API.
+		state := req.State
+		state.DcExclusionArgs = req.Inputs
+		return infer.UpdateResponse[DcExclusionState]{Output: state}, nil
+	}
+
 	cfg := infer.GetConfig[Config](ctx)
 	if cfg.Client() == nil {
 		return infer.UpdateResponse[DcExclusionState]{}, fmt.Errorf("ZIA provider not configured")

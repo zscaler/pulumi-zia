@@ -51,6 +51,12 @@ type AtpMaliciousUrlsState struct {
 }
 
 func (AtpMaliciousUrls) Create(ctx context.Context, req infer.CreateRequest[AtpMaliciousUrlsArgs]) (infer.CreateResponse[AtpMaliciousUrlsState], error) {
+	if req.DryRun {
+		// Preview: return the predicted state without calling the ZIA API.
+		s := AtpMaliciousUrlsState{AtpMaliciousUrlsArgs: req.Inputs, ResourceId: atpMaliciousUrlsID}
+		return infer.CreateResponse[AtpMaliciousUrlsState]{ID: atpMaliciousUrlsID, Output: s}, nil
+	}
+
 	cfg := infer.GetConfig[Config](ctx)
 	if cfg.Client() == nil {
 		return infer.CreateResponse[AtpMaliciousUrlsState]{}, fmt.Errorf("ZIA provider not configured")
@@ -108,6 +114,13 @@ func (AtpMaliciousUrls) Read(ctx context.Context, req infer.ReadRequest[AtpMalic
 }
 
 func (AtpMaliciousUrls) Update(ctx context.Context, req infer.UpdateRequest[AtpMaliciousUrlsArgs, AtpMaliciousUrlsState]) (infer.UpdateResponse[AtpMaliciousUrlsState], error) {
+	if req.DryRun {
+		// Preview: return the predicted state without calling the ZIA API.
+		state := req.State
+		state.AtpMaliciousUrlsArgs = req.Inputs
+		return infer.UpdateResponse[AtpMaliciousUrlsState]{Output: state}, nil
+	}
+
 	cfg := infer.GetConfig[Config](ctx)
 	if cfg.Client() == nil {
 		return infer.UpdateResponse[AtpMaliciousUrlsState]{}, fmt.Errorf("ZIA provider not configured")
