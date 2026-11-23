@@ -79,6 +79,12 @@ func (SubCloudState) ElementType() reflect.Type {
 	return reflect.TypeOf((*subCloudState)(nil)).Elem()
 }
 
+// SubCloudExists checks whether an existing SubCloud resource with the given ID exists.
+func SubCloudExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *SubCloudState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("zia:index:SubCloud", id, state, "", opts...)
+}
+
 type subCloudArgs struct {
 	// The ID of the cloud to which this sub-cloud belongs.
 	CloudId int `pulumi:"cloudId"`

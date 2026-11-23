@@ -164,6 +164,12 @@ func (AdvancedSettingsState) ElementType() reflect.Type {
 	return reflect.TypeOf((*advancedSettingsState)(nil)).Elem()
 }
 
+// AdvancedSettingsExists checks whether an existing AdvancedSettings resource with the given ID exists.
+func AdvancedSettingsExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *AdvancedSettingsState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("zia:index:AdvancedSettings", id, state, "", opts...)
+}
+
 type advancedSettingsArgs struct {
 	// Cloud applications that bypass authentication.
 	AuthBypassApps []string `pulumi:"authBypassApps"`

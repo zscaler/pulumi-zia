@@ -41,12 +41,8 @@ type GetUserManagementGroupResult struct {
 }
 
 func GetUserManagementGroupOutput(ctx *pulumi.Context, args GetUserManagementGroupOutputArgs, opts ...pulumi.InvokeOption) GetUserManagementGroupResultOutput {
-	return pulumi.ToOutputWithContext(ctx.Context(), args).
-		ApplyT(func(v interface{}) (GetUserManagementGroupResultOutput, error) {
-			args := v.(GetUserManagementGroupArgs)
-			options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
-			return ctx.InvokeOutput("zia:index:getUserManagementGroup", args, GetUserManagementGroupResultOutput{}, options).(GetUserManagementGroupResultOutput), nil
-		}).(GetUserManagementGroupResultOutput)
+	options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
+	return ctx.InvokeOutput("zia:index:getUserManagementGroup", args, GetUserManagementGroupResultOutput{}, options).(GetUserManagementGroupResultOutput)
 }
 
 type GetUserManagementGroupOutputArgs struct {

@@ -66,6 +66,12 @@ func (AtpMaliciousUrlsState) ElementType() reflect.Type {
 	return reflect.TypeOf((*atpMaliciousUrlsState)(nil)).Elem()
 }
 
+// AtpMaliciousUrlsExists checks whether an existing AtpMaliciousUrls resource with the given ID exists.
+func AtpMaliciousUrlsExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *AtpMaliciousUrlsState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("zia:index:AtpMaliciousUrls", id, state, "", opts...)
+}
+
 type atpMaliciousUrlsArgs struct {
 	// List of URLs to be treated as malicious by Advanced Threat Protection.
 	MaliciousUrls []string `pulumi:"maliciousUrls"`

@@ -49,12 +49,8 @@ type GetLocationGroupResult struct {
 }
 
 func GetLocationGroupOutput(ctx *pulumi.Context, args GetLocationGroupOutputArgs, opts ...pulumi.InvokeOption) GetLocationGroupResultOutput {
-	return pulumi.ToOutputWithContext(ctx.Context(), args).
-		ApplyT(func(v interface{}) (GetLocationGroupResultOutput, error) {
-			args := v.(GetLocationGroupArgs)
-			options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
-			return ctx.InvokeOutput("zia:index:getLocationGroup", args, GetLocationGroupResultOutput{}, options).(GetLocationGroupResultOutput), nil
-		}).(GetLocationGroupResultOutput)
+	options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
+	return ctx.InvokeOutput("zia:index:getLocationGroup", args, GetLocationGroupResultOutput{}, options).(GetLocationGroupResultOutput)
 }
 
 type GetLocationGroupOutputArgs struct {

@@ -78,6 +78,12 @@ func (BandwidthClassState) ElementType() reflect.Type {
 	return reflect.TypeOf((*bandwidthClassState)(nil)).Elem()
 }
 
+// BandwidthClassExists checks whether an existing BandwidthClass resource with the given ID exists.
+func BandwidthClassExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *BandwidthClassState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("zia:index:BandwidthClass", id, state, "", opts...)
+}
+
 type bandwidthClassArgs struct {
 	// The name of the bandwidth class. Must be unique.
 	Name *string `pulumi:"name"`

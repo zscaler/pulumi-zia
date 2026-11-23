@@ -115,6 +115,12 @@ func (DlpDictionaryState) ElementType() reflect.Type {
 	return reflect.TypeOf((*dlpDictionaryState)(nil)).Elem()
 }
 
+// DlpDictionaryExists checks whether an existing DlpDictionary resource with the given ID exists.
+func DlpDictionaryExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *DlpDictionaryState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("zia:index:DlpDictionary", id, state, "", opts...)
+}
+
 type dlpDictionaryArgs struct {
 	// The DLP confidence threshold. Valid values: `CONFIDENCE_LEVEL_LOW`, `CONFIDENCE_LEVEL_MEDIUM`, `CONFIDENCE_LEVEL_HIGH`.
 	ConfidenceThreshold *string `pulumi:"confidenceThreshold"`

@@ -55,12 +55,8 @@ type GetDlpEdmSchemaResult struct {
 }
 
 func GetDlpEdmSchemaOutput(ctx *pulumi.Context, args GetDlpEdmSchemaOutputArgs, opts ...pulumi.InvokeOption) GetDlpEdmSchemaResultOutput {
-	return pulumi.ToOutputWithContext(ctx.Context(), args).
-		ApplyT(func(v interface{}) (GetDlpEdmSchemaResultOutput, error) {
-			args := v.(GetDlpEdmSchemaArgs)
-			options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
-			return ctx.InvokeOutput("zia:index:getDlpEdmSchema", args, GetDlpEdmSchemaResultOutput{}, options).(GetDlpEdmSchemaResultOutput), nil
-		}).(GetDlpEdmSchemaResultOutput)
+	options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
+	return ctx.InvokeOutput("zia:index:getDlpEdmSchema", args, GetDlpEdmSchemaResultOutput{}, options).(GetDlpEdmSchemaResultOutput)
 }
 
 type GetDlpEdmSchemaOutputArgs struct {

@@ -177,6 +177,12 @@ func (URLFilteringRuleState) ElementType() reflect.Type {
 	return reflect.TypeOf((*urlfilteringRuleState)(nil)).Elem()
 }
 
+// URLFilteringRuleExists checks whether an existing URLFilteringRule resource with the given ID exists.
+func URLFilteringRuleExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *URLFilteringRuleState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("zia:index:URLFilteringRule", id, state, "", opts...)
+}
+
 type urlfilteringRuleArgs struct {
 	// Action taken when traffic matches rule criteria. Valid values: `BLOCK`, `CAUTION`, `ALLOW`, `ISOLATE`.
 	Action *string `pulumi:"action"`

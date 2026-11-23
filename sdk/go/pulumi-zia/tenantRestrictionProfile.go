@@ -101,6 +101,12 @@ func (TenantRestrictionProfileState) ElementType() reflect.Type {
 	return reflect.TypeOf((*tenantRestrictionProfileState)(nil)).Elem()
 }
 
+// TenantRestrictionProfileExists checks whether an existing TenantRestrictionProfile resource with the given ID exists.
+func TenantRestrictionProfileExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *TenantRestrictionProfileState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("zia:index:TenantRestrictionProfile", id, state, "", opts...)
+}
+
 type tenantRestrictionProfileArgs struct {
 	// Whether to allow GCP Cloud Storage read access.
 	AllowGcpCloudStorageRead *bool `pulumi:"allowGcpCloudStorageRead"`

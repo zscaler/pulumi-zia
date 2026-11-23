@@ -37,12 +37,8 @@ type LookupFwNetworkServiceResult struct {
 }
 
 func LookupFwNetworkServiceOutput(ctx *pulumi.Context, args LookupFwNetworkServiceOutputArgs, opts ...pulumi.InvokeOption) LookupFwNetworkServiceResultOutput {
-	return pulumi.ToOutputWithContext(ctx.Context(), args).
-		ApplyT(func(v interface{}) (LookupFwNetworkServiceResultOutput, error) {
-			args := v.(LookupFwNetworkServiceArgs)
-			options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
-			return ctx.InvokeOutput("zia:index:getFwNetworkService", args, LookupFwNetworkServiceResultOutput{}, options).(LookupFwNetworkServiceResultOutput), nil
-		}).(LookupFwNetworkServiceResultOutput)
+	options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
+	return ctx.InvokeOutput("zia:index:getFwNetworkService", args, LookupFwNetworkServiceResultOutput{}, options).(LookupFwNetworkServiceResultOutput)
 }
 
 type LookupFwNetworkServiceOutputArgs struct {

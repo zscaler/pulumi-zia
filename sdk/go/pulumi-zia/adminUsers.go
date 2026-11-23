@@ -121,6 +121,12 @@ func (AdminUsersState) ElementType() reflect.Type {
 	return reflect.TypeOf((*adminUsersState)(nil)).Elem()
 }
 
+// AdminUsersExists checks whether an existing AdminUsers resource with the given ID exists.
+func AdminUsersExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *AdminUsersState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("zia:index:AdminUsers", id, state, "", opts...)
+}
+
 type adminUsersArgs struct {
 	// IDs of the admin scope entities (departments, locations, or location groups) when adminScopeType is not `ORGANIZATION`.
 	AdminScopeEntities []int `pulumi:"adminScopeEntities"`

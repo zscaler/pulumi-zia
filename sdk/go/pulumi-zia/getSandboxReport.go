@@ -57,12 +57,8 @@ type GetSandboxReportResult struct {
 }
 
 func GetSandboxReportOutput(ctx *pulumi.Context, args GetSandboxReportOutputArgs, opts ...pulumi.InvokeOption) GetSandboxReportResultOutput {
-	return pulumi.ToOutputWithContext(ctx.Context(), args).
-		ApplyT(func(v interface{}) (GetSandboxReportResultOutput, error) {
-			args := v.(GetSandboxReportArgs)
-			options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
-			return ctx.InvokeOutput("zia:index:getSandboxReport", args, GetSandboxReportResultOutput{}, options).(GetSandboxReportResultOutput), nil
-		}).(GetSandboxReportResultOutput)
+	options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
+	return ctx.InvokeOutput("zia:index:getSandboxReport", args, GetSandboxReportResultOutput{}, options).(GetSandboxReportResultOutput)
 }
 
 type GetSandboxReportOutputArgs struct {

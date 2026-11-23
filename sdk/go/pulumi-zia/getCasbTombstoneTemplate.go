@@ -39,12 +39,8 @@ type GetCasbTombstoneTemplateResult struct {
 }
 
 func GetCasbTombstoneTemplateOutput(ctx *pulumi.Context, args GetCasbTombstoneTemplateOutputArgs, opts ...pulumi.InvokeOption) GetCasbTombstoneTemplateResultOutput {
-	return pulumi.ToOutputWithContext(ctx.Context(), args).
-		ApplyT(func(v interface{}) (GetCasbTombstoneTemplateResultOutput, error) {
-			args := v.(GetCasbTombstoneTemplateArgs)
-			options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
-			return ctx.InvokeOutput("zia:index:getCasbTombstoneTemplate", args, GetCasbTombstoneTemplateResultOutput{}, options).(GetCasbTombstoneTemplateResultOutput), nil
-		}).(GetCasbTombstoneTemplateResultOutput)
+	options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
+	return ctx.InvokeOutput("zia:index:getCasbTombstoneTemplate", args, GetCasbTombstoneTemplateResultOutput{}, options).(GetCasbTombstoneTemplateResultOutput)
 }
 
 type GetCasbTombstoneTemplateOutputArgs struct {

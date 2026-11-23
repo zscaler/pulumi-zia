@@ -43,12 +43,8 @@ type GetUserManagementDepartmentResult struct {
 }
 
 func GetUserManagementDepartmentOutput(ctx *pulumi.Context, args GetUserManagementDepartmentOutputArgs, opts ...pulumi.InvokeOption) GetUserManagementDepartmentResultOutput {
-	return pulumi.ToOutputWithContext(ctx.Context(), args).
-		ApplyT(func(v interface{}) (GetUserManagementDepartmentResultOutput, error) {
-			args := v.(GetUserManagementDepartmentArgs)
-			options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
-			return ctx.InvokeOutput("zia:index:getUserManagementDepartment", args, GetUserManagementDepartmentResultOutput{}, options).(GetUserManagementDepartmentResultOutput), nil
-		}).(GetUserManagementDepartmentResultOutput)
+	options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
+	return ctx.InvokeOutput("zia:index:getUserManagementDepartment", args, GetUserManagementDepartmentResultOutput{}, options).(GetUserManagementDepartmentResultOutput)
 }
 
 type GetUserManagementDepartmentOutputArgs struct {

@@ -106,6 +106,12 @@ func (DlpNotificationTemplateState) ElementType() reflect.Type {
 	return reflect.TypeOf((*dlpNotificationTemplateState)(nil)).Elem()
 }
 
+// DlpNotificationTemplateExists checks whether an existing DlpNotificationTemplate resource with the given ID exists.
+func DlpNotificationTemplateExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *DlpNotificationTemplateState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("zia:index:DlpNotificationTemplate", id, state, "", opts...)
+}
+
 type dlpNotificationTemplateArgs struct {
 	// If true, the content that triggered the DLP violation is attached to the notification email.
 	AttachContent *bool `pulumi:"attachContent"`

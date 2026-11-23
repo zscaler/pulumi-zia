@@ -162,6 +162,12 @@ func (NatControlRuleState) ElementType() reflect.Type {
 	return reflect.TypeOf((*natControlRuleState)(nil)).Elem()
 }
 
+// NatControlRuleExists checks whether an existing NatControlRule resource with the given ID exists.
+func NatControlRuleExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *NatControlRuleState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("zia:index:NatControlRule", id, state, "", opts...)
+}
+
 type natControlRuleArgs struct {
 	// Indicates whether this is the default NAT control rule.
 	DefaultRule *bool `pulumi:"defaultRule"`

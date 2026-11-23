@@ -73,12 +73,8 @@ type GetDatacentersResult struct {
 }
 
 func GetDatacentersOutput(ctx *pulumi.Context, args GetDatacentersOutputArgs, opts ...pulumi.InvokeOption) GetDatacentersResultOutput {
-	return pulumi.ToOutputWithContext(ctx.Context(), args).
-		ApplyT(func(v interface{}) (GetDatacentersResultOutput, error) {
-			args := v.(GetDatacentersArgs)
-			options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
-			return ctx.InvokeOutput("zia:index:getDatacenters", args, GetDatacentersResultOutput{}, options).(GetDatacentersResultOutput), nil
-		}).(GetDatacentersResultOutput)
+	options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
+	return ctx.InvokeOutput("zia:index:getDatacenters", args, GetDatacentersResultOutput{}, options).(GetDatacentersResultOutput)
 }
 
 type GetDatacentersOutputArgs struct {

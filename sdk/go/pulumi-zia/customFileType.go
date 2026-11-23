@@ -76,6 +76,12 @@ func (CustomFileTypeState) ElementType() reflect.Type {
 	return reflect.TypeOf((*customFileTypeState)(nil)).Elem()
 }
 
+// CustomFileTypeExists checks whether an existing CustomFileType resource with the given ID exists.
+func CustomFileTypeExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *CustomFileTypeState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("zia:index:CustomFileType", id, state, "", opts...)
+}
+
 type customFileTypeArgs struct {
 	// A description of the custom file type.
 	Description *string `pulumi:"description"`

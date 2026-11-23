@@ -72,6 +72,12 @@ func (ActivationState) ElementType() reflect.Type {
 	return reflect.TypeOf((*activationState)(nil)).Elem()
 }
 
+// ActivationExists checks whether an existing Activation resource with the given ID exists.
+func ActivationExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *ActivationState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("zia:index:Activation", id, state, "", opts...)
+}
+
 type activationArgs struct {
 	// The activation status. Must be `ACTIVE` to trigger configuration activation.
 	Status string `pulumi:"status"`

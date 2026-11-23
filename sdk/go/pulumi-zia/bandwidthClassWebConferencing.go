@@ -74,6 +74,12 @@ func (BandwidthClassWebConferencingState) ElementType() reflect.Type {
 	return reflect.TypeOf((*bandwidthClassWebConferencingState)(nil)).Elem()
 }
 
+// BandwidthClassWebConferencingExists checks whether an existing BandwidthClassWebConferencing resource with the given ID exists.
+func BandwidthClassWebConferencingExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *BandwidthClassWebConferencingState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("zia:index:BandwidthClassWebConferencing", id, state, "", opts...)
+}
+
 type bandwidthClassWebConferencingArgs struct {
 	// List of applications associated with this bandwidth class (e.g. `ZOOM`, `WEBEX`, `TEAMS`).
 	Applications []string `pulumi:"applications"`

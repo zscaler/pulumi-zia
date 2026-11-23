@@ -66,6 +66,12 @@ func (AtpSecurityExceptionsState) ElementType() reflect.Type {
 	return reflect.TypeOf((*atpSecurityExceptionsState)(nil)).Elem()
 }
 
+// AtpSecurityExceptionsExists checks whether an existing AtpSecurityExceptions resource with the given ID exists.
+func AtpSecurityExceptionsExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *AtpSecurityExceptionsState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("zia:index:AtpSecurityExceptions", id, state, "", opts...)
+}
+
 type atpSecurityExceptionsArgs struct {
 	// List of URLs to be excluded (bypassed) from Advanced Threat Protection scanning.
 	BypassUrls []string `pulumi:"bypassUrls"`

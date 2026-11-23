@@ -103,6 +103,12 @@ func (BandwidthControlRuleState) ElementType() reflect.Type {
 	return reflect.TypeOf((*bandwidthControlRuleState)(nil)).Elem()
 }
 
+// BandwidthControlRuleExists checks whether an existing BandwidthControlRule resource with the given ID exists.
+func BandwidthControlRuleExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *BandwidthControlRuleState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("zia:index:BandwidthControlRule", id, state, "", opts...)
+}
+
 type bandwidthControlRuleArgs struct {
 	// IDs of bandwidth classes associated with this rule.
 	BandwidthClasses []int `pulumi:"bandwidthClasses"`

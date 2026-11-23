@@ -119,6 +119,12 @@ func (SandboxRuleState) ElementType() reflect.Type {
 	return reflect.TypeOf((*sandboxRuleState)(nil)).Elem()
 }
 
+// SandboxRuleExists checks whether an existing SandboxRule resource with the given ID exists.
+func SandboxRuleExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *SandboxRuleState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("zia:index:SandboxRule", id, state, "", opts...)
+}
+
 type sandboxRuleArgs struct {
 	// List of behavioral analysis policy categories.
 	BaPolicyCategories []string `pulumi:"baPolicyCategories"`

@@ -35,12 +35,8 @@ type GetDlpDictionaryPredefinedIdentifiersResult struct {
 }
 
 func GetDlpDictionaryPredefinedIdentifiersOutput(ctx *pulumi.Context, args GetDlpDictionaryPredefinedIdentifiersOutputArgs, opts ...pulumi.InvokeOption) GetDlpDictionaryPredefinedIdentifiersResultOutput {
-	return pulumi.ToOutputWithContext(ctx.Context(), args).
-		ApplyT(func(v interface{}) (GetDlpDictionaryPredefinedIdentifiersResultOutput, error) {
-			args := v.(GetDlpDictionaryPredefinedIdentifiersArgs)
-			options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
-			return ctx.InvokeOutput("zia:index:getDlpDictionaryPredefinedIdentifiers", args, GetDlpDictionaryPredefinedIdentifiersResultOutput{}, options).(GetDlpDictionaryPredefinedIdentifiersResultOutput), nil
-		}).(GetDlpDictionaryPredefinedIdentifiersResultOutput)
+	options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
+	return ctx.InvokeOutput("zia:index:getDlpDictionaryPredefinedIdentifiers", args, GetDlpDictionaryPredefinedIdentifiersResultOutput{}, options).(GetDlpDictionaryPredefinedIdentifiersResultOutput)
 }
 
 type GetDlpDictionaryPredefinedIdentifiersOutputArgs struct {

@@ -106,6 +106,12 @@ func (AdminRolesState) ElementType() reflect.Type {
 	return reflect.TypeOf((*adminRolesState)(nil)).Elem()
 }
 
+// AdminRolesExists checks whether an existing AdminRoles resource with the given ID exists.
+func AdminRolesExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *AdminRolesState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("zia:index:AdminRoles", id, state, "", opts...)
+}
+
 type adminRolesArgs struct {
 	// Admin and role management access permission. Valid values: `NONE`, `READ_ONLY`, `READ_WRITE`.
 	AdminAcctAccess *string `pulumi:"adminAcctAccess"`

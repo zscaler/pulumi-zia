@@ -39,12 +39,8 @@ type GetCasbEmailLabelResult struct {
 }
 
 func GetCasbEmailLabelOutput(ctx *pulumi.Context, args GetCasbEmailLabelOutputArgs, opts ...pulumi.InvokeOption) GetCasbEmailLabelResultOutput {
-	return pulumi.ToOutputWithContext(ctx.Context(), args).
-		ApplyT(func(v interface{}) (GetCasbEmailLabelResultOutput, error) {
-			args := v.(GetCasbEmailLabelArgs)
-			options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
-			return ctx.InvokeOutput("zia:index:getCasbEmailLabel", args, GetCasbEmailLabelResultOutput{}, options).(GetCasbEmailLabelResultOutput), nil
-		}).(GetCasbEmailLabelResultOutput)
+	options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
+	return ctx.InvokeOutput("zia:index:getCasbEmailLabel", args, GetCasbEmailLabelResultOutput{}, options).(GetCasbEmailLabelResultOutput)
 }
 
 type GetCasbEmailLabelOutputArgs struct {

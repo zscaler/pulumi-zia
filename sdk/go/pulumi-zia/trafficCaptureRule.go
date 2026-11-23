@@ -143,6 +143,12 @@ func (TrafficCaptureRuleState) ElementType() reflect.Type {
 	return reflect.TypeOf((*trafficCaptureRuleState)(nil)).Elem()
 }
 
+// TrafficCaptureRuleExists checks whether an existing TrafficCaptureRule resource with the given ID exists.
+func TrafficCaptureRuleExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *TrafficCaptureRuleState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("zia:index:TrafficCaptureRule", id, state, "", opts...)
+}
+
 type trafficCaptureRuleArgs struct {
 	// The action taken when traffic matches the rule (e.g., 'CAPTURE'). Default: 'CAPTURE'.
 	Action *string `pulumi:"action"`

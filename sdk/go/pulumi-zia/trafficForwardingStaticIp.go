@@ -86,6 +86,12 @@ func (TrafficForwardingStaticIpState) ElementType() reflect.Type {
 	return reflect.TypeOf((*trafficForwardingStaticIpState)(nil)).Elem()
 }
 
+// TrafficForwardingStaticIpExists checks whether an existing TrafficForwardingStaticIp resource with the given ID exists.
+func TrafficForwardingStaticIpExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *TrafficForwardingStaticIpState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("zia:index:TrafficForwardingStaticIp", id, state, "", opts...)
+}
+
 type trafficForwardingStaticIpArgs struct {
 	// Additional information about the static IP.
 	Comment *string `pulumi:"comment"`

@@ -41,12 +41,8 @@ type GetDlpIcapServerResult struct {
 }
 
 func GetDlpIcapServerOutput(ctx *pulumi.Context, args GetDlpIcapServerOutputArgs, opts ...pulumi.InvokeOption) GetDlpIcapServerResultOutput {
-	return pulumi.ToOutputWithContext(ctx.Context(), args).
-		ApplyT(func(v interface{}) (GetDlpIcapServerResultOutput, error) {
-			args := v.(GetDlpIcapServerArgs)
-			options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
-			return ctx.InvokeOutput("zia:index:getDlpIcapServer", args, GetDlpIcapServerResultOutput{}, options).(GetDlpIcapServerResultOutput), nil
-		}).(GetDlpIcapServerResultOutput)
+	options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
+	return ctx.InvokeOutput("zia:index:getDlpIcapServer", args, GetDlpIcapServerResultOutput{}, options).(GetDlpIcapServerResultOutput)
 }
 
 type GetDlpIcapServerOutputArgs struct {

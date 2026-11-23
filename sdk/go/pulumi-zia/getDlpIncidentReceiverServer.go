@@ -43,12 +43,8 @@ type GetDlpIncidentReceiverServerResult struct {
 }
 
 func GetDlpIncidentReceiverServerOutput(ctx *pulumi.Context, args GetDlpIncidentReceiverServerOutputArgs, opts ...pulumi.InvokeOption) GetDlpIncidentReceiverServerResultOutput {
-	return pulumi.ToOutputWithContext(ctx.Context(), args).
-		ApplyT(func(v interface{}) (GetDlpIncidentReceiverServerResultOutput, error) {
-			args := v.(GetDlpIncidentReceiverServerArgs)
-			options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
-			return ctx.InvokeOutput("zia:index:getDlpIncidentReceiverServer", args, GetDlpIncidentReceiverServerResultOutput{}, options).(GetDlpIncidentReceiverServerResultOutput), nil
-		}).(GetDlpIncidentReceiverServerResultOutput)
+	options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
+	return ctx.InvokeOutput("zia:index:getDlpIncidentReceiverServer", args, GetDlpIncidentReceiverServerResultOutput{}, options).(GetDlpIncidentReceiverServerResultOutput)
 }
 
 type GetDlpIncidentReceiverServerOutputArgs struct {

@@ -126,6 +126,12 @@ func (LocationManagementState) ElementType() reflect.Type {
 	return reflect.TypeOf((*locationManagementState)(nil)).Elem()
 }
 
+// LocationManagementExists checks whether an existing LocationManagement resource with the given ID exists.
+func LocationManagementExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *LocationManagementState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("zia:index:LocationManagement", id, state, "", opts...)
+}
+
 type locationManagementArgs struct {
 	// Whether authentication is required for this location.
 	AuthRequired *bool `pulumi:"authRequired"`

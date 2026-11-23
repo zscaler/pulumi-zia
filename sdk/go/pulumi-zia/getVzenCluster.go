@@ -51,12 +51,8 @@ type LookupVzenClusterResult struct {
 }
 
 func LookupVzenClusterOutput(ctx *pulumi.Context, args LookupVzenClusterOutputArgs, opts ...pulumi.InvokeOption) LookupVzenClusterResultOutput {
-	return pulumi.ToOutputWithContext(ctx.Context(), args).
-		ApplyT(func(v interface{}) (LookupVzenClusterResultOutput, error) {
-			args := v.(LookupVzenClusterArgs)
-			options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
-			return ctx.InvokeOutput("zia:index:getVzenCluster", args, LookupVzenClusterResultOutput{}, options).(LookupVzenClusterResultOutput), nil
-		}).(LookupVzenClusterResultOutput)
+	options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
+	return ctx.InvokeOutput("zia:index:getVzenCluster", args, LookupVzenClusterResultOutput{}, options).(LookupVzenClusterResultOutput)
 }
 
 type LookupVzenClusterOutputArgs struct {

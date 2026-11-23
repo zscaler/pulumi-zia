@@ -49,12 +49,8 @@ type GetDlpCloudToCloudIrResult struct {
 }
 
 func GetDlpCloudToCloudIrOutput(ctx *pulumi.Context, args GetDlpCloudToCloudIrOutputArgs, opts ...pulumi.InvokeOption) GetDlpCloudToCloudIrResultOutput {
-	return pulumi.ToOutputWithContext(ctx.Context(), args).
-		ApplyT(func(v interface{}) (GetDlpCloudToCloudIrResultOutput, error) {
-			args := v.(GetDlpCloudToCloudIrArgs)
-			options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
-			return ctx.InvokeOutput("zia:index:getDlpCloudToCloudIr", args, GetDlpCloudToCloudIrResultOutput{}, options).(GetDlpCloudToCloudIrResultOutput), nil
-		}).(GetDlpCloudToCloudIrResultOutput)
+	options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
+	return ctx.InvokeOutput("zia:index:getDlpCloudToCloudIr", args, GetDlpCloudToCloudIrResultOutput{}, options).(GetDlpCloudToCloudIrResultOutput)
 }
 
 type GetDlpCloudToCloudIrOutputArgs struct {

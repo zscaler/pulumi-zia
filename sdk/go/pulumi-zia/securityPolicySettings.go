@@ -68,6 +68,12 @@ func (SecurityPolicySettingsState) ElementType() reflect.Type {
 	return reflect.TypeOf((*securityPolicySettingsState)(nil)).Elem()
 }
 
+// SecurityPolicySettingsExists checks whether an existing SecurityPolicySettings resource with the given ID exists.
+func SecurityPolicySettingsExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *SecurityPolicySettingsState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("zia:index:SecurityPolicySettings", id, state, "", opts...)
+}
+
 type securityPolicySettingsArgs struct {
 	// List of URLs that are always blocked (blacklisted) by the security policy.
 	BlacklistUrls []string `pulumi:"blacklistUrls"`

@@ -175,6 +175,12 @@ func (FirewallDNSRuleState) ElementType() reflect.Type {
 	return reflect.TypeOf((*firewallDNSRuleState)(nil)).Elem()
 }
 
+// FirewallDNSRuleExists checks whether an existing FirewallDNSRule resource with the given ID exists.
+func FirewallDNSRuleExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *FirewallDNSRuleState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("zia:index:FirewallDNSRule", id, state, "", opts...)
+}
+
 type firewallDNSRuleArgs struct {
 	// The action the rule takes when traffic matches. Valid values: `ALLOW`, `BLOCK_DROP`, `BLOCK_RESET`, `BLOCK_ICMP`, `REDIR_REQ`.
 	Action *string `pulumi:"action"`

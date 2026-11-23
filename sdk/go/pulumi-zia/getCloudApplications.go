@@ -37,12 +37,8 @@ type GetCloudApplicationsResult struct {
 }
 
 func GetCloudApplicationsOutput(ctx *pulumi.Context, args GetCloudApplicationsOutputArgs, opts ...pulumi.InvokeOption) GetCloudApplicationsResultOutput {
-	return pulumi.ToOutputWithContext(ctx.Context(), args).
-		ApplyT(func(v interface{}) (GetCloudApplicationsResultOutput, error) {
-			args := v.(GetCloudApplicationsArgs)
-			options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
-			return ctx.InvokeOutput("zia:index:getCloudApplications", args, GetCloudApplicationsResultOutput{}, options).(GetCloudApplicationsResultOutput), nil
-		}).(GetCloudApplicationsResultOutput)
+	options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
+	return ctx.InvokeOutput("zia:index:getCloudApplications", args, GetCloudApplicationsResultOutput{}, options).(GetCloudApplicationsResultOutput)
 }
 
 type GetCloudApplicationsOutputArgs struct {

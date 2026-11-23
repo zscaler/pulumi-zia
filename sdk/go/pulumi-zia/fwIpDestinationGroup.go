@@ -82,6 +82,12 @@ func (FwIpDestinationGroupState) ElementType() reflect.Type {
 	return reflect.TypeOf((*fwIpDestinationGroupState)(nil)).Elem()
 }
 
+// FwIpDestinationGroupExists checks whether an existing FwIpDestinationGroup resource with the given ID exists.
+func FwIpDestinationGroupExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *FwIpDestinationGroupState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("zia:index:FwIpDestinationGroup", id, state, "", opts...)
+}
+
 type fwIpDestinationGroupArgs struct {
 	// List of destination IP addresses, FQDNs, or wildcard FQDNs in this group.
 	Addresses []string `pulumi:"addresses"`

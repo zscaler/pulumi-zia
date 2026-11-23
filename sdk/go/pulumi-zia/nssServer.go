@@ -82,6 +82,12 @@ func (NssServerState) ElementType() reflect.Type {
 	return reflect.TypeOf((*nssServerState)(nil)).Elem()
 }
 
+// NssServerExists checks whether an existing NssServer resource with the given ID exists.
+func NssServerExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *NssServerState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("zia:index:NssServer", id, state, "", opts...)
+}
+
 type nssServerArgs struct {
 	// The ICAP server ID associated with the NSS server.
 	IcapSvrId *int `pulumi:"icapSvrId"`

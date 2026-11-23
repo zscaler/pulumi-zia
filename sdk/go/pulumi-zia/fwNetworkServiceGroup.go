@@ -76,6 +76,12 @@ func (FwNetworkServiceGroupState) ElementType() reflect.Type {
 	return reflect.TypeOf((*fwNetworkServiceGroupState)(nil)).Elem()
 }
 
+// FwNetworkServiceGroupExists checks whether an existing FwNetworkServiceGroup resource with the given ID exists.
+func FwNetworkServiceGroupExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *FwNetworkServiceGroupState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("zia:index:FwNetworkServiceGroup", id, state, "", opts...)
+}
+
 type fwNetworkServiceGroupArgs struct {
 	// Additional information about the network service group.
 	Description *string `pulumi:"description"`

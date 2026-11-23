@@ -140,6 +140,12 @@ func (RiskProfileState) ElementType() reflect.Type {
 	return reflect.TypeOf((*riskProfileState)(nil)).Elem()
 }
 
+// RiskProfileExists checks whether an existing RiskProfile resource with the given ID exists.
+func RiskProfileExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *RiskProfileState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("zia:index:RiskProfile", id, state, "", opts...)
+}
+
 type riskProfileArgs struct {
 	// Risk level for admin audit log support.
 	AdminAuditLogs *string `pulumi:"adminAuditLogs"`

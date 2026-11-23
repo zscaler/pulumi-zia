@@ -64,6 +64,12 @@ func (SandboxBehavioralAnalysisAdvancedSettingsV2State) ElementType() reflect.Ty
 	return reflect.TypeOf((*sandboxBehavioralAnalysisAdvancedSettingsV2State)(nil)).Elem()
 }
 
+// SandboxBehavioralAnalysisAdvancedSettingsV2Exists checks whether an existing SandboxBehavioralAnalysisAdvancedSettingsV2 resource with the given ID exists.
+func SandboxBehavioralAnalysisAdvancedSettingsV2Exists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *SandboxBehavioralAnalysisAdvancedSettingsV2State, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("zia:index:SandboxBehavioralAnalysisAdvancedSettingsV2", id, state, "", opts...)
+}
+
 type sandboxBehavioralAnalysisAdvancedSettingsV2Args struct {
 	// List of MD5 hash value entries. Each entry contains a hash URL, optional comment, and type.
 	Md5HashValueList []Md5HashValueInput `pulumi:"md5HashValueList"`

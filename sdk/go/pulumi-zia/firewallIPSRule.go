@@ -171,6 +171,12 @@ func (FirewallIPSRuleState) ElementType() reflect.Type {
 	return reflect.TypeOf((*firewallIPSRuleState)(nil)).Elem()
 }
 
+// FirewallIPSRuleExists checks whether an existing FirewallIPSRule resource with the given ID exists.
+func FirewallIPSRuleExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *FirewallIPSRuleState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("zia:index:FirewallIPSRule", id, state, "", opts...)
+}
+
 type firewallIPSRuleArgs struct {
 	// The action the rule takes when traffic matches. Valid values: `ALLOW`, `BLOCK_DROP`, `BLOCK_RESET`, `BLOCK_ICMP`.
 	Action *string `pulumi:"action"`

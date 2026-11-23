@@ -45,12 +45,8 @@ type GetFileTypeCategoriesResult struct {
 }
 
 func GetFileTypeCategoriesOutput(ctx *pulumi.Context, args GetFileTypeCategoriesOutputArgs, opts ...pulumi.InvokeOption) GetFileTypeCategoriesResultOutput {
-	return pulumi.ToOutputWithContext(ctx.Context(), args).
-		ApplyT(func(v interface{}) (GetFileTypeCategoriesResultOutput, error) {
-			args := v.(GetFileTypeCategoriesArgs)
-			options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
-			return ctx.InvokeOutput("zia:index:getFileTypeCategories", args, GetFileTypeCategoriesResultOutput{}, options).(GetFileTypeCategoriesResultOutput), nil
-		}).(GetFileTypeCategoriesResultOutput)
+	options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
+	return ctx.InvokeOutput("zia:index:getFileTypeCategories", args, GetFileTypeCategoriesResultOutput{}, options).(GetFileTypeCategoriesResultOutput)
 }
 
 type GetFileTypeCategoriesOutputArgs struct {

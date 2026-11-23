@@ -97,6 +97,12 @@ func (VzenNodeState) ElementType() reflect.Type {
 	return reflect.TypeOf((*vzenNodeState)(nil)).Elem()
 }
 
+// VzenNodeExists checks whether an existing VzenNode resource with the given ID exists.
+func VzenNodeExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *VzenNodeState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("zia:index:VzenNode", id, state, "", opts...)
+}
+
 type vzenNodeArgs struct {
 	// The cluster name if deployment mode is CLUSTER.
 	ClusterName *string `pulumi:"clusterName"`

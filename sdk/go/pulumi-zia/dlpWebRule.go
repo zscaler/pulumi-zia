@@ -152,6 +152,12 @@ func (DlpWebRuleState) ElementType() reflect.Type {
 	return reflect.TypeOf((*dlpWebRuleState)(nil)).Elem()
 }
 
+// DlpWebRuleExists checks whether an existing DlpWebRule resource with the given ID exists.
+func DlpWebRuleExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *DlpWebRuleState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("zia:index:DlpWebRule", id, state, "", opts...)
+}
+
 type dlpWebRuleArgs struct {
 	// Action taken when the rule is matched. Valid values: `ALLOW`, `BLOCK`, `ICAP_RESPONSE`.
 	Action *string `pulumi:"action"`

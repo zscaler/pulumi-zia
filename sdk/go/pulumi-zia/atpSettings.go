@@ -160,6 +160,12 @@ func (AtpSettingsState) ElementType() reflect.Type {
 	return reflect.TypeOf((*atpSettingsState)(nil)).Elem()
 }
 
+// AtpSettingsExists checks whether an existing AtpSettings resource with the given ID exists.
+func AtpSettingsExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *AtpSettingsState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("zia:index:AtpSettings", id, state, "", opts...)
+}
+
 type atpSettingsArgs struct {
 	// Block ActiveX controls.
 	ActivexBlocked *bool `pulumi:"activexBlocked"`

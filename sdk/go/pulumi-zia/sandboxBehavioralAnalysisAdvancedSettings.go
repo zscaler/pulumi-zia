@@ -66,6 +66,12 @@ func (SandboxBehavioralAnalysisAdvancedSettingsState) ElementType() reflect.Type
 	return reflect.TypeOf((*sandboxBehavioralAnalysisAdvancedSettingsState)(nil)).Elem()
 }
 
+// SandboxBehavioralAnalysisAdvancedSettingsExists checks whether an existing SandboxBehavioralAnalysisAdvancedSettings resource with the given ID exists.
+func SandboxBehavioralAnalysisAdvancedSettingsExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *SandboxBehavioralAnalysisAdvancedSettingsState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("zia:index:SandboxBehavioralAnalysisAdvancedSettings", id, state, "", opts...)
+}
+
 type sandboxBehavioralAnalysisAdvancedSettingsArgs struct {
 	// List of MD5 file hashes to be blocked. Each hash must be exactly 32 characters (MD5 format). SHA1 and SHA256 are not supported.
 	FileHashesToBeBlocked []string `pulumi:"fileHashesToBeBlocked"`

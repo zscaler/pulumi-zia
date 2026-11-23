@@ -160,6 +160,12 @@ func (CloudAppControlRuleState) ElementType() reflect.Type {
 	return reflect.TypeOf((*cloudAppControlRuleState)(nil)).Elem()
 }
 
+// CloudAppControlRuleExists checks whether an existing CloudAppControlRule resource with the given ID exists.
+func CloudAppControlRuleExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *CloudAppControlRuleState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("zia:index:CloudAppControlRule", id, state, "", opts...)
+}
+
 type cloudAppControlRuleArgs struct {
 	// Actions taken when traffic matches rule criteria. Valid values: `ALLOW`, `BLOCK`, `CAUTION`, `ISOLATE`.
 	Actions []string `pulumi:"actions"`

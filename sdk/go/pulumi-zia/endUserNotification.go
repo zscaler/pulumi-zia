@@ -122,6 +122,12 @@ func (EndUserNotificationState) ElementType() reflect.Type {
 	return reflect.TypeOf((*endUserNotificationState)(nil)).Elem()
 }
 
+// EndUserNotificationExists checks whether an existing EndUserNotification resource with the given ID exists.
+func EndUserNotificationExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *EndUserNotificationState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("zia:index:EndUserNotification", id, state, "", opts...)
+}
+
 type endUserNotificationArgs struct {
 	// Custom frequency in days for displaying the AUP. Used when aupFrequency is `CUSTOM`.
 	AupCustomFrequency *int `pulumi:"aupCustomFrequency"`

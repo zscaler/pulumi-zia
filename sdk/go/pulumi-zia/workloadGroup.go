@@ -77,6 +77,12 @@ func (WorkloadGroupState) ElementType() reflect.Type {
 	return reflect.TypeOf((*workloadGroupState)(nil)).Elem()
 }
 
+// WorkloadGroupExists checks whether an existing WorkloadGroup resource with the given ID exists.
+func WorkloadGroupExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *WorkloadGroupState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("zia:index:WorkloadGroup", id, state, "", opts...)
+}
+
 type workloadGroupArgs struct {
 	// Description of the workload group.
 	Description *string `pulumi:"description"`

@@ -84,6 +84,12 @@ func (SubscriptionAlertState) ElementType() reflect.Type {
 	return reflect.TypeOf((*subscriptionAlertState)(nil)).Elem()
 }
 
+// SubscriptionAlertExists checks whether an existing SubscriptionAlert resource with the given ID exists.
+func SubscriptionAlertExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *SubscriptionAlertState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("zia:index:SubscriptionAlert", id, state, "", opts...)
+}
+
 type subscriptionAlertArgs struct {
 	// Severity levels for compliance alerts.
 	ComplySeverities []string `pulumi:"complySeverities"`

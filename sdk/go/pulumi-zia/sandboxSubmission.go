@@ -89,6 +89,12 @@ func (SandboxSubmissionState) ElementType() reflect.Type {
 	return reflect.TypeOf((*sandboxSubmissionState)(nil)).Elem()
 }
 
+// SandboxSubmissionExists checks whether an existing SandboxSubmission resource with the given ID exists.
+func SandboxSubmissionExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *SandboxSubmissionState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("zia:index:SandboxSubmission", id, state, "", opts...)
+}
+
 type sandboxSubmissionArgs struct {
 	// The local file path of the file to submit for sandbox analysis.
 	FilePath string `pulumi:"filePath"`

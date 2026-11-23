@@ -130,6 +130,12 @@ func (SslInspectionRuleState) ElementType() reflect.Type {
 	return reflect.TypeOf((*sslInspectionRuleState)(nil)).Elem()
 }
 
+// SslInspectionRuleExists checks whether an existing SslInspectionRule resource with the given ID exists.
+func SslInspectionRuleExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *SslInspectionRuleState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("zia:index:SslInspectionRule", id, state, "", opts...)
+}
+
 type sslInspectionRuleArgs struct {
 	// The action configuration for the SSL inspection rule, including decrypt/do-not-decrypt sub-actions.
 	Action SslInspectionActionInput `pulumi:"action"`

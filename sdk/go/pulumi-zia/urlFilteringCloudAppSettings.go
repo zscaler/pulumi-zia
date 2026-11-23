@@ -152,6 +152,12 @@ func (UrlFilteringCloudAppSettingsState) ElementType() reflect.Type {
 	return reflect.TypeOf((*urlFilteringCloudAppSettingsState)(nil)).Elem()
 }
 
+// UrlFilteringCloudAppSettingsExists checks whether an existing UrlFilteringCloudAppSettings resource with the given ID exists.
+func UrlFilteringCloudAppSettingsExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *UrlFilteringCloudAppSettingsState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("zia:index:UrlFilteringCloudAppSettings", id, state, "", opts...)
+}
+
 type urlFilteringCloudAppSettingsArgs struct {
 	// If true, Skype is blocked.
 	BlockSkype *bool `pulumi:"blockSkype"`

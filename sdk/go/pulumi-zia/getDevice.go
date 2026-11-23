@@ -61,12 +61,8 @@ type GetDeviceResult struct {
 }
 
 func GetDeviceOutput(ctx *pulumi.Context, args GetDeviceOutputArgs, opts ...pulumi.InvokeOption) GetDeviceResultOutput {
-	return pulumi.ToOutputWithContext(ctx.Context(), args).
-		ApplyT(func(v interface{}) (GetDeviceResultOutput, error) {
-			args := v.(GetDeviceArgs)
-			options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
-			return ctx.InvokeOutput("zia:index:getDevice", args, GetDeviceResultOutput{}, options).(GetDeviceResultOutput), nil
-		}).(GetDeviceResultOutput)
+	options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
+	return ctx.InvokeOutput("zia:index:getDevice", args, GetDeviceResultOutput{}, options).(GetDeviceResultOutput)
 }
 
 type GetDeviceOutputArgs struct {

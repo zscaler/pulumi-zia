@@ -53,12 +53,8 @@ type LookupUserManagementUserResult struct {
 }
 
 func LookupUserManagementUserOutput(ctx *pulumi.Context, args LookupUserManagementUserOutputArgs, opts ...pulumi.InvokeOption) LookupUserManagementUserResultOutput {
-	return pulumi.ToOutputWithContext(ctx.Context(), args).
-		ApplyT(func(v interface{}) (LookupUserManagementUserResultOutput, error) {
-			args := v.(LookupUserManagementUserArgs)
-			options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
-			return ctx.InvokeOutput("zia:index:getUserManagementUser", args, LookupUserManagementUserResultOutput{}, options).(LookupUserManagementUserResultOutput), nil
-		}).(LookupUserManagementUserResultOutput)
+	options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
+	return ctx.InvokeOutput("zia:index:getUserManagementUser", args, LookupUserManagementUserResultOutput{}, options).(LookupUserManagementUserResultOutput)
 }
 
 type LookupUserManagementUserOutputArgs struct {

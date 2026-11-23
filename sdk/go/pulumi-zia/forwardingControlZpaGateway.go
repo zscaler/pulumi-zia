@@ -80,6 +80,12 @@ func (ForwardingControlZpaGatewayState) ElementType() reflect.Type {
 	return reflect.TypeOf((*forwardingControlZpaGatewayState)(nil)).Elem()
 }
 
+// ForwardingControlZpaGatewayExists checks whether an existing ForwardingControlZpaGateway resource with the given ID exists.
+func ForwardingControlZpaGatewayExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *ForwardingControlZpaGatewayState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("zia:index:ForwardingControlZpaGateway", id, state, "", opts...)
+}
+
 type forwardingControlZpaGatewayArgs struct {
 	// Description of the ZPA gateway.
 	Description *string `pulumi:"description"`

@@ -90,6 +90,12 @@ func (TrafficForwardingGreTunnelState) ElementType() reflect.Type {
 	return reflect.TypeOf((*trafficForwardingGreTunnelState)(nil)).Elem()
 }
 
+// TrafficForwardingGreTunnelExists checks whether an existing TrafficForwardingGreTunnel resource with the given ID exists.
+func TrafficForwardingGreTunnelExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *TrafficForwardingGreTunnelState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("zia:index:TrafficForwardingGreTunnel", id, state, "", opts...)
+}
+
 type trafficForwardingGreTunnelArgs struct {
 	// Additional information about the GRE tunnel.
 	Comment *string `pulumi:"comment"`

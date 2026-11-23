@@ -101,6 +101,12 @@ func (DlpEngineState) ElementType() reflect.Type {
 	return reflect.TypeOf((*dlpEngineState)(nil)).Elem()
 }
 
+// DlpEngineExists checks whether an existing DlpEngine resource with the given ID exists.
+func DlpEngineExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *DlpEngineState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("zia:index:DlpEngine", id, state, "", opts...)
+}
+
 type dlpEngineArgs struct {
 	// If true, this is a custom DLP engine; false indicates a predefined engine.
 	CustomDlpEngine *bool `pulumi:"customDlpEngine"`

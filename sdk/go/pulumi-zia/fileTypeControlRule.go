@@ -139,6 +139,12 @@ func (FileTypeControlRuleState) ElementType() reflect.Type {
 	return reflect.TypeOf((*fileTypeControlRuleState)(nil)).Elem()
 }
 
+// FileTypeControlRuleExists checks whether an existing FileTypeControlRule resource with the given ID exists.
+func FileTypeControlRuleExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *FileTypeControlRuleState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("zia:index:FileTypeControlRule", id, state, "", opts...)
+}
+
 type fileTypeControlRuleArgs struct {
 	// Whether the rule applies to files with active content.
 	ActiveContent *bool `pulumi:"activeContent"`

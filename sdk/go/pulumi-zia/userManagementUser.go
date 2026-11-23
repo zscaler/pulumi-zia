@@ -103,6 +103,12 @@ func (UserManagementUserState) ElementType() reflect.Type {
 	return reflect.TypeOf((*userManagementUserState)(nil)).Elem()
 }
 
+// UserManagementUserExists checks whether an existing UserManagementUser resource with the given ID exists.
+func UserManagementUserExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *UserManagementUserState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("zia:index:UserManagementUser", id, state, "", opts...)
+}
+
 type userManagementUserArgs struct {
 	// Authentication methods for the user. Accepted values: 'BASIC', 'DIGEST'.
 	AuthMethods []string `pulumi:"authMethods"`

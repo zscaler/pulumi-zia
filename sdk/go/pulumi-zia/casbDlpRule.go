@@ -148,6 +148,12 @@ func (CasbDlpRuleState) ElementType() reflect.Type {
 	return reflect.TypeOf((*casbDlpRuleState)(nil)).Elem()
 }
 
+// CasbDlpRuleExists checks whether an existing CasbDlpRule resource with the given ID exists.
+func CasbDlpRuleExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *CasbDlpRuleState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("zia:index:CasbDlpRule", id, state, "", opts...)
+}
+
 type casbDlpRuleArgs struct {
 	// Action taken when the rule is matched (e.g. `BLOCK`, `ALLOW`, `QUARANTINE`).
 	Action *string `pulumi:"action"`

@@ -68,6 +68,12 @@ func (AuthSettingsUrlsState) ElementType() reflect.Type {
 	return reflect.TypeOf((*authSettingsUrlsState)(nil)).Elem()
 }
 
+// AuthSettingsUrlsExists checks whether an existing AuthSettingsUrls resource with the given ID exists.
+func AuthSettingsUrlsExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *AuthSettingsUrlsState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("zia:index:AuthSettingsUrls", id, state, "", opts...)
+}
+
 type authSettingsUrlsArgs struct {
 	// List of URLs that are exempted from user authentication.
 	Urls []string `pulumi:"urls"`

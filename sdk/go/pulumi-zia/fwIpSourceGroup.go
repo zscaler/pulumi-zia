@@ -76,6 +76,12 @@ func (FwIpSourceGroupState) ElementType() reflect.Type {
 	return reflect.TypeOf((*fwIpSourceGroupState)(nil)).Elem()
 }
 
+// FwIpSourceGroupExists checks whether an existing FwIpSourceGroup resource with the given ID exists.
+func FwIpSourceGroupExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *FwIpSourceGroupState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("zia:index:FwIpSourceGroup", id, state, "", opts...)
+}
+
 type fwIpSourceGroupArgs struct {
 	// Additional information about the IP source group.
 	Description *string `pulumi:"description"`

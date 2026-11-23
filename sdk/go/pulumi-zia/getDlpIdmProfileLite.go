@@ -47,12 +47,8 @@ type GetDlpIdmProfileLiteResult struct {
 }
 
 func GetDlpIdmProfileLiteOutput(ctx *pulumi.Context, args GetDlpIdmProfileLiteOutputArgs, opts ...pulumi.InvokeOption) GetDlpIdmProfileLiteResultOutput {
-	return pulumi.ToOutputWithContext(ctx.Context(), args).
-		ApplyT(func(v interface{}) (GetDlpIdmProfileLiteResultOutput, error) {
-			args := v.(GetDlpIdmProfileLiteArgs)
-			options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
-			return ctx.InvokeOutput("zia:index:getDlpIdmProfileLite", args, GetDlpIdmProfileLiteResultOutput{}, options).(GetDlpIdmProfileLiteResultOutput), nil
-		}).(GetDlpIdmProfileLiteResultOutput)
+	options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
+	return ctx.InvokeOutput("zia:index:getDlpIdmProfileLite", args, GetDlpIdmProfileLiteResultOutput{}, options).(GetDlpIdmProfileLiteResultOutput)
 }
 
 type GetDlpIdmProfileLiteOutputArgs struct {

@@ -47,12 +47,8 @@ type GetDomainProfileResult struct {
 }
 
 func GetDomainProfileOutput(ctx *pulumi.Context, args GetDomainProfileOutputArgs, opts ...pulumi.InvokeOption) GetDomainProfileResultOutput {
-	return pulumi.ToOutputWithContext(ctx.Context(), args).
-		ApplyT(func(v interface{}) (GetDomainProfileResultOutput, error) {
-			args := v.(GetDomainProfileArgs)
-			options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
-			return ctx.InvokeOutput("zia:index:getDomainProfile", args, GetDomainProfileResultOutput{}, options).(GetDomainProfileResultOutput), nil
-		}).(GetDomainProfileResultOutput)
+	options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
+	return ctx.InvokeOutput("zia:index:getDomainProfile", args, GetDomainProfileResultOutput{}, options).(GetDomainProfileResultOutput)
 }
 
 type GetDomainProfileOutputArgs struct {

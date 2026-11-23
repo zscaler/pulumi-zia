@@ -92,6 +92,12 @@ func (BrowserControlPolicyState) ElementType() reflect.Type {
 	return reflect.TypeOf((*browserControlPolicyState)(nil)).Elem()
 }
 
+// BrowserControlPolicyExists checks whether an existing BrowserControlPolicy resource with the given ID exists.
+func BrowserControlPolicyExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *BrowserControlPolicyState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("zia:index:BrowserControlPolicy", id, state, "", opts...)
+}
+
 type browserControlPolicyArgs struct {
 	// Whether to allow all browsers.
 	AllowAllBrowsers *bool `pulumi:"allowAllBrowsers"`

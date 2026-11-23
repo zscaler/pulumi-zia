@@ -74,6 +74,12 @@ func (RuleLabelState) ElementType() reflect.Type {
 	return reflect.TypeOf((*ruleLabelState)(nil)).Elem()
 }
 
+// RuleLabelExists checks whether an existing RuleLabel resource with the given ID exists.
+func RuleLabelExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *RuleLabelState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("zia:index:RuleLabel", id, state, "", opts...)
+}
+
 type ruleLabelArgs struct {
 	// Additional information about the rule label. Maximum 10240 characters.
 	Description *string `pulumi:"description"`

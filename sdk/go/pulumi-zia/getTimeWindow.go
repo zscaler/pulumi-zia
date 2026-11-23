@@ -43,12 +43,8 @@ type GetTimeWindowResult struct {
 }
 
 func GetTimeWindowOutput(ctx *pulumi.Context, args GetTimeWindowOutputArgs, opts ...pulumi.InvokeOption) GetTimeWindowResultOutput {
-	return pulumi.ToOutputWithContext(ctx.Context(), args).
-		ApplyT(func(v interface{}) (GetTimeWindowResultOutput, error) {
-			args := v.(GetTimeWindowArgs)
-			options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
-			return ctx.InvokeOutput("zia:index:getTimeWindow", args, GetTimeWindowResultOutput{}, options).(GetTimeWindowResultOutput), nil
-		}).(GetTimeWindowResultOutput)
+	options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
+	return ctx.InvokeOutput("zia:index:getTimeWindow", args, GetTimeWindowResultOutput{}, options).(GetTimeWindowResultOutput)
 }
 
 type GetTimeWindowOutputArgs struct {

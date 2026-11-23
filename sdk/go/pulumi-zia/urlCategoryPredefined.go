@@ -130,6 +130,12 @@ func (UrlCategoryPredefinedState) ElementType() reflect.Type {
 	return reflect.TypeOf((*urlCategoryPredefinedState)(nil)).Elem()
 }
 
+// UrlCategoryPredefinedExists checks whether an existing UrlCategoryPredefined resource with the given ID exists.
+func UrlCategoryPredefinedExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *UrlCategoryPredefinedState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("zia:index:UrlCategoryPredefined", id, state, "", opts...)
+}
+
 type urlCategoryPredefinedArgs struct {
 	// List of custom IP address ranges to add to the predefined category.
 	IpRanges []string `pulumi:"ipRanges"`

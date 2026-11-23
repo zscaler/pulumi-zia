@@ -73,6 +73,12 @@ func (FtpControlPolicyState) ElementType() reflect.Type {
 	return reflect.TypeOf((*ftpControlPolicyState)(nil)).Elem()
 }
 
+// FtpControlPolicyExists checks whether an existing FtpControlPolicy resource with the given ID exists.
+func FtpControlPolicyExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *FtpControlPolicyState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("zia:index:FtpControlPolicy", id, state, "", opts...)
+}
+
 type ftpControlPolicyArgs struct {
 	// Whether native FTP traffic is enabled.
 	FtpEnabled *bool `pulumi:"ftpEnabled"`

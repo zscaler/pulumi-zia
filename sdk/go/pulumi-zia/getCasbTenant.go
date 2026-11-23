@@ -65,12 +65,8 @@ type GetCasbTenantResult struct {
 }
 
 func GetCasbTenantOutput(ctx *pulumi.Context, args GetCasbTenantOutputArgs, opts ...pulumi.InvokeOption) GetCasbTenantResultOutput {
-	return pulumi.ToOutputWithContext(ctx.Context(), args).
-		ApplyT(func(v interface{}) (GetCasbTenantResultOutput, error) {
-			args := v.(GetCasbTenantArgs)
-			options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
-			return ctx.InvokeOutput("zia:index:getCasbTenant", args, GetCasbTenantResultOutput{}, options).(GetCasbTenantResultOutput), nil
-		}).(GetCasbTenantResultOutput)
+	options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
+	return ctx.InvokeOutput("zia:index:getCasbTenant", args, GetCasbTenantResultOutput{}, options).(GetCasbTenantResultOutput)
 }
 
 type GetCasbTenantOutputArgs struct {

@@ -168,6 +168,12 @@ func (ForwardingControlRuleState) ElementType() reflect.Type {
 	return reflect.TypeOf((*forwardingControlRuleState)(nil)).Elem()
 }
 
+// ForwardingControlRuleExists checks whether an existing ForwardingControlRule resource with the given ID exists.
+func ForwardingControlRuleExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *ForwardingControlRuleState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("zia:index:ForwardingControlRule", id, state, "", opts...)
+}
+
 type forwardingControlRuleArgs struct {
 	// IDs of application service groups to which the rule applies.
 	AppServiceGroups []int `pulumi:"appServiceGroups"`

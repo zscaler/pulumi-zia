@@ -72,6 +72,12 @@ func (BandwidthClassFileSizeState) ElementType() reflect.Type {
 	return reflect.TypeOf((*bandwidthClassFileSizeState)(nil)).Elem()
 }
 
+// BandwidthClassFileSizeExists checks whether an existing BandwidthClassFileSize resource with the given ID exists.
+func BandwidthClassFileSizeExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *BandwidthClassFileSizeState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("zia:index:BandwidthClassFileSize", id, state, "", opts...)
+}
+
 type bandwidthClassFileSizeArgs struct {
 	// The file size threshold for the bandwidth class (e.g., `100MB`).
 	FileSize *string `pulumi:"fileSize"`

@@ -39,12 +39,8 @@ type GetCloudBrowserIsolationProfileResult struct {
 }
 
 func GetCloudBrowserIsolationProfileOutput(ctx *pulumi.Context, args GetCloudBrowserIsolationProfileOutputArgs, opts ...pulumi.InvokeOption) GetCloudBrowserIsolationProfileResultOutput {
-	return pulumi.ToOutputWithContext(ctx.Context(), args).
-		ApplyT(func(v interface{}) (GetCloudBrowserIsolationProfileResultOutput, error) {
-			args := v.(GetCloudBrowserIsolationProfileArgs)
-			options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
-			return ctx.InvokeOutput("zia:index:getCloudBrowserIsolationProfile", args, GetCloudBrowserIsolationProfileResultOutput{}, options).(GetCloudBrowserIsolationProfileResultOutput), nil
-		}).(GetCloudBrowserIsolationProfileResultOutput)
+	options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
+	return ctx.InvokeOutput("zia:index:getCloudBrowserIsolationProfile", args, GetCloudBrowserIsolationProfileResultOutput{}, options).(GetCloudBrowserIsolationProfileResultOutput)
 }
 
 type GetCloudBrowserIsolationProfileOutputArgs struct {

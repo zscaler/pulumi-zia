@@ -159,6 +159,12 @@ func (CloudNssFeedState) ElementType() reflect.Type {
 	return reflect.TypeOf((*cloudNssFeedState)(nil)).Elem()
 }
 
+// CloudNssFeedExists checks whether an existing CloudNssFeed resource with the given ID exists.
+func CloudNssFeedExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *CloudNssFeedState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("zia:index:CloudNssFeed", id, state, "", opts...)
+}
+
 type cloudNssFeedArgs struct {
 	// Authentication token for the SIEM connection.
 	AuthenticationToken *string `pulumi:"authenticationToken"`

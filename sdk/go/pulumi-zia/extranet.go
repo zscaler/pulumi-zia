@@ -77,6 +77,12 @@ func (ExtranetState) ElementType() reflect.Type {
 	return reflect.TypeOf((*extranetState)(nil)).Elem()
 }
 
+// ExtranetExists checks whether an existing Extranet resource with the given ID exists.
+func ExtranetExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *ExtranetState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("zia:index:Extranet", id, state, "", opts...)
+}
+
 type extranetArgs struct {
 	// Description of the extranet.
 	Description *string `pulumi:"description"`

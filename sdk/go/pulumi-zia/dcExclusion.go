@@ -80,6 +80,12 @@ func (DcExclusionState) ElementType() reflect.Type {
 	return reflect.TypeOf((*dcExclusionState)(nil)).Elem()
 }
 
+// DcExclusionExists checks whether an existing DcExclusion resource with the given ID exists.
+func DcExclusionExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *DcExclusionState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("zia:index:DcExclusion", id, state, "", opts...)
+}
+
 type dcExclusionArgs struct {
 	// The ID of the data center to exclude.
 	DatacenterId *int `pulumi:"datacenterId"`

@@ -86,6 +86,12 @@ func (ForwardingControlProxiesState) ElementType() reflect.Type {
 	return reflect.TypeOf((*forwardingControlProxiesState)(nil)).Elem()
 }
 
+// ForwardingControlProxiesExists checks whether an existing ForwardingControlProxies resource with the given ID exists.
+func ForwardingControlProxiesExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *ForwardingControlProxiesState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("zia:index:ForwardingControlProxies", id, state, "", opts...)
+}
+
 type forwardingControlProxiesArgs struct {
 	// The address of the proxy server.
 	Address *string `pulumi:"address"`

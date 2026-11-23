@@ -87,6 +87,12 @@ func (TrafficForwardingVpnCredentialsState) ElementType() reflect.Type {
 	return reflect.TypeOf((*trafficForwardingVpnCredentialsState)(nil)).Elem()
 }
 
+// TrafficForwardingVpnCredentialsExists checks whether an existing TrafficForwardingVpnCredentials resource with the given ID exists.
+func TrafficForwardingVpnCredentialsExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *TrafficForwardingVpnCredentialsState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("zia:index:TrafficForwardingVpnCredentials", id, state, "", opts...)
+}
+
 type trafficForwardingVpnCredentialsArgs struct {
 	// Additional information about the VPN credential. Maximum 10240 characters.
 	Comments *string `pulumi:"comments"`

@@ -74,6 +74,12 @@ func (CloudApplicationInstanceState) ElementType() reflect.Type {
 	return reflect.TypeOf((*cloudApplicationInstanceState)(nil)).Elem()
 }
 
+// CloudApplicationInstanceExists checks whether an existing CloudApplicationInstance resource with the given ID exists.
+func CloudApplicationInstanceExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *CloudApplicationInstanceState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("zia:index:CloudApplicationInstance", id, state, "", opts...)
+}
+
 type cloudApplicationInstanceArgs struct {
 	// List of instance identifiers for the cloud application.
 	InstanceIdentifiers []InstanceIdentifierInput `pulumi:"instanceIdentifiers"`

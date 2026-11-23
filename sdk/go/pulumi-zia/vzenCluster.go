@@ -86,6 +86,12 @@ func (VzenClusterState) ElementType() reflect.Type {
 	return reflect.TypeOf((*vzenClusterState)(nil)).Elem()
 }
 
+// VzenClusterExists checks whether an existing VzenCluster resource with the given ID exists.
+func VzenClusterExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *VzenClusterState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("zia:index:VzenCluster", id, state, "", opts...)
+}
+
 type vzenClusterArgs struct {
 	// The default gateway of the VZEN cluster.
 	DefaultGateway *string `pulumi:"defaultGateway"`
