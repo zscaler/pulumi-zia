@@ -9,10 +9,8 @@
 Pulumi.*.yaml
 yarn.lock
 ci-scripts
-/nuget/
 provider/**/schema-embed.json
 
-sdk/dotnet/version.txt
 sdk/java/.gradle
 sdk/java/build/
 sdk/java/build.gradle

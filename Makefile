@@ -4,7 +4,6 @@ PACK             := zia
 PACKDIR          := sdk
 PROJECT          := github.com/zscaler/pulumi-zia
 NODE_MODULE_NAME := @pulumi/zia
-NUGET_PKG_NAME   := Pulumi.Zia
 
 PROVIDER        := pulumi-resource-${PACK}
 PROVIDER_PATH   := provider
@@ -67,7 +66,7 @@ $(SCHEMA_FILE): provider
 # To build the SDKs, use `make build_sdks`
 #
 # Required by CI (weekly-pulumi-update)
-codegen: $(SCHEMA_FILE) sdk/dotnet sdk/go sdk/nodejs sdk/python sdk/java
+codegen: $(SCHEMA_FILE) sdk/go sdk/nodejs sdk/python sdk/java
 
 .PHONY: sdk/%
 sdk/%: $(SCHEMA_FILE)
@@ -82,11 +81,6 @@ sdk/python: $(SCHEMA_FILE)
 	rm -rf $@
 	$(PULUMI) package gen-sdk --language python $(SCHEMA_FILE) --version "${VERSION_GENERIC}"
 	cp README.md ${PACKDIR}/python/
-
-sdk/dotnet: $(SCHEMA_FILE)
-	rm -rf $@
-	$(PULUMI) package gen-sdk --language dotnet $(SCHEMA_FILE) --version "${VERSION_GENERIC}"
-
 
 sdk/go: ${SCHEMA_FILE}
 	rm -rf $@
@@ -109,11 +103,6 @@ provider_debug:
 
 test_provider:
 	cd tests && go test -short -v -count=1 -cover -timeout 2h -parallel ${TESTPARALLELISM} -coverprofile="coverage.txt" ./...
-
-dotnet_sdk: sdk/dotnet
-	cd ${PACKDIR}/dotnet/&& \
-		echo "${VERSION_GENERIC}" > version.txt && \
-		dotnet build
 
 go_sdk:	sdk/go
 
@@ -141,7 +130,7 @@ java_sdk:: sdk/java
 build:: provider build_sdks
 
 .PHONY: build_sdks
-build_sdks: dotnet_sdk go_sdk nodejs_sdk python_sdk java_sdk
+build_sdks: go_sdk nodejs_sdk python_sdk java_sdk
 
 # Required for the codegen action that runs in pulumi/pulumi
 only_build:: build
@@ -150,7 +139,7 @@ lint:
 	golangci-lint --path-prefix provider --config .golangci.yml run --fix
 
 
-install:: install_nodejs_sdk install_dotnet_sdk
+install:: install_nodejs_sdk
 	cp $(WORKING_DIR)/bin/${PROVIDER} ${GOPATH}/bin
 
 
@@ -160,13 +149,7 @@ test_all:: test
 	cd provider/pkg && $(GO_TEST) ./...
 	cd tests/sdk/nodejs && $(GO_TEST) ./...
 	cd tests/sdk/python && $(GO_TEST) ./...
-	cd tests/sdk/dotnet && $(GO_TEST) ./...
 	cd tests/sdk/go && $(GO_TEST) ./...
-
-install_dotnet_sdk::
-	rm -rf $(WORKING_DIR)/nuget/$(NUGET_PKG_NAME).*.nupkg
-	mkdir -p $(WORKING_DIR)/nuget
-	find . -name '*.nupkg' -print -exec cp -p {} ${WORKING_DIR}/nuget \;
 
 install_python_sdk::
 	#target intentionally blank
@@ -240,10 +223,6 @@ build_python: python_sdk # Required by CI
 .PHONY: build_nodejs install_nodejs_sdk
 generate_nodejs: sdk/nodejs # Required by CI
 build_nodejs: nodejs_sdk # Required by CI
-
-.PHONY: build_dotnet install_dotnet_sdk
-generate_dotnet: sdk/dotnet # Required by CI
-build_dotnet: dotnet_sdk # Required by CI
 
 bin/pulumi-gen-${PACK}: # Required by CI
 	touch bin/pulumi-gen-${PACK}

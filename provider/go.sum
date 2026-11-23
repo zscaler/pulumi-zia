@@ -267,8 +267,8 @@ github.com/yuin/goldmark v1.1.27/go.mod h1:3hX8gzYuyVAZsxl0MRgGTJEmQBFcNTphYh9de
 github.com/yuin/goldmark v1.2.1/go.mod h1:3hX8gzYuyVAZsxl0MRgGTJEmQBFcNTphYh9decYSb74=
 github.com/zclconf/go-cty v1.18.1 h1:yEGE8M4iIZlyKQURZNb2SnEyZlZHUcBCnx6KF81KuwM=
 github.com/zclconf/go-cty v1.18.1/go.mod h1:qpnV6EDNgC1sns/AleL1fvatHw72j+S+nS+MJ+T2CSg=
-github.com/zscaler/zscaler-sdk-go/v3 v3.8.60 h1:gdpKjSqtAMY/AI4SzXyxCZqpBcpdwkYLm8WECfznuX8=
-github.com/zscaler/zscaler-sdk-go/v3 v3.8.60/go.mod h1:+WMX+XNlTZsM300gGDB2fA3uGshabCTLASzXkSrHEXc=
+github.com/zscaler/zscaler-sdk-go/v3 v3.8.62 h1:6sWEwg5LKmO7gfU+Dxx/FGeEVEw6j3FKYfrTtHJfe/g=
+github.com/zscaler/zscaler-sdk-go/v3 v3.8.62/go.mod h1:+WMX+XNlTZsM300gGDB2fA3uGshabCTLASzXkSrHEXc=
 go.opentelemetry.io/auto/sdk v1.2.1 h1:jXsnJ4Lmnqd11kwkBV2LgLoFMZKizbCi5fNZ/ipaZ64=
 go.opentelemetry.io/auto/sdk v1.2.1/go.mod h1:KRTj+aOaElaLi+wW1kO/DZRXwkF4C5xPbEe3ZiIhN7Y=
 go.opentelemetry.io/otel v1.44.0 h1:JjwHmHpA4iZ3wBxluu2fbbE7j4kqlE8jXyAyPXH7HqU=

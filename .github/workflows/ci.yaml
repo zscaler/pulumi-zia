@@ -16,7 +16,6 @@ on:
 
 env:
   GOVERSION: "1.26.x"
-  DOTNETVERSION: "10.0.x"
   NODEVERSION: 24.x
   PYTHONVERSION: "3.12"
 
@@ -64,7 +63,6 @@ jobs:
         language:
           - nodejs
           - python
-          - dotnet
           - go
     steps:
       - name: Checkout
@@ -89,11 +87,6 @@ jobs:
         uses: actions/setup-node@v4
         with:
           node-version: ${{ env.NODEVERSION }}
-      - name: Setup DotNet
-        if: ${{ matrix.language == 'dotnet' }}
-        uses: actions/setup-dotnet@v4
-        with:
-          dotnet-version: ${{ env.DOTNETVERSION }}
       - name: Setup Python
         if: ${{ matrix.language == 'python' }}
         uses: actions/setup-python@v5

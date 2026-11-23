@@ -1,5 +1,11 @@
 # Changelog
 
+## Unreleased
+
+### Maintenance
+
+- Temporarily removed the .NET SDK. Access to the NuGet account that publishes `zscaler.PulumiPackage.Zia` was lost and is being migrated, so the release workflow could no longer publish it (1.4.1 was not published to NuGet). The `sdk/dotnet` SDK, the `examples/dotnet` example and test, the `csharp` language settings in the provider schema, the `dotnet` CI and release jobs, and the .NET Makefile targets were removed. Versions already on NuGet (up to 1.4.0) remain available. .NET support will return once publishing access is restored.
+
 ## 1.4.1 (November, 18 2026)
 
 ### Notes

@@ -43,7 +43,6 @@ If there are diffs, the schema was stale — commit the update first.
 Check version placeholders in:
 - `sdk/nodejs/package.json` - `version` field
 - `sdk/python/pyproject.toml` - `version` field
-- `sdk/dotnet/zscaler.PulumiPackage.Zia.csproj` - `<Version>` element
 
 These should show `1.0.0-alpha.0+dev` (replaced at build time by `PROVIDER_VERSION`).
 
@@ -65,7 +64,6 @@ Verify `.goreleaser.yml` has:
 Confirm these secrets are configured in the GitHub repository:
 - `NPM_TOKEN` - for `@bdzscaler/pulumi-zia`
 - `PYPI_API_TOKEN` - for `zscaler_pulumi_zia`
-- `NUGET_PUBLISH_KEY` - for `zscaler.PulumiPackage.Zia`
 
 ### 4. Create and Push Tag
 ```bash
@@ -80,7 +78,6 @@ This triggers the `release.yaml` workflow which:
 4. Builds and publishes SDKs:
    - Node.js to npm
    - Python to PyPI
-   - .NET to NuGet
    - Go SDK available via the `sdk/` tag
 
 ### 5. Post-Release Verification
@@ -96,9 +93,6 @@ npm view @bdzscaler/pulumi-zia version
 
 # PyPI
 pip index versions zscaler-pulumi-zia
-
-# NuGet
-dotnet package search zscaler.PulumiPackage.Zia --source https://api.nuget.org/v3/index.json
 ```
 
 #### Verify GitHub Release
@@ -110,7 +104,5 @@ dotnet package search zscaler.PulumiPackage.Zia --source https://api.nuget.org/v
 **GoReleaser fails**: Check `.goreleaser.yml` for boilerplate names — all references must be `pulumi-resource-zia`, not `pulumi-resource-provider-boilerplate`.
 
 **SDK publish fails**: Verify `PROVIDER_VERSION` is set in the release workflow. Without it, SDKs build as `1.0.0-alpha.0+dev`.
-
-**NuGet path error**: NuGet packages are at `sdk/dotnet/bin/Debug/*.nupkg`, not `sdk/dotnet/dotnet/bin/Debug/`.
 
 **Go SDK not resolvable**: Verify the `sdk/v{version}` tag was created and pushed.
